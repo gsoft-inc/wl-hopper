@@ -1,0 +1,29 @@
+@import '../../app/tokens.css';
+
+.wld-title {
+  --wld-title-font-family: var(--default-font-family);
+
+  font-family: var(--wld-title-font-family);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.wld-title--level1 {
+  font-size: var(--step-5);
+}
+
+.wld-title--level2 {
+  font-size: var(--step-4);
+}
+
+.wld-title--level3 {
+  font-size: var(--step-3);
+}
+
+.wld-title--level4 {
+  font-size: var(--step-2);
+}
+
+.wld-title--level5 {
+  font-size: var(--step-1);
+}
