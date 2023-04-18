@@ -7,6 +7,9 @@ importers:
       '@workleap/eslint-plugin':
         specifier: ^1.0.0
         version: 1.0.0(@typescript-eslint/parser@5.59.0)(eslint@8.37.0)(typescript@5.0.3)
+      '@workleap/typescript-configs':
+        specifier: ^1.0.0
+        version: 1.0.0
 
   apps/docs:
     dependencies:
@@ -3702,6 +3705,10 @@ packages:
       - eslint-import-resolver-webpack
       - jest
       - supports-color
+    dev: false
+
+  /@workleap/typescript-configs@1.0.0:
+    resolution: {integrity: sha512-HrWSCWSI4D6SEnFhMc95QvN4W94yUKsiYGdF0D8mJVZRff7sh3PUO0jRmD/nrRKB8czZNu9DqgVT+cG0WL+W4A==}
     dev: false
 
   /@xtuc/ieee754@1.2.0:

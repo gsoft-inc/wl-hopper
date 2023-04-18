@@ -11,9 +11,11 @@
     "doc:storybook": "pnpm --filter=docs storybook",
     "lint": "pnpm run /^lint:.*/",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx  --cache --cache-location node_modules/.cache/eslint",
+    "lint:types": "pnpm -r lint:types",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@workleap/eslint-plugin": "^1.0.0"
+    "@workleap/eslint-plugin": "^1.0.0",
+    "@workleap/typescript-configs": "^1.0.0"
   }
 }
