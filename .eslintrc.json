@@ -1,6 +1,5 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
-  ]
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": []
 }
