@@ -9,6 +9,11 @@
   "scripts": {
     "doc:start": "pnpm --filter=docs dev",
     "doc:storybook": "pnpm --filter=docs storybook",
+    "lint": "pnpm run /^lint:.*/",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx  --cache --cache-location node_modules/.cache/eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@workleap/eslint-plugin": "^1.0.0"
   }
 }
