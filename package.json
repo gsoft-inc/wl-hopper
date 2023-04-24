@@ -16,6 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^4.36.0",
     "@workleap/eslint-plugin": "^1.0.0",
     "@workleap/typescript-configs": "^1.0.0"
   }
