@@ -13,6 +13,9 @@ export const Page = defineDocumentType(() => ({
         },
         description: {
             type: "string"
+        },
+        date: {
+            type: "date"
         }
     },
     computedFields: {
