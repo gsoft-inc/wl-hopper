@@ -1,16 +1,16 @@
 .hd-header {
     display: flex;
-    height: var(--space-8);
+    height: var(--hd-space-8);
     align-items: center;
-    border-bottom: 1px solid var(--primary-200);
-    padding-inline: var(--space-4);
+    border-bottom: 1px solid var(--hd-primary-200);
+    padding-inline: var(--hd-space-4);
 }
 
 .hd-header__nav {
     display: flex;
     flex: 1 1 auto;
     align-items: center;
-    gap: var(--space-5);
+    gap: var(--hd-space-5);
 }
 
 .hd-nav {
@@ -21,7 +21,7 @@
 .hd-nav__list {
     display: flex;
     list-style: none;
-    gap: var(--space-2);
+    gap: var(--hd-space-2);
 }
 
 .hd-brand {
