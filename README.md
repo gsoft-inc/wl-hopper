@@ -14,7 +14,7 @@ After cloning the source code, run `pnpm` to install dependencies.
 ```bash
 git clone https://github.com/workleap/wl-untitled.git
 cd wl-untitled
-pnpm install
+pnpm i
 ```
 
 ### Scripts
