@@ -30,7 +30,7 @@
     padding-inline: var(--hd-space-2);
     padding-block: var(--hd-space-1);
     border-radius: .25rem;
-    transition: background-color .2s ease-in;
+    transition: background-color 0.2s ease-in;
 }
 
 .hd-nav__list-item--active,

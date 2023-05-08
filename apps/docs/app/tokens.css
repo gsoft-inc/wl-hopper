@@ -1,11 +1,11 @@
 :root {
-    --hd-default-font-size: 16px;
+    --hd-default-font-size: 1rem;
     --hd-default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     --hd-opacity: 1;
 
-    --hd-step--hd-1: clamp(0.84rem, calc(0.90rem + -0.08vw), 0.89rem);
+    --hd-step--1: clamp(0.84rem, calc(0.90rem + -0.08vw), 0.89rem);
     --hd-step-0: clamp(1.00rem, calc(0.96rem + 0.22vw), 1.13rem);
     --hd-step-1: clamp(1.13rem, calc(0.99rem + 0.65vw), 1.50rem);
     --hd-step-2: clamp(1.27rem, calc(1.01rem + 1.28vw), 2.00rem);
