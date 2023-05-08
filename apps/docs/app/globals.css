@@ -12,12 +12,11 @@
 
 html,
 body {
-  font-family: var(--default-font-family);
-  font-size: var(--default-font-size);
+  font-family: var(--hd-default-font-family);
 }
 
 body {
-  font-size: var(--step-0);
+  font-size: var(--hd-step-0);
 }
 
 a {

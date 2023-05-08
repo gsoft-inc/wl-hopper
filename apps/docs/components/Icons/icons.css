@@ -1,0 +1,7 @@
+.hd-icon {
+    display: inline-block;
+    width: var(--hd-space-2);
+    height: var(--hd-space-2);
+    vertical-align: center;
+    overflow: hidden;
+}

@@ -1,0 +1,29 @@
+.hd-header {
+    display: flex;
+    height: var(--hd-space-8);
+    align-items: center;
+    border-bottom: 1px solid var(--hd-primary-200);
+    padding-inline: var(--hd-space-4);
+}
+
+.hd-header__nav {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: var(--hd-space-5);
+}
+
+.hd-nav {
+    font-size: 0.875rem;
+    line-height: 1.25;
+}
+
+.hd-nav__list {
+    display: flex;
+    list-style: none;
+    gap: var(--hd-space-2);
+}
+
+.hd-brand {
+    display: flex;
+}

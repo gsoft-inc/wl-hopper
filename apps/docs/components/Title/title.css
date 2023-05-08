@@ -1,0 +1,27 @@
+.hd-title {
+  --hd-title-font-family: var(--hd-default-font-family);
+
+  font-family: var(--hd-title-font-family);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.hd-title--level1 {
+  font-size: var(--hd-step-5);
+}
+
+.hd-title--level2 {
+  font-size: var(--hd-step-4);
+}
+
+.hd-title--level3 {
+  font-size: var(--hd-step-3);
+}
+
+.hd-title--level4 {
+  font-size: var(--hd-step-2);
+}
+
+.hd-title--level5 {
+  font-size: var(--hd-step-1);
+}
