@@ -1,23 +1,24 @@
 {
-  "name": "wl-untitled",
-  "version": "0.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "private": true,
-  "license": "Apache-2.0",
-  "scripts": {
-    "doc:start": "pnpm --filter=docs dev",
-    "doc:storybook": "pnpm --filter=docs storybook",
-    "doc:build": "pnpm --filter=docs build",
-    "lint": "pnpm run /^lint:.*/",
-    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx  --cache --cache-location node_modules/.cache/eslint",
-    "lint:types": "pnpm -r lint:types",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "@netlify/plugin-nextjs": "^4.36.0",
-    "@workleap/eslint-plugin": "^1.0.0",
-    "@workleap/typescript-configs": "^1.0.0"
-  }
+    "name": "wl-untitled",
+    "version": "0.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "",
+    "private": true,
+    "license": "Apache-2.0",
+    "packageManager": "pnpm@8.3.1",
+    "scripts": {
+        "doc:start": "pnpm --filter=docs dev",
+        "doc:storybook": "pnpm --filter=docs storybook",
+        "doc:build": "pnpm --filter=docs build",
+        "lint": "pnpm run /^lint:.*/",
+        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx  --cache --cache-location node_modules/.cache/eslint",
+        "lint:types": "pnpm -r lint:types",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@netlify/plugin-nextjs": "^4.36.0",
+        "@workleap/eslint-plugin": "^1.0.0",
+        "@workleap/typescript-configs": "^1.0.0"
+    }
 }
