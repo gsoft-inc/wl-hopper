@@ -1,6 +1,5 @@
 <div align="center">
   <h1>Untitled Design System</h1>
-
 </div>
 
 ## Getting Started
