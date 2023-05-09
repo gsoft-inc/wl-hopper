@@ -9,11 +9,10 @@
 html,
 body {
   font-family: var(--hd-default-font-family);
-  font-size: var(--hd-default-font-size);
 }
 
 body {
-  font-size: var(--hd-step-0);
+  font-size: var(--hd-default-font-size);
   color: var(--hd-color-text-primary);
   background-color: var(--hd-color-surface-primary);
 }

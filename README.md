@@ -1,6 +1,5 @@
 <div align="center">
   <h1>Untitled Design System</h1>
-
 </div>
 
 ## Getting Started
@@ -26,7 +25,7 @@ pnpm i
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. If you're interested, definitely check out our Contributing Guide!
+Pull requests are welcome. For major changes, please open a [discussions](https://github.com/workleap/wl-untitled/discussions/new/choose) first to discuss what you would like to change. If you're interested, definitely check out our Contributing Guide!
 
 ## License
 
