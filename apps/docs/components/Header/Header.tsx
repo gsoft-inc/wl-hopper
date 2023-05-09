@@ -2,7 +2,7 @@
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
-import { IconButton } from "@/components/IconButton/IconButton";
+import ThemeSwitch from "@/components/Utils/ThemeProvider/ThemeSwitch/ThemeSwitch";
 import { navigation } from "@/configs/navigation";
 
 import "./header.css";
@@ -38,7 +38,7 @@ export const Header = () => {
             <div>
                 {/*<input type="search" placeholder="Search" />*/}
                 {/*<button>Github</button>*/}
-                <IconButton />
+                <ThemeSwitch />
             </div>
         </header>
     );

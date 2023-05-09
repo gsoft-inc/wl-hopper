@@ -22,7 +22,7 @@ export default function RootLayout({
                 ? "dark"
                 : "light";
     }
-    document.body.dataset.theme = getUserPreference();
+    document.documentElement.dataset.theme = getUserPreference();
   `;
 
     return (

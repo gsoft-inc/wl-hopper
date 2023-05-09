@@ -1,4 +1,4 @@
-.hd-iconButton {
+.hd-themeSwitchButton {
     width: var(--hd-space-4);
     aspect-ratio: 1/1;
     background-color: transparent;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.hd-iconButton:hover {
+.hd-themeSwitchButton:hover {
     background-color: var(--hd-color-surface-primary-weak-hover);
     cursor: pointer;
 }
