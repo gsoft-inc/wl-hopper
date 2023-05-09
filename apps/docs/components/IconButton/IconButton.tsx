@@ -6,6 +6,8 @@ import { Icon } from "@/components/Icons/Icons";
 import "./iconButton.css";
 
 export const IconButton = () => {
+    const [ theme, setTheme ] = React.useState(getTheme());
+
     function hasLocalStoragePreference() {
         if (typeof window !== "undefined" && window.localStorage) {
             if (localStorage.getItem("hdTheme") !== null) {
@@ -25,8 +27,6 @@ export const IconButton = () => {
             }
         }
     }
-
-    const [ theme, setTheme ] = React.useState(getTheme());
 
     function setBodyDataAttribute() {
         const rootElement = document.getElementById("App");
@@ -51,9 +51,7 @@ export const IconButton = () => {
     }
 
     React.useEffect(() => {
-        if (theme !== null) {
-            setBodyDataAttribute();
-        }
+        setBodyDataAttribute();
     }, [theme]);
 
     if (typeof window !== "undefined") {
@@ -66,12 +64,12 @@ export const IconButton = () => {
 
     return (
         <Toggle.Root
-            defaultPressed={theme === "light"}
+            defaultPressed={theme === "dark"}
             onPressedChange={() => handlePress()}
             aria-label="Toggle dark/light mode"
             className="hd-iconButton"
         >
-            <Icon icon={ theme === "light" ? "moon" : "sun"}/>
+            <Icon icon={ theme === "dark" ? "sun" : "moon"}/>
         </Toggle.Root>
     );
 };

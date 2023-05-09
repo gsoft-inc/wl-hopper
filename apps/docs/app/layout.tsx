@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header/Header";
 
 import "./globals.css";
+import { ThemeProvider } from "@/components/Utils/ThemeProvider/ThemeProvider";
 
 export const metadata = {
     title: "Hopper Documentation",
@@ -15,11 +16,11 @@ export default function RootLayout({
     const setInitialTheme = `
     function getUserPreference() {
       if(window.localStorage.getItem("hdTheme")) {
-        return window.localStorage.getItem("hdTheme")
+        return window.localStorage.getItem("hdTheme");
       }
       return window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "dark"
-                : "light"
+                : "light";
     }
     document.body.dataset.theme = getUserPreference();
   `;
@@ -28,8 +29,10 @@ export default function RootLayout({
         <html lang="en">
             <body id="App">
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
-                <Header />
-                {children}
+                <ThemeProvider>
+                    <Header/>
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

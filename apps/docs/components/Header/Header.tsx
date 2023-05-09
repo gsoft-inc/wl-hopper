@@ -10,7 +10,7 @@ import "./header.css";
 export const Header = () => {
     const navigationItems = navigation.map(item => {
         return (
-            <NavigationMenu.Item key={item.toString()} className="hd-nav__list-item">
+            <NavigationMenu.Item key={item.label} className="hd-nav__list-item">
                 <NavigationMenu.Link href={item.path}>
                     {item.label}
                 </NavigationMenu.Link>
