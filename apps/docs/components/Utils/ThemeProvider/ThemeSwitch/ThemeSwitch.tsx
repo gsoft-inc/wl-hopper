@@ -9,11 +9,6 @@ export type ColorScheme = "light" | "dark";
 
 export default function ThemeSwitch() {
     const { colorMode, setColorMode } = React.useContext(ThemeContext);
-    const [hasReadLocalStorage, setHasReadLocalStorage] = React.useState(false);
-
-    React.useEffect(() => {
-        setHasReadLocalStorage(true);
-    }, []);
 
     const toggleTheme = () => {
         const theme: ColorScheme = colorMode === "dark"
@@ -25,7 +20,7 @@ export default function ThemeSwitch() {
 
     return (
         <>
-            {hasReadLocalStorage && (
+            {colorMode && (
                 <button className="hd-themeSwitchButton"
                     aria-label="Toggle Dark Mode"
                     onMouseDown={toggleTheme}
