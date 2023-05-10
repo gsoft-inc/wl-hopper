@@ -20,8 +20,7 @@ export default function ThemeSwitch() {
             ? "light"
             : "dark";
 
-        document.documentElement.setAttribute("data-theme", theme);
-        setColorMode && setColorMode(theme);
+        setColorMode(theme);
     };
 
     return (
