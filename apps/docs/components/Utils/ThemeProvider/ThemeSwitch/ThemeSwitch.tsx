@@ -1,11 +1,9 @@
 import * as React from "react";
 
-import { ThemeContext } from "../ThemeProvider";
+import { ColorScheme, ThemeContext } from "../ThemeProvider";
 import { Icon } from "./ThemeSwitchIcon/ThemeSwitchIcons";
 
 import "./themeSwitch.css";
-
-export type ColorScheme = "light" | "dark";
 
 export default function ThemeSwitch() {
     const { colorMode, setColorMode } = React.useContext(ThemeContext);

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ColorScheme, getInitialColorMode } from "./getInitialColorMode";
+import { getInitialColorMode } from "./getInitialColorMode";
 
 interface ColorSchemeContextType {
     colorMode: ColorScheme | undefined;
@@ -11,6 +11,8 @@ interface ColorSchemeContextType {
 interface ThemeProviderProps {
     children: React.ReactNode;
 }
+
+export type ColorScheme = "light" | "dark";
 
 export const ThemeContext = React.createContext<ColorSchemeContextType>({
     colorMode: "light",
