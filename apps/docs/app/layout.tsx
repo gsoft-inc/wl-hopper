@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header/Header";
+import { ThemeProvider } from "@/components/Utils/ThemeProvider/ThemeProvider";
 
 import "./globals.css";
-import { ThemeProvider } from "@/components/Utils/ThemeProvider/ThemeProvider";
 
 export const metadata = {
     title: "Hopper Documentation",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   `;
 
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body id="App">
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>

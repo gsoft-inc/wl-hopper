@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ColorScheme, getInitialColorMode } from "./get-initial-color-mode";
+import { ColorScheme, getInitialColorMode } from "./getInitialColorMode";
 
 interface ColorSchemeContextType {
     colorMode: ColorScheme | undefined;

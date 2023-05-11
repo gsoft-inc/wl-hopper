@@ -42,7 +42,7 @@
     display: flex;
 }
 
-.hd-brand--logo {
+.hd-brand__logo {
     fill: var(--hd-color-icon-primary);
 }
 

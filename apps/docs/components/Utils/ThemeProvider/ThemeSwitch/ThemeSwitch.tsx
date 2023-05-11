@@ -18,20 +18,16 @@ export default function ThemeSwitch() {
         setColorMode(theme);
     };
 
-    return (
-        <>
-            {colorMode && (
-                <button className="hd-themeSwitchButton"
-                    aria-label="Toggle Dark Mode"
-                    onMouseDown={toggleTheme}
-                >
-                    {colorMode === "dark" ? (
-                        <Icon icon="sun"/>
-                    ) : (
-                        <Icon icon="moon"/>
-                    )}
-                </button>
-            )}
-        </>
-    );
+    if (colorMode) {
+        return (
+            <button className="hd-theme-switch__button"
+                aria-label="Toggle Dark Mode"
+                onMouseDown={toggleTheme}
+            >
+                <Icon icon={colorMode === "dark" ? "sun" : "moon"} />
+            </button>
+        );
+    }
+
+    return null;
 }
