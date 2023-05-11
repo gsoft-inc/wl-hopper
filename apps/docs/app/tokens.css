@@ -37,3 +37,22 @@
     --hd-space-9: 4.5rem;
     --hd-space-10: 5rem;
 }
+
+[data-theme="light"] {
+    --hd-color-text-primary: var(--hd-primary-900);
+    --hd-color-icon-primary: var(--hd-primary-900);
+    --hd-color-surface-primary-weak: var(--hd-primary-200);
+    --hd-color-surface-primary-weak-hover: var(--hd-primary-200);
+    --hd-color-surface-primary: var(--hd-primary-0);
+    --hd-color-border-primary-weak: var(--hd-primary-200);
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+    --hd-color-text-primary: var(--hd-primary-100);
+    --hd-color-icon-primary: var(--hd-primary-100);
+    --hd-color-surface-primary-weak: var(--hd-primary-700);
+    --hd-color-surface-primary-weak-hover: var(--hd-primary-600);
+    --hd-color-surface-primary: var(--hd-primary-800);
+    --hd-color-border-primary-weak: var(--hd-primary-700);
+}

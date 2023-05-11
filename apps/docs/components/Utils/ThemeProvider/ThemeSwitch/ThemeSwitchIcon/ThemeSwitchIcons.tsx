@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./icons.css";
+import "./themeSwitchIcons.css";
 
 export interface IconTypes {
     iconProps?: React.SVGProps<SVGSVGElement>;
