@@ -1,4 +1,4 @@
-export type ColorScheme = "light" | "dark";
+import { ColorScheme } from "./ThemeProvider";
 
 export function getInitialColorMode(): ColorScheme {
     const persistedColorPreference = window.localStorage.getItem("hdTheme");
