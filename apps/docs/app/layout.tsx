@@ -30,8 +30,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <body id="App">
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>
-                    <Header/>
-                    {children}
+                    <Header />
+                    <div className="nav-and-content">
+                        {children}
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
