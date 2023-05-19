@@ -1,17 +1,28 @@
 import type { StorybookConfig } from "@storybook/nextjs"
+import path = require("path");
+
 const config: StorybookConfig = {
-  stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)", "../components/**/*.stories.@(ts|tsx)"],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-  ],
-  framework: {
-    name: "@storybook/nextjs",
-    options: {},
-  },
-  docs: {
-    autodocs: "tag",
-  },
+    stories: ["../components/**/*.stories.@(ts|tsx)"],
+    addons: [
+        "@storybook/addon-links",
+        "@storybook/addon-essentials",
+        "@storybook/addon-interactions",
+    ],
+    framework: {
+        name: "@storybook/nextjs",
+        options: {},
+    },
+    docs: {
+        autodocs: "tag",
+    },
+    webpackFinal: async (config) => {
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@/components': path.resolve(__dirname, "../components"),
+            '@/configs': path.resolve(__dirname, "../configs"),
+        };
+
+        return config;
+    },
 }
 export default config
