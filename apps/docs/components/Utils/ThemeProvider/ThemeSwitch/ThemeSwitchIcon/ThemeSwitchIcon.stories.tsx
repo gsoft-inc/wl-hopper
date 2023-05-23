@@ -10,13 +10,13 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<typeof Icon>;
 
-export const Sun: Story = {
+export const Light: Story = {
     args: {
         icon: "sun"
     }
 };
 
-export const Moon: Story = {
+export const Dark: Story = {
     args: {
         icon: "moon"
     }
