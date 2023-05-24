@@ -12,7 +12,7 @@ export const Header = () => {
     const navigationItems = navigation.map(item => {
         return (
             <NavigationMenu.Item key={item.label} className="hd-nav__list-item">
-                <NavigationMenu.Link href={item.path} className="hd-nav__list-item-link">
+                <NavigationMenu.Link href={item.path} className="hd-nav__link">
                     {item.label}
                 </NavigationMenu.Link>
             </NavigationMenu.Item>

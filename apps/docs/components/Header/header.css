@@ -35,7 +35,7 @@
     transition: background-color 0.2s ease-in;
 }
 
-.hd-nav__list-item-link {
+.hd-nav__link {
     padding-inline: var(--hd-space-2);
     padding-block: var(--hd-space-1);
 }

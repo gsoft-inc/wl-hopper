@@ -1,4 +1,4 @@
-.hd-github-link {
+.hd-icon-button {
     width: var(--hd-space-4);
     aspect-ratio: 1/1;
     background-color: transparent;
@@ -11,7 +11,7 @@
     fill: var(--hd-color-icon-primary);
 }
 
-.hd-github-link:hover {
+.hd-icon-button:hover {
     background-color: var(--hd-color-surface-primary-weak-hover);
     cursor: pointer;
 }

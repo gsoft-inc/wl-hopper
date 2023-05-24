@@ -31,7 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>
                     <Header />
-                    <div className="nav-and-content">
+                    <div className="hd-container">
                         {children}
                     </div>
                 </ThemeProvider>

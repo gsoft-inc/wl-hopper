@@ -32,7 +32,7 @@
     margin-block-end: var(--hd-space-05);
 }
 
-.hd-sidebar__list-item a {
+.hd-sidebar__link {
     display: inline-flex;
     flex-grow: 1;
     padding-block: var(--hd-space-1);
@@ -42,7 +42,7 @@
     outline-offset: -1px;
 }
 
-.hd-sidebar__list-item:hover a {
+.hd-sidebar__list-item:hover .hd-sidebar__link {
     background-color: var(--hd-color-surface-primary-hover);
 }
 
@@ -96,7 +96,7 @@
 /* SubNav List */
 .hd-sidebar-list--collapsible {
     list-style-type: none;
-    padding-inline-start: 1rem;
+    padding-inline-start: var(--hd-space-2);
     overflow: hidden;
 }
 

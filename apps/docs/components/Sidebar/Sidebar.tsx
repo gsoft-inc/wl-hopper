@@ -20,10 +20,10 @@ export const Sidebar = () => {
             <div className="hd-sidebar__container">
                 <ul className="hd-sidebar__list">
                     <li className="hd-sidebar__list-item">
-                        <Link href="/">Introduction</Link>
+                        <Link href="/" className="hd-sidebar__link">Introduction</Link>
                     </li>
                     <li className="hd-sidebar__list-item">
-                        <Link href="/">Get Started</Link>
+                        <Link href="/" className="hd-sidebar__link">Get Started</Link>
                     </li>
                     <Collapsible.Root open={open} onOpenChange={setOpen}>
                         <Collapsible.Trigger tabIndex={0} asChild>
@@ -37,34 +37,34 @@ export const Sidebar = () => {
                         <Collapsible.Content className="hd-sidebar-list--collapsible" asChild>
                             <ul>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Color</Link>
+                                    <Link href="/" className="hd-sidebar__link">Color</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Radii</Link>
+                                    <Link href="/" className="hd-sidebar__link">Radii</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Font family</Link>
+                                    <Link href="/" className="hd-sidebar__link">Font family</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Font weight</Link>
+                                    <Link href="/" className="hd-sidebar__link">Font weight</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Font size</Link>
+                                    <Link href="/" className="hd-sidebar__link">Font size</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Media Query</Link>
+                                    <Link href="/" className="hd-sidebar__link">Media Query</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Shadow</Link>
+                                    <Link href="/" className="hd-sidebar__link">Shadow</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Focus</Link>
+                                    <Link href="/" className="hd-sidebar__link">Focus</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">Spacing</Link>
+                                    <Link href="/" className="hd-sidebar__link">Spacing</Link>
                                 </li>
                                 <li className="hd-sidebar__list-item">
-                                    <Link href="/">ZIndex</Link>
+                                    <Link href="/" className="hd-sidebar__link">ZIndex</Link>
                                 </li>
                             </ul>
                         </Collapsible.Content>
