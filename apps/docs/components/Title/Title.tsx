@@ -20,8 +20,8 @@ export const Title = ({
 
     return (
         <Component
-            className={cx("wld-title", className, {
-                [`wld-title--level${level}`]: level
+            className={cx("hd-title", className, {
+                [`hd-title--level${level}`]: level
             })}
             {...rest}
         >
