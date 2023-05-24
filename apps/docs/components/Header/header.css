@@ -1,4 +1,5 @@
 .hd-header {
+    font-family: var(--hd-default-font-family);
     display: flex;
     height: var(--hd-space-8);
     align-items: center;
