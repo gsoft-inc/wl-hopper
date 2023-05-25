@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Untitled Design System</h1>
+  <h1>Hopper Design System</h1>
 </div>
 
 ## Getting Started
@@ -11,8 +11,8 @@ Before starting make sure [node](https://nodejs.org/en/) and [pnpm](https://pnpm
 After cloning the source code, run `pnpm` to install dependencies.
 
 ```bash
-git clone https://github.com/workleap/wl-untitled.git
-cd wl-untitled
+git clone https://github.com/workleap/wl-hopper.git
+cd wl-hopper
 pnpm i
 ```
 
@@ -25,7 +25,7 @@ pnpm i
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open a [discussions](https://github.com/workleap/wl-untitled/discussions/new/choose) first to discuss what you would like to change. If you're interested, definitely check out our Contributing Guide!
+Pull requests are welcome. For major changes, please open a [discussions](https://github.com/workleap/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested, definitely check out our Contributing Guide!
 
 ## License
 
