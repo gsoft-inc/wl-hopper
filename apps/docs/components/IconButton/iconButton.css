@@ -1,0 +1,17 @@
+.hd-icon-button {
+    width: var(--hd-space-4);
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    color: var(--hd-color-icon-primary);
+    border-width: 0;
+    border-radius: var(--hd-space-05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--hd-color-icon-primary);
+}
+
+.hd-icon-button:hover {
+    background-color: var(--hd-color-surface-primary-weak-hover);
+    cursor: pointer;
+}

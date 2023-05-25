@@ -6,14 +6,14 @@ interface Navigation {
 export const navigation: Navigation[] = [
     {
         "label": "Tokens",
-        "path": "/"
+        "path": "/tokens"
     },
     {
         "label": "Icons",
-        "path": "/"
+        "path": "/icons"
     },
     {
         "label": "Components",
-        "path": "/"
+        "path": "/components"
     }
 ];

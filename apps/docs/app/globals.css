@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+::selection {
+    background: var(--hd-color-surface-selection);
+}
+
 html,
 body {
   font-family: var(--hd-default-font-family);
@@ -15,9 +19,6 @@ body {
   font-size: var(--hd-default-font-size);
   color: var(--hd-color-text-primary);
   background-color: var(--hd-color-surface-primary);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 a {

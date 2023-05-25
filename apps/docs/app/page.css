@@ -1,6 +1,31 @@
+.hd-container {
+    display: flex;
+}
+
 main {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
+    padding-inline: var(--hd-space-4);
+    padding-block: 4rem;
+    width: 100%;
+}
+
+article {
+    width: 100%;
+    max-inline-size: 44.875rem;
+    margin-inline: auto;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-block-end: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-block: 3rem 1rem;
 }
