@@ -19,9 +19,6 @@ body {
   font-size: var(--hd-default-font-size);
   color: var(--hd-color-text-primary);
   background-color: var(--hd-color-surface-primary);
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: max-content 1fr;
 }
 
 a {

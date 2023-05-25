@@ -58,21 +58,3 @@
     display: flex;
     gap: 0.75rem;
 }
-
-.hd-github-link {
-    width: var(--hd-space-4);
-    aspect-ratio: 1/1;
-    background-color: transparent;
-    color: var(--hd-color-icon-primary);
-    border-width: 0;
-    border-radius: var(--hd-space-05);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    fill: var(--hd-color-icon-primary);
-}
-
-.hd-github-link:hover {
-    background-color: var(--hd-color-surface-primary-weak-hover);
-    cursor: pointer;
-}
