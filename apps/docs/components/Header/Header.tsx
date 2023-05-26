@@ -3,6 +3,7 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import Link from "next/link";
 import ThemeSwitch from "@/components/Utils/ThemeProvider/ThemeSwitch/ThemeSwitch";
+import { SearchInput } from "@/components/SearchInput/SearchInput";
 import { IconButton } from "@/components/IconButton/IconButton";
 import { navigation } from "@/configs/navigation";
 
@@ -37,7 +38,7 @@ export const Header = () => {
             </div>
 
             <div className="hd-header__quick-actions">
-                {/*<input type="search" placeholder="Search" />*/}
+                <SearchInput />
                 <ThemeSwitch />
                 <IconButton as={Link} href="https://www.github.com" target="_blank" className="test">
                     <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">

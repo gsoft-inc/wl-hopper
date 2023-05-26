@@ -40,11 +40,13 @@
 
 [data-theme="light"] {
     --hd-color-text-primary: var(--hd-primary-900);
+    --hd-color-text-primary-weak: var(--hd-primary-600);
     --hd-color-icon-primary: var(--hd-primary-900);
     --hd-color-surface-primary-weak: var(--hd-primary-200);
     --hd-color-surface-primary-weak-hover: var(--hd-primary-200);
     --hd-color-surface-primary: var(--hd-primary-0);
     --hd-color-surface-primary-hover: var(--hd-primary-100);
+    --hd-color-border-primary: var(--hd-primary-300);
     --hd-color-border-primary-weak: var(--hd-primary-200);
     --hd-color-surface-selection: var(--hd-primary-400);
 }
@@ -52,11 +54,13 @@
 /* Dark Theme Overrides */
 [data-theme="dark"] {
     --hd-color-text-primary: var(--hd-primary-100);
+    --hd-color-text-primary-weak: var(--hd-primary-400);
     --hd-color-icon-primary: var(--hd-primary-100);
     --hd-color-surface-primary-weak: var(--hd-primary-700);
     --hd-color-surface-primary-weak-hover: var(--hd-primary-600);
     --hd-color-surface-primary: var(--hd-primary-800);
     --hd-color-surface-primary-hover: var(--hd-primary-900);
+    --hd-color-border-primary: var(--hd-primary-600);
     --hd-color-border-primary-weak: var(--hd-primary-700);
     --hd-color-surface-selection: var(--hd-primary-600);
 }
