@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.6.7",
     "@radix-ui/react-collapsible": "^1.0.2",
     "@radix-ui/react-navigation-menu": "^1.1.2",
     "@radix-ui/react-toggle": "^1.0.2",
