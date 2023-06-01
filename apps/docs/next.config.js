@@ -6,7 +6,8 @@ const nextConfig = {
     swcMinify: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     experimental: {
-        appDir: true
+        appDir: true,
+        mdxRs: false
     }
 };
 

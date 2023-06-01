@@ -1,4 +1,5 @@
 @import './tokens.css';
+@import '../themes/rehype.css';
 
 * {
   box-sizing: border-box;
