@@ -20,6 +20,11 @@
     margin-bottom: var(--hd-space-3);
 }
 
+[data-rehype-pretty-code-fragment] *::selection {
+    background: rgba(67, 76, 94, 0.8);
+}
+
+
 [data-rehype-pretty-code-fragment] pre {
     border-radius: var(--hd-space-1);
 }
@@ -41,7 +46,7 @@
 }
 
 [data-rehype-pretty-code-fragment] .line {
-    font-size: var(--hd-space-2);
+    font-size: 1rem;
     line-height: 2.25;
 }
 
