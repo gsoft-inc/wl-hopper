@@ -19,8 +19,7 @@
         "build": "pnpm --filter=packages -r --parallel build",
 
         "lint": "pnpm run /^lint:.*/",
-        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
-        "lint:types": "pnpm -r lint:types"
+        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint"
     },
     "dependencies": {
         "@netlify/plugin-nextjs": "^4.36.0",
