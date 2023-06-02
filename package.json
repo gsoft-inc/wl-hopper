@@ -1,24 +1,29 @@
 {
     "name": "wl-hopper",
     "version": "0.0.0",
-    "description": "",
     "keywords": [],
-    "author": "",
+    "author": "Workleap",
     "private": true,
     "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/workleap/wl-hopper.git"
+    },
     "packageManager": "pnpm@8.3.1",
     "scripts": {
         "doc:start": "pnpm --filter=docs dev",
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
+
+        "test": "echo \"no test specified\"",
+        "build": "pnpm --filter=packages -r --parallel build",
+
         "lint": "pnpm run /^lint:.*/",
-        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx  --cache --cache-location node_modules/.cache/eslint",
-        "lint:types": "pnpm -r lint:types",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint"
     },
     "dependencies": {
         "@netlify/plugin-nextjs": "^4.36.0",
-        "@workleap/eslint-plugin": "^1.0.0",
-        "@workleap/typescript-configs": "^1.0.0"
+        "@workleap/eslint-plugin": "1.8.1",
+        "@workleap/typescript-configs": "2.3.1"
     }
 }
