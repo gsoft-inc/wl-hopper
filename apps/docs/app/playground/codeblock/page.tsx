@@ -6,7 +6,7 @@ import { Mdx } from "@/components/Mdx/MdxComponent";
 export default function Page() {
     return <main>
         {allPages
-            .filter(page => page._id === "pages/intro.mdx")
+            .filter(page => page._id === "pages/playground.mdx")
             .map(page => (
                 <article key={page._id}>
                     {page.body && <Mdx code={page.body.code} />}

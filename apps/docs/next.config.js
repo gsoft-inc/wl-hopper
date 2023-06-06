@@ -4,8 +4,10 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
+    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     experimental: {
-        appDir: true
+        appDir: true,
+        mdxRs: false
     }
 };
 
