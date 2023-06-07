@@ -1,0 +1,30 @@
+/* pre HEADER */
+.hd-pre-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px 8px 16px;
+    font-size: .75rem;
+    align-items: center;
+    border-bottom: 1px solid var(--hd-color-border-primary-weak);
+}
+
+.hd-pre-header-info {
+    display: flex;
+    align-items: center;
+    gap: var(--hd-space-1);
+}
+
+.hd-pre-header-lang {
+    font-family: monospace;
+    display: flex;
+}
+
+.hd-pre-header-lang__icon {
+    width: 1.25rem;
+    aspect-ratio: 1/1;
+}
+
+.hd-pre-header-title {
+    font-style: italic;
+    line-height: 1;
+}

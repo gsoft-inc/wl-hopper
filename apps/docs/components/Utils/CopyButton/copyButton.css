@@ -1,0 +1,16 @@
+.hd-copy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    fill: rgb(216, 222, 233);
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hd-copy-button:hover {
+    background-color: var(--hd-color-surface-primary-weak-hover);
+}

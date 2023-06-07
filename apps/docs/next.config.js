@@ -8,6 +8,15 @@ const nextConfig = {
     experimental: {
         appDir: true,
         mdxRs: false
+    },
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/i,
+            issuer: /\.[jt]sx?$/,
+            use: ["@svgr/webpack"]
+        });
+
+        return config;
     }
 };
 

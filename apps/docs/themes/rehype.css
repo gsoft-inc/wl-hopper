@@ -1,5 +1,5 @@
 /* EDITOR  - THEME SPECIFIC COLORS */
-:root {
+[data-rehype-pretty-code-fragment] {
     /* NORD */
     --hd-codeblock-line-highlighted-border-color: #88C0D0;
     --hd-codeblock-line-highlighted-background-color: #434C5E;
@@ -24,15 +24,9 @@
     background: rgba(67, 76, 94, 0.8);
 }
 
-
 [data-rehype-pretty-code-fragment] pre {
     border-radius: var(--hd-space-1);
 }
-
-[data-rehype-pretty-code-title] + pre {
-    border-radius: 0 0 var(--hd-space-1) var(--hd-space-1);
-}
-
 
 [data-rehype-pretty-code-fragment] code {
     /* until we create our own json theme, it's the best way to have a transparent code line */
@@ -103,6 +97,7 @@
     padding: var(--hd-space-1);
     padding-inline-start: 12px;
     color: var(--hd-codeblock-title-text-color);
+    display: none;
 }
 
 /* Block Caption */
