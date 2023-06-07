@@ -1,9 +1,6 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import rehypePrettyCode from "rehype-pretty-code";
-<<<<<<< HEAD
 import { visit } from "unist-util-visit";
-=======
->>>>>>> main
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 
