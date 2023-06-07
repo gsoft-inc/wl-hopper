@@ -1,0 +1,10 @@
+/* PSEUDO | FILL */
+.hop-f-hover:hover {
+    --hop-f-hover: initial;
+    fill: var(--hop-f-hover) !important;
+}
+
+.hop-f-focus:focus-visible {
+    --hop-f-focus: initial;
+    fill: var(--hop-f-focus) !important;
+}
