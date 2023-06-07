@@ -8,11 +8,11 @@ importers:
         specifier: ^4.36.0
         version: 4.36.0
       '@workleap/eslint-plugin':
-        specifier: ^1.0.0
-        version: 1.0.0(@typescript-eslint/parser@5.59.0)(eslint@8.37.0)(typescript@5.0.3)
+        specifier: 1.8.1
+        version: 1.8.1(@typescript-eslint/parser@5.59.0)(eslint@8.37.0)(typescript@5.0.3)
       '@workleap/typescript-configs':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: 2.3.1
+        version: 2.3.1(typescript@5.0.3)
 
   apps/docs:
     dependencies:
@@ -64,9 +64,6 @@ importers:
       rehype-pretty-code:
         specifier: ^0.9.6
         version: 0.9.6(shiki@0.14.2)
-      shiki:
-        specifier: ^0.14.2
-        version: 0.14.2
       typescript:
         specifier: 5.0.3
         version: 5.0.3
@@ -4899,8 +4896,8 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
-  /@workleap/eslint-plugin@1.0.0(@typescript-eslint/parser@5.59.0)(eslint@8.37.0)(typescript@5.0.3):
-    resolution: {integrity: sha512-XHK7Fo/dJ7LGWtcaU+yPi2G1uBg/73QNqUxBoF5OKbywAOo9Cnc2u6Cfa30sWkmg5nUDIYP3aq2EWNqcImzsxQ==}
+  /@workleap/eslint-plugin@1.8.1(@typescript-eslint/parser@5.59.0)(eslint@8.37.0)(typescript@5.0.3):
+    resolution: {integrity: sha512-2xUExTMkxQJaF1L7qK3tNvdbHgfERBrkzRScJU2rhqSr9qyl9BE8HXrpaCEegAA/8b9UHK1cekndrzf4AqXmsA==}
     peerDependencies:
       '@typescript-eslint/parser': '*'
       eslint: '*'
@@ -4930,8 +4927,12 @@ packages:
       - supports-color
     dev: false
 
-  /@workleap/typescript-configs@1.0.0:
-    resolution: {integrity: sha512-HrWSCWSI4D6SEnFhMc95QvN4W94yUKsiYGdF0D8mJVZRff7sh3PUO0jRmD/nrRKB8czZNu9DqgVT+cG0WL+W4A==}
+  /@workleap/typescript-configs@2.3.1(typescript@5.0.3):
+    resolution: {integrity: sha512-sGWZdzDWRkEKmdKIMfPGYiQmz5QFOM/rXpvD9pMBzHI7/T49s0SOqGcyKe45yuM7I6wJs1c2tI8Bo4bOk5Dv2A==}
+    peerDependencies:
+      typescript: '*'
+    dependencies:
+      typescript: 5.0.3
     dev: false
 
   /@xtuc/ieee754@1.2.0:

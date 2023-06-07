@@ -1,4 +1,4 @@
-import { ColorScheme } from "./ThemeProvider";
+import type { ColorScheme } from "./ThemeProvider";
 
 export function getInitialColorMode(): ColorScheme {
     const persistedColorPreference = window.localStorage.getItem("hdTheme");

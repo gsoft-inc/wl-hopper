@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { ColorScheme, ThemeContext } from "../ThemeProvider";
+import { type ColorScheme, ThemeContext } from "../ThemeProvider";
 import { Icon } from "./ThemeSwitchIcon/ThemeSwitchIcons";
 import * as Toggle from "@radix-ui/react-toggle";
 

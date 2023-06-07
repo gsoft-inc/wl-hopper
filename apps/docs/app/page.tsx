@@ -1,7 +1,5 @@
 import { Title } from "@/components/Title/Title";
 
-import "./page.css";
-
 export default function Home() {
     return (
         <main>

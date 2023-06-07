@@ -3,8 +3,6 @@
 import { allPages } from "@/.contentlayer/generated";
 import { Mdx } from "@/components/Mdx/MdxComponent";
 
-import "../page.css";
-
 export default function Page() {
     return <main>
         {allPages

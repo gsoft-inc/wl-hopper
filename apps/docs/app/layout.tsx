@@ -2,6 +2,7 @@ import { Header } from "@/components/Header/Header";
 import { ThemeProvider } from "@/components/Utils/ThemeProvider/ThemeProvider";
 
 import "./globals.css";
+import "./layout.css";
 
 export const metadata = {
     title: "Hopper Documentation",
