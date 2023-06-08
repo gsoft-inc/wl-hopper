@@ -30,7 +30,6 @@
         "react-dom": "*"
     },
     "dependencies": {
-        "react-aria-components": "1.0.0-alpha.4",
         "react-aria": "3.25.0",
         "@hopper-ui/fake-tokens": "workspace:*"
     },

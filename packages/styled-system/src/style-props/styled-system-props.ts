@@ -41,7 +41,7 @@ import type {
     UNSAFE_StrokeValue,
     UNSAFE_WidthValue,
     WidthValue
-} from "./styled-system-values.ts";
+} from "./css-variable-mappings.ts";
 import type { CSSProperties } from "react";
 
 export const UnsafePrefix = "UNSAFE_";

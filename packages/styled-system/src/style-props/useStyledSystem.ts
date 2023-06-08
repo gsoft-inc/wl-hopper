@@ -2,9 +2,23 @@ import { type CSSProperties, useMemo } from "react";
 import { isNil } from "../core-external-package/assertion.tsx";
 import { StylingContext } from "./styling-context.ts";
 import { parseResponsiveValue } from "../useResponsiveValue.tsx";
-import { ColorExpressionTypes, DefaultBorderWidthAndStyle, parseResponsiveSystemValue } from "./styled-system-values.ts";
-import { BackgroundColorMapping, BorderMapping, BorderRadiusMapping, BoxShadowMapping, FontSizeMapping, FontWeightMapping, IconColorMapping, LineHeightMapping, SizingMapping, SpacingMapping, TextColorMapping } from "./css-variable-mappings.ts";
-import { type StyledSystemProps, UnsafePrefix } from "./styled-props-types.ts";
+import {
+    ColorExpressionTypes,
+    DefaultBorderWidthAndStyle,
+    parseResponsiveSystemValue,
+    BackgroundColorMapping,
+    BorderMapping,
+    BorderRadiusMapping,
+    BoxShadowMapping,
+    FontSizeMapping,
+    FontWeightMapping,
+    IconColorMapping,
+    LineHeightMapping,
+    SizingMapping,
+    SpacingMapping,
+    TextColorMapping
+} from "./css-variable-mappings.ts";
+import { type StyledSystemProps, UnsafePrefix } from "./styled-system-props.ts";
 import { useBreakpointContext } from "../BreakpointProvider.tsx";
 
 type PropHandler = (name: string, value: string | number, context: StylingContext) => void;
