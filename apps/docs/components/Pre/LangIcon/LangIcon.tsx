@@ -20,8 +20,9 @@ import TypescriptIcon from "./icons/typescript.svg";
 import XmlIcon from "./icons/xml.svg";
 import YamlIcon from "./icons/yaml.svg";
 import FileIcon from "./icons/file.svg";
+import { ElementType } from "react";
 
-const LangMapping = {
+const LangMapping: Record<string, ElementType<React.SVGProps<SVGSVGElement>>> = {
     "c":CIcon,
     "csharp": CSharpIcon,
     "css": CSSIcon,
@@ -45,14 +46,10 @@ const LangMapping = {
     "tsx": TypescriptIcon,
     "xml": XmlIcon,
     "yaml": YamlIcon
-};
-
-// disable next line so we can offer autocomplete
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type AvailableLanguages = keyof typeof LangMapping & (string & {});
+} ;
 
 interface LangIconProps extends React.SVGProps<SVGSVGElement> {
-    lang: AvailableLanguages;
+    lang: string;
 }
 
 export const LangIcon = ({ lang, ...rest }: LangIconProps) => {
