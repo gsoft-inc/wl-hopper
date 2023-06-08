@@ -1,17 +1,14 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import { CopyButton } from "../Utils/CopyButton/CopyButton";
-import { LangIcon } from "./LangIcon/LangIcon";
+import { AvailableLanguages, LangIcon } from "./LangIcon/LangIcon";
 import "./pre.css";
 
-export interface PreProps extends React.HTMLAttributes<HTMLPreElement> {
-    children: React.ReactNode;
-    raw: string;
-    title: string;
-    "data-language": string;
-}
+export type PreProps = React.DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
+    "data-language"?: AvailableLanguages;
+};
 
-export const Pre = ({ children, raw, title, ...props }: PreProps) => {
-    const lang = props["data-language"];
+export const Pre = ({ children, title, "data-language": dataLanguage, ...props }: PreProps) => {
+    const raw = typeof children === "string" ? children : children?.toString();
 
     return (
         <pre {...props} className={"p-0"}>
@@ -19,11 +16,11 @@ export const Pre = ({ children, raw, title, ...props }: PreProps) => {
                 className={"hd-pre-header"}>
                 <div className="hd-pre-header-info">
                     <span className="hd-pre-header-lang">
-                        <LangIcon lang={lang} className="hd-pre-header-lang__icon"/>
+                        {dataLanguage && <LangIcon lang={dataLanguage} className="hd-pre-header-lang__icon"/>}
                     </span>
                     <span className="hd-code-header-title">{title}</span>
                 </div>
-                <CopyButton text={raw} />
+                {raw && <CopyButton text={raw} />}
             </div>
             {children}
         </pre>

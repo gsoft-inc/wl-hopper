@@ -21,86 +21,42 @@ import XmlIcon from "./icons/xml.svg";
 import YamlIcon from "./icons/yaml.svg";
 import FileIcon from "./icons/file.svg";
 
-export const LangIcon = ({ lang, className }: { lang: string; className: string }) => {
-    let IconComponent = null;
+const LangMapping = {
+    "c":CIcon,
+    "csharp": CSharpIcon,
+    "css": CSSIcon,
+    "diff": DiffIcon,
+    "dockerfile": DockerfileIcon,
+    "html": HTMLIcon,
+    "js": JavaScriptIcon,
+    "jsx":JsonIcon,
+    "less": LessIcon,
+    "markdown": MarkdownIcon,
+    "php": PhpIcon,
+    "plaintext": PlaintextIcon,
+    "powershell": PowershellIcon,
+    "python": PythonIcon,
+    "ruby": RubyIcon,
+    "scss": ScssIcon,
+    "shell": ShellScriptIcon,
+    "sql": SqlIcon,
+    "typescript": TypescriptIcon,
+    "ts": TypescriptIcon,
+    "tsx": TypescriptIcon,
+    "xml": XmlIcon,
+    "yaml": YamlIcon
+};
 
-    switch (lang) {
-        case "c":
-            IconComponent = CIcon;
-            break;
-        case "csharp":
-            IconComponent = CSharpIcon;
-            break;
-        case "css":
-            IconComponent = CSSIcon;
-            break;
-        case "diff":
-            IconComponent = DiffIcon;
-            break;
-        case "dockerfile":
-            IconComponent = DockerfileIcon;
-            break;
-        case "html":
-            IconComponent = HTMLIcon;
-            break;
-        case "js":
-            IconComponent = JavaScriptIcon;
-            break;
-        case "jsx":
-            IconComponent = JavaScriptIcon;
-            break;
-        case "json":
-            IconComponent = JsonIcon;
-            break;
-        case "less":
-            IconComponent = LessIcon;
-            break;
-        case "markdown":
-            IconComponent = MarkdownIcon;
-            break;
-        case "php":
-            IconComponent = PhpIcon;
-            break;
-        case "plaintext":
-            IconComponent = PlaintextIcon;
-            break;
-        case "powershell":
-            IconComponent = PowershellIcon;
-            break;
-        case "python":
-            IconComponent = PythonIcon;
-            break;
-        case "ruby":
-            IconComponent = RubyIcon;
-            break;
-        case "scss":
-            IconComponent = ScssIcon;
-            break;
-        case "shell":
-            IconComponent = ShellScriptIcon;
-            break;
-        case "sql":
-            IconComponent = SqlIcon;
-            break;
-        case "typescript":
-            IconComponent = TypescriptIcon;
-            break;
-        case "ts":
-            IconComponent = TypescriptIcon;
-            break;
-        case "tsx":
-            IconComponent = TypescriptIcon;
-            break;
-        case "xml":
-            IconComponent = XmlIcon;
-            break;
-        case "yaml":
-            IconComponent = YamlIcon;
-            break;
-        default:
-            IconComponent = FileIcon; // Default fallback icon
-            break;
-    }
+// disable next line so we can offer autocomplete
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type AvailableLanguages = keyof typeof LangMapping & (string & {});
 
-    return IconComponent ? <IconComponent className={className} /> : null;
+interface LangIconProps extends React.SVGProps<SVGSVGElement> {
+    lang: AvailableLanguages;
+}
+
+export const LangIcon = ({ lang, ...rest }: LangIconProps) => {
+    const IconComponent = LangMapping[lang] ?? FileIcon;
+
+    return IconComponent ? <IconComponent {...rest} /> : null;
 };
