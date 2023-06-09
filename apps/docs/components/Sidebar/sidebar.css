@@ -82,7 +82,6 @@
 
 .hd-sidebar-trigger__icon {
     stroke: var(--hd-color-icon-primary);
-    transition: rotate .3s ease-in;
 }
 
 .hd-sidebar-trigger__icon {
