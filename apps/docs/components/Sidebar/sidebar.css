@@ -93,7 +93,7 @@
 }
 
 /* SubNav List */
-.hd-sidebar-list--collapsible {
+.hd-sidebar__list--collapsible {
     list-style-type: none;
     padding-inline-start: var(--hd-space-2);
     overflow: hidden;
