@@ -6,7 +6,7 @@ date: "2023-04-28"
 
 ### With Title, Caption and line numbers
 
-```js showLineNumbers {3} /levels/ title="index.js" caption="Don't reassign const."
+```ts showLineNumbers {3} /levels/ title="index.ts" caption="Don't reassign const."
 const levels = 3;
 const a = 1;
 const a = 2;
@@ -85,4 +85,179 @@ we can color it as a function.
 [data-rehype-pretty-code-fragment] pre {
     border-radius: var(--hd-space-1);
 }
+```
+
+### All Extensions
+
+```c
+#include <stdio.h>
+int main() {
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
+}
+```
+
+```csharp
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");
+    }
+  }
+}
+```
+
+```css
+:root {
+    --hd-space-1: 0.25rem;
+}
+
+[data-rehype-pretty-code-fragment] pre {
+    border-radius: var(--hd-space-1);
+}
+```
+
+```diff
+> This is an important
+> notice! It should
+> therefore be located at
+> the beginning of this
+> document!
+>
+11,15d16
+< This paragraph contains
+< text that is outdated.
+< It will be deleted in the
+< near future.
+<
+17c18
+< check this dokument. On
+---
+> check this document. On
+24a26,29
+>
+> This paragraph contains
+> important new additions
+> to this document.
+```
+
+```dockerfile
+RUN /bin/bash -c 'source $HOME/.bashrc && \
+echo $HOME'
+```
+
+```unknown
+Hello world!
+```
+
+```html
+<button>Click me!</button>
+```
+
+```js
+const levels = 3;
+const a = 1;
+```
+
+```jsx
+const levels = 3;
+const a = 1;
+```
+
+```markdown
+### Markdown
+```
+
+```php
+<?php
+  echo "Hello!<br>";
+?>
+```
+
+```powershell
+Write-Host “Hello World!”
+```
+
+```python
+x = 1
+y = 2.8
+z = 1j
+
+print(type(x))
+print(type(y))
+print(type(z))
+```
+
+```ruby
+def sum_eq_n?(arr, n)
+  return true if arr.empty? && n == 0
+  arr.product(arr).reject { |a,b| a == b }.any? { |a,b| a + b == n }
+end
+```
+
+```scss
+.sass {
+  .test {
+    background: red;
+  }
+}
+```
+
+```shell
+$ chmod a+x First.sh
+$ ./First.sh
+```
+
+```sql
+SELECT CustomerName, City FROM Customers;
+```
+
+```typescript
+interface User {
+  name: string;
+  id: number;
+}
+
+const user: User = {
+  name: "Hayes",
+  id: 0,
+};
+```
+
+```ts
+interface User {
+  name: string;
+  id: number;
+}
+
+const user: User = {
+  name: "Hayes",
+  id: 0,
+};
+```
+
+```tsx
+interface User {
+  name: string;
+  id: number;
+}
+
+const user: User = {
+  name: "Hayes",
+  id: 0,
+};
+```
+
+```yaml
+docker:
+    - image: ubuntu:14.04
+    - image: mongo:2.6.8
+      command: [mongod, --smallfiles]
+    - image: postgres:9.4.1
 ```
