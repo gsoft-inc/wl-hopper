@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React, { type HTMLAttributes } from "react";
 import { CopyButton } from "@/components/Utils/CopyButton/CopyButton";
 import { LangIcon } from "@/components/Pre/LangIcon/LangIcon";
 import "./pre.css";
@@ -12,11 +12,12 @@ export const Pre = ({ children, title, "data-language": dataLanguage, raw, ...pr
     return (
         <pre {...props}>
             <div
-                className="hd-pre-header">
+                className="hd-pre-header"
+            >
                 <div className="hd-pre-header__info">
                     {dataLanguage && (
                         <span className="hd-pre-header__lang">
-                            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon"/>
+                            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
                         </span>)
                     }
                     <span className="hd-code-header__title">{title}</span>
