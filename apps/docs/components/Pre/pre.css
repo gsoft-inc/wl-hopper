@@ -2,29 +2,29 @@
 .hd-pre-header {
     display: flex;
     justify-content: space-between;
-    padding: 8px 12px 8px 16px;
-    font-size: .75rem;
+    padding: var(--hd-space-1) 0.75rem var(--hd-space-1) var(--hd-space-2);
+    font-size: 0.75rem;
     align-items: center;
     border-bottom: 1px solid var(--hd-color-border-primary-weak);
 }
 
-.hd-pre-header-info {
+.hd-pre-header__info {
     display: flex;
     align-items: center;
     gap: var(--hd-space-1);
 }
 
-.hd-pre-header-lang {
+.hd-pre-header__lang {
     font-family: monospace;
     display: flex;
 }
 
-.hd-pre-header-lang__icon {
+.hd-pre-header__lang-icon {
     width: 1.25rem;
     aspect-ratio: 1/1;
 }
 
-.hd-pre-header-title {
+.hd-pre-header__title {
     font-style: italic;
     line-height: 1;
 }

@@ -4,10 +4,10 @@
     justify-content: center;
     background-color: transparent;
     border: none;
-    fill: rgb(216, 222, 233);
-    width: 2rem;
+    fill: var(--hd-primary-300);
+    width: var(--hd-space-4);
     aspect-ratio: 1/1;
-    border-radius: 8px;
+    border-radius: var(--hd-space-1);
     cursor: pointer;
 }
 
