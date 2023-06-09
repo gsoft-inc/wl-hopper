@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import { Pre } from "@/components/Pre/Pre";
 
 const components = {
-    Image
+    Image,
+    pre: Pre
 };
 
 interface MdxProps {
