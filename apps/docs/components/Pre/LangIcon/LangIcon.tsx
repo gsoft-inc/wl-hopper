@@ -20,7 +20,7 @@ import TypescriptIcon from "./icons/typescript.svg";
 import XmlIcon from "./icons/xml.svg";
 import YamlIcon from "./icons/yaml.svg";
 import FileIcon from "./icons/file.svg";
-import { ElementType } from "react";
+import type { ElementType } from "react";
 
 const LangMapping: Record<string, ElementType<React.SVGProps<SVGSVGElement>>> = {
     "c":CIcon,
