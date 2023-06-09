@@ -1,29 +1,60 @@
 {
-    "name": "wl-hopper",
-    "version": "0.0.0",
-    "keywords": [],
-    "author": "Workleap",
-    "private": true,
-    "license": "Apache-2.0",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/workleap/wl-hopper.git"
-    },
-    "packageManager": "pnpm@8.3.1",
-    "scripts": {
-        "doc:start": "pnpm --filter=docs dev",
-        "doc:storybook": "pnpm --filter=docs storybook",
-        "doc:build": "pnpm --filter=docs build",
+  "name": "wl-hopper",
+  "version": "0.0.0",
+  "keywords": [],
+  "author": {
+    "name": "Workleap"
+  },
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workleap/wl-hopper.git"
+  },
+  "packageManager": "pnpm@8.3.1",
+  "scripts": {
+    "doc:start": "pnpm --filter=docs dev",
+    "doc:storybook": "pnpm --filter=docs storybook",
+    "doc:build": "pnpm --filter=docs build",
 
-        "test": "echo \"no test specified\"",
-        "build": "pnpm --filter=packages -r --parallel build",
+    "test": "echo \"no test specified\"",
+    "build": "pnpm --filter=packages -r --parallel build",
 
-        "lint": "pnpm run /^lint:.*/",
-        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint"
-    },
-    "dependencies": {
-        "@netlify/plugin-nextjs": "^4.36.0",
-        "@workleap/eslint-plugin": "1.8.1",
-        "@workleap/typescript-configs": "2.3.1"
-    }
+    "lint": "pnpm run /^lint:.*/",
+    "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
+    "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache",
+
+    "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist node_modules/.cache",
+    "reset": "pnpm clean && pnpm reset:modules",
+    "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
+
+    "storybook": "storybook dev -p 6010",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@netlify/plugin-nextjs": "4.36.0",
+    "storybook": "7.0.20"
+  },
+  "devDependencies": {
+    "@workleap/eslint-plugin": "1.8.1",
+    "@workleap/stylelint-config": "1.2.1",
+    "@workleap/typescript-configs": "2.3.1",
+    "@storybook/addon-essentials": "7.0.20",
+    "@storybook/addon-interactions": "7.0.20",
+    "@storybook/addon-links": "7.0.20",
+    "@storybook/blocks": "7.0.20",
+    "@storybook/react": "7.0.20",
+    "@storybook/react-vite": "7.0.20",
+    "@storybook/testing-library": "0.0.14-next.2",
+    "prop-types": "15.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "stylelint": "15.7.0"
+  },
+  "bugs": {
+    "url": "https://github.com/workleap/wl-hopper/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/workleap/wl-hopper#readme",
+  "_id": "wl-hopper@0.0.0"
 }
