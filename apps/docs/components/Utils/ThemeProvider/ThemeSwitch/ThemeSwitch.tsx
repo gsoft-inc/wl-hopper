@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { type ColorScheme, ThemeContext } from "../ThemeProvider";
 import { Icon } from "./ThemeSwitchIcon/ThemeSwitchIcons";
-import * as Toggle from "@radix-ui/react-toggle";
+import { ToggleButton } from "react-aria-components";
 
 import "./themeSwitch.css";
 
@@ -19,9 +19,9 @@ export default function ThemeSwitch() {
 
     if (colorMode) {
         return (
-            <Toggle.Root className="hd-theme-switch__button" aria-label="Toggle Dark Mode" onPressedChange={toggleTheme}>
+            <ToggleButton className="hd-theme-switch__button" onPress={toggleTheme}>
                 <Icon icon={colorMode === "dark" ? "sun" : "moon"} />
-            </Toggle.Root>
+            </ToggleButton>
         );
     }
 

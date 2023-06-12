@@ -82,19 +82,18 @@
 
 .hd-sidebar-trigger__icon {
     stroke: var(--hd-color-icon-primary);
-    transition: rotate .3s ease-in;
 }
 
-.hd-sidebar-trigger__icon--down {
-    rotate: 0;
-}
-
-.hd-sidebar-trigger__icon--up {
+.hd-sidebar-trigger__icon {
     rotate: 180deg;
 }
 
+.hd-sidebar-list__details[open] .hd-sidebar-trigger__icon {
+    rotate: 0deg;
+}
+
 /* SubNav List */
-.hd-sidebar-list--collapsible {
+.hd-sidebar__list--collapsible {
     list-style-type: none;
     padding-inline-start: var(--hd-space-2);
     overflow: hidden;
@@ -110,23 +109,4 @@
 
 .hd-sidebar-list--collapsible[data-state='closed'] {
     animation: slideUp 0.3s ease-out;
-}
-
-/* Animations */
-@keyframes slideDown {
-    from {
-        height: 0;
-    }
-    to {
-      height: var(--radix-collapsible-content-height);
-    }
-}
-
-  @keyframes slideUp {
-    from {
-        height: var(--radix-collapsible-content-height);
-    }
-    to {
-        height: 0;
-    }
 }
