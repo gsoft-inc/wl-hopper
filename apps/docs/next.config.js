@@ -4,8 +4,18 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
+    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     experimental: {
-        appDir: true
+        appDir: true,
+        mdxRs: false
+    },
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/i,
+            use: ["@svgr/webpack"]
+        });
+
+        return config;
     }
 };
 
