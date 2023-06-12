@@ -2,6 +2,12 @@
   "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
   "extends": [
+    "next",
     "plugin:@workleap/web-application"
-  ]
+  ],
+  "settings": {
+    "next": {
+        "rootDir": "apps/docs"
+    }
+  }
 }
