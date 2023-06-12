@@ -11,6 +11,10 @@
     cursor: pointer;
 }
 
-.hd-copy-button:hover {
+.hd-copy-button[disabled] {
+    cursor: not-allowed;
+}
+
+.hd-copy-button:not([disabled]):hover {
     background-color: var(--hd-color-surface-primary-weak-hover);
 }
