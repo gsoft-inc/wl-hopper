@@ -30,8 +30,14 @@ import type {
     UNSAFE_BorderValue,
     UNSAFE_BoxShadowValue,
     UNSAFE_ColorValue,
+    UNSAFE_FillValue,
     UNSAFE_FontSizeValue,
     UNSAFE_FontWeightValue,
+    UNSAFE_GapValue,
+    UNSAFE_GridAutoColumnsValue,
+    UNSAFE_GridAutoRowsValue,
+    UNSAFE_GridTemplateColumnsValue,
+    UNSAFE_GridTemplateRowsValue,
     UNSAFE_HeightValue,
     UNSAFE_LineHeightValue,
     UNSAFE_MarginValue,
@@ -1110,6 +1116,24 @@ export interface StyledSystemProps {
     UNSAFE_borderTopHover?: ResponsiveProp<UNSAFE_BorderValue>;
 
     /**
+     * Sets the `border-top-left-radius` property when hovered.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`borderTopLeftRadius`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_borderTopLeftRadius?: ResponsiveProp<UNSAFE_BorderRadiusValue>;
+
+    /**
+     * Sets the `border-top-right-radius` property when hovered.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`borderTopRightRadius`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_borderTopRightRadius?: ResponsiveProp<UNSAFE_BorderRadiusValue>;
+
+    /**
      * Sets the `box-shadow` property.
      *
      * If you want to use a **token value** from the **SCALE**, use the **`boxShadow`** property instead.
@@ -1128,6 +1152,23 @@ export interface StyledSystemProps {
     UNSAFE_color?: ResponsiveProp<UNSAFE_ColorValue>;
 
     /**
+     * Sets the `column-gap` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`columnGap`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_columnGap?: ResponsiveProp<UNSAFE_GapValue>;
+
+    /**
+     * Sets the `fill` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`fill`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_fill?: ResponsiveProp<UNSAFE_FillValue>;
+    /**
      * Sets the `font-size` property.
      *
      * If you want to use a **token value** from the **SCALE**, use the **`fontSize`** property instead.
@@ -1144,6 +1185,51 @@ export interface StyledSystemProps {
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
     UNSAFE_fontWeight?: ResponsiveProp<UNSAFE_FontWeightValue>;
+
+    /**
+     * Sets the `gap` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gap`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gap?: ResponsiveProp<UNSAFE_GapValue>;
+
+    /**
+     * Sets the `grid-auto-columns` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gridAutoColumns`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gridAutoColumns?: ResponsiveProp<UNSAFE_GridAutoColumnsValue>;
+
+    /**
+     * Sets the `grid-auto-rows` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gridAutoRows`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gridAutoRows?: ResponsiveProp<UNSAFE_GridAutoRowsValue>;
+
+    /**
+     * Sets the `grid-template-columns` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gridTemplateColumns`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gridTemplateColumns?: ResponsiveProp<UNSAFE_GridTemplateColumnsValue>;
+
+    /**
+     * Sets the `grid-template-rows` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gridTemplateRows`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gridTemplateRows?: ResponsiveProp<UNSAFE_GridTemplateRowsValue>;
 
     /**
      * Sets the `height` property.

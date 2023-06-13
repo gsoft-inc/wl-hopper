@@ -27,7 +27,6 @@ import type { Globals, Property } from "csstype";
 import { isNil } from "../core-external-package/assertion.tsx";
 import type { Breakpoint } from "../BreakpointProvider.tsx";
 
-export const GlobalValues = ["inherit", "initial", "revert", "unset"]; // TODO: probably not needed, we can just use globals from csstype
 export const ColorExpressionTypes = ["#", "rgb", "rgba", "hsl", "hsla"] as const;
 export const DefaultBorderWidthAndStyle = "1px solid";
 
@@ -51,9 +50,6 @@ function composePrefixes(...rest: string[]) {
 function createPrefixedValueTemplate(prefix: string) {
     return (value: string | number) => `var(${normalizeVariable(value, prefix)})`;
 }
-
-// TODO, font-variation-settings might not be required
-const fontVariationSettingsValueTemplate = (value: string | number) => `'wght' var(${normalizeVariable(value, FontWeightPrefix)})`;
 
 // mappings
 export const SpacingMapping = createValuesMapping(SpacingScale, createPrefixedValueTemplate(SpacePrefix));
@@ -81,7 +77,7 @@ export const BoxShadowMapping = {
 export const FontSizeMapping = createValuesMapping(FontSizeScale, createPrefixedValueTemplate(FontSizePrefix));
 
 
-export const FontWeightMapping = createValuesMapping(FontWeightScale, fontVariationSettingsValueTemplate);
+export const FontWeightMapping = createValuesMapping(FontWeightScale, createPrefixedValueTemplate(FontWeightPrefix));
 
 export const IconColorMapping = {
     ...createValuesMapping(IconColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "icon"))),
@@ -94,84 +90,84 @@ export const TextColorMapping = {
     ...createValuesMapping(TextColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "text"))),
     ...ColorMapping
 };
-
-// Custom CSS color type to use instead of Property.Color to offer less useless values in intellisense and
+// Custom CSS values to use instead of Property.X to offer less useless values in intellisense and
 // stop showing too many values in props docs.
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CssColor = Globals | "currentcolor" | "transparent" | (string & {});
+export type CssColor = Globals | "currentcolor" | "transparent";
+export type CssFill = Globals | "child" | "context-fill" | "context-stroke" | "none" | "transparent" | "currentcolor";
+export type CssGrid = "auto" | "max-content" | "min-content" | Globals;
+export type CssGridTemplate = "none" | "subgrid" | CssGrid;
+export type CssBoxShadow = Globals | "none";
+export type CssBorder = Globals | 0;
+export type CssBorderRadius = Globals | 0;
+export type CssGap = Globals | "normal" | 0;
 
-// Custom fill type to use instead of Property.Fill to offer less useless values in intellisense and
-// stop showing too many values in props docs.
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CssFill = Globals | "child" | "context-fill" | "context-stroke" | "none" | "transparent" | (string & {});
+export type BackgroundColorValue = keyof typeof BackgroundColorMapping | CssColor;
+export type UNSAFE_BackgroundColorValue = keyof typeof BackgroundColorMapping | Property.BackgroundColor ;
 
-export type BackgroundColorValue = keyof typeof BackgroundColorMapping; // TODO: Globals | "currentcolor" | "transparent" are not accepted right now
-export type UNSAFE_BackgroundColorValue = keyof typeof BackgroundColorMapping | CssColor ;
-
-export type BorderValue = keyof typeof BorderMapping; // TODO: Globals?
+export type BorderValue = keyof typeof BorderMapping | CssColor | CssBorder;
 export type UNSAFE_BorderValue = keyof typeof BorderMapping | Property.Border;
 
-export type BorderRadiusValue = keyof typeof BorderRadiusMapping; // TODO: 0 not allowed, Globals?
+export type BorderRadiusValue = keyof typeof BorderRadiusMapping | CssBorderRadius;
 export type UNSAFE_BorderRadiusValue = keyof typeof BorderRadiusMapping | Property.BorderRadius;
 
-export type BoxShadowValue = keyof typeof BoxShadowMapping; // TODO: Globals?
+export type BoxShadowValue = keyof typeof BoxShadowMapping | CssBoxShadow;
 export type UNSAFE_BoxShadowValue = keyof typeof BoxShadowMapping | Property.BoxShadow;
 
-export type ColorValue = keyof typeof TextColorMapping;// TODO: Globals? transparent  currentcolor
-export type UNSAFE_ColorValue = keyof typeof TextColorMapping | CssColor;
+export type ColorValue = keyof typeof TextColorMapping | CssColor;
+export type UNSAFE_ColorValue = keyof typeof TextColorMapping | Property.Color;
 
-export type ColumnGapValue = keyof typeof SpacingMapping; // TODO: Globals?
+export type ColumnGapValue = keyof typeof SpacingMapping | CssGap;
 export type UNSAFE_ColumnGapValue = keyof typeof SpacingMapping | Property.ColumnGap;
 
-export type FillValue = keyof typeof IconColorMapping; // TODO: Globals?
-export type UNSAFE_FillValue = keyof typeof IconColorMapping | CssFill;
+export type FillValue = keyof typeof IconColorMapping | CssFill;
+export type UNSAFE_FillValue = keyof typeof IconColorMapping | Property.Fill;
 
-export type FontSizeValue = keyof typeof FontSizeMapping;
+export type FontSizeValue = keyof typeof FontSizeMapping | Globals;
 export type UNSAFE_FontSizeValue = keyof typeof FontSizeMapping | Property.FontSize;
 
-export type FontWeightValue = keyof typeof FontWeightMapping; // TODO: Globals?
-export type UNSAFE_FontWeightValue = keyof typeof FontWeightMapping | (typeof GlobalValues)[number];
+export type FontWeightValue = keyof typeof FontWeightMapping | Globals;
+export type UNSAFE_FontWeightValue = keyof typeof FontWeightMapping | Property.FontWeight;
 
-export type GapValue = keyof typeof SpacingMapping;// TODO: Globals?
+export type GapValue = keyof typeof SpacingMapping | CssGap;
 export type UNSAFE_GapValue = keyof typeof SpacingMapping | Property.Gap;
 
-export type GridAutoColumnsValue = keyof typeof SizingMapping;// TODO: Globals?
+export type GridAutoColumnsValue = keyof typeof SizingMapping | CssGrid;
 export type UNSAFE_GridAutoColumnsValue = keyof typeof SizingMapping | Property.GridAutoColumns;
 
-export type GridAutoRowsValue = keyof typeof SizingMapping;
+export type GridAutoRowsValue = keyof typeof SizingMapping | CssGrid;
 export type UNSAFE_GridAutoRowsValue = keyof typeof SizingMapping | Property.GridAutoRows;
 
-export type GridTemplateColumnsValue = keyof typeof SizingMapping;
+export type GridTemplateColumnsValue = keyof typeof SizingMapping | CssGridTemplate;
 export type UNSAFE_GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns;
 
-export type GridTemplateRowsValue = keyof typeof SizingMapping;
+export type GridTemplateRowsValue = keyof typeof SizingMapping | CssGridTemplate;
 export type UNSAFE_GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows;
 
-export type HeightValue = keyof typeof SizingMapping;
+export type HeightValue = keyof typeof SizingMapping | Globals;
 export type UNSAFE_HeightValue = keyof typeof SizingMapping | Property.Height;
 
-export type LineHeightValue = keyof typeof LineHeightMapping;
+export type LineHeightValue = keyof typeof LineHeightMapping | Globals;
 export type UNSAFE_LineHeightValue = keyof typeof LineHeightMapping | Property.LineHeight;
 
-export type MarginValue = keyof typeof SpacingMapping;
+export type MarginValue = keyof typeof SpacingMapping | Globals;
 export type UNSAFE_MarginValue = keyof typeof SpacingMapping | Property.Margin;
 
-export type PaddingValue = keyof typeof SpacingMapping;
+export type PaddingValue = keyof typeof SpacingMapping | Globals;
 export type UNSAFE_PaddingValue = keyof typeof SpacingMapping | Property.Padding;
 
-export type RowGapValue = keyof typeof SpacingMapping;
+export type RowGapValue = keyof typeof SpacingMapping | CssGap;
 export type UNSAFE_RowGapValue = keyof typeof SpacingMapping | Property.RowGap;
 
-export type SizingValue = keyof typeof SizingMapping | Property.Scale;
+export type SizingValue = keyof typeof SizingMapping | Globals;
 export type UNSAFE_SizingValue = keyof typeof SizingMapping | Property.Scale;
 
-export type SpacingValue = keyof typeof SpacingMapping;
+export type SpacingValue = keyof typeof SpacingMapping | Globals;
 export type UNSAFE_SpacingValue = keyof typeof SpacingMapping | Property.Scale;
 
-export type StrokeValue = keyof typeof IconColorMapping;
+export type StrokeValue = keyof typeof IconColorMapping | CssFill;
 export type UNSAFE_StrokeValue = keyof typeof IconColorMapping | Property.Stroke;
 
-export type WidthValue = keyof typeof SizingMapping;
+export type WidthValue = keyof typeof SizingMapping | Globals;
 export type UNSAFE_WidthValue = keyof typeof SizingMapping | Property.Width;
 
 export type GridColumSpanValue = number;
