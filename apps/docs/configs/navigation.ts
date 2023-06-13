@@ -1,9 +1,9 @@
-interface Navigation {
+export interface NavItem {
     label: string;
     path: string;
 }
 
-export const navigation: Navigation[] = [
+export const navigation: NavItem[] = [
     {
         "label": "Tokens",
         "path": "/tokens"
