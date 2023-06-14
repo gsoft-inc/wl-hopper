@@ -1,10 +1,4 @@
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// export const expectAssignable = <T>(value: T) => {
-//     // Do nothing, the TypeScript compiler handles this for us
-// };
-
-import { StyledSystemProps } from "../../src/style-props/styled-system-props.ts";
+import { StyledSystemProps } from "../../src/styled-system-props.ts";
 import { ResponsiveValue } from "../../src/useResponsiveValue.tsx";
 
 /**
@@ -12,14 +6,18 @@ import { ResponsiveValue } from "../../src/useResponsiveValue.tsx";
  *
  * @param expression - Expression that should be assignable to type `T`.
  */
-export function expectAssignable<T>(expression: T) { // TODO: move this to a shared file
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function expectAssignable<T>(expression: T) {
+     // TODO: move this to a shared file
 	// Do nothing, the TypeScript compiler handles this for us
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function expectStyledSystemPropertyAssignable<T extends keyof StyledSystemProps>(expression: StyledSystemProps[T]) {
 	// Do nothing, the TypeScript compiler handles this for us
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function expectPropertyAvailable<T extends keyof StyledSystemProps>() {
     // Do nothing, the TypeScript compiler handles this for us
 }
@@ -2445,5 +2443,5 @@ expectAssignable<StyledSystemProps>({
     width: 1,
     willChange: "contents",
     wordBreak: "break-all",
-    zIndex: 1
+    zIndex: 1,
 });

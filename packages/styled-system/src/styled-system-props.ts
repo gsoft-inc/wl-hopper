@@ -1,7 +1,7 @@
 // this file will contain handlers for all the style props
 
 import type { Property } from "csstype";
-import type { ResponsiveProp } from "../useResponsiveValue.tsx";
+import type { ResponsiveProp } from "./useResponsiveValue.tsx";
 import type {
     BackgroundColorValue,
     BorderRadiusValue,

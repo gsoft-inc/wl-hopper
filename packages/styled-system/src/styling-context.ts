@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
-import type { Breakpoint } from "../BreakpointProvider.tsx";
-import { isNil } from "../core-external-package/assertion.tsx";
+import type { Breakpoint } from "./BreakpointProvider.tsx";
+import { isNil } from "./assertion.ts";
 
 export class StylingContext {
     readonly #classes: string[];

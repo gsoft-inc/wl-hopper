@@ -1,7 +1,7 @@
 import type { ComponentProps, ElementType } from "react";
 
 import { htmlElement } from "./htmlElement.tsx";
-import { isNil } from "./core-external-package/assertion.ts";
+import { isNil } from "./assertion.ts";
 
 // Sectioning & Content sectioning
 

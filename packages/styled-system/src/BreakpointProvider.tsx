@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
-import { isNil } from "./core-external-package/assertion.tsx";
+import { isNil } from "./assertion.ts";
 import { Breakpoints } from "@hopper-ui/fake-tokens";
 import { supportsMatchMedia } from "./useMediaQuery.ts";
 import { useIsSSR } from "react-aria";

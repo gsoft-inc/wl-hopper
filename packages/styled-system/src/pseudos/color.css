@@ -1,15 +1,18 @@
 /* PSEUDO | COLOR */
 .hop-c-hover:hover {
     --hop-c-hover: initial;
+
     color: var(--hop-c-hover) !important;
 }
 
 .hop-c-focus:focus-visible {
     --hop-c-focus: initial;
+
     color: var(--hop-c-focus) !important;
 }
 
 .hop-c-active:active {
     --hop-c-active: initial;
+
     color: var(--hop-c-active) !important;
 }

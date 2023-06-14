@@ -15,17 +15,17 @@ import {
     IconColorAliases,
     LineHeightPrefix,
     LineHeightScale,
-    OrbitColors,
+    HopperColors,
     SizingPrefix,
     SizingScale,
     SpacePrefix,
     SpacingScale,
     TextColorAliases
 } from "@hopper-ui/fake-tokens";
-import { parseResponsiveValue } from "../useResponsiveValue.tsx";
+import { parseResponsiveValue } from "./useResponsiveValue.tsx";
 import type { Globals, Property } from "csstype";
-import { isNil } from "../core-external-package/assertion.tsx";
-import type { Breakpoint } from "../BreakpointProvider.tsx";
+import { isNil } from "./assertion.ts";
+import type { Breakpoint } from "./BreakpointProvider.tsx";
 
 export const ColorExpressionTypes = ["#", "rgb", "rgba", "hsl", "hsla"] as const;
 export const DefaultBorderWidthAndStyle = "1px solid";
@@ -54,7 +54,7 @@ function createPrefixedValueTemplate(prefix: string) {
 // mappings
 export const SpacingMapping = createValuesMapping(SpacingScale, createPrefixedValueTemplate(SpacePrefix));
 export const SizingMapping = createValuesMapping(SizingScale, createPrefixedValueTemplate(SizingPrefix));
-export const ColorMapping = createValuesMapping(OrbitColors, createPrefixedValueTemplate(ColorPrefix));
+export const ColorMapping = createValuesMapping(HopperColors, createPrefixedValueTemplate(ColorPrefix));
 
 export const BackgroundColorMapping = {
     ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "bg"))),
@@ -64,7 +64,7 @@ export const BackgroundColorMapping = {
 
 export const BorderMapping = {
     ...createValuesMapping(BorderColorAliases, value => `${DefaultBorderWidthAndStyle} var(${normalizeVariable(value, composePrefixes(ColorPrefix, "b"))})`),
-    ...createValuesMapping(OrbitColors, value => `${DefaultBorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
+    ...createValuesMapping(HopperColors, value => `${DefaultBorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
 };
 
 export const BorderRadiusMapping = createValuesMapping(BorderRadiusScale, createPrefixedValueTemplate(BorderRadiusPrefix));

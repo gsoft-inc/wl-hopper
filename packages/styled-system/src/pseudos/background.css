@@ -1,15 +1,18 @@
 /* PSEUDO | BACKGROUND */
 .hop-bg-hover:hover {
     --hop-bg-hover: initial;
+
     background-color: var(--hop-bg-hover) !important;
 }
 
 .hop-bg-focus:focus-visible {
     --hop-bg-focus: initial;
+
     background-color: var(--hop-bg-focus) !important;
 }
 
 .hop-bg-active:active {
     --hop-bg-active: initial;
+
     background-color: var(--hop-bg-active) !important;
 }

@@ -1,7 +1,7 @@
 import { type CSSProperties, useMemo } from "react";
-import { isNil } from "../core-external-package/assertion.tsx";
+import { isNil } from "./assertion.ts";
 import { StylingContext } from "./styling-context.ts";
-import { parseResponsiveValue } from "../useResponsiveValue.tsx";
+import { parseResponsiveValue } from "./useResponsiveValue.tsx";
 import {
     ColorExpressionTypes,
     DefaultBorderWidthAndStyle,
@@ -19,7 +19,7 @@ import {
     TextColorMapping
 } from "./css-variable-mappings.ts";
 import { type StyledSystemProps, UnsafePrefix } from "./styled-system-props.ts";
-import { useBreakpointContext } from "../BreakpointProvider.tsx";
+import { useBreakpointContext } from "./BreakpointProvider.tsx";
 
 type PropHandler = (name: string, value: string | number, context: StylingContext) => void;
 type SystemValues = Record<string | number, string>;
