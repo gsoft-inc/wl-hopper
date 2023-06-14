@@ -2,8 +2,14 @@
     position: sticky;
     top: var(--hd-space-8);
     height: calc(100vh - var(--hd-space-8));
-    min-width: 18rem;
-    max-width: 18rem;
+    min-width: 15rem;
+    max-width: 15rem;
+}
+
+.hd-sidebar + main {
+    padding-block: var(--hd-space-8);
+    padding-inline: var(--hd-space-6);
+    width: min(100% - var(--hd-space-8), 45rem);
 }
 
 .hd-sidebar__container {

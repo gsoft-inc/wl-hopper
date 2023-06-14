@@ -1,7 +1,6 @@
 main {
     padding-block: var(--hd-space-8);
-    margin-inline: auto;
-    width: min(100% - var(--hd-space-8), 45rem);
+    width: 100%;
 }
 
 h2 {

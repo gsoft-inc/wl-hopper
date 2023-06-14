@@ -10,10 +10,10 @@ export const navigation: NavItem[] = [
     },
     {
         "label": "Icons",
-        "path": "/icons"
+        "path": "#"
     },
     {
         "label": "Components",
-        "path": "/components"
+        "path": "#"
     }
 ];
