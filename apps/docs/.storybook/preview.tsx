@@ -1,6 +1,8 @@
 import type { Preview } from "@storybook/react"
 
-import "../app/tokens.css";
+import "../app/globals.css";
+
+// Storybook styles
 import "./global.css";
 
 const Container = ({ children, theme }) => (

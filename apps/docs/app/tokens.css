@@ -65,6 +65,7 @@
 [data-theme="light"] {
     --hd-color-text-primary: var(--hd-primary-900);
     --hd-color-icon-primary: var(--hd-primary-900);
+    --hd-color-icon-secondary: var(--hd-secondary-950);
     --hd-color-surface-primary-weak: var(--hd-primary-200);
     --hd-color-surface-primary-weak-hover: var(--hd-primary-200);
     --hd-color-surface-primary: var(--hd-primary-0);

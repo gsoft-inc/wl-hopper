@@ -19,7 +19,7 @@
 .hd-nav__list-item {
     display: flex;
     border-radius: var(--hd-space-05);
-    transition: background-color 0.2s ease-in, color 0.1s linear;
+    transition: background-color 0.15s ease-in, color 0.05s linear;
 }
 
 .hd-nav__link {

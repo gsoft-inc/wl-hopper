@@ -11,9 +11,9 @@ import "./header.css";
 export const Header = () => {
     return (
         <header className="hd-header">
-            <div className="hd-header__container">
+            <div className="hd-wrapper hd-flex">
                 <div className="hd-header__nav">
-                    <Link href="/" className="hd-brand">
+                    <Link href="/" className="hd-brand" aria-label="Hopper Brand">
                         <svg width="115" height="24" viewBox="0 0 115 24" xmlns="http://www.w3.org/2000/svg" className="hd-brand__logo">
                             <circle cx="12" cy="12" r="12" fill="currentColor" />
                             {/* eslint-disable-next-line max-len */}
