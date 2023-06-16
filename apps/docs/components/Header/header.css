@@ -33,5 +33,5 @@
 
 .hd-header__quick-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--hd-space-1);
 }

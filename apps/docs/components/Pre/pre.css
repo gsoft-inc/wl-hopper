@@ -2,7 +2,7 @@
 .hd-pre-header {
     display: flex;
     justify-content: space-between;
-    padding: var(--hd-space-1) 0.75rem var(--hd-space-1) var(--hd-space-2);
+    padding: var(--hd-space-1) var(--hd-space-1) var(--hd-space-1) var(--hd-space-2);
     font-size: 0.75rem;
     align-items: center;
     border-bottom: 1px solid var(--hd-color-border-primary-weak);
@@ -20,7 +20,7 @@
 }
 
 .hd-pre-header__lang-icon {
-    width: 1.25rem;
+    width: var(--hd-space-2);
     aspect-ratio: 1/1;
 }
 
