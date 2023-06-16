@@ -1,18 +1,6 @@
-.hd-container {
-    display: flex;
-}
-
 main {
-    display: flex;
-    padding-inline: var(--hd-space-4);
-    padding-block: 4rem;
+    padding-block: var(--hd-space-8);
     width: 100%;
-}
-
-article {
-    width: 100%;
-    max-inline-size: 44.875rem;
-    margin-inline: auto;
 }
 
 h2 {

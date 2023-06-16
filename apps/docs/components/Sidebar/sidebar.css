@@ -1,19 +1,23 @@
 .hd-sidebar {
-    border-inline-end: 1px solid var(--hd-color-border-primary-weak);
     position: sticky;
     top: var(--hd-space-8);
     height: calc(100vh - var(--hd-space-8));
-    min-width: 18rem;
-    max-width: 18rem;
+    min-width: 15rem;
+    max-width: 15rem;
+}
+
+.hd-sidebar + main {
+    padding-block: var(--hd-space-8);
+    padding-inline: var(--hd-space-6);
+    width: min(100% - var(--hd-space-8), 45rem);
 }
 
 .hd-sidebar__container {
-    padding-inline: var(--hd-space-3);
     overflow-y: scroll;
     scroll-margin-top: var(--hd-space-8);
     overscroll-behavior: contain;
     height: calc(100% - var(--hd-space-1));
-    width: calc(100% - var(--hd-space-1));
+    width: 100%;
     padding-block: var(--hd-space-8);
     position: relative;
     top: var(--hd-space-05);

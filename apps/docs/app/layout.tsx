@@ -32,7 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>
                     <Header />
-                    <div className="hd-container">
+                    <div className="hd-wrapper hd-flex">
                         {children}
                     </div>
                 </ThemeProvider>
