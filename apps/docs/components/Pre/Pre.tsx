@@ -5,6 +5,7 @@ import "./pre.css";
 
 export type PreProps = React.DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
     "data-language"?: string;
+    "caption"?: string;
     raw?: string;
 };
 
@@ -25,6 +26,11 @@ export const Pre = ({ children, title, "data-language": dataLanguage, raw, ...pr
                 {raw && <CopyButton text={raw} />}
             </div>
             {children}
+            <div
+                className="hd-pre-footer"
+            >
+                t
+            </div>
         </pre>
     );
 };

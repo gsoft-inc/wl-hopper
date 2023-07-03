@@ -27,10 +27,6 @@
     display: flex;
 }
 
-.hd-brand__logo {
-    fill: var(--hd-color-icon-primary);
-}
-
 .hd-header__quick-actions {
     display: flex;
     gap: var(--hd-space-1);
