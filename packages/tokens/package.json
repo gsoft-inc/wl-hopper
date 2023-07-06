@@ -1,0 +1,31 @@
+{
+    "name": "@hopper-ui/tokens",
+    "author": "Workleap",
+    "version": "0.0.0",
+    "description": "The tokens package.",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/workleap/wl-hopper.git",
+        "directory": "packages/tokens"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "type": "module",
+    "files": [],
+    "scripts": {
+        "build": "npx tsc style-dictionary/build.ts"
+    },
+    "devDependencies": {
+        "style-dictionary": "^3.8.0",
+        "@workleap/eslint-plugin": "1.8.1",
+        "@workleap/typescript-configs": "2.3.1",
+        "typescript": "5.0.3"
+    },
+    "sideEffects": false,
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "source": ["tokens/**/*.tokens.json"],
+    "platforms": {}
+}
