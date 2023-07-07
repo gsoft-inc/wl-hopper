@@ -19,6 +19,7 @@
     "jsx": "preserve",
     "incremental": true,
     "verbatimModuleSyntax": false,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
