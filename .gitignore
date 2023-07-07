@@ -43,3 +43,5 @@ next-env.d.ts
 
 # storybook
 build-storybook.log
+
+**/dist/**

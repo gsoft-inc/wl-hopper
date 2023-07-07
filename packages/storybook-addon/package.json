@@ -1,0 +1,101 @@
+{
+  "name": "@hopper-ui/storybook-addon",
+  "version": "1.0.0",
+  "description": "The official Storybook Addon for Hopper UI",
+  "private": true,
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./*": "./*",
+    "./manager": {
+      "types": "./dist/manager.d.ts",
+      "require": "./dist/manager.cjs",
+      "import": "./dist/manager.js"
+    },
+    "./preview": {
+      "types": "./dist/preview.d.ts",
+      "require": "./dist/preview.cjs",
+      "import": "./dist/preview.js"
+    },
+    "./preset": {
+      "types": "./dist/preset.d.ts",
+      "require": "./dist/preset.cjs",
+      "import": "./dist/preset.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "manager": [
+        "./dist/manager.d.ts"
+      ],
+      "previews": [
+        "./dist/preview.d.ts"
+      ],
+      "preset": [
+        "./dist/e.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup --config ./tsup.build.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workleap/wl-hopper.git",
+    "directory": "packages/storybook-addon"
+  },
+  "keywords": [
+    "storybook-addon",
+    "storybook",
+    "hopper-ui",
+    "workleap",
+    "addons",
+    "dark-mode"
+  ],
+  "devDependencies": {
+    "@hopper-ui/styled-system": "workspace:*",
+    "@storybook/components": "7.0.20",
+    "@storybook/manager-api": "7.0.20",
+    "@storybook/preview-api": "7.0.12",
+    "@types/react": "18.2.8",
+    "@types/react-dom": "18.2.4",
+    "@workleap/eslint-plugin": "1.8.1",
+    "@workleap/typescript-configs": "2.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tsup": "6.7.0",
+    "typescript": "5.1.3"
+  },
+  "peerDependencies": {
+    "@hopper-ui/styled-system": "*",
+    "@storybook/manager-api": ">=7.0.12",
+    "@storybook/preview-api": ">=7.0.12",
+    "@storybook/components": ">=7.0.12",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "storybook": {
+    "displayName": "Hopper UI",
+    "supportedFrameworks": [
+      "react"
+    ],
+    "unsupportedFrameworks": [
+      "Vue",
+      "Angular",
+      "Svelte"
+    ]
+  }
+}

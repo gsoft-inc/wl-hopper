@@ -3,7 +3,7 @@ import type { StyledSystemProps } from "./styled-system-props.ts";
 import { useStyledSystem } from "./useStyledSystem.ts";
 import { mergeProps } from "react-aria";
 
-type HtmlPropsWithoutOverlappingAttributes<T extends keyof JSX.IntrinsicElements> = Omit<ComponentProps<T>, keyof StyledSystemProps>;
+export type HtmlPropsWithoutOverlappingAttributes<T extends keyof JSX.IntrinsicElements> = Omit<ComponentProps<T>, keyof StyledSystemProps>;
 
 export type HtmlElementProps<T extends keyof JSX.IntrinsicElements> = StyledSystemProps & HtmlPropsWithoutOverlappingAttributes<T>;
 

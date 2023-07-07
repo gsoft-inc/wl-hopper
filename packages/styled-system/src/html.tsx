@@ -1,6 +1,6 @@
-import type { ComponentProps, ElementType } from "react";
+import type { ComponentProps, ComponentType, ElementType, FunctionComponent } from "react";
 
-import { htmlElement } from "./htmlElement.tsx";
+import { type HtmlElementProps, htmlElement } from "./htmlElement.tsx";
 import { isNil } from "./assertion.ts";
 
 // Sectioning & Content sectioning
