@@ -4,6 +4,9 @@
     padding-block: var(--hd-space-8);
     user-select: none;
     width: 10rem;
+    position: sticky;
+    top: var(--hd-space-8);
+    height: calc(100% - var(--hd-space-1));
 }
 
 .hd-aside__list {

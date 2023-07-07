@@ -14,7 +14,6 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    position: relative;
 }
 
 .hd-header__nav {
