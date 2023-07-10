@@ -1,4 +1,11 @@
 {
     "extends": "@workleap/typescript-configs/library.json",
-    "exclude": ["node_modules"],
+    "include": ["style-dictionary/build.ts"],
+    "exclude": ["node_modules", "build"],
+    "compilerOptions": {
+        "outDir": "build",
+        "allowJs": true,
+        "noEmit": false,
+        "allowImportingTsExtensions": false,
+    },
 }
