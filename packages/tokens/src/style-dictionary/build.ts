@@ -1,5 +1,5 @@
 import StyleDictionary from "style-dictionary";
-import config from "./config.js";
+import config from "./config.ts";
 
 console.log("\nBuild started...");
 

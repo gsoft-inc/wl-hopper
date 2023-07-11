@@ -2,7 +2,7 @@ const PREFIX = "hop";
 const BUILD_PATH = "dist/";
 
 const config = {
-    "source": ["tokens/**/*.tokens.json"],
+    "source": ["src/tokens/**/*.tokens.json"],
     "platforms": {
         "css": {
             "transformGroup": "css",

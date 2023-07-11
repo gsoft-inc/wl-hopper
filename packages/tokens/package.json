@@ -17,17 +17,21 @@
     "files": [],
     "scripts": {
         "clean:dist": "pnpm dlx rimraf dist",
-        "clean:ts-build": "pnpm dlx rimraf build",
+        "clean:build": "pnpm dlx rimraf build",
 
-        "build:ts": "npx tsc",
+        "build:ts": "tsup",
         "build:tokens": "node build/build.js",
-        "build": "pnpm run build:ts && pnpm run build:tokens"
+        "build": "pnpm run build:ts && pnpm run build:tokens && pnpm run clean:build"
+    },
+    "dependencies": {
+        "style-dictionary": "^3.8.0"
     },
     "devDependencies": {
         "@types/node": "18.15.11",
         "@workleap/eslint-plugin": "1.8.1",
+        "@workleap/tsup-configs": "^2.0.0",
         "@workleap/typescript-configs": "2.3.1",
-        "style-dictionary": "^3.8.0",
+        "tsup": "^7.1.0",
         "typescript": "5.0.3"
     },
     "sideEffects": false,
