@@ -1,2 +1,2 @@
-export * from "./breakpoints.ts";
-export * from "./all-other-tokens.ts";
+export * from "./token-scales.ts";
+export * from "./tokens.ts";

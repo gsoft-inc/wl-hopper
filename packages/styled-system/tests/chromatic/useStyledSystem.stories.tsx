@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 const viewports = [640, 768, 1024, 1280, 1536];
 
 const meta = {
-    title: "useStyledSystem",
+    title: "Styled System/useStyledSystem",
     component: Div as any,
     parameters: {
         chromatic: {

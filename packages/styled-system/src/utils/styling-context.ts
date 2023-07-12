@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { Breakpoint } from "./BreakpointProvider.tsx";
+import type { Breakpoint } from "../responsive/BreakpointProvider.tsx";
 import { isNil } from "./assertion.ts";
 
 export class StylingContext {

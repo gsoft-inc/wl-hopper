@@ -216,3 +216,11 @@ export const FontSizeScale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] as const;
 export const FontWeightScale = [1, 2, 3] as const;
 
 export const LineHeightScale = [1, 2, 3, 4, 5, 6] as const;
+
+export const Breakpoints = {
+    xs: 640,
+    sm: 768,
+    md: 1024,
+    lg: 1280,
+    xl: 1536
+} as const;

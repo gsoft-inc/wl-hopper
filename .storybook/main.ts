@@ -9,7 +9,19 @@ const storybookConfig: StorybookConfig = {
         "../packages/**/*.stories.@(js|jsx|ts|tsx)"
     ],
     addons: [
-        "@storybook/addon-essentials",
+        {
+            name:"@storybook/addon-essentials",
+            options: {
+                actions: false,
+                backgrounds: false,
+                controls: false,
+                toolbars: false,
+                measure: false,
+                outline: false,
+                highlight: false
+            }
+
+        },
         "@hopper-ui/storybook-addon"
     ],
     framework: {

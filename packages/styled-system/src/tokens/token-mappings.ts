@@ -22,10 +22,10 @@ import {
     SpacingScale,
     TextColorAliases
 } from "@hopper-ui/fake-tokens";
-import { parseResponsiveValue } from "./useResponsiveValue.tsx";
+import { parseResponsiveValue } from "../responsive/useResponsiveValue.tsx";
 import type { Globals, Property } from "csstype";
-import { isNil } from "./assertion.ts";
-import type { Breakpoint } from "./BreakpointProvider.tsx";
+import { isNil } from "../utils/assertion.ts";
+import type { Breakpoint } from "../responsive/BreakpointProvider.tsx";
 
 export const ColorExpressionTypes = ["#", "rgb", "rgba", "hsl", "hsla"] as const;
 export const DefaultBorderWidthAndStyle = "1px solid";

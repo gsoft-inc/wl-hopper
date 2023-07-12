@@ -1,5 +1,5 @@
 import { StyledSystemProps } from "../../src/styled-system-props.ts";
-import { ResponsiveValue } from "../../src/useResponsiveValue.tsx";
+import { ResponsiveValue } from "../../src/responsive/useResponsiveValue.tsx";
 
 /**
  * Asserts that the type of `expression` is assignable to type `T`.

@@ -1,7 +1,7 @@
 // this file will contain handlers for all the style props
 
 import type { Property } from "csstype";
-import type { ResponsiveProp } from "./useResponsiveValue.tsx";
+import type { ResponsiveProp } from "./responsive/useResponsiveValue.tsx";
 import type {
     BackgroundColorValue,
     BorderRadiusValue,
@@ -47,13 +47,14 @@ import type {
     UNSAFE_StrokeValue,
     UNSAFE_WidthValue,
     WidthValue
-} from "./css-variable-mappings.ts";
+} from "./tokens/token-mappings.ts";
 import type { CSSProperties } from "react";
 
 export const UnsafePrefix = "UNSAFE_";
 
 export interface StyledSystemProps {
     className?: string;
+
     style?: CSSProperties;
 
     /**

@@ -1,6 +1,6 @@
 import { forwardRef, type ComponentProps, type JSX, type ElementRef, type ElementType } from "react";
-import type { StyledSystemProps } from "./styled-system-props.ts";
-import { useStyledSystem } from "./useStyledSystem.ts";
+import type { StyledSystemProps } from "../styled-system-props.ts";
+import { useStyledSystem } from "../useStyledSystem.ts";
 import { mergeProps } from "react-aria";
 
 export type HtmlPropsWithoutOverlappingAttributes<T extends keyof JSX.IntrinsicElements> = Omit<ComponentProps<T>, keyof StyledSystemProps>;

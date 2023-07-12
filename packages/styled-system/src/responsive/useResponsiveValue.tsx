@@ -1,5 +1,5 @@
 import { useBreakpointContext, type Breakpoint } from "./BreakpointProvider.tsx";
-import { isNil, isObject } from "./assertion.ts";
+import { isNil, isObject } from "../utils/assertion.ts";
 import { Breakpoints } from "@hopper-ui/fake-tokens";
 
 export type ResponsiveValue<T> = {

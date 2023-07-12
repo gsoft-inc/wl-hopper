@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
-import { isNil } from "./assertion.ts";
+import { isNil } from "../utils/assertion.ts";
 import { Breakpoints } from "@hopper-ui/fake-tokens";
-import { supportsMatchMedia } from "./useMediaQuery.ts";
+import { supportsMatchMedia } from "../utils/useMediaQuery.ts";
 import { useIsSSR } from "react-aria";
 
 export type Breakpoint = keyof typeof Breakpoints | "base";
