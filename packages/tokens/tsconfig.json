@@ -1,7 +1,4 @@
 {
     "extends": "@workleap/typescript-configs/library.json",
     "exclude": ["node_modules", "build"],
-    "compilerOptions": {
-        "allowJs": true,
-    },
 }

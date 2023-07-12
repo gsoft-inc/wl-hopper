@@ -1,7 +1,9 @@
+import type { Config } from "style-dictionary";
+
 const PREFIX = "hop";
 const BUILD_PATH = "dist/";
 
-const config = {
+const config: Config = {
     "source": ["src/tokens/**/*.tokens.json"],
     "platforms": {
         "css": {
