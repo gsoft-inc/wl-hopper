@@ -14,8 +14,8 @@
 body {
     font-family: var(--hd-default-font-family);
     font-size: var(--hd-default-font-size);
-    color: var(--hd-color-text-primary);
-    background-color: var(--hd-color-surface-primary);
+    color: var(--hd-color-neutral-text);
+    background-color: var(--hd-color-neutral-surface);
 }
 
 a {

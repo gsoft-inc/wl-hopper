@@ -29,6 +29,5 @@
 
 .hd-nav__list-item--active,
 .hd-nav__list-item:hover {
-    color: var(--hd-nav-color);
-    background-color: var(--hd-nav-background-color-hover);
+    background-color: var(--hd-color-neutral-surface-weak);
 }

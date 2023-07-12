@@ -11,8 +11,15 @@ export default function Nav ({ items }: { items: NavItem[] }) {
     const pathname = usePathname();
 
     const navItems = items.map(item => {
+        const itemPath = item.parentPath;
+        let isActive = false;
+
+        if (pathname.includes(itemPath)) {
+            isActive = true;
+        }
+
         return (
-            <li key={item.label} className={cx("hd-nav__list-item", pathname === item.path && "hd-nav__list-item--active")}>
+            <li key={item.label} className={cx("hd-nav__list-item", isActive && "hd-nav__list-item--active")}>
                 <Link href={item.path} className="hd-nav__link" >
                     {item.label}
                 </Link>
