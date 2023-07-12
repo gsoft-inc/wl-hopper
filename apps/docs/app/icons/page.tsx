@@ -2,17 +2,22 @@
 
 import { allPages } from "@/.contentlayer/generated";
 import { Mdx } from "@/components/Mdx/MdxComponent";
+import { notFound } from "next/navigation";
 
 export default function Page() {
-    return <>
-        {allPages
-            .filter(page => page._id === "pages/icons.mdx")
-            .map(page => (
-                <main>
-                    <article key={page._id}>
-                        {page.body && <Mdx code={page.body.code} />}
-                    </article>
-                </main>
-            ))}
-    </>;
+    const page = allPages.find(iconPage => iconPage._id === "pages/icons.mdx");
+
+    if (!page) {
+        notFound();
+    }
+
+    return (
+        <>
+            <main>
+                <article key={page._id}>
+                    {page.body && <Mdx code={page.body.code} />}
+                </article>
+            </main>
+        </>
+    );
 }

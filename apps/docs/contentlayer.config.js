@@ -1,11 +1,6 @@
-import {
-    defineDocumentType,
-    makeSource
-} from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import rehypePrettyCode from "rehype-pretty-code";
-import {
-    visit
-} from "unist-util-visit";
+import { visit } from "unist-util-visit";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 
