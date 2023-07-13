@@ -28,9 +28,7 @@ export const Dark: HopperProviderStory = {
     name: "dark",
     render: () => (
         <HopperProvider colorScheme="dark">
-            <Div UNSAFE_padding="12px" backgroundColor="alias-mid-break">
-                <Div color="alias-accent">Hello world</Div>
-            </Div>
+            <Div padding={4} backgroundColor="alias-mid-break" />
         </HopperProvider>
     )
 };

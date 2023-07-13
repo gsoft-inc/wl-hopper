@@ -1,3 +1,5 @@
+// TODO: add tests for unsafe properties
+
 import {
     BackgroundColorMapping,
     BorderMapping,

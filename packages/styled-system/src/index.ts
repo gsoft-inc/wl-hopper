@@ -12,6 +12,8 @@ export * from "./utils/useIsomorphicLayoutEffect.tsx";
 
 export * from "./color-scheme/ColorSchemeContext.ts";
 export * from "./color-scheme/ColorSchemeProvider.tsx";
+export * from "./color-scheme/useColorScheme.ts";
+export * from "./color-scheme/useColorSchemeValue.tsx";
 
 export * from "./global-styles/GlobalStyleProvider.tsx";
 
