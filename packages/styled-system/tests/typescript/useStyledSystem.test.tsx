@@ -1,5 +1,5 @@
-import { StyledSystemProps } from "../../src/styled-system-props.ts";
-import { ResponsiveValue } from "../../src/responsive/useResponsiveValue.tsx";
+import type { StyledSystemProps } from "../../src/styled-system-props.ts";
+import type { ResponsiveValue } from "../../src/responsive/useResponsiveValue.tsx";
 
 /**
  * Asserts that the type of `expression` is assignable to type `T`.
@@ -8,13 +8,13 @@ import { ResponsiveValue } from "../../src/responsive/useResponsiveValue.tsx";
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function expectAssignable<T>(expression: T) {
-     // TODO: move this to a shared file
-	// Do nothing, the TypeScript compiler handles this for us
-};
+    // TODO: move this to a shared file
+    // Do nothing, the TypeScript compiler handles this for us
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function expectStyledSystemPropertyAssignable<T extends keyof StyledSystemProps>(expression: StyledSystemProps[T]) {
-	// Do nothing, the TypeScript compiler handles this for us
+    // Do nothing, the TypeScript compiler handles this for us
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,7 +27,7 @@ expectAssignable<ResponsiveValue<string>>({ md: "value" });
 expectAssignable<ResponsiveValue<string>>({ lg: "value" });
 expectAssignable<ResponsiveValue<string>>({ base: "value", xs: "value", sm: "value", md: "value", lg: "value", xl: "value" });
 // @ts-expect-error: "mobile" is not a valid breakpoint
-expectAssignable<ResponsiveValue<string>>({ base: "value", mobile: "value"});
+expectAssignable<ResponsiveValue<string>>({ base: "value", mobile: "value" });
 
 expectStyledSystemPropertyAssignable<"alignContent">("center");
 expectStyledSystemPropertyAssignable<"alignContent">("start");
@@ -48,7 +48,7 @@ expectStyledSystemPropertyAssignable<"alignContent">("safe center");
 expectStyledSystemPropertyAssignable<"alignContent">("unsafe center");
 expectStyledSystemPropertyAssignable<"alignContent">({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_alignContent">
+expectPropertyAvailable<"UNSAFE_alignContent">;
 
 expectStyledSystemPropertyAssignable<"alignItems">("center");
 expectStyledSystemPropertyAssignable<"alignItems">("start");
@@ -71,7 +71,7 @@ expectStyledSystemPropertyAssignable<"alignItems">("safe center");
 expectStyledSystemPropertyAssignable<"alignItems">("unsafe center");
 expectStyledSystemPropertyAssignable<"alignItems">({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_alignItems">
+expectPropertyAvailable<"UNSAFE_alignItems">;
 
 expectStyledSystemPropertyAssignable<"alignSelf">("center");
 expectStyledSystemPropertyAssignable<"alignSelf">("start");
@@ -95,14 +95,14 @@ expectStyledSystemPropertyAssignable<"alignSelf">("safe center");
 expectStyledSystemPropertyAssignable<"alignSelf">("unsafe center");
 expectStyledSystemPropertyAssignable<"alignSelf">({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_alignSelf">
+expectPropertyAvailable<"UNSAFE_alignSelf">;
 
 expectStyledSystemPropertyAssignable<"aspectRatio">("1");
 expectStyledSystemPropertyAssignable<"aspectRatio">("1 / 1");
 expectStyledSystemPropertyAssignable<"aspectRatio">("16 / 9");
 expectStyledSystemPropertyAssignable<"aspectRatio">({ base: "1", xs: "1", sm: "1", md: "1", lg: "1", xl: "1" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_aspectRatio">
+expectPropertyAvailable<"UNSAFE_aspectRatio">;
 
 expectStyledSystemPropertyAssignable<"backgroundColor">("white");
 expectStyledSystemPropertyAssignable<"backgroundColor">("purple-1");
@@ -139,7 +139,7 @@ expectStyledSystemPropertyAssignable<"UNSAFE_backgroundColor">("#fff");
 expectStyledSystemPropertyAssignable<"backgroundImage">("url(dog.gif)");
 expectStyledSystemPropertyAssignable<"backgroundImage">({ base: "url(dog.gif)", xs: "url(dog.gif)", sm: "url(dog.gif)", md: "url(dog.gif)", lg: "url(dog.gif)", xl: "url(dog.gif)" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_backgroundImage">
+expectPropertyAvailable<"UNSAFE_backgroundImage">;
 
 expectStyledSystemPropertyAssignable<"backgroundPosition">("top");
 expectStyledSystemPropertyAssignable<"backgroundPosition">("bottom");
@@ -152,7 +152,7 @@ expectStyledSystemPropertyAssignable<"backgroundPosition">("right-top");
 expectStyledSystemPropertyAssignable<"backgroundPosition">("right-bottom");
 expectStyledSystemPropertyAssignable<"backgroundPosition">({ base: "top", xs: "top", sm: "top", md: "top", lg: "top", xl: "top" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_backgroundPosition">
+expectPropertyAvailable<"UNSAFE_backgroundPosition">;
 
 expectStyledSystemPropertyAssignable<"backgroundRepeat">("no-repeat");
 expectStyledSystemPropertyAssignable<"backgroundRepeat">("repeat");
@@ -162,14 +162,14 @@ expectStyledSystemPropertyAssignable<"backgroundRepeat">("round");
 expectStyledSystemPropertyAssignable<"backgroundRepeat">("space");
 expectStyledSystemPropertyAssignable<"backgroundRepeat">({ base: "round", xs: "round", sm: "round", md: "round", lg: "round", xl: "round" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_backgroundRepeat">
+expectPropertyAvailable<"UNSAFE_backgroundRepeat">;
 
 expectStyledSystemPropertyAssignable<"backgroundSize">("top");
 expectStyledSystemPropertyAssignable<"backgroundSize">("cover");
 expectStyledSystemPropertyAssignable<"backgroundSize">("contain");
 expectStyledSystemPropertyAssignable<"backgroundSize">({ base: "cover", xs: "cover", sm: "cover", md: "cover", lg: "cover", xl: "cover" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_backgroundSize">
+expectPropertyAvailable<"UNSAFE_backgroundSize">;
 
 expectStyledSystemPropertyAssignable<"border">(0);
 expectStyledSystemPropertyAssignable<"border">("white");
@@ -513,7 +513,7 @@ expectStyledSystemPropertyAssignable<"bottom">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"bottom">("auto");
 expectStyledSystemPropertyAssignable<"bottom">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_bottom">
+expectPropertyAvailable<"UNSAFE_bottom">;
 
 // TODO allow none?
 expectStyledSystemPropertyAssignable<"boxShadow">("none");
@@ -593,14 +593,14 @@ expectStyledSystemPropertyAssignable<"content">("none");
 expectStyledSystemPropertyAssignable<"content">("linear-gradient(#e66465, #9198e5)");
 expectStyledSystemPropertyAssignable<"content">({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_content">
+expectPropertyAvailable<"UNSAFE_content">;
 
 expectStyledSystemPropertyAssignable<"contentVisibility">("visible");
 expectStyledSystemPropertyAssignable<"contentVisibility">("hidden");
 expectStyledSystemPropertyAssignable<"contentVisibility">("auto");
 expectStyledSystemPropertyAssignable<"contentVisibility">({ base: "hidden", xs: "hidden", sm: "hidden", md: "hidden", lg: "hidden", xl: "hidden" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_contentVisibility">
+expectPropertyAvailable<"UNSAFE_contentVisibility">;
 
 expectStyledSystemPropertyAssignable<"cursor">("auto");
 expectStyledSystemPropertyAssignable<"cursor">("pointer");
@@ -613,7 +613,7 @@ expectStyledSystemPropertyAssignable<"cursor">("zoom-in");
 expectStyledSystemPropertyAssignable<"cursor">("url(cursor1.png) 4 12, auto");
 expectStyledSystemPropertyAssignable<"cursor">({ base: "pointer", xs: "pointer", sm: "pointer", md: "pointer", lg: "pointer", xl: "pointer" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_cursor">
+expectPropertyAvailable<"UNSAFE_cursor">;
 
 expectStyledSystemPropertyAssignable<"display">("block");
 expectStyledSystemPropertyAssignable<"display">("inline-block");
@@ -636,7 +636,7 @@ expectStyledSystemPropertyAssignable<"display">("list-item");
 expectStyledSystemPropertyAssignable<"display">("none");
 expectStyledSystemPropertyAssignable<"display">({ base: "block", xs: "block", sm: "block", md: "block", lg: "block", xl: "block" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_display">
+expectPropertyAvailable<"UNSAFE_display">;
 
 expectStyledSystemPropertyAssignable<"fill">("white");
 expectStyledSystemPropertyAssignable<"fill">("purple-1");
@@ -672,7 +672,7 @@ expectStyledSystemPropertyAssignable<"filter">("blur(5px)");
 expectStyledSystemPropertyAssignable<"filter">("none");
 expectStyledSystemPropertyAssignable<"filter">({ base: "blur(5px)", xs: "blur(5px)", sm: "blur(5px)", md: "blur(5px)", lg: "blur(5px)", xl: "blur(5px)" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_filter">
+expectPropertyAvailable<"UNSAFE_filter">;
 
 expectStyledSystemPropertyAssignable<"flex">("1px");
 expectStyledSystemPropertyAssignable<"flex">("1em");
@@ -689,7 +689,7 @@ expectStyledSystemPropertyAssignable<"flex">("none");
 expectStyledSystemPropertyAssignable<"flex">("2 2 10%");
 expectStyledSystemPropertyAssignable<"flex">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flex">
+expectPropertyAvailable<"UNSAFE_flex">;
 
 expectStyledSystemPropertyAssignable<"flexBasis">("1px");
 expectStyledSystemPropertyAssignable<"flexBasis">("1em");
@@ -705,7 +705,7 @@ expectStyledSystemPropertyAssignable<"flexBasis">("content");
 expectStyledSystemPropertyAssignable<"flexBasis">("fill");
 expectStyledSystemPropertyAssignable<"flexBasis">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flexBasis">
+expectPropertyAvailable<"UNSAFE_flexBasis">;
 
 expectStyledSystemPropertyAssignable<"flexDirection">("row");
 expectStyledSystemPropertyAssignable<"flexDirection">("row-reverse");
@@ -713,7 +713,7 @@ expectStyledSystemPropertyAssignable<"flexDirection">("column");
 expectStyledSystemPropertyAssignable<"flexDirection">("column-reverse");
 expectStyledSystemPropertyAssignable<"flexDirection">({ base: "row", xs: "row", sm: "row", md: "row", lg: "row", xl: "row" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flexDirection">
+expectPropertyAvailable<"UNSAFE_flexDirection">;
 
 expectStyledSystemPropertyAssignable<"flexFlow">("row");
 expectStyledSystemPropertyAssignable<"flexFlow">("row-reverse");
@@ -727,7 +727,7 @@ expectStyledSystemPropertyAssignable<"flexFlow">("column wrap");
 expectStyledSystemPropertyAssignable<"flexFlow">("column-reverse wrap-reverse");
 expectStyledSystemPropertyAssignable<"flexFlow">({ base: "row", xs: "row", sm: "row", md: "row", lg: "row", xl: "row" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flexFlow">
+expectPropertyAvailable<"UNSAFE_flexFlow">;
 
 expectStyledSystemPropertyAssignable<"flexGrow">(0);
 expectStyledSystemPropertyAssignable<"flexGrow">(1);
@@ -736,7 +736,7 @@ expectStyledSystemPropertyAssignable<"flexGrow">(3);
 expectStyledSystemPropertyAssignable<"flexGrow">(3.6);
 expectStyledSystemPropertyAssignable<"flexGrow">({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flexGrow">
+expectPropertyAvailable<"UNSAFE_flexGrow">;
 
 expectStyledSystemPropertyAssignable<"flexShrink">(0);
 expectStyledSystemPropertyAssignable<"flexShrink">(1);
@@ -745,14 +745,14 @@ expectStyledSystemPropertyAssignable<"flexShrink">(3);
 expectStyledSystemPropertyAssignable<"flexShrink">(3.6);
 expectStyledSystemPropertyAssignable<"flexShrink">({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flexShrink">
+expectPropertyAvailable<"UNSAFE_flexShrink">;
 
 expectStyledSystemPropertyAssignable<"flexWrap">("wrap");
 expectStyledSystemPropertyAssignable<"flexWrap">("nowrap");
 expectStyledSystemPropertyAssignable<"flexWrap">("wrap-reverse");
 expectStyledSystemPropertyAssignable<"flexWrap">({ base: "wrap", xs: "wrap", sm: "wrap", md: "wrap", lg: "wrap", xl: "wrap" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_flexWrap">
+expectPropertyAvailable<"UNSAFE_flexWrap">;
 
 expectStyledSystemPropertyAssignable<"fontSize">(1);
 expectStyledSystemPropertyAssignable<"fontSize">(2);
@@ -802,7 +802,7 @@ expectStyledSystemPropertyAssignable<"fontStyle">("oblique");
 expectStyledSystemPropertyAssignable<"fontStyle">("oblique 10deg");
 expectStyledSystemPropertyAssignable<"fontStyle">({ base: "normal", xs: "normal", sm: "normal", md: "normal", lg: "normal", xl: "normal" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_fontStyle">
+expectPropertyAvailable<"UNSAFE_fontStyle">;
 
 expectStyledSystemPropertyAssignable<"fontWeight">(1);
 expectStyledSystemPropertyAssignable<"fontWeight">(2);
@@ -851,7 +851,7 @@ expectStyledSystemPropertyAssignable<"grid">("auto-flow / 200px");
 expectStyledSystemPropertyAssignable<"grid">("auto-flow dense 40% / [line1] minmax(20em, max-content)");
 expectStyledSystemPropertyAssignable<"grid">({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_grid">
+expectPropertyAvailable<"UNSAFE_grid">;
 
 expectStyledSystemPropertyAssignable<"gridArea">("auto");
 expectStyledSystemPropertyAssignable<"gridArea">("auto / auto");
@@ -862,7 +862,7 @@ expectStyledSystemPropertyAssignable<"gridArea">("span 3");
 expectStyledSystemPropertyAssignable<"gridArea">("4 some-grid-area / 2 another-grid-area");
 expectStyledSystemPropertyAssignable<"gridArea">({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridArea">
+expectPropertyAvailable<"UNSAFE_gridArea">;
 
 expectStyledSystemPropertyAssignable<"gridAutoColumns">(1);
 expectStyledSystemPropertyAssignable<"gridAutoColumns">("max-content");
@@ -930,7 +930,7 @@ expectStyledSystemPropertyAssignable<"gridAutoFlow">("row dense");
 expectStyledSystemPropertyAssignable<"gridAutoFlow">("column dense");
 expectStyledSystemPropertyAssignable<"gridAutoFlow">({ base: "row", xs: "row", sm: "row", md: "row", lg: "row", xl: "row" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridAutoFlow">
+expectPropertyAvailable<"UNSAFE_gridAutoFlow">;
 
 expectStyledSystemPropertyAssignable<"gridAutoRows">(1);
 expectStyledSystemPropertyAssignable<"gridAutoRows">("max-content");
@@ -1001,7 +1001,7 @@ expectStyledSystemPropertyAssignable<"gridColumn">("main-start");
 expectStyledSystemPropertyAssignable<"gridColumn">("main-start / main-end");
 expectStyledSystemPropertyAssignable<"gridColumn">({ base: "1 / 3", xs: "1 / 3", sm: "1 / 3", md: "1 / 3", lg: "1 / 3", xl: "1 / 3" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridColumn">
+expectPropertyAvailable<"UNSAFE_gridColumn">;
 
 expectStyledSystemPropertyAssignable<"gridColumnEnd">("auto");
 expectStyledSystemPropertyAssignable<"gridColumnEnd">("somegridarea");
@@ -1011,12 +1011,12 @@ expectStyledSystemPropertyAssignable<"gridColumnEnd">("span 3");
 expectStyledSystemPropertyAssignable<"gridColumnEnd">("5 somegridarea span");
 expectStyledSystemPropertyAssignable<"gridColumnEnd">({ base: "2", xs: "2", sm: "2", md: "2", lg: "2", xl: "2" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridColumnEnd">
+expectPropertyAvailable<"UNSAFE_gridColumnEnd">;
 
 expectStyledSystemPropertyAssignable<"gridColumnSpan">(3);
 expectStyledSystemPropertyAssignable<"gridColumnSpan">({ base: 3, xs: 3, sm: 3, md: 3, lg: 3, xl: 3 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridColumnSpan">
+expectPropertyAvailable<"UNSAFE_gridColumnSpan">;
 
 expectStyledSystemPropertyAssignable<"gridColumnStart">("auto");
 expectStyledSystemPropertyAssignable<"gridColumnStart">("somegridarea");
@@ -1025,7 +1025,7 @@ expectStyledSystemPropertyAssignable<"gridColumnStart">("somegridarea 4");
 expectStyledSystemPropertyAssignable<"gridColumnStart">("span somegridarea 5");
 expectStyledSystemPropertyAssignable<"gridColumnStart">({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridColumnStart">
+expectPropertyAvailable<"UNSAFE_gridColumnStart">;
 
 expectStyledSystemPropertyAssignable<"gridRow">(3);
 expectStyledSystemPropertyAssignable<"gridRow">("auto");
@@ -1036,7 +1036,7 @@ expectStyledSystemPropertyAssignable<"gridRow">("main-start");
 expectStyledSystemPropertyAssignable<"gridRow">("main-start / main-end");
 expectStyledSystemPropertyAssignable<"gridRow">({ base: "1 / 3", xs: "1 / 3", sm: "1 / 3", md: "1 / 3", lg: "1 / 3", xl: "1 / 3" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridRow">
+expectPropertyAvailable<"UNSAFE_gridRow">;
 
 expectStyledSystemPropertyAssignable<"gridRowEnd">("auto");
 expectStyledSystemPropertyAssignable<"gridRowEnd">("somegridarea");
@@ -1045,12 +1045,12 @@ expectStyledSystemPropertyAssignable<"gridRowEnd">("somegridarea 4");
 expectStyledSystemPropertyAssignable<"gridRowEnd">("span somegridarea 5");
 expectStyledSystemPropertyAssignable<"gridRowEnd">({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridRowEnd">
+expectPropertyAvailable<"UNSAFE_gridRowEnd">;
 
 expectStyledSystemPropertyAssignable<"gridRowSpan">(3);
 expectStyledSystemPropertyAssignable<"gridRowSpan">({ base: 3, xs: 3, sm: 3, md: 3, lg: 3, xl: 3 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridRowSpan">
+expectPropertyAvailable<"UNSAFE_gridRowSpan">;
 
 
 expectStyledSystemPropertyAssignable<"gridRowStart">("auto");
@@ -1060,7 +1060,7 @@ expectStyledSystemPropertyAssignable<"gridRowStart">("somegridarea 4");
 expectStyledSystemPropertyAssignable<"gridRowStart">("span somegridarea 5");
 expectStyledSystemPropertyAssignable<"gridRowStart">({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridRowStart">
+expectPropertyAvailable<"UNSAFE_gridRowStart">;
 
 
 expectStyledSystemPropertyAssignable<"gridTemplateAreas">("none");
@@ -1072,7 +1072,7 @@ expectStyledSystemPropertyAssignable<"gridTemplateAreas">(`
 expectStyledSystemPropertyAssignable<"gridTemplateAreas">("\"head head\" \"nav  main\" \"nav  foot\"");
 expectStyledSystemPropertyAssignable<"gridTemplateAreas">({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridTemplateAreas">
+expectPropertyAvailable<"UNSAFE_gridTemplateAreas">;
 
 expectStyledSystemPropertyAssignable<"gridTemplateColumns">("none");
 expectStyledSystemPropertyAssignable<"gridTemplateColumns">(1);
@@ -1159,7 +1159,7 @@ expectStyledSystemPropertyAssignable<"gridTemplate">(`
 `);
 expectStyledSystemPropertyAssignable<"gridTemplate">({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_gridTemplate">
+expectPropertyAvailable<"UNSAFE_gridTemplate">;
 
 expectStyledSystemPropertyAssignable<"gridTemplateRows">("none");
 expectStyledSystemPropertyAssignable<"gridTemplateRows">(1);
@@ -1292,7 +1292,7 @@ expectStyledSystemPropertyAssignable<"justifyContent">("safe center");
 expectStyledSystemPropertyAssignable<"justifyContent">("unsafe center");
 expectStyledSystemPropertyAssignable<"justifyContent">({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_justifyContent">
+expectPropertyAvailable<"UNSAFE_justifyContent">;
 
 expectStyledSystemPropertyAssignable<"justifyItems">("center");
 expectStyledSystemPropertyAssignable<"justifyItems">("start");
@@ -1315,7 +1315,7 @@ expectStyledSystemPropertyAssignable<"justifyItems">("safe center");
 expectStyledSystemPropertyAssignable<"justifyItems">("unsafe center");
 expectStyledSystemPropertyAssignable<"justifyItems">({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_justifyItems">
+expectPropertyAvailable<"UNSAFE_justifyItems">;
 
 expectStyledSystemPropertyAssignable<"justifySelf">("center");
 expectStyledSystemPropertyAssignable<"justifySelf">("start");
@@ -1339,7 +1339,7 @@ expectStyledSystemPropertyAssignable<"justifySelf">("safe center");
 expectStyledSystemPropertyAssignable<"justifySelf">("unsafe center");
 expectStyledSystemPropertyAssignable<"justifySelf">({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_justifySelf">
+expectPropertyAvailable<"UNSAFE_justifySelf">;
 
 expectStyledSystemPropertyAssignable<"left">("1px");
 expectStyledSystemPropertyAssignable<"left">("-1px");
@@ -1350,7 +1350,7 @@ expectStyledSystemPropertyAssignable<"left">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"left">("auto");
 expectStyledSystemPropertyAssignable<"left">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_left">
+expectPropertyAvailable<"UNSAFE_left">;
 
 expectStyledSystemPropertyAssignable<"letterSpacing">("1px");
 expectStyledSystemPropertyAssignable<"letterSpacing">("0.3em");
@@ -1358,7 +1358,7 @@ expectStyledSystemPropertyAssignable<"letterSpacing">(".3px");
 expectStyledSystemPropertyAssignable<"letterSpacing">("auto");
 expectStyledSystemPropertyAssignable<"letterSpacing">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_letterSpacing">
+expectPropertyAvailable<"UNSAFE_letterSpacing">;
 
 expectStyledSystemPropertyAssignable<"lineHeight">(1);
 expectStyledSystemPropertyAssignable<"lineHeight">(2);
@@ -1761,7 +1761,7 @@ expectStyledSystemPropertyAssignable<"objectFit">("none");
 expectStyledSystemPropertyAssignable<"objectFit">("scale-down");
 expectStyledSystemPropertyAssignable<"objectFit">({ base: "fill", xs: "fill", sm: "fill", md: "fill", lg: "fill", xl: "fill" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_objectFit">
+expectPropertyAvailable<"UNSAFE_objectFit">;
 
 expectStyledSystemPropertyAssignable<"objectPosition">("50% 50%");
 expectStyledSystemPropertyAssignable<"objectPosition">("right top");
@@ -1769,19 +1769,19 @@ expectStyledSystemPropertyAssignable<"objectPosition">("left bottom");
 expectStyledSystemPropertyAssignable<"objectPosition">("250px 125px");
 expectStyledSystemPropertyAssignable<"objectPosition">({ base: "right top", xs: "right top", sm: "right top", md: "right top", lg: "right top", xl: "right top" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_objectPosition">
+expectPropertyAvailable<"UNSAFE_objectPosition">;
 
 expectStyledSystemPropertyAssignable<"opacity">(0.9);
 expectStyledSystemPropertyAssignable<"opacity">("90%");
 expectStyledSystemPropertyAssignable<"opacity">({ base: 0.9, xs: 0.9, sm: 0.9, md: 0.9, lg: 0.9, xl: 0.9 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_opacity">
+expectPropertyAvailable<"UNSAFE_opacity">;
 
 expectStyledSystemPropertyAssignable<"order">(1);
 expectStyledSystemPropertyAssignable<"order">(-1);
 expectStyledSystemPropertyAssignable<"order">({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_order">
+expectPropertyAvailable<"UNSAFE_order">;
 
 expectStyledSystemPropertyAssignable<"outline">("solid");
 expectStyledSystemPropertyAssignable<"outline">("#f66 dashed");
@@ -1790,7 +1790,7 @@ expectStyledSystemPropertyAssignable<"outline">("green solid 3px");
 expectStyledSystemPropertyAssignable<"outline">("none");
 expectStyledSystemPropertyAssignable<"outline">({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_outline">
+expectPropertyAvailable<"UNSAFE_outline">;
 
 expectStyledSystemPropertyAssignable<"overflow">("auto");
 expectStyledSystemPropertyAssignable<"overflow">("clip");
@@ -1799,7 +1799,7 @@ expectStyledSystemPropertyAssignable<"overflow">("scroll");
 expectStyledSystemPropertyAssignable<"overflow">("visible");
 expectStyledSystemPropertyAssignable<"overflow">({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_overflow">
+expectPropertyAvailable<"UNSAFE_overflow">;
 
 expectStyledSystemPropertyAssignable<"overflowX">("auto");
 expectStyledSystemPropertyAssignable<"overflowX">("clip");
@@ -1808,7 +1808,7 @@ expectStyledSystemPropertyAssignable<"overflowX">("scroll");
 expectStyledSystemPropertyAssignable<"overflowX">("visible");
 expectStyledSystemPropertyAssignable<"overflowX">({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_overflowX">
+expectPropertyAvailable<"UNSAFE_overflowX">;
 
 expectStyledSystemPropertyAssignable<"overflowY">("auto");
 expectStyledSystemPropertyAssignable<"overflowY">("clip");
@@ -1817,7 +1817,7 @@ expectStyledSystemPropertyAssignable<"overflowY">("scroll");
 expectStyledSystemPropertyAssignable<"overflowY">("visible");
 expectStyledSystemPropertyAssignable<"overflowY">({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_overflowY">
+expectPropertyAvailable<"UNSAFE_overflowY">;
 
 expectStyledSystemPropertyAssignable<"padding">(1);
 // @ts-expect-error: only tokens are allowed
@@ -2030,7 +2030,7 @@ expectStyledSystemPropertyAssignable<"pointerEvents">("stroke");
 expectStyledSystemPropertyAssignable<"pointerEvents">("all");
 expectStyledSystemPropertyAssignable<"pointerEvents">({ base: "fill", xs: "fill", sm: "fill", md: "fill", lg: "fill", xl: "fill" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_pointerEvents">
+expectPropertyAvailable<"UNSAFE_pointerEvents">;
 
 expectStyledSystemPropertyAssignable<"position">("static");
 expectStyledSystemPropertyAssignable<"position">("fixed");
@@ -2039,7 +2039,7 @@ expectStyledSystemPropertyAssignable<"position">("relative");
 expectStyledSystemPropertyAssignable<"position">("sticky");
 expectStyledSystemPropertyAssignable<"position">({ base: "fixed", xs: "fixed", sm: "fixed", md: "fixed", lg: "fixed", xl: "fixed" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_position">
+expectPropertyAvailable<"UNSAFE_position">;
 
 
 expectStyledSystemPropertyAssignable<"resize">("none");
@@ -2050,7 +2050,7 @@ expectStyledSystemPropertyAssignable<"resize">("block");
 expectStyledSystemPropertyAssignable<"resize">("inline");
 expectStyledSystemPropertyAssignable<"resize">({ base: "both", xs: "both", sm: "both", md: "both", lg: "both", xl: "both" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_resize">
+expectPropertyAvailable<"UNSAFE_resize">;
 
 expectStyledSystemPropertyAssignable<"right">("1px");
 expectStyledSystemPropertyAssignable<"right">("-1px");
@@ -2061,7 +2061,7 @@ expectStyledSystemPropertyAssignable<"right">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"right">("auto");
 expectStyledSystemPropertyAssignable<"right">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_right">
+expectPropertyAvailable<"UNSAFE_right">;
 
 expectStyledSystemPropertyAssignable<"rowGap">(1);
 expectStyledSystemPropertyAssignable<"rowGap">("normal");
@@ -2126,7 +2126,7 @@ expectStyledSystemPropertyAssignable<"textAlign">("justify-all");
 expectStyledSystemPropertyAssignable<"textAlign">("match-parent");
 expectStyledSystemPropertyAssignable<"textAlign">({ base: "start", xs: "start", sm: "start", md: "start", lg: "start", xl: "start" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_textAlign">
+expectPropertyAvailable<"UNSAFE_textAlign">;
 
 
 expectStyledSystemPropertyAssignable<"textDecoration">("underline");
@@ -2134,7 +2134,7 @@ expectStyledSystemPropertyAssignable<"textDecoration">("underline dotted");
 expectStyledSystemPropertyAssignable<"textDecoration">("overline #FF3028");
 expectStyledSystemPropertyAssignable<"textDecoration">({ base: "underline", xs: "underline", sm: "underline", md: "underline", lg: "underline", xl: "underline" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_textDecoration">
+expectPropertyAvailable<"UNSAFE_textDecoration">;
 
 expectStyledSystemPropertyAssignable<"textOverflow">("clip");
 expectStyledSystemPropertyAssignable<"textOverflow">("ellipsis");
@@ -2142,7 +2142,7 @@ expectStyledSystemPropertyAssignable<"textOverflow">("ellipsis ellipsis");
 expectStyledSystemPropertyAssignable<"textOverflow">("ellipsis \" [..]\"");
 expectStyledSystemPropertyAssignable<"textOverflow">({ base: "clip", xs: "clip", sm: "clip", md: "clip", lg: "clip", xl: "clip" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_textOverflow">
+expectPropertyAvailable<"UNSAFE_textOverflow">;
 
 expectStyledSystemPropertyAssignable<"top">("1px");
 expectStyledSystemPropertyAssignable<"top">("-1px");
@@ -2153,7 +2153,7 @@ expectStyledSystemPropertyAssignable<"top">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"top">("auto");
 expectStyledSystemPropertyAssignable<"top">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_top">
+expectPropertyAvailable<"UNSAFE_top">;
 
 expectStyledSystemPropertyAssignable<"transform">("none");
 expectStyledSystemPropertyAssignable<"transform">("matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)");
@@ -2181,7 +2181,7 @@ expectStyledSystemPropertyAssignable<"transform">("translateX(10px) rotate(10deg
 expectStyledSystemPropertyAssignable<"transform">("perspective(500px) translate(10px, 0, 20px) rotateY(3deg)");
 expectStyledSystemPropertyAssignable<"transform">({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_transform">
+expectPropertyAvailable<"UNSAFE_transform">;
 
 expectStyledSystemPropertyAssignable<"transformOrigin">("2px");
 expectStyledSystemPropertyAssignable<"transformOrigin">("bottom");
@@ -2195,13 +2195,13 @@ expectStyledSystemPropertyAssignable<"transformOrigin">("right bottom 2cm");
 expectStyledSystemPropertyAssignable<"transformOrigin">("bottom right 2cm");
 expectStyledSystemPropertyAssignable<"transformOrigin">({ base: "2px", xs: "2px", sm: "2px", md: "2px", lg: "2px", xl: "2px" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_transformOrigin">
+expectPropertyAvailable<"UNSAFE_transformOrigin">;
 
 expectStyledSystemPropertyAssignable<"transformStyle">("flat");
 expectStyledSystemPropertyAssignable<"transformStyle">("preserve-3d");
 expectStyledSystemPropertyAssignable<"transformStyle">({ base: "flat", xs: "flat", sm: "flat", md: "flat", lg: "flat", xl: "flat" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_transformStyle">
+expectPropertyAvailable<"UNSAFE_transformStyle">;
 
 expectStyledSystemPropertyAssignable<"verticalAlign">("baseline");
 expectStyledSystemPropertyAssignable<"verticalAlign">("sub");
@@ -2218,14 +2218,14 @@ expectStyledSystemPropertyAssignable<"verticalAlign">("1%");
 expectStyledSystemPropertyAssignable<"verticalAlign">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"verticalAlign">({ base: "middle", xs: "middle", sm: "middle", md: "middle", lg: "middle", xl: "middle" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_verticalAlign">
+expectPropertyAvailable<"UNSAFE_verticalAlign">;
 
 expectStyledSystemPropertyAssignable<"visibility">("visible");
 expectStyledSystemPropertyAssignable<"visibility">("hidden");
 expectStyledSystemPropertyAssignable<"visibility">("collapse");
 expectStyledSystemPropertyAssignable<"visibility">({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_visibility">
+expectPropertyAvailable<"UNSAFE_visibility">;
 
 expectStyledSystemPropertyAssignable<"whiteSpace">("normal");
 expectStyledSystemPropertyAssignable<"whiteSpace">("nowrap");
@@ -2235,7 +2235,7 @@ expectStyledSystemPropertyAssignable<"whiteSpace">("pre-line");
 expectStyledSystemPropertyAssignable<"whiteSpace">("break-spaces");
 expectStyledSystemPropertyAssignable<"whiteSpace">({ base: "nowrap", xs: "nowrap", sm: "nowrap", md: "nowrap", lg: "nowrap", xl: "nowrap" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_whiteSpace">
+expectPropertyAvailable<"UNSAFE_whiteSpace">;
 
 
 expectStyledSystemPropertyAssignable<"willChange">("auto");
@@ -2246,7 +2246,7 @@ expectStyledSystemPropertyAssignable<"willChange">("opacity");
 expectStyledSystemPropertyAssignable<"willChange">("left, top");
 expectStyledSystemPropertyAssignable<"willChange">({ base: "contents", xs: "contents", sm: "contents", md: "contents", lg: "contents", xl: "contents" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_willChange">
+expectPropertyAvailable<"UNSAFE_willChange">;
 
 expectStyledSystemPropertyAssignable<"width">(1);
 // @ts-expect-error: only tokens are allowed
@@ -2294,7 +2294,7 @@ expectStyledSystemPropertyAssignable<"wordBreak">("keep-all");
 expectStyledSystemPropertyAssignable<"wordBreak">("break-word");
 expectStyledSystemPropertyAssignable<"wordBreak">({ base: "break-word", xs: "break-word", sm: "break-word", md: "break-word", lg: "break-word", xl: "break-word" });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_wordBreak">
+expectPropertyAvailable<"UNSAFE_wordBreak">;
 
 
 expectStyledSystemPropertyAssignable<"zIndex">("auto");
@@ -2302,7 +2302,7 @@ expectStyledSystemPropertyAssignable<"zIndex">(1);
 expectStyledSystemPropertyAssignable<"zIndex">(-1);
 expectStyledSystemPropertyAssignable<"zIndex">({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
-expectPropertyAvailable<"UNSAFE_zIndex">
+expectPropertyAvailable<"UNSAFE_zIndex">;
 
 expectAssignable<StyledSystemProps>({
     alignContent: "center",
@@ -2443,5 +2443,5 @@ expectAssignable<StyledSystemProps>({
     width: 1,
     willChange: "contents",
     wordBreak: "break-all",
-    zIndex: 1,
+    zIndex: 1
 });

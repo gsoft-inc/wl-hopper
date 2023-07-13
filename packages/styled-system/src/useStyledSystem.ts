@@ -510,10 +510,11 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
             const value = (props as Record<string, any>)[key];
 
             if (!isNil(value)) {
-                const handler = PropsHandlers[key] ?? PropsHandlers[key.replace(UnsafePrefix, "")];
+                const cssProperty = key.replace(UnsafePrefix, "");
+                const handler = PropsHandlers[cssProperty];
 
                 if (!isNil(handler)) {
-                    handler(key, value, context);
+                    handler(cssProperty, value, context);
                 }
             }
         });

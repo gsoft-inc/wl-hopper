@@ -2,10 +2,12 @@
     "extends": "@workleap/typescript-configs/library.json",
     "exclude": ["dist", "node_modules"],
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": ".",
         "paths": {
             "@hopper-ui/fake-tokens": ["./packages/fake-tokens/src/index.ts"],
-            "@hopper-ui/styled-system": ["./packages/styled-system/src/index.ts"]
-        }
-    },
+            "@hopper-ui/styled-system": ["./packages/styled-system/src/index.ts"],
+            "@hopper-ui/test-utils": ["tooling/test-utils"]
+        },
+        "esModuleInterop": true
+    }
 }
