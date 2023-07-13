@@ -13,7 +13,10 @@ const config: Config = {
         ...pathsToModuleNameMapper(compilerOptions.paths, {
             prefix: "<rootDir>/../.."
         })
-    }
+    },
+    setupFilesAfterEnv: [
+        "./jest-setup.ts"
+    ]
 };
 
 export default config;

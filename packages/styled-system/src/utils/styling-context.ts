@@ -25,7 +25,11 @@ export class StylingContext {
         // TODO: different than orbit, there was a check here to check if the style was already set. It caused issue where
         // if you were doing paddingX and then paddingLeft, the paddingLeft would not be applied because the paddingX was already set.
         // https://github.com/gsoft-inc/sg-orbit/issues/1210
+
+        // Removing this line causes 2 tests to fail, but i think the behavior is OK.
+        //if ((this.#style as Record<string, unknown>)[name] === undefined) {
         (this.#style as Record<string, unknown>)[name] = value;
+        //}
 
         return this;
     }

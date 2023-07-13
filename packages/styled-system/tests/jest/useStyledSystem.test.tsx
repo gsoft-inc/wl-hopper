@@ -306,17 +306,17 @@ const responsiveBoxes = Props.map((x: PropDefinition) => (
                 acc[y] = x.values[index];
 
                 return acc;
-            }, {})
+            }, {} as Record<string, unknown>)
         }}
     />
 ));
 
 describe("breakpoints", () => {
-    Object.keys(Breakpoints).forEach((x: keyof typeof Breakpoints) => {
+    Object.keys(Breakpoints).forEach(x => {
         test(`${x}`, () => {
             const tree = renderer
                 .create(
-                    <BreakpointProvider unsupportedMatchMediaBreakpoint={x}>
+                    <BreakpointProvider unsupportedMatchMediaBreakpoint={x as keyof typeof Breakpoints}>
                         {responsiveBoxes}
                     </BreakpointProvider>
                 )
@@ -357,12 +357,12 @@ test("when hover prop is specified and there are already a class, append hover c
     renderWithTheme(
         <Box
             className="toto"
-            borderHover="#fff"
+            borderHover="accent-1"
             data-testid="box"
         />
     );
 
-    await waitFor(() => expect(screen.getByTestId("box")).toHaveClass("toto o-ui-b-hover"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveClass("toto hop-b-hover"));
 });
 
 test("do not add style when a prop value is undefined", async () => {

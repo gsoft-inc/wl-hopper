@@ -1,5 +1,4 @@
-// TODO SyntaxError: C:\Dev\wl-hopper\packages\styled-system\src\HopperProvider.tsx: Support for the experimental syntax 'importAttributes' isn't currently enabled (2:43):
-import packageJson from "../package.json" /* assert { type: "json" }*/;
+import packageJson from "../package.json";
 import { BreakpointProvider } from "./responsive/BreakpointProvider.tsx";
 import { ColorSchemeProvider, type ColorSchemeProviderProps } from "./color-scheme/ColorSchemeProvider.tsx";
 import { TokensProvider } from "./tokens/TokensProvider.tsx";
