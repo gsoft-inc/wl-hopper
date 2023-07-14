@@ -20,7 +20,7 @@
     "test": "echo \"no test specified\"",
     "build": "pnpm --filter=packages -r --parallel build",
 
-    "lint": "pnpm run /^lint:.*/",
+    "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
     "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache",
 
