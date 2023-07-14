@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
 import "./aside.css";
 
 interface Link {
     title: string;
     url: string;
+    id: string;
 }
 
 interface AsideProps {
@@ -15,22 +17,28 @@ interface AsideProps {
 }
 
 export const Aside: React.FC<AsideProps> = ({ title, links }) => {
-    return (
-        <aside className="hd-aside">
-            <ul className="hd-aside__list">
-                <li className="hd-aside__item hd-aside-section">
-                    <span className="hd-aside__title">{title}</span>
-                    <ul className="hd-aside__nested-list">
-                        {links.map(link => (
-                            <li className="hd-aside__item">
-                                <Link href={link.url} key={link.title} className="hd-aside__link">
-                                    {link.title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-    );
+    const pathname = usePathname();
+
+    if (links.length) {
+        return (
+            <aside className="hd-aside">
+                <ul className="hd-aside__list">
+                    <li className="hd-aside__item hd-aside-section">
+                        <span className="hd-aside__title">{title}</span>
+                        <ul className="hd-aside__nested-list">
+                            {links.map(link => (
+                                <li className="hd-aside__item" key={link.id}>
+                                    <Link href={`${pathname}${link.url}`} className="hd-aside__link">
+                                        {link.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        );
+    }
+
+    return null;
 };

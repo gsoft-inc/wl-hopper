@@ -1,3 +1,16 @@
+body,
+html {
+    scroll-behavior: smooth;
+}
+
+/* let's offset our scrolls to the size of our top sticky bar */
+:target:before {
+    content: "";
+    display: block;
+    height: var(--hd-header-height);
+    margin: calc(-1 * var(--hd-space-8)) 0 0;
+}
+
 main {
     padding-block: var(--hd-space-8);
     width: 100%;
@@ -11,6 +24,26 @@ h1 {
 h2 {
     font-size: 1.5em;
     margin-block: 3rem 1rem;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin-block: 2rem 0.825rem;
+}
+
+h4 {
+    font-size: 1em;
+    margin-block: 1.5rem 0.75rem;
+}
+
+h5 {
+    font-size: 0.825em;
+    margin-block: 1rem 0.625rem;
+}
+
+h6 {
+    font-size: 0.75em;
+    margin-block: 0.825rem 0.5rem;
 }
 
 p {
