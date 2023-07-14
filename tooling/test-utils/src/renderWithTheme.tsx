@@ -1,4 +1,4 @@
-import { HopperProvider, type ColorScheme } from "../../../packages/styled-system/src/index.ts";
+import { HopperProvider, type ColorScheme } from "@hopper-ui/styled-system";
 import type { ReactElement, ReactNode } from "react";
 import { type RenderHookOptions, renderHook, render, type RenderOptions } from "@testing-library/react";
 
