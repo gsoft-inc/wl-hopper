@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-// import "./card.css";
+import "./card.css";
 
 export default function Card({ children }: { children: ReactNode }) {
     return (
