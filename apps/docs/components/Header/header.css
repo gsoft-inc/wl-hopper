@@ -1,7 +1,7 @@
 :root {
     --hd-header-font-family: var(--hd-default-font-family);
-    --hd-header-background-color: var(--hd-color-surface-primary);
-    --hd-header-border-color: var(--hd-color-border-primary-weak);
+    --hd-header-background-color: var(--hd-color-neutral-surface);
+    --hd-header-border-color: var(--hd-color-neutral-border-weak);
 }
 
 .hd-header {
@@ -34,4 +34,46 @@
 .hd-header__quick-actions {
     display: flex;
     gap: var(--hd-space-1);
+}
+
+/* Stylistic Gradient */
+.hd-header__shadow {
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: -1;
+    top: -18.75rem;
+    max-width: 100%;
+}
+
+.hd-header-shadow-block {
+    position: relative;
+    border-radius: var(--hd-space-7);
+    filter: blur(216px);
+}
+
+.hd-header-shadow-block-1 {
+    background-color: #AFB6E1;
+    width: 32rem;
+    height: 32rem;
+    top: -18.75rem;
+    right: 6rem;
+}
+
+.hd-header-shadow-block-2 {
+    width: 40rem;
+    height: 40rem;
+    background-color: #FECD94;
+    filter: blur(12.5rem);
+    top: -31.25rem;
+}
+
+.hd-header-shadow-block-3 {
+    background-color: #A9F1D6;
+    width: 32rem;
+    height: 32rem;
+    top: -24rem;
+    left: -10.5rem;
 }

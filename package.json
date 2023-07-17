@@ -9,7 +9,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/workleap/wl-hopper.git"
+    "url": "git+https://github.com/gsoft-inc/wl-hopper.git"
   },
   "packageManager": "pnpm@8.6.1",
   "scripts": {
@@ -20,7 +20,7 @@
     "test": "echo \"no test specified\"",
     "build": "pnpm --filter=packages -r --parallel build",
 
-    "lint": "pnpm run /^lint:.*/",
+    "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
     "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache",
 
@@ -52,9 +52,9 @@
     "stylelint": "15.7.0"
   },
   "bugs": {
-    "url": "https://github.com/workleap/wl-hopper/issues"
+    "url": "https://github.com/gsoft-inc/wl-hopper/issues"
   },
   "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/workleap/wl-hopper#readme",
+  "homepage": "https://github.com/gsoft-inc/wl-hopper#readme",
   "_id": "wl-hopper@0.0.0"
 }
