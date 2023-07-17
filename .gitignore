@@ -44,4 +44,9 @@ next-env.d.ts
 # storybook
 build-storybook.log
 
-**/dist/**
+# storybook generated doc
+/packages/tokens/docs/
+
+# build artifacts
+**/dist/
+

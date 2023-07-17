@@ -8,6 +8,10 @@ const preview: Preview = {
                 color: /(background|color)$/i,
                 date: /Date$/
             }
+        },
+        designToken: {
+            defaultTab: "Colors",
+            pageSize: Number.MAX_VALUE
         }
     }
 };
