@@ -1,4 +1,4 @@
-export const generateId = (input: string) => {
+export const formattingTitleId = (input: string) => {
     // Remove non-alphanumeric characters and replace spaces with hyphens
     const sanitizedInput = input.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, "-");
 

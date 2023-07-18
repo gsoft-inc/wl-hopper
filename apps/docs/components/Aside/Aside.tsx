@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import React from "react";
-import { usePathname } from "next/navigation";
 import "./aside.css";
 
 interface Link {
@@ -17,24 +16,18 @@ interface AsideProps {
 }
 
 export const Aside: React.FC<AsideProps> = ({ title, links }) => {
-    const pathname = usePathname();
-
     if (links.length) {
         return (
             <aside className="hd-aside">
+                <span className="hd-aside__title">{title}</span>
                 <ul className="hd-aside__list">
-                    <li className="hd-aside__item hd-aside-section">
-                        <span className="hd-aside__title">{title}</span>
-                        <ul className="hd-aside__nested-list">
-                            {links.map(link => (
-                                <li className="hd-aside__item" key={link.id}>
-                                    <Link href={`${pathname}${link.url}`} className="hd-aside__link">
-                                        {link.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </li>
+                    {links.map(link => (
+                        <li className="hd-aside__item" key={link.id}>
+                            <Link href={link.url} className="hd-aside__link">
+                                {link.title}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </aside>
         );
