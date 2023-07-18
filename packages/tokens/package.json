@@ -24,7 +24,8 @@
         "build": "pnpm run build:ts && pnpm run build:tokens && pnpm run clean:build"
     },
     "dependencies": {
-        "style-dictionary": "^3.8.0"
+        "style-dictionary": "^3.8.0",
+        "style-dictionary-utils": "^1.5.0"
     },
     "devDependencies": {
         "@types/node": "18.15.11",
