@@ -145,9 +145,6 @@ importers:
       style-dictionary:
         specifier: ^3.8.0
         version: 3.8.0
-      style-dictionary-utils:
-        specifier: ^1.5.0
-        version: 1.5.0(color2k@2.0.2)(json5@2.2.3)(prettier@2.8.8)(style-dictionary@3.8.0)
     devDependencies:
       '@types/node':
         specifier: 18.15.11
@@ -8561,10 +8558,6 @@ packages:
     resolution: {integrity: sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==}
     hasBin: true
 
-  /color2k@2.0.2:
-    resolution: {integrity: sha512-kJhwH5nAwb34tmyuqq/lgjEKzlFXn1U99NlnB6Ws4qVaERcRUYeYP1cBw6BJ4vxaWStAUEef4WMr7WjOCnBt8w==}
-    dev: false
-
   /color@4.2.3:
     resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
     engines: {node: '>=12.5.0'}
@@ -14621,20 +14614,6 @@ packages:
   /strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
-
-  /style-dictionary-utils@1.5.0(color2k@2.0.2)(json5@2.2.3)(prettier@2.8.8)(style-dictionary@3.8.0):
-    resolution: {integrity: sha512-Zz7BTNw2dZI+ZOljHeq5Ab5Op5jmaG2H67nCELPG70eZj/b5Hqbwki24MStrLVJYMSm+R2512mKLaJXrn2hwBg==}
-    peerDependencies:
-      color2k: ^2.0.0
-      json5: ^2.2.1
-      prettier: ^2.7.1
-      style-dictionary: '>= 3'
-    dependencies:
-      color2k: 2.0.2
-      json5: 2.2.3
-      prettier: 2.8.8
-      style-dictionary: 3.8.0
-    dev: false
 
   /style-dictionary@3.8.0:
     resolution: {integrity: sha512-wHlB/f5eO3mDcYv6WtOz6gvQC477jBKrwuIXe+PtHskTCBsJdAOvL8hCquczJxDui2TnwpeNE+2msK91JJomZg==}

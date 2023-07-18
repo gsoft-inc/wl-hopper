@@ -18,14 +18,12 @@
     "scripts": {
         "clean:dist": "pnpm dlx rimraf dist",
         "clean:build": "pnpm dlx rimraf build",
-
         "build:ts": "tsup",
         "build:tokens": "node build/build.js",
         "build": "pnpm run build:ts && pnpm run build:tokens && pnpm run clean:build"
     },
     "dependencies": {
-        "style-dictionary": "^3.8.0",
-        "style-dictionary-utils": "^1.5.0"
+        "style-dictionary": "^3.8.0"
     },
     "devDependencies": {
         "@types/node": "18.15.11",
