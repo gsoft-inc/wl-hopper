@@ -5,6 +5,7 @@ export const w3cTokenJsonParser = {
     parse: ({ contents }: ParserOptions) => {
         const preparedContent = (contents || "{}")
             .replace(/"\$?value"\s*:/g, "\"value\":")
+            .replace(/"\$?type"\s*:/g, "\"type\":")
             .replace(/"\$?darkValue"\s*:/g, "\"darkValue\":")
             .replace(/"\$?description"\s*:/g, "\"comment\":");
 
