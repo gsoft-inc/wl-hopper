@@ -10,8 +10,7 @@ const preview: Preview = {
             }
         },
         designToken: {
-            defaultTab: "Colors",
-            pageSize: Number.MAX_VALUE
+            disable: true
         }
     }
 };

@@ -46,7 +46,7 @@ build-storybook.log
 
 # storybook generated doc
 /packages/tokens/docs/
+/public/design-tokens.source.json
 
 # build artifacts
 **/dist/
-
