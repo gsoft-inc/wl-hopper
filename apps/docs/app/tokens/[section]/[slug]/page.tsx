@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { allTokens } from "@/.contentlayer/generated";
 import { Mdx } from "@/components/Mdx/MdxComponent";
+import { Aside } from "@/components/Aside/Aside";
 
 interface PageProps {
     params: {
@@ -33,11 +34,29 @@ export default async function Note({ params }: PageProps) {
         notFound();
     }
 
+    const regex = /##\s*([\w\s]+)/g;
+    const noteData = note.body.raw;
+    const matches = noteData.match(regex);
+    let links: { title: string; url: string; id: string }[] = [];
+
+    if (matches) {
+        const words = matches.map(match => match.replace(/##\s*/, ""));
+
+        links = words.map(word => ({
+            title: word,
+            url: `#${word.toLowerCase()}`,
+            id: word.toLowerCase().replace(/\s+/g, "-")
+        }));
+    }
+
     return (
-        <main>
-            <article key={note._id}>
-                {note.body && <Mdx code={note.body.code} />}
-            </article>
-        </main>
+        <>
+            <main>
+                <article key={note._id}>
+                    {note.body && <Mdx code={note.body.code} />}
+                </article>
+            </main>
+            <Aside title="Contents" links={links} />
+        </>
     );
 }

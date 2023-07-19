@@ -2,13 +2,14 @@
     --hd-header-font-family: var(--hd-default-font-family);
     --hd-header-background-color: var(--hd-color-neutral-surface);
     --hd-header-border-color: var(--hd-color-neutral-border-weak);
+    --hd-header-height: var(--hd-space-8);
 }
 
 .hd-header {
     display: flex;
     align-items: center;
     font-family: var(--hd-header-font-family);
-    height: var(--hd-space-8);
+    height: var(--hd-header-height);
     background-color: var(--hd-header-background-color);
     border-block-end: 1px solid var(--hd-header-border-color);
     position: sticky;
