@@ -6,8 +6,7 @@ const nextConfig = {
     swcMinify: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     experimental: {
-        appDir: true,
-        mdxRs: false
+        appDir: true
     },
     webpack(config) {
         config.module.rules.push({
