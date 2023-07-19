@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/gsoft-inc/wl-hopper.git"
   },
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@8.6.2",
   "scripts": {
     "doc:start": "pnpm --filter=docs dev",
     "doc:storybook": "pnpm --filter=docs storybook",
@@ -36,9 +36,6 @@
     "storybook": "7.0.20"
   },
   "devDependencies": {
-    "@workleap/eslint-plugin": "1.8.1",
-    "@workleap/stylelint-config": "1.2.1",
-    "@workleap/typescript-configs": "2.3.1",
     "@storybook/addon-essentials": "7.0.20",
     "@storybook/addon-interactions": "7.0.20",
     "@storybook/addon-links": "7.0.20",
@@ -46,9 +43,13 @@
     "@storybook/react": "7.0.20",
     "@storybook/react-vite": "7.0.20",
     "@storybook/testing-library": "0.0.14-next.2",
+    "@workleap/eslint-plugin": "1.8.1",
+    "@workleap/stylelint-config": "1.2.1",
+    "@workleap/typescript-configs": "2.3.1",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "storybook-design-token": "3.0.0-beta.3",
     "stylelint": "15.7.0"
   },
   "bugs": {
