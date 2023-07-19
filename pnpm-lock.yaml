@@ -64,13 +64,13 @@ importers:
   apps/docs:
     dependencies:
       contentlayer:
-        specifier: ^0.3.1
+        specifier: 0.3.1
         version: 0.3.1(esbuild@0.18.14)
       next:
         specifier: 13.4.10
         version: 13.4.10(@babel/core@7.22.9)(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
       next-contentlayer:
-        specifier: ^0.3.1
+        specifier: 0.3.1
         version: 0.3.1(esbuild@0.18.14)(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
