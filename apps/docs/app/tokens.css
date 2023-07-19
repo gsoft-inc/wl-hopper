@@ -53,6 +53,7 @@
 [data-theme="light"] {
     --hd-color-neutral-surface: var(--hd-neutral-20);
     --hd-color-neutral-surface-weak: var(--hd-neutral-50);
+    --hd-color-surface-neutral-selection: var(--hd-neutral-75);
     --hd-color-neutral-text: var(--hd-neutral-900);
     --hd-color-neutral-text-weak: var(--hd-neutral-700);
     --hd-color-neutral-text-weakest: var(--hd-neutral-400);
@@ -72,6 +73,7 @@
 [data-theme="dark"] {
     --hd-color-neutral-surface: var(--hd-neutral-900);
     --hd-color-neutral-surface-weak: var(--hd-neutral-800);
+    --hd-color-surface-neutral-selection: var(--hd-neutral-300);
     --hd-color-neutral-text: var(--hd-neutral-0);
     --hd-color-neutral-text-weak: var(--hd-neutral-300);
     --hd-color-neutral-text-weakest: var(--hd-neutral-300);
