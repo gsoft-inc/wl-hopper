@@ -3,19 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "content": "contentlayer build",
-    "dev": "pnpm run content && next dev",
-    "build": "pnpm run content && next build",
     "start": "next start",
+
+    "dev": "pnpm run \"/^dev:.*/\"",
+    "dev:next": "next dev",
+    "dev:content": "contentlayer dev",
+
+    "build": "pnpm run build:content && next build",
+    "build:content": "contentlayer build",
+
     "lint": "next lint",
     "lint:types": "tsc --noEmit",
+
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build:storybook": "storybook build"
   },
   "dependencies": {
-    "contentlayer": "^0.3.1",
+    "contentlayer": "0.3.1",
     "next": "13.4.10",
-    "next-contentlayer": "^0.3.1",
+    "next-contentlayer": "0.3.1",
     "react": "18.2.0",
     "react-aria-components": "1.0.0-alpha.4",
     "react-dom": "18.2.0",
