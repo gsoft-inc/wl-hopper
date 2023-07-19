@@ -1,8 +1,8 @@
 {
     "neutral": {
         "text": {
-            "value": "{black}",
-            "darkValue": "{samoyed}"
+            "$value": "{Rock.800}",
+            "$darkValue": "{Rock.25}"
         }
     }
 }
