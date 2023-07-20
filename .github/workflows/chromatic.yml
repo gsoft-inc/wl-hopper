@@ -63,7 +63,7 @@ jobs:
               run: pnpm build
 
             - name: Publish Tokens to Chromatic
-              if: steps.filter.outputs.tokens == 'true'
+              if: steps.filter.outputs.tokens == 'true' && steps.filter.outputs.storybook == 'false'
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -71,3 +71,12 @@ jobs:
                   onlyChanged: true # TurboSnap
                   skip: ${{ github.event.pull_request.draft == true }}
                   onlyStoryNames: "Tokens/*"
+
+            - name: Publish to Chromatic
+              if: steps.filter.outputs.storybook == 'true'
+              uses: chromaui/action@v1
+              with:
+                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+                  traceChanged: true
+                  onlyChanged: true # TurboSnap
+                  skip: ${{ github.event.pull_request.draft == true }}
