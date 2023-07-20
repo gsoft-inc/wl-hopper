@@ -5,6 +5,7 @@
     "node": true
   },
   "extends": [
-    "plugin:@workleap/react-library"
+    "plugin:@workleap/react-library",
+    "plugin:storybook/recommended"
   ]
 }
