@@ -11,13 +11,13 @@ const nextConfig = {
     },
     images: {
         remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'assets.workleap.com',
-            port: '',
-            pathname: '/hopper/**',
-          },
-        ],
+            {
+                protocol: "https",
+                hostname: "assets.workleap.com",
+                port: "",
+                pathname: "/hopper/**"
+            }
+        ]
     },
     webpack(config) {
         config.module.rules.push({

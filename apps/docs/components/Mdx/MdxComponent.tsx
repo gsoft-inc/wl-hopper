@@ -1,5 +1,5 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
-import Card from "@/components/Card/Card";
+import { Card } from "@/components/Card/Card";
 import { NextImage } from "@/components/Image/Image";
 import { Pre } from "@/components/Pre/Pre";
 import { Title } from "@/components/Title/Title";
@@ -8,9 +8,9 @@ import type { HTMLAttributes } from "react";
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const components = {
-    "Image": NextImage,
+    Image: NextImage,
     pre: Pre,
-    "Card": Card,
+    Card: Card,
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;
     },
