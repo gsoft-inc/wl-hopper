@@ -2,15 +2,22 @@
 
 import { allPages } from "@/.contentlayer/generated";
 import { Mdx } from "@/components/Mdx/MdxComponent";
+import { notFound } from "next/navigation";
 
 export default function Page() {
-    return <main>
-        {allPages
-            .filter(page => page._id === "pages/playground-codeblock.mdx")
-            .map(page => (
+    const page = allPages.find(iconPage => iconPage._id === "pages/playground-headings-links.mdx");
+
+    if (!page) {
+        notFound();
+    }
+
+    return (
+        <>
+            <main>
                 <article key={page._id}>
                     {page.body && <Mdx code={page.body.code} />}
                 </article>
-            ))}
-    </main>;
+            </main>
+        </>
+    );
 }

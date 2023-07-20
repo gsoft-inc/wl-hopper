@@ -1,5 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
+import { formattingTitleId } from "@/components/Utils/FormattingTitleId/FormattingTitleId";
 
 import "./title.css";
 
@@ -18,14 +19,27 @@ export const Title = ({
 }: React.PropsWithChildren<TitleProps>) => {
     const Component = as;
 
+    if (children == null) {
+        return null;
+    }
+
+    const uniqueId = formattingTitleId(children.toString());
+
     return (
         <Component
             className={cx("hd-title", className, {
                 [`hd-title--level${level}`]: level
             })}
+            id={level > 1 ? uniqueId : undefined}
             {...rest}
         >
-            {children}
+            {level > 1 ? (
+                <a href={`#${uniqueId}`} className="hd-title-link">
+                    {children}
+                </a>
+            ) : (
+                children
+            )}
         </Component>
     );
 };

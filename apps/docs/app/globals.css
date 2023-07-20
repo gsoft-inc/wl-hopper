@@ -8,7 +8,7 @@
 }
 
 ::selection {
-    background: var(--hd-color-surface-selection);
+    background: var(--hd-color-surface-neutral-selection);
 }
 
 body {

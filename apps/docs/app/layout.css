@@ -1,16 +1,19 @@
+html {
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
+}
+
+/* let's offset our scrolls to the size of our top sticky bar */
+:target:before {
+    content: "";
+    display: block;
+    height: var(--hd-header-height);
+    margin: calc(-1 * var(--hd-space-8)) 0 0;
+}
+
 main {
     padding-block: var(--hd-space-8);
     width: 100%;
-}
-
-h1 {
-    font-size: 2.5em;
-    margin-block-end: 1rem;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin-block: 3rem 1rem;
 }
 
 p {
