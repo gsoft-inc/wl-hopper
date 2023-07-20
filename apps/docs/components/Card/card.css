@@ -1,4 +1,5 @@
 .hd-card {
-    border-radius: 16px;
-    border: 1px solid red;
+    border-radius: var(--hd-space-2);
+    border: 1px solid var(--hd-color-neutral-border);
+    padding: var(--hd-space-4);
 }

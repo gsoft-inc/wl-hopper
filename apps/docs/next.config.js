@@ -9,6 +9,16 @@ const nextConfig = {
         appDir: true,
         mdxRs: false
     },
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'assets.workleap.com',
+            port: '',
+            pathname: '/hopper/**',
+          },
+        ],
+    },
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/i,
