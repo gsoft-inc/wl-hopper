@@ -1,4 +1,4 @@
-import type { Dictionary, TransformedTokens } from "style-dictionary";
+import type { Dictionary, TransformedTokens, Options } from "style-dictionary";
 
 const handleTypes = (dataArray: TransformedTokens[]): string[] => {
     if (!dataArray) {
@@ -12,12 +12,12 @@ const handleTypes = (dataArray: TransformedTokens[]): string[] => {
     return uniqueType.map(type => type.toString());
 };
 
-export const customDoc = function ({ dictionary }: { dictionary: Dictionary }) {
+export const customDoc = function ({ dictionary, options }: { dictionary: Dictionary; options: Options }) {
     const types = handleTypes(dictionary.allTokens);
 
     const dataArray = types.map(type => {
         const formattedGroup = type.charAt(0).toUpperCase() + type.slice(1);
-        let header = `\n  /**\n   * @tokens ${formattedGroup}s\n   * @presenter ${formattedGroup} \n   */\n\n`;
+        let header = `\n  /**\n   * @tokens ${formattedGroup}s${options.isDarkMode ? "Dark" : ""}\n   * @presenter ${formattedGroup} \n   */\n\n`;
         const data = dictionary.allTokens.filter(token => {
             return token.type === type;
         });
