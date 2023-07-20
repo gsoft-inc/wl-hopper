@@ -41,7 +41,8 @@ export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
                         "destination": isLightMode ? `../${DOC_BUILD_PATH}tokens.css` : `../${DOC_BUILD_PATH}${mode}/tokens.css`,
                         "format": "custom/doc",
                         "options": {
-                            "outputReferences": true
+                            "outputReferences": true,
+                            "isDarkMode": !isLightMode
                         }
                     }
                 ]
