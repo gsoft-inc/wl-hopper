@@ -4,38 +4,48 @@ const PREFIX = "hop";
 const BUILD_PATH = "dist/";
 const DOC_BUILD_PATH = "docs/";
 
-const config: Config = {
-    "source": ["src/tokens/**/*.tokens.json"],
-    "platforms": {
-        "css": {
-            "transformGroup": "css",
-            "buildPath": BUILD_PATH,
-            "prefix": PREFIX,
-            "files": [
-                {
-                    "destination": "tokens.css",
-                    "format": "css/dark-mode",
-                    "options": {
-                        "outputReferences": true
-                    }
-                }
-            ]
-        },
-        "docs": {
-            "transformGroup": "css",
-            "buildPath": DOC_BUILD_PATH,
-            "prefix": PREFIX,
-            "files": [
-                {
-                    "destination": "tokens.css",
-                    "format": "custom/doc",
-                    "options": {
-                        "outputReferences": true
-                    }
-                }
-            ]
-        }
-    }
-};
+export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
+    const isLightMode = mode === "light";
 
-export default config;
+    const lightConfig = {
+        "destination": "tokens.css",
+        "format": "css/variables",
+        "options": {
+            "outputReferences": true
+        }
+    };
+
+    const darkConfig = {
+        "destination": "dark/tokens.css",
+        "format": "css/dark-mode",
+        "filter": "mode/dark",
+        "options": {
+            "outputReferences": true
+        }
+    };
+
+    return {
+        "source": [
+            `src/tokens/semantic/${mode}/*.tokens.json`,
+            "src/tokens/core/*.tokens.json",
+            "src/tokens/components/*.tokens.json"
+        ],
+        "platforms": {
+            "css": {
+                "transformGroup": "css",
+                "buildPath": BUILD_PATH,
+                "prefix": PREFIX,
+                "files": [
+                    isLightMode ? lightConfig : darkConfig,
+                    {
+                        "destination": isLightMode ? `../${DOC_BUILD_PATH}tokens.css` : `../${DOC_BUILD_PATH}${mode}/tokens.css`,
+                        "format": "custom/doc",
+                        "options": {
+                            "outputReferences": true
+                        }
+                    }
+                ]
+            }
+        }
+    };
+}
