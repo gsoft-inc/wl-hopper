@@ -4,10 +4,14 @@
   "extends": [
     "next",
     "plugin:@workleap/web-application"
+
   ],
   "settings": {
     "next": {
         "rootDir": "apps/docs"
     }
+  },
+  "globals": {
+      "Card": true
   }
 }

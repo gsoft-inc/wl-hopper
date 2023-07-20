@@ -8,9 +8,9 @@ import type { HTMLAttributes } from "react";
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const components = {
+    Card,
     Image: NextImage,
     pre: Pre,
-    Card: Card,
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;
     },
