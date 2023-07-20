@@ -1,0 +1,676 @@
+{
+    "Upsell": {
+        "Border-active": {
+            "$type": "color",
+            "$value": "{Sunken treasure.200}"
+        },
+        "Text-active": {
+            "$type": "color",
+            "$value": "{Sunken treasure.400}"
+        },
+        "Icon-weakest": {
+            "$type": "color",
+            "$value": "{Sunken treasure.75}"
+        },
+        "Icon-weak": {
+            "$type": "color",
+            "$value": "{Sunken treasure.100}"
+        },
+        "Border": {
+            "$type": "color",
+            "$value": "{Sunken treasure.100}"
+        },
+        "Surface-hover": {
+            "$type": "color",
+            "$value": "{Sunken treasure.100}"
+        },
+        "Border-disabled": {
+            "$type": "color",
+            "$value": "{Sunken treasure.75}"
+        },
+        "Icon-active": {
+            "$type": "color",
+            "$value": "{Sunken treasure.400}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Sunken treasure.25}"
+        },
+        "Surface-disabled": {
+            "$type": "color",
+            "$value": "{Sunken treasure.75}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Sunken treasure.800}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Sunken treasure.800}"
+        },
+        "Text-hover": {
+            "$type": "color",
+            "$value": "{Sunken treasure.900}"
+        },
+        "Text-disabled": {
+            "$type": "color",
+            "$value": "{Sunken treasure.400}"
+        },
+        "Surface-active": {
+            "$type": "color",
+            "$value": "{Sunken treasure.50}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Sunken treasure.25}"
+        }
+    },
+    "Danger": {
+        "Border-active": {
+            "$type": "color",
+            "$value": "{Amanita.300}"
+        },
+        "Icon-active": {
+            "$type": "color",
+            "$value": "{Amanita.300}"
+        },
+        "Text-active": {
+            "$type": "color",
+            "$value": "{Amanita.400}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Amanita.25}"
+        },
+        "Text-hover": {
+            "$type": "color",
+            "$value": "{Amanita.500}"
+        },
+        "Surface-disabled": {
+            "$type": "color",
+            "$value": "{Amanita.100}"
+        },
+        "Surface-hover": {
+            "$type": "color",
+            "$value": "{Amanita.500}"
+        },
+        "Surface-strong": {
+            "$type": "color",
+            "$value": "{Amanita.300}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Amanita.50}"
+        },
+        "Border-strong": {
+            "$type": "color",
+            "$value": "{Amanita.300}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Amanita.700}"
+        },
+        "Icon-weak": {
+            "$type": "color",
+            "$value": "{Amanita.300}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Amanita.700}"
+        },
+        "Surface-active": {
+            "$type": "color",
+            "$value": "{Amanita.50}"
+        },
+        "Text-weak": {
+            "$type": "color",
+            "$value": "{Amanita.300}"
+        },
+        "Text-strong": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Icon-strong": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Icon-hover": {
+            "$type": "color",
+            "$value": "{Amanita.500}"
+        },
+        "Text-disabled": {
+            "$type": "color",
+            "$value": "{Amanita.100}"
+        },
+        "Icon-disabled": {
+            "$type": "color",
+            "$value": "{Amanita.100}"
+        },
+        "Border": {
+            "$type": "color",
+            "$value": "{Amanita.100}"
+        }
+    },
+    "Primary": {
+        "Icon-active": {
+            "$type": "color",
+            "$value": "{Sapphire.500}"
+        },
+        "Border-active": {
+            "$type": "color",
+            "$value": "{Sapphire.400}"
+        },
+        "Text-active": {
+            "$type": "color",
+            "$value": "{Sapphire.500}"
+        },
+        "Icon-strong": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Sapphire.500}"
+        },
+        "Border-focus": {
+            "$type": "color",
+            "$value": "{Sapphire.500}"
+        },
+        "Border": {
+            "$type": "color",
+            "$value": "{Sapphire.400}"
+        },
+        "Icon-hover": {
+            "$type": "color",
+            "$value": "{Sapphire.600}"
+        },
+        "Icon-disabled": {
+            "$type": "color",
+            "$value": "{Sapphire.50}"
+        },
+        "Surface-disabled": {
+            "$type": "color",
+            "$value": "{Sapphire.200}"
+        },
+        "Surface-focus": {
+            "$type": "color",
+            "$value": "{Sapphire.25}"
+        },
+        "Text-disabled": {
+            "$type": "color",
+            "$value": "{Sapphire.200}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Sapphire.50}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Sapphire.25}"
+        },
+        "Surface-strong": {
+            "$type": "color",
+            "$value": "{Sapphire.400}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Sapphire.500}"
+        },
+        "Surface-hover": {
+            "$type": "color",
+            "$value": "{Sapphire.600}"
+        },
+        "Text-strong": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Text-hover": {
+            "$type": "color",
+            "$value": "{Sapphire.600}"
+        },
+        "Surface-active": {
+            "$type": "color",
+            "$value": "{Sapphire.50}"
+        }
+    },
+    "Decorative": {
+        "Option9": {
+            "Icon": {
+                "$type": "color",
+                "$value": "{Samoyed}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Rock.800}"
+            },
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Rock.400}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Samoyed}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Rock.50}"
+            }
+        },
+        "Option8": {
+            "Icon": {
+                "$type": "color",
+                "$value": "{Amanita.900}"
+            },
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Amanita.50}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Amanita.300}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Amanita.75}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Amanita.900}"
+            }
+        },
+        "Option7": {
+            "Icon": {
+                "$type": "color",
+                "$value": "{Toad.900}"
+            },
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Toad.50}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Toad.75}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Toad.500}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Toad.900}"
+            }
+        },
+        "Option5": {
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Coastal.50}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Coastal.900}"
+            },
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Coastal.75}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Coastal.100}"
+            },
+            "Icon": {
+                "$type": "color",
+                "$value": "{Coastal.900}"
+            }
+        },
+        "Option6": {
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Sunken treasure.50}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Sunken treasure.75}"
+            },
+            "Icon": {
+                "$type": "color",
+                "$value": "{Sunken treasure.900}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Sunken treasure.900}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Sunken treasure.200}"
+            }
+        },
+        "Option4": {
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Moss.50}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Moss.75}"
+            },
+            "Icon": {
+                "$type": "color",
+                "$value": "{Moss.900}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Moss.400}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Moss.900}"
+            }
+        },
+        "Option3": {
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Koi.100}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Koi.200}"
+            },
+            "Icon": {
+                "$type": "color",
+                "$value": "{Koi.900}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Koi.900}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Koi.50}"
+            }
+        },
+        "Option2": {
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Quetzal.75}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Quetzal.100}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Quetzal.900}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Quetzal.50}"
+            },
+            "Icon": {
+                "$type": "color",
+                "$value": "{Quetzal.900}"
+            }
+        },
+        "Option1": {
+            "Surface-weak": {
+                "$type": "color",
+                "$value": "{Sapphire.50}"
+            },
+            "Surface": {
+                "$type": "color",
+                "$value": "{Sapphire.200}"
+            },
+            "Text-weak": {
+                "$type": "color",
+                "$value": "{Sapphire.50}"
+            },
+            "Icon": {
+                "$type": "color",
+                "$value": "{Sapphire.900}"
+            },
+            "Text": {
+                "$type": "color",
+                "$value": "{Sapphire.900}"
+            }
+        }
+    },
+    "Neutral": {
+        "Text-hover": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Surface-weakest-active": {
+            "$type": "color",
+            "$value": "{Rock.50}"
+        },
+        "Text-weak": {
+            "$type": "color",
+            "$value": "{Rock.400}"
+        },
+        "Surface-disabled": {
+            "$type": "color",
+            "$value": "{Rock.75}"
+        },
+        "Surface-active": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Rock.50}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Text-disabled": {
+            "$type": "color",
+            "$value": "{Rock.200}"
+        },
+        "Text-active": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Text-strong": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Text-weakest": {
+            "$type": "color",
+            "$value": "{Rock.200}"
+        },
+        "Border-disabled": {
+            "$type": "color",
+            "$value": "{Rock.75}"
+        },
+        "Border-strong": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Surface-strong": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Surface-hover": {
+            "$type": "color",
+            "$value": "{Rock.25}"
+        },
+        "Icon-disabled": {
+            "$type": "color",
+            "$value": "{Rock.200}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Icon-weak": {
+            "$type": "color",
+            "$value": "{Rock.400}"
+        },
+        "Border": {
+            "$type": "color",
+            "$value": "{Rock.200}"
+        },
+        "Border-weak": {
+            "$type": "color",
+            "$value": "{Rock.75}"
+        },
+        "Icon-weakest": {
+            "$type": "color",
+            "$value": "{Rock.200}"
+        },
+        "Icon-strong": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Icon-hover": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Icon-active": {
+            "$type": "color",
+            "$value": "{Samoyed}"
+        },
+        "Border-hover": {
+            "$type": "color",
+            "$value": "{Rock.300}"
+        },
+        "Border-active": {
+            "$type": "color",
+            "$value": "{Rock.800}"
+        },
+        "Surface-weak-hover": {
+            "$type": "color",
+            "$value": "{Rock.50}"
+        },
+        "Border-weakest": {
+            "$type": "color",
+            "$value": "{Rock.50}"
+        },
+        "Surface-weakest": {
+            "$type": "color",
+            "$value": "{Rock.25}"
+        }
+    },
+    "Warning": {
+        "Icon-weakest": {
+            "$type": "color",
+            "$value": "{Koi.100}"
+        },
+        "Icon-weak": {
+            "$type": "color",
+            "$value": "{Koi.300}"
+        },
+        "Text-weak": {
+            "$type": "color",
+            "$value": "{Koi.300}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Koi.25}"
+        },
+        "Surface-strong": {
+            "$type": "color",
+            "$value": "{Koi.100}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Koi.50}"
+        },
+        "Border": {
+            "$type": "color",
+            "$value": "{Koi.100}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Koi.700}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Koi.700}"
+        }
+    },
+    "Success": {
+        "Border": {
+            "$type": "color",
+            "$value": "{Moss.100}"
+        },
+        "Icon-weak": {
+            "$type": "color",
+            "$value": "{Moss.300}"
+        },
+        "Icon-weakest": {
+            "$type": "color",
+            "$value": "{Moss.100}"
+        },
+        "Text-weak": {
+            "$type": "color",
+            "$value": "{Moss.300}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Moss.25}"
+        },
+        "Surface-strong": {
+            "$type": "color",
+            "$value": "{Moss.100}"
+        },
+        "Text-hover": {
+            "$type": "color",
+            "$value": "{Moss.800}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Moss.700}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Moss.700}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Moss.50}"
+        }
+    },
+    "Information": {
+        "Icon-weakest": {
+            "$type": "color",
+            "$value": "{Coastal.75}"
+        },
+        "Surface-strong": {
+            "$type": "color",
+            "$value": "{Coastal.100}"
+        },
+        "Icon-weak": {
+            "$type": "color",
+            "$value": "{Coastal.300}"
+        },
+        "Text": {
+            "$type": "color",
+            "$value": "{Coastal.800}"
+        },
+        "Surface": {
+            "$type": "color",
+            "$value": "{Coastal.25}"
+        },
+        "Surface-weak": {
+            "$type": "color",
+            "$value": "{Coastal.50}"
+        },
+        "Text-weak": {
+            "$type": "color",
+            "$value": "{Coastal.300}"
+        },
+        "Icon": {
+            "$type": "color",
+            "$value": "{Coastal.700}"
+        },
+        "Border": {
+            "$type": "color",
+            "$value": "{Coastal.100}"
+        }
+    }
+}
