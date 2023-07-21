@@ -9,6 +9,8 @@ interface NextImageProps extends Omit<ImageProps, "src" | "alt" | "width" | "hei
     height: number;
 }
 
-export const NextImage: React.FC<NextImageProps> = ({ alt, src, width, height, ...props }) => {
+const NextImage = ({ alt, src, width, height, ...props }: React.PropsWithoutRef<NextImageProps>) => {
     return <Image alt={alt} src={src} width={width} height={height} className="hd-image" {...props} />;
 };
+
+export default NextImage;

@@ -1,9 +1,8 @@
 import type { HTMLAttributes } from "react";
 
-import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { Card } from "@/components/Card/Card";
-import { NextImage } from "@/components/Image/Image";
+import NextImage from "@/components/ui/image/Image";
+import Card from "@/components/ui/card/Card";
 import Pre from "@/components/ui/pre/Pre";
 import Title from "@/components/ui/title/Title";
 
