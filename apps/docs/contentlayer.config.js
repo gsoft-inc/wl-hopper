@@ -18,7 +18,7 @@ export const Page = defineDocumentType(() => ({
         }
     },
     computedFields: {
-        url: {
+        slug: {
             type: "string",
             resolve: doc => `${doc._raw.flattenedPath}`
         }
