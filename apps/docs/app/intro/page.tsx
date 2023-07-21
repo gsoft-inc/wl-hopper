@@ -1,5 +1,5 @@
 import { allPages } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/Mdx/MdxComponent";
+import Mdx from "@/components/ui/mdx/Mdx";
 
 export default function Page() {
     return <main>

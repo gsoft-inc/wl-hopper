@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components/Sidebar/Sidebar";
+import Sidebar from "@/components/ui/sidebar/Sidebar";
 
 export default function TokensLayout({
     children // will be a page or nested layout

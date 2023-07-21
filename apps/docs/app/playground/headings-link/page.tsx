@@ -1,7 +1,7 @@
 "use client";
 
 import { allPages } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/Mdx/MdxComponent";
+import Mdx from "@/components/ui/mdx/Mdx";
 import { notFound } from "next/navigation";
 
 export default function Page() {

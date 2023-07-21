@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { allComponents } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/Mdx/MdxComponent";
+import Mdx from "@/components/ui/mdx/Mdx";
 
 interface PageProps {
     params: {

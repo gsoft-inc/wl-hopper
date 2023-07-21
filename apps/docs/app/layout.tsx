@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header/Header";
-import { ThemeProvider } from "@/components/Utils/ThemeProvider/ThemeProvider";
+import Header from "@/components/ui/header/Header";
+import { ThemeProvider } from "@/context/theme/ThemeProvider";
 
 import "./globals.css";
 import "./layout.css";

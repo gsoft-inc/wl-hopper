@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { allTokens } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/Mdx/MdxComponent";
-import { Aside } from "@/components/Aside/Aside";
+import Mdx from "@/components/ui/mdx/Mdx";
+import Aside from "@/components/ui/aside/Aside";
 
 interface PageProps {
     params: {
