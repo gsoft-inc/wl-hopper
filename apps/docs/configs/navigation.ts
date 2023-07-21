@@ -1,23 +1,19 @@
 export interface NavItem {
     label: string;
     path: string;
-    parentPath: string;
 }
 
 export const navigation: NavItem[] = [
     {
         "label": "Tokens",
-        "path": "/tokens/getting-started/introduction",
-        "parentPath": "/tokens"
+        "path": "/tokens/getting-started/introduction"
     },
     {
         "label": "Icons",
-        "path": "/icons",
-        "parentPath": "/icons"
+        "path": "/icons"
     },
     {
         "label": "Components",
-        "path": "/components/installation",
-        "parentPath": "/components"
+        "path": "/components/installation"
     }
 ];
