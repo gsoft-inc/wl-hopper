@@ -9,5 +9,8 @@
     "next": {
         "rootDir": "apps/docs"
     }
+  },
+  "globals": {
+      "Card": true
   }
 }
