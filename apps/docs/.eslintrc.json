@@ -4,7 +4,6 @@
   "extends": [
     "next",
     "plugin:@workleap/web-application"
-
   ],
   "settings": {
     "next": {
