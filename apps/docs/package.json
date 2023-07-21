@@ -15,7 +15,7 @@
     "lint": "next lint",
     "lint:types": "tsc --noEmit",
 
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6010",
     "build:storybook": "storybook build"
   },
   "dependencies": {
