@@ -1,6 +1,6 @@
 import Sidebar from "@/components/ui/sidebar/Sidebar";
 
-export default function DesignLayout({ children } : { children: React.ReactNode }) {
+export default function TokenLayout({ children } : { children: React.ReactNode }) {
     return (
         <>
             <Sidebar />

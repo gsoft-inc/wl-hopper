@@ -11,7 +11,7 @@ interface PageProps {
     };
 }
 
-export default function DesignPage({ params }: PageProps) {
+export default function TokenPage({ params }: PageProps) {
     const [ section, type ] = params.slug;
     const designToken = allTokens.find(token => token.slug === type && token.section === section);
 

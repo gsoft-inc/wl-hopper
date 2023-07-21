@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allComponents } from "@/.contentlayer/generated";
+import { allComponents } from "contentlayer/generated";
 import Mdx from "@/components/ui/mdx/Mdx";
 
 interface PageProps {
@@ -24,7 +24,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
     }));
 }
 
-export default async function Note({ params }: PageProps) {
+export default async function ComponentPage({ params }: PageProps) {
     const note = await getNoteFromParams(params);
 
     if (!note) {
