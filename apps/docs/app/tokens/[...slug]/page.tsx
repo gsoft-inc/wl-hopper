@@ -13,7 +13,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
     return allTokens.map(({ slug, section }) => ({
-        slug: [slug, section]
+        slug: [section, slug]
     }));
 }
 
