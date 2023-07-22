@@ -9,15 +9,17 @@ import type { NavItem } from "@/configs/navigation";
 import "./nav.css";
 
 const Nav = ({ items }: { items: React.PropsWithoutRef<NavItem[]> }) => {
+    const pathname = usePathname()!;
+    let firstPathLevel: string;
 
-    const fistPathLevel = usePathname().split("/")[1].trim();
+    if (pathname) {
+        firstPathLevel = pathname.split("/")[1].trim();
+    }
 
     const navItems = items.map(item => {
         const { path, label } = item;
 
-        console.log("component path", path);
-
-        const isActive = path.includes(fistPathLevel) && fistPathLevel !== "";
+        const isActive = path.includes(firstPathLevel) && firstPathLevel !== "";
 
         return (
             <li key={label} className={cx("hd-nav__list-item", isActive && "hd-nav__list-item--active")}>

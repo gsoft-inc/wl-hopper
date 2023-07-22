@@ -11,6 +11,12 @@ interface PageProps {
     };
 }
 
+export async function generateStaticParams() {
+    return allTokens.map(({ slug, section }) => ({
+        slug: [slug, section]
+    }));
+}
+
 export default function TokenPage({ params }: PageProps) {
     const [ section, type ] = params.slug;
     const designToken = allTokens.find(token => token.slug === type && token.section === section);
