@@ -45,17 +45,13 @@ export const Tokens = defineDocumentType(() => ({
         slug: {
             type: "string",
             resolve: post => {
-                const slug = post._raw.sourceFileName.replace(/\.mdx$/, "");
-
-                return slug;
+                return post._raw.sourceFileName.replace(/\.mdx$/, "");
             }
         },
         section: {
             type: "string",
             resolve: post => {
-                const section = post._raw.sourceFileDir.replace("tokens/", "");
-
-                return section;
+                return post._raw.sourceFileDir.replace("tokens/", "");
             }
         }
     }
