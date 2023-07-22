@@ -9,11 +9,9 @@ export const metadata = {
     description: "The Hopper Design System Documentation Hub"
 };
 
-interface RootLayoutProps {
+export default function RootLayout({ children }: {
     children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}) {
     const setInitialTheme = `
     function getUserPreference() {
       if(window.localStorage.getItem("hdTheme")) {

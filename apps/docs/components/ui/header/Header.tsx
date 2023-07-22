@@ -3,8 +3,8 @@
 import Link from "next/link";
 
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
-import Nav from "@/components/ui/nav/Nav";
 import IconButton from "@/components/ui/iconButton/IconButton";
+import Nav from "@/components/ui/nav/Nav";
 
 import { navigation } from "@/configs/navigation";
 
