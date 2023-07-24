@@ -21,6 +21,10 @@ p {
     line-height: 1.5rem;
 }
 
-p:not(:last-child) {
-    margin-block-end: 1.25rem;
+p + p {
+    margin-block-start: 1.25rem;
+}
+
+p + * {
+    margin-block-start: 1.5rem;
 }

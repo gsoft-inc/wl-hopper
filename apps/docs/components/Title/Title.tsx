@@ -31,6 +31,7 @@ export const Title = ({
                 [`hd-title--level${level}`]: level
             })}
             id={level > 1 ? uniqueId : undefined}
+            data-section-title={level === 2 ? uniqueId : undefined}
             {...rest}
         >
             {level > 1 ? (

@@ -34,7 +34,7 @@ export default async function Note({ params }: PageProps) {
         notFound();
     }
 
-    const regex = /##\s*([\w\s]+)/g;
+    const regex = /(?<=##\s).*?(?=\n)/g;
     const noteData = note.body.raw;
     const matches = noteData.match(regex);
     let links: { title: string; url: string; id: string }[] = [];

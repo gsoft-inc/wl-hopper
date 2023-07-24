@@ -15,6 +15,21 @@
     display: flex;
     flex-direction: column;
     gap: var(--hd-space-05);
+    position: relative;
+}
+
+.hd-aside__list::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100%;
+    left: 0;
+    border-inline-start: 1px solid var(--hd-color-neutral-border);
+}
+
+.hd-aside__link {
+    line-height: 1;
 }
 
 .hd-aside__link:hover {
@@ -30,19 +45,21 @@
 }
 
 .hd-aside__item {
-    padding-block: var(--hd-space-05);
     font-size: 0.875rem;
+    line-height: 1.7142857143;
     position: relative;
-    border-inline-start: 1px solid var(--hd-color-neutral-border);
+    border-inline-start: 1px solid transparent;
     padding-inline-start: var(--hd-space-1);
 }
 
-.hd-aside__item--active::before {
-    content: "";
-    height: 100%;
+.hd-aside__marker {
+    height: 24px;
     width: 1px;
     background-color: var(--hd-color-primary-border);
     position: absolute;
     top: 0;
-    left: -1px;
+    left: 0;
+    z-index: 1;
+    border-radius: 12px;
+    transition: top .25s cubic-bezier(0,1,.5,1);
 }
