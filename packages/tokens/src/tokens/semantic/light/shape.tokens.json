@@ -1,0 +1,24 @@
+{
+    "Shape": {
+        "Circle": {
+            "$type": "number",
+            "$value": "{Border-radius.full}"
+        },
+        "Pill": {
+            "$type": "number",
+            "$value": "{Border-radius.lg}"
+        },
+        "Rounded-LG": {
+            "$type": "number",
+            "$value": "{Border-radius.md}"
+        },
+        "Rounded-MD": {
+            "$type": "number",
+            "$value": "{Border-radius.sm}"
+        },
+        "Rounded-SM": {
+            "$type": "number",
+            "$value": "{Border-radius.xs}"
+        }
+    }
+}

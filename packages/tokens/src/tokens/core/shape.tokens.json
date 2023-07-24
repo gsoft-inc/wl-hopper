@@ -1,0 +1,34 @@
+{
+    "Border-radius": {
+        "none": {
+            "$type": "number",
+            "$value": 0,
+            "group": "borderRadius"
+        },
+        "xs": {
+            "$type": "number",
+            "$value": 4,
+            "group": "borderRadius"
+        },
+        "sm": {
+            "$type": "number",
+            "$value": 8,
+            "group": "borderRadius"
+        },
+        "md": {
+            "$type": "number",
+            "$value": 16,
+            "group": "borderRadius"
+        },
+        "lg": {
+            "$type": "number",
+            "$value": 24,
+            "group": "borderRadius"
+        },
+        "full": {
+            "$type": "number",
+            "$value": 9999,
+            "group": "borderRadius"
+        }
+    }
+}
