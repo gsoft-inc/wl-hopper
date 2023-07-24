@@ -3,80 +3,41 @@
 import Link from "next/link";
 import cx from "classnames";
 import { usePathname } from "next/navigation";
-import { allTokens, type Tokens } from "@/.contentlayer/generated";
+import getPageLinks from "@/utils/getPageLinks";
+import type { Data } from "@/utils/getPageLinks";
 
 import "./sidebar.css";
 
-const mapTokensToLinks = (tokens:Tokens[], pathName: string, subsection: string, sectionTitle: string) => {
-    return (
-        <ul className="hd-sidebar__list">
-            <li className="hd-sidebar__item hd-sidebar-section">
-                <span className="hd-sidebar__title">{sectionTitle}</span>
-                <ul className="hd-sidebar__nested-list">
-                    {tokens
-                        .filter(token => token.section === subsection)
-                        .sort((a, b) => {
-                            if (a.order && b.order) {
-                                return a.order - b.order;
-                            }
+const Sidebar = ({ data }: { data: Data[] }) => {
+    const links = getPageLinks(data, { order: ["getting-started", "core", "semantic"] });
+    const pathName = usePathname();
 
-                            if (a.order) {
-                                return -1;
-                            }
-
-                            if (b.order) {
-                                return 1;
-                            }
-
-                            return a.title.localeCompare(b.title);
-                        })
-                        .map(token => {
-                            const formattedPath = `/${token._raw.flattenedPath}`;
-                            const isActive = pathName === formattedPath;
+    const linkItems = links.map(link => {
+        return (
+            <ul className="hd-sidebar__list" key={link.id}>
+                <li className="hd-sidebar__item hd-sidebar-section">
+                    <span className="hd-sidebar__title">{link.title}</span>
+                    <ul className="hd-sidebar__nested-list">
+                        {link.linkItems.map(item => {
+                            const linkPath = `/${item.path}`;
+                            const isActive = pathName === linkPath;
 
                             return (
-                                <li className={cx("hd-sidebar__item", isActive && "hd-sidebar__item--active")} key={token.slug}>
-                                    <Link href={`/tokens/${token.section}/${token.slug}`} className="hd-sidebar__link">{token.title}</Link>
+                                <li className={cx("hd-sidebar__item", isActive && "hd-sidebar__item--active")} key={item.id}>
+                                    <Link href={linkPath} className="hd-sidebar__link">{item.title}</Link>
                                 </li>
                             );
                         })}
-                </ul>
-            </li>
-        </ul>
-    );
-};
+                    </ul>
+                </li>
+            </ul>
+        );
+    });
 
-const GettingStartedTokenLinks = () => {
-    const pathName = usePathname();
-
-    const tokens = allTokens;
-
-    return mapTokensToLinks(tokens, pathName, "getting-started", "Getting Started");
-};
-
-const CoreTokenLinks = () => {
-    const pathName = usePathname();
-
-    const tokens = allTokens;
-
-    return mapTokensToLinks(tokens, pathName, "core", "Core Tokens");
-};
-
-const SemanticTokenLinks = () => {
-    const pathName = usePathname();
-
-    const tokens = allTokens;
-
-    return mapTokensToLinks(tokens, pathName, "semantic", "Semantic Tokens");
-};
-
-const Sidebar = () => {
     return (
         <nav className="hd-sidebar" aria-label="Sidebar">
             <div className="hd-sidebar__container">
-                <GettingStartedTokenLinks />
-                <CoreTokenLinks />
-                <SemanticTokenLinks />
+                {linkItems}
             </div>
         </nav>
     );
