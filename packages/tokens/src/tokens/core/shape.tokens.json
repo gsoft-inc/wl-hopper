@@ -1,5 +1,5 @@
 {
-    "Border-radius": {
+    "Border radius": {
         "0": {
             "$type": "number",
             "$value": 0,
@@ -25,7 +25,7 @@
             "$value": 24,
             "group": "borderRadius"
         },
-        "999": {
+        "9999": {
             "$type": "number",
             "$value": 9999,
             "group": "borderRadius"

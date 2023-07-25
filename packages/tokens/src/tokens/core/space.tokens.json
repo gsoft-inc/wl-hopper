@@ -1,66 +1,66 @@
 {
-    "space": {
+    "Space": {
         "0": {
             "$value": 0,
             "$type": "number",
             "group": "spacing"
         },
-        "1": {
+        "20": {
             "$value": 2,
             "$type": "number",
             "group": "spacing"
         },
-        "2": {
+        "40": {
             "$value": 4,
             "$type": "number",
             "group": "spacing"
         },
-        "3": {
+        "80": {
             "$value": 8,
             "$type": "number",
             "group": "spacing"
         },
-        "4": {
+        "160": {
             "$value": 16,
             "$type": "number",
             "group": "spacing"
         },
-        "5": {
+        "240": {
             "$value": 24,
             "$type": "number",
             "group": "spacing"
         },
-        "6": {
+        "320": {
             "$value": 32,
             "$type": "number",
             "group": "spacing"
         },
-        "7": {
+        "400": {
             "$value": 40,
             "$type": "number",
             "group": "spacing"
         },
-        "8": {
+        "480": {
             "$value": 48,
             "$type": "number",
             "group": "spacing"
         },
-        "9": {
+        "640": {
             "$value": 64,
             "$type": "number",
             "group": "spacing"
         },
-        "10": {
+        "800": {
             "$value": 80,
             "$type": "number",
             "group": "spacing"
         },
-        "11": {
+        "960": {
             "$value": 96,
             "$type": "number",
             "group": "spacing"
         },
-        "12": {
+        "1280": {
             "$value": 128,
             "$type": "number",
             "group": "spacing"
