@@ -3,7 +3,7 @@ import type { MDX } from "contentlayer/core";
 function getSectionLinks (content: {
     body: MDX;
 }) {
-    const regex = /##\s*([\w\s]+)/g;
+    const regex = /(?<=##\s).*?(?=\n)/g;
     const body = content.body.raw;
     const matches = body.match(regex);
 

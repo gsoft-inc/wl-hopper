@@ -16,8 +16,6 @@ interface AsideProps {
 }
 
 const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
-    const isNotEmptyLinks = links.length > 0;
-
     const listItems = links.map(link => (
         <li className="hd-aside__item" key={link.id}>
             <Link href={link.url} className="hd-aside__link">
@@ -29,13 +27,9 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     return (
         <aside className="hd-aside">
             <span className="hd-aside__title">{title}</span>
-            {
-                isNotEmptyLinks && (
-                    <ul className="hd-aside__list">
-                        {listItems}
-                    </ul>
-                )
-            }
+            <ul className="hd-aside__list">
+                {listItems}
+            </ul>
         </aside>
     );
 };
