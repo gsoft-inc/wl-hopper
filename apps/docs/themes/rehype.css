@@ -33,7 +33,7 @@
     background-color: transparent!important;
 }
 
-[data-rehype-pretty-code-fragment] :where(pre)>code {
+[data-rehype-pretty-code-fragment] pre code {
     display: grid;
     padding: var(--hd-space-1) 0;
     overflow-x: auto;
@@ -44,7 +44,7 @@
     line-height: 2.25;
 }
 
-[data-rehype-pretty-code-fragment] :where(pre)>code .line {
+[data-rehype-pretty-code-fragment] pre code .line {
     padding: 0  var(--hd-space-3);
     border-left: 2px solid transparent;
 }
@@ -55,7 +55,7 @@
     box-shadow: 0 0 0 var(--hd-space-05) var(--hd-codeblock-word-selection-background-color);
 }
 
-[data-rehype-pretty-code-fragment] :where(pre) > code .line.highlighted {
+[data-rehype-pretty-code-fragment] pre  code .line.highlighted {
     background-color: var(--hd-codeblock-line-highlighted-background-color);
     border-left-color: var(--hd-codeblock-line-highlighted-border-color);
 }

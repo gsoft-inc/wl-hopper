@@ -3,7 +3,7 @@
     flex-direction: column;
     padding-block: var(--hd-space-8);
     user-select: none;
-    width: 10rem;
+    flex-basis: 10rem;
     flex-shrink: 0;
     position: sticky;
     top: var(--hd-space-8);

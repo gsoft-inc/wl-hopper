@@ -13,7 +13,9 @@ html {
 
 main {
     padding-block: var(--hd-space-8);
-    width: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: hidden;
 }
 
 p {

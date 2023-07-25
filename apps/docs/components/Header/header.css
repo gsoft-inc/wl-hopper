@@ -40,7 +40,7 @@
 /* Stylistic Gradient */
 .hd-header__shadow {
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
