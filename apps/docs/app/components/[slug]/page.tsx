@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { allComponents } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/Mdx/MdxComponent";
+import { allComponents } from "contentlayer/generated";
+import Mdx from "@/components/ui/mdx/Mdx";
 
 interface PageProps {
     params: {
@@ -9,13 +9,13 @@ interface PageProps {
 }
 
 async function getNoteFromParams(params: PageProps["params"]) {
-    const note = allComponents.find(component => component.slug === params.slug);
+    const componentContent = allComponents.find(component => component.slug === params.slug);
 
-    if (!note) {
+    if (!componentContent) {
         return null;
     }
 
-    return note;
+    return componentContent;
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
@@ -24,20 +24,20 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
     }));
 }
 
-export default async function Note({ params }: PageProps) {
-    const note = await getNoteFromParams(params);
+export default async function ComponentPage({ params }: PageProps) {
+    const componentContent = await getNoteFromParams(params);
 
-    if (!note) {
+    if (!componentContent) {
         notFound();
     }
 
     return (
         <main>
-            <article key={note._id}>
-                {note.status &&
-                    `status: ${note.status}`
+            <article key={componentContent._id}>
+                {componentContent.status &&
+                    `status: ${componentContent.status}`
                 }
-                {note.body && <Mdx code={note.body.code} />}
+                {componentContent.body && <Mdx code={componentContent.body.code} />}
             </article>
         </main>
     );

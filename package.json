@@ -28,7 +28,7 @@
     "reset": "pnpm clean && pnpm reset:modules",
     "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",
 
-    "storybook": "storybook dev -p 6010",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
