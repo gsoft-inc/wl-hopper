@@ -1,0 +1,34 @@
+{
+    "Border radius": {
+        "0": {
+            "$type": "number",
+            "$value": 0,
+            "group": "borderRadius"
+        },
+        "1": {
+            "$type": "number",
+            "$value": 4,
+            "group": "borderRadius"
+        },
+        "2": {
+            "$type": "number",
+            "$value": 8,
+            "group": "borderRadius"
+        },
+        "3": {
+            "$type": "number",
+            "$value": 16,
+            "group": "borderRadius"
+        },
+        "4": {
+            "$type": "number",
+            "$value": 24,
+            "group": "borderRadius"
+        },
+        "9999": {
+            "$type": "number",
+            "$value": 9999,
+            "group": "borderRadius"
+        }
+    }
+}
