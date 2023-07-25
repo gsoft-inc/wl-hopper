@@ -94,8 +94,6 @@ export const Aside: React.FC<AsideProps> = ({ title, links }) => {
         };
     });
 
-    console.log(activeItemIndex);
-
     return (
         <>
             {links.length > 0 && (

@@ -10,6 +10,8 @@
     padding-block: var(--hd-space-8);
     padding-inline: var(--hd-space-6);
     width: min(100% - var(--hd-space-8), 51rem);
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 .hd-sidebar__container {
