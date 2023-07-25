@@ -1,0 +1,202 @@
+{
+    "heading": {
+        "3xl": {
+            "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.360}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.680}"
+            },
+            "line-height": {
+                "$value": "{line-height.133}"
+            }
+        },
+        "2xl": {
+            "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.320}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.580}"
+            },
+            "line-height": {
+                "$value": "{line-height.125}"
+            }
+        },
+        "xl": {
+            "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.280}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.680}"
+            },
+            "line-height": {
+                "$value": "{line-height.114}"
+            }
+        },
+        "lg": {
+            "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.240}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.680}"
+            },
+            "line-height": {
+                "$value": "{line-height.133}"
+            }
+        },
+        "md": {
+            "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.200}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.580}"
+            },
+            "line-height": {
+                "$value": "{line-height.120}"
+            }
+        },
+        "sm": {
+            "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.180}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.580}"
+            },
+            "line-height": {
+                "$value": "{line-height.150}"
+            }
+        },
+        "xs": {
+           "font-family": {
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.160}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.150}"
+            }
+        }
+    },
+    "overline": {
+        "font-family": {
+            "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$value": "{font.size.120}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.400}"
+            },
+            "line-height": {
+                "$value": "{line-height.133}"
+            }
+    },
+    "body": {
+        "2xl": {
+            "font-family": {
+                "$value": "{font.family.secondary}"
+            },
+            "font-size": {
+                "$value": "{font.size.320}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.112-5}"
+            }
+        },
+        "xl": {
+            "font-family": {
+                "$value": "{font.family.secondary}"
+            },
+            "font-size": {
+                "$value": "{font.size.280}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.114}"
+            }
+        },
+        "lg": {
+            "font-family": {
+                "$value": "{font.family.secondary}"
+            },
+            "font-size": {
+                "$value": "{font.size.180}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.133}"
+            }
+        },
+        "md": {
+            "font-family": {
+                "$value": "{font.family.secondary}"
+            },
+            "font-size": {
+                "$value": "{font.size.160}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.150}"
+            }
+        },
+        "sm": {
+           "font-family": {
+                "$value": "{font.family.secondary}"
+            },
+            "font-size": {
+                "$value": "{font.size.140}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.142-8}"
+            }
+        },
+        "xs": {
+           "font-family": {
+                "$value": "{font.family.secondary}"
+            },
+            "font-size": {
+                "$value": "{font.size.120}"
+            },
+            "font-weight": {
+                "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$value": "{line-height.133}"
+            }
+        }
+    }
+}
