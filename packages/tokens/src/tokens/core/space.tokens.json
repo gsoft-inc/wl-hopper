@@ -1,0 +1,69 @@
+{
+    "Space": {
+        "0": {
+            "$value": 0,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "20": {
+            "$value": 2,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "40": {
+            "$value": 4,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "80": {
+            "$value": 8,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "160": {
+            "$value": 16,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "240": {
+            "$value": 24,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "320": {
+            "$value": 32,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "400": {
+            "$value": 40,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "480": {
+            "$value": 48,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "640": {
+            "$value": 64,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "800": {
+            "$value": 80,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "960": {
+            "$value": 96,
+            "$type": "number",
+            "group": "spacing"
+        },
+        "1280": {
+            "$value": 128,
+            "$type": "number",
+            "group": "spacing"
+        }
+    }
+}

@@ -1,9 +1,9 @@
 "use client";
 
-import { allPages } from "@/.contentlayer/generated";
-import { Mdx } from "@/components/Mdx/MdxComponent";
+import { allPages } from "contentlayer/generated";
+import Mdx from "@/components/ui/mdx/Mdx";
 
-export default function Page() {
+export default function CodeBlockPage() {
     return <main>
         {allPages
             .filter(page => page._id === "pages/playground-codeblock.mdx")

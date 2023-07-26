@@ -1,0 +1,20 @@
+{
+    "Elevation": {
+        "None": {
+            "$value": "{Shadow.None}",
+            "group": "shadow"
+        },
+        "Raised": {
+            "$value": "{Shadow.Sm}",
+            "group": "shadow"
+        },
+        "Lifted": {
+            "$value": "{Shadow.Md}",
+            "group": "shadow"
+        },
+        "Floating": {
+            "$value": "{Shadow.Lg}",
+            "group": "shadow"
+        }
+    }
+}

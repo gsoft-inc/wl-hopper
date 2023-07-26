@@ -7,11 +7,13 @@
     "dev": "pnpm run \"/^dev:.*/\"",
     "dev:next": "next dev",
     "dev:content": "contentlayer dev",
-    "build": "pnpm run build:content && next build",
-    "build:content": "contentlayer build",
+
+    "build": "next build",
+
     "lint": "next lint",
     "lint:types": "tsc --noEmit",
-    "storybook": "storybook dev -p 6006",
+
+    "storybook": "storybook dev -p 6010",
     "build:storybook": "storybook build"
   },
   "dependencies": {
