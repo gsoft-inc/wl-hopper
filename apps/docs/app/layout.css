@@ -13,9 +13,8 @@ html {
 
 main {
     padding-block: var(--hd-space-8);
-    flex-grow: 1;
-    flex-basis: 0;
-    overflow: hidden;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 p {
