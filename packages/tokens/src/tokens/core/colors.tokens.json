@@ -1,5 +1,5 @@
 {
-    "Coastal": {
+    "coastal": {
         "25": {
             "$type": "color",
             "$value": "#f0f8ff"
@@ -49,7 +49,7 @@
             "$value": "#00274b"
         }
     },
-    "Quetzal": {
+    "quetzal": {
         "25": {
             "$type": "color",
             "$value": "#ddfdf9"
@@ -99,7 +99,7 @@
             "$value": "#002d1c"
         }
     },
-    "Orchid bloom": {
+    "orchid-bloom": {
         "25": {
             "$type": "color",
             "$value": "#f6f5ff"
@@ -149,7 +149,7 @@
             "$value": "#1e1c5d"
         }
     },
-    "Sapphire": {
+    "sapphire": {
         "25": {
             "$type": "color",
             "$value": "#f5f6ff"
@@ -199,7 +199,7 @@
             "$value": "#152450"
         }
     },
-    "Fog": {
+    "fog": {
         "25": {
             "$type": "color",
             "$value": "#f2f8fa"
@@ -249,7 +249,7 @@
             "$value": "#20282a"
         }
     },
-    "Toad": {
+    "toad": {
         "25": {
             "$type": "color",
             "$value": "#fef6ef"
@@ -299,7 +299,7 @@
             "$value": "#2a2620"
         }
     },
-    "Sunken treasure": {
+    "sunken-treasure": {
         "25": {
             "$type": "color",
             "$value": "#fff8d6"
@@ -349,7 +349,7 @@
             "$value": "#2f250d"
         }
     },
-    "Koi": {
+    "koi": {
         "25": {
             "$type": "color",
             "$value": "#fff5e9"
@@ -399,7 +399,7 @@
             "$value": "#451a02"
         }
     },
-    "Amanita": {
+    "amanita": {
         "25": {
             "$type": "color",
             "$value": "#fdf6f6"
@@ -449,7 +449,7 @@
             "$value": "#431a17"
         }
     },
-    "Moss": {
+    "moss": {
         "25": {
             "$type": "color",
             "$value": "#f4f9e9"
@@ -499,11 +499,11 @@
             "$value": "#132a27"
         }
     },
-    "Abyss": {
+    "abyss": {
         "$type": "color",
         "$value": "#1d1d1c"
     },
-    "Rock": {
+    "rock": {
         "20": {
             "$type": "color",
             "$value": "#fcfbfb"
@@ -557,7 +557,7 @@
             "$value": "#292929"
         }
     },
-    "Samoyed": {
+    "samoyed": {
         "$type": "color",
         "$value": "#ffffff"
     }

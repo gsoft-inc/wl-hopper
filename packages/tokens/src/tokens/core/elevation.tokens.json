@@ -1,18 +1,18 @@
 {
-    "Shadow": {
-        "None": {
+    "shadow": {
+        "none": {
             "$value": "none",
             "group": "shadow"
         },
-        "Sm": {
+        "sm": {
             "$value": "0 1px 6px 0 rgba(60, 60, 60, 0.10);",
             "group": "shadow"
         },
-        "Md": {
+        "md": {
             "$value": "0 4px 10px 4px rgba(60, 60, 60, 0.08);",
             "group": "shadow"
         },
-        "Lg": {
+        "lg": {
             "$value": "0 10px 18px 8px rgba(60, 60, 60, 0.08);",
             "group": "shadow"
         }

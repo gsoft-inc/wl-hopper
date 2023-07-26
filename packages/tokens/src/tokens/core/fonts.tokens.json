@@ -17,108 +17,108 @@
         "size": {
             "120": {
                 "$type": "number",
-                "$value": 12
+                "$value": "12"
             },
             "140": {
                 "$type": "number",
-                "$value": 14
+                "$value": "14"
             },
             "160": {
                 "$type": "number",
-                "$value": 16
+                "$value": "16"
             },
             "180": {
                 "$type": "number",
-                "$value": 18
+                "$value": "18"
             },
             "200": {
                 "$type": "number",
-                "$value": 20
+                "$value": "20"
             },
             "240": {
                 "$type": "number",
-                "$value": 24
+                "$value": "24"
             },
             "280": {
                 "$type": "number",
-                "$value": 28
+                "$value": "28"
             },
             "320": {
                 "$type": "number",
-                "$value": 32
+                "$value": "32"
             },
             "360": {
                 "$type": "number",
-                "$value": 36
+                "$value": "36"
             },
             "480": {
                 "$type": "number",
-                "$value": 48
+                "$value": "48"
             }
         },
         "weight": {
             "690": {
                 "$type": "number",
-                "$value": 690
+                "$value": "690"
             },
             "680": {
                 "$type": "number",
-                "$value": 680
+                "$value": "680"
             },
             "590": {
                 "$type": "number",
-                "$value": 590
+                "$value": "590"
             },
             "580": {
                 "$type": "number",
-                "$value": 580
+                "$value": "580"
             },
             "505": {
                 "$type": "number",
-                "$value": 505
+                "$value": "505"
             },
             "410": {
                 "$type": "number",
-                "$value": 410
+                "$value": "410"
             },
             "400": {
                 "$type": "number",
-                "$value": 400
+                "$value": "400"
             }
         }
     },
     "line-height": {
         "112-5": {
             "$type": "number",
-            "$value": 1.125
+            "$value": "1.125"
         },
         "114": {
             "$type": "number",
-            "$value": 1.14
+            "$value": "1.14"
         },
         "120": {
             "$type": "number",
-            "$value": 1.2
+            "$value": "1.2"
         },
         "125": {
             "$type": "number",
-            "$value": 1.25
+            "$value": "1.25"
         },
         "133": {
             "$type": "number",
-            "$value": 1.33
+            "$value": "1.33"
         },
         "142-8": {
             "$type": "number",
-            "$value": 1.4285
+            "$value": "1.4285"
         },
         "142-9": {
             "$type": "number",
-            "$value": 1.4295
+            "$value": "1.4295"
         },
         "150": {
             "$type": "number",
-            "$value": 1.5
+            "$value": "1.5"
         }
     }
 }

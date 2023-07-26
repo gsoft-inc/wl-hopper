@@ -2,23 +2,23 @@
     "Shape": {
         "Circle": {
             "$type": "number",
-            "$value": "{Border radius.9999}"
+            "$value": "{border-radius.9999}"
         },
         "Pill": {
             "$type": "number",
-            "$value": "{Border radius.4}"
+            "$value": "{border-radius.4}"
         },
         "Rounded-LG": {
             "$type": "number",
-            "$value": "{Border radius.3}"
+            "$value": "{border-radius.3}"
         },
         "Rounded-MD": {
             "$type": "number",
-            "$value": "{Border radius.2}"
+            "$value": "{border-radius.2}"
         },
         "Rounded-SM": {
             "$type": "number",
-            "$value": "{Border radius.1}"
+            "$value": "{border-radius.1}"
         }
     }
 }
