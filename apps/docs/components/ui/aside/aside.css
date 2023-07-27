@@ -47,21 +47,23 @@
 
 .hd-aside__item {
     font-size: 0.875rem;
-    line-height: 1.7142857143;
+    height: var(--hd-space-3);
+    display: flex;
+    align-items: center;
     position: relative;
     border-inline-start: 1px solid transparent;
     padding-inline-start: var(--hd-space-1);
 }
 
 .hd-aside__marker {
-    height: 24px;
+    height: var(--hd-space-3);
     width: 1px;
     background-color: var(--hd-color-primary-border);
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    border-radius: 12px;
+    border-radius: var(--hd-space-1);
     transition: top .25s cubic-bezier(0,1,.5,1);
 }
 

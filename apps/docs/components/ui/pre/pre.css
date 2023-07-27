@@ -27,4 +27,5 @@
 .hd-pre-header__title {
     font-style: italic;
     line-height: 1;
+    color: var(--hd-white);
 }
