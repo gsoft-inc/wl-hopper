@@ -33,11 +33,9 @@ a {
 }
 
 .hd-wrapper {
-    width: 100%;
-    max-width: 77rem;
+    width: min(100% - 3rem, 75rem);
     margin-inline: auto;
-    padding-inline: var(--hd-space-2);
-    gap: 1.5rem;
+    gap: 1.5rem;;
 }
 
 .hd-flex {
