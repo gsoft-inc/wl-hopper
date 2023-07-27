@@ -1,116 +1,116 @@
 {
-    "Space": {
-        "Inset": {
-            "Xs": {
-                "$value": "{Space.40}",
+    "space": {
+        "inset": {
+            "xs": {
+                "$value": "{space.40}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Sm": {
-                "$value": "{Space.80}",
+            "sm": {
+                "$value": "{space.80}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Md": {
-                "$value": "{Space.160}",
+            "md": {
+                "$value": "{space.160}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Lg": {
-                "$value": "{Space.240}",
+            "lg": {
+                "$value": "{space.240}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Xl": {
-                "$value": "{Space.320}",
+            "xl": {
+                "$value": "{space.320}",
                 "$type": "number",
                 "group": "spacing"
             }
         },
-        "Inset squish": {
-            "Sm": {
-                "$value": "{Space.40} {Space.80}",
+        "inset-squish": {
+            "sm": {
+                "$value": "{space.40} {space.80}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Md": {
-                "$value": "{Space.80} {Space.160}",
+            "md": {
+                "$value": "{space.80} {space.160}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Lg": {
-                "$value": "{Space.160} {Space.320}",
+            "lg": {
+                "$value": "{space.160} {space.320}",
                 "$type": "number",
                 "group": "spacing"
             }
         },
-        "Inset stretch": {
-            "Sm": {
-                "$value": "{Space.160} {Space.80}",
+        "inset-stretch": {
+            "sm": {
+                "$value": "{space.160} {space.80}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Md": {
-                "$value": "{Space.240} {Space.160}",
+            "md": {
+                "$value": "{space.240} {space.160}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Lg": {
-                "$value": "{Space.480} {Space.240}",
+            "lg": {
+                "$value": "{space.480} {space.240}",
                 "$type": "number",
                 "group": "spacing"
             }
         },
-        "Stack": {
-            "Xs": {
-                "$value": "{Space.0} {Space.0} {Space.40} {Space.0}",
+        "stack": {
+            "xs": {
+                "$value": "{space.0} {space.0} {space.40} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Sm": {
-                "$value": "{Space.0} {Space.0} {Space.80} {Space.0}",
+            "sm": {
+                "$value": "{space.0} {space.0} {space.80} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Md": {
-                "$value": "{Space.0} {Space.0} {Space.160} {Space.0}",
+            "md": {
+                "$value": "{space.0} {space.0} {space.160} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Lg": {
-                "$value": "{Space.0} {Space.0} {Space.240} {Space.0}",
+            "lg": {
+                "$value": "{space.0} {space.0} {space.240} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Xl": {
-                "$value": "{Space.0} {Space.0} {Space.320} {Space.0}",
+            "xl": {
+                "$value": "{space.0} {space.0} {space.320} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             }
         },
-        "Inline": {
-            "Xs": {
-                "$value": "{Space.0} {Space.40} {Space.0} {Space.0}",
+        "inline": {
+            "xs": {
+                "$value": "{space.0} {space.40} {space.0} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Sm": {
-                "$value": "{Space.0} {Space.80} {Space.0} {Space.0}",
+            "sm": {
+                "$value": "{space.0} {space.80} {space.0} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Md": {
-                "$value": "{Space.0} {Space.160} {Space.0} {Space.0}",
+            "md": {
+                "$value": "{space.0} {space.160} {space.0} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Lg": {
-                "$value": "{Space.0} {Space.240} {Space.0} {Space.0}",
+            "lg": {
+                "$value": "{space.0} {space.240} {space.0} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             },
-            "Xl": {
-                "$value": "{Space.0} {Space.320} {Space.0} {Space.0}",
+            "xl": {
+                "$value": "{space.0} {space.320} {space.0} {space.0}",
                 "$type": "number",
                 "group": "spacing"
             }

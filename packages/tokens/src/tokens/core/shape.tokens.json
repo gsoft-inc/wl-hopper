@@ -1,5 +1,5 @@
 {
-    "Border radius": {
+    "border-radius": {
         "0": {
             "$type": "number",
             "$value": 0,
