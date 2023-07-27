@@ -1,6 +1,6 @@
 {
     "space": {
-        "Inset": {
+        "inset": {
             "xs": {
                 "$value": "{space.40}",
                 "$type": "number",
@@ -27,7 +27,7 @@
                 "group": "spacing"
             }
         },
-        "Inset squish": {
+        "inset-squish": {
             "sm": {
                 "$value": "{space.40} {space.80}",
                 "$type": "number",
@@ -44,7 +44,7 @@
                 "group": "spacing"
             }
         },
-        "Inset stretch": {
+        "inset-stretch": {
             "sm": {
                 "$value": "{space.160} {space.80}",
                 "$type": "number",
@@ -61,7 +61,7 @@
                 "group": "spacing"
             }
         },
-        "Stack": {
+        "stack": {
             "xs": {
                 "$value": "{space.0} {space.0} {space.40} {space.0}",
                 "$type": "number",
@@ -88,7 +88,7 @@
                 "group": "spacing"
             }
         },
-        "Inline": {
+        "inline": {
             "xs": {
                 "$value": "{space.0} {space.40} {space.0} {space.0}",
                 "$type": "number",
