@@ -11,7 +11,7 @@
                 "$value": "{font.weight.680}"
             },
             "line-height": {
-                "$value": "{line-height.133}"
+                "$value": "{line-height.1-33}"
             }
         },
         "2xl": {
@@ -25,7 +25,7 @@
                 "$value": "{font.weight.580}"
             },
             "line-height": {
-                "$value": "{line-height.125}"
+                "$value": "{line-height.1-25}"
             }
         },
         "xl": {
@@ -39,7 +39,7 @@
                 "$value": "{font.weight.680}"
             },
             "line-height": {
-                "$value": "{line-height.114}"
+                "$value": "{line-height.1-14}"
             }
         },
         "lg": {
@@ -53,7 +53,7 @@
                 "$value": "{font.weight.680}"
             },
             "line-height": {
-                "$value": "{line-height.133}"
+                "$value": "{line-height.1-33}"
             }
         },
         "md": {
@@ -67,7 +67,7 @@
                 "$value": "{font.weight.580}"
             },
             "line-height": {
-                "$value": "{line-height.120}"
+                "$value": "{line-height.1-20}"
             }
         },
         "sm": {
@@ -81,7 +81,7 @@
                 "$value": "{font.weight.580}"
             },
             "line-height": {
-                "$value": "{line-height.150}"
+                "$value": "{line-height.1-50}"
             }
         },
         "xs": {
@@ -95,7 +95,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.150}"
+                "$value": "{line-height.1-50}"
             }
         }
     },
@@ -110,7 +110,7 @@
                 "$value": "{font.weight.400}"
             },
             "line-height": {
-                "$value": "{line-height.133}"
+                "$value": "{line-height.1-33}"
             }
     },
     "body": {
@@ -125,7 +125,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.112-5}"
+                "$value": "{line-height.1-125}"
             }
         },
         "xl": {
@@ -139,7 +139,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.114}"
+                "$value": "{line-height.1-14}"
             }
         },
         "lg": {
@@ -153,7 +153,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.133}"
+                "$value": "{line-height.1-33}"
             }
         },
         "md": {
@@ -167,7 +167,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.150}"
+                "$value": "{line-height.1-50}"
             }
         },
         "sm": {
@@ -181,7 +181,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.142-8}"
+                "$value": "{line-height.1-4285}"
             }
         },
         "xs": {
@@ -195,7 +195,7 @@
                 "$value": "{font.weight.410}"
             },
             "line-height": {
-                "$value": "{line-height.133}"
+                "$value": "{line-height.1-33}"
             }
         }
     }

@@ -57,66 +57,66 @@
             }
         },
         "weight": {
-            "690": {
+            "400": {
                 "$type": "number",
-                "$value": "690"
-            },
-            "680": {
-                "$type": "number",
-                "$value": "680"
-            },
-            "590": {
-                "$type": "number",
-                "$value": "590"
-            },
-            "580": {
-                "$type": "number",
-                "$value": "580"
-            },
-            "505": {
-                "$type": "number",
-                "$value": "505"
+                "$value": "400"
             },
             "410": {
                 "$type": "number",
                 "$value": "410"
             },
-            "400": {
+            "505": {
                 "$type": "number",
-                "$value": "400"
+                "$value": "505"
+            },
+            "580": {
+                "$type": "number",
+                "$value": "580"
+            },
+            "590": {
+                "$type": "number",
+                "$value": "590"
+            },
+            "680": {
+                "$type": "number",
+                "$value": "680"
+            },
+            "690": {
+                "$type": "number",
+                "$value": "690"
             }
         }
     },
     "line-height": {
-        "112-5": {
+        "1-125": {
             "$type": "number",
             "$value": "1.125"
         },
-        "114": {
+        "1-14": {
             "$type": "number",
             "$value": "1.14"
         },
-        "120": {
+        "1-20": {
             "$type": "number",
             "$value": "1.2"
         },
-        "125": {
+        "1-25": {
             "$type": "number",
             "$value": "1.25"
         },
-        "133": {
+        "1-33": {
             "$type": "number",
             "$value": "1.33"
         },
-        "142-8": {
+        "1-4285": {
             "$type": "number",
             "$value": "1.4285"
         },
-        "142-9": {
+        "1-4295": {
             "$type": "number",
             "$value": "1.4295"
         },
-        "150": {
+        "1-50": {
             "$type": "number",
             "$value": "1.5"
         }
