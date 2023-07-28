@@ -1,9 +1,16 @@
 .hd-sidebar {
+    display: none;
     position: sticky;
     top: var(--hd-space-8);
     height: calc(100vh - var(--hd-space-8));
     flex-basis: 15rem;
     flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .hd-sidebar {
+        display: block;
+    }
 }
 
 .hd-sidebar__container {

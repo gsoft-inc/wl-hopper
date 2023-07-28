@@ -1,5 +1,5 @@
 .hd-aside {
-    display: flex;
+    display: none;
     flex-direction: column;
     padding-block: var(--hd-space-8);
     user-select: none;
@@ -8,6 +8,12 @@
     position: sticky;
     top: var(--hd-space-8);
     height: calc(100% - var(--hd-space-1));
+}
+
+@media screen and (min-width: 992px) {
+    .hd-aside {
+        display: flex;
+    }
 }
 
 .hd-aside__list {
