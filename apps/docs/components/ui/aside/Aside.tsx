@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
-import Link from "next/link";
-
 import "./aside.css";
 
 interface Link {
@@ -97,9 +95,9 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
 
     const listItems = links.map(link => (
         <li className={`hd-aside__item ${ activeSection === link.id ? "hd-aside__item--active" : "" }`} key={link.id}>
-            <Link href={link.url} className="hd-aside__link" >
+            <a href={link.url} className="hd-aside__link" >
                 {link.title}
-            </Link>
+            </a>
         </li>
     ));
 
