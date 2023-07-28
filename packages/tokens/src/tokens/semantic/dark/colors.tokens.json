@@ -234,7 +234,7 @@
         }
     },
     "decorative": {
-        "Option9": {
+        "option9": {
             "icon": {
                 "$type": "color",
                 "$value": "{samoyed}"
@@ -672,5 +672,187 @@
             "$type": "color",
             "$value": "{coastal.400}"
         }
-    }
+    },
+    "status": {
+        "neutral": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{rock.100}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{rock.25}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{rock.25}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{abyss}"
+          }
+        },
+        "progress": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{sapphire.200}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{sapphire.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{sapphire.75}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{sapphire.900}"
+          }
+        },
+        "option5": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{toad.100}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{toad.25}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{toad.700}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{toad.25}"
+          }
+        },
+        "option1": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{coastal.100}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{coastal.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{coastal.200}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{coastal.900}"
+          }
+        },
+        "option2": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{orchid-bloom.100}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{orchid-bloom.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{orchid-bloom.200}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{orchid-bloom.900}"
+          }
+        },
+        "option3": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{quetzal.100}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{quetzal.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{quetzal.200}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{quetzal.900}"
+          }
+        },
+        "option4": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{fog.100}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{fog.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{fog.200}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{fog.900}"
+          }
+        },
+        "caution": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{koi.200}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{koi.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{koi.75}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{koi.900}"
+          }
+        },
+        "negative": {
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{amanita.200}"
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{amanita.900}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{amanita.75}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{amanita.900}"
+          }
+        },
+        "positive": {
+          "icon": {
+            "$type": "color",
+            "$value": "{moss.900}"
+          },
+          "surface-strong": {
+            "$type": "color",
+            "$value": "{moss.200}"
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{moss.75}"
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{moss.900}"
+          }
+        }
+      }
 }
