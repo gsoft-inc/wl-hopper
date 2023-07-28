@@ -20,7 +20,7 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
                             <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
                         </span>)
                     }
-                    <span className="hd-code-header__title">{title}</span>
+                    <span className="hd-pre-header__title">{title}</span>
                 </div>
                 {raw && <CopyButton text={raw} />}
             </div>

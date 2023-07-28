@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "next start",
-
     "dev": "pnpm run \"/^dev:.*/\"",
     "dev:next": "next dev",
     "dev:content": "contentlayer dev",

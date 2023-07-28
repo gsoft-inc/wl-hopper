@@ -2,7 +2,7 @@
   --hd-title-font-family: var(--hd-default-font-family);
 
   font-family: var(--hd-title-font-family);
-  line-height: 1.35;
+  line-height: 1;
   margin-block: 0;
 }
 

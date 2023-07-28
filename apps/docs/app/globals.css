@@ -2,9 +2,14 @@
 @import '@/styles/themes/rehype.css';
 
 * {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 ::selection {
@@ -30,6 +35,7 @@ a {
 .hd-wrapper {
     width: min(100% - 3rem, 75rem);
     margin-inline: auto;
+    gap: 1.5rem;;
 }
 
 .hd-flex {

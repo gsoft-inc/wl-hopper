@@ -12,7 +12,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "assets.workleap.com",
+                hostname: "assets.workleap-dev.com",
                 port: "",
                 pathname: "/hopper/**"
             }

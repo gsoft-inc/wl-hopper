@@ -40,7 +40,7 @@
 /* Stylistic Gradient */
 .hd-header__shadow {
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -53,6 +53,8 @@
     position: relative;
     border-radius: var(--hd-space-7);
     filter: blur(216px);
+    /* prevents an issue in Safari where the blur wasn't visible */
+    transform: translate3d(0, 0, 0);
 }
 
 .hd-header-shadow-block-1 {

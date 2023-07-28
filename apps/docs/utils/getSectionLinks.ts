@@ -1,9 +1,10 @@
 import type { MDX } from "contentlayer/core";
+import formattingTitleId from "@/utils/formattingTitleId";
 
 function getSectionLinks (content: {
     body: MDX;
 }) {
-    const regex = /(?<=##\s).*?(?=\n)/g;
+    const regex = /(?<=^##\s).*?(?=\n)/gm;
     const body = content.body.raw;
     const matches = body.match(regex);
 
@@ -12,7 +13,7 @@ function getSectionLinks (content: {
 
         return links.map(link => ({
             title: link,
-            url: `#${link.toLowerCase()}`,
+            url: `#${formattingTitleId(link.toString())}`,
             id: link.toLowerCase().replace(/\s+/g, "-")
         }));
     }
