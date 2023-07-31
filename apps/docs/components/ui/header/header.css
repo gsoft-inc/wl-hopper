@@ -1,8 +1,12 @@
 :root {
     --hd-header-font-family: var(--hd-default-font-family);
-    --hd-header-background-color: var(--hd-color-neutral-surface);
+    --hd-header-background-color: rgb(252 251 251 / 50%);
     --hd-header-border-color: var(--hd-color-neutral-border-weak);
     --hd-header-height: var(--hd-space-8);
+}
+
+[data-theme="dark"] {
+    --hd-header-background-color: rgb(41 40 41 / 80%);
 }
 
 .hd-header {
@@ -11,6 +15,7 @@
     font-family: var(--hd-header-font-family);
     height: var(--hd-header-height);
     background-color: var(--hd-header-background-color);
+    backdrop-filter: blur(16px);
     border-block-end: 1px solid var(--hd-header-border-color);
     position: sticky;
     top: 0;
