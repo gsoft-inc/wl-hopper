@@ -4,6 +4,7 @@ import { getStyleDictionaryConfig } from "./config.ts";
 import { isDarkTokens } from "./filter/getDarkToken.ts";
 import { customDoc, cssDarkMode } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
+import { isSizeType, pxToRem } from "./transform/px-to-rem.ts";
 
 console.log("\nBuild started...");
 
@@ -13,6 +14,18 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerParser(w3cTokenJsonParser);
+
+StyleDictionary.registerTransform({
+    name: "pxToRem",
+    type: "value",
+    matcher: isSizeType,
+    transformer: pxToRem
+});
+
+StyleDictionary.registerTransformGroup({
+    name: "custom/css",
+    transforms: StyleDictionary.transformGroup["css"].concat(["pxToRem"])
+});
 
 StyleDictionary.registerFormat({
     name: "css/dark-mode",
