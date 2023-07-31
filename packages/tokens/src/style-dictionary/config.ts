@@ -32,7 +32,7 @@ export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
         ],
         "platforms": {
             "css": {
-                "transformGroup": "css",
+                "transformGroup": "custom/css",
                 "buildPath": BUILD_PATH,
                 "prefix": PREFIX,
                 "files": [
