@@ -2,6 +2,7 @@ import StyleDictionary from "style-dictionary";
 
 import { getStyleDictionaryConfig } from "./config.ts";
 import { isDarkTokens } from "./filter/getDarkToken.ts";
+import { isColorType } from "./filter/getColorType.ts";
 import { customDoc, cssDarkMode } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
 
@@ -10,6 +11,11 @@ console.log("\nBuild started...");
 StyleDictionary.registerFilter({
     name: "mode/dark",
     matcher: isDarkTokens
+});
+
+StyleDictionary.registerFilter({
+    name: "colors",
+    matcher: isColorType
 });
 
 StyleDictionary.registerParser(w3cTokenJsonParser);
