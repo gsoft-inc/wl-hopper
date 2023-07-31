@@ -68,7 +68,7 @@ jobs:
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   traceChanged: true
-                  onlyChanged: true # TurboSnap
+                  onlyChanged: false # TurboSnap
                   skip: ${{ github.event.pull_request.draft == true }}
                   onlyStoryNames: "Tokens/*"
 
