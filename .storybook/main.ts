@@ -10,7 +10,7 @@ const config: StorybookConfig = {
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
         "@storybook/addon-mdx-gfm",
-        "storybook-design-token"
+        { name: "storybook-design-token", options: { preserveCSSVars: true } }
     ],
     framework: {
         name: "@storybook/react-vite",

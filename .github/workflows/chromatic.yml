@@ -67,10 +67,10 @@ jobs:
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  traceChanged: false
-                  onlyChanged: false # TurboSnap
+                  traceChanged: true
+                  onlyChanged: true # TurboSnap
                   skip: ${{ github.event.pull_request.draft == true }}
-                  onlyStoryNames: "Tokens/*"
+                  onlyStoryFiles: "stories/tokens/**"
 
             - name: Publish to Chromatic
               if: steps.filter.outputs.storybook == 'true'
