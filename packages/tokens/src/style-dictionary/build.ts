@@ -3,7 +3,7 @@ import StyleDictionary from "style-dictionary";
 import { getStyleDictionaryConfig } from "./config.ts";
 import { isDarkTokens } from "./filter/getDarkToken.ts";
 import { isColorType } from "./filter/getColorType.ts";
-import { customDoc, cssDarkMode } from "./format/index.ts";
+import { customDoc, cssDarkMode, customDocNew } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
 
 console.log("\nBuild started...");
@@ -28,6 +28,11 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
     name: "custom/doc",
     formatter: customDoc
+});
+
+StyleDictionary.registerFormat({
+    name: "custom/doc/new",
+    formatter: customDocNew
 });
 
 console.log("\n☀️ Default tokens...");
