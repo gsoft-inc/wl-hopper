@@ -8,14 +8,14 @@ export default {
     component: List
 };
 
-export const Custom = {
+export const Light = {
     args: {
         styles: tokens
     }
 };
 
 
-export const CustomDark = {
+export const Dark = {
     args: {
         styles: darkTokens
     }
