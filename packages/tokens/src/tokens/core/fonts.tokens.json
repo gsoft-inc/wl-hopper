@@ -16,43 +16,43 @@
         },
         "size": {
             "120": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "12"
             },
             "140": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "14"
             },
             "160": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "16"
             },
             "180": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "18"
             },
             "200": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "20"
             },
             "240": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "24"
             },
             "280": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "28"
             },
             "320": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "32"
             },
             "360": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "36"
             },
             "480": {
-                "$type": "number",
+                "$type": "size",
                 "$value": "48"
             }
         },
