@@ -50,3 +50,4 @@ build-storybook.log
 
 # build artifacts
 **/dist/
+stories/datas

@@ -17,7 +17,8 @@
     "doc:storybook": "pnpm --filter=docs storybook",
     "doc:build": "pnpm --filter=docs build",
     "test": "echo \"no test specified\"",
-    "build": "pnpm --filter=packages -r --parallel build",
+    "build": "pnpm --filter=\"@hopper-ui/*\" -r --parallel build ",
+
     "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
     "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache",
@@ -29,26 +30,25 @@
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "4.36.0",
-    "storybook": "7.1.0"
+    "storybook": "7.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.1.0",
-    "@storybook/addon-interactions": "7.1.0",
-    "@storybook/addon-links": "7.1.0",
-    "@storybook/addon-mdx-gfm": "7.1.0",
-    "@storybook/blocks": "7.1.0",
-    "@storybook/react": "7.1.0",
-    "@storybook/react-vite": "7.1.0",
+    "@storybook/addon-essentials": "7.2.0",
+    "@storybook/addon-interactions": "7.2.0",
+    "@storybook/addon-links": "7.2.0",
+    "@storybook/addon-mdx-gfm": "7.2.0",
+    "@storybook/blocks": "7.2.0",
+    "@storybook/react": "7.2.0",
+    "@storybook/react-vite": "7.2.0",
     "@storybook/testing-library": "0.2.0",
     "@workleap/eslint-plugin": "1.8.1",
     "@workleap/stylelint-config": "1.2.1",
     "@workleap/typescript-configs": "2.3.1",
-    "eslint-plugin-storybook": "^0.6.11",
+    "eslint-plugin-storybook": "^0.6.13",
     "prettier": "^2.4.1",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "storybook-design-token": "3.0.0-beta.3",
     "stylelint": "15.7.0"
   },
   "bugs": {

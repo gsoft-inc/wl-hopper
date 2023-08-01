@@ -1,20 +1,26 @@
 import StyleDictionary from "style-dictionary";
 
 import { getStyleDictionaryConfig } from "./config.ts";
-import { isDarkTokens } from "./filter/getDarkToken.ts";
-import { customDoc, cssDarkMode } from "./format/index.ts";
+import { isDarkTokens } from "./filter/isDarkTokens.ts";
+import { isColorType } from "./filter/isColorType.ts";
+import { cssDarkMode, customDoc } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
 import { isSizeType, pxToRem } from "./transform/px-to-rem.ts";
 
 console.log("\nBuild started...");
 
+// Filters
 StyleDictionary.registerFilter({
     name: "mode/dark",
     matcher: isDarkTokens
 });
 
-StyleDictionary.registerParser(w3cTokenJsonParser);
+StyleDictionary.registerFilter({
+    name: "colors",
+    matcher: isColorType
+});
 
+// Transform
 StyleDictionary.registerTransform({
     name: "pxToRem",
     type: "value",
@@ -27,6 +33,7 @@ StyleDictionary.registerTransformGroup({
     transforms: StyleDictionary.transformGroup["css"].concat(["pxToRem"])
 });
 
+// Format
 StyleDictionary.registerFormat({
     name: "css/dark-mode",
     formatter: cssDarkMode
@@ -37,6 +44,10 @@ StyleDictionary.registerFormat({
     formatter: customDoc
 });
 
+// Parser
+StyleDictionary.registerParser(w3cTokenJsonParser);
+
+// Build
 console.log("\n☀️ Default tokens...");
 StyleDictionary.extend(getStyleDictionaryConfig("light")).buildAllPlatforms();
 
