@@ -18,7 +18,7 @@
     "doc:build": "pnpm --filter=docs build",
 
     "test": "echo \"no test specified\"",
-    "build": "pnpm --filter=\"@hopper-ui/*\" -r --parallel build",
+    "build": "pnpm --filter=\"@hopper-ui/*\" -r --parallel build ",
 
     "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
