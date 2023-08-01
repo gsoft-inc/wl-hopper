@@ -21,17 +21,6 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - uses: dorny/paths-filter@v2
-              id: filter
-              with:
-                  filters: |
-                      storybook:
-                        - '.storybook/**'
-                        - 'stories/**'
-                      tokens:
-                        - 'packages/tokens/**'
-#                      Add more package filters here
-
             - name: Setup Node.js
               uses: actions/setup-node@v3
 
@@ -62,18 +51,7 @@ jobs:
             - name: Build Packages
               run: pnpm build
 
-            - name: Publish Tokens to Chromatic
-              if: ${{ steps.filter.outputs.tokens }} == 'true' && ${{ steps.filter.outputs.chromatic }} == 'false'
-              uses: chromaui/action@v1
-              with:
-                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  traceChanged: false
-                  onlyChanged: false # TurboSnap
-                  skip: ${{ github.event.pull_request.draft == true }}
-                  onlyStoryFiles: "stories/tokens/**"
-
             - name: Publish to Chromatic
-              if: ${{ steps.filter.outputs.chromatic }} == 'true'
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
