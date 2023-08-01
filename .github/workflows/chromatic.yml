@@ -8,7 +8,7 @@ on:
     branches:
       - main
   pull_request:
-    types: [assigned, ready_for_review, review_requested]
+    types: [opened, reopened, edited]
     branches-ignore:
       - changeset-release/*
 
@@ -24,6 +24,7 @@ jobs:
             - uses: dorny/paths-filter@v2
               id: filter
               with:
+                  base: 'main'
                   filters: |
                       storybook:
                         - '.storybook/**'
@@ -63,7 +64,7 @@ jobs:
               run: pnpm build
 
             - name: Publish Tokens to Chromatic
-              if: steps.filter.outputs.tokens == 'true' && steps.filter.outputs.storybook == 'false'
+              if: ${{ steps.filter.outputs.tokens }} == 'true' && ${{ steps.filter.outputs.chromatic }} == 'false'
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -73,7 +74,7 @@ jobs:
                   onlyStoryFiles: "stories/tokens/**"
 
             - name: Publish to Chromatic
-              if: steps.filter.outputs.storybook == 'true'
+              if: ${{ steps.filter.outputs.chromatic }} == 'true'
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
