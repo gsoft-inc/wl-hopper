@@ -12,6 +12,10 @@ on:
     branches-ignore:
       - changeset-release/*
 
+concurrency:
+    group: ${{ github.head_ref }}
+    cancel-in-progress: true
+
 jobs:
     chromatic:
         runs-on: ubuntu-latest
