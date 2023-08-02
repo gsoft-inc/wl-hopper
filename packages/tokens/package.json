@@ -9,12 +9,26 @@
         "url": "git+https://github.com/gsoft-inc/wl-hopper.git",
         "directory": "packages/tokens"
     },
+    "keywords": [
+        "design tokens",
+        "workleap",
+        "hopper design system"
+    ],
     "publishConfig": {
         "access": "public",
         "provenance": true
     },
     "type": "module",
-    "files": [],
+    "exports": {
+        ".": {
+            "style": "./dist/tokens.css"
+        }
+    },
+    "files": [
+        "dist",
+        "CHANGELOG.md",
+        "README.md"
+    ],
     "scripts": {
         "clean:dist": "pnpm dlx rimraf dist",
         "clean:build": "pnpm dlx rimraf build",
