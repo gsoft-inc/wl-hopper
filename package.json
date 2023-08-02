@@ -22,7 +22,7 @@
 
     "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
-    "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache",
+    "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint",
 
     "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist node_modules/.cache",
     "reset": "pnpm clean && pnpm reset:modules",
