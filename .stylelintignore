@@ -1,6 +1,4 @@
 # This is the demo for storybook, ignore linting. This should be removed when the stories folder is deleted
 stories
-# 57 errors at the moment are in the apps folder. Since i don't want to create merge conflicts, i'll disable stylelint on this folder for now
-apps/docs
 # crach after runing
 packages/tokens/dist

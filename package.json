@@ -22,7 +22,7 @@
 
     "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
-    "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache",
+    "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint",
 
     "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist node_modules/.cache",
     "reset": "pnpm clean && pnpm reset:modules",
@@ -48,6 +48,7 @@
     "@workleap/stylelint-config": "1.2.1",
     "@workleap/typescript-configs": "2.3.1",
     "eslint-plugin-storybook": "^0.6.13",
+    "prettier": "^2.4.1",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
