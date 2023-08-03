@@ -29,7 +29,6 @@ npm install -D @hopper-ui/tokens
 
 ## Usage
 
-[//]: # (reformat this phrase)
 The tokens are available in the `dist` folder. You can import the tokens in your project by doing:
 
 ```css
