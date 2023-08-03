@@ -8,9 +8,13 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, assigned, ready_for_review, review_requested]
+    types: [assigned, ready_for_review, review_requested]
     branches-ignore:
       - changeset-release/*
+
+concurrency:
+    group: ${{ github.head_ref }}
+    cancel-in-progress: true
 
 jobs:
     chromatic:
