@@ -93,6 +93,6 @@
     --hd-color-neutral-icon: var(--hd-neutral-0);
     --hd-color-neutral-icon-hover: var(--hd-primary-900);
     --hd-color-neutral-icon-weak: var(--hd-neutral-300);
-    --hd-color-neutral-icon--weak-hover: var(--hd-neutral-0);
+    --hd-color-neutral-icon-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-border: var(--hd-neutral-700);
 }

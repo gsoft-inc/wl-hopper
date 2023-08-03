@@ -32,7 +32,7 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
 
     return (
         <div className="hd-section-popover">
-            <Button className="hd-section-popover__button" onPress={togglePopover}>
+            <Button className={`hd-section-popover__button ${isOpen ? "hd-section-popover__button--open" : ""}`} onPress={togglePopover}>
                     On this page
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="hd-section-popover__button-icon">
                     <path d="M4 6L8 10L12 6" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />

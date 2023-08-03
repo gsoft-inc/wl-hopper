@@ -17,7 +17,7 @@
     rotate: -90deg;
 }
 
-.hd-section-popover__button[aria-expanded="true"] svg {
+.hd-section-popover__button--open svg {
     rotate: 0deg;
 }
 
