@@ -55,4 +55,4 @@ jobs:
                   publish: pnpm run ci-release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.WORKLEAP_NPM_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.HOPPER_NPM_TOKEN }}
