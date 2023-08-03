@@ -1,28 +1,62 @@
 .hd-aside {
     display: none;
     flex-direction: column;
-    padding-block: var(--hd-space-8);
     user-select: none;
-    flex-basis: 10rem;
-    flex-shrink: 0;
-    position: sticky;
-    top: var(--hd-space-8);
-    height: calc(100% - var(--hd-space-1));
+    order: 1;
+    padding-block-start: var(--hd-space-8);
+}
+
+@media screen and (min-width: 768px) {
+    .hd-aside {
+        display: flex;
+        padding-block-start: var(--hd-space-8);
+    }
 }
 
 @media screen and (min-width: 992px) {
     .hd-aside {
-        display: flex;
+        order: 2;
+        padding-block: var(--hd-space-8);
+        flex-basis: 10rem;
+        flex-shrink: 0;
+        position: sticky;
+        top: var(--hd-space-8);
+        height: calc(100vh - var(--hd-space-8));
     }
 }
 
 .hd-aside__list {
+    display: flex;
     list-style-type: none;
     padding: 0;
-    display: flex;
     flex-direction: column;
     gap: var(--hd-space-05);
     position: relative;
+    margin-block-start: var(--hd-space-1);
+}
+
+.hd-aside__list--opened {
+    display: flex;
+}
+
+.hd-aside__list--closed {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .hd-aside__list {
+        margin-block-start: 0;
+    }
+
+    .hd-aside__list {
+        display: flex!important;
+    }
+
+    .hd-aside__list--closed {
+        /* making sure that if a user toggles the list and resize his browser the list is still visible */
+        /* We could do this in JS but I feel that fixes the issue */
+        display: flex;
+    }
 }
 
 .hd-aside__list::before {
@@ -32,7 +66,7 @@
     width: 1px;
     height: 100%;
     left: 0;
-    border-inline-start: 1px solid var(--hd-color-neutral-border);
+    border-inline-start: var(--hd-border-size) solid var(--hd-color-neutral-border);
 }
 
 .hd-aside__link {
@@ -44,11 +78,17 @@
 }
 
 .hd-aside__title {
-    display: flex;
+    display: none;
     font-size: 0.875rem;
     font-weight: 600;
     margin-block-end: var(--hd-space-1);
     color: var(--hd-color-neutral-text);
+}
+
+@media screen and (min-width: 992px) {
+    .hd-aside__title {
+        display: flex;
+    }
 }
 
 .hd-aside__item {
@@ -71,8 +111,49 @@
     z-index: 1;
     border-radius: var(--hd-space-1);
     transition: top .25s cubic-bezier(0,1,.5,1);
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .hd-aside__marker {
+        display: block;
+    }
 }
 
 .hd-aside__list:not(:has(.hd-aside__item)) .hd-aside__marker {
     display: none;
+}
+
+/* Toggle Aside Button */
+.hd-aside__button {
+    background-color: transparent;
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
+    border-radius: var(--hd-space-1);
+    color: var(--hd-color-neutral-text-weak);
+    cursor: pointer;
+    padding-inline: var(--hd-space-2);
+    height: var(--hd-space-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--hd-space-05);
+    fill: var(--hd-color-neutral-icon);
+}
+
+.hd-aside__button:hover {
+    color: var(--hd-color-neutral-text-weak-hover);
+}
+
+@media screen and (min-width: 992px) {
+    .hd-aside__button {
+        display: none;
+    }
+}
+
+.hd-aside__button-icon path {
+    stroke: var(--hd-color-neutral-icon-weak);
+}
+
+.hd-aside__button:hover .hd-aside__button-icon path {
+    stroke: var(--hd-color-neutral-icon-weak-hover);
 }

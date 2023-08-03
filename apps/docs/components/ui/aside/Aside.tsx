@@ -93,6 +93,12 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
         };
     });
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleList = () => {
+        setIsOpen(!isOpen);
+    };
+
     const listItems = links.map(link => (
         <li className={`hd-aside__item ${ activeSection === link.id ? "hd-aside__item--active" : "" }`} key={link.id}>
             <a href={link.url} className="hd-aside__link" >
@@ -104,7 +110,13 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     return (
         <aside className="hd-aside">
             <span className="hd-aside__title">{title}</span>
-            <ul className="hd-aside__list">
+            <button type="button" className="hd-aside__button" onClick={toggleList}>
+                {title}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="hd-aside__button-icon" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L8 10L12 6" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+            <ul className={`hd-aside__list ${isOpen ? "hd-aside__list--opened" : "hd-aside__list--closed"}`}>
                 {activeItemIndex !== -1 && (
                     <span
                         className={`hd-aside__marker ${

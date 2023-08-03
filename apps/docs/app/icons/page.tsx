@@ -13,11 +13,13 @@ export default function IconPage() {
 
     return (
         <>
-            <main>
-                <article key={page._id}>
-                    {page.body && <Mdx code={page.body.code} />}
-                </article>
-            </main>
+            <div className="hd-wrapper hd-flex">
+                <main>
+                    <article key={page._id}>
+                        {page.body && <Mdx code={page.body.code} />}
+                    </article>
+                </main>
+            </div>
         </>
     );
 }

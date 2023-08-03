@@ -17,9 +17,14 @@
     background-color: var(--hd-header-background-color);
     backdrop-filter: blur(16px);
     border-block-end: 1px solid var(--hd-header-border-color);
-    position: sticky;
-    top: 0;
     z-index: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .hd-header {
+        position: sticky;
+        top: 0;
+    }
 }
 
 .hd-header__nav {
@@ -34,12 +39,28 @@
 }
 
 .hd-brand__logo {
-    fill: var(--hd-color-icon-primary);
+    fill: var(--hd-color-neutral-icon);
 }
 
 .hd-header__quick-actions {
-    display: flex;
+    display: none;
     gap: var(--hd-space-1);
+}
+
+@media screen and (min-width: 600px) {
+    .hd-header__quick-actions {
+        display: flex;
+    }
+}
+
+.hd-header__mobile-menu-trigger {
+    display: block;
+}
+
+@media screen and (min-width: 600px) {
+    .hd-header__mobile-menu-trigger {
+        display: none;
+    }
 }
 
 /* Stylistic Gradient */

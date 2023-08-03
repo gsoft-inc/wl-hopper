@@ -11,10 +11,38 @@ html {
     margin: calc(-1 * var(--hd-space-8)) 0 0;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+    gap: var(--hd-space-3);
+    position: relative;
+}
+
 main {
-    padding-block: var(--hd-space-8);
+    padding-block-end: var(--hd-space-8);
+    padding-block-start: var(--hd-space-4);
     flex: 1 1 auto;
     min-width: 0;
+    order: 1;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        padding-block-start: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        flex-direction: row;
+    }
+    main {
+        order: 1;
+        padding-block-start: var(--hd-space-8);
+    }
 }
 
 p {
@@ -27,5 +55,5 @@ p:not(:last-child) {
 }
 
 p + * {
-    margin-block-start: 1.5rem;
+    margin-block-start: var(--hd-space-3);
 }

@@ -8,7 +8,15 @@
 .hd-nav {
     font-size: var(--hd-nav-font-size);
     line-height: var(--hd-nav-line-height);
+    display: none;
 }
+
+@media screen and (min-width: 600px) {
+    .hd-nav {
+        display: block;
+    }
+}
+
 
 .hd-nav__list {
     display: flex;

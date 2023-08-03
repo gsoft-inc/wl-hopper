@@ -4,13 +4,70 @@ import Link from "next/link";
 import cx from "classnames";
 import { usePathname } from "next/navigation";
 import getPageLinks from "@/utils/getPageLinks";
+import Overlay from "@/components/ui/overlay/Overlay";
+import React, { useEffect, useRef } from "react";
+
 import type { Data } from "@/utils/getPageLinks";
 
 import "./sidebar.css";
 
-const Sidebar = ({ data }: { data: Data[] }) => {
+interface SidebarProps {
+    data: Data[];
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ data, isOpen, onClose }) => {
+    const sidebarRef = useRef<HTMLDivElement>(null);
     const links = getPageLinks(data, { order: ["getting-started", "core", "semantic"] });
     const pathName = usePathname();
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+                onClose();
+            }
+        };
+
+        const handleLockScroll = () => {
+            const shouldLockScroll = window.innerWidth <= 768 && isOpen;
+            document.body.style.overflow = shouldLockScroll ? "hidden" : "auto";
+        };
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                onClose();
+            }
+        };
+
+        const handleWindowResize = () => {
+            if (window.innerWidth > 768) {
+                onClose();
+            } else {
+                handleLockScroll();
+            }
+        };
+
+        if (isOpen) {
+            handleLockScroll();
+            document.addEventListener("click", handleClickOutside);
+            document.addEventListener("keydown", handleKeyDown);
+            window.addEventListener("resize", handleWindowResize);
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+            document.removeEventListener("click", handleClickOutside);
+            document.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("resize", handleWindowResize);
+        };
+    }, [isOpen, onClose]);
+
+    const handleLinkClick = () => {
+        if (window.innerWidth <= 768) {
+            onClose();
+        }
+    };
 
     const linkItems = links.map(link => {
         return (
@@ -24,7 +81,7 @@ const Sidebar = ({ data }: { data: Data[] }) => {
 
                             return (
                                 <li className={cx("hd-sidebar__item", isActive && "hd-sidebar__item--active")} key={item.id}>
-                                    <Link href={linkPath} className="hd-sidebar__link">{item.title}</Link>
+                                    <Link href={linkPath} className="hd-sidebar__link" onClick={handleLinkClick}>{item.title}</Link>
                                 </li>
                             );
                         })}
@@ -35,11 +92,14 @@ const Sidebar = ({ data }: { data: Data[] }) => {
     });
 
     return (
-        <nav className="hd-sidebar" aria-label="Sidebar">
-            <div className="hd-sidebar__container">
-                {linkItems}
-            </div>
-        </nav>
+        <>
+            <Overlay isOpen={isOpen}></Overlay>
+            <nav className={`hd-sidebar ${isOpen ? "hd-sidebar--open" : ""}`} aria-label="Sidebar" ref={sidebarRef}>
+                <div className="hd-sidebar__container">
+                    {linkItems}
+                </div>
+            </nav>
+        </>
     );
 };
 

@@ -32,13 +32,17 @@ export default async function ComponentPage({ params }: PageProps) {
     }
 
     return (
-        <main>
-            <article key={componentContent._id}>
-                {componentContent.status &&
-                    `status: ${componentContent.status}`
-                }
-                {componentContent.body && <Mdx code={componentContent.body.code} />}
-            </article>
-        </main>
+        <>
+            <div className="container">
+                <main>
+                    <article key={componentContent._id}>
+                        {componentContent.status &&
+                        `status: ${componentContent.status}`
+                        }
+                        {componentContent.body && <Mdx code={componentContent.body.code} />}
+                    </article>
+                </main>
+            </div>
+        </>
     );
 }

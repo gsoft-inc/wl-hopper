@@ -8,9 +8,11 @@ export default function CodeBlockPage() {
         {allPages
             .filter(page => page._id === "pages/playground-codeblock.mdx")
             .map(page => (
-                <article key={page._id}>
-                    {page.body && <Mdx code={page.body.code} />}
-                </article>
+                <div className="hd-wrapper hd-flex">
+                    <article key={page._id}>
+                        {page.body && <Mdx code={page.body.code} />}
+                    </article>
+                </div>
             ))}
     </main>;
 }

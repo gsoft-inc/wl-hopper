@@ -103,7 +103,7 @@
 /* Block Caption */
 [data-rehype-pretty-code-caption] {
     margin-top: var(--hd-space-1);
-    color: var(--hd-color-text-primary);
+    color: var(--hd-color-primary-text);
     border-radius: var(--hd-space-1);
     font-style: italic;
     font-size: .875rem;
