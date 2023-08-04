@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Div } from "@hopper-ui/styled-system";
 
 export default {
-    title: "Chromatic/ThemeProvider",
+    title: "Styled System/HopperProvider",
     component: HopperProvider,
     parameters: {
         chromatic: {
