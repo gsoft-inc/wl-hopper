@@ -32,6 +32,7 @@
 .hd-mobile-menu-nav-list {
     list-style-type: none;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     gap: var(--hd-space-05);
     line-height: 1.5;
@@ -40,6 +41,12 @@
 
 .hd-mobile-menu-nav-list__link {
     font-size: 1.5rem;
+    display: flex;
+    color: var(--hd-color-neutral-text-weak);
+}
+
+.hd-mobile-menu-nav-list__link:hover {
+    color: var(--hd-color-primary-text);
 }
 
 .hd-mobile-menu-footer {
