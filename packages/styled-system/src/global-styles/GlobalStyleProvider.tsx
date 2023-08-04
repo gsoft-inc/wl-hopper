@@ -39,7 +39,6 @@ const GlobalStyles = formatInlineCss(`
     }
     `);
 
-// TODO: explain why this is a component. The reason is we want it to be a children of the root element of the hopper provider
 export function GlobalStyleProvider() {
     const ref = useRef<HTMLDivElement>(null);
     const colorScheme = useColorSchemeContext();

@@ -236,7 +236,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_borderBottom">("rgba(255, 255, 128,
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottom">("hsl(50, 33%, 25%)");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottom">("hsla(50, 33%, 25%, .75)");
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"borderLeft">(0);
 expectStyledSystemPropertyAssignable<"borderLeft">("white");
 expectStyledSystemPropertyAssignable<"borderLeft">("purple-1");
@@ -268,7 +267,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_borderLeft">("rgba(255, 255, 128, .
 expectStyledSystemPropertyAssignable<"UNSAFE_borderLeft">("hsl(50, 33%, 25%)");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderLeft">("hsla(50, 33%, 25%, .75)");
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"borderRight">(0);
 expectStyledSystemPropertyAssignable<"borderRight">("white");
 expectStyledSystemPropertyAssignable<"borderRight">("purple-1");
@@ -368,7 +366,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_borderRadius">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderRadius">("1px 0 3px 4px");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderRadius">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"borderBottomLeftRadius">(0);
 expectStyledSystemPropertyAssignable<"borderBottomLeftRadius">(1);
 expectStyledSystemPropertyAssignable<"borderBottomLeftRadius">(2);
@@ -389,7 +386,6 @@ expectStyledSystemPropertyAssignable<"borderBottomLeftRadius">("calc(1px + 1px)"
 // @ts-expect-error: only tokens are allowed
 expectStyledSystemPropertyAssignable<"borderBottomLeftRadius">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomLeftRadius">(0);
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomLeftRadius">(1);
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomLeftRadius">(2);
@@ -403,7 +399,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomLeftRadius">("1%");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomLeftRadius">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomLeftRadius">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"borderBottomRightRadius">(0);
 expectStyledSystemPropertyAssignable<"borderBottomRightRadius">(1);
 expectStyledSystemPropertyAssignable<"borderBottomRightRadius">(2);
@@ -437,7 +432,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomRightRadius">("1%");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomRightRadius">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderBottomRightRadius">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"borderTopLeftRadius">(0);
 expectStyledSystemPropertyAssignable<"borderTopLeftRadius">(1);
 expectStyledSystemPropertyAssignable<"borderTopLeftRadius">(2);
@@ -471,7 +465,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_borderTopLeftRadius">("1%");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderTopLeftRadius">("calc(1px + 1px)");
 expectStyledSystemPropertyAssignable<"UNSAFE_borderTopLeftRadius">({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"borderTopRightRadius">(0);
 expectStyledSystemPropertyAssignable<"borderTopRightRadius">(1);
 expectStyledSystemPropertyAssignable<"borderTopRightRadius">(2);
@@ -515,7 +508,6 @@ expectStyledSystemPropertyAssignable<"bottom">({ base: "1px", xs: "1px", sm: "1p
 // @ts-expect-error: unsafe property is not available since this field isn't using tokens
 expectPropertyAvailable<"UNSAFE_bottom">;
 
-// TODO allow none?
 expectStyledSystemPropertyAssignable<"boxShadow">("none");
 expectStyledSystemPropertyAssignable<"boxShadow">(1);
 expectStyledSystemPropertyAssignable<"boxShadow">(2);
@@ -817,7 +809,6 @@ expectStyledSystemPropertyAssignable<"UNSAFE_fontWeight">(3);
 expectStyledSystemPropertyAssignable<"UNSAFE_fontWeight">({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 expectStyledSystemPropertyAssignable<"UNSAFE_fontWeight">("bold");
 
-// TODO: should 0  be allowed? or none???
 expectStyledSystemPropertyAssignable<"gap">(0);
 expectStyledSystemPropertyAssignable<"gap">(1);
 expectStyledSystemPropertyAssignable<"gap">({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
