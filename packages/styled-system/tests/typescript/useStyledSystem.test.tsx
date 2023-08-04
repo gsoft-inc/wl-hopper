@@ -1,16 +1,6 @@
 import type { StyledSystemProps } from "../../src/styled-system-props.ts";
 import type { ResponsiveValue } from "../../src/responsive/useResponsiveValue.tsx";
-
-/**
- * Asserts that the type of `expression` is assignable to type `T`.
- *
- * @param expression - Expression that should be assignable to type `T`.
- */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function expectAssignable<T>(expression: T) {
-    // TODO: move this to a shared file
-    // Do nothing, the TypeScript compiler handles this for us
-}
+import { expectAssignable } from "@hopper-ui/test-utils";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function expectStyledSystemPropertyAssignable<T extends keyof StyledSystemProps>(expression: StyledSystemProps[T]) {

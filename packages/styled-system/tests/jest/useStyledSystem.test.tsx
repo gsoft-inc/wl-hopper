@@ -93,7 +93,7 @@ const SizingSampling = [
 interface PropDefinition {
     name: string;
     key: string;
-    values: Readonly<any[]>;
+    values: Readonly<unknown[]>;
 }
 
 const Props: PropDefinition[] = [

@@ -2,11 +2,11 @@ import { HopperProvider, type ColorScheme } from "@hopper-ui/styled-system";
 import type { ReactElement, ReactNode } from "react";
 import { type RenderHookOptions, renderHook, render, type RenderOptions } from "@testing-library/react";
 
-export interface ThemeProviderWrapperOptions {
+export interface HopperProviderWrapperOptions {
     colorScheme?: ColorScheme;
 }
 
-function createThemeProviderWrapper({ colorScheme = "light" }: ThemeProviderWrapperOptions = {}) {
+function createHopperProviderWrapper({ colorScheme = "light" }: HopperProviderWrapperOptions = {}) {
     return ({ children }: { children?: ReactNode }) => {
         return (
             <HopperProvider colorScheme={colorScheme}>
@@ -15,22 +15,31 @@ function createThemeProviderWrapper({ colorScheme = "light" }: ThemeProviderWrap
         );
     };
 }
+export interface HopperRenderOptions extends RenderOptions {
+    withHopperProvider?: boolean;
+}
 
-export function renderWithTheme(ui: ReactElement, testingLibraryOptions: RenderOptions = {}, themeOptions?: ThemeProviderWrapperOptions) {
+export function renderWithTheme(
+    ui: ReactElement,
+    testingLibraryOptions: HopperRenderOptions = {},
+    themeOptions?: HopperProviderWrapperOptions
+): ReturnType<typeof render> {
     return render(ui, {
-        wrapper: createThemeProviderWrapper(themeOptions),
+        wrapper: createHopperProviderWrapper(themeOptions),
         ...testingLibraryOptions
     });
 }
 
-export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions: RenderHookOptions<TProps> = {}, themeOptions?: ThemeProviderWrapperOptions) {
+export function renderHookWithTheme<TProps, TResult>(
+    callback: (props: TProps) => TResult, renderHookOptions: RenderHookOptions<TProps> = {},
+    themeOptions?: HopperProviderWrapperOptions
+): ReturnType<typeof renderHook<TResult, TProps>> {
     return renderHook(callback, {
-        wrapper: createThemeProviderWrapper(themeOptions),
+        wrapper: createHopperProviderWrapper(themeOptions),
         ...renderHookOptions
     });
 }
 
-export * from "@testing-library/dom";
-export * from "@testing-library/react";
+export { act, fireEvent, screen, waitFor } from "@testing-library/react";
 export { renderWithTheme as render };
 export { renderHookWithTheme as renderHook };

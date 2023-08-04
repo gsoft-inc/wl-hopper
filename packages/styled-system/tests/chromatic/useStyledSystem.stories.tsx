@@ -5,7 +5,7 @@ const viewports = [640, 768, 1024, 1280, 1536];
 
 const meta = {
     title: "Styled System/useStyledSystem",
-    component: Div as any,
+    component: Div,
     parameters: {
         chromatic: {
             delay: 100,
