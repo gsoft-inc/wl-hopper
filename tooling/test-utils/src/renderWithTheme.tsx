@@ -1,13 +1,13 @@
 import { HopperProvider, type ColorScheme } from "@hopper-ui/styled-system";
-import type { ReactElement, ReactNode } from "react";
+import type { ReactElement } from "react";
 import { type RenderHookOptions, renderHook, render, type RenderOptions } from "@testing-library/react";
 
 export interface HopperProviderWrapperOptions {
     colorScheme?: ColorScheme;
 }
 
-function createHopperProviderWrapper({ colorScheme = "light" }: HopperProviderWrapperOptions = {}) {
-    return ({ children }: { children?: ReactNode }) => {
+function createHopperProviderWrapper({ colorScheme = "light" }: HopperProviderWrapperOptions = {}): RenderOptions["wrapper"] {
+    return ({ children }) => {
         return (
             <HopperProvider colorScheme={colorScheme}>
                 {children}

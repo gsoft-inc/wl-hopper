@@ -43,6 +43,7 @@
         "@storybook/addon-essentials": "7.2.0",
         "@storybook/addon-interactions": "7.2.0",
         "@storybook/addon-links": "7.2.0",
+        "@storybook/addon-mdx-gfm": "7.2.0",
         "@storybook/blocks": "7.2.0",
         "@storybook/react": "7.2.0",
         "@storybook/react-webpack5": "7.2.0",
