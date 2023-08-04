@@ -1,12 +1,12 @@
-interface Navigation {
+export interface NavItem {
     label: string;
     path: string;
 }
 
-export const navigation: Navigation[] = [
+export const navigation: NavItem[] = [
     {
         "label": "Tokens",
-        "path": "/tokens"
+        "path": "/tokens/getting-started/introduction"
     },
     {
         "label": "Icons",
@@ -14,6 +14,6 @@ export const navigation: Navigation[] = [
     },
     {
         "label": "Components",
-        "path": "/components"
+        "path": "/components/installation"
     }
 ];

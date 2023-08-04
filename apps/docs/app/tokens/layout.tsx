@@ -1,13 +1,10 @@
-import { Sidebar } from "@/components/Sidebar/Sidebar";
+import { allTokens } from "contentlayer/generated";
+import Sidebar from "@/components/ui/sidebar/Sidebar";
 
-export default function TokensLayout({
-    children // will be a page or nested layout
-}: {
-    children: React.ReactNode;
-}) {
+export default function TokenLayout({ children } : { children: React.ReactNode }) {
     return (
         <>
-            <Sidebar />
+            <Sidebar data={allTokens} />
             {children}
         </>
     );

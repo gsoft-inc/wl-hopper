@@ -12,6 +12,10 @@ on:
     branches-ignore:
       - changeset-release/*
 
+concurrency:
+    group: ${{ github.head_ref }}
+    cancel-in-progress: true
+
 jobs:
     chromatic:
         runs-on: ubuntu-latest
@@ -44,7 +48,6 @@ jobs:
                 key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
                 restore-keys: |
                   ${{ runner.os }}-pnpm-store-
-
 
             - name: Install dependencies
               run: pnpm i --frozen-lockfile

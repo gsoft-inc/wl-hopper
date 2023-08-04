@@ -6,8 +6,17 @@ const nextConfig = {
     swcMinify: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     experimental: {
-        appDir: true,
-        mdxRs: false
+        appDir: true
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "assets.workleap-dev.com",
+                port: "",
+                pathname: "/hopper/**"
+            }
+        ]
     },
     webpack(config) {
         config.module.rules.push({

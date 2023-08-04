@@ -1,0 +1,34 @@
+{
+    "border-radius": {
+        "0": {
+            "$type": "size",
+            "$value": 0,
+            "group": "borderRadius"
+        },
+        "1": {
+            "$type": "size",
+            "$value": 4,
+            "group": "borderRadius"
+        },
+        "2": {
+            "$type": "size",
+            "$value": 8,
+            "group": "borderRadius"
+        },
+        "3": {
+            "$type": "size",
+            "$value": 16,
+            "group": "borderRadius"
+        },
+        "4": {
+            "$type": "size",
+            "$value": 24,
+            "group": "borderRadius"
+        },
+        "9999": {
+            "$type": "size",
+            "$value": 9999,
+            "group": "borderRadius"
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "name": "@hopper-ui/tokens",
+    "author": "Workleap",
+    "version": "0.0.0",
+    "description": "The tokens package.",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gsoft-inc/wl-hopper.git",
+        "directory": "packages/tokens"
+    },
+    "keywords": [
+        "design tokens",
+        "workleap",
+        "hopper design system"
+    ],
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "type": "module",
+    "exports": {
+        ".": {
+            "style": "./dist/tokens.css"
+        }
+    },
+    "files": [
+        "dist",
+        "CHANGELOG.md",
+        "README.md"
+    ],
+    "scripts": {
+        "clean:dist": "pnpm dlx rimraf dist",
+        "clean:build": "pnpm dlx rimraf build",
+        "build:ts": "tsup",
+        "build:tokens": "node build/build.js",
+        "build": "pnpm run build:ts && pnpm run build:tokens && pnpm run clean:build"
+    },
+    "dependencies": {
+        "style-dictionary": "^3.8.0"
+    },
+    "devDependencies": {
+        "@types/node": "18.15.11",
+        "@workleap/eslint-plugin": "1.8.1",
+        "@workleap/tsup-configs": "^2.0.0",
+        "@workleap/typescript-configs": "2.3.1",
+        "tsup": "^7.1.0",
+        "typescript": "5.0.3"
+    },
+    "sideEffects": false,
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

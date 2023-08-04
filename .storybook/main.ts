@@ -22,7 +22,8 @@ const storybookConfig: StorybookConfig = {
             }
 
         },
-        "@hopper-ui/storybook-addon"
+        "@hopper-ui/storybook-addon",
+        "@storybook/addon-mdx-gfm"
     ],
     framework: {
         name: "@storybook/react-webpack5",

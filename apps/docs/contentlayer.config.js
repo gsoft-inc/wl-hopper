@@ -15,15 +15,71 @@ export const Page = defineDocumentType(() => ({
         },
         description: {
             type: "string"
-        },
-        date: {
-            type: "date"
         }
     },
     computedFields: {
-        url: {
+        slug: {
             type: "string",
             resolve: doc => `${doc._raw.flattenedPath}`
+        }
+    }
+}));
+
+export const Tokens = defineDocumentType(() => ({
+    name: "Tokens",
+    filePathPattern: "tokens/**/*.mdx",
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true
+        },
+        description: {
+            type: "string"
+        },
+        order: {
+            type: "number"
+        }
+    },
+    computedFields: {
+        slug: {
+            type: "string",
+            resolve: post => {
+                return post._raw.sourceFileName.replace(/\.mdx$/, "");
+            }
+        },
+        section: {
+            type: "string",
+            resolve: post => {
+                return post._raw.sourceFileDir.replace("tokens/", "");
+            }
+        }
+    }
+}));
+
+export const Components = defineDocumentType(() => ({
+    name: "Components",
+    filePathPattern: "components/**/*.mdx",
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true
+        },
+        description: {
+            type: "string"
+        },
+        section: {
+            type: "string"
+        },
+        status: {
+            type: "string"
+        }
+    },
+    computedFields: {
+        slug: {
+            type: "string",
+            resolve: post => post._raw.sourceFileName.replace(/\.mdx$/, "")
         }
     }
 }));
@@ -36,7 +92,10 @@ const rehypeOptions = {
         // Prevent lines from collapsing in `display: grid` mode, and
         // allow empty lines to be copy/pasted
         if (node.children.length === 0) {
-            node.children = [{ type: "text", value: " " }];
+            node.children = [{
+                type: "text",
+                value: " "
+            }];
         }
     },
     onVisitHighlightedLine(node) {
@@ -65,7 +124,7 @@ const rehypeOptions = {
 
 export default makeSource({
     contentDirPath: "./content",
-    documentTypes: [Page],
+    documentTypes: [Page, Tokens, Components],
     mdx: {
         remarkPlugins: [],
         rehypePlugins: [
@@ -74,7 +133,9 @@ export default makeSource({
                     if (node?.type === "element" && node?.tagName === "pre") {
                         const [codeEl] = node.children;
 
-                        if (codeEl.tagName !== "code") {return;}
+                        if (codeEl.tagName !== "code") {
+                            return;
+                        }
 
                         node.raw = codeEl.children?.[0].value;
                     }
@@ -91,7 +152,7 @@ export default makeSource({
                         const titleChild = node.children.find(child => {
                             return (
                                 child.properties &&
-                              "data-rehype-pretty-code-title" in child.properties
+                                "data-rehype-pretty-code-title" in child.properties
                             );
                         });
 

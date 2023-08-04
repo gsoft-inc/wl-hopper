@@ -1,0 +1,55 @@
+.hd-title {
+  --hd-title-font-family: var(--hd-default-font-family);
+
+  font-family: var(--hd-title-font-family);
+  line-height: 1;
+  margin-block: 0;
+}
+
+.hd-title--level1 {
+    font-size: 2.5em;
+    margin-block-end: 1rem;
+}
+
+.hd-title--level2 {
+    font-size: 1.5em;
+    margin-block: 3rem 1rem;
+}
+
+.hd-title--level3 {
+    font-size: 1.25em;
+    margin-block: 2rem 0.825rem;
+}
+
+.hd-title--level4 {
+    font-size: 1em;
+    margin-block: 1.5rem 0.75rem;
+}
+
+.hd-title--level5 {
+    font-size: 0.825em;
+    margin-block: 1rem 0.625rem;
+}
+
+.hd-title-link {
+    position: relative;
+    display: inline;
+    padding-left: 2ch;
+    margin-left: -2ch;
+}
+
+.hd-title-link::before {
+    content: "#";
+    position: absolute;
+    left: 0;
+    font-size: 1em;
+    line-height: inherit;
+    color: var(--hd-color-neutral-text-weak);
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
+}
+
+.hd-title-link:hover::before,
+.hd-title-link:focus::before {
+    opacity: 1;
+}

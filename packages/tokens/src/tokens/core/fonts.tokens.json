@@ -1,0 +1,124 @@
+{
+    "font": {
+        "family": {
+            "primary" : {
+                "$type": "string",
+                "$value": "ABC Favorit"
+            },
+            "secondary" : {
+                "$type": "string",
+                "$value": "Inter"
+            },
+            "tertiary" : {
+                "$type": "string",
+                "$value": "ABC Favorit Mono"
+            }
+        },
+        "size": {
+            "120": {
+                "$type": "size",
+                "$value": "12"
+            },
+            "140": {
+                "$type": "size",
+                "$value": "14"
+            },
+            "160": {
+                "$type": "size",
+                "$value": "16"
+            },
+            "180": {
+                "$type": "size",
+                "$value": "18"
+            },
+            "200": {
+                "$type": "size",
+                "$value": "20"
+            },
+            "240": {
+                "$type": "size",
+                "$value": "24"
+            },
+            "280": {
+                "$type": "size",
+                "$value": "28"
+            },
+            "320": {
+                "$type": "size",
+                "$value": "32"
+            },
+            "360": {
+                "$type": "size",
+                "$value": "36"
+            },
+            "480": {
+                "$type": "size",
+                "$value": "48"
+            }
+        },
+        "weight": {
+            "400": {
+                "$type": "number",
+                "$value": "400"
+            },
+            "410": {
+                "$type": "number",
+                "$value": "410"
+            },
+            "505": {
+                "$type": "number",
+                "$value": "505"
+            },
+            "580": {
+                "$type": "number",
+                "$value": "580"
+            },
+            "590": {
+                "$type": "number",
+                "$value": "590"
+            },
+            "680": {
+                "$type": "number",
+                "$value": "680"
+            },
+            "690": {
+                "$type": "number",
+                "$value": "690"
+            }
+        }
+    },
+    "line-height": {
+        "1-125": {
+            "$type": "number",
+            "$value": "1.125"
+        },
+        "1-14": {
+            "$type": "number",
+            "$value": "1.14"
+        },
+        "1-20": {
+            "$type": "number",
+            "$value": "1.2"
+        },
+        "1-25": {
+            "$type": "number",
+            "$value": "1.25"
+        },
+        "1-33": {
+            "$type": "number",
+            "$value": "1.33"
+        },
+        "1-4285": {
+            "$type": "number",
+            "$value": "1.4285"
+        },
+        "1-4295": {
+            "$type": "number",
+            "$value": "1.4295"
+        },
+        "1-50": {
+            "$type": "number",
+            "$value": "1.5"
+        }
+    }
+}

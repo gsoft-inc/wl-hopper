@@ -1,7 +1,6 @@
 {
   "extends": "@workleap/typescript-configs/library.json",
   "compilerOptions": {
-    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,6 +18,7 @@
     "jsx": "preserve",
     "incremental": true,
     "verbatimModuleSyntax": false,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"

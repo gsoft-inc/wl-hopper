@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header/Header";
-import { ThemeProvider } from "@/components/Utils/ThemeProvider/ThemeProvider";
+import Header from "@/components/ui/header/Header";
+import { ThemeProvider } from "@/context/theme/ThemeProvider";
 
 import "./globals.css";
 import "./layout.css";
@@ -9,11 +9,9 @@ export const metadata = {
     description: "The Hopper Design System Documentation Hub"
 };
 
-interface RootLayoutProps {
+export default function RootLayout({ children }: {
     children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}) {
     const setInitialTheme = `
     function getUserPreference() {
       if(window.localStorage.getItem("hdTheme")) {
@@ -32,7 +30,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>
                     <Header />
-                    <div className="hd-container">
+                    <div className="hd-wrapper hd-flex">
+                        <div className="hd-header__shadow" role="presentation">
+                            <div className="hd-header-shadow-block hd-header-shadow-block-1"></div>
+                            <div className="hd-header-shadow-block hd-header-shadow-block-2"></div>
+                            <div className="hd-header-shadow-block hd-header-shadow-block-3"></div>
+                        </div>
                         {children}
                     </div>
                 </ThemeProvider>

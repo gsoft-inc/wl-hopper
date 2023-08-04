@@ -1,0 +1,28 @@
+:root {
+    --hd-icon-button-color: var(--hd-color-icon-primary);
+    --hd-icon-button-background-color: transparent;
+    --hd-icon-button-background-color-hover: var(--hd-color-surface-secondary);
+    --hd-icon-button-border-radius: var(--hd-space-05);
+    --hd-icon-button-fill: var(--hd-color-icon-primary);
+    --hd-icon-button-fill-hover: var(--hd-color-icon-secondary);
+}
+
+.hd-icon-button {
+    width: var(--hd-space-4);
+    aspect-ratio: 1/1;
+    background-color: var(--hd-icon-button-background-color);
+    color: var(--hd-icon-button-color);
+    border-width: 0;
+    border-radius: var(--hd-icon-button-border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--hd-icon-button-fill);
+}
+
+.hd-icon-button:hover {
+    --hd-icon-button-background-color:  var(--hd-icon-button-background-color-hover);
+    --hd-icon-button-fill: var(--hd-icon-button-fill-hover);
+
+    cursor: pointer;
+}

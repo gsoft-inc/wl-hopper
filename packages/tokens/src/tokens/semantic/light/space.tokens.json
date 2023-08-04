@@ -1,0 +1,119 @@
+{
+    "space": {
+        "inset": {
+            "xs": {
+                "$value": "{space.40}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "sm": {
+                "$value": "{space.80}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "md": {
+                "$value": "{space.160}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "lg": {
+                "$value": "{space.240}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "xl": {
+                "$value": "{space.320}",
+                "$type": "size",
+                "group": "spacing"
+            }
+        },
+        "inset-squish": {
+            "sm": {
+                "$value": "{space.40} {space.80}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "md": {
+                "$value": "{space.80} {space.160}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "lg": {
+                "$value": "{space.160} {space.320}",
+                "$type": "size",
+                "group": "spacing"
+            }
+        },
+        "inset-stretch": {
+            "sm": {
+                "$value": "{space.160} {space.80}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "md": {
+                "$value": "{space.240} {space.160}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "lg": {
+                "$value": "{space.480} {space.240}",
+                "$type": "size",
+                "group": "spacing"
+            }
+        },
+        "stack": {
+            "xs": {
+                "$value": "{space.0} {space.0} {space.40} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "sm": {
+                "$value": "{space.0} {space.0} {space.80} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "md": {
+                "$value": "{space.0} {space.0} {space.160} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "lg": {
+                "$value": "{space.0} {space.0} {space.240} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "xl": {
+                "$value": "{space.0} {space.0} {space.320} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            }
+        },
+        "inline": {
+            "xs": {
+                "$value": "{space.0} {space.40} {space.0} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "sm": {
+                "$value": "{space.0} {space.80} {space.0} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "md": {
+                "$value": "{space.0} {space.160} {space.0} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "lg": {
+                "$value": "{space.0} {space.240} {space.0} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            },
+            "xl": {
+                "$value": "{space.0} {space.320} {space.0} {space.0}",
+                "$type": "size",
+                "group": "spacing"
+            }
+        }
+    }
+}

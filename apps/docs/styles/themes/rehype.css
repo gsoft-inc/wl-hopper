@@ -1,0 +1,133 @@
+/* EDITOR  - THEME SPECIFIC COLORS */
+[data-rehype-pretty-code-fragment] {
+    /* NORD */
+    --hd-codeblock-line-highlighted-border-color: #88C0D0;
+    --hd-codeblock-line-highlighted-background-color: #434C5E;
+    --hd-codeblock-line-line-number-color: #4C566A;
+    --hd-codeblock-line-line-number-color-highlight: #D8DEE9;
+    --hd-codeblock-word-selection-background-color: #4B586A;
+    --hd-codeblock-word-setter-background-color: #D0877080;
+    --hd-codeblock-word-setter-text-color: rgb(232 228 228);
+    --hd-codeblock-word-initial-value-background-color: #B48EAD80;
+    --hd-codeblock-word-initial-value-text-color: rgb(233 217 229);
+    --hd-codeblock-word-value-background-color: #BF616A80;
+    --hd-codeblock-word-value-text-color: rgb(239 194 198);
+    --hd-codeblock-title-background-color: rgb(59 66 82);
+    --hd-codeblock-title-text-color: rgb(216 222 233);
+
+    margin-bottom: var(--hd-space-3);
+}
+
+[data-rehype-pretty-code-fragment] *::selection {
+    background: rgb(67 76 94 / 80%);
+}
+
+[data-rehype-pretty-code-fragment] pre {
+    border-radius: var(--hd-space-1);
+}
+
+[data-rehype-pretty-code-fragment] code {
+    /* until we create our own json theme, it's the best way to have a transparent code line */
+    background-color: transparent!important;
+}
+
+[data-rehype-pretty-code-fragment] pre code {
+    display: grid;
+    padding: var(--hd-space-1) 0;
+    overflow-x: auto;
+}
+
+[data-rehype-pretty-code-fragment] .line {
+    font-size: 1rem;
+    line-height: 2.25;
+}
+
+[data-rehype-pretty-code-fragment] pre code .line {
+    padding: 0  var(--hd-space-3);
+    border-left: 0.125rem solid transparent;
+}
+
+[data-rehype-pretty-code-fragment] .word {
+    border-radius: var(--hd-space-05);
+    background-color: var(--hd-codeblock-word-selection-background-color);
+    box-shadow: 0 0 0 var(--hd-space-05) var(--hd-codeblock-word-selection-background-color);
+}
+
+[data-rehype-pretty-code-fragment] pre  code .line.highlighted {
+    background-color: var(--hd-codeblock-line-highlighted-background-color);
+    border-left-color: var(--hd-codeblock-line-highlighted-border-color);
+}
+
+/* LINE NUMBERS */
+[data-rehype-pretty-code-fragment] code[data-line-numbers] {
+    counter-reset: line;
+}
+
+[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: var(--hd-space-2);
+    margin-right: var(--hd-space-4);
+    text-align: right;
+    color: var(--hd-codeblock-line-line-number-color);
+}
+
+[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='2'] > .line::before {
+    width: var(--hd-space-4);
+}
+
+[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='3'] > .line::before {
+    width: var(--hd-space-6);
+}
+
+/* LINE NUMBERS HIGHLIGHT - NUMBER COLOR */
+[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line.highlighted::before {
+    color: var(--hd-codeblock-line-line-number-color-highlight);
+}
+
+/* Block Title */
+[data-rehype-pretty-code-title] {
+    border-radius: var(--hd-space-1) var(--hd-space-1) 0 0;
+    font-weight: 500;
+    font-size: .875rem;
+    background-color: var(--hd-codeblock-title-background-color);
+    padding: var(--hd-space-1);
+    padding-inline-start: .75rem;
+    color: var(--hd-codeblock-title-text-color);
+    display: none;
+}
+
+/* Block Caption */
+[data-rehype-pretty-code-caption] {
+    margin-top: var(--hd-space-1);
+    color: var(--hd-color-text-primary);
+    border-radius: var(--hd-space-1);
+    font-style: italic;
+    font-size: .875rem;
+}
+
+/* Custom Word ID */
+[data-rehype-pretty-code-fragment] [data-word-id] {
+    padding: var(--hd-space-05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #000000), var(--tw-ring-shadow, 0 0 #000000), var(--tw-shadow);
+}
+
+/* v for value */
+[data-rehype-pretty-code-fragment] [data-word-id="v"] {
+    background-color: var(--hd-codeblock-word-value-background-color);
+    color: var(--hd-codeblock-word-value-text-color);
+}
+
+/* s for setter */
+[data-rehype-pretty-code-fragment] [data-word-id="s"] {
+    background-color: var(--hd-codeblock-word-setter-background-color);
+    color: var(--hd-codeblock-word-setter-text-color);
+}
+
+/* i for initial value */
+[data-rehype-pretty-code-fragment] [data-word-id="i"] {
+    background-color: var(--hd-codeblock-word-initial-value-background-color);
+    color: var(--hd-codeblock-word-initial-value-text-color);
+    font-weight: 700;
+}

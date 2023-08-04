@@ -13,7 +13,7 @@
 /out/
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store
@@ -44,4 +44,10 @@ next-env.d.ts
 # storybook
 build-storybook.log
 
-**/dist/**
+# storybook generated doc
+/packages/tokens/docs/
+/public/design-tokens.source.json
+
+# build artifacts
+**/dist/
+stories/datas

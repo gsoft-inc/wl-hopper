@@ -1,23 +1,21 @@
-.hd-container {
-    display: flex;
+html {
+    --scroll-behavior: smooth !important;
+
+    scroll-behavior: smooth !important;
+}
+
+/* let's offset our scrolls to the size of our top sticky bar */
+:target::before {
+    content: "";
+    display: block;
+    height: var(--hd-header-height);
+    margin: calc(-1 * var(--hd-space-8)) 0 0;
 }
 
 main {
-    display: flex;
-    padding-inline: var(--hd-space-4);
-    padding-block: 4rem;
-    width: 100%;
-}
-
-article {
-    width: 100%;
-    max-inline-size: 44.875rem;
-    margin-inline: auto;
-}
-
-h2 {
-    font-size: 2.5em;
-    margin-block-end: 1.5rem;
+    padding-block: var(--hd-space-8);
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 p {
@@ -25,7 +23,10 @@ p {
     line-height: 1.5rem;
 }
 
-h3 {
-    font-size: 1.5em;
-    margin-block: 3rem 1rem;
+p:not(:last-child) {
+    margin-block-end: 1.25rem;
+}
+
+p + * {
+    margin-block-start: 1.5rem;
 }
