@@ -1,9 +1,5 @@
 # @hopper-ui/styled-system
 
-TODO:
-- make sure 0/none works for all tokens
-- normalize css elements
-
 Ideas from PandaCSS
 - Patterns/JSX Patterns (HStack VStack Truncate)
     - divider
