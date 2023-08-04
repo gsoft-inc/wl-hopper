@@ -94,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ data, isOpen, onClose }) => {
     return (
         <>
             <Overlay isOpen={isOpen}></Overlay>
-            <nav className={`hd-sidebar ${isOpen ? "hd-sidebar--open" : ""}`} aria-label="Sidebar" ref={sidebarRef}>
+            <nav className={cx("hd-sidebar", isOpen && "hd-sidebar--open")} aria-label="Sidebar" ref={sidebarRef}>
                 <div className="hd-sidebar__container">
                     {linkItems}
                 </div>
