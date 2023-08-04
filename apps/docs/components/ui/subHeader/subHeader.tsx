@@ -11,12 +11,11 @@ interface Link {
 }
 
 interface SubHeaderProps {
-    isOpen: boolean;
     toggleOpenState: () => void;
     links: Link[];
 }
 
-const SubHeader: React.FC<SubHeaderProps> = ({ toggleOpenState, links }) => {
+const SubHeader = ({ toggleOpenState, links }: SubHeaderProps) => {
     return (
         <div className="hd-sub-header">
             <div className="hd-wrapper">

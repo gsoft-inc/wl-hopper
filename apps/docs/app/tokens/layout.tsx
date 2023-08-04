@@ -3,8 +3,8 @@
 import { allTokens } from "contentlayer/generated";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Sidebar from "@/components/ui/sidebar/Sidebar";
-import SubHeader from "@/components/ui/subHeader/subHeader";
-import useSidebarState from "@/components/ui/sidebar/useSidebarState";
+import SubHeader from "@/components/ui/subHeader/SubHeader";
+import useSidebarState from "@/hooks/useSidebarState";
 import getSectionLinks from "@/utils/getSectionLinks";
 
 export default function TokenLayout({ children }: { children: React.ReactNode }) {
@@ -22,7 +22,7 @@ export default function TokenLayout({ children }: { children: React.ReactNode })
 
     return (
         <>
-            <SubHeader isOpen={isOpen} toggleOpenState={toggleOpenState} links={sectionLinks} />
+            <SubHeader toggleOpenState={toggleOpenState} links={sectionLinks} />
             <div className="hd-wrapper hd-flex">
                 <Sidebar data={allTokens} isOpen={isOpen} onClose={toggleOpenState} />
                 {children}

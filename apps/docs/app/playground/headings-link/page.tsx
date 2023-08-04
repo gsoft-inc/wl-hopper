@@ -16,17 +16,15 @@ export default function HeadingsLinkPage() {
     const sectionLinks = getSectionLinks(page);
 
     return (
-        <>
-            <div className="hd-wrapper hd-flex">
-                <div className="container">
-                    <main>
-                        <article key={page._id}>
-                            {page.body && <Mdx code={page.body.code} />}
-                        </article>
-                    </main>
-                    <Aside title="On this page" links={sectionLinks} />
-                </div>
+        <div className="hd-wrapper hd-flex">
+            <div className="hd-container">
+                <Aside title="On this page" links={sectionLinks} />
+                <main>
+                    <article key={page._id}>
+                        {page.body && <Mdx code={page.body.code} />}
+                    </article>
+                </main>
             </div>
-        </>
+        </div>
     );
 }

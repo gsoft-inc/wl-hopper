@@ -5,7 +5,7 @@ interface OverlayProps {
     isOpen: boolean;
 }
 
-const Overlay: React.FC<OverlayProps> = ({ isOpen }) => {
+const Overlay = ({ isOpen }: OverlayProps) => {
     if (!isOpen) {
         return null;
     }

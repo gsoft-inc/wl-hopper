@@ -28,15 +28,13 @@ export default function TokenPage({ params }: PageProps) {
     const sectionLinks = getSectionLinks(designToken);
 
     return (
-        <>
-            <div className="container">
-                <Aside title="On this page" links={sectionLinks} />
-                <main>
-                    <article key={designToken._id}>
-                        <Mdx code={designToken.body.code} />
-                    </article>
-                </main>
-            </div>
-        </>
+        <div className="hd-container">
+            <Aside title="On this page" links={sectionLinks} />
+            <main>
+                <article key={designToken._id}>
+                    <Mdx code={designToken.body.code} />
+                </article>
+            </main>
+        </div>
     );
 }

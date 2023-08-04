@@ -1,11 +1,11 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import cx from "classnames";
-import { usePathname } from "next/navigation";
 import getPageLinks from "@/utils/getPageLinks";
 import Overlay from "@/components/ui/overlay/Overlay";
-import React, { useEffect, useRef } from "react";
 
 import type { Data } from "@/utils/getPageLinks";
 
@@ -17,7 +17,7 @@ interface SidebarProps {
     onClose: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ data, isOpen, onClose }) => {
+const Sidebar = ({ data, isOpen, onClose }: SidebarProps) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
     const links = getPageLinks(data, { order: ["getting-started", "core", "semantic"] });
     const pathName = usePathname();

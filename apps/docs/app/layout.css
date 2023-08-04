@@ -12,7 +12,7 @@ html {
     margin: calc(-1 * var(--hd-space-8)) 0 0;
 }
 
-.container {
+.hd-container {
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -37,7 +37,7 @@ main {
 }
 
 @media screen and (width >= 62rem) {
-    .container {
+    .hd-container {
         flex-direction: row;
     }
 

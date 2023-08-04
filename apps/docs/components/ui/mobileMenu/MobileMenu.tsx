@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import IconButton from "../iconButton/IconButton";
+import cx from  "classnames";
+import { usePathname } from "next/navigation";
+import { navigation } from "@/configs/navigation";
+import IconButton from "@/components/ui/iconButton/IconButton";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
 
 import "./mobileMenu.css";
@@ -10,10 +13,31 @@ interface MobileMenuProps {
     onClose: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ onClose }) => {
+const MobileMenu = ({ onClose }: MobileMenuProps) => {
+    const pathname = usePathname()!;
+    let firstPathLevel: string;
+
+    if (pathname) {
+        firstPathLevel = pathname.split("/")[1].trim();
+    }
+
+    const navItems = navigation.map(item => {
+        const { path, label } = item;
+
+        const isActive = path.includes(firstPathLevel) && firstPathLevel !== "";
+
+        return (
+            <li key={label}>
+                <Link href={path} className={cx("hd-mobile-menu-nav-list__link", isActive && "hd-mobile-menu-nav-list__link--active")}>
+                    {label}
+                </Link>
+            </li>
+        );
+    });
+
     return (
         <div className="hd-mobile-menu">
-            <div className="hd-mobile-menu-header">
+            <div className="hd-mobile-menu__header">
                 <div className="hd-wrapper hd-flex">
                     <Link href="/" className="hd-brand" aria-label="Hopper Brand">
                         <svg width="117" height="32" viewBox="0 0 117 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,26 +88,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose }) => {
                             </defs>
                         </svg>
                     </Link>
-                    <IconButton onClick={onClose} className="hd-mobile-menu-header-close">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="hd-mobile-menu-header-close-icon">
+                    <IconButton onClick={onClose} className="hd-mobile-menu__close">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="hd-mobile-menu__close-icon">
                             <path d="M18 6L6 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M6 6L18 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </IconButton>
                 </div>
             </div>
-            <div className="hd-mobile-menu-container">
+            <div className="hd-mobile-menu__container">
                 <div className="hd-mobile-menu-nav">
                     <ul className="hd-mobile-menu-nav-list">
-                        <li>
-                            <Link className="hd-mobile-menu-nav-list__link" href="/icons">Icons</Link>
-                        </li>
-                        <li>
-                            <Link className="hd-mobile-menu-nav-list__link" href="/tokens/getting-started/introduction">Tokens</Link>
-                        </li>
-                        <li>
-                            <Link className="hd-mobile-menu-nav-list__link" href="/components/installation">Components</Link>
-                        </li>
+                        {navItems}
                     </ul>
                 </div>
                 <div className="hd-mobile-menu-footer">

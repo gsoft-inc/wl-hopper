@@ -11,7 +11,7 @@ interface ThemeSwitchProps {
     className?: string;
 }
 
-const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ text, className }) => {
+const ThemeSwitch = ({ text, className }: ThemeSwitchProps) => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
 
     const toggleTheme = () => {

@@ -32,17 +32,15 @@ export default async function ComponentPage({ params }: PageProps) {
     }
 
     return (
-        <>
-            <div className="container">
-                <main>
-                    <article key={componentContent._id}>
-                        {componentContent.status &&
-                        `status: ${componentContent.status}`
-                        }
-                        {componentContent.body && <Mdx code={componentContent.body.code} />}
-                    </article>
-                </main>
-            </div>
-        </>
+        <div className="hd-container">
+            <main>
+                <article key={componentContent._id}>
+                    {componentContent.status &&
+                    `status: ${componentContent.status}`
+                    }
+                    {componentContent.body && <Mdx code={componentContent.body.code} />}
+                </article>
+            </main>
+        </div>
     );
 }
