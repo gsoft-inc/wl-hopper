@@ -30,16 +30,17 @@ main {
     order: 1;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
     main {
         padding-block-start: 0;
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 62rem) {
     .container {
         flex-direction: row;
     }
+
     main {
         order: 1;
         padding-block-start: var(--hd-space-8);

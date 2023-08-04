@@ -11,7 +11,7 @@
 .hd-mobile-menu-header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--hd-color-neutral-border);
+    border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
     height: var(--hd-header-height);
 }
 

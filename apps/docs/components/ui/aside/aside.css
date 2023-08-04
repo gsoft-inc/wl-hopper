@@ -6,14 +6,14 @@
     padding-block-start: var(--hd-space-8);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
     .hd-aside {
         display: flex;
         padding-block-start: var(--hd-space-8);
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 62rem) {
     .hd-aside {
         order: 2;
         padding-block: var(--hd-space-8);
@@ -43,18 +43,17 @@
     display: none;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 62rem) {
     .hd-aside__list {
         margin-block-start: 0;
-    }
 
-    .hd-aside__list {
+        /* making sure that if a user toggles the list and resize his browser the list is still visible */
+
+        /* We could do this in JS but I think that fixes the issue */
         display: flex!important;
     }
 
     .hd-aside__list--closed {
-        /* making sure that if a user toggles the list and resize his browser the list is still visible */
-        /* We could do this in JS but I feel that fixes the issue */
         display: flex;
     }
 }
@@ -85,7 +84,7 @@
     color: var(--hd-color-neutral-text);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 62rem) {
     .hd-aside__title {
         display: flex;
     }
@@ -114,7 +113,7 @@
     display: none;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 62rem) {
     .hd-aside__marker {
         display: block;
     }
@@ -144,7 +143,7 @@
     color: var(--hd-color-neutral-text-weak-hover);
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (width >= 62rem) {
     .hd-aside__button {
         display: none;
     }

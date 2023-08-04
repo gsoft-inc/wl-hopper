@@ -16,11 +16,11 @@
     height: var(--hd-header-height);
     background-color: var(--hd-header-background-color);
     backdrop-filter: blur(1rem);
-    border-block-end: 1px solid var(--hd-header-border-color);
+    border-block-end: var(--hd-border-size) solid var(--hd-header-border-color);
     z-index: 1;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
     .hd-header {
         position: sticky;
         top: 0;
@@ -47,7 +47,7 @@
     gap: var(--hd-space-1);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 37.5rem) {
     .hd-header__quick-actions {
         display: flex;
     }
@@ -57,7 +57,7 @@
     display: block;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 37.5rem) {
     .hd-header__mobile-menu-trigger {
         display: none;
     }

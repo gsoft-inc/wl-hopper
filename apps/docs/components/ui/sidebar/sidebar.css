@@ -1,6 +1,6 @@
 :root {
-    --max-sidebar-width: 320px;
-    --sidebar-width: min(calc(100vw - 64px), var(--max-sidebar-width));
+    --max-sidebar-width: 20rem;
+    --sidebar-width: min(calc(100vw - 4rem), var(--max-sidebar-width));
 }
 
 .hd-sidebar {
@@ -18,7 +18,7 @@
     padding-inline: var(--hd-space-3);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
     .hd-sidebar {
         position: sticky;
         background-color: transparent;
@@ -52,7 +52,7 @@
     top: var(--hd-space-05);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
     .hd-sidebar__container {
         padding-block: var(--hd-space-8);
     }

@@ -11,7 +11,7 @@
     display: none;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 37.5rem) {
     .hd-nav {
         display: block;
     }

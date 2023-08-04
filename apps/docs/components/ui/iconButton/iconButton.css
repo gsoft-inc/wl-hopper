@@ -23,5 +23,6 @@
 
 .hd-icon-button:hover {
     --hd-icon-button-background-color: var(--hd-icon-button-background-color-hover);
+
     cursor: pointer;
 }

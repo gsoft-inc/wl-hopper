@@ -9,7 +9,7 @@
     border-top: var(--hd-border-size) solid var(--hd-color-neutral-border);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
     .hd-sub-header {
         display: none;
     }
