@@ -99,7 +99,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClose }) => {
                                 </Link>
                             </li>
                             <li>
-                                <ThemeSwitch text="Appareance" className="hd-mobile-menu-footer-button" />
+                                <ThemeSwitch text="Appearance" className="hd-mobile-menu-footer-button" />
                             </li>
                         </ul>
                     </nav>
