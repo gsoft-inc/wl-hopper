@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import cx from  "classnames";
+import cx from "classnames";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/configs/navigation";
 import IconButton from "@/components/ui/iconButton/IconButton";
