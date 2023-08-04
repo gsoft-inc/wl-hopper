@@ -9,7 +9,8 @@ export interface HopperProviderProps extends ColorSchemeProviderProps {
     withTokens?: boolean;
 }
 
-// TODO: use the major version only to determine if we should duplicate tokens or not.
+// We read the version from the packageJson and replace all dots with dashes.
+// This ensures that multiple versions of Hopper can be used on the same page.
 export const RootSelector = `hop-${packageJson.version.replaceAll(".", "-")}`;
 
 export function HopperProvider({ children, withGlobalStyles = false, withTokens = false, colorScheme, defaultColorScheme, ...rest }: HopperProviderProps) {
