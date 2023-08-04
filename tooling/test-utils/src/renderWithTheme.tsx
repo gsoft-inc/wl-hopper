@@ -15,13 +15,10 @@ function createHopperProviderWrapper({ colorScheme = "light" }: HopperProviderWr
         );
     };
 }
-export interface HopperRenderOptions extends RenderOptions {
-    withHopperProvider?: boolean;
-}
 
 export function renderWithTheme(
     ui: ReactElement,
-    testingLibraryOptions: HopperRenderOptions = {},
+    testingLibraryOptions: RenderOptions = {},
     themeOptions?: HopperProviderWrapperOptions
 ): ReturnType<typeof render> {
     return render(ui, {
