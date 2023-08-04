@@ -5,7 +5,7 @@
     padding: var(--hd-space-1) var(--hd-space-1) var(--hd-space-1) var(--hd-space-2);
     font-size: 0.75rem;
     align-items: center;
-    border-bottom: 1px solid var(--hd-color-border-primary-weak);
+    border-bottom: var(--hd-border-size) solid var(--hd-color-border-primary-weak);
 }
 
 .hd-pre-header__info {

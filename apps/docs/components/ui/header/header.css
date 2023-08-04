@@ -15,7 +15,7 @@
     font-family: var(--hd-header-font-family);
     height: var(--hd-header-height);
     background-color: var(--hd-header-background-color);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(1rem);
     border-block-end: 1px solid var(--hd-header-border-color);
     z-index: 1;
 }
@@ -78,7 +78,8 @@
 .hd-header-shadow-block {
     position: relative;
     border-radius: var(--hd-space-7);
-    filter: blur(216px);
+    filter: blur(13.5rem);
+
     /* prevents an issue in Safari where the blur wasn't visible */
     transform: translate3d(0, 0, 0);
 }

@@ -63,7 +63,7 @@
     position: absolute;
     content: "";
     display: block;
-    width: 1px;
+    width: var(--hd-border-size);
     height: 100%;
     left: 0;
     border-inline-start: var(--hd-border-size) solid var(--hd-color-neutral-border);
@@ -97,13 +97,13 @@
     display: flex;
     align-items: center;
     position: relative;
-    border-inline-start: 1px solid transparent;
+    border-inline-start: var(--hd-border-size) solid transparent;
     padding-inline-start: var(--hd-space-1);
 }
 
 .hd-aside__marker {
     height: var(--hd-space-3);
-    width: 1px;
+    width: var(--hd-border-size);
     background-color: var(--hd-color-primary-border);
     position: absolute;
     top: 0;

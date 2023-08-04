@@ -98,7 +98,7 @@
     display: inline-flex;
     flex-grow: 1;
     transition: background-color .2s ease-in;
-    outline-offset: -1px;
+    outline-offset: -1px; /* stylelint-disable-line unit-allowed-list */
 }
 
 /* ScrollBar */
@@ -112,7 +112,7 @@
 
 .hd-sidebar__container::-webkit-scrollbar-thumb {
     background-color: var(--hd-color-surface-primary-weak);
-    border-radius: 999px;
+    border-radius: 999px; /* stylelint-disable-line unit-allowed-list */
     visibility: hidden;
 }
 

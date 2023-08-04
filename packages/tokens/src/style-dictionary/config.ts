@@ -2,7 +2,7 @@ import type { Config } from "style-dictionary";
 
 const PREFIX = "hop";
 const BUILD_PATH = "dist/";
-const DOC_BUILD_PATH = "docs/";
+const STORYBOOK_BUILD_PATH = "../../../stories";
 
 export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
     const isLightMode = mode === "light";
@@ -32,14 +32,15 @@ export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
         ],
         "platforms": {
             "css": {
-                "transformGroup": "css",
+                "transformGroup": "custom/css",
                 "buildPath": BUILD_PATH,
                 "prefix": PREFIX,
                 "files": [
                     isLightMode ? lightConfig : darkConfig,
                     {
-                        "destination": isLightMode ? `../${DOC_BUILD_PATH}tokens.css` : `../${DOC_BUILD_PATH}${mode}/tokens.css`,
+                        "destination": isLightMode ? `${STORYBOOK_BUILD_PATH}/datas/tokens.json` : `${STORYBOOK_BUILD_PATH}/datas/tokens-dark.json`,
                         "format": "custom/doc",
+                        "filter": "colors",
                         "options": {
                             "outputReferences": true,
                             "isDarkMode": !isLightMode

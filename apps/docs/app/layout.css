@@ -1,10 +1,11 @@
 html {
     --scroll-behavior: smooth !important;
+
     scroll-behavior: smooth !important;
 }
 
 /* let's offset our scrolls to the size of our top sticky bar */
-:target:before {
+:target::before {
     content: "";
     display: block;
     height: var(--hd-header-height);
