@@ -7,7 +7,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/workleap/wl-hopper.git",
+        "url": "git+https://github.com/gsoft-inc/wl-hopper.git",
         "directory": "packages/fake-tokens"
     },
     "publishConfig": {
