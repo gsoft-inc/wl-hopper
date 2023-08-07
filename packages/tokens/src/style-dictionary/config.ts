@@ -3,6 +3,7 @@ import type { Config } from "style-dictionary";
 const PREFIX = "hop";
 const BUILD_PATH = "dist/";
 const STORYBOOK_BUILD_PATH = "../../../stories";
+const DOCS_BUILD_PATH = "../../../apps/docs";
 
 export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
     const isLightMode = mode === "light";
@@ -42,8 +43,14 @@ export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
                         "format": "custom/doc",
                         "filter": "colors",
                         "options": {
-                            "outputReferences": true,
-                            "isDarkMode": !isLightMode
+                            "outputReferences": true
+                        }
+                    },
+                    {
+                        "destination": isLightMode ? `${DOCS_BUILD_PATH}/datas/tokens.json` : `${DOCS_BUILD_PATH}/datas/tokens-dark.json`,
+                        "format": "custom/json",
+                        "options": {
+                            "outputReferences": true
                         }
                     }
                 ]

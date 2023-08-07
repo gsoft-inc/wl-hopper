@@ -3,7 +3,7 @@ import StyleDictionary from "style-dictionary";
 import { getStyleDictionaryConfig } from "./config.ts";
 import { isDarkTokens } from "./filter/isDarkTokens.ts";
 import { isColorType } from "./filter/isColorType.ts";
-import { cssDarkMode, customDoc } from "./format/index.ts";
+import { cssDarkMode, customDoc, customJson } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
 import { isSizeType, pxToRem } from "./transform/px-to-rem.ts";
 
@@ -42,6 +42,11 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
     name: "custom/doc",
     formatter: customDoc
+});
+
+StyleDictionary.registerFormat({
+    name: "custom/json",
+    formatter: customJson
 });
 
 // Parser
