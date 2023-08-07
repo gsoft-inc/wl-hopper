@@ -1,69 +1,56 @@
 {
     "space": {
         "0": {
-            "$value": 0,
             "$type": "size",
-            "group": "spacing"
+            "$value": 0
         },
         "20": {
-            "$value": 2,
             "$type": "size",
-            "group": "spacing"
+            "$value": 2
         },
         "40": {
-            "$value": 4,
             "$type": "size",
-            "group": "spacing"
+            "$value": 4
         },
         "80": {
-            "$value": 8,
             "$type": "size",
-            "group": "spacing"
+            "$value": 8
         },
         "160": {
-            "$value": 16,
             "$type": "size",
-            "group": "spacing"
+            "$value": 16
         },
         "240": {
-            "$value": 24,
             "$type": "size",
-            "group": "spacing"
+            "$value": 24
         },
         "320": {
-            "$value": 32,
             "$type": "size",
-            "group": "spacing"
+            "$value": 32
         },
         "400": {
-            "$value": 40,
             "$type": "size",
-            "group": "spacing"
+            "$value": 40
         },
         "480": {
-            "$value": 48,
             "$type": "size",
-            "group": "spacing"
+            "$value": 48
         },
         "640": {
-            "$value": 64,
             "$type": "number",
-            "group": "spacing"
+            "$value": 64
         },
         "800": {
-            "$value": 80,
             "$type": "size",
-            "group": "spacing"
+            "$value": 80
         },
         "960": {
-            "$value": 96,
             "$type": "size",
-            "group": "spacing"
+            "$value": 96
         },
         "1280": {
-            "$value": 128,
             "$type": "size",
-            "group": "spacing"
+            "$value": 128
         }
     }
 }
