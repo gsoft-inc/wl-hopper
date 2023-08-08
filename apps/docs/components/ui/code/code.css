@@ -1,0 +1,29 @@
+.hd-code {
+    font-family: var(--hd-mono-font-family);
+    font-size: 0.8125rem;
+    color: var(--hd-color-accent-text);
+    border-radius: 0.25rem;
+    padding-block: 0.25rem;
+    padding-inline: 0.5rem;
+    background-color: var(--hd-color-accent-surface);
+}
+
+.hd-code__wrapper {
+    display: flex;
+    float: left;
+}
+
+.hd-code__copy {
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.hd-code__wrapper:hover {
+    cursor: pointer;
+}
+
+.hd-code__wrapper:hover .hd-code__copy {
+    opacity: 1;
+    transform: translateX(var(--hd-space-1));
+}
