@@ -2,6 +2,7 @@
 
 import { Cell, Column, Row, Table as TableRA, TableBody, TableHeader } from "react-aria-components";
 
+import Preview from "@/components/preview/Preview";
 import Code from "@/components/ui/code/Code";
 
 import "./table.css";
@@ -17,7 +18,7 @@ const Table = ({ data }: { data: { name: string; value: string }[] }) => {
                 </Cell>
                 <Cell className="hd-table__cell">{value}</Cell>
                 <Cell className="hd-table__cell">
-                    <div className="hd-table__preview" style={{ backgroundColor: value }} />
+                    <Preview value={value} name={name} />
                 </Cell>
             </Row>
         );
