@@ -1,0 +1,14 @@
+{
+    "asset": {
+        "font": {
+            "Inter": {
+                "410": {
+                    "normal": {
+                        "value": "assets/fonts/Inter-Regular",
+                        "formats": ["otf"]
+                    }
+                }
+            }
+        }
+    }
+}
