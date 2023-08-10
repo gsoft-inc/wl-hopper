@@ -549,15 +549,15 @@
       },
       {
         "name": "hop-shadow-sm",
-        "value": "0 1px 6px 0 rgba(60, 60, 60, 0.10);"
+        "value": "0 1px 6px 0 rgba(60, 60, 60, 0.10)"
       },
       {
         "name": "hop-shadow-md",
-        "value": "0 4px 10px 4px rgba(60, 60, 60, 0.08);"
+        "value": "0 4px 10px 4px rgba(60, 60, 60, 0.08)"
       },
       {
         "name": "hop-shadow-lg",
-        "value": "0 10px 18px 8px rgba(60, 60, 60, 0.08);"
+        "value": "0 10px 18px 8px rgba(60, 60, 60, 0.08)"
       }
     ],
     "fontFamily": [
@@ -577,43 +577,43 @@
     "fontSize": [
       {
         "name": "hop-font-size-120",
-        "value": "12"
+        "value": "0.75rem"
       },
       {
         "name": "hop-font-size-140",
-        "value": "14"
+        "value": "0.875rem"
       },
       {
         "name": "hop-font-size-160",
-        "value": "16"
+        "value": "1rem"
       },
       {
         "name": "hop-font-size-180",
-        "value": "18"
+        "value": "1.125rem"
       },
       {
         "name": "hop-font-size-200",
-        "value": "20"
+        "value": "1.25rem"
       },
       {
         "name": "hop-font-size-240",
-        "value": "24"
+        "value": "1.5rem"
       },
       {
         "name": "hop-font-size-280",
-        "value": "28"
+        "value": "1.75rem"
       },
       {
         "name": "hop-font-size-320",
-        "value": "32"
+        "value": "2rem"
       },
       {
         "name": "hop-font-size-360",
-        "value": "36"
+        "value": "2.25rem"
       },
       {
         "name": "hop-font-size-480",
-        "value": "48"
+        "value": "3rem"
       }
     ],
     "fontWeight": [
@@ -687,23 +687,23 @@
       },
       {
         "name": "hop-border-radius-1",
-        "value": 4
+        "value": "0.25rem"
       },
       {
         "name": "hop-border-radius-2",
-        "value": 8
+        "value": "0.5rem"
       },
       {
         "name": "hop-border-radius-3",
-        "value": 16
+        "value": "1rem"
       },
       {
         "name": "hop-border-radius-4",
-        "value": 24
+        "value": "1.5rem"
       },
       {
         "name": "hop-border-radius-9999",
-        "value": 9999
+        "value": "624.9375rem"
       }
     ],
     "size": [

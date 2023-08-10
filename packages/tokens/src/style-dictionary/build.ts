@@ -46,7 +46,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
     name: "custom/json",
-    formatter: customJson
+    formatter: customJson,
 });
 
 // Parser
