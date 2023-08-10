@@ -1,7 +1,7 @@
-import { List } from "../components/List";
+import { List } from "./components/List.tsx";
 
-import tokens from "../datas/tokens.json";
-import darkTokens from "../datas/tokens-dark.json";
+import tokens from "./datas/tokens.json";
+import darkTokens from "./datas/tokens-dark.json";
 
 export default {
     title: "Tokens/Colors",
@@ -13,7 +13,6 @@ export const Light = {
         styles: tokens
     }
 };
-
 
 export const Dark = {
     args: {
