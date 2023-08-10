@@ -2,7 +2,7 @@ import type { Config } from "style-dictionary";
 
 const PREFIX = "hop";
 const BUILD_PATH = "dist/";
-const STORYBOOK_BUILD_PATH = "../../../stories";
+const STORYBOOK_BUILD_PATH = "../src/stories";
 const DOCS_BUILD_PATH = "../../../apps/docs";
 
 export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
