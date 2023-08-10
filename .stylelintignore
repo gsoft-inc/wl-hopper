@@ -1,4 +1,4 @@
 # This is the demo for storybook, ignore linting. This should be removed when the stories folder is deleted
 stories
 # crach after runing
-packages/tokens/dist
+packages/**/dist

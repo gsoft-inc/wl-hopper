@@ -1,0 +1,45 @@
+{
+    "name": "@hopper-ui/components",
+    "author": "Workleap",
+    "version": "0.0.0",
+    "description": "Components for Hopper DS",
+    "license": "Apache-2.0",
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "type": "module",
+    "sideEffects": [
+        "*.css"
+    ],
+    "exports": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "/dist",
+        "CHANGELOG.md",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "tsup --config ./tsup.build.ts"
+    },
+    "peerDependencies": {
+        "react": "*"
+    },
+    "devDependencies": {
+        "@types/react": "18.2.8",
+        "@workleap/eslint-plugin": "1.8.1",
+        "@workleap/typescript-configs": "2.3.1",
+        "classnames": "^2.3.2",
+        "react": "18.2.0",
+        "typescript": "5.0.3"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "@workleap/postcss-configs": "^0.0.2",
+        "@workleap/tsup-configs": "^2.0.1",
+        "postcss": "^8.4.27",
+        "tsup": "^7.1.0"
+    }
+}

@@ -19,6 +19,7 @@
 
         "test": "echo \"no test specified\"",
         "build": "pnpm --filter=\"@hopper-ui/*\" -r --parallel build ",
+        "build:components": "pnpm --filter=\"@hopper-ui/components\" build",
 
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",

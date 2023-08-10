@@ -1,0 +1,24 @@
+.card {
+    --font-family: 'Roboto', sans-serif;
+    --border-color: #E0DFDD;
+    --border-radius: 0.5rem;
+    --border-width: 1px; /* stylelint-disable-line unit-allowed-list */
+    --surface-background-color: #ffffff;
+    --text-color: #3C3C3C;
+    --space: 1rem;
+
+    font-family: var(--font-family);
+    padding: var(--space);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--border-color);
+    background: var(--surface-background-color);
+}
+
+.card--second-level {
+    --surface-background-color: #E0DFDD;
+}
+
+.card--interactive {
+    box-shadow: 0 1px 6px 0 rgb(60 60 60 / 10%); /* stylelint-disable-line unit-allowed-list */
+}
