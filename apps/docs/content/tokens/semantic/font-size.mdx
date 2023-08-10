@@ -6,4 +6,6 @@ import tokens from '../../../datas/tokens.json';
 
 # Font Size
 
-<Table data={tokens.semantic.fontSize} />
+export const categoryKey = "fontSize";
+
+<Table category={categoryKey} data={tokens.semantic[categoryKey]} />

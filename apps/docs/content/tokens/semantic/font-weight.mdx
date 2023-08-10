@@ -5,4 +5,7 @@ description: Getting started with Workleap Design Tokens
 import tokens from '../../../datas/tokens.json';
 
 # Font Weight
-<Table data={tokens.semantic.fontWeight} />
+
+export const categoryKey = "fontWeight";
+
+<Table category={categoryKey} data={tokens.semantic[categoryKey]} />

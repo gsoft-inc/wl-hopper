@@ -6,4 +6,6 @@ import tokens from '../../../datas/tokens.json';
 
 # Dimensions
 
-<Table data={tokens.semantic.size} />
+export const categoryKey = "size";
+
+<Table category={categoryKey} data={tokens.semantic[categoryKey]} />

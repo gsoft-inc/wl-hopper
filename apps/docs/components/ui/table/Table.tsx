@@ -7,7 +7,15 @@ import Code from "@/components/ui/code/Code";
 
 import "./table.css";
 
-const Table = ({ data }: { data: { name: string; value: string }[] }) => {
+interface TableProps {
+    category: string;
+    data: {
+        name: string;
+        value: string;
+    }[];
+}
+
+const Table = ({ category, data }: TableProps) => {
     const listItems = data?.map(token => {
         const { name, value } = token;
 
@@ -18,7 +26,7 @@ const Table = ({ data }: { data: { name: string; value: string }[] }) => {
                 </Cell>
                 <Cell className="hd-table__cell">{value}</Cell>
                 <Cell className="hd-table__cell">
-                    <Preview value={value} name={name} />
+                    <Preview value={value} name={name} category={category} />
                 </Cell>
             </Row>
         );

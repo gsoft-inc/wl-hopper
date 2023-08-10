@@ -6,4 +6,6 @@ import tokens from '../../../datas/tokens.json';
 
 # Font Family
 
-<Table data={tokens.core.fontFamily} />
+export const categoryKey = "fontFamily";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />

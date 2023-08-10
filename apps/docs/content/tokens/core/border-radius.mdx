@@ -6,4 +6,6 @@ import tokens from '../../../datas/tokens.json';
 
 # Border Radius
 
-<Table data={tokens.core.borderRadius} />
+export const categoryKey = "borderRadius";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />

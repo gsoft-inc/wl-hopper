@@ -6,4 +6,6 @@ import tokens from '../../../datas/tokens.json';
 
 # Color
 
-<Table data={tokens.core.color} />
+export const categoryKey = "color";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />

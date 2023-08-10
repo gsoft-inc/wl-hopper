@@ -16,9 +16,60 @@
 }
 
 .hd-preview--font {
-    font-size: 1.5rem;
-    display: flex;
     align-items: center;
-    justify-content: flex-end;
     background-color: transparent;
+    display: flex;
+    font-size: 1.5rem;
+    height: auto;
+    justify-content: flex-end;
+}
+
+.hd-preview--line-height {
+    border-block: var(--hd-border-size) dashed var(--hd-color-primary-border);
+    font-size: 1.125rem;
+    position: relative;
+    width: auto;
+}
+
+.hd-preview--line-height::after {
+    border-bottom: var(--hd-border-size) dashed var(--hd-color-primary-border);
+    content: "";
+    display: block;
+    height: var(--hd-border-size);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.hd-preview--semantic-size {
+    display: flex;
+    height: 8rem;
+    width: 8rem;
+}
+
+.hd-preview--semantic-size::after {
+    background: var(--hd-color-neutral-surface);
+    content: "";
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.hd-preview--stack {
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
+    height: auto;
+}
+
+.hd-preview--stack::after {
+    height: var(--hd-space-9)
+}
+
+.hd-preview--inline {
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
+    width: auto;
+}
+
+.hd-preview--inline::after {
+    width: var(--hd-space-9)
 }

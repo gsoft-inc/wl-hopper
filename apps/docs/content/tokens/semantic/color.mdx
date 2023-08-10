@@ -6,4 +6,7 @@ import tokens from '../../../datas/tokens.json';
 
 # Semantic Color
 
-<Table data={tokens.semantic.color} />
+export const categoryKey = "color";
+
+<Table category={categoryKey} data={tokens.semantic[categoryKey]} />
+

@@ -5,4 +5,7 @@ description: Getting started with Workleap Design Tokens
 import tokens from '../../../datas/tokens.json';
 
 # Font Family
-<Table data={tokens.semantic.fontFamily} />
+
+export const categoryKey = "fontFamily";
+
+<Table category={categoryKey} data={tokens.semantic[categoryKey]} />

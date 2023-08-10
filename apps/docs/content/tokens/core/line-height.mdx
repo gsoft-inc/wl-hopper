@@ -5,4 +5,7 @@ description: Getting started with Workleap Design Tokens
 import tokens from '../../../datas/tokens.json';
 
 # Line Height
-<Table data={tokens.core.lineHeight} />
+
+export const categoryKey = "lineHeight";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />
