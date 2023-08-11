@@ -20,8 +20,9 @@
     },
     "type": "module",
     "exports": {
-        ".": {
-            "style": ["./dist/tokens.css", "./dist/dark/tokens.css", "./dist/fonts.css"]
+        "./dist/": {
+            "import": "./dist/",
+            "require": "./dist/"
         }
     },
     "files": [
