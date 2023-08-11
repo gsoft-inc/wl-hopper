@@ -8,8 +8,8 @@ import tokensDark from '../../../datas/tokens-dark.json';
 export const categoryKey = "color";
 
 export const tabs = [
-  { id: 1, title: "Light", content: <Table category={categoryKey} data={tokens.semantic[categoryKey]} />},
-  { id: 2, title: "Dark", content: <Table category={categoryKey} data={tokensDark.semantic[categoryKey]} /> },
+  { title: "Light", data: tokens.semantic[categoryKey], category: categoryKey },
+  { title: "Dark", data: tokensDark.semantic[categoryKey], category: categoryKey },
 ];
 
 # Semantic Color

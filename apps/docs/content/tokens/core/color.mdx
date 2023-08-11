@@ -8,13 +8,8 @@ import tokensDark from '../../../datas/tokens-dark.json';
 
 export const categoryKey = "color";
 
-export const tabs = [
-  { id: 1, title: "Light", content: <Table category={categoryKey} data={tokens.core[categoryKey]} />},
-  { id: 2, title: "Dark", content: <Table category={categoryKey} data={tokensDark.core[categoryKey]} /> },
-];
-
 # Color
 
-<Tabs tabs={tabs} />
+<Table category={categoryKey} data={tokens.core[categoryKey]} />
 
 

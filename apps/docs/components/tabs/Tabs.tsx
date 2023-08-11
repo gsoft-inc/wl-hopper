@@ -1,15 +1,18 @@
 "use client";
 
 import React from "react";
-import { Tabs as AriaTabs, TabList, Tab, TabPanel, Collection } from "react-aria-components";
 import cx from "classnames";
 
 import "./tabs.css";
+import Table from "../ui/table/Table";
 
 interface TabProps {
-    id: number;
     title: string;
-    content: React.ReactNode;
+    category: string;
+    data: {
+        name: string;
+        value: string;
+    }[];
 }
 
 interface TabsProps {
@@ -18,21 +21,34 @@ interface TabsProps {
 }
 
 const Tabs = ({ tabs, className }: TabsProps) => {
-    const classes = cx("hd-tabs", className);
+    const [selected, setSelected] = React.useState(0);
 
+    const handleOnClick = (index: number): void => {
+        setSelected(index);
+    };
+  
     return (
-        <AriaTabs className={classes}>
-            <TabList className="hd-tabs__list" items={tabs}>
-                {item => (
-                    <Tab key={item.id} className="hd-tabs__item">{item.title}</Tab>
-                )}
-            </TabList>
-            <Collection items={tabs}>
-                {item => (
-                    <TabPanel key={item.id} className="hd-tabs__panel">{item.content}</TabPanel>
-                )}
-            </Collection>
-        </AriaTabs>
+        <div className={cx("hd-tabs", className)}>
+            <ul className="hd-tabs__list">
+                {tabs.map((tab, index) => (
+                    <li 
+                        key={`${index.toString()}_${tab.category}`}
+                        className={cx("hd-tabs__item", { "hd-tabs__item--active": index === selected })}
+                    >
+                        <button 
+                            type="button" 
+                            onClick={() => handleOnClick(index)}
+                            className={cx("hd-tabs__item-button", { "hd-tabs__item-button--active": index === selected })}
+                        >
+                            {tab.title}
+                        </button>
+                    </li>
+                ))}
+            </ul>
+            <div className="hd-tabs__content">
+                <div className="hd-tabs__pane"><Table category={tabs[selected].category} data={tabs[selected].data} /></div>
+            </div>
+        </div>
     );
 };
 
