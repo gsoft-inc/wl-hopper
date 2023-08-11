@@ -1,5 +1,5 @@
-@import url('@/styles/tokens.css');
-@import url('@/styles/themes/rehype.css');
+@import url("@/styles/tokens.css");
+@import url("@/styles/themes/rehype.css");
 
 * {
     padding: 0;

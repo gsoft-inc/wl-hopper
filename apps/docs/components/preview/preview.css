@@ -1,5 +1,5 @@
-
 .hd-preview {
+    font-family: "ABC Favorit", Inter, sans-serif;
     width: var(--hd-space-5);
     height: var(--hd-space-3);
     border-radius: 0.25rem;

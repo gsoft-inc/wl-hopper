@@ -1,3 +1,4 @@
+import '@hopper-ui/tokens/dist/fonts.css';
 import "./preview.css";
 
 interface PreviewProps {
@@ -14,7 +15,7 @@ interface PreviewElemProps {
 
 const Preview = ({ category, name, value }: PreviewProps) => {
     let preview: PreviewElemProps = {};
-    
+
     const sampleText = "Aa";
     const nameKeywords = ["inset", "stack", "inline"];
     const matchingKeyword = name ? nameKeywords.find(keyword => name.includes(keyword)) : "";
