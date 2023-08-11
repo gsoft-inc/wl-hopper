@@ -12,6 +12,7 @@
   },
   "globals": {
       "Card": true,
-      "Table": true
+      "Table": true,
+      "Tabs": true
   }
 }
