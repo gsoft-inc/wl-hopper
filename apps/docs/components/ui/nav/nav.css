@@ -31,3 +31,13 @@
 .hd-nav__list-item:hover {
     background-color: var(--hd-color-neutral-surface-weak);
 }
+
+.hd-nav__link--disabled {
+    pointer-events: none;
+    text-decoration: line-through;
+    color: var(--hd-color-neutral-text-weakest);
+}
+
+.hd-nav__link--disabled:hover {
+    background-color: transparent;
+}

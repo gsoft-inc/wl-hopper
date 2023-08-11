@@ -1,19 +1,23 @@
 export interface NavItem {
     label: string;
     path: string;
+    status: "ready" | "not-ready";
 }
 
 export const navigation: NavItem[] = [
     {
         "label": "Tokens",
-        "path": "/tokens/getting-started/introduction"
+        "path": "/tokens/getting-started/introduction",
+        "status": "ready"
     },
     {
         "label": "Icons",
-        "path": "/icons"
+        "path": "/icons",
+        "status": "not-ready"
     },
     {
         "label": "Components",
-        "path": "/components/installation"
+        "path": "/components/installation",
+        "status": "not-ready"
     }
 ];

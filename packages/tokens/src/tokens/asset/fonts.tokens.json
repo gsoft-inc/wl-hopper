@@ -2,10 +2,46 @@
     "asset": {
         "font": {
             "Inter": {
-                "410": {
-                    "normal": {
+                "normal": {
+                    "410": {
                         "value": "assets/fonts/Inter-Regular",
                         "formats": ["otf"]
+                    },
+                    "505": {
+                        "value": "assets/fonts/Inter-Medium",
+                        "formats": ["otf"]
+                    },
+                    "590": {
+                        "value": "assets/fonts/Inter-SemiBold",
+                        "formats": ["otf"]
+                    },
+                    "690": {
+                        "value": "assets/fonts/Inter-Bold",
+                        "formats": ["otf"]
+                    }
+                }
+            },
+            "ABC Favorit Mono": {
+                "normal": {
+                    "400": {
+                        "value": "assets/fonts/ABCFavoritMono-Regular",
+                        "formats": ["otf", "woff", "woff2"]
+                    }
+                }
+            },
+            "ABC Favorit": {
+                "normal": {
+                    "410": {
+                        "value": "assets/fonts/ABCFavorit-Regular",
+                        "formats": ["otf", "woff", "woff2"]
+                    },
+                    "580": {
+                        "value": "assets/fonts/ABCFavorit-Medium",
+                        "formats": ["otf", "woff", "woff2"]
+                    },
+                    "680": {
+                        "value": "assets/fonts/ABCFavorit-Bold",
+                        "formats": ["otf", "woff", "woff2"]
                     }
                 }
             }

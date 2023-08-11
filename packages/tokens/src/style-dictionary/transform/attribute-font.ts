@@ -13,7 +13,7 @@ export function attributeFont (token: TransformedToken): AttributeFont {
         category: token.path[0],
         type: token.path[1],
         family: token.path[2],
-        weight: token.path[3],
-        style: token.path[4]
+        style: token.path[3],
+        weight: token.path[4]
     });
 }
