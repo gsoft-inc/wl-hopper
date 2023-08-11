@@ -5,7 +5,33 @@ const BUILD_PATH = "dist/";
 const STORYBOOK_BUILD_PATH = "../src/stories";
 const DOCS_BUILD_PATH = "../../../apps/docs";
 
-export function getStyleDictionaryConfig (mode: "light" | "dark"): Config {
+export const fontsConfig = {
+    "source": ["src/tokens/asset/*.tokens.json"],
+    "platforms": {
+        "css-font-face": {
+            "transforms": ["attribute/font"],
+            "buildPath": `${BUILD_PATH}`,
+            "files": [
+                {
+                    "destination": "fonts.css",
+                    "format": "font-face",
+                    "filter": {
+                        "attributes": {
+                            "category": "asset",
+                            "type": "font"
+                        }
+                    },
+                    "options": {
+                        "fontPathPrefix": "./"
+                    }
+                }
+            ],
+            "actions": ["copy_assets"]
+        }
+    }
+};
+
+export function getStyleDictionaryConfig(mode: "light" | "dark"): Config {
     const isLightMode = mode === "light";
 
     const lightConfig = {
