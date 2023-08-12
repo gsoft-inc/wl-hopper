@@ -76,7 +76,7 @@ importers:
   apps/docs:
     dependencies:
       '@hopper-ui/tokens':
-        specifier: workspace:*
+        specifier: 0.0.0-beta.0
         version: link:../../packages/tokens
       contentlayer:
         specifier: 0.3.1
