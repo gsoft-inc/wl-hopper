@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
 import cx from "classnames";
 
+import Table from "@/components/ui/table/Table";
+
 import "./tabs.css";
-import Table from "../ui/table/Table";
 
 interface TabProps {
     title: string;
@@ -21,22 +22,22 @@ interface TabsProps {
 }
 
 const Tabs = ({ tabs, className }: TabsProps) => {
-    const [selected, setSelected] = React.useState(0);
+    const [selected, setSelected] = useState(0);
 
     const handleOnClick = (index: number): void => {
         setSelected(index);
     };
-  
+
     return (
         <div className={cx("hd-tabs", className)}>
             <ul className="hd-tabs__list">
                 {tabs.map((tab, index) => (
-                    <li 
+                    <li
                         key={`${index.toString()}_${tab.category}`}
                         className={cx("hd-tabs__item", { "hd-tabs__item--active": index === selected })}
                     >
-                        <button 
-                            type="button" 
+                        <button
+                            type="button"
                             onClick={() => handleOnClick(index)}
                             className={cx("hd-tabs__item-button", { "hd-tabs__item-button--active": index === selected })}
                         >

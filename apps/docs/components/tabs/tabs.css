@@ -37,4 +37,8 @@
 
 .hd-tabs__item--active::after {
     background: var(--hd-color-primary-border);
-  }
+}
+
+.hd-tabs__content {
+    padding-top: var(--hd-space-2);
+}

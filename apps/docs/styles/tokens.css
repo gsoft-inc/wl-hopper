@@ -33,7 +33,10 @@
     --hd-primary-900: #084C40;
     --hd-primary-950: #032B25;
     --hd-accent-100: #E4E5F5;
+    --hd-accent-300: #AFB6E1;
+    --hd-accent-400: #888FD2;
     --hd-accent-700: #564EA7;
+    --hd-accent-900: #3E3A6E;
     --hd-space-05: 0.25rem;
     --hd-space-1: 0.5rem;
     --hd-space-2: 1rem;
@@ -87,6 +90,6 @@
     --hd-color-neutral-icon: var(--hd-neutral-0);
     --hd-color-neutral-icon-hover: var(--hd-primary-900);
     --hd-color-neutral-border: var(--hd-neutral-700);
-    --hd-color-accent-text: var(--hd-accent-100);
-    --hd-color-accent-surface: var(--hd-accent-700);
+    --hd-color-accent-text: var(--hd-accent-300);
+    --hd-color-accent-surface: var(--hd-accent-900);
 }
