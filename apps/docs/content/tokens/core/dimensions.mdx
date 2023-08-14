@@ -2,5 +2,10 @@
 title: Dimensions
 description: Getting started with Workleap Design Tokens
 ---
+import tokens from '../../../datas/tokens.json';
 
 # Dimensions
+
+export const categoryKey = "size";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />

@@ -1,8 +1,0 @@
-{
-  "mode": "pre",
-  "tag": "next",
-  "initialVersions": {
-    "@hopper-ui/tokens": "0.0.0"
-  },
-  "changesets": []
-}

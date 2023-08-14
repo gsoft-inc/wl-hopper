@@ -11,6 +11,8 @@
     }
   },
   "globals": {
-      "Card": true
+      "Card": true,
+      "Table": true,
+      "Tabs": true
   }
 }

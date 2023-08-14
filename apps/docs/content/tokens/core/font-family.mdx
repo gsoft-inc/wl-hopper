@@ -2,5 +2,10 @@
 title: Font Family
 description: Getting started with Workleap Design Tokens
 ---
+import tokens from '../../../datas/tokens.json';
 
 # Font Family
+
+export const categoryKey = "fontFamily";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />

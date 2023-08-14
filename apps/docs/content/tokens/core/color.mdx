@@ -3,4 +3,13 @@ title: Color
 description: Getting started with Workleap Design Tokens
 ---
 
+import tokens from '../../../datas/tokens.json';
+import tokensDark from '../../../datas/tokens-dark.json';
+
+export const categoryKey = "color";
+
 # Color
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />
+
+

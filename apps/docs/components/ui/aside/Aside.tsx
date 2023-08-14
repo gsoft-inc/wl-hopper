@@ -103,17 +103,21 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
 
     return (
         <aside className="hd-aside">
-            <span className="hd-aside__title">{title}</span>
-            <ul className="hd-aside__list">
-                {activeItemIndex !== -1 && (
-                    <span
-                        className={`hd-aside__marker ${
-                            activeItemIndex === -1 ? "hd-aside__marker--hide" : ""
-                        }`}
-                        style={{ top: activeItemIndex * titleHeight + "px" }}
-                    ></span>)}
-                {listItems}
-            </ul>
+            {links.length > 0 && (
+                <>
+                    <span className="hd-aside__title">{title}</span>
+                    <ul className="hd-aside__list">
+                        {activeItemIndex !== -1 && (
+                            <span
+                                className={`hd-aside__marker ${
+                                    activeItemIndex === -1 ? "hd-aside__marker--hide" : ""
+                                }`}
+                                style={{ top: activeItemIndex * titleHeight + "px" }}
+                            ></span>)}
+                        {listItems}
+                    </ul>
+                </>
+            )}
         </aside>
     );
 };

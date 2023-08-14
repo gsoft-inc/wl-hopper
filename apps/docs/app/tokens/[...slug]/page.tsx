@@ -3,7 +3,7 @@ import { allTokens } from "contentlayer/generated";
 
 import Aside from "@/components/ui/aside/Aside.tsx";
 import Mdx from "@/components/ui/mdx/Mdx.tsx";
-import getSectionLinks from "@/utils/getSectionLinks";
+import getSectionLinks from "@/utils/getSectionLinks.ts";
 
 interface PageProps {
     params: {
