@@ -124,13 +124,31 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-50}"
+            },
+            "medium": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.primary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.160}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.580}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-50}"
+                }
             }
         }
     },
     "overline": {
         "font-family": {
             "$type": "fontFamily",
-            "$value": "{font.family.primary}"
+            "$value": "{font.family.tertiary}"
         },
         "font-size": {
             "$type": "fontSize",
@@ -198,6 +216,78 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-33}"
+            },
+            "medium": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.180}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            },
+            "semibold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.180}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.590}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            },
+            "bold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.180}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.690}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            },
+            "underline": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.180}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
             }
         },
         "md": {
@@ -216,6 +306,78 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-50}"
+            },
+            "medium": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.160}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-50}"
+                }
+            },
+            "semibold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.160}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.590}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-50}"
+                }
+            },
+            "bold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.160}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.690}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-50}"
+                }
+            },
+            "underline": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.160}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.410}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-50}"
+                }
             }
         },
         "sm": {
@@ -234,6 +396,78 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-4285}"
+            },
+            "medium": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.140}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-4295}"
+                }
+            },
+            "semibold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.140}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.590}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-4295}"
+                }
+            },
+            "bold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.140}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.690}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-4295}"
+                }
+            },
+            "underline": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.140}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight", 
+                    "$value": "{line-height.1-4295}"
+                }
             }
         },
         "xs": {
@@ -248,6 +482,116 @@
             "font-weight": {
                 "$type": "fontWeight",
                 "$value": "{font.weight.410}"
+            },
+            "line-height": {
+                "$type": "lineHeight",
+                "$value": "{line-height.1-33}"
+            },
+            "medium": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.120}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            },
+            "semibold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.120}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.590}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            },
+            "bold": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.120}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.690}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            },
+            "underline": {
+                "font-family": {
+                    "$type": "fontFamily",
+                    "$value": "{font.family.secondary}"
+                },
+                "font-size": {
+                    "$type": "fontSize",
+                    "$value": "{font.size.120}"
+                },
+                "font-weight": {
+                    "$type": "fontWeight",
+                    "$value": "{font.weight.505}"
+                },
+                "line-height": {
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-33}"
+                }
+            }
+        }
+    },
+    "accent": {
+        "lg" : {
+            "font-family": {
+                "$type": "fontFamily",
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$type": "fontSize",
+                "$value": "{font.size.480}"
+            },
+            "font-weight": {
+                "$type": "fontWeight",
+                "$value": "{font.weight.580}"
+            },
+            "line-height": {
+                "$type": "lineHeight",
+                "$value": "{line-height.1-125}"
+            }
+        },
+        "sm" : {
+            "font-family": {
+                "$type": "fontFamily",
+                "$value": "{font.family.primary}"
+            },
+            "font-size": {
+                "$type": "fontSize",
+                "$value": "{font.size.180}"
+            },
+            "font-weight": {
+                "$type": "fontWeight",
+                "$value": "{font.weight.580}"
             },
             "line-height": {
                 "$type": "lineHeight",
