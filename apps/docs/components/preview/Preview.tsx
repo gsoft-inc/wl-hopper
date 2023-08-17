@@ -1,3 +1,4 @@
+import "@hopper-ui/tokens/dist/fonts.css";
 import "./preview.css";
 
 interface PreviewProps {
