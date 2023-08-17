@@ -22,7 +22,7 @@ export const fontsConfig = {
                         }
                     },
                     "options": {
-                        "fontPathPrefix": "../"
+                        "fontPathPrefix": "./"
                     }
                 }
             ],
