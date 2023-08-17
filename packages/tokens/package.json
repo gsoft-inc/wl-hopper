@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/tokens",
     "author": "Workleap",
-    "version": "0.1.0-beta.0",
+    "version": "0.1.1-beta.0",
     "description": "The tokens package.",
     "license": "Apache-2.0",
     "repository": {
@@ -20,10 +20,9 @@
     },
     "type": "module",
     "exports": {
-        "./dist/": {
-            "import": "./dist/",
-            "require": "./dist/"
-        }
+        "./tokens.css": "./dist/tokens.css",
+        "./fonts.css": "./dist/fonts.css",
+        "./dark/tokens.css": "./dist/dark/tokens.css"
     },
     "files": [
         "dist",

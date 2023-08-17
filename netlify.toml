@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm doc:build"
+  command = "pnpm build && pnpm doc:build"
   publish = "apps/docs/.next"
 
 [[plugins]]
