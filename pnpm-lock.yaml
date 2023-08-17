@@ -12,8 +12,8 @@ importers:
         specifier: ^2.26.2
         version: 2.26.2
       '@netlify/plugin-nextjs':
-        specifier: 4.39.4
-        version: 4.39.4
+        specifier: 4.36.0
+        version: 4.36.0
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
@@ -3161,8 +3161,8 @@ packages:
       - supports-color
     dev: false
 
-  /@netlify/plugin-nextjs@4.39.4:
-    resolution: {integrity: sha512-M43phcmpGaG8Cieu348NZkjSlghFTO37oByvDsJcXYc7xUC2JNPMuRgrIc6Wk8F9YTAPTWri5Q07t6HBM0/H3w==}
+  /@netlify/plugin-nextjs@4.36.0:
+    resolution: {integrity: sha512-xFcfYyK/p52xYWoCxWkIAVBsD/gzbyfLYJ70OFZm8NnlLMOqxJvNsO4XofJHJlNshteVZTF339oZTT4dgQ48Uw==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@netlify/esbuild': 0.14.39
@@ -3182,7 +3182,7 @@ packages:
       node-stream-zip: 1.15.0
       outdent: 0.8.0
       p-limit: 3.1.0
-      pathe: 0.3.9
+      pathe: 0.2.0
       pretty-bytes: 5.6.0
       regexp-tree: 0.1.27
       semver: 7.5.4
@@ -13871,8 +13871,8 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
 
-  /pathe@0.3.9:
-    resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
+  /pathe@0.2.0:
+    resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
     dev: false
 
   /pathe@1.1.1:
