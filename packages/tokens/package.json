@@ -20,14 +20,10 @@
     },
     "type": "module",
     "exports": {
-        "./dist/tokens.css": {
-            "import": "./dist/tokens.css",
-            "require": "./dist/tokens.css"
-        },
-        "./dist/fonts.css": {
-            "import": "./dist/fonts.css",
-            "require": "./dist/fonts.css"
-        }
+        ".": "./dist/",
+        "./tokens.css": "./dist/tokens.css",
+        "./fonts.css": "./dist/fonts.css",
+        "./dark/tokens.css": "./dist/dark/tokens.css"
     },
     "files": [
         "dist",
