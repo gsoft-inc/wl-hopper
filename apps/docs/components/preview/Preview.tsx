@@ -17,9 +17,9 @@ const Preview = ({ category, name, value }: PreviewProps) => {
     let preview: PreviewElemProps = {};
 
     const sampleText = "Aa";
-    const dimensionPaddingKeywords = "inset";
-    const dimensionInlineKeywords = "inline";
-    const dimensionStackKeywords = "stack";
+    const dimensionPaddingKeywords = ["inset"];
+    const dimensionInlineKeywords = ["inline"];
+    const dimensionStackKeywords = ["stack"];
     const matchingPaddingKeyword = name ? dimensionPaddingKeywords.find(keyword => name.includes(keyword)) : "";
     const matchingStackKeyword = name ? dimensionStackKeywords.find(keyword => name.includes(keyword)) : "";
     const matchingInlineKeyword = name ? dimensionInlineKeywords.find(keyword => name.includes(keyword)) : "";
