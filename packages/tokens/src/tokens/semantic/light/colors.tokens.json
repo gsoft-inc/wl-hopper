@@ -436,7 +436,7 @@
     "neutral": {
         "text-hover": {
             "$type": "color",
-            "$value": "{rock.800}"
+            "$value": "{rock.700}"
         },
         "surface-weakest-active": {
             "$type": "color",
