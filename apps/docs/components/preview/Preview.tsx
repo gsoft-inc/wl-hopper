@@ -17,12 +17,8 @@ const Preview = ({ category, name, value }: PreviewProps) => {
     let preview: PreviewElemProps = {};
 
     const sampleText = "Aa";
-    const dimensionPaddingKeywords = ["inset"];
-    const dimensionInlineKeywords = ["inline"];
-    const dimensionStackKeywords = ["stack"];
-    const matchingPaddingKeyword = name ? dimensionPaddingKeywords.find(keyword => name.includes(keyword)) : "";
-    const matchingStackKeyword = name ? dimensionStackKeywords.find(keyword => name.includes(keyword)) : "";
-    const matchingInlineKeyword = name ? dimensionInlineKeywords.find(keyword => name.includes(keyword)) : "";
+    const nameKeywords = ["inset", "stack", "inline"];
+    const matchingKeyword = name ? nameKeywords.find(keyword => name.includes(keyword)) : "";
 
     switch (category) {
         case "fontFamily":
@@ -77,22 +73,10 @@ const Preview = ({ category, name, value }: PreviewProps) => {
             preview = {
                 style: { width: value }
             };
-            if (matchingPaddingKeyword) {
+            if (matchingKeyword) {
                 preview = {
                     style: { padding: value },
-                    className: `hd-preview--semantic-size hd-preview--${matchingPaddingKeyword}`
-                };
-            }
-            if (matchingInlineKeyword) {
-                preview = {
-                    style: { padding: `0 ${value} 0 0` },
-                    className: `hd-preview--semantic-size hd-preview--${matchingInlineKeyword}`
-                };
-            }
-            if (matchingStackKeyword) {
-                preview = {
-                    style: { padding: `0 0 ${value} 0` },
-                    className: `hd-preview--semantic-size hd-preview--${matchingStackKeyword}`
+                    className: `hd-preview--semantic-size hd-preview--${matchingKeyword}`
                 };
             }
             break;

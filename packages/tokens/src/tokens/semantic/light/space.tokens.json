@@ -53,45 +53,45 @@
         "stack": {
             "xs": {
                 "$type": "size",
-                "$value": "{space.40}"
+                "$value": "{space.0} {space.0} {space.40} {space.0}"
             },
             "sm": {
                 "$type": "size",
-                "$value": "{space.80}"
+                "$value": "{space.0} {space.0} {space.80} {space.0}"
             },
             "md": {
                 "$type": "size",
-                "$value": "{space.160}"
+                "$value": "{space.0} {space.0} {space.160} {space.0}"
             },
             "lg": {
                 "$type": "size",
-                "$value": "{space.240}"
+                "$value": "{space.0} {space.0} {space.240} {space.0}"
             },
             "xl": {
                 "$type": "size",
-                "$value": "{space.320}"
+                "$value": "{space.0} {space.0} {space.320} {space.0}"
             }
         },
         "inline": {
             "xs": {
                 "$type": "size",
-                "$value": "{space.40}"
+                "$value": "{space.0} {space.40} {space.0} {space.0}"
             },
             "sm": {
                 "$type": "size",
-                "$value": "{space.80}"
+                "$value": "{space.0} {space.80} {space.0} {space.0}"
             },
             "md": {
                 "$type": "size",
-                "$value": "{space.160}"
+                "$value": "{space.0} {space.160} {space.0} {space.0}"
             },
             "lg": {
                 "$type": "size",
-                "$value": "{space.240}"
+                "$value": "{space.0} {space.240} {space.0} {space.0}"
             },
             "xl": {
                 "$type": "size",
-                "$value": "{space.320}"
+                "$value": "{space.0} {space.320} {space.0} {space.0}"
             }
         }
     }
