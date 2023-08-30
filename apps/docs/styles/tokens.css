@@ -2,6 +2,7 @@
     --hd-default-font-size: 1rem;
     --hd-default-font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --hd-mono-font-family: fira code vf, ui-monospace, sfmono-regular, menlo, monaco, consolas, liberation mono, courier new, monospace;
     --hd-opacity: 1;
     --hd-step-minus-1: clamp(0.84rem, calc(0.90rem + -0.08vw), 0.89rem);
     --hd-step-0: clamp(1.00rem, calc(0.96rem + 0.22vw), 1.13rem);
@@ -31,6 +32,11 @@
     --hd-primary-800: #095C4C;
     --hd-primary-900: #084C40;
     --hd-primary-950: #032B25;
+    --hd-accent-100: #E4E5F5;
+    --hd-accent-300: #AFB6E1;
+    --hd-accent-400: #888FD2;
+    --hd-accent-700: #564EA7;
+    --hd-accent-900: #3E3A6E;
     --hd-space-05: 0.25rem;
     --hd-space-1: 0.5rem;
     --hd-space-2: 1rem;
@@ -66,6 +72,8 @@
     --hd-color-neutral-icon-weak-hover: var(--hd-neutral-900);
     --hd-color-neutral-border: var(--hd-neutral-75);
     --hd-color-neutral-border-weak: var(--hd-neutral-20);
+    --hd-color-accent-text: var(--hd-accent-700);
+    --hd-color-accent-surface: var(--hd-accent-100);
 }
 
 /* Dark Theme Overrides */
@@ -90,4 +98,6 @@
     --hd-color-neutral-icon-weak: var(--hd-neutral-300);
     --hd-color-neutral-icon-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-border: var(--hd-neutral-700);
+    --hd-color-accent-text: var(--hd-accent-300);
+    --hd-color-accent-surface: var(--hd-accent-900);
 }

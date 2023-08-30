@@ -2,5 +2,16 @@
 title: Color
 description: Getting started with Workleap Design Tokens
 ---
+import tokens from '../../../datas/tokens.json';
+import tokensDark from '../../../datas/tokens-dark.json';
+
+export const categoryKey = "color";
+
+export const tabs = [
+  { title: "Light", data: tokens.semantic[categoryKey], category: categoryKey },
+  { title: "Dark", data: tokensDark.semantic[categoryKey], category: categoryKey },
+];
 
 # Semantic Color
+
+<Tabs tabs={tabs} />

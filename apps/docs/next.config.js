@@ -8,6 +8,7 @@ const nextConfig = {
     experimental: {
         appDir: true
     },
+    transpilePackages: ["@hopper-ui"],
     images: {
         remotePatterns: [
             {

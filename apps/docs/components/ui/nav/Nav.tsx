@@ -17,12 +17,12 @@ const Nav = ({ items }: { items: React.PropsWithoutRef<NavItem[]> }) => {
     }
 
     const navItems = items.map(item => {
-        const { path, label } = item;
+        const { path, label, status } = item;
 
         const isActive = path.includes(firstPathLevel) && firstPathLevel !== "";
 
         return (
-            <li key={label} className={cx("hd-nav__list-item", isActive && "hd-nav__list-item--active")}>
+            <li key={label} className={cx("hd-nav__list-item", isActive && "hd-nav__list-item--active", status !== "ready" && "hd-nav__link--disabled")}>
                 <Link href={path} className="hd-nav__link" >
                     {label}
                 </Link>

@@ -1,34 +1,28 @@
 {
     "border-radius": {
         "0": {
-            "$type": "size",
-            "$value": 0,
-            "group": "borderRadius"
+            "$type": "borderRadius",
+            "$value": 0
         },
         "1": {
-            "$type": "size",
-            "$value": 4,
-            "group": "borderRadius"
+            "$type": "borderRadius",
+            "$value": 4
         },
         "2": {
-            "$type": "size",
-            "$value": 8,
-            "group": "borderRadius"
+            "$type": "borderRadius",
+            "$value": 8
         },
         "3": {
-            "$type": "size",
-            "$value": 16,
-            "group": "borderRadius"
+            "$type": "borderRadius",
+            "$value": 16
         },
         "4": {
-            "$type": "size",
-            "$value": 24,
-            "group": "borderRadius"
+            "$type": "borderRadius",
+            "$value": 24
         },
         "9999": {
-            "$type": "size",
-            "$value": 9999,
-            "group": "borderRadius"
+            "$type": "borderRadius",
+            "$value": 9999
         }
     }
 }

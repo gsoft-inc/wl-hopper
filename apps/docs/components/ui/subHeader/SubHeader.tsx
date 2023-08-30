@@ -3,6 +3,7 @@
 import SectionPopover from "@/components/ui/sectionPopover/sectionPopover";
 
 import "./subHeader.css";
+import SidePanel from "./assets/side-panel.svg";
 
 interface Link {
     title: string;
@@ -21,10 +22,7 @@ const SubHeader = ({ toggleOpenState, links }: SubHeaderProps) => {
             <div className="hd-wrapper">
                 <div className="sub-header-container">
                     <button type="button" className="hd-sub-header__sidebar-button" onClick={toggleOpenState}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="hd-sub-header__button-icon">
-                            <rect x="4" y="4" width="16" height="16" rx="1" strokeWidth="2" />
-                            <line x1="10.4287" y1="4.28571" x2="10.4287" y2="21" strokeWidth="2" />
-                        </svg>
+                        <SidePanel className="hd-sub-header__button-icon" />
                     </button>
                     <SectionPopover links={links} />
                 </div>

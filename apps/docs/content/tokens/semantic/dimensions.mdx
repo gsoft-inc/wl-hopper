@@ -1,6 +1,11 @@
 ---
-title: Elevations
+title: Dimensions
 description: Getting started with Workleap Design Tokens
 ---
+import tokens from '../../../datas/tokens.json';
 
-# Elevations
+# Dimensions
+
+export const categoryKey = "size";
+
+<Table category={categoryKey} data={tokens.semantic[categoryKey]} />

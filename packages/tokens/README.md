@@ -32,12 +32,12 @@ npm install -D @hopper-ui/tokens
 The tokens are available in the `dist` folder. You can import the tokens in your project by doing:
 
 ```css
-@import '@hopper-ui/tokens/dist/tokens.css';
+@import '@hopper-ui/tokens/tokens.css';
 ```
 
 for the dark mode, you can import them by doing:
 ```css
-@import '@hopper-ui/tokens/dist/dark/tokens.css';
+@import '@hopper-ui/tokens/dark/tokens.css';
 ```
 
 ## License

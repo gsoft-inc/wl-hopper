@@ -2,122 +2,122 @@
     "font": {
         "family": {
             "primary" : {
-                "$type": "string",
+                "$type": "fontFamily",
                 "$value": "ABC Favorit"
             },
             "secondary" : {
-                "$type": "string",
+                "$type": "fontFamily",
                 "$value": "Inter"
             },
             "tertiary" : {
-                "$type": "string",
+                "$type": "fontFamily",
                 "$value": "ABC Favorit Mono"
             }
         },
         "size": {
             "120": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "12"
             },
             "140": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "14"
             },
             "160": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "16"
             },
             "180": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "18"
             },
             "200": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "20"
             },
             "240": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "24"
             },
             "280": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "28"
             },
             "320": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "32"
             },
             "360": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "36"
             },
             "480": {
-                "$type": "size",
+                "$type": "fontSize",
                 "$value": "48"
             }
         },
         "weight": {
             "400": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "400"
             },
             "410": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "410"
             },
             "505": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "505"
             },
             "580": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "580"
             },
             "590": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "590"
             },
             "680": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "680"
             },
             "690": {
-                "$type": "number",
+                "$type": "fontWeight",
                 "$value": "690"
             }
         }
     },
     "line-height": {
         "1-125": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.125"
         },
         "1-14": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.14"
         },
         "1-20": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.2"
         },
         "1-25": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.25"
         },
         "1-33": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.33"
         },
         "1-4285": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.4285"
         },
         "1-4295": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.4295"
         },
         "1-50": {
-            "$type": "number",
+            "$type": "lineHeight",
             "$value": "1.5"
         }
     }

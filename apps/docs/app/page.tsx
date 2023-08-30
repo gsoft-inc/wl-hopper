@@ -1,10 +1,9 @@
-import Title from "@/components/ui/title/Title";
-
 export default function Home() {
     return (
         <div className="hd-wrapper hd-flex">
-            <main>
-                <Title as="h1" level={1}>The first steps of Hopper</Title>
+            <main className="hd-home">
+                <h1 className="hd-display">Welcome to Workleap's <strong className="hd-text--strong">Hopper</strong> Design System.</h1>
+                <p className="hd-display__subtitle">The documentation is currently in <strong className="hd-text--strong">beta</strong> and only the tokens are available.</p>
             </main>
         </div>
     );

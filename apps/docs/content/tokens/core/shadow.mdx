@@ -2,5 +2,10 @@
 title: Shadow
 description: Getting started with Workleap Design Tokens
 ---
+import tokens from '../../../datas/tokens.json';
 
 # Shadow
+
+export const categoryKey = "shadow";
+
+<Table category={categoryKey} data={tokens.core[categoryKey]} />
