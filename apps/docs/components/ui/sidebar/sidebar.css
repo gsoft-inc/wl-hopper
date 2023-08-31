@@ -16,7 +16,9 @@
     flex-shrink: 0;
     background-color: var(--hd-color-neutral-surface);
     padding-inline: var(--hd-space-3);
+    opacity: 0;
 }
+
 
 @media screen and (width >= 48rem) {
     .hd-sidebar {
@@ -26,16 +28,20 @@
         top: var(--hd-space-8);
         left: initial;
         transform: translateX(0);
+        opacity: 1;
         padding-inline: 0;
         width: auto;
         max-width: auto;
         height: calc(100vh - var(--hd-space-8));
         z-index: 0;
+        transition: none;
     }
 }
 
 .hd-sidebar--open {
+    transition: opacity .25s, transform .3s cubic-bezier(.19, 1, .22, 1);
     transform: translateX(0);
+    opacity: 1;
 }
 
 .hd-sidebar__container {

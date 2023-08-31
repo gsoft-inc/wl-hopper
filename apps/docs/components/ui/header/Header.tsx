@@ -18,8 +18,10 @@ const Header = () => {
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = "hidden";
+            document.body.style.paddingRight = "15px";
         } else {
             document.body.style.overflow = "auto";
+            document.body.style.paddingRight = "0";
         }
     });
 
@@ -28,7 +30,9 @@ const Header = () => {
     };
 
     const handleMobileMenuClose = () => {
-        setIsMobileMenuOpen(false);
+        setTimeout(() => {
+            setIsMobileMenuOpen(false);
+        }, 300);
     };
 
     return (
@@ -100,7 +104,7 @@ const Header = () => {
                     <MobileMenuTrigger onToggle={handleMobileMenuToggle} />
                 </div>
             </header>
-            {isMobileMenuOpen && <MobileMenu onClose={handleMobileMenuClose} />}
+            {isMobileMenuOpen && <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} />}
         </>
     );
 };

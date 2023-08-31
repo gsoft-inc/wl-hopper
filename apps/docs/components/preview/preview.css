@@ -44,8 +44,8 @@
 
 .hd-preview--semantic-size {
     display: flex;
-    height: 8rem;
-    width: 8rem;
+    height: 6.5rem;
+    width: 6.5rem;
 }
 
 .hd-preview--semantic-size::after {

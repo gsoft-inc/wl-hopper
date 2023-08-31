@@ -1,4 +1,6 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import cx from "classnames";
+
 import "./overlay.css";
 
 interface OverlayProps {
@@ -6,12 +8,32 @@ interface OverlayProps {
 }
 
 const Overlay = ({ isOpen }: OverlayProps) => {
-    if (!isOpen) {
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [animationDirection, setAnimationDirection] = useState<"opening" | "closing">("opening");
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsAnimating(true);
+            setAnimationDirection("opening");
+        } else {
+            setAnimationDirection("closing");
+        }
+
+        const animationTimeout = setTimeout(() => {
+            setIsAnimating(false);
+        }, 300);
+
+        return () => clearTimeout(animationTimeout);
+    }, [isOpen]);
+
+    if (!isOpen && !isAnimating) {
         return null;
     }
 
+    const overlayClassName = cx("hd-overlay", isAnimating && "hd-overlay--is-animating", `hd-overlay--${animationDirection}`);
+
     return (
-        <div className="hd-overlay"></div>
+        <div className={overlayClassName}></div>
     );
 };
 

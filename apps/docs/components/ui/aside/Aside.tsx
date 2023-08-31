@@ -100,6 +100,14 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
         setIsOpen(!isOpen);
     };
 
+    const handleWindowResize = () => {
+        if (window.innerWidth < 768 || window.innerWidth > 992) {
+            setIsOpen(false);
+        }
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
     const listItems = links.map(link => (
         <li className={cx("hd-aside__item", activeSection === link.id && "hd-aside__item--active")} key={link.id}>
             <a href={link.url} className="hd-aside__link" >
