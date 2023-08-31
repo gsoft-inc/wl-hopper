@@ -34,7 +34,7 @@
 /* Povover */
 .hd-section-popover__popover {
     position: absolute;
-    left:var(--hd-space-3)!important;
+    left:var(--hd-space-3);
     top: var(--hd-space-9);
     width: calc(100% - var(--hd-space-6));
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
