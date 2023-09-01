@@ -43,12 +43,12 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
     ));
 
     return (
-        <div className="hd-section-popover">
+        <>
             {listItems.length > 0 && (
-                <>
+                <div className="hd-section-popover">
                     <Button className={cx("hd-section-popover__button", isOpen && "hd-section-popover__button--open")} onPress={togglePopover}>
                         On this page
-                        <ChevronIcon className="hd-section-popover__button-icon" />
+                        <ChevronIcon className="hd-section-popover__button-icon"/>
                     </Button>
                     <div className={cx("hd-section-popover__popover", isOpen && "hd-section-popover__popover--open")}>
                         <a className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</a>
@@ -56,9 +56,9 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
                             {listItems}
                         </ul>
                     </div>
-                </>
+                </div>
             )}
-        </div>
+        </>
     );
 };
 
