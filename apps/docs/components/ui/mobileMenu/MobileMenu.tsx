@@ -12,6 +12,7 @@ import CloseIcon from "./assets/close.svg";
 import GithubLogo from "./assets/github.svg";
 
 import "./mobileMenu.css";
+import { handleClientScriptLoad } from "next/script";
 
 interface MobileMenuProps {
     onClose: () => void;
@@ -44,13 +45,17 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
         firstPathLevel = pathname.split("/")[1].trim();
     }
 
-    const handleWindowResize = () => {
-        if (window.innerWidth > 600) {
-            onClose();
-        }
-    };
+    useEffect(() => {
+        const handleWindowResize = () => {
+            if (window.innerWidth > 600) {
+                onClose();
+            }
+        };
 
-    window.addEventListener("resize", handleWindowResize);
+        if (isOpen) {
+            window.addEventListener("resize", handleWindowResize);
+        }
+    }, [isOpen, onClose]);
 
     const navItems = navigation.map(item => {
         const { path, label } = item;
