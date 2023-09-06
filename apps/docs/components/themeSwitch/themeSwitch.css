@@ -2,7 +2,7 @@
     width: var(--hd-space-4);
     aspect-ratio: 1/1;
     background-color: transparent;
-    color: var(--hd-color-icon-primary);
+    color: var(--hd-color-neutral-icon);
     border-width: 0;
     border-radius: var(--hd-space-05);
     display: flex;
@@ -13,4 +13,10 @@
 .hd-theme-switch__button:hover {
     background-color: var(--hd-color-surface-primary-weak-hover);
     cursor: pointer;
+}
+
+.hd-theme-switch {
+    display: flex;
+    align-items: center;
+    gap: var(--hd-space-05);
 }

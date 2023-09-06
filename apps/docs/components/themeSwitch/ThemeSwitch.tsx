@@ -6,7 +6,12 @@ import Icon from "@/components/themeSwitch/ThemeSwitchIcons";
 
 import "./themeSwitch.css";
 
-const ThemeSwitch = () => {
+interface ThemeSwitchProps {
+    text?: string;
+    className?: string;
+}
+
+const ThemeSwitch = ({ text, className }: ThemeSwitchProps) => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
 
     const toggleTheme = () => {
@@ -20,11 +25,12 @@ const ThemeSwitch = () => {
     if (colorMode) {
         return (
             <ToggleButton
-                className="hd-icon-button"
+                className={className}
                 onChange={toggleTheme}
                 aria-label="Toggle theme"
             >
                 <Icon icon={colorMode === "dark" ? "sun" : "moon"} />
+                {text}
             </ToggleButton>
         );
     }

@@ -1,10 +1,11 @@
+/* fix icon colors as its horrible as it is */
 :root {
-    --hd-icon-button-color: var(--hd-color-icon-primary);
+    --hd-icon-button-color: var(--hd-color-neutral-icon);
     --hd-icon-button-background-color: transparent;
-    --hd-icon-button-background-color-hover: var(--hd-color-surface-secondary);
+    --hd-icon-button-background-color-hover: var(--hd-color-neutral-surface-weak);
     --hd-icon-button-border-radius: var(--hd-space-05);
-    --hd-icon-button-fill: var(--hd-color-icon-primary);
-    --hd-icon-button-fill-hover: var(--hd-color-icon-secondary);
+    --hd-icon-button-fill: var(--hd-color-neutral-icon);
+    --hd-icon-button-fill-hover: var(--hd-color-neutral-icon-hover);
 }
 
 .hd-icon-button {
@@ -21,8 +22,7 @@
 }
 
 .hd-icon-button:hover {
-    --hd-icon-button-background-color:  var(--hd-icon-button-background-color-hover);
-    --hd-icon-button-fill: var(--hd-icon-button-fill-hover);
+    --hd-icon-button-background-color: var(--hd-icon-button-background-color-hover);
 
     cursor: pointer;
 }

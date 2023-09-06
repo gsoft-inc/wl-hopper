@@ -57,7 +57,9 @@
     --hd-color-surface-neutral-selection: var(--hd-neutral-75);
     --hd-color-neutral-text: var(--hd-neutral-900);
     --hd-color-neutral-text-weak: var(--hd-neutral-700);
+    --hd-color-neutral-text-weak-hover: var(--hd-neutral-900);
     --hd-color-neutral-text-weakest: var(--hd-neutral-400);
+    --hd-color-neutral-text-weakest-hover: var(--hd-neutral-800);
     --hd-color-primary-text: var(--hd-primary-600);
     --hd-color-primary-text-hover: var(--hd-primary-700);
     --hd-color-primary-text-strong: var(--hd-primary-900);
@@ -66,6 +68,8 @@
     --hd-color-primary-border: var(--hd-primary-600);
     --hd-color-neutral-icon: var(--hd-neutral-900);
     --hd-color-neutral-icon-hover: var(--hd-primary-900);
+    --hd-color-neutral-icon-weak: var(--hd-neutral-700);
+    --hd-color-neutral-icon-weak-hover: var(--hd-neutral-900);
     --hd-color-neutral-border: var(--hd-neutral-75);
     --hd-color-neutral-border-weak: var(--hd-neutral-20);
     --hd-color-accent-text: var(--hd-accent-700);
@@ -79,7 +83,9 @@
     --hd-color-surface-neutral-selection: var(--hd-neutral-300);
     --hd-color-neutral-text: var(--hd-neutral-0);
     --hd-color-neutral-text-weak: var(--hd-neutral-300);
+    --hd-color-neutral-text-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-text-weakest: var(--hd-neutral-300);
+    --hd-color-neutral-text-weakest-hover: var(--hd-neutral-100);
     --hd-color-primary-text: var(--hd-primary-600);
     --hd-color-primary-text-hover: var(--hd-white);
     --hd-color-primary-text-strong: var(--hd-primary-900);
@@ -89,6 +95,8 @@
     --hd-color-primary-border-weak: var(--hd-primary-700);
     --hd-color-neutral-icon: var(--hd-neutral-0);
     --hd-color-neutral-icon-hover: var(--hd-primary-900);
+    --hd-color-neutral-icon-weak: var(--hd-neutral-300);
+    --hd-color-neutral-icon-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-border: var(--hd-neutral-700);
     --hd-color-accent-text: var(--hd-accent-300);
     --hd-color-accent-surface: var(--hd-accent-900);

@@ -1,0 +1,16 @@
+.hd-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    background-color: rgba(0 0 0 / 50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.hd-overlay--is-animating {
+    opacity: 1;
+}
+
+.hd-overlay--opening {
+    opacity: 1;
+}
