@@ -32,13 +32,13 @@
     },
     "dependencies": {
         "@changesets/cli": "^2.26.2",
+        "@netlify/ipx": "^1.4.4",
         "@netlify/plugin-nextjs": "4.36.0",
         "@types/node": "18.15.11",
         "storybook": "7.2.0"
     },
     "devDependencies": {
         "@hopper-ui/tokens": "workspace:^",
-        "@netlify/ipx": "^1.4.4",
         "@storybook/addon-essentials": "7.2.0",
         "@storybook/addon-interactions": "7.2.0",
         "@storybook/addon-links": "7.2.0",
