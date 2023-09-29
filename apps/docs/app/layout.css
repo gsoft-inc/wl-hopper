@@ -59,3 +59,8 @@ p:not(:last-child) {
 p + * {
     margin-block-start: var(--hd-space-3);
 }
+
+article ul {
+    line-height: 1.5rem;
+    padding-left: 1rem;
+}
