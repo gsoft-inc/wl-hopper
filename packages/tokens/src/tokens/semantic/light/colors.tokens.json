@@ -168,6 +168,10 @@
             "$type": "color",
             "$value": "{samoyed}"
         },
+        "icon-strong-hover": {
+            "$type": "color",
+            "$value": "{samoyed}"
+        },
         "icon": {
             "$type": "color",
             "$value": "{sapphire.500}"
@@ -186,7 +190,7 @@
         },
         "icon-disabled": {
             "$type": "color",
-            "$value": "{sapphire.50}"
+            "$value": "{sapphire.200}"
         },
         "surface-disabled": {
             "$type": "color",
@@ -212,6 +216,14 @@
             "$type": "color",
             "$value": "{sapphire.400}"
         },
+        "surface-strong-active": {
+            "$type": "color",
+            "$value": "{sapphire.50}"
+        },
+        "surface-strong-hover": {
+            "$type": "color",
+            "$value": "{sapphire.600}"
+        },
         "text": {
             "$type": "color",
             "$value": "{sapphire.500}"
@@ -221,6 +233,10 @@
             "$value": "{sapphire.600}"
         },
         "text-strong": {
+            "$type": "color",
+            "$value": "{samoyed}"
+        },
+        "text-strong-hover": {
             "$type": "color",
             "$value": "{samoyed}"
         },
@@ -442,13 +458,17 @@
             "$type": "color",
             "$value": "{rock.50}"
         },
+        "surface-weakest-hover": {
+            "$type": "color",
+            "$value": "{rock.50}"
+        },
         "text-weak": {
             "$type": "color",
             "$value": "{rock.400}"
         },
         "surface-disabled": {
             "$type": "color",
-            "$value": "{rock.75}"
+            "$value": "{rock.50}"
         },
         "surface-active": {
             "$type": "color",
@@ -464,7 +484,7 @@
         },
         "text-disabled": {
             "$type": "color",
-            "$value": "{rock.200}"
+            "$value": "{rock.300}"
         },
         "text-active": {
             "$type": "color",
@@ -484,7 +504,7 @@
         },
         "border-disabled": {
             "$type": "color",
-            "$value": "{rock.75}"
+            "$value": "{rock.50}"
         },
         "border-strong": {
             "$type": "color",
@@ -500,7 +520,7 @@
         },
         "icon-disabled": {
             "$type": "color",
-            "$value": "{rock.200}"
+            "$value": "{rock.300}"
         },
         "icon": {
             "$type": "color",
@@ -509,6 +529,10 @@
         "icon-weak": {
             "$type": "color",
             "$value": "{rock.400}"
+        },
+        "icon-weak-hover": {
+            "$type": "color",
+            "$value": "{rock.700}"
         },
         "border": {
             "$type": "color",
@@ -528,7 +552,7 @@
         },
         "icon-hover": {
             "$type": "color",
-            "$value": "{rock.800}"
+            "$value": "{rock.700}"
         },
         "icon-active": {
             "$type": "color",
