@@ -412,7 +412,7 @@
                 },
                 "line-height": {
                     "$type": "lineHeight",
-                    "$value": "{line-height.1-4295}"
+                    "$value": "{line-height.1-4285}"
                 }
             },
             "semibold": {
@@ -430,7 +430,7 @@
                 },
                 "line-height": {
                     "$type": "lineHeight",
-                    "$value": "{line-height.1-4295}"
+                    "$value": "{line-height.1-4285}"
                 }
             },
             "bold": {
@@ -448,7 +448,7 @@
                 },
                 "line-height": {
                     "$type": "lineHeight",
-                    "$value": "{line-height.1-4295}"
+                    "$value": "{line-height.1-4285}"
                 }
             },
             "underline": {
@@ -465,8 +465,8 @@
                     "$value": "{font.weight.505}"
                 },
                 "line-height": {
-                    "$type": "lineHeight", 
-                    "$value": "{line-height.1-4295}"
+                    "$type": "lineHeight",
+                    "$value": "{line-height.1-4285}"
                 }
             }
         },

@@ -653,7 +653,7 @@
       },
       {
         "name": "hop-line-height-1-14",
-        "value": "1.14"
+        "value": "1.1428571"
       },
       {
         "name": "hop-line-height-1-20",
@@ -665,15 +665,11 @@
       },
       {
         "name": "hop-line-height-1-33",
-        "value": "1.33"
+        "value": "1.3333333"
       },
       {
         "name": "hop-line-height-1-4285",
-        "value": "1.4285"
-      },
-      {
-        "name": "hop-line-height-1-4295",
-        "value": "1.4295"
+        "value": "1.4285714"
       },
       {
         "name": "hop-line-height-1-50",
