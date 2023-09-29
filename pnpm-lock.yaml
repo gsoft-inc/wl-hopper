@@ -5968,7 +5968,7 @@ packages:
       '@storybook/router': 7.0.2(react-dom@18.2.0)(react@18.2.0)
       '@storybook/store': 7.0.2
       '@storybook/theming': 7.0.2(react-dom@18.2.0)(react@18.2.0)
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       '@types/semver': 7.5.3
       babel-loader: 9.1.3(@babel/core@7.23.0)(webpack@5.88.2)
       babel-plugin-named-exports-order: 0.0.2
@@ -6201,7 +6201,7 @@ packages:
     dependencies:
       '@storybook/node-logger': 7.0.2
       '@storybook/types': 7.0.2
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       '@types/pretty-hrtime': 1.0.1
       chalk: 4.1.2
       esbuild: 0.17.19
@@ -6228,7 +6228,7 @@ packages:
       '@storybook/node-logger': 7.2.0
       '@storybook/types': 7.2.0
       '@types/find-cache-dir': 3.2.1
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       '@types/node-fetch': 2.6.6
       '@types/pretty-hrtime': 1.0.1
       chalk: 4.1.2
@@ -6283,7 +6283,7 @@ packages:
       '@storybook/telemetry': 7.2.0
       '@storybook/types': 7.2.0
       '@types/detect-port': 1.3.3
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       '@types/pretty-hrtime': 1.0.1
       '@types/semver': 7.5.3
       better-opn: 3.0.2
@@ -6321,7 +6321,7 @@ packages:
       '@storybook/core-common': 7.0.2
       '@storybook/node-logger': 7.0.2
       '@storybook/types': 7.0.2
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - supports-color
@@ -6517,7 +6517,7 @@ packages:
       '@storybook/preset-react-webpack': 7.0.2(@babel/core@7.23.0)(esbuild@0.19.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.3)
       '@storybook/preview-api': 7.0.2
       '@storybook/react': 7.0.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.3)
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       css-loader: 6.8.1(webpack@5.88.2)
       find-up: 5.0.0
       fs-extra: 11.1.1
@@ -6598,7 +6598,7 @@ packages:
       '@storybook/node-logger': 7.0.2
       '@storybook/react': 7.0.2(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.3)
       '@storybook/react-docgen-typescript-plugin': 1.0.6--canary.9.630821.0(typescript@5.0.3)(webpack@5.88.2)
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       '@types/semver': 7.5.3
       babel-plugin-add-react-displayname: 0.0.5
       babel-plugin-react-docgen: 4.2.1
@@ -6775,7 +6775,7 @@ packages:
       '@storybook/types': 7.0.2
       '@types/escodegen': 0.0.6
       '@types/estree': 0.0.51
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       acorn: 7.4.1
       acorn-jsx: 5.3.2(acorn@7.4.1)
       acorn-walk: 7.2.0
@@ -6814,7 +6814,7 @@ packages:
       '@storybook/types': 7.2.0
       '@types/escodegen': 0.0.6
       '@types/estree': 0.0.51
-      '@types/node': 16.18.54
+      '@types/node': 16.18.55
       acorn: 7.4.1
       acorn-jsx: 5.3.2(acorn@7.4.1)
       acorn-walk: 7.2.0
@@ -7434,8 +7434,8 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: false
 
-  /@types/node@16.18.54:
-    resolution: {integrity: sha512-oTmGy68gxZZ21FhTJVVvZBYpQHEBZxHKTsGshobMqm9qWpbqdZsA5jvsuPZcHu0KwpmLrOHWPdEfg7XDpNT9UA==}
+  /@types/node@16.18.55:
+    resolution: {integrity: sha512-Y1zz/LIuJek01+hlPNzzXQhmq/Z2BCP96j18MSXC0S0jSu/IG4FFxmBs7W4/lI2vPJ7foVfEB0hUVtnOjnCiTg==}
 
   /@types/node@18.15.11:
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
@@ -8527,7 +8527,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001541
-      electron-to-chromium: 1.4.536
+      electron-to-chromium: 1.4.537
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
 
@@ -9570,8 +9570,8 @@ packages:
     dependencies:
       jake: 10.8.7
 
-  /electron-to-chromium@1.4.536:
-    resolution: {integrity: sha512-L4VgC/76m6y8WVCgnw5kJy/xs7hXrViCFdNKVG8Y7B2isfwrFryFyJzumh3ugxhd/oB1uEaEEvRdmeLrnd7OFA==}
+  /electron-to-chromium@1.4.537:
+    resolution: {integrity: sha512-W1+g9qs9hviII0HAwOdehGYkr+zt7KKdmCcJcjH0mYg6oL8+ioT3Skjmt7BLoAQqXhjf40AXd+HlR4oAWMlXjA==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
