@@ -299,7 +299,7 @@
             },
             "surface-hover": {
                 "$type": "color",
-                "$value": "{amanita.100}"
+                "$value": "{amanita.200}"
             },
             "surface-strong": {
                 "$type": "color",
@@ -311,7 +311,7 @@
             },
             "surface": {
                 "$type": "color",
-                "$value": "{amanita.75}"
+                "$value": "{amanita.100}"
             },
             "text": {
                 "$type": "color",
