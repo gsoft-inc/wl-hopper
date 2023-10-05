@@ -20,6 +20,10 @@
     text-align: right;
 }
 
+.hd-table__cell.hd-typo__cell {
+    text-align: left;
+}
+
 .hd-table__cell {
     font-family: var(--hd-mono-font-family);
     font-size: 0.8125rem;

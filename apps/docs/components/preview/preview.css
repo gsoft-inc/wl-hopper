@@ -56,6 +56,15 @@
     width: 100%;
 }
 
+.hd-preview--typography {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    font-size: 1.5rem;
+    height: auto;
+    justify-content: flex-end;
+}
+
 .hd-preview--stack {
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
     height: auto;
