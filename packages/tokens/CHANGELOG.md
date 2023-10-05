@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 1.0.1
+
+### Patch Changes
+
+- 01844dd: Fix typo in size tokens
+
 ## 1.0.0
 
 ### Major Changes
