@@ -37,7 +37,7 @@
             "$value": 48
         },
         "640": {
-            "$type": "number",
+            "$type": "size",
             "$value": 64
         },
         "800": {

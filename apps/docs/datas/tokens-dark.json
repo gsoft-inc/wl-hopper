@@ -740,6 +740,10 @@
         "value": "3rem"
       },
       {
+        "name": "hop-space-640",
+        "value": "4rem"
+      },
+      {
         "name": "hop-space-800",
         "value": "5rem"
       },
@@ -750,12 +754,6 @@
       {
         "name": "hop-space-1280",
         "value": "8rem"
-      }
-    ],
-    "number": [
-      {
-        "name": "hop-space-640",
-        "value": 64
       }
     ]
   },
@@ -1720,7 +1718,6 @@
     "fontWeight": [],
     "lineHeight": [],
     "borderRadius": [],
-    "size": [],
-    "number": []
+    "size": []
   }
 }
