@@ -1,5 +1,11 @@
 # docs
 
+## 0.2.0
+
+### Minor Changes
+
+- a08e2a7: Updated copy token icon color
+
 ## 0.1.1
 
 ### Patch Changes
