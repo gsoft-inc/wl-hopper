@@ -279,13 +279,21 @@
                 "$type": "color",
                 "$value": "{rock.500}"
             },
+            "surface-weak": {
+                "$type": "color",
+                "$value": "{rock.50}"
+            },
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{rock.25}"
+            },
             "text": {
                 "$type": "color",
                 "$value": "{samoyed}"
             },
             "text-weak": {
                 "$type": "color",
-                "$value": "{rock.50}"
+                "$value": "{rock.300}"
             },
             "border": {
                 "$type": "color",
@@ -296,6 +304,14 @@
             "icon": {
                 "$type": "color",
                 "$value": "{amanita.900}"
+            },
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{amanita.25}"
+            },
+            "surface-weak": {
+                "$type": "color",
+                "$value": "{amanita.50}"
             },
             "surface-hover": {
                 "$type": "color",
@@ -327,6 +343,14 @@
                 "$type": "color",
                 "$value": "{toad.900}"
             },
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{toad.25}"
+            },
+            "surface-weak": {
+                "$type": "color",
+                "$value": "{toad.50}"
+            },
             "surface-strong": {
                 "$type": "color",
                 "$value": "{toad.75}"
@@ -355,11 +379,19 @@
         "option5": {
             "text-weak": {
                 "$type": "color",
-                "$value": "{coastal.50}"
+                "$value": "{coastal.300}"
             },
             "text": {
                 "$type": "color",
                 "$value": "{coastal.900}"
+            },
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{coastal.25}"
+            },
+            "surface-weak": {
+                "$type": "color",
+                "$value": "{coastal.50}"
             },
             "surface-strong": {
                 "$type": "color",
@@ -383,6 +415,10 @@
             }
         },
         "option6": {
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{sunken-treasure.25}"
+            },
             "surface-weak": {
                 "$type": "color",
                 "$value": "{sunken-treasure.50}"
@@ -417,6 +453,14 @@
             }
         },
         "option4": {
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{moss.25}"
+            },
+            "surface-weak": {
+                "$type": "color",
+                "$value": "{moss.50}"
+            },
             "surface-strong": {
                 "$type": "color",
                 "$value": "{moss.100}"
@@ -477,7 +521,7 @@
             },
             "text-weak": {
                 "$type": "color",
-                "$value": "{koi.50}"
+                "$value": "{koi.300}"
             },
             "border": {
                 "$type": "color",
@@ -485,7 +529,15 @@
             }
         },
         "option2": {
+            "surface-weakest": {
+                "$type": "color",
+                "$value": "{quetzal.25}"
+            },
             "surface-weak": {
+                "$type": "color",
+                "$value": "{quetzal.50}"
+            },
+            "surface-strong": {
                 "$type": "color",
                 "$value": "{quetzal.100}"
             },
@@ -503,7 +555,7 @@
             },
             "text-weak": {
                 "$type": "color",
-                "$value": "{quetzal.50}"
+                "$value": "{quetzal.300}"
             },
             "icon": {
                 "$type": "color",
@@ -541,7 +593,7 @@
             },
             "text-weak": {
                 "$type": "color",
-                "$value": "{sapphire.50}"
+                "$value": "{sapphire.300}"
             },
             "icon": {
                 "$type": "color",
