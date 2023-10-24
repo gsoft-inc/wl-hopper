@@ -1020,6 +1020,14 @@
         "value": "#ffffff"
       },
       {
+        "name": "hop-decorative-option9-surface-weakest",
+        "value": "#f8f6f3"
+      },
+      {
+        "name": "hop-decorative-option9-surface-weak",
+        "value": "#ecebe8"
+      },
+      {
         "name": "hop-decorative-option9-surface-strong",
         "value": "#3c3c3c"
       },
@@ -1037,7 +1045,7 @@
       },
       {
         "name": "hop-decorative-option9-text-weak",
-        "value": "#ecebe8"
+        "value": "#959593"
       },
       {
         "name": "hop-decorative-option8-border",
@@ -1046,6 +1054,14 @@
       {
         "name": "hop-decorative-option8-icon",
         "value": "#431a17"
+      },
+      {
+        "name": "hop-decorative-option8-surface-weakest",
+        "value": "#fdf6f6"
+      },
+      {
+        "name": "hop-decorative-option8-surface-weak",
+        "value": "#fde6e5"
       },
       {
         "name": "hop-decorative-option8-surface-strong",
@@ -1076,6 +1092,14 @@
         "value": "#2a2620"
       },
       {
+        "name": "hop-decorative-option7-surface-weakest",
+        "value": "#fef6ef"
+      },
+      {
+        "name": "hop-decorative-option7-surface-weak",
+        "value": "#f0eae3"
+      },
+      {
         "name": "hop-decorative-option7-surface-strong",
         "value": "#e5ded6"
       },
@@ -1097,11 +1121,19 @@
       },
       {
         "name": "hop-decorative-option5-text-weak",
-        "value": "#d9efff"
+        "value": "#5d9acd"
       },
       {
         "name": "hop-decorative-option5-text",
         "value": "#00274b"
+      },
+      {
+        "name": "hop-decorative-option5-surface-weakest",
+        "value": "#f0f8ff"
+      },
+      {
+        "name": "hop-decorative-option5-surface-weak",
+        "value": "#d9efff"
       },
       {
         "name": "hop-decorative-option5-surface-strong",
@@ -1124,8 +1156,12 @@
         "value": "#00274b"
       },
       {
-        "name": "hop-decorative-option6-surface-weak",
+        "name": "hop-decorative-option6-surface-weakest",
         "value": "#fff8d6"
+      },
+      {
+        "name": "hop-decorative-option6-surface-weak",
+        "value": "#fff2b8"
       },
       {
         "name": "hop-decorative-option6-surface-strong",
@@ -1154,6 +1190,14 @@
       {
         "name": "hop-decorative-option6-text-weak",
         "value": "#e2a934"
+      },
+      {
+        "name": "hop-decorative-option4-surface-weakest",
+        "value": "#f4f9e9"
+      },
+      {
+        "name": "hop-decorative-option4-surface-weak",
+        "value": "#e3f3b9"
       },
       {
         "name": "hop-decorative-option4-surface-strong",
@@ -1217,7 +1261,15 @@
       },
       {
         "name": "hop-decorative-option3-text-weak",
-        "value": "#ffe8d3"
+        "value": "#e57723"
+      },
+      {
+        "name": "hop-decorative-option2-surface-weakest",
+        "value": "#ddfdf9"
+      },
+      {
+        "name": "hop-decorative-option2-surface-weak",
+        "value": "#cff4ef"
       },
       {
         "name": "hop-decorative-option2-surface-strong",
@@ -1237,7 +1289,7 @@
       },
       {
         "name": "hop-decorative-option2-text-weak",
-        "value": "#cff4ef"
+        "value": "#5da18c"
       },
       {
         "name": "hop-decorative-option2-border",
@@ -1269,7 +1321,7 @@
       },
       {
         "name": "hop-decorative-option1-text-weak",
-        "value": "#e6ebff"
+        "value": "#6c8ffd"
       },
       {
         "name": "hop-decorative-option1-border",
