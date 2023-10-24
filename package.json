@@ -17,7 +17,7 @@
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
         "test": "echo \"no test specified\"",
-        "build": "pnpm --filter=\"@hopper-ui/*\" -r --parallel build ",
+        "build": "pnpm -r --parallel build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",
