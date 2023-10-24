@@ -21,7 +21,7 @@
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",
-        "lint": "pnpm run \"/^lint:.*/\" && typecheck",
+        "lint": "pnpm run \"/^lint:.*/\" && pnpm run typecheck",
         "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
         "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint",
         "typecheck": "pnpm -r --parallel exec tsc --noEmit",
