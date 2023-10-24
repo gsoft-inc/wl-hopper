@@ -1,4 +1,4 @@
-@import "../app/tokens.css";
+@import url("@/styles/tokens.css");
 
 .hd-container {
     width: 100vw;

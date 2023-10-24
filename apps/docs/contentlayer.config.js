@@ -99,9 +99,14 @@ const rehypeOptions = {
         }
     },
     onVisitHighlightedLine(node) {
-        // Each line node by default has `class="line"`.
-        node.properties.className.push("highlighted");
+        const nodeClass = node.properties.className;
+        if (nodeClass && nodeClass.length > 0) {
+            node.properties.className.push("highlighted");
+        } else {
+            node.properties.className = ["highlighted"];
+        }
     },
+
     onVisitHighlightedWord(node, id) {
         // Each word node has no className by default.
         node.properties.className = ["word"];

@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 
-import { useState, useEffect } from "react";
-import { navigation } from "@/configs/navigation";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
 import IconButton from "@/components/ui/iconButton/IconButton";
 import MobileMenu from "@/components/ui/mobileMenu/MobileMenu";
 import MobileMenuTrigger from "@/components/ui/mobileMenu/MobileMenuTrigger";
 import Nav from "@/components/ui/nav/Nav";
+import { navigation } from "@/configs/navigation";
+import { useEffect, useState } from "react";
 
-import "./header.css";
 import HopperLogo from "./assets/hopper-logo.svg";
+import "./header.css";
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

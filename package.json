@@ -32,9 +32,9 @@
     },
     "dependencies": {
         "@changesets/cli": "^2.26.2",
-        "@netlify/plugin-nextjs": "4.36.0",
-        "@types/node": "18.15.11",
-        "storybook": "7.2.0"
+        "@netlify/plugin-nextjs": "4.41.1",
+        "@types/node": "20.8.8",
+        "storybook": "7.5.1"
     },
     "devDependencies": {
         "@hopper-ui/tokens": "workspace:*",
