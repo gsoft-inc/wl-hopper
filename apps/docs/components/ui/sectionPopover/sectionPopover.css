@@ -6,8 +6,7 @@
     border: none;
     gap: var(--hd-space-05);
     color: var(--hd-color-neutral-text-weak);
-    padding-inline-start: var(--hd-space-2);
-    padding-inline-end: var(--hd-space-1);
+    padding-inline: var(--hd-space-2) var(--hd-space-1);
     padding-block: var(--hd-space-05);
 }
 
