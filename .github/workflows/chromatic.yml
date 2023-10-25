@@ -8,7 +8,8 @@ on:
     branches:
       - main
   pull_request:
-    types: [assigned, ready_for_review, review_requested]
+    # Workflows will not run on pull_request activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+    # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened.
     branches-ignore:
       - changeset-release/*
 
@@ -61,4 +62,5 @@ jobs:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   traceChanged: true
                   onlyChanged: true # TurboSnap
+                  exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
                   skip: ${{ github.event.pull_request.draft == true }}
