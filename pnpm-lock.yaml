@@ -75,6 +75,9 @@ importers:
       stylelint:
         specifier: 15.11.0
         version: 15.11.0
+      vite-plugin-turbosnap:
+        specifier: 1.0.3
+        version: 1.0.3
 
   apps/docs:
     dependencies:
@@ -17123,6 +17126,10 @@ packages:
       is-buffer: 2.0.5
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
+
+  /vite-plugin-turbosnap@1.0.3:
+    resolution: {integrity: sha512-p4D8CFVhZS412SyQX125qxyzOgIFouwOcvjZWk6bQbNPR1wtaEzFT6jZxAjf1dejlGqa6fqHcuCvQea6EWUkUA==}
+    dev: true
 
   /vite@4.4.9(@types/node@20.8.8):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
