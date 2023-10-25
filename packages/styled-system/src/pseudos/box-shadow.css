@@ -1,0 +1,18 @@
+/* PSEUDO / BOX-SHADOW */
+.hop-bs-hover:hover {
+    --hop-bs-hover: initial;
+
+    box-shadow: var(--hop-bs-hover) !important;
+}
+
+.hop-bs-focus:focus-visible {
+    --hop-bs-focus: initial;
+
+    box-shadow: var(--hop-bs-focus) !important;
+}
+
+.hop-bs-active:active {
+    --hop-bs-active: initial;
+
+    box-shadow: var(--hop-bs-active) !important;
+}

@@ -1,0 +1,6 @@
+/* PSEUDO | CURSOR */
+.hop-cs-hover:hover {
+    --hop-cs-hover: initial;
+
+    cursor: var(--hop-cs-hover) !important;
+}
