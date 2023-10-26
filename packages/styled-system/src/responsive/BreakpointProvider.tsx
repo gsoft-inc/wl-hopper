@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import { useIsSSR } from "react-aria";
-import { Breakpoints } from "../tokens/tokens-scales.ts";
+import { Breakpoints } from "../tokens/token-scales.ts";
 import { isNil } from "../utils/assertion.ts";
 import { supportsMatchMedia } from "../utils/useMediaQuery.ts";
 

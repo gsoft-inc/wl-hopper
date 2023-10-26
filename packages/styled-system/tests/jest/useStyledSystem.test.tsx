@@ -20,7 +20,7 @@ import {
     useStyledSystem,
     type StyledSystemProps
 } from "../../src/index.ts";
-import { Breakpoints, SpacePrefix } from "../../src/tokens/tokens-scales.ts";
+import { Breakpoints, SpacePrefix } from "../../src/tokens/token-scales.ts";
 
 const AlignmentSampling = [
     "start",

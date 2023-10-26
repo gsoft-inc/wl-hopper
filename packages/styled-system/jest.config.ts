@@ -1,7 +1,7 @@
 import type { Config } from "jest";
 import { pathsToModuleNameMapper } from "ts-jest";
 import { swcConfig } from "./swc.jest.ts";
-import { compilerOptions } from "../../tsconfig.json";
+import { compilerOptions } from "./tsconfig.json";
 
 const config: Config = {
     testEnvironment: "jsdom",

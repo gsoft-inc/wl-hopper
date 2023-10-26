@@ -25,7 +25,7 @@ import {
     SpacePrefix,
     SpacingScale,
     TextColorAliases
-} from "./tokens-scales.ts";
+} from "./token-scales.ts";
 
 export const ColorExpressionTypes = ["#", "rgb", "rgba", "hsl", "hsla"] as const;
 export const DefaultBorderWidthAndStyle = "1px solid";

@@ -3,8 +3,7 @@
     "exclude": ["dist", "node_modules"],
     "compilerOptions": {
         "paths": {
-            "@hopper-ui/styled-system": ["./src/index.ts"],
-            "@hopper-ui/test-utils": ["../test-utils/src/index.ts"]
+            "@hopper-ui/styled-system": ["../styled-system/src/index.ts"],
         }
     }
 }

@@ -1,0 +1,51 @@
+{
+  "name": "@hopper-ui/test-utils",
+  "version": "1.0.0",
+  "description": "The official React testing library for Hopper UI",
+  "private": true,
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup --config ./tsup.build.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsoft-inc/wl-hopper.git",
+    "directory": "packages/test-utils"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.32",
+    "@types/react-dom": "18.2.14",
+    "@workleap/eslint-plugin": "3.0.0",
+    "@workleap/swc-configs": "2.1.2",
+    "@workleap/typescript-configs": "3.0.2",
+    "tsup": "7.2.0",
+    "typescript": "5.2.2",
+    "@types/jest": "29.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@testing-library/react": "14.0.0"
+  },
+  "dependencies": {
+    "@hopper-ui/styled-system": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

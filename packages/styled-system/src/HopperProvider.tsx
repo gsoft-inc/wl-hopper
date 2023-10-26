@@ -1,8 +1,10 @@
 import packageJson from "../package.json";
-import { BreakpointProvider } from "./responsive/BreakpointProvider.tsx";
 import { ColorSchemeProvider, type ColorSchemeProviderProps } from "./color-scheme/ColorSchemeProvider.tsx";
-import { TokensProvider } from "./tokens/TokensProvider.tsx";
 import { GlobalStyleProvider } from "./global-styles/GlobalStyleProvider.tsx";
+import { BreakpointProvider } from "./responsive/BreakpointProvider.tsx";
+import { TokensProvider } from "./tokens/TokensProvider.tsx";
+
+// TODO, this belongs in the components package
 
 export interface HopperProviderProps extends ColorSchemeProviderProps {
     withGlobalStyles?: boolean;

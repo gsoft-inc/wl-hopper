@@ -1,4 +1,4 @@
-import { Breakpoints } from "../tokens/tokens-scales.ts";
+import { Breakpoints } from "../tokens/token-scales.ts";
 import { isNil, isObject } from "../utils/assertion.ts";
 import { useBreakpointContext, type Breakpoint } from "./BreakpointProvider.tsx";
 
