@@ -25,7 +25,7 @@
                 "normal": {
                     "400": {
                         "value": "assets/fonts/ABCFavoritMono-Regular",
-                        "formats": ["otf"]
+                        "formats": ["woff2"]
                     }
                 }
             },
@@ -33,15 +33,15 @@
                 "normal": {
                     "410": {
                         "value": "assets/fonts/ABCFavorit-Regular",
-                        "formats": ["otf"]
+                        "formats": ["woff2"]
                     },
                     "580": {
                         "value": "assets/fonts/ABCFavorit-Medium",
-                        "formats": ["otf"]
+                        "formats": ["woff2"]
                     },
                     "680": {
                         "value": "assets/fonts/ABCFavorit-Bold",
-                        "formats": ["otf"]
+                        "formats": ["woff2"]
                     }
                 }
             }
