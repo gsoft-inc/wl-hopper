@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: transparent;
     border: none;
-    stroke: var(--hd-primary-300);
+    stroke: var(--hd-icon-button-color);
     width: var(--hd-space-4);
     aspect-ratio: 1/1;
     border-radius: var(--hd-space-1);

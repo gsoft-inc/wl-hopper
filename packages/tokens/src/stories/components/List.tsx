@@ -1,6 +1,10 @@
 import "./list.css";
 
-export const List = ({ styles }) => {
+interface ListProps {
+    styles: { name: string; value: string }[];
+}
+
+export const List = ({ styles }: ListProps) => {
     const listItems = styles.map(style => {
         return (
             <li className="list__item" key={style.name} >
