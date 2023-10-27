@@ -21,9 +21,6 @@ export const fontsConfig = {
                             "type": "font"
                         }
                     },
-                    "options": {
-                        "fontPathPrefix": "./"
-                    }
                 }
             ],
             "actions": ["copy_assets"]
