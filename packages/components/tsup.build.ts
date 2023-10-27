@@ -10,6 +10,5 @@ export default defineConfig({
     outDir: "./dist",
     format: ["esm"],
     target: "esnext",
-    platform: "browser",
-    external: ["@hopper-ui/styled-system"]
+    platform: "browser"
 });

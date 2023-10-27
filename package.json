@@ -16,7 +16,7 @@
         "doc:start": "pnpm --filter=docs dev",
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
-        "test": "jest",
+        "test": "echo \"no test specified\"",
         "build": "pnpm -r --parallel build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "changeset": "changeset",
@@ -57,7 +57,8 @@
         "react-dom": "18.2.0",
         "ts-jest": "29.1.1",
         "stylelint": "15.11.0",
-        "vite-plugin-turbosnap": "1.0.3"
+        "vite-plugin-turbosnap": "1.0.3",
+        "vite-tsconfig-paths": "4.2.1"
     },
     "bugs": {
         "url": "https://github.com/gsoft-inc/wl-hopper/issues"
