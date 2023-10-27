@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 2.0.0
+
+### Major Changes
+
+- 51c5357: replace the relative path of assets by an absolute path
+
 ## 1.1.0
 
 ### Minor Changes
