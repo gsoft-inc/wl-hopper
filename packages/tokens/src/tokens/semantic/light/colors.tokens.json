@@ -327,7 +327,7 @@
             },
             "surface": {
                 "$type": "color",
-                "$value": "{amanita.100}"
+                "$value": "{amanita.75}"
             },
             "text": {
                 "$type": "color",
@@ -661,6 +661,10 @@
         "border-disabled": {
             "$type": "color",
             "$value": "{rock.50}"
+        },
+        "border-strong-hover": {
+            "$type": "color",
+            "$value": "{rock.700}"
         },
         "border-strong": {
             "$type": "color",

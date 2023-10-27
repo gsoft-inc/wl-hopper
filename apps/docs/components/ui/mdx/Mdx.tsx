@@ -7,6 +7,7 @@ import Pre from "@/components/ui/pre/Pre";
 import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
 import Tabs from "@/components/tabs/Tabs";
+import TableSection from "@/components/tableSection/TableSection";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -16,6 +17,7 @@ const components = {
     pre: Pre,
     Table: Table,
     Tabs: Tabs,
+    TableSection: TableSection,
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;
     },
