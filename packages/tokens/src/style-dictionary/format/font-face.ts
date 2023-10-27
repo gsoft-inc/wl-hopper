@@ -1,7 +1,7 @@
 import type { Dictionary, Options, TransformedToken } from "style-dictionary";
 
 export function fontFace ({ dictionary, options }: { dictionary: Dictionary; options: Options }) {
-    const fontPathPrefix = options.fontPathPrefix || "../";
+    const fontPathPrefix = options.fontPathPrefix || "";
     const tokens = dictionary.allTokens;
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src
