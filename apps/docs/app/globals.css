@@ -1,14 +1,6 @@
 @import url("@/styles/tokens.css");
 @import url("@/styles/themes/rehype.css");
 
-@font-face {
-    font-family: "ABC Favorit";
-    font-style: normal;
-    font-weight: 410;
-    src: url("https://assets.workleap.com/hopper/fonts/ABCFavorit-Regular.otf") format("opentype");
-    font-display: fallback;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -59,10 +51,8 @@ a {
 }
 
 .hd-display {
-    font-family: "ABC Favorit";
-    font-weight: 410;
-    font-style: normal;
     font-size: var(--hd-step-5);
+    font-weight: 500;
 }
 
 .hd-display__subtitle {
