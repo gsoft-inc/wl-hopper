@@ -22,7 +22,7 @@
         },
         "surface-hover": {
             "$type": "color",
-            "$value": "{sunken-treasure.600}"
+            "$value": "{sunken-treasure.100}"
         },
         "border-disabled": {
             "$type": "color",
@@ -327,7 +327,7 @@
             },
             "surface": {
                 "$type": "color",
-                "$value": "{amanita.100}"
+                "$value": "{amanita.75}"
             },
             "text": {
                 "$type": "color",
