@@ -6,6 +6,7 @@ import Card from "@/components/ui/card/Card";
 import Pre from "@/components/ui/pre/Pre";
 import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
+import TypographyTable from "@/components/ui/table/TypographyTable";
 import Tabs from "@/components/tabs/Tabs";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
@@ -15,6 +16,7 @@ const components = {
     Image: NextImage,
     pre: Pre,
     Table: Table,
+    TypographyTable: TypographyTable,
     Tabs: Tabs,
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;

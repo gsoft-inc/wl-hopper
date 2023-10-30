@@ -1,0 +1,29 @@
+---
+title: Typography
+description: Getting started with Workleap Design Tokens
+---
+import tokens from '../../../../../packages/tokens/src/tokens/semantic/light/fonts.tokens.json';
+
+# Typography
+
+export const categoryKey = "typography";
+
+Typography tokens are composite tokens, meaning they are made up of multiple other tokens. This allows us to create a consistent typographic scale across our products.
+
+## Heading
+
+Headings are used to create a hierarchy of content. They are used to help users scan and understand the content on a page.
+
+<TypographyTable category={categoryKey} type="heading" data={tokens["heading"]} />
+
+## Body
+
+Body text is used to communicate the main content of a page.
+
+<TypographyTable category={categoryKey} type="body" data={tokens["body"]} />
+
+## Accent
+
+Accent text is used to highlight important information on a page.
+
+<TypographyTable category={categoryKey} type="accent" data={tokens["accent"]} />
