@@ -8,4 +8,46 @@ import tokens from '../../../datas/tokens.json';
 
 export const categoryKey = "size";
 
-<Table category={categoryKey} data={tokens.semantic[categoryKey]} />
+## Padding
+
+### Inset
+
+Inset space refers to the space within a block or container from which elements are separated from the edge. By default, the inset is equal on all four sides. Inset is also known as padding.
+
+<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["inset"]
+} excludedCategories={["inset-squish", "inset-stretch"]} />
+
+### Inset Squish
+
+Squish inset reduces the top and bottom padding by one space increment relative to the default inset space.
+
+<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["inset-squish"]
+} />
+
+### Inset Stretch
+
+Stretch inset increases the top and bottom padding by one space increment relative to the default inset space.
+
+<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["inset-stretch"]
+} />
+
+## Margin
+
+### Stack
+
+Stack is the space that separates elements or containers arranged vertically within a column. The last element of the stack should omit this space.
+
+<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["stack"]
+} />
+
+### Inline
+
+Inline refers to the space that separates inline elements arranged horizontally and that may wrap on the right. The last element should omit this space.
+
+<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["inline"]
+} />

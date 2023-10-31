@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react"
-
+import type { Preview } from "@storybook/react";
+import React from "react";
 import "../app/globals.css";
 
 // Storybook styles

@@ -8,6 +8,7 @@ import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
 import TypographyTable from "@/components/ui/table/TypographyTable";
 import Tabs from "@/components/tabs/Tabs";
+import TableSection from "@/components/tableSection/TableSection";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -18,6 +19,7 @@ const components = {
     Table: Table,
     TypographyTable: TypographyTable,
     Tabs: Tabs,
+    TableSection: TableSection,
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;
     },
