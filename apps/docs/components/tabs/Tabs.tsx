@@ -1,32 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { Children, useState, type ReactElement, isValidElement } from "react";
 import cx from "classnames";
-
-import Table from "@/components/ui/table/Table";
 
 import "./tabs.css";
 
 interface TabProps {
     title: string;
     category: string;
-    data: {
-        name: string;
-        value: string;
-    }[];
 }
 
 interface TabsProps {
     tabs: TabProps[];
     className?: string;
+    children?: React.ReactNode;
 }
 
-const Tabs = ({ tabs, className }: TabsProps) => {
+const Tabs = ({ tabs, className, children }: TabsProps) => {
     const [selected, setSelected] = useState(0);
 
     const handleOnClick = (index: number): void => {
         setSelected(index);
     };
+
+    const arrayChildren = Children.toArray(children);
+    const selectedChild = arrayChildren[selected];
 
     return (
         <div className={cx("hd-tabs", className)}>
@@ -47,7 +45,7 @@ const Tabs = ({ tabs, className }: TabsProps) => {
                 ))}
             </ul>
             <div className="hd-tabs__content">
-                <div className="hd-tabs__pane"><Table category={tabs[selected].category} data={tabs[selected].data} /></div>
+                <div className="hd-tabs__pane">{(selectedChild && isValidElement(selectedChild)) && (selectedChild as ReactElement).props.children}</div>
             </div>
         </div>
     );

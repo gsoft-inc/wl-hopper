@@ -20,7 +20,7 @@ export const fontsConfig = {
                             "category": "asset",
                             "type": "font"
                         }
-                    },
+                    }
                 }
             ],
             "actions": ["copy_assets"]
