@@ -1,5 +1,11 @@
 # docs
 
+## 0.3.0
+
+### Minor Changes
+
+- 1ede3f2: Added data viz tokens and added sections to the color page in the docs.
+
 ## 0.2.0
 
 ### Minor Changes
