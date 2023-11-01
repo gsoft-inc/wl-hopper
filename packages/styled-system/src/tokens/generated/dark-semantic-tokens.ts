@@ -8,7 +8,7 @@ export const DarkSemanticTokens = {
     "--hop-upsell-icon-weakest": "var(--hop-sunken-treasure-100)",
     "--hop-upsell-icon-weak": "var(--hop-sunken-treasure-300)",
     "--hop-upsell-border": "var(--hop-sunken-treasure-200)",
-    "--hop-upsell-surface-hover": "var(--hop-sunken-treasure-600)",
+    "--hop-upsell-surface-hover": "var(--hop-sunken-treasure-100)",
     "--hop-upsell-border-disabled": "var(--hop-sunken-treasure-700)",
     "--hop-upsell-icon-active": "var(--hop-sunken-treasure-300)",
     "--hop-upsell-surface-weak": "var(--hop-sunken-treasure-800)",
@@ -82,7 +82,7 @@ export const DarkSemanticTokens = {
     "--hop-decorative-option8-surface-strong": "var(--hop-amanita-100)",
     "--hop-decorative-option8-surface-hover": "var(--hop-amanita-200)",
     "--hop-decorative-option8-text-weak": "var(--hop-amanita-300)",
-    "--hop-decorative-option8-surface": "var(--hop-amanita-100)",
+    "--hop-decorative-option8-surface": "var(--hop-amanita-75)",
     "--hop-decorative-option8-text": "var(--hop-amanita-900)",
     "--hop-decorative-option7-border": "var(--hop-toad-400)",
     "--hop-decorative-option7-icon": "var(--hop-toad-900)",
@@ -253,5 +253,10 @@ export const DarkSemanticTokens = {
     "--hop-status-positive-icon": "var(--hop-moss-900)",
     "--hop-status-positive-surface-strong": "var(--hop-moss-200)",
     "--hop-status-positive-surface": "var(--hop-moss-75)",
-    "--hop-status-positive-text": "var(--hop-moss-900)"
+    "--hop-status-positive-text": "var(--hop-moss-900)",
+    "--hop-unavailable": "var(--hop-rock-600)",
+    "--hop-unavailable-weak": "var(--hop-rock-400)",
+    "--hop-unavailable-strong": "var(--hop-rock-700)",
+    "--hop-text-onlight": "var(--hop-rock-800)",
+    "--hop-text-ondark": "var(--hop-samoyed)"
 };
