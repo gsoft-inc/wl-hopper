@@ -8,4 +8,4 @@ export const Tokens = {
 };
 
 export type HopperTokenKey = keyof typeof CoreTokens | keyof typeof SemanticTokens | keyof typeof DarkSemanticTokens;
-export type HopperCssVars = `var(${HopperTokenKey})`;
+export type HopperCssVar = `var(${HopperTokenKey})`;

@@ -1,5 +1,5 @@
 import { HopperProvider } from "@hopper-ui/components";
-import type { HopperCssVars } from "@hopper-ui/styled-system";
+import type { HopperCssVar } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
 export default {
@@ -12,8 +12,8 @@ type HopperProviderStory = StoryObj<typeof HopperProvider>;
 const ColoredDiv = () => {
     return (
         <div style={{
-            padding: "var(--hop-space-inset-lg)" satisfies HopperCssVars,
-            backgroundColor: "var(--hop-primary-surface)" satisfies HopperCssVars
+            padding: "var(--hop-space-inset-lg)" satisfies HopperCssVar,
+            backgroundColor: "var(--hop-primary-surface)" satisfies HopperCssVar
         }}
         >Hello</div>
     );
