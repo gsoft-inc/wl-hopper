@@ -22,17 +22,20 @@ import { Tokens } from "./tokens.ts";
 export function TokenProvider() {
     useInsertStyleElement(
         `hop-tokens-${StyledSystemRootCssClass}`,
-        tokensToCssString(`.hop.${StyledSystemRootCssClass}`, Tokens.Core)
+        tokensToCssString(`.hop.${StyledSystemRootCssClass}`, Tokens.Core),
+        false
     );
 
     useInsertStyleElement(
         `hop-tokens-semantic-${StyledSystemRootCssClass}`,
-        tokensToCssString(`.hop.${StyledSystemRootCssClass}`, Tokens.Semantic)
+        tokensToCssString(`.hop.${StyledSystemRootCssClass}`, Tokens.Semantic),
+        false
     );
 
     useInsertStyleElement(
         `hop-tokens-semantic-dark-${StyledSystemRootCssClass}`,
-        tokensToCssString(`.hop.${StyledSystemRootCssClass}.${StyledSystemRootCssClass}-dark`, Tokens.DarkSemantic)
+        tokensToCssString(`.hop.${StyledSystemRootCssClass}.${StyledSystemRootCssClass}-dark`, Tokens.DarkSemantic),
+        false
     );
 
     return null;
