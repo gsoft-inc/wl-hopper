@@ -10,5 +10,5 @@ export * from "./tokens/TokenProvider.tsx";
 export * from "./tokens/tokens.ts";
 
 export * from "./StyledSystemProvider.tsx";
-export * from "./styled-system-root-css-class.tsx";
+export * from "./styled-system-root-css-class.ts";
 
