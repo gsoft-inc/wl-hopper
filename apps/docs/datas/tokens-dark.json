@@ -781,7 +781,7 @@
       },
       {
         "name": "hop-upsell-surface-hover",
-        "value": "#7e5e0a"
+        "value": "#eac96d"
       },
       {
         "name": "hop-upsell-border-disabled",
@@ -1077,7 +1077,7 @@
       },
       {
         "name": "hop-decorative-option8-surface",
-        "value": "#ffbcb7"
+        "value": "#ffd6d3"
       },
       {
         "name": "hop-decorative-option8-text",
@@ -1762,6 +1762,26 @@
       {
         "name": "hop-status-positive-text",
         "value": "#132a27"
+      },
+      {
+        "name": "hop-unavailable",
+        "value": "#636362"
+      },
+      {
+        "name": "hop-unavailable-weak",
+        "value": "#777775"
+      },
+      {
+        "name": "hop-unavailable-strong",
+        "value": "#505050"
+      },
+      {
+        "name": "hop-text-onlight",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-text-ondark",
+        "value": "#ffffff"
       }
     ],
     "shadow": [],
