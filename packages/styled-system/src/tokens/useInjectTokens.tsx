@@ -30,13 +30,8 @@ export function useInjectTokens(rootSelector: string) {
     );
 
     useInsertStyleElement(
-        `hop-tokens-semantic-light-${rootSelector}`,
-        tokensToCssString(`.hop.${rootSelector}-light`, Tokens.SemanticLight)
-    );
-
-    useInsertStyleElement(
         `hop-tokens-semantic-dark-${rootSelector}`,
-        tokensToCssString(`.hop.${rootSelector}-dark`, Tokens.SemanticDark)
+        tokensToCssString(`.hop.${rootSelector}.${rootSelector}-dark`, Tokens.DarkSemantic)
     );
 }
 
