@@ -1,4 +1,4 @@
-import type { Config } from "style-dictionary";
+import type { Config, File } from "style-dictionary";
 
 const PREFIX = "hop";
 const BUILD_PATH = "dist/";
@@ -6,7 +6,7 @@ const STORYBOOK_BUILD_PATH = "../src/stories";
 const DOCS_BUILD_PATH = "../../../apps/docs";
 const STYLED_SYSTEM_BUILD_PATH = "../styled-system/src/";
 
-export const fontsConfig = {
+export const fontsConfig: Config = {
     "source": ["src/tokens/asset/*.tokens.json"],
     "platforms": {
         "css-font-face": {
@@ -42,6 +42,9 @@ export function getStyledSystemTokensConfig(mode: "light" | "dark"): Config {
                 "transformGroup": "custom/css", // We want the same values and name as the ones shown in css
                 "buildPath": STYLED_SYSTEM_BUILD_PATH,
                 "prefix": PREFIX,
+                "options": {
+                    "fileHeader": "typescript-file-header"
+                },
                 "files": [
                     {
                         "destination": `tokens/generated/${isLightMode ? "light-tokens" : "dark-semantic-tokens" }.ts`,
@@ -60,7 +63,7 @@ export function getStyledSystemTokensConfig(mode: "light" | "dark"): Config {
 export function getStyleDictionaryConfig(mode: "light" | "dark"): Config {
     const isLightMode = mode === "light";
 
-    const lightConfig = {
+    const lightConfig: File = {
         "destination": "tokens.css",
         "format": "css/variables",
         "options": {
@@ -68,7 +71,7 @@ export function getStyleDictionaryConfig(mode: "light" | "dark"): Config {
         }
     };
 
-    const darkConfig = {
+    const darkConfig: File = {
         "destination": "dark/tokens.css",
         "format": "css/dark-mode",
         "filter": "mode/dark",
