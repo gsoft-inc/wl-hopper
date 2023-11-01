@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 31 Oct 2023 20:21:17 GMT
+ * Generated on Wed, 01 Nov 2023 16:09:51 GMT
  */
 
 export const DarkSemanticTokens = {
@@ -255,8 +255,4 @@ export const DarkSemanticTokens = {
     "--hop-status-positive-surface-strong": "var(--hop-moss-200)",
     "--hop-status-positive-surface": "var(--hop-moss-75)",
     "--hop-status-positive-text": "var(--hop-moss-900)"
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> feat/tokens

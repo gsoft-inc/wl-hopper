@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 31 Oct 2023 20:21:17 GMT
+ * Generated on Wed, 01 Nov 2023 16:09:51 GMT
  */
 
 export const CoreTokens = {
@@ -606,8 +606,4 @@ export const SemanticTokens = {
     "--hop-shape-rounded-lg": "var(--hop-border-radius-3)",
     "--hop-shape-rounded-md": "var(--hop-border-radius-2)",
     "--hop-shape-rounded-sm": "var(--hop-border-radius-1)"
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> feat/tokens
