@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 2.1.0
+
+### Minor Changes
+
+- 1ede3f2: Added data viz tokens and added sections to the color page in the docs.
+
 ## 2.0.0
 
 ### Major Changes
