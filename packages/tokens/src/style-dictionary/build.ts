@@ -1,11 +1,11 @@
 import StyleDictionary from "style-dictionary";
 
-import { getStyleDictionaryConfig, fontsConfig } from "./config.ts";
-import { isDarkTokens } from "./filter/isDarkTokens.ts";
+import { fontsConfig, getStyleDictionaryConfig, getStyledSystemTokensConfig } from "./config.ts";
 import { isColorType } from "./filter/isColorType.ts";
-import { cssDarkMode, customDoc, customJson, fontFace } from "./format/index.ts";
+import { isDarkTokens } from "./filter/isDarkTokens.ts";
+import { cssDarkMode, customDoc, customJson, customTsTokens, fontFace } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
-import { isSizeType, pxToRem, attributeFont } from "./transform/index.ts";
+import { attributeFont, isSizeType, pxToRem } from "./transform/index.ts";
 
 
 // Filters
@@ -59,6 +59,13 @@ StyleDictionary.registerFormat({
     formatter: customJson
 });
 
+StyleDictionary.registerFormat({
+    name: "custom/ts-tokens",
+    formatter: function({ dictionary, file }) {
+        return StyleDictionary.formatHelpers.fileHeader({ file }) + customTsTokens({ dictionary });
+    }
+});
+
 // Parser
 StyleDictionary.registerParser(w3cTokenJsonParser);
 
@@ -73,5 +80,11 @@ StyleDictionary.extend(getStyleDictionaryConfig("light")).buildAllPlatforms();
 
 console.log("\n|- 🌙 Building dark mode...");
 StyleDictionary.extend(getStyleDictionaryConfig("dark")).buildAllPlatforms();
+
+console.log("\n|- 💅 Building Styled System tokens...");
+StyleDictionary.extend(getStyledSystemTokensConfig("light")).buildAllPlatforms();
+
+console.log("\n|- 💅 Building Styled System dark tokens...");
+StyleDictionary.extend(getStyledSystemTokensConfig("dark")).buildAllPlatforms();
 
 console.log("\n🚀 Build completed!\n");

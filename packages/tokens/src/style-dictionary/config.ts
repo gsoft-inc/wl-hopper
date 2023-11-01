@@ -4,6 +4,7 @@ const PREFIX = "hop";
 const BUILD_PATH = "dist/";
 const STORYBOOK_BUILD_PATH = "../src/stories";
 const DOCS_BUILD_PATH = "../../../apps/docs";
+const STYLED_SYSTEM_BUILD_PATH = "../styled-system/src/";
 
 export const fontsConfig = {
     "source": ["src/tokens/asset/*.tokens.json"],
@@ -20,13 +21,41 @@ export const fontsConfig = {
                             "category": "asset",
                             "type": "font"
                         }
-                    },
+                    }
                 }
             ],
             "actions": ["copy_assets"]
         }
     }
 };
+
+export function getStyledSystemTokensConfig(mode: "light" | "dark"): Config {
+    const isLightMode = mode === "light";
+
+    return {
+        "source": [
+            "src/tokens/core/*.tokens.json",
+            `src/tokens/semantic/${mode}/*.tokens.json`
+        ],
+        "platforms": {
+            "typescript": { //TODO not sure what this value should be
+                "transformGroup": "custom/css", // We want the same values and name as the ones shown in css
+                "buildPath": STYLED_SYSTEM_BUILD_PATH,
+                "prefix": PREFIX,
+                "files": [
+                    {
+                        "destination": `tokens/generated/${isLightMode ? "light-tokens" : "dark-semantic-tokens" }.ts`,
+                        "format": "custom/ts-tokens",
+                        "options": {
+                            "outputReferences": true
+                        }
+                    }
+                ]
+
+            }
+        }
+    };
+}
 
 export function getStyleDictionaryConfig(mode: "light" | "dark"): Config {
     const isLightMode = mode === "light";
