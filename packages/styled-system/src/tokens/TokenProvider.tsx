@@ -1,8 +1,9 @@
+import { StyledSystemRootCssClass } from "../styled-system-root-css-class.ts";
 import { useInsertStyleElement } from "../utils/useInsertStyleElement.ts";
 import { Tokens } from "./tokens.ts";
 
-/**
- * Injects the tokens into the DOM as CSS variables, under the rootSelector className.
+/** The TokenProvider injects tokens in the document's head.
+ * This is a component and not a hook, so it's easier to conditionally call it
  * @example
  * assuming different versions of the design system loaded at the same time, one with version 1, the other with version 2.0.0
  *  <head>
@@ -18,21 +19,26 @@ import { Tokens } from "./tokens.ts";
  *       </style>
  *   </head>
  */
-export function useInjectTokens(rootSelector: string) {
+export function TokenProvider() {
     useInsertStyleElement(
-        `hop-tokens-${rootSelector}`,
-        tokensToCssString(`.hop.${rootSelector}`, Tokens.Core)
+        `hop-tokens-${StyledSystemRootCssClass}`,
+        tokensToCssString(`.hop.${StyledSystemRootCssClass}`, Tokens.Core),
+        false
     );
 
     useInsertStyleElement(
-        `hop-tokens-semantic-${rootSelector}`,
-        tokensToCssString(`.hop.${rootSelector}`, Tokens.Semantic)
+        `hop-tokens-semantic-${StyledSystemRootCssClass}`,
+        tokensToCssString(`.hop.${StyledSystemRootCssClass}`, Tokens.Semantic),
+        false
     );
 
     useInsertStyleElement(
-        `hop-tokens-semantic-dark-${rootSelector}`,
-        tokensToCssString(`.hop.${rootSelector}-dark`, Tokens.DarkSemantic)
+        `hop-tokens-semantic-dark-${StyledSystemRootCssClass}`,
+        tokensToCssString(`.hop.${StyledSystemRootCssClass}.${StyledSystemRootCssClass}-dark`, Tokens.DarkSemantic),
+        false
     );
+
+    return null;
 }
 
 function tokensToCssString(selector: string, tokens: Record<string, string>) {

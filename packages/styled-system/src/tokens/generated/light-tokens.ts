@@ -606,4 +606,8 @@ export const SemanticTokens = {
     "--hop-shape-rounded-lg": "var(--hop-border-radius-3)",
     "--hop-shape-rounded-md": "var(--hop-border-radius-2)",
     "--hop-shape-rounded-sm": "var(--hop-border-radius-1)"
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> feat/tokens

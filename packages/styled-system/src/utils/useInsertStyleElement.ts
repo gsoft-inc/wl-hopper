@@ -2,9 +2,9 @@ import { isNil } from "./assertion.ts";
 import { useIsomorphicInsertionEffect } from "./useIsomorphicInsertionEffect.ts";
 
 /**  Method use for runtime injection of <style> tags in the document's head.
-* @param elementId the id of the <style> tag to inject. If the tag already exists, its content will be replaced.
+* @param elementId the id of the <style> tag to inject. If the tag already exists, it is not updated.
 */
-export function useInsertStyleElement(elementId: string, cssContent: string | undefined) {
+export function useInsertStyleElement(elementId: string, cssContent: string | undefined, allowUpdates = true) {
     useIsomorphicInsertionEffect(() => {
         let element = document.getElementById(elementId);
         if (isNil(element)) {
@@ -18,7 +18,7 @@ export function useInsertStyleElement(elementId: string, cssContent: string | un
                     element?.remove();
                 };
             }
-        } else {
+        } else if (allowUpdates) {
             element.innerText = formatInlineCss(cssContent);
         }
     }, [elementId, cssContent]);
