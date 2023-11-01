@@ -10,12 +10,12 @@ At the heart of Workleap Design language are tokens, which drive its functionali
 
 A design token can store any of the following elements:
 
-- A single value such as a `color`, a `font-size`, a `border-width`.
+- A single value such as a `color`, `font-size`, or `border-width`.
 - A collection of indivisible values such as a `box-shadow`.
 
 ## Definitions
 
-Hopper aims to provide a three tier token system, each tiers have their specific purposes.
+Hopper aims to provide a three tier token system, where each tier has their specific purpose.
 
 <Card>
     <Image src="https://assets.workleap.com/hopper/webdoc/token-details.png" width="654" height="45" alt="Token tiers diagram" />
@@ -23,7 +23,7 @@ Hopper aims to provide a three tier token system, each tiers have their specific
 
 ### Core tokens
 
-These tokens are referring to raw values such as an hexadecimal color code, a border-width, a font-size. They are the building blocks of the design system.
+These tokens are referring to raw values such as a hexadecimal color code, border-width, or font-size. They are the building blocks of the design system.
 
 <Table category="color" data={[{
     "name": "hop-sapphire-200",
@@ -32,7 +32,7 @@ These tokens are referring to raw values such as an hexadecimal color code, a bo
 
 ### Semantic tokens
 
-Adds the intention layer to tokens, they map to a core token, or tokens should we say as the semantic tier has a notion of themability. They are the tokens that are used in the components.
+Semantic tokens carry design intent and are design context aware. They are the tokens that should be used in most cases.
 
 #### Light
 
@@ -50,7 +50,9 @@ Adds the intention layer to tokens, they map to a core token, or tokens should w
 
 ### Component tokens
 
-Refers to the nuts and bolts of the components and their implementation details, they are the tokens exposed by components. They are tied to their respective component. _Note: As no components are currently available these tokens are not yet available._
+Refers to the nuts and bolts of the components and their implementation details; they are the tokens exposed by components. They are tied to their respective component. These should not be used directly, unless you are building a component in a different stack than React.
+
+_Note: As no components are currently available these tokens are not yet available._
 
 #### Light
 
@@ -70,9 +72,9 @@ Refers to the nuts and bolts of the components and their implementation details,
 
 ### For Developers
 
-Tokens should be used whenever Hopper components does not suit your current use case or if you can't use Hopper React components. They are also useful for situations where using a component does not make sense, such as adding a color for a background.
+Tokens should be used whenever Hopper components do not suit your current use case or if you can't use Hopper React components. They are also useful for situations where using a component does not make sense, such as adding a color for a background.
 
-It should be noted that if your current stack prevents you to directly use Hopper components it is recommended to use components tokens in priorty as they are mapped 1:1 with Hopper implementation.
+It should be noted that if your current stack prevents you from directly using Hopper components, it is recommended to use component tokens in priority as they are mapped 1:1 with Hopper implementation.
 
 ### For Designers
 
