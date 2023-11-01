@@ -66,13 +66,6 @@ const Preview = ({ category, name, value }: PreviewProps) => {
                 className: "hd-preview--stroke"
             };
             break;
-        case "typography":
-            preview = {
-                style: { fontSize: `var(--hop-heading-3xl-font-size)` },
-                className: "hd-preview--typography",
-                content: sampleText
-            };
-            break;
         case "shadow":
         case "focus":
             preview = {
