@@ -16,6 +16,7 @@ interface PreviewElemProps {
 const Preview = ({ category, name, value }: PreviewProps) => {
     let preview: PreviewElemProps = {};
 
+    const sampleText = "Aa";
     const dimensionPaddingKeywords = ["inset"];
     const dimensionInlineKeywords = ["inline"];
     const dimensionStackKeywords = ["stack"];
@@ -24,6 +25,34 @@ const Preview = ({ category, name, value }: PreviewProps) => {
     const matchingInlineKeyword = name ? dimensionInlineKeywords.find(keyword => name.includes(keyword)) : "";
 
     switch (category) {
+        case "fontFamily":
+            preview = {
+                style: { fontFamily: value },
+                className: "hd-preview--font",
+                content: sampleText
+            };
+            break;
+        case "fontWeight":
+            preview = {
+                style: { fontWeight: value },
+                className: "hd-preview--font",
+                content: sampleText
+            };
+            break;
+        case "fontSize":
+            preview = {
+                style: { fontSize: value },
+                className: "hd-preview--font",
+                content: sampleText
+            };
+            break;
+        case "lineHeight":
+            preview = {
+                style: { lineHeight: value },
+                className: "hd-preview--font hd-preview--line-height",
+                content: <>{sampleText}<br />{sampleText}</>
+            };
+            break;
         case "mediaQuery":
         case "zIndex":
             preview = {

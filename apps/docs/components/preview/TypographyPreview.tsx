@@ -22,7 +22,6 @@ const TypographyPreview = ({ values }: TypographyPreviewProps) => {
     let TypographyPreviewElem: TypographyPreviewElemProps = {};
 
     const sampleText = "Aa";
-    console.log(values);
 
     TypographyPreviewElem = {
         style: { lineHeight: values?.lineHeight, fontWeight: values?.fontWeight, fontSize: values?.fontSize, fontFamily: values?.fontFamily },

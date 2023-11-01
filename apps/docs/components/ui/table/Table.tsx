@@ -20,7 +20,7 @@ const Table = ({ category, data }: TableProps) => {
         const { name, value } = token;
 
         return (
-            <Row key={name}>
+            <Row key={name} className="hd-table__row">
                 <Cell className="hd-table__cell">
                     <Code value={`--${name}`}>{`--${name}`}</Code>
                 </Cell>

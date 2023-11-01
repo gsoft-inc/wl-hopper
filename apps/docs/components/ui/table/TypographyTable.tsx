@@ -127,7 +127,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
 
     return (
         <>
-            <table className="hd-table" aria-label="Tokens">
+            <table className="hd-table hd-typo-table" aria-label="Tokens">
                 <thead>
                     <tr>
                         <th className="hd-table__column">Name</th>
