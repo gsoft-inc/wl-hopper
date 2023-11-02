@@ -6,6 +6,7 @@ import Card from "@/components/ui/card/Card";
 import Pre from "@/components/ui/pre/Pre";
 import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
+import TypographyTable from "@/components/ui/table/TypographyTable";
 import Tabs from "@/components/tabs/Tabs";
 import TableSection from "@/components/tableSection/TableSection";
 
@@ -16,6 +17,7 @@ const components = {
     Image: NextImage,
     pre: Pre,
     Table: Table,
+    TypographyTable: TypographyTable,
     Tabs: Tabs,
     TableSection: TableSection,
     h1: (props: HeadingProps) => {
