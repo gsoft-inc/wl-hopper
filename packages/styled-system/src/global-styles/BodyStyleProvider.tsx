@@ -7,10 +7,10 @@ import { useIsomorphicLayoutEffect } from "../utils/useIsomorphicLayoutEffect.ts
 import { ThemeComputedStyle } from "../utils/useThemeComputedStyle.ts";
 
 interface CosmeticStyles {
-    color:string;
-    backgroundColor:string;
-    lineHeight:string;
-    fontFamily:string;
+    color: string;
+    backgroundColor: string;
+    lineHeight: string;
+    fontFamily: string;
 }
 
 const BodyTokens = {
@@ -53,12 +53,11 @@ export function BodyStyleProvider() {
     );
 }
 
-
 function generateBodyCssContent({ color, backgroundColor, fontFamily, lineHeight }: CosmeticStyles) {
     return `
             body {
                 -webkit-font-smoothing: antialiased;
-                font-family: ${fontFamily}, Arial;
+                font-family: ${fontFamily}, Arial, Helvetica, sans-serif;
                 line-height: ${lineHeight};
                 font-size: 16px;
                 color: ${color};
