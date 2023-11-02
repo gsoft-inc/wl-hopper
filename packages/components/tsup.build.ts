@@ -6,7 +6,7 @@ export default defineConfig({
     minify: true,
     splitting: false,
     treeshake: true,
-    entry: ["./src"],
+    entry: ["./src/**/src/*"],
     outDir: "./dist",
     format: ["esm"],
     target: "esnext",
