@@ -11,13 +11,15 @@ interface CosmeticStyles {
     backgroundColor: string;
     lineHeight: string;
     fontFamily: string;
+    fontSize: string;
 }
 
 const BodyTokens = {
     color: "--hop-neutral-text",
     backgroundColor: "--hop-neutral-surface",
     lineHeight: "--hop-body-md-line-height",
-    fontFamily: "--hop-body-md-font-family"
+    fontFamily: "--hop-body-md-font-family",
+    fontSize: "--hop-body-md-font-size"
 } satisfies Record<string, HopperTokenKey>;
 
 /* The BodyStyleProvider injects fonts and body styles on the body.
@@ -37,8 +39,9 @@ export function BodyStyleProvider() {
             const backgroundColor = computedStyle.getPropertyValue(BodyTokens.backgroundColor);
             const fontFamily = computedStyle.getPropertyValue(BodyTokens.fontFamily);
             const lineHeight = computedStyle.getPropertyValue(BodyTokens.lineHeight);
+            const fontSize = computedStyle.getPropertyValue(BodyTokens.fontSize);
 
-            setCosmeticStyles({ color, backgroundColor, lineHeight, fontFamily });
+            setCosmeticStyles({ color, backgroundColor, lineHeight, fontFamily, fontSize });
         }
         // TODO: we re-run this hook if colorScheme changes
     }, [ref]);
@@ -53,13 +56,13 @@ export function BodyStyleProvider() {
     );
 }
 
-function generateBodyCssContent({ color, backgroundColor, fontFamily, lineHeight }: CosmeticStyles) {
+function generateBodyCssContent({ color, backgroundColor, fontFamily, lineHeight, fontSize }: CosmeticStyles) {
     return `
             body {
                 -webkit-font-smoothing: antialiased;
                 font-family: ${fontFamily}, Arial, Helvetica, sans-serif;
                 line-height: ${lineHeight};
-                font-size: 16px;
+                font-size: ${fontSize};
                 color: ${color};
                 background-color: ${backgroundColor};
                 margin: 0;
