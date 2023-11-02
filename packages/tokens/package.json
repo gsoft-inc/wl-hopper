@@ -37,16 +37,16 @@
         "build": "pnpm run build:ts && pnpm run build:tokens && pnpm run clean:build"
     },
     "dependencies": {
-        "style-dictionary": "^3.8.0"
+        "style-dictionary": "3.9.0"
     },
     "devDependencies": {
-        "@types/react": "^18.2.23",
-        "@types/node": "18.15.11",
-        "@workleap/eslint-plugin": "1.8.1",
-        "@workleap/tsup-configs": "^2.0.0",
-        "@workleap/typescript-configs": "2.3.1",
-        "tsup": "^7.1.0",
-        "typescript": "5.0.3"
+        "@types/node": "20.8.10",
+        "@workleap/eslint-plugin": "3.0.0",
+        "@workleap/tsup-configs": "3.0.1",
+        "@workleap/typescript-configs": "3.0.2",
+        "tsup": "7.2.0",
+        "typescript": "5.2.2",
+        "style-dictionary": "3.9.0"
     },
     "sideEffects": false,
     "engines": {

@@ -3,6 +3,7 @@ import "./list.css";
 
 export interface Style { name: string; value: string }
 export type TokenType = "core" | "background" | "border" | "text" | "icon" | "dataViz";
+
 interface ListProps {
     styles: Style[];
     tokenType: TokenType;
