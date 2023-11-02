@@ -5,7 +5,7 @@ export default defineConfig({
     splitting: false,
     watch: true,
     sourcemap: "inline",
-    entry: ["./src"],
+    entry: ["./src/**/src/*"],
     outDir: "./dist",
     format: ["esm"],
     target: "esnext",
