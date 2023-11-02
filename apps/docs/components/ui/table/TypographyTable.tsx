@@ -8,84 +8,74 @@ import "./table.css";
 
 interface TypographyTableProps {
     type: string;
-    data: {
-        [key: string]: {
-            "font-family": { $value: string };
-            "font-size": { $type: string; $value: string };
-            "font-weight": { $type: string; $value: string };
-            "line-height": { $type: string; $value: string };
-        };
-    };
 }
 
-const TypographyTable = ({ type, data }: TypographyTableProps) => {
-    const headings = Object.keys(data);
+const TypographyTable = ({ type }: TypographyTableProps) => {
+    interface JsonData {
+        [property: string]: {
+            name: string;
+            value: string;
+        }[];
+    }
 
-    const listItems = headings.map(heading => {
+    type fontProperty = "fontFamily" | "fontSize" | "fontWeight" | "lineHeight";
+
+    type Size = "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs";
+
+    type GroupedItems = Record<Size, Record<fontProperty, string>>;
+
+    function groupItemsByPropertiesAndSizes(jsonData: JsonData, itemType: string): GroupedItems {
+        const sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"];
+        const properties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"];
+
+        const groupedItems: GroupedItems = {} as GroupedItems;
+
+        sizes.forEach(size => {
+            const sizeKey = size as Size;
+            groupedItems[sizeKey] = {} as Record<fontProperty, string>;
+
+            properties.forEach(property => {
+                groupedItems[sizeKey][property as fontProperty] = "";
+                jsonData[property].forEach(item => {
+                    if (item.name.includes(itemType) && item.name.includes(size)) {
+                        groupedItems[sizeKey][property as fontProperty] = item.value;
+                    }
+                });
+            });
+
+            if (Object.values(groupedItems[sizeKey]).every(value => !value)) {
+                delete groupedItems[sizeKey];
+            }
+        });
+
+        return groupedItems;
+    }
+
+    const filteredData = groupItemsByPropertiesAndSizes(tokens.semantic, type);
+
+    const listItems = Object.keys(filteredData).map(size => {
         const {
-            "font-family": fontFamily,
-            "font-size": fontSize,
-            "font-weight": fontWeight,
-            "line-height": lineHeight
-        } = data[heading];
-
-        const lineHeightTokens = tokens.core.lineHeight;
-        const fontFamilyTokens = tokens.core.fontFamily;
-        const fontWeightTokens = tokens.core.fontWeight;
-        const fontSizeTokens = tokens.core.fontSize;
-
-        const getFontSize = (value: string) => {
-            const lastPart = value.match(/\.(\d+)(?=\})/);
-
-            if (lastPart) {
-                return lastPart[1];
-            }
-        };
-
-        const getFontWeight = (value: string) => {
-            const lastPart = value.match(/\.(\d+)(?=\})/);
-
-            if (lastPart) {
-                return lastPart[1];
-            }
-        };
-
-        const getlineHeight = (value: string) => {
-            const lastPart = value.match(/\.([\d-]+)(?=\})/);
-
-            if (lastPart) {
-                return lastPart[1];
-            }
-        };
-
-        const getFontFamily = (value: string) => {
-            const lastPart = value.match(/\.([^\s.}]+)(?=\})/);
-
-            if (lastPart) {
-                return lastPart[1];
-            }
-        };
-
-        const fontSizeValue = fontSizeTokens.find(item => item.name === `hop-font-size-${getFontSize(fontSize.$value)}`)?.value;
-        const fontWeightValue = fontWeightTokens.find(item => item.name === `hop-font-weight-${getFontWeight(fontWeight.$value)}`)?.value;
-        const fontFamilyValue = fontFamilyTokens.find(item => item.name === `hop-font-family-${getFontFamily(fontFamily.$value)}`)?.value;
-        const lineHeightValue = lineHeightTokens.find(item => item.name === `hop-line-height-${getlineHeight(lineHeight.$value)}`)?.value;
+            fontFamily,
+            fontSize,
+            fontWeight,
+            lineHeight
+        } = filteredData[size as Size];
 
         return (
             <>
-                <tr key={heading} className="hd-typo__row">
-                    <td className="hd-table__cell hd-typo__cell" rowSpan={4}>{heading}</td>
+                <tr key={size} className="hd-typo__row">
+                    <td className="hd-table__cell hd-typo__cell" rowSpan={4}>{size}</td>
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Font Size
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${heading}-font-size`}>{`--hop-${type}-${heading}-font-size`}</Code>
+                        <Code value={`--hop-${type}-${size}-font-size`}>{`--hop-${type}-${size}-font-size`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        {fontSizeValue}
+                        {fontSize}
                     </td>
                     <td className="hd-table__cell hd-typo__cell" rowSpan={4}>
-                        <TypographyPreview values={{ lineHeight: lineHeightValue, fontSize: fontSizeValue, fontWeight: fontWeightValue, fontFamily: fontFamilyValue }} />
+                        <TypographyPreview values={{ lineHeight, fontSize, fontWeight, fontFamily }} />
                     </td>
                 </tr>
                 <tr>
@@ -93,10 +83,10 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                         Font Weight
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${heading}-font-weight`}>{`--hop-${type}-${heading}-font-weight`}</Code>
+                        <Code value={`--hop-${type}-${size}-font-weight`}>{`--hop-${type}-${size}-font-weight`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        {fontWeightValue}
+                        {fontWeight}
                     </td>
                 </tr>
                 <tr>
@@ -104,10 +94,10 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                         Line Height
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${heading}-line-height`}>{`--hop-${type}-${heading}-line-height`}</Code>
+                        <Code value={`--hop-${type}-${size}-line-height`}>{`--hop-${type}-${size}-line-height`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        {lineHeightValue}
+                        {lineHeight}
                     </td>
                 </tr>
                 <tr>
@@ -115,10 +105,10 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                         Font-Family
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${heading}-font-family`}>{`--hop-${type}-${heading}-font-family`}</Code>
+                        <Code value={`--hop-${type}-${size}-font-family`}>{`--hop-${type}-${size}-font-family`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        {fontFamilyValue}
+                        {fontFamily}
                     </td>
                 </tr>
             </>
