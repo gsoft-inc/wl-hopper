@@ -14,7 +14,7 @@ export interface StyledSystemProviderProps extends ComponentProps<"div">{
     */
     withBodyStyle?: boolean;
 
-    /* The color scheme to use. */
+    /** The color scheme to use. */
     colorScheme?: "light" | "dark";
 
     /**

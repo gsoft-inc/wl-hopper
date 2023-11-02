@@ -1,1 +1,1 @@
-export * from "./HopperProvider.tsx";
+export * from "./HopperProvider/src/index.ts";
