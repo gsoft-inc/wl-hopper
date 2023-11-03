@@ -60,7 +60,7 @@ function generateBodyCssContent({ color, backgroundColor, fontFamily, lineHeight
     return `
             body {
                 -webkit-font-smoothing: antialiased;
-                font-family: ${fontFamily}, Arial, Helvetica, sans-serif;
+                font-family: ${fontFamily}, Arial, sans-serif;
                 line-height: ${lineHeight};
                 font-size: ${fontSize};
                 color: ${color};

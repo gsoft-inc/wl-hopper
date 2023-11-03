@@ -1,21 +1,114 @@
-import { List } from "./components/List.tsx";
-
-import tokens from "./datas/tokens.json";
+import type { Meta, StoryObj } from "@storybook/react";
+import { List, type Style, type TokenType } from "./components/List.tsx";
 import darkTokens from "./datas/tokens-dark.json";
+import tokens from "./datas/tokens.json";
 
 export default {
     title: "Tokens/Colors",
     component: List
-};
+} satisfies Meta<typeof List>;
 
-export const Light = {
+
+function filterByTokenType(styles: Style[], tokenType: TokenType) {
+    switch (tokenType) {
+        case "core":
+            return styles.filter(style =>
+                !style.name.includes("core") &&
+                !style.name.includes("surface") &&
+                !style.name.includes("border") &&
+                !style.name.includes("text") &&
+                !style.name.includes("icon") &&
+                !style.name.includes("dataviz")
+            );
+        case "background":
+            return styles.filter(style => style.name.includes("surface"));
+        case "border":
+            return styles.filter(style => style.name.includes("border"));
+        case "text":
+            return styles.filter(style => style.name.includes("text"));
+        case "icon":
+            return styles.filter(style => style.name.includes("icon"));
+        case "dataViz":
+            return styles.filter(style => style.name.includes("dataviz"));
+    }
+}
+
+
+type Story = StoryObj<typeof List>;
+
+export const Core: Story = {
     args: {
-        styles: tokens
+        styles: filterByTokenType(tokens, "core"),
+        tokenType: "core"
     }
 };
 
-export const Dark = {
+export const SemanticBackgroundLight: Story = {
     args: {
-        styles: darkTokens
+        styles: filterByTokenType(tokens, "background"),
+        tokenType: "background"
+    }
+};
+
+export const SemanticBackgroundDark = {
+    args: {
+        styles: filterByTokenType(darkTokens, "background"),
+        tokenType: "background"
+    }
+};
+
+export const SemanticBorderLight: Story = {
+    args: {
+        styles: filterByTokenType(tokens, "border"),
+        tokenType: "border"
+    }
+};
+
+export const SemanticBorderDark = {
+    args: {
+        styles: filterByTokenType(darkTokens, "border"),
+        tokenType: "border"
+    }
+};
+
+export const SemanticIconLight: Story = {
+    args: {
+        styles: filterByTokenType(tokens, "icon"),
+        tokenType: "icon"
+    }
+};
+
+export const SemanticIconDark = {
+    args: {
+        styles: filterByTokenType(darkTokens, "icon"),
+        tokenType: "icon"
+    }
+};
+
+export const SemanticTextLight: Story = {
+    args: {
+        styles: filterByTokenType(tokens, "text"),
+        tokenType: "text"
+    }
+};
+
+export const SemanticTextDark = {
+    args: {
+        styles: filterByTokenType(darkTokens, "text"),
+        tokenType: "text"
+    }
+};
+
+export const DataVizLight: Story = {
+    args: {
+        styles: filterByTokenType(tokens, "dataViz"),
+        tokenType: "dataViz"
+    }
+};
+
+export const DataVizDark = {
+    args: {
+        styles: filterByTokenType(darkTokens, "dataViz"),
+        tokenType: "dataViz"
     }
 };
