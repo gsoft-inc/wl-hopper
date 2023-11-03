@@ -2,13 +2,12 @@ import { useCallback, useState, type ComponentProps, type ReactNode } from "reac
 import { ColorSchemeContext, type ColorScheme, type ColorSchemeContextType, type ColorSchemeOrSystem } from "./color-scheme/ColorSchemeContext.ts";
 import { useColorScheme } from "./color-scheme/useColorScheme.ts";
 import { BodyStyleProvider } from "./global-styles/BodyStyleProvider.tsx";
-import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint } from "./responsive/BreakpointProvider.tsx";
-import type { Breakpoint } from "./responsive/Breakpoints.ts";
+import { BreakpointProvider, BreakpointProviderProps, DefaultUnsupportedMatchMediaBreakpoint } from "./responsive/BreakpointProvider.tsx";
 import { HopperRootCssClass, StyledSystemRootCssClass } from "./styled-system-root-css-class.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
 import clsx from "./utils/clsx.ts";
 
-export interface StyledSystemProviderProps extends ComponentProps<"div">{
+export interface StyledSystemProviderProps extends BreakpointProviderProps, ComponentProps<"div">{
     /** The children of the component */
     children: ReactNode;
 
@@ -34,11 +33,6 @@ export interface StyledSystemProviderProps extends ComponentProps<"div">{
     */
     withCssVariables?: boolean;
 
-    /**
-     * The breakpoint to use when `window.matchMedia` is not supported.
-     * By default, it is set to `lg`.
-    */
-    unsupportedMatchMediaBreakpoint?: Breakpoint;
 }
 
 /**
@@ -67,13 +61,13 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
                 setColorScheme
             }}
         >
-            <div className={classNames} {...rest}>
-                {withBodyStyle && <BodyStyleProvider />}
-                {withCssVariables && <TokenProvider />}
-                <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
-                    {children}
-                </BreakpointProvider>
-            </div>
+            <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
+                <div className={classNames} {...rest}>
+                    {withBodyStyle && <BodyStyleProvider />}
+                    {withCssVariables && <TokenProvider />}
+                        {children}
+                </div>
+            </BreakpointProvider>
         </ColorSchemeContext.Provider>
     );
 }

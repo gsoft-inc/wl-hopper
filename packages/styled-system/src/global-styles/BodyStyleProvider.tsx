@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { ColorScheme, useColorSchemeContext } from "../color-scheme/ColorSchemeContext.ts";
 import { StyledSystemRootCssClass } from "../styled-system-root-css-class.ts";
 import type { HopperTokenKey } from "../tokens/tokens.ts";
 import { isNil } from "../utils/assertion.ts";
@@ -12,6 +13,7 @@ interface CosmeticStyles {
     lineHeight: string;
     fontFamily: string;
     fontSize: string;
+    colorScheme: ColorScheme
 }
 
 const BodyTokens = {
@@ -28,8 +30,8 @@ const BodyTokens = {
 */
 export function BodyStyleProvider() {
     const ref = useRef<HTMLDivElement>(null);
-
-    const [cosmeticStyles, setCosmeticStyles] = useState<CosmeticStyles| undefined>(undefined);
+    const { colorScheme } = useColorSchemeContext();
+    const [cosmeticStyles, setCosmeticStyles] = useState<CosmeticStyles | undefined>(undefined);
 
     useIsomorphicLayoutEffect(() => {
         if (ref.current) {
@@ -41,10 +43,10 @@ export function BodyStyleProvider() {
             const lineHeight = computedStyle.getPropertyValue(BodyTokens.lineHeight);
             const fontSize = computedStyle.getPropertyValue(BodyTokens.fontSize);
 
-            setCosmeticStyles({ color, backgroundColor, lineHeight, fontFamily, fontSize });
+            setCosmeticStyles({ colorScheme, color, backgroundColor, lineHeight, fontFamily, fontSize });
         }
-        // TODO: we re-run this hook if colorScheme changes
-    }, [ref]);
+        // This hook needs to be executed when the colorScheme changes
+    }, [ref, colorScheme]);
 
     useInsertStyleElement(
         `hop-body-styles-${StyledSystemRootCssClass}`,
