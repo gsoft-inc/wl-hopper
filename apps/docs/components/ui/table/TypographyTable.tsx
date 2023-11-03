@@ -2,29 +2,39 @@
 
 import TypographyPreview from "@/components/preview/TypographyPreview";
 import Code from "@/components/ui/code/Code";
-import tokens from "../../../datas/tokens.json";
 
 import "./table.css";
 
 interface TypographyTableProps {
     type: string;
+    data: Record<string, { name: string; value: string }[]>;
 }
 
-const TypographyTable = ({ type }: TypographyTableProps) => {
-    interface JsonData {
-        [property: string]: {
-            name: string;
-            value: string;
-        }[];
-    }
-
+const TypographyTable = ({ type, data }: TypographyTableProps) => {
     type fontProperty = "fontFamily" | "fontSize" | "fontWeight" | "lineHeight";
 
-    type Size = "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs";
+    interface TokenData {
+        [category: string]: { name: string; value: string }[];
+    }
+
+    type Size = "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs" | "overline";
 
     type GroupedItems = Record<Size, Record<fontProperty, string>>;
 
-    function groupItemsByPropertiesAndSizes(jsonData: JsonData, itemType: string): GroupedItems {
+    const transformDataToTokenData = (inputData: Record<string, { name: string; value: string }[]>): TokenData => {
+        const tokenData: TokenData = {};
+
+        for (const propertyKey in inputData) {
+            const items = inputData[propertyKey];
+            if (Array.isArray(items)) {
+                tokenData[propertyKey as fontProperty] = items;
+            }
+        }
+
+        return tokenData;
+    };
+
+    function groupItemsByPropertiesAndSizes(tokenData: TokenData, itemType: string): GroupedItems {
         const sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"];
         const properties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"];
 
@@ -35,12 +45,17 @@ const TypographyTable = ({ type }: TypographyTableProps) => {
             groupedItems[sizeKey] = {} as Record<fontProperty, string>;
 
             properties.forEach(property => {
-                groupedItems[sizeKey][property as fontProperty] = "";
-                jsonData[property].forEach(item => {
-                    if (item.name.includes(itemType) && item.name.includes(size)) {
-                        groupedItems[sizeKey][property as fontProperty] = item.value;
-                    }
-                });
+                const propertyKey = property as fontProperty;
+
+                if (!tokenData[propertyKey]) {
+                    return;
+                }
+
+                const matchingItem = tokenData[propertyKey].find(item => item.name.includes(itemType) && item.name.includes(size));
+
+                if (matchingItem) {
+                    groupedItems[sizeKey][propertyKey] = matchingItem.value;
+                }
             });
 
             if (Object.values(groupedItems[sizeKey]).every(value => !value)) {
@@ -51,7 +66,8 @@ const TypographyTable = ({ type }: TypographyTableProps) => {
         return groupedItems;
     }
 
-    const filteredData = groupItemsByPropertiesAndSizes(tokens.semantic, type);
+    const tokenData = transformDataToTokenData(data);
+    const filteredData = groupItemsByPropertiesAndSizes(tokenData, type);
 
     const listItems = Object.keys(filteredData).map(size => {
         const {

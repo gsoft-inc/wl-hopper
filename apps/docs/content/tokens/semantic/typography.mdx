@@ -3,6 +3,8 @@ title: Typography
 description: Getting started with Workleap Design Tokens
 ---
 
+import tokens from '../../../datas/tokens.json';
+
 # Typography
 
 Typography tokens are composite tokens, meaning they are made up of multiple other tokens. This allows us to create a consistent typographic scale across our products.
@@ -11,16 +13,16 @@ Typography tokens are composite tokens, meaning they are made up of multiple oth
 
 Headings are used to create a hierarchy of content. They are used to help users scan and understand the content on a page.
 
-<TypographyTable type="heading" />
+<TypographyTable type="heading" data={tokens.semantic} />
 
 ## Body
 
 Body text is used to communicate the main content of a page.
 
-<TypographyTable type="body" />
+<TypographyTable type="body" data={tokens.semantic} />
 
 ## Accent
 
 Accent text is used to highlight important information on a page.
 
-<TypographyTable type="accent" />
+<TypographyTable type="accent" data={tokens.semantic} />
