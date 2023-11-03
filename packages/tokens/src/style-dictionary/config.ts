@@ -38,7 +38,7 @@ export function getStyledSystemTokensConfig(mode: "light" | "dark"): Config {
             `src/tokens/semantic/${mode}/*.tokens.json`
         ],
         "platforms": {
-            "typescript": { //TODO not sure what this value should be
+            "typescript": {
                 "transformGroup": "custom/css", // We want the same values and name as the ones shown in css
                 "buildPath": STYLED_SYSTEM_BUILD_PATH,
                 "prefix": PREFIX,
