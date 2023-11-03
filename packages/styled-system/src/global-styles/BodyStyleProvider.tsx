@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ColorScheme, useColorSchemeContext } from "../color-scheme/ColorSchemeContext.ts";
+import { useColorSchemeContext, type ColorScheme } from "../color-scheme/ColorSchemeContext.ts";
 import { StyledSystemRootCssClass } from "../styled-system-root-css-class.ts";
 import type { HopperTokenKey } from "../tokens/tokens.ts";
 import { isNil } from "../utils/assertion.ts";
@@ -13,7 +13,7 @@ interface CosmeticStyles {
     lineHeight: string;
     fontFamily: string;
     fontSize: string;
-    colorScheme: ColorScheme
+    colorScheme: ColorScheme;
 }
 
 const BodyTokens = {
