@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.0.0
+
+### Major Changes
+
+- 63ae833: prefixed data visualization tokens with "dataviz"
+
 ## 2.1.0
 
 ### Minor Changes
