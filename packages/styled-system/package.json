@@ -37,6 +37,7 @@
         "react-aria": "3.29.1"
     },
     "devDependencies": {
+        "@hopper-ui/tokens": "workspace:*",
         "@swc/core": "1.3.95",
         "@swc/helpers": "0.5.3",
         "@swc/jest": "0.2.29",
