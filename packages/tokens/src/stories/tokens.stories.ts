@@ -36,16 +36,9 @@ function filterByTokenType(styles: Style[], tokenType: TokenType) {
 
 type Story = StoryObj<typeof List>;
 
-export const CoreLight: Story = {
+export const Core: Story = {
     args: {
         styles: filterByTokenType(tokens, "core"),
-        tokenType: "core"
-    }
-};
-
-export const CoreDark = {
-    args: {
-        styles: filterByTokenType(darkTokens, "core"),
         tokenType: "core"
     }
 };
