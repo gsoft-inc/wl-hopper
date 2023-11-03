@@ -1764,23 +1764,23 @@
         "value": "#132a27"
       },
       {
-        "name": "hop-unavailable",
+        "name": "hop-dataviz-unavailable",
         "value": "#636362"
       },
       {
-        "name": "hop-unavailable-weak",
+        "name": "hop-dataviz-unavailable-weak",
         "value": "#777775"
       },
       {
-        "name": "hop-unavailable-strong",
+        "name": "hop-dataviz-unavailable-strong",
         "value": "#505050"
       },
       {
-        "name": "hop-text-onlight",
+        "name": "hop-dataviz-text-onlight",
         "value": "#3c3c3c"
       },
       {
-        "name": "hop-text-ondark",
+        "name": "hop-dataviz-text-ondark",
         "value": "#ffffff"
       }
     ],

@@ -1,0 +1,11 @@
+{
+    "extends": "@workleap/typescript-configs/monorepo-workspace",
+    "exclude": ["**/dist/**", "node_modules"],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@hopper-ui/components": ["./packages/components/src/index.ts"],
+            "@hopper-ui/styled-system": ["./packages/styled-system/src/index.ts"],
+        },
+    }
+}
