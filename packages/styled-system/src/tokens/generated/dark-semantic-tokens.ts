@@ -254,9 +254,9 @@ export const DarkSemanticTokens = {
     "--hop-status-positive-surface-strong": "var(--hop-moss-200)",
     "--hop-status-positive-surface": "var(--hop-moss-75)",
     "--hop-status-positive-text": "var(--hop-moss-900)",
-    "--hop-unavailable": "var(--hop-rock-600)",
-    "--hop-unavailable-weak": "var(--hop-rock-400)",
-    "--hop-unavailable-strong": "var(--hop-rock-700)",
-    "--hop-text-onlight": "var(--hop-rock-800)",
-    "--hop-text-ondark": "var(--hop-samoyed)"
+    "--hop-dataviz-unavailable": "var(--hop-rock-600)",
+    "--hop-dataviz-unavailable-weak": "var(--hop-rock-400)",
+    "--hop-dataviz-unavailable-strong": "var(--hop-rock-700)",
+    "--hop-dataviz-text-onlight": "var(--hop-rock-800)",
+    "--hop-dataviz-text-ondark": "var(--hop-samoyed)"
 };
