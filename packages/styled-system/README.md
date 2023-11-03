@@ -17,3 +17,10 @@ Ideas from PandaCSS
 - Negative values for token scale
     -   margin={-2} should be valid
 - Pseudos could be generated from usage and added to a style tag dynamically, like the GlobalStyleProvider
+
+
+
+changes from Orbit:
+- HTML element no longer have the as props
+- HTML element no longer have the StyleProvider props, we'll wait until we need it to bring it
+
