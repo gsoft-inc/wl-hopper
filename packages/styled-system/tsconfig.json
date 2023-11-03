@@ -1,0 +1,9 @@
+{
+    "extends": "@workleap/typescript-configs/library.json",
+    "exclude": ["dist", "node_modules"],
+    "compilerOptions": {
+        "paths": {
+            "@hopper-ui/styled-system": ["./src/index.ts"]
+        }
+    }
+}

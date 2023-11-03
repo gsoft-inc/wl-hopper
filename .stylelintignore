@@ -2,3 +2,6 @@
 stories
 # crach after runing
 packages/tokens/dist
+
+node_modules
+dist
