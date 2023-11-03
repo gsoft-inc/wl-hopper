@@ -1,0 +1,19 @@
+# @hopper-ui/styled-system
+
+Ideas from PandaCSS
+- Patterns/JSX Patterns (HStack VStack Truncate)
+    - divider
+    - flex
+    - gloat
+    - grid
+    - gridItem
+    - hstack
+    - stack
+    - truncate
+    - vstack
+    - wrap
+- CSS Variables in style
+    - either a vars prop, cssVars props, or style={{vars: {}}}
+- Negative values for token scale
+    -   margin={-2} should be valid
+- Pseudos could be generated from usage and added to a style tag dynamically, like the GlobalStyleProvider
