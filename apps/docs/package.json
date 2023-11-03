@@ -25,6 +25,8 @@
         "unist-util-visit": "5.0.0"
     },
     "devDependencies": {
+        "@hopper-ui/tokens": "workspace:*",
+        "@hopper-ui/components": "workspace:*",
         "@storybook/addon-essentials": "7.5.1",
         "@storybook/addon-interactions": "7.5.1",
         "@storybook/addon-links": "7.5.1",
