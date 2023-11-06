@@ -10,16 +10,16 @@ interface TypographyTableProps {
     data: Record<string, { name: string; value: string }[]>;
 }
 
-const TypographyTable = ({ type, data }: TypographyTableProps) => {
-    type fontProperty = "fontFamily" | "fontSize" | "fontWeight" | "lineHeight";
+type FontProperty = "fontFamily" | "fontSize" | "fontWeight" | "lineHeight";
 
+type Size = "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs";
+
+type GroupedItems = Record<Size, Record<FontProperty, string>>;
+
+const TypographyTable = ({ type, data }: TypographyTableProps) => {
     interface TokenData {
         [category: string]: { name: string; value: string }[];
     }
-
-    type Size = "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs" | "overline";
-
-    type GroupedItems = Record<Size, Record<fontProperty, string>>;
 
     const transformDataToTokenData = (inputData: Record<string, { name: string; value: string }[]>): TokenData => {
         const tokenData: TokenData = {};
@@ -27,7 +27,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
         for (const propertyKey in inputData) {
             const items = inputData[propertyKey];
             if (Array.isArray(items)) {
-                tokenData[propertyKey as fontProperty] = items;
+                tokenData[propertyKey as FontProperty] = items;
             }
         }
 
@@ -42,17 +42,20 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
 
         sizes.forEach(size => {
             const sizeKey = size as Size;
-            groupedItems[sizeKey] = {} as Record<fontProperty, string>;
+            groupedItems[sizeKey] = {} as Record<FontProperty, string>;
 
             properties.forEach(property => {
-                const propertyKey = property as fontProperty;
+                const propertyKey = property as FontProperty;
 
                 if (!tokenData[propertyKey]) {
                     return;
                 }
 
-                const matchingItem = tokenData[propertyKey].find(item => item.name.includes(itemType) && item.name.includes(size));
+                const matchingItem = tokenData[propertyKey].find(item => {
+                    const nameParts = item.name.split("-");
 
+                    return nameParts.includes(itemType === "overline" ? "md" : itemType) && nameParts.includes(size);
+                });
                 if (matchingItem) {
                     groupedItems[sizeKey][propertyKey] = matchingItem.value;
                 }
@@ -62,6 +65,8 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                 delete groupedItems[sizeKey];
             }
         });
+
+        console.log(groupedItems);
 
         return groupedItems;
     }
