@@ -1,8 +1,9 @@
 import StyleDictionary from "style-dictionary";
 
-import { fontsConfig, getStyleDictionaryConfig, getStyledSystemTokensConfig } from "./config.ts";
+import { fontsConfig, getStyleDictionaryConfig, getStyledSystemTokensConfig, styledSystemTokenMappingConfig } from "./config.ts";
 import { isColorType } from "./filter/isColorType.ts";
 import { isDarkTokens } from "./filter/isDarkTokens.ts";
+import { customTsTokenMapping } from "./format/custom-ts-token-mapping.ts";
 import { cssDarkMode, customDoc, customJson, customTsTokens, fontFace } from "./format/index.ts";
 import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
 import { attributeFont, isSizeType, pxToRem } from "./transform/index.ts";
@@ -67,6 +68,13 @@ StyleDictionary.registerFormat({
     }
 });
 
+StyleDictionary.registerFormat({
+    name: "custom/ts-token-mapping",
+    formatter: ({ dictionary, file }) => {
+        return fileHeader({ file }) + customTsTokenMapping({ dictionary });
+    }
+});
+
 // File Headers
 StyleDictionary.registerFileHeader({
     name: "typescript-file-header",
@@ -92,10 +100,13 @@ StyleDictionary.extend(getStyleDictionaryConfig("light")).buildAllPlatforms();
 console.log("\n|- 🌙 Building dark mode...");
 StyleDictionary.extend(getStyleDictionaryConfig("dark")).buildAllPlatforms();
 
-console.log("\n|- 💅 Building Styled System tokens...");
+console.log("\n|- 💅 Building Styled System tokens... (1/3)");
 StyleDictionary.extend(getStyledSystemTokensConfig("light")).buildAllPlatforms();
 
-console.log("\n|- 💅 Building Styled System dark tokens...");
+console.log("\n|- 💅 Building Styled System dark tokens... (2/3)");
 StyleDictionary.extend(getStyledSystemTokensConfig("dark")).buildAllPlatforms();
+
+console.log("\n|- 💅 Building Styled System token mappings... (3/3)");
+StyleDictionary.extend(styledSystemTokenMappingConfig).buildAllPlatforms();
 
 console.log("\n🚀 Build completed!\n");

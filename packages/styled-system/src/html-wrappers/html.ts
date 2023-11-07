@@ -6,72 +6,72 @@ import { htmlElement } from "./htmlElement.tsx";
 /**
  * A specialized wrapping component for HTML `address` element that allows style props.
 */
-export const Address = htmlElement("html-address", "address");
+export const Address = htmlElement("address");
 
 /**
  * A specialized wrapping component for HTML `article` element that allows style props.
 */
-export const Article = htmlElement("html-article", "article");
+export const Article = htmlElement("article");
 
 /**
  * A specialized wrapping component for HTML `aside` element that allows style props.
 */
-export const Aside = htmlElement("html-aside", "aside");
+export const Aside = htmlElement("aside");
 
 /**
  * A specialized wrapping component for HTML `footer` element that allows style props.
 */
-export const HtmlFooter = htmlElement("html-footer", "footer");
+export const HtmlFooter = htmlElement("footer");
 
 /**
  * A specialized wrapping component for HTML `h1` element that allows style props.
 */
-export const HtmlH1 = htmlElement("html-h1", "h1");
+export const HtmlH1 = htmlElement("h1");
 
 /**
  * A specialized wrapping component for HTML `h2` element that allows style props.
 */
-export const HtmlH2 = htmlElement("html-h2", "h2");
+export const HtmlH2 = htmlElement("h2");
 
 /**
  * A specialized wrapping component for HTML `h3` element that allows style props.
 */
-export const HtmlH3 = htmlElement("html-h3", "h3");
+export const HtmlH3 = htmlElement("h3");
 
 /**
  * A specialized wrapping component for HTML `h4` element that allows style props.
 */
-export const HtmlH4 = htmlElement("html-h4", "h4");
+export const HtmlH4 = htmlElement("h4");
 
 /**
  * A specialized wrapping component for HTML `h5` element that allows style props.
 */
-export const HtmlH5 = htmlElement("html-h5", "h5");
+export const HtmlH5 = htmlElement("h5");
 
 /**
  * A specialized wrapping component for HTML `h6` element that allows style props.
 */
-export const HtmlH6 = htmlElement("html-h6", "h6");
+export const HtmlH6 = htmlElement("h6");
 
 /**
  * A specialized wrapping component for HTML `header` element that allows style props.
 */
-export const HtmlHeader = htmlElement("html-header", "header");
+export const HtmlHeader = htmlElement("header");
 
 /**
  * A specialized wrapping component for HTML `main` element that allows style props.
 */
-export const Main = htmlElement("html-main", "main");
+export const Main = htmlElement("main");
 
 /**
  * A specialized wrapping component for HTML `nav` element that allows style props.
 */
-export const Nav = htmlElement("html-nav", "nav");
+export const Nav = htmlElement("nav");
 
 /**
  * A specialized wrapping component for HTML `section` element that allows style props.
 */
-export const HtmlSection = htmlElement("html-section", "section");
+export const HtmlSection = htmlElement("section");
 
 export type AddressProps = ComponentProps<typeof Address>;
 export type ArticleProps = ComponentProps<typeof Article>;
@@ -93,27 +93,27 @@ export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
 /**
  * A specialized wrapping component for HTML `div` element that allows style props.
 */
-export const Div = htmlElement("html-div", "div");
+export const Div = htmlElement("div");
 
 /**
  * A specialized wrapping component for HTML `p` element that allows style props.
 */
-export const HtmlParagraph = htmlElement("html-p", "p");
+export const HtmlParagraph = htmlElement("p");
 
 /**
  * A specialized wrapping component for HTML `ol` element that allows style props.
 */
-export const OL = htmlElement("html-ol", "ol");
+export const OL = htmlElement("ol");
 
 /**
  * A specialized wrapping component for HTML `ul` element that allows style props.
 */
-export const UL = htmlElement("html-ul", "ul");
+export const UL = htmlElement("ul");
 
 /**
  * A specialized wrapping component for HTML `li` element that allows style props.
 */
-export const LI = htmlElement("html-li", "li");
+export const LI = htmlElement("li");
 
 export type DivProps = ComponentProps<typeof Div>;
 export type HtmlParagraphProps = ComponentProps<typeof HtmlParagraph>;
@@ -126,12 +126,12 @@ export type LIProps = ComponentProps<typeof LI>;
 /**
  * A specialized wrapping component for HTML `anchor` element that allows style props.
 */
-export const A = htmlElement("html-a", "a");
+export const A = htmlElement("a");
 
 /**
  * A specialized wrapping component for HTML `span` element that allows style props.
 */
-export const Span = htmlElement("html-span", "span");
+export const Span = htmlElement("span");
 
 export type AProps = ComponentProps<typeof A>;
 export type SpanProps = ComponentProps<typeof Span>;
@@ -141,7 +141,7 @@ export type SpanProps = ComponentProps<typeof Span>;
 /**
  * A specialized wrapping component for HTML `img` element that allows style props.
 */
-export const Img = htmlElement("html-img", "img");
+export const Img = htmlElement("img");
 
 export type ImgProps = ComponentProps<typeof Img>;
 
@@ -150,37 +150,37 @@ export type ImgProps = ComponentProps<typeof Img>;
 /**
  * A specialized wrapping component for HTML `table` element that allows style props.
 */
-export const Table = htmlElement("html-table", "table");
+export const Table = htmlElement("table");
 
 /**
  * A specialized wrapping component for HTML `thead` element that allows style props.
 */
-export const THead = htmlElement("html-thead", "thead");
+export const THead = htmlElement("thead");
 
 /**
  * A specialized wrapping component for HTML `tbody` element that allows style props.
 */
-export const TBody = htmlElement("html-tbody", "tbody");
+export const TBody = htmlElement("tbody");
 
 /**
  * A specialized wrapping component for HTML `tfoot` element that allows style props.
 */
-export const TFoot = htmlElement("html-tfoot", "tfoot");
+export const TFoot = htmlElement("tfoot");
 
 /**
  * A specialized wrapping component for HTML `th` element that allows style props.
 */
-export const TH = htmlElement("html-th", "th");
+export const TH = htmlElement("th");
 
 /**
  * A specialized wrapping component for HTML `tr` element that allows style props.
 */
-export const TR = htmlElement("html-tr", "tr");
+export const TR = htmlElement("tr");
 
 /**
  * A specialized wrapping component for HTML `td` element that allows style props.
 */
-export const TD = htmlElement("html-td", "td");
+export const TD = htmlElement("td");
 
 export type TableProps = ComponentProps<typeof Table>;
 export type THeadProps = ComponentProps<typeof THead>;
@@ -194,27 +194,27 @@ export type TDProps = ComponentProps<typeof TD>;
 /**
  * A specialized wrapping component for HTML `button` element that allows style props.
 */
-export const HtmlButton = htmlElement("html-button", "button");
+export const HtmlButton = htmlElement("button");
 
 /**
  * A specialized wrapping component for HTML `form` element that allows style props.
 */
-export const HtmlForm = htmlElement("html-form", "form");
+export const HtmlForm = htmlElement("form");
 
 /**
  * A specialized wrapping component for HTML `input` element that allows style props.
 */
-export const HtmlInput = htmlElement("html-input", "input");
+export const HtmlInput = htmlElement("input");
 
 /**
  * A specialized wrapping component for HTML `label` element that allows style props.
 */
-export const HtmlLabel = htmlElement("html-label", "label");
+export const HtmlLabel = htmlElement("label");
 
 /**
  * A specialized wrapping component for HTML `textarea` element that allows style props.
 */
-export const HtmlTextArea = htmlElement("html-textarea", "textarea");
+export const HtmlTextArea = htmlElement("textarea");
 
 export type HtmlButtonProps = ComponentProps<typeof HtmlButton>;
 export type HtmlFormProps = ComponentProps<typeof HtmlForm>;

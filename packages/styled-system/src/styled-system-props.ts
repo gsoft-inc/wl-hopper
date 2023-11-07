@@ -9,7 +9,10 @@ import type {
     BoxShadowValue,
     ColorValue,
     ColumnGapValue,
+    ComplexMarginValue,
+    ComplexPaddingValue,
     FillValue,
+    FontFamilyValue,
     FontSizeValue,
     FontWeightValue,
     GapValue,
@@ -21,16 +24,19 @@ import type {
     GridTemplateRowsValue,
     HeightValue,
     LineHeightValue,
-    MarginValue,
-    PaddingValue,
     RowGapValue,
+    SimpleMarginValue,
+    SimplePaddingValue,
     StrokeValue,
     UNSAFE_BackgroundColorValue,
     UNSAFE_BorderRadiusValue,
     UNSAFE_BorderValue,
     UNSAFE_BoxShadowValue,
     UNSAFE_ColorValue,
+    UNSAFE_ComplexMarginValue,
+    UNSAFE_ComplexPaddingValue,
     UNSAFE_FillValue,
+    UNSAFE_FontFamilyValue,
     UNSAFE_FontSizeValue,
     UNSAFE_FontWeightValue,
     UNSAFE_GapValue,
@@ -40,10 +46,9 @@ import type {
     UNSAFE_GridTemplateRowsValue,
     UNSAFE_HeightValue,
     UNSAFE_LineHeightValue,
-    UNSAFE_MarginValue,
-    UNSAFE_PaddingValue,
     UNSAFE_RowGapValue,
-    UNSAFE_SpacingValue,
+    UNSAFE_SimpleMarginValue,
+    UNSAFE_SimplePaddingValue,
     UNSAFE_StrokeValue,
     UNSAFE_WidthValue,
     WidthValue
@@ -435,6 +440,12 @@ export interface StyledSystemProps {
     flexWrap?: ResponsiveProp<Property.FlexWrap>;
 
     /**
+     * Sets the `font-family` property.
+     * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_fontFamily`** property
+     */
+    fontFamily?: ResponsiveProp<FontFamilyValue>;
+
+    /**
      * Sets the `font-size` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_fontSize`** property
      */
@@ -606,43 +617,43 @@ export interface StyledSystemProps {
      * Sets the `margin` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_margin`** property
      */
-    margin?: ResponsiveProp<MarginValue>;
+    margin?: ResponsiveProp<ComplexMarginValue>;
 
     /**
      * Sets the `margin-bottom` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_marginBottom`** property
      */
-    marginBottom?: ResponsiveProp<MarginValue>;
+    marginBottom?: ResponsiveProp<SimpleMarginValue>;
 
     /**
      * Sets the `margin-left` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_marginLeft`** property
      */
-    marginLeft?: ResponsiveProp<MarginValue>;
+    marginLeft?: ResponsiveProp<SimpleMarginValue>;
 
     /**
      * Sets the `margin-right` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_marginRight`** property
      */
-    marginRight?: ResponsiveProp<MarginValue>;
+    marginRight?: ResponsiveProp<SimpleMarginValue>;
 
     /**
      * Sets the `margin-top` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_marginTop`** property
      */
-    marginTop?: ResponsiveProp<MarginValue>;
+    marginTop?: ResponsiveProp<SimpleMarginValue>;
 
     /**
      * Sets the horizontal margin properties (`margin-left` and `margin-right`).
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_marginX`** property
      */
-    marginX?: ResponsiveProp<MarginValue>;
+    marginX?: ResponsiveProp<SimpleMarginValue>;
 
     /**
      * Sets the vertical margin properties (`margin-top` and `margin-bottom`).
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_marginY`** property
      */
-    marginY?: ResponsiveProp<MarginValue>;
+    marginY?: ResponsiveProp<SimpleMarginValue>;
 
     /**
      * Sets the `max-height` property.
@@ -744,43 +755,43 @@ export interface StyledSystemProps {
      * Sets the `padding` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_padding`** property
      */
-    padding?: ResponsiveProp<PaddingValue>;
+    padding?: ResponsiveProp<ComplexPaddingValue>;
 
     /**
      * Sets the `padding-bottom` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_paddingBottom`** property
      */
-    paddingBottom?: ResponsiveProp<PaddingValue>;
+    paddingBottom?: ResponsiveProp<SimplePaddingValue>;
 
     /**
      * Sets the `padding-left` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_paddingLeft`** property
      */
-    paddingLeft?: ResponsiveProp<PaddingValue>;
+    paddingLeft?: ResponsiveProp<SimplePaddingValue>;
 
     /**
      * Sets the `padding-right` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_paddingRight`** property
      */
-    paddingRight?: ResponsiveProp<PaddingValue>;
+    paddingRight?: ResponsiveProp<SimplePaddingValue>;
 
     /**
      * Sets the `padding-top` property.
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_paddingTop`** property
      */
-    paddingTop?: ResponsiveProp<PaddingValue>;
+    paddingTop?: ResponsiveProp<SimplePaddingValue>;
 
     /**
      * Sets the horizontal padding properties (`padding-left` and `padding-right`).
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_paddingX`** property
      */
-    paddingX?: ResponsiveProp<PaddingValue>;
+    paddingX?: ResponsiveProp<SimplePaddingValue>;
 
     /**
      * Sets the vertical padding properties (`padding-top` and `padding-bottom`).
      * This property only accept **token values** from the **SCALE**. To specify any other values, use the **`UNSAFE_paddingY`** property
      */
-    paddingY?: ResponsiveProp<PaddingValue>;
+    paddingY?: ResponsiveProp<SimplePaddingValue>;
 
     /**
    * Sets the `pointer-events` property.
@@ -1168,6 +1179,16 @@ export interface StyledSystemProps {
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
     UNSAFE_fill?: ResponsiveProp<UNSAFE_FillValue>;
+
+    /**
+     * Sets the `font-family` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`fontFamily`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_fontFamily?: ResponsiveProp<UNSAFE_FontFamilyValue>;
+
     /**
      * Sets the `font-size` property.
      *
@@ -1256,7 +1277,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_margin?: ResponsiveProp<UNSAFE_SpacingValue>;
+    UNSAFE_margin?: ResponsiveProp<UNSAFE_ComplexMarginValue>;
 
     /**
      * Sets the `margin-bottom` property.
@@ -1265,7 +1286,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_marginBottom?: ResponsiveProp<UNSAFE_MarginValue>;
+    UNSAFE_marginBottom?: ResponsiveProp<UNSAFE_SimpleMarginValue>;
 
     /**
      * Sets the `margin-left` property.
@@ -1274,7 +1295,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_marginLeft?: ResponsiveProp<UNSAFE_MarginValue>;
+    UNSAFE_marginLeft?: ResponsiveProp<UNSAFE_SimpleMarginValue>;
 
     /**
      * Sets the `margin-right` property.
@@ -1283,7 +1304,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_marginRight?: ResponsiveProp<UNSAFE_MarginValue>;
+    UNSAFE_marginRight?: ResponsiveProp<UNSAFE_SimpleMarginValue>;
 
     /**
      * Sets the `margin-top` property.
@@ -1292,7 +1313,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_marginTop?: ResponsiveProp<UNSAFE_MarginValue>;
+    UNSAFE_marginTop?: ResponsiveProp<UNSAFE_SimpleMarginValue>;
 
     /**
      * Sets the horizontal margin (`margin-left` and `margin-right`) property.
@@ -1301,7 +1322,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_marginX?: ResponsiveProp<UNSAFE_MarginValue>;
+    UNSAFE_marginX?: ResponsiveProp<UNSAFE_SimpleMarginValue>;
 
     /**
      * Sets the vertical margin (`margin-top` and `margin-bottom`) property.
@@ -1310,7 +1331,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_marginY?: ResponsiveProp<UNSAFE_MarginValue>;
+    UNSAFE_marginY?: ResponsiveProp<UNSAFE_SimpleMarginValue>;
 
     /**
      * Sets the `max-height` property.
@@ -1355,7 +1376,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_padding?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_padding?: ResponsiveProp<UNSAFE_ComplexPaddingValue>;
 
     /**
      * Sets the `padding-bottom` property.
@@ -1364,7 +1385,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_paddingBottom?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_paddingBottom?: ResponsiveProp<UNSAFE_SimplePaddingValue>;
 
     /**
      * Sets the `padding-left` property.
@@ -1373,7 +1394,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_paddingLeft?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_paddingLeft?: ResponsiveProp<UNSAFE_SimplePaddingValue>;
 
     /**
      * Sets the `padding-right` property.
@@ -1382,7 +1403,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_paddingRight?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_paddingRight?: ResponsiveProp<UNSAFE_SimplePaddingValue>;
 
     /**
      * Sets the `padding-top` property.
@@ -1391,7 +1412,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_paddingTop?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_paddingTop?: ResponsiveProp<UNSAFE_SimplePaddingValue>;
 
     /**
      * Sets the horizontal padding (`padding-left` and `padding-right`) property.
@@ -1400,7 +1421,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_paddingX?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_paddingX?: ResponsiveProp<UNSAFE_SimplePaddingValue>;
 
     /**
      * Sets the vertical padding (`padding-top` and `padding-bottom`) property.
@@ -1409,7 +1430,7 @@ export interface StyledSystemProps {
      *
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
-    UNSAFE_paddingY?: ResponsiveProp<UNSAFE_PaddingValue>;
+    UNSAFE_paddingY?: ResponsiveProp<UNSAFE_SimplePaddingValue>;
 
     /**
      * Sets the `row-gap` property.

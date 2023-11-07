@@ -1,0 +1,5 @@
+.html-element,
+.html-element::after,
+.html-element::before {
+    box-sizing: border-box;
+}
