@@ -3,6 +3,7 @@ import "./preview.css";
 
 interface TypographyPreviewProps {
     values?: TypographyValues;
+    style?: React.CSSProperties;
 }
 
 interface TypographyValues {
@@ -12,8 +13,12 @@ interface TypographyValues {
     fontFamily?: string;
 }
 
-const TypographyPreview = ({ values }: TypographyPreviewProps) => {
-    return <div className="hd-preview hd-preview--font hd-preview--typography" style={{ lineHeight: values?.lineHeight, fontWeight: values?.fontWeight, fontSize: values?.fontSize, fontFamily: values?.fontFamily }}>Aa</div>;
+
+const TypographyPreview = ({ values, style }: TypographyPreviewProps) => {
+    console.log(style);
+
+    return <div className="hd-preview hd-preview--font hd-preview--typography" style={{ lineHeight: values?.lineHeight, fontWeight: values?.fontWeight, fontSize: values?.fontSize, fontFamily: values?.fontFamily, ...style }}>Aa</div>;
 };
 
 export default TypographyPreview;
+

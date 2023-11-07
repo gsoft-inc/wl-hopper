@@ -56,6 +56,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
 
                     return nameParts.includes(itemType === "overline" ? "md" : itemType) && nameParts.includes(size);
                 });
+
                 if (matchingItem) {
                     groupedItems[sizeKey][propertyKey] = matchingItem.value;
                 }
@@ -65,8 +66,6 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                 delete groupedItems[sizeKey];
             }
         });
-
-        console.log(groupedItems);
 
         return groupedItems;
     }
@@ -82,51 +81,65 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             lineHeight
         } = filteredData[size as Size];
 
+        // If the itemType is 'overline', set displaySize to an empty string
+        let displaySize = `-${size}`;
+        if (type === "overline") {
+            displaySize = "";
+        }
+
+        let previewAdditionalStyles = {};
+
+        if (type === "overline") {
+            previewAdditionalStyles = {
+                textTransform: "uppercase"
+            };
+        }
+
         return (
             <>
-                <tr key={size} className="hd-typo__row">
-                    <td className="hd-table__cell hd-typo__cell" rowSpan={4}>{size}</td>
+                <tr key={`${type}${displaySize}`} className="hd-typo__row hd-top__row">
+                    {type !== "overline" && <td className="hd-table__cell hd-typo__cell" rowSpan={4}>{size}</td>}
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Font Size
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${size}-font-size`}>{`--hop-${type}-${size}-font-size`}</Code>
+                        <Code value={`--hop-${type}${displaySize}-font-size`}>{`--hop-${type}${displaySize}-font-size`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
                         {fontSize}
                     </td>
                     <td className="hd-table__cell hd-typo__cell" rowSpan={4}>
-                        <TypographyPreview values={{ lineHeight, fontSize, fontWeight, fontFamily }} />
+                        <TypographyPreview style={{ ...previewAdditionalStyles }} values={{ lineHeight, fontSize, fontWeight, fontFamily }} />
                     </td>
                 </tr>
-                <tr>
+                <tr className="hd-typo__row">
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Font Weight
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${size}-font-weight`}>{`--hop-${type}-${size}-font-weight`}</Code>
+                        <Code value={`--hop-${type}${displaySize}-font-weight`}>{`--hop-${type}${displaySize}-font-weight`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
                         {fontWeight}
                     </td>
                 </tr>
-                <tr>
+                <tr className="hd-typo__row">
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Line Height
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${size}-line-height`}>{`--hop-${type}-${size}-line-height`}</Code>
+                        <Code value={`--hop-${type}${displaySize}-line-height`}>{`--hop-${type}${displaySize}-line-height`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
                         {lineHeight}
                     </td>
                 </tr>
-                <tr>
+                <tr className="hd-typo__row">
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Font-Family
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
-                        <Code value={`--hop-${type}-${size}-font-family`}>{`--hop-${type}-${size}-font-family`}</Code>
+                        <Code value={`--hop-${type}${displaySize}-font-family`}>{`--hop-${type}${displaySize}-font-family`}</Code>
                     </td>
                     <td className="hd-table__cell hd-typo__cell">
                         {fontFamily}
@@ -141,7 +154,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             <table className="hd-table hd-typo-table" aria-label="Tokens">
                 <thead>
                     <tr>
-                        <th className="hd-table__column">Name</th>
+                        {type !== "overline" && <th className="hd-table__column">Name</th>}
                         <th className="hd-table__column" colSpan={5}>Values</th>
                         <th className="hd-table__column">Preview</th>
                     </tr>
