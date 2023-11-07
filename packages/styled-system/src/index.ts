@@ -5,7 +5,7 @@ export * from "./color-scheme/useColorSchemeValue.ts";
 export * from "./global-styles/BodyStyleProvider.tsx";
 
 export * from "./html-wrappers/html.ts";
-export * from "./html-wrappers/htmlElement.ts";
+export * from "./html-wrappers/htmlElement.tsx";
 
 export * from "./responsive/BreakpointContext.tsx";
 export * from "./responsive/BreakpointProvider.tsx";
