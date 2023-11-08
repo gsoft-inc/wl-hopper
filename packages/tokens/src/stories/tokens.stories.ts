@@ -3,11 +3,12 @@ import { List, type Style, type TokenType } from "./components/List.tsx";
 import darkTokens from "./datas/tokens-dark.json";
 import tokens from "./datas/tokens.json";
 
-export default {
+const meta = {
     title: "Tokens/Colors",
     component: List
 } satisfies Meta<typeof List>;
 
+export default meta;
 
 function filterByTokenType(styles: Style[], tokenType: TokenType) {
     switch (tokenType) {
@@ -34,7 +35,7 @@ function filterByTokenType(styles: Style[], tokenType: TokenType) {
 }
 
 
-type Story = StoryObj<typeof List>;
+type Story = StoryObj<typeof meta>;
 
 export const Core: Story = {
     args: {

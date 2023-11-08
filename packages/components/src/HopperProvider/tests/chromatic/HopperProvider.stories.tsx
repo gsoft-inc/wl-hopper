@@ -1,59 +1,56 @@
-import { HopperProvider } from "@hopper-ui/components";
-import { useColorSchemeContext, type HopperCssVar } from "@hopper-ui/styled-system";
+import { Div, HopperProvider, useColorSchemeContext } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
 
-export default {
-    title: "Components/HopperProvider",
-    component: HopperProvider
-} as Meta<typeof HopperProvider>;
-
-type HopperProviderStory = StoryObj<typeof HopperProvider>;
-
 const ColoredDiv = () => {
     return (
-        <div style={{
-            padding: "var(--hop-space-inset-lg)" satisfies HopperCssVar,
-            backgroundColor: "var(--hop-primary-surface)" satisfies HopperCssVar
-        }}
-        >Hello</div>
+        <Div
+            padding="inset-lg"
+            backgroundColor="primary"
+        >Hello</Div>
     );
 };
 
+const meta = {
+    title: "Components/HopperProvider",
+    component: HopperProvider,
+    args: {
+        children: <ColoredDiv />
+    }
+} as Meta<typeof HopperProvider>;
+
+export default meta;
+
+type HopperProviderStory = StoryObj<typeof meta>;
+
 export const Light: HopperProviderStory = {
     name: "light",
-    render: () => (
-        <HopperProvider colorScheme="light">
-            <ColoredDiv />
-        </HopperProvider>
-    )
+    args: {
+        colorScheme: "light"
+    }
 };
 
 export const Dark: HopperProviderStory = {
     name: "dark",
-    render: () => (
-        <HopperProvider colorScheme="dark">
-            <ColoredDiv />
-        </HopperProvider>
-    )
+    args: {
+        colorScheme: "dark"
+    }
 };
 
 export const WithBodyStyles: HopperProviderStory = {
     name: "with body styles",
-    render: () => (
-        <HopperProvider colorScheme="light" withBodyStyle>
-            <ColoredDiv />
-        </HopperProvider>
-    )
+    args: {
+        colorScheme: "light",
+        withBodyStyle: true
+    }
 };
 
 export const DarkWithBodyStyles: HopperProviderStory = {
     name: "dark with body styles",
-    render: () => (
-        <HopperProvider colorScheme="dark" withBodyStyle>
-            <ColoredDiv />
-        </HopperProvider>
-    )
+    args: {
+        colorScheme: "dark",
+        withBodyStyle: true
+    }
 };
 
 const SwitchColorScheme = () => {
@@ -68,10 +65,14 @@ const SwitchColorScheme = () => {
 
 export const SetColorSchemeWithApi: HopperProviderStory = {
     name: "set color scheme with api",
-    render: () => (
-        <HopperProvider colorScheme="light" withBodyStyle>
-            <SwitchColorScheme />
-            <ColoredDiv />
-        </HopperProvider>
-    )
+    args: {
+        colorScheme: "light",
+        withBodyStyle: true,
+        children: (
+            <>
+                <SwitchColorScheme />
+                <ColoredDiv />
+            </>
+        )
+    }
 };

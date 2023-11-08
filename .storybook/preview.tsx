@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import React from "react";
+import { HopperProvider } from "../packages/components/src/index.ts";
 
 const preview: Preview = {
     parameters: {
@@ -12,7 +14,16 @@ const preview: Preview = {
         designToken: {
             disable: true
         }
-    }
+    },
+    decorators: [
+        Story => {
+            return (
+                <HopperProvider>
+                    <Story />
+                </HopperProvider>
+            );
+        }
+    ]
 };
 
 export default preview;
