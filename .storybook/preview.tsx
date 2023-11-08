@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react";
-import React from "react";
 import { HopperProvider } from "../packages/components/src/index.ts";
 
 const preview: Preview = {
@@ -18,7 +17,7 @@ const preview: Preview = {
     decorators: [
         Story => {
             return (
-                <HopperProvider>
+                <HopperProvider colorScheme="light">
                     <Story />
                 </HopperProvider>
             );

@@ -22,3 +22,9 @@ changes from Orbit:
 - HTML element no longer have the as props
 - HTML element no longer have the StyleProvider props, we'll wait until we need it to bring it
 
+tests to write still:
+- Padding and Margin specific use cases
+- in typescript tests, add at the end of the file test case
+
+- typescript/useStyledSystem.test is not present
+- jest/useStyledSystem.test is not present

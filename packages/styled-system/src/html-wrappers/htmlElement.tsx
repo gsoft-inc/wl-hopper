@@ -14,7 +14,9 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
         const classNames = clsx(className, styles["html-element"]);
 
         return (
-            // It's hard for typescript, but it's ok
+            // It's too hard for typescript, a generic elementType, with generic props.
+            // Basically, the interface is HTMLProps of the elementType + styled system props.
+            // useStyledSystem removes the styled system props, so what is remaining is valid for the elementType.
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             <As ref={ref} className={classNames} {...rest}>
