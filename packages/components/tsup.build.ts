@@ -1,14 +1,6 @@
-import { defineConfig } from "tsup";
+import { defineBuildConfig } from "@workleap/tsup-configs";
 
-export default defineConfig({
-    dts: true,
-    clean: true,
+export default defineBuildConfig({
     minify: true,
-    splitting: false,
-    treeshake: true,
-    entry: ["./src/**/src/*"],
-    outDir: "./dist",
-    format: ["esm"],
-    target: "esnext",
-    platform: "browser"
+    splitting: false
 });

@@ -215,6 +215,9 @@ importers:
       '@workleap/swc-configs':
         specifier: 2.1.2
         version: 2.1.2(@swc/core@1.3.95)(@swc/helpers@0.5.3)(@swc/jest@0.2.29)(browserslist@4.21.10)
+      '@workleap/tsup-configs':
+        specifier: 3.0.1
+        version: 3.0.1(tsup@7.2.0)(typescript@5.2.2)
       '@workleap/typescript-configs':
         specifier: 3.0.2
         version: 3.0.2(typescript@5.2.2)
@@ -288,6 +291,9 @@ importers:
       '@workleap/swc-configs':
         specifier: 2.1.2
         version: 2.1.2(@swc/core@1.3.95)(@swc/helpers@0.5.3)(@swc/jest@0.2.29)(browserslist@4.21.10)
+      '@workleap/tsup-configs':
+        specifier: 3.0.1
+        version: 3.0.1(tsup@7.2.0)(typescript@5.2.2)
       '@workleap/typescript-configs':
         specifier: 3.0.2
         version: 3.0.2(typescript@5.2.2)
