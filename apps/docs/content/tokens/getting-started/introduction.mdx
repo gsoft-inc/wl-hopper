@@ -8,41 +8,74 @@ order: 1
 
 At the heart of Workleap Design language are tokens, which drive its functionality. They are the key ingredients to everything UI. Workleap brand is dissected into design tokens, they live in the Hopper Design System.
 
+A design token can store any of the following elements:
+
+- A single value such as a `color`, `font-size`, or `border-width`.
+- A collection of indivisible values such as a `box-shadow`.
+
+## Definitions
+
+Hopper aims to provide a three tier token system, where each tier has their specific purpose.
+
 <Card>
     <Image src="https://assets.workleap.com/hopper/webdoc/token-details.png" width="654" height="45" alt="Token tiers diagram" />
 </Card>
 
-## Definitions
+### Core tokens
 
-**Core tokens** are referring to raw values such as an hexadecimal color code, a border-width, a font-size. Think of them as paint name, Chocolate Frost is easier to use in a conversation than the exact color recipe.
+These tokens are referring to raw values such as a hexadecimal color code, border-width, or font-size. They are the building blocks of the design system.
 
-**Semantic tokens** adds the intention layer to tokens, they map to a core token, or tokens should we say as the semantic tier has a notion of themability. Using our Chocolate Frost paint color example this would dictate where the paint color should be used, on dry walls or plastic, inside or outside.
+<Table category="color" data={[{
+    "name": "hop-sapphire-200",
+    "value": "#95b1ff"
+}]} />
 
-**Component tokens** refers to the nuts and bolts of the components and their implementation details.  They are tied to their component. In our paint color example, this would be where a specific color is actually used, in which room and on which architectural part of it(ceiling, doors, wall).
+### Semantic tokens
 
-```json title="package.json"
-{
-    "name": "wl-hopper",
-    "version": "0.0.0",
-    "description": "",
-    "keywords": [],
-    "author": "",
-    "private": true,
-    "license": "Apache-2.0",
-    "packageManager": "pnpm@8.3.1",
-    "scripts": {
-        "doc:start": "pnpm --filter=docs dev",
-        "doc:storybook": "pnpm --filter=docs storybook",
-        "doc:build": "pnpm --filter=docs build",
-        "lint": "pnpm run \"/^lint:.*/\"",
-        "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx  --cache --cache-location node_modules/.cache/eslint",
-        "lint:types": "pnpm -r lint:types",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "dependencies": {
-        "@netlify/plugin-nextjs": "^4.36.0",
-        "@workleap/eslint-plugin": "^1.0.0",
-        "@workleap/typescript-configs": "^1.0.0"
-    }
-}
-```
+Semantic tokens carry design intent and are design context aware. They are the tokens that should be used in most cases.
+
+#### Light
+
+<Table category="color" data={[{
+    "name": "hop-primary-surface-disabled",
+    "value": "#95b1ff"
+}]} />
+
+#### Dark
+
+<Table category="color" data={[{
+    "name": "hop-primary-surface-disabled",
+    "value": "#2040c7"
+}]} />
+
+### Component tokens
+
+Refers to the nuts and bolts of the components and their implementation details; they are the tokens exposed by components. They are tied to their respective component. These should not be used directly, unless you are building a component in a different stack than React.
+
+_Note: As no components are currently available, these tokens are not yet available._
+
+#### Light
+
+<Table category="color" data={[{
+    "name": "hop-button-primary-disabled",
+    "value": "#95b1ff"
+}]} />
+
+#### Dark
+
+<Table category="color" data={[{
+    "name": "hop-button-primary-disabled",
+    "value": "#2040c7"
+}]} />
+
+## When to use
+
+### For Developers
+
+Tokens should be used whenever Hopper components do not suit your current use case or if you can't use Hopper React components. They are also useful for situations where using a component does not make sense, such as adding a color for a background.
+
+It should be noted that if your current stack prevents you from directly using Hopper components, it is recommended to use component tokens in priority as they are mapped 1:1 with Hopper implementation.
+
+### For Designers
+
+While developing features for Workleap, you might need to create new components or add new features to existing ones. In this case, you should use semantic tokens to create your components. This will ensure that your components are consistent with the rest of the design system. Only semantic tokens are available in Figma.
