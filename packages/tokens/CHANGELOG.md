@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.1.0
+
+### Minor Changes
+
+- 70c40a8: Update to color tokens and new color tokens
+
 ## 3.0.0
 
 ### Major Changes
