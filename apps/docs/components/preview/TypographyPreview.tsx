@@ -15,8 +15,6 @@ interface TypographyValues {
 
 
 const TypographyPreview = ({ values, style }: TypographyPreviewProps) => {
-    console.log(style);
-
     return <div className="hd-preview hd-preview--font hd-preview--typography" style={{ lineHeight: values?.lineHeight, fontWeight: values?.fontWeight, fontSize: values?.fontSize, fontFamily: values?.fontFamily, ...style }}>Aa</div>;
 };
 

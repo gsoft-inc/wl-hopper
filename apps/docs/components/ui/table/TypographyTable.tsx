@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import TypographyPreview from "@/components/preview/TypographyPreview";
 import Code from "@/components/ui/code/Code";
 
@@ -96,8 +97,8 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
         }
 
         return (
-            <>
-                <tr key={`${type}${displaySize}`} className="hd-typo__row hd-top__row">
+            <React.Fragment key={`${type}${size}`}>
+                <tr className="hd-typo__row hd-top__row">
                     {type !== "overline" && <td className="hd-table__cell hd-typo__cell" rowSpan={4}>{size}</td>}
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Font Size
@@ -145,7 +146,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                         {fontFamily}
                     </td>
                 </tr>
-            </>
+            </React.Fragment>
         );
     });
 
