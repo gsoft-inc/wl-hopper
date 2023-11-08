@@ -11,41 +11,39 @@ interface TypographyTableProps {
     data: Record<string, { name: string; value: string }[]>;
 }
 
-type FontProperty = "fontFamily" | "fontSize" | "fontWeight" | "lineHeight";
+const Sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"] as const;
 
-type Size = "3xl" | "2xl" | "xl" | "lg" | "md" | "sm" | "xs";
+const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"] as const;
 
-type GroupedItems = Record<Size, Record<FontProperty, string>>;
+type GroupedItems = Record<typeof Sizes[number], Record<typeof FontProperties[number], string>>;
 
 interface TokenData {
     [category: string]: { name: string; value: string }[];
 }
 
-const transformDataToTokenData = (inputData: Record<string, { name: string; value: string }[]>): TokenData => {
+function transformDataToTokenData(inputData: Record<string, { name: string; value: string }[]>): TokenData {
     const tokenData: TokenData = {};
 
     for (const propertyKey in inputData) {
         const items = inputData[propertyKey];
+
         if (Array.isArray(items)) {
-            tokenData[propertyKey as FontProperty] = items;
+            tokenData[propertyKey] = items;
         }
     }
 
     return tokenData;
-};
+}
 
 function groupItemsByPropertiesAndSizes(tokenData: TokenData, itemType: string): GroupedItems {
-    const sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"];
-    const properties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"];
-
     const groupedItems: GroupedItems = {} as GroupedItems;
 
-    sizes.forEach(size => {
-        const sizeKey = size as Size;
-        groupedItems[sizeKey] = {} as Record<FontProperty, string>;
+    Sizes.forEach(size => {
+        const sizeKey = size as typeof Sizes[number];
+        groupedItems[sizeKey] = {} as Record<typeof FontProperties[number], string>;
 
-        properties.forEach(property => {
-            const propertyKey = property as FontProperty;
+        FontProperties.forEach(property => {
+            const propertyKey = property;
 
             if (!tokenData[propertyKey]) {
                 return;
@@ -80,7 +78,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             fontSize,
             fontWeight,
             lineHeight
-        } = filteredData[size as Size];
+        } = filteredData[size as typeof Sizes[number]];
 
         // If the itemType is 'overline', set displaySize to an empty string
         let displaySize = `-${size}`;
@@ -148,20 +146,18 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
     });
 
     return (
-        <>
-            <table className="hd-table hd-typo-table" aria-label="Tokens">
-                <thead>
-                    <tr>
-                        {type !== "overline" && <th className="hd-table__column">Name</th>}
-                        <th className="hd-table__column" colSpan={5}>Values</th>
-                        <th className="hd-table__column">Preview</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {listItems}
-                </tbody>
-            </table>
-        </>
+        <table className="hd-table hd-typo-table" aria-label="Tokens">
+            <thead>
+                <tr>
+                    {type !== "overline" && <th className="hd-table__column">Name</th>}
+                    <th className="hd-table__column" colSpan={5}>Values</th>
+                    <th className="hd-table__column">Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+                {listItems}
+            </tbody>
+        </table>
     );
 };
 
