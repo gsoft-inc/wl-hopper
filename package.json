@@ -19,6 +19,7 @@
         "test": "echo \"no test specified\"",
         "build": "pnpm -r build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
+        "build:pkgs": "pnpm -r --filter \"{packages/**}\" build",
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",
         "lint": "pnpm run \"/^lint:.*/\" && pnpm run typecheck",
