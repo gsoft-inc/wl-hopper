@@ -48,7 +48,7 @@ main {
 
 p {
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 1.5;
 }
 
 p:not(:last-child) {
@@ -57,4 +57,9 @@ p:not(:last-child) {
 
 p + * {
     margin-block-start: var(--hd-space-3);
+}
+
+article ul {
+    line-height: 1.5rem;
+    padding-left: 1rem;
 }

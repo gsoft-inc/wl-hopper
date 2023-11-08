@@ -1,5 +1,11 @@
 # docs
 
+## 0.4.0
+
+### Minor Changes
+
+- 70c40a8: Update to color tokens and new color tokens
+
 ## 0.3.0
 
 ### Minor Changes

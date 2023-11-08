@@ -5,8 +5,8 @@
     background-color: transparent;
     border: none;
     stroke: var(--hd-icon-button-color);
-    width: var(--hd-space-4);
     aspect-ratio: 1/1;
+    width: var(--hd-space-4);
     border-radius: var(--hd-space-1);
     cursor: pointer;
 }
@@ -26,4 +26,12 @@
 
 .hd-copy-button--inlined {
     background: var(--hd-color-neutral-surface);
+}
+
+.hd-copy-button--on-dark {
+    stroke: var(--hd-neutral-20);
+}
+
+.hd-copy-button--on-dark:hover {
+    stroke: var(--hd-neutral-900);
 }

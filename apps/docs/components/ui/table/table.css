@@ -6,13 +6,17 @@
 }
 
 .hd-table__column {
-    padding-block: var(--hd-space-2);
+    padding: var(--hd-space-2) var(--hd-space-1);
     text-align: left;
     color: var(--hd-color-neutral-text-weakest);
     font-size: 0.8125rem;
     font-style: normal;
     font-weight: 400;
     line-height: 0.8125rem;
+}
+
+.hd-table__column:first-child {
+    padding-left: 0;
 }
 
 .hd-table__column:last-child,
@@ -23,6 +27,29 @@
 .hd-table__cell {
     font-family: var(--hd-mono-font-family);
     font-size: 0.8125rem;
-    padding-block: var(--hd-space-1);
+    padding: var(--hd-space-1);
     border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
+}
+
+.hd-table__row > .hd-table__cell:first-child {
+    padding-left: 0;
+}
+
+/* TypoTable */
+.hd-table__cell.hd-typo__cell {
+    text-align: left;
+    border-bottom: 0;
+}
+
+.hd-top__row .hd-table__cell {
+    border-top: var(--hd-border-size) solid var(--hd-color-neutral-border);
+}
+
+.hd-typo__row:has(> :nth-child(5)) .hd-typo__cell:first-child {
+    padding-left: 0;
+}
+
+.hd-typo__row:has(> :nth-child(3)) > .hd-typo__cell,
+.hd-typo__row:has(> :nth-child(4)) > .hd-typo__cell {
+    padding-left: 0;
 }
