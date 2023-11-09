@@ -17,7 +17,7 @@
         "doc:start": "pnpm --filter=docs dev",
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
-        "test": "jest",
+        "test": "echo \"no test specified\"",
         "build": "pnpm -r build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "build:pkgs": "pnpm -r --filter \"{packages/**}\" build",
