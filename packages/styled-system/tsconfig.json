@@ -4,7 +4,7 @@
     "include": ["**/*", "../../types/*"],
     "compilerOptions": {
         "paths": {
-            "@hopper-ui/components": ["../components/src/HopperProvider/src/index.ts"],
+            "@hopper-ui/components": ["../components/src/index.ts"],
             "@hopper-ui/styled-system": ["./src/index.ts"]
         }
     }

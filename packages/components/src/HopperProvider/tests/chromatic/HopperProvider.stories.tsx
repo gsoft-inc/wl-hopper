@@ -11,13 +11,13 @@ const ColoredDiv = () => {
     );
 };
 
-const meta = {
+const meta: Meta<typeof HopperProvider> = {
     title: "Components/HopperProvider",
     component: HopperProvider,
     args: {
         children: <ColoredDiv />
     }
-} as Meta<typeof HopperProvider>;
+};
 
 export default meta;
 
