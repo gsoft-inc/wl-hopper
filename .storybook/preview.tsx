@@ -1,5 +1,5 @@
+import { HopperProvider } from "@hopper-ui/components";
 import type { Preview } from "@storybook/react";
-import { HopperProvider } from "../packages/components/src/index.ts";
 
 const preview: Preview = {
     parameters: {
