@@ -1,5 +1,5 @@
 import { defineDevConfig } from "@workleap/tsup-configs";
 
 export default defineDevConfig({
-    entry: ["./src/**/src/*"]
+    entry: ["./src/**/src/*.(ts|tsx)"]
 });
