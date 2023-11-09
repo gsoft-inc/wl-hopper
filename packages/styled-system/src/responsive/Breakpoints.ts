@@ -1,4 +1,5 @@
-// TODO should this be in tokens?
+// Those breakpoints could be in the token solution, but we decided to keep them here for now, since there is no way to
+// use breakpoint tokens in css media queries.
 export const Breakpoints = {
     xs: 640,
     sm: 768,
