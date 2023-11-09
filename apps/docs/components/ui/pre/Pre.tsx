@@ -22,7 +22,7 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
                     }
                     <span className="hd-pre-header__title">{title}</span>
                 </div>
-                {raw && <CopyButton text={raw} />}
+                {raw && <CopyButton text={raw} className="hd-copy-button--on-dark" />}
             </div>
             {children}
         </pre>
