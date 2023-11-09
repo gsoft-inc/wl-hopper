@@ -1,9 +1,9 @@
-# @hopper-ui/styled-system
+# @hopper-ui/components
 
-Hopper's styled-system offers a collection of utility functions that add style props to your React components. These style props are in sync on hopper-ui's design tokens, are type safe, and support responsive styles.
+Hopper is a design system developed by Workleap to help create the best experience for our customers and drive consistency between all our web apps.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](../../LICENSE)
-[![npm version](https://img.shields.io/npm/v/@hopper-ui/styled-system)](https://www.npmjs.com/package/@hopper-ui/styled-system)
+[![npm version](https://img.shields.io/npm/v/@hopper-ui/components)](https://www.npmjs.com/package/@hopper-ui/components)
 
 ## Usage
 

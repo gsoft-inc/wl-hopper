@@ -11,7 +11,11 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
         const { className, children, ...rest } = useStyledSystem(props);
 
         const As = elementType;
-        const classNames = clsx(className, styles["html-element"]);
+        const classNames = clsx(
+            className,
+            styles["html-element"],
+            `hop-html-${elementType}` // this selector is not used, but could be used as a selector for the element type wrapper
+        );
 
         return (
             // It's too hard for typescript, a generic elementType, with generic props.
