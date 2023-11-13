@@ -17,15 +17,10 @@ export const customTsTokenMapping = function ({ dictionary }: { dictionary: Dict
 
         mappings += "export const HopperVariablePrefix = \"--hop\";\n\n";
 
-        // colors and dataViz
         mappings += mapColors(coreTokens, semanticTokens);
-        // elevations
         mappings += mapElevation(coreTokens, semanticTokens);
-        // fonts les 4
         mappings += mapFonts(coreTokens, semanticTokens);
-        // shape
         mappings += mapShape(coreTokens, semanticTokens);
-        // space
         mappings += mapSpace(coreTokens, semanticTokens);
     }
 

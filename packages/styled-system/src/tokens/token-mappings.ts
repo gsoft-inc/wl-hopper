@@ -82,7 +82,7 @@ export const BoxShadowMapping = createMapping(Elevation);
 export const FontSizeMapping = createMapping(FontSize);
 export const FontWeightMapping = createMapping(FontWeight);
 export const LineHeightMapping = createMapping(LineHeight);
-export const FontFamilyMapping = createMapping(FontFamily); // TODO: add this props
+export const FontFamilyMapping = createMapping(FontFamily);
 
 export const BorderRadiusMapping = createMapping(Shape);
 

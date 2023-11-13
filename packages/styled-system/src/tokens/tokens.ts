@@ -1,5 +1,5 @@
 import { DarkSemanticTokens } from "./generated/dark-semantic-tokens.ts";
-import { CoreTokens, SemanticTokens } from "./generated/light-tokens.ts";
+import { CoreTokens, SemanticTokens } from "./generated/light-semantic-tokens.ts";
 
 export const Tokens = {
     Core:CoreTokens,

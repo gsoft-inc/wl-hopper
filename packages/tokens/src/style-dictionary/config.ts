@@ -47,7 +47,7 @@ export function getStyledSystemTokensConfig(mode: "light" | "dark"): Config {
                 },
                 "files": [
                     {
-                        "destination": `${isLightMode ? "light-tokens" : "dark-semantic-tokens" }.ts`,
+                        "destination": `${isLightMode ? "light-semantic-tokens" : "dark-semantic-tokens" }.ts`,
                         "format": "custom/ts-tokens",
                         "options": {
                             "outputReferences": true
