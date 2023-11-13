@@ -87,6 +87,9 @@ importers:
 
   apps/docs:
     dependencies:
+      clsx:
+        specifier: 2.0.0
+        version: 2.0.0
       contentlayer:
         specifier: 0.3.4
         version: 0.3.4(esbuild@0.18.17)
@@ -154,9 +157,6 @@ importers:
       '@types/react-dom':
         specifier: 18.2.14
         version: 18.2.14
-      classnames:
-        specifier: 2.3.2
-        version: 2.3.2
       eslint:
         specifier: 8.52.0
         version: 8.52.0
@@ -9068,6 +9068,7 @@ packages:
 
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /clean-css@5.3.2:
     resolution: {integrity: sha512-JVJbM+f3d3Q704rF4bqQ5UUyTtuJ0JRKNbTKVEeujCCBoMdkEi+V+e8oktO9qGQNSvHrFTM6JZRXrUvGR1czww==}

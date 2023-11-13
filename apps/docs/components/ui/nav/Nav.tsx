@@ -1,7 +1,7 @@
 "use client";
 
+import clsx from "clsx";
 import Link from "next/link";
-import cx from "classnames";
 import { usePathname } from "next/navigation";
 
 import type { NavItem } from "@/configs/navigation";
@@ -22,7 +22,7 @@ const Nav = ({ items }: { items: React.PropsWithoutRef<NavItem[]> }) => {
         const isActive = path.includes(firstPathLevel) && firstPathLevel !== "";
 
         return (
-            <li key={label} className={cx("hd-nav__list-item", isActive && "hd-nav__list-item--active", status !== "ready" && "hd-nav__link--disabled")}>
+            <li key={label} className={clsx("hd-nav__list-item", isActive && "hd-nav__list-item--active", status !== "ready" && "hd-nav__link--disabled")}>
                 <Link href={path} className="hd-nav__link" >
                     {label}
                 </Link>

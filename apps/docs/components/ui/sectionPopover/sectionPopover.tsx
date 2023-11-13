@@ -1,11 +1,11 @@
 "use client";
 
+import clsx from "clsx";
 import { useState } from "react";
-import cx from "classnames";
 import { Button } from "react-aria-components";
 
-import "./sectionPopover.css";
 import ChevronIcon from "./assets/chevron-icon.svg";
+import "./sectionPopover.css";
 
 interface Link {
     title: string;
@@ -46,11 +46,11 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
         <>
             {listItems.length > 0 && (
                 <div className="hd-section-popover">
-                    <Button className={cx("hd-section-popover__button", isOpen && "hd-section-popover__button--open")} onPress={togglePopover}>
+                    <Button className={clsx("hd-section-popover__button", isOpen && "hd-section-popover__button--open")} onPress={togglePopover}>
                         On this page
                         <ChevronIcon className="hd-section-popover__button-icon" />
                     </Button>
-                    <div className={cx("hd-section-popover__popover", isOpen && "hd-section-popover__popover--open")}>
+                    <div className={clsx("hd-section-popover__popover", isOpen && "hd-section-popover__popover--open")}>
                         <a className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</a>
                         <ul className="hd-section-popover__list">
                             {listItems}

@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import cx from "classnames";
-import getPageLinks from "@/utils/getPageLinks";
 import Overlay from "@/components/ui/overlay/Overlay";
+import getPageLinks from "@/utils/getPageLinks";
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 import type { Data } from "@/utils/getPageLinks";
 
@@ -80,7 +80,7 @@ const Sidebar = ({ data, isOpen, onClose }: SidebarProps) => {
                             const isActive = pathName === linkPath;
 
                             return (
-                                <li className={cx("hd-sidebar__item", isActive && "hd-sidebar__item--active")} key={item.id}>
+                                <li className={clsx("hd-sidebar__item", isActive && "hd-sidebar__item--active")} key={item.id}>
                                     <Link href={linkPath} className="hd-sidebar__link" onClick={handleLinkClick}>{item.title}</Link>
                                 </li>
                             );
@@ -94,7 +94,7 @@ const Sidebar = ({ data, isOpen, onClose }: SidebarProps) => {
     return (
         <>
             <Overlay isOpen={isOpen}></Overlay>
-            <nav className={cx("hd-sidebar", isOpen && "hd-sidebar--open")} aria-label="Sidebar" ref={sidebarRef}>
+            <nav className={clsx("hd-sidebar", isOpen && "hd-sidebar--open")} aria-label="Sidebar" ref={sidebarRef}>
                 <div className="hd-sidebar__container">
                     {linkItems}
                 </div>
