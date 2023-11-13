@@ -40,7 +40,7 @@ export interface StyledSystemProviderProps extends BreakpointProviderProps, Comp
  * - Managing color scheme (light, dark, auto)
  * - Optionally adding body styles to the document
  */
-export function StyledSystemProvider({ children, withBodyStyle = false, withCssVariables = true, colorScheme = "light", defaultColorScheme, unsupportedMatchMediaBreakpoint = DefaultUnsupportedMatchMediaBreakpoint, className, ...rest }: StyledSystemProviderProps) {
+export function StyledSystemProvider({ children, withBodyStyle = false, withCssVariables = true, colorScheme = "light", defaultColorScheme = "light", unsupportedMatchMediaBreakpoint = DefaultUnsupportedMatchMediaBreakpoint, className, ...rest }: StyledSystemProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState<ColorScheme>();
     const computedColorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
 
