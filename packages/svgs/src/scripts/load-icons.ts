@@ -1,9 +1,7 @@
-import path from "path";
-import fs from "fs";
 import camelCase from "camelcase";
-import {
-    ICONS_SIZES 
-} from "./constants.ts";
+import fs from "fs";
+import path from "path";
+import { ICONS_SIZES } from "./constants.ts";
 import { getAllFiles } from "./helper.ts";
 
 export interface Icon {
@@ -25,16 +23,16 @@ const getFiles = (dir: string): Promise<string[]> => {
 
 const checkSameName = (data: Icon[]): void => {
     const dataGroupedBySize = ICONS_SIZES.map(s => data.filter(d => d.group === s));
-  
+
     dataGroupedBySize.forEach(groupedData => {
         const unique = [...new Set(groupedData.map(d => d.name))];
-  
+
         const lookup = groupedData.reduce((a, e) => {
             a[e.name] = ++a[e.name] || 0;
 
             return a;
         }, {} as Record<string, number>);
-  
+
         if (groupedData.length !== unique.length) {
             console.error(
                 "Array contains duplicates icon name: ",
@@ -44,21 +42,21 @@ const checkSameName = (data: Icon[]): void => {
         }
     });
 };
-  
+
 const loadIcon = (file: string): Icon => {
     const splitPath = file.split(path.sep);
     const fileName = splitPath[splitPath.length - 1].replace(".svg", "");
     const [, , group] = splitPath;
-  
+
     const options = { pascalCase: true };
     const formattedName = camelCase(fileName, options);
-  
+
     const formattedGroup = Number(group.replace("px", ""));
 
     const content = fs.readFileSync(file, "utf-8");
-  
-    return { 
-        name: formattedName, 
+
+    return {
+        name: formattedName,
         group: formattedGroup,
         content,
         filePath: file

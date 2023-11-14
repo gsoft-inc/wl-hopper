@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {
+export const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {
     const files = fs.readdirSync(dirPath);
 
     let returnObject = [...arrayOfFiles];
@@ -17,7 +17,7 @@ const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => 
     return returnObject;
 };
 
-const checkFolderExists = (dir: string): void => {
+export const checkFolderExists = (dir: string): void => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, {
             recursive: true
@@ -25,8 +25,6 @@ const checkFolderExists = (dir: string): void => {
     }
 };
 
-const removeDuplicates = (data: string[]): string[] => {
+export const removeDuplicates = (data: string[]): string[] => {
     return [...new Set(data)];
 };
-
-export { getAllFiles, checkFolderExists, removeDuplicates };
