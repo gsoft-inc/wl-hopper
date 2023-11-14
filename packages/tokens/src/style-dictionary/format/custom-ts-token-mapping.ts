@@ -74,10 +74,8 @@ function mapElevation(coreTokens: TransformedToken[], semanticTokens: Transforme
         })
     ]);
 
-
     return elevationMappings;
 }
-
 
 function mapShape(coreTokens: TransformedToken[], semanticTokens: TransformedToken[]) {
     const coreColorTokensNames = getTokensByFamily("shape", coreTokens).map(x => x.name);

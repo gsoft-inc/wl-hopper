@@ -70,7 +70,6 @@ export const TextColorMapping = {
     ...DataVizColorMapping
 };
 
-
 export const IconColorMapping = {
     ...createMapping(IconColors),
     ...ColorMapping,

@@ -87,7 +87,6 @@ function createPseudoHandler(pseudoClassName: string, pseudoVariable: string, sy
     return !isNil(systemValues) ? systemValueHandler : passThroughHandler;
 }
 
-
 // Custom handler for borders to allow the following syntax:
 // - border="warning-10" -> style="1px solid var(--hop-warning-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
@@ -288,7 +287,6 @@ const PropsHandlers: Record<string, PropHandler> = {
 export function isStyledSystemProp(name: string): name is keyof typeof PropsHandlers {
     return !isNil(PropsHandlers[name]);
 }
-
 
 class StylingContext {
     readonly #classes: string[];

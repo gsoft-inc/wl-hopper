@@ -34,7 +34,6 @@ function filterByTokenType(styles: Style[], tokenType: TokenType) {
     }
 }
 
-
 type Story = StoryObj<typeof meta>;
 
 export const Core: Story = {
