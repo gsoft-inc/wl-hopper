@@ -24,7 +24,3 @@ export const checkFolderExists = (dir: string): void => {
         });
     }
 };
-
-export const removeDuplicates = (data: string[]): string[] => {
-    return [...new Set(data)];
-};
