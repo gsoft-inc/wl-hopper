@@ -7,6 +7,7 @@
     },
     "private": true,
     "license": "Apache-2.0",
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gsoft-inc/wl-hopper.git"
@@ -19,12 +20,13 @@
         "test": "echo \"no test specified\"",
         "build": "pnpm -r build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
+        "build:pkg": "pnpm -r --filter \"{packages/**}\" build ",
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",
         "lint": "pnpm run \"/^lint:.*/\" && pnpm run typecheck",
         "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
         "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint",
-        "typecheck": "pnpm -r --parallel exec tsc --noEmit",
+        "typecheck": "pnpm -r --parallel --include-workspace-root exec tsc --noEmit",
         "clean": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf dist node_modules/.cache",
         "reset": "pnpm clean && pnpm reset:modules",
         "reset:modules": "pnpm -r --parallel --include-workspace-root exec pnpm dlx rimraf node_modules pnpm-lock.yaml",

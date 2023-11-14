@@ -1,4 +1,8 @@
+// @ts-check
+
 /** @type {import('stylelint').Config} */
-module.exports = {
+const config = {
     extends: "@workleap/stylelint-configs"
 };
+
+module.exports = config;

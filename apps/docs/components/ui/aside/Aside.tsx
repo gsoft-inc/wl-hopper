@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import cx from "classnames";
+import clsx from "clsx";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./aside.css";
 
@@ -112,7 +112,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     }, [isOpen]);
 
     const listItems = links.map(link => (
-        <li className={cx("hd-aside__item", activeSection === link.id && "hd-aside__item--active")} key={link.id}>
+        <li className={clsx("hd-aside__item", activeSection === link.id && "hd-aside__item--active")} key={link.id}>
             <a href={link.url} className="hd-aside__link" >
                 {link.title}
             </a>
@@ -130,10 +130,10 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
                             <path d="M4 6L8 10L12 6" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
-                    <ul className={cx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
+                    <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
                         {activeItemIndex !== -1 && (
                             <span
-                                className={cx("hd-aside__marker", activeItemIndex === -1 && "hd-aside__marker--hide")}
+                                className={clsx("hd-aside__marker", activeItemIndex === -1 && "hd-aside__marker--hide")}
                                 style={{ top: activeItemIndex * titleHeight + "px" }}
                             ></span>)}
                         {listItems}
