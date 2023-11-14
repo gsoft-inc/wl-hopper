@@ -5,7 +5,8 @@
     "compilerOptions": {
         "paths": {
             "@hopper-ui/components": ["../components/src/index.ts"],
-            "@hopper-ui/styled-system": ["./src/index.ts"]
+            "@hopper-ui/styled-system": ["./src/index.ts"],
+            "@hopper-ui/test-utils": ["../../test-utils/index.ts"]
         }
     }
 }

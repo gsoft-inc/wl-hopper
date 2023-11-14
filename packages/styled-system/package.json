@@ -40,20 +40,20 @@
         "react-dom": "*"
     },
     "dependencies": {
-        "react-aria": "3.29.1",
+        "react-aria": "3.30.0",
         "clsx": "2.0.0"
     },
     "devDependencies": {
         "@hopper-ui/tokens": "workspace:*",
-        "@swc/core": "1.3.95",
+        "@swc/core": "1.3.96",
         "@swc/helpers": "0.5.3",
         "@swc/jest": "0.2.29",
         "@testing-library/jest-dom": "6.1.4",
-        "@testing-library/react": "14.0.0",
-        "@types/jest": "29.5.6",
-        "@types/react": "18.2.32",
-        "@types/react-dom": "18.2.14",
-        "@types/react-test-renderer": "18.0.5",
+        "@testing-library/react": "14.1.0",
+        "@types/jest": "29.5.8",
+        "@types/react": "18.2.37",
+        "@types/react-dom": "18.2.15",
+        "@types/react-test-renderer": "18.0.6",
         "@workleap/eslint-plugin": "3.0.0",
         "@workleap/swc-configs": "2.1.2",
         "@workleap/tsup-configs": "3.0.1",
@@ -66,7 +66,7 @@
         "ts-jest": "29.1.1",
         "ts-node": "10.9.1",
         "tsup": "7.2.0",
-        "type-fest": "4.6.0",
+        "type-fest": "4.7.1",
         "typescript": "5.2.2",
         "postcss": "8.4.31",
         "postcss-modules": "6.0.0"
