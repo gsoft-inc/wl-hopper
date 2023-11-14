@@ -14,17 +14,18 @@
         "provenance": true
     },
     "type": "module",
+    "sideEffects": false,
     "files": [
         "/dist",
         "CHANGELOG.md",
         "README.md"
     ],
+    "exports": {
+        "./*": "./dist/*"
+    },
     "scripts": {
         "build": "node --loader ts-node/esm src/scripts/write-icons.ts",
         "test": "jest --config jest.config.ts"
-    },
-    "dependencies": {
-        "@hopper-ui/styled-system": "workspace:*"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "6.1.4",

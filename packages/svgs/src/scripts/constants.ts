@@ -1,13 +1,5 @@
-const ICONS_SOURCE_DIR = "src/icons";
-const ROOT_DIR = "dist";
-const COMPONENTS_DIR = "components";
-const ICONS_DIST_DIR = `${ROOT_DIR}`;
-const ICONS_SIZES = [16, 24, 32];
-
-export {
-    ICONS_DIST_DIR,
-    ICONS_SOURCE_DIR,
-    ROOT_DIR,
-    COMPONENTS_DIR,
-    ICONS_SIZES
-};
+export const ICONS_SOURCE_DIR = "src/icons";
+export const ROOT_DIR = "dist";
+export const COMPONENTS_DIR = "components";
+export const ICONS_DIST_DIR = `${ROOT_DIR}`;
+export const ICONS_SIZES = [16, 24, 32];

@@ -1,15 +1,10 @@
-import * as path from "path";
-import * as fs from "fs";
+import path from "path";
+import fs from "fs";
 import camelCase from "camelcase";
 import {
     ICONS_SIZES 
 } from "./constants.ts";
 import { getAllFiles } from "./helper.ts";
-
-interface DataItem {
-    name: string;
-    group: number;
-}
 
 export interface Icon {
     content: string;
@@ -28,18 +23,17 @@ const getFiles = (dir: string): Promise<string[]> => {
     });
 };
 
-const checkSameName = (data: DataItem[]): void => {
-    const sizes = ICONS_SIZES;
-    const dataGroupedBySize = sizes.map(s => data.filter(d => d.group === s));
+const checkSameName = (data: Icon[]): void => {
+    const dataGroupedBySize = ICONS_SIZES.map(s => data.filter(d => d.group === s));
   
     dataGroupedBySize.forEach(groupedData => {
         const unique = [...new Set(groupedData.map(d => d.name))];
   
-        const lookup = groupedData.reduce((a: Record<string, number>, e) => {
+        const lookup = groupedData.reduce((a, e) => {
             a[e.name] = ++a[e.name] || 0;
 
             return a;
-        }, {});
+        }, {} as Record<string, number>);
   
         if (groupedData.length !== unique.length) {
             console.error(
@@ -51,43 +45,34 @@ const checkSameName = (data: DataItem[]): void => {
     });
 };
   
-const handleName = (file: string): DataItem => {
+const loadIcon = (file: string): Icon => {
     const splitPath = file.split(path.sep);
     const fileName = splitPath[splitPath.length - 1].replace(".svg", "");
     const [, , group] = splitPath;
   
     const options = { pascalCase: true };
-    const formatedName = camelCase(fileName, options);
+    const formattedName = camelCase(fileName, options);
   
-    const formatedGroup = Number(group.replace("px", ""));
+    const formattedGroup = Number(group.replace("px", ""));
+
+    const content = fs.readFileSync(file, "utf-8");
   
-    return { name: formatedName, group: formatedGroup };
+    return { 
+        name: formattedName, 
+        group: formattedGroup,
+        content,
+        filePath: file
+    };
 };
 
-const loadFiles = async (dir: string): Promise<Icon[]> => {
+export const loadIcons = async (dir: string): Promise<Icon[]> => {
     const files = await getFiles(dir);
 
     const result = files.map(file => {
-        const { name, group } = handleName(file);
-        const content = fs.readFileSync(file, "utf-8");
-
-        return {
-            name,
-            group,
-            filePath: file,
-            content
-        };
+        return loadIcon(file);
     });
 
     checkSameName(result);
 
     return result;
-};
-
-async function loadIcons(dir: string) {
-    return loadFiles(dir);
-}
-
-export {
-    loadIcons
 };

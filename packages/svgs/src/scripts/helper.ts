@@ -4,7 +4,7 @@ import path from "path";
 const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {
     const files = fs.readdirSync(dirPath);
 
-    let returnObject: string[] = [...arrayOfFiles];
+    let returnObject = [...arrayOfFiles];
 
     files.forEach(file => {
         if (fs.statSync(path.join(dirPath, file)).isDirectory()) {

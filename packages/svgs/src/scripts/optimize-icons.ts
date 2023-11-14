@@ -17,9 +17,7 @@ let width: string | null = null;
 let height: string | null = null;
 
 const validateSize = (iconWidth: string | null, iconHeight: string | null, name: string): boolean => {
-    const sizes = ICONS_SIZES;
-
-    if (sizes.includes(Number(iconWidth)) && sizes.includes(Number(iconHeight))) {
+    if (ICONS_SIZES.includes(Number(iconWidth)) && ICONS_SIZES.includes(Number(iconHeight))) {
         return true;
     } else {
         console.error(

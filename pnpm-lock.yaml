@@ -384,10 +384,6 @@ importers:
         version: 5.2.2
 
   packages/svgs:
-    dependencies:
-      '@hopper-ui/styled-system':
-        specifier: workspace:*
-        version: link:../styled-system
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 6.1.4
