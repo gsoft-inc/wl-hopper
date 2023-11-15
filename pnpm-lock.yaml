@@ -36,6 +36,9 @@ importers:
       '@storybook/addon-mdx-gfm':
         specifier: 7.5.1
         version: 7.5.1
+      '@storybook/addons':
+        specifier: 7.5.1
+        version: 7.5.1(react-dom@18.2.0)(react@18.2.0)
       '@storybook/blocks':
         specifier: 7.5.1
         version: 7.5.1(@types/react-dom@18.2.14)(@types/react@18.2.32)(react-dom@18.2.0)(react@18.2.0)
@@ -6016,6 +6019,19 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
+    dev: true
+
+  /@storybook/addons@7.5.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/AdQYqZ1aHHmMrJL68suo1IdyQzRQX7W1sQ3o40juqr/REIpiSZMMSuBcQ6wKXP1NxHMJXEDdb/iSN31Z6DiLg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@storybook/manager-api': 7.5.1(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/preview-api': 7.5.1
+      '@storybook/types': 7.5.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: true
 
   /@storybook/blocks@7.5.1(@types/react-dom@18.2.14)(@types/react@18.2.32)(react-dom@18.2.0)(react@18.2.0):

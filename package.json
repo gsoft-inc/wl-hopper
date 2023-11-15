@@ -45,6 +45,7 @@
         "@storybook/addon-interactions": "7.5.1",
         "@storybook/addon-links": "7.5.1",
         "@storybook/addon-mdx-gfm": "7.5.1",
+        "@storybook/addons": "7.5.1",
         "@storybook/blocks": "7.5.1",
         "@storybook/react": "7.5.1",
         "@storybook/react-vite": "7.5.1",

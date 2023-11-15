@@ -1,5 +1,5 @@
-import { HopperProvider } from "@hopper-ui/components";
 import type { Preview } from "@storybook/react";
+import { withChromaticProvider } from "./custom-addons/chromatic/index.tsx";
 
 const preview: Preview = {
     parameters: {
@@ -15,13 +15,7 @@ const preview: Preview = {
         }
     },
     decorators: [
-        Story => {
-            return (
-                <HopperProvider colorScheme="light">
-                    <Story />
-                </HopperProvider>
-            );
-        }
+        withChromaticProvider
     ]
 };
 

@@ -16,6 +16,12 @@ const meta: Meta<typeof HopperProvider> = {
     component: HopperProvider,
     args: {
         children: <ColoredDiv />
+    },
+    parameters: {
+        chromaticProvider: {
+            colorSchemes: ["light"],
+            scales: ["medium"]
+        }
     }
 };
 
