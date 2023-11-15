@@ -45,8 +45,12 @@ const checkSameName = (data: Icon[]): void => {
 
 const loadIcon = (file: string): Icon => {
     const splitPath = file.split(path.sep);
+    if (splitPath.length < 2) {
+        throw new Error(`Invalid file path: ${file}`);
+    }
+
     const fileName = splitPath[splitPath.length - 1].replace(".svg", "");
-    const [, , group] = splitPath;
+    const group = splitPath[splitPath.length - 2];
 
     const options = { pascalCase: true };
     const formattedName = camelCase(fileName, options);
