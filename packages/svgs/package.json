@@ -21,7 +21,7 @@
         "README.md"
     ],
     "exports": {
-        "./*": "./dist/*"
+        "./icons/*": "./dist/icons/*"
     },
     "scripts": {
         "build": "node --loader ts-node/esm scripts/write-icons.ts"
