@@ -3,11 +3,11 @@ import path, { dirname } from "path";
 import parse from "rehype-parse";
 import { unified } from "unified";
 import { fileURLToPath } from "url";
-import { ICONS_SIZES, ICONS_SOURCE_DIR } from "../../src/scripts/constants.ts";
-import { loadIcons } from "../../src/scripts/load-icons.ts";
+import { IconSizes, IconsSourceDirectory } from "../../scripts/constants.ts";
+import { loadIcons } from "../../scripts/load-icons.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const iconsFolderPath = path.resolve(__dirname, `../../${ICONS_SOURCE_DIR}`);
+const iconsFolderPath = path.resolve(__dirname, `../../${IconsSourceDirectory}`);
 
 const allIcons = await loadIcons(iconsFolderPath);
 
@@ -22,7 +22,7 @@ const dataGroupedBySize = allIcons.reduce((acc, curr) => {
 }, {} as Record<number, typeof allIcons>);
 
 test("has to correct groups assigned", () => {
-    expect(Object.keys(dataGroupedBySize).map(x => Number(x))).toStrictEqual(ICONS_SIZES);
+    expect(Object.keys(dataGroupedBySize).map(x => Number(x))).toStrictEqual(IconSizes);
 });
 
 test("has the same amount of icons in each folder", () => {

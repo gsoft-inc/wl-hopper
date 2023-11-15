@@ -1,7 +1,17 @@
 import fs from "fs";
 import path from "path";
 
-export const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): string[] => {
+export const getFiles = (dir: string) => {
+    return new Promise<string[]>((resolve, reject) => {
+        if (fs.existsSync(dir)) {
+            resolve(getAllFiles(dir));
+        } else {
+            reject(`no such directory ${dir}`);
+        }
+    });
+};
+
+const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
     const files = fs.readdirSync(dirPath);
 
     let returnObject = [...arrayOfFiles];
@@ -17,7 +27,7 @@ export const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []): strin
     return returnObject;
 };
 
-export const checkFolderExists = (dir: string): void => {
+export const checkFolderExists = (dir: string) => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, {
             recursive: true
