@@ -1,4 +1,4 @@
-import cx from "classnames";
+import clsx from "clsx";
 
 import "./iconButton.css";
 
@@ -23,7 +23,7 @@ const IconButton = <Element extends React.ElementType = typeof defaultElement>(p
     } = props;
 
     return (
-        <Component className={cx(IconButtonClass, className)} {...rest}>
+        <Component className={clsx(IconButtonClass, className)} {...rest}>
             {children}
         </Component>
     );

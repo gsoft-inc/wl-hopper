@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import cx from "classnames";
-import { usePathname } from "next/navigation";
-import { navigation } from "@/configs/navigation";
-import IconButton from "@/components/ui/iconButton/IconButton";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
+import IconButton from "@/components/ui/iconButton/IconButton";
+import { navigation } from "@/configs/navigation";
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import CloseIcon from "./assets/close.svg";
 import GithubLogo from "./assets/github.svg";
@@ -65,7 +65,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
 
         return (
             <li key={label}>
-                <Link href={path} className={cx("hd-mobile-menu-nav-list__link", isActive && "hd-mobile-menu-nav-list__link--active", isReady && "hd-mobile-menu-nav-list__link--disabled")} onClick={onClose}>
+                <Link href={path} className={clsx("hd-mobile-menu-nav-list__link", isActive && "hd-mobile-menu-nav-list__link--active", isReady && "hd-mobile-menu-nav-list__link--disabled")} onClick={onClose}>
                     {label}
                 </Link>
             </li>
@@ -73,7 +73,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
     });
 
     return (
-        <div className={cx("hd-mobile-menu", isAnimating && "hd-mobile-menu--is-animating", `hd-mobile-menu--${animationDirection}`)}>
+        <div className={clsx("hd-mobile-menu", isAnimating && "hd-mobile-menu--is-animating", `hd-mobile-menu--${animationDirection}`)}>
             <div className="hd-mobile-menu__header">
                 <div className="hd-wrapper hd-flex">
                     <Link href="/" className="hd-brand" aria-label="Hopper Brand">

@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import { useEffect, useState } from "react";
-import cx from "classnames";
 
 import "./overlay.css";
 
@@ -30,7 +30,7 @@ const Overlay = ({ isOpen }: OverlayProps) => {
         return null;
     }
 
-    const overlayClassName = cx("hd-overlay", isAnimating && "hd-overlay--is-animating", `hd-overlay--${animationDirection}`);
+    const overlayClassName = clsx("hd-overlay", isAnimating && "hd-overlay--is-animating", `hd-overlay--${animationDirection}`);
 
     return (
         <div className={overlayClassName}></div>

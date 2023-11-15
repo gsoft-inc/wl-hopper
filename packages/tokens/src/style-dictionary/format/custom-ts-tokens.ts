@@ -31,7 +31,6 @@ export const customTsTokens = function ({ dictionary }: { dictionary: Dictionary
     return tokens;
 };
 
-
 function formatTokenFamily(familyName: string, tokens: TransformedToken[], dictionary:Dictionary) {
     const formattedTokens = tokens.map(token => {
         const { name, value } = formatTypeScriptToken(token, dictionary);

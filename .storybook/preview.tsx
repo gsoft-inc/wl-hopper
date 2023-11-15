@@ -1,3 +1,4 @@
+import { HopperProvider } from "@hopper-ui/components";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
@@ -12,7 +13,16 @@ const preview: Preview = {
         designToken: {
             disable: true
         }
-    }
+    },
+    decorators: [
+        Story => {
+            return (
+                <HopperProvider colorScheme="light">
+                    <Story />
+                </HopperProvider>
+            );
+        }
+    ]
 };
 
 export default preview;

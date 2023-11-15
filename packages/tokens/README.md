@@ -29,17 +29,12 @@ npm install -D @hopper-ui/tokens
 
 ## Usage
 
-The tokens are available in the `dist` folder. You can import the tokens in your project by doing:
+View the [user's documentation](https://hopper.workleap.design/).
 
-```css
-@import '@hopper-ui/tokens/tokens.css';
-```
+## 🤝 Contributing
 
-for the dark mode, you can import them by doing:
-```css
-@import '@hopper-ui/tokens/dark/tokens.css';
-```
+View the [contributor's documentation](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md).
 
 ## License
 
-Copyright © 2023, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+Copyright © 2023, Workleap. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/workleap-license/blob/master/LICENSE.

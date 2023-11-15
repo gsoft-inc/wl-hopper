@@ -34,7 +34,7 @@
         "build": "node --loader ts-node/esm src/style-dictionary/build.ts"
     },
     "devDependencies": {
-        "@types/node": "20.8.10",
+        "@types/node": "20.9.0",
         "@workleap/eslint-plugin": "3.0.0",
         "@workleap/tsup-configs": "3.0.1",
         "@workleap/typescript-configs": "3.0.2",

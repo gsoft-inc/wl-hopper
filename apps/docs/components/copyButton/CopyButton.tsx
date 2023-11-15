@@ -1,8 +1,8 @@
 "use client";
 
+import clsx from "clsx";
 import React from "react";
 import { Button } from "react-aria-components";
-import cx from "classnames";
 
 import "./copyButton.css";
 
@@ -25,7 +25,7 @@ const CopyButton = ({ text, size = "medium", isInlined = false, className }: Cop
         }, 5000);
     };
 
-    const classes = cx("hd-copy-button", {
+    const classes = clsx("hd-copy-button", {
         [`hd-copy-button--${size}`]: size !== "medium",
         "hd-copy-button--inlined": isInlined
     }, className);

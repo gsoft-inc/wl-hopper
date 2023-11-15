@@ -1,0 +1,193 @@
+/* PSEUDO | BORDER */
+.hop-b-hover:hover {
+    --hop-b-hover: initial;
+
+    border: var(--hop-b-hover) !important;
+}
+
+.hop-bb-hover:hover {
+    --hop-bb-hover: initial;
+
+    border-bottom: var(--hop-bb-hover) !important;
+}
+
+.hop-bl-hover:hover {
+    --hop-bl-hover: initial;
+
+    border-left: var(--hop-bl-hover) !important;
+}
+
+.hop-br-hover:hover {
+    --hop-br-hover: initial;
+
+    border-right: var(--hop-br-hover) !important;
+}
+
+.hop-bt-hover:hover {
+    --hop-bt-hover: initial;
+
+    border-top: var(--hop-bt-hover) !important;
+}
+
+.hop-b-focus:focus-visible {
+    --hop-b-focus: initial;
+
+    border: var(--hop-b-focus) !important;
+}
+
+.hop-bb-focus:focus-visible {
+    --hop-bb-focus: initial;
+
+    border-bottom: var(--hop-bb-focus) !important;
+}
+
+.hop-bl-focus:focus-visible {
+    --hop-bl-focus: initial;
+
+    border-left: var(--hop-bl-focus) !important;
+}
+
+.hop-br-focus:focus-visible {
+    --hop-br-focus: initial;
+
+    border-right: var(--hop-br-focus) !important;
+}
+
+.hop-bt-focus:focus-visible {
+    --hop-bt-focus: initial;
+
+    border-top: var(--hop-bt-focus) !important;
+}
+
+.hop-b-active:active {
+    --hop-b-active: initial;
+
+    border: var(--hop-b-active) !important;
+}
+
+.hop-bb-active:active {
+    --hop-bb-active: initial;
+
+    border-bottom: var(--hop-bb-active) !important;
+}
+
+.hop-bl-active:active {
+    --hop-bl-active: initial;
+
+    border-left: var(--hop-bl-active) !important;
+}
+
+.hop-br-active:active {
+    --hop-br-active: initial;
+
+    border-right: var(--hop-br-active) !important;
+}
+
+.hop-bt-active:active {
+    --hop-bt-active: initial;
+
+    border-top: var(--hop-bt-active) !important;
+}
+
+/* PSEUDO | BACKGROUND */
+.hop-bg-hover:hover {
+    --hop-bg-hover: initial;
+
+    background-color: var(--hop-bg-hover) !important;
+}
+
+.hop-bg-focus:focus-visible {
+    --hop-bg-focus: initial;
+
+    background-color: var(--hop-bg-focus) !important;
+}
+
+.hop-bg-active:active {
+    --hop-bg-active: initial;
+
+    background-color: var(--hop-bg-active) !important;
+}
+
+/* PSEUDO / BOX-SHADOW */
+.hop-bs-hover:hover {
+    --hop-bs-hover: initial;
+
+    box-shadow: var(--hop-bs-hover) !important;
+}
+
+.hop-bs-focus:focus-visible {
+    --hop-bs-focus: initial;
+
+    box-shadow: var(--hop-bs-focus) !important;
+}
+
+.hop-bs-active:active {
+    --hop-bs-active: initial;
+
+    box-shadow: var(--hop-bs-active) !important;
+}
+
+/* PSEUDO | COLOR */
+.hop-c-hover:hover {
+    --hop-c-hover: initial;
+
+    color: var(--hop-c-hover) !important;
+}
+
+.hop-c-focus:focus-visible {
+    --hop-c-focus: initial;
+
+    color: var(--hop-c-focus) !important;
+}
+
+.hop-c-active:active {
+    --hop-c-active: initial;
+
+    color: var(--hop-c-active) !important;
+}
+
+/* PSEUDO | CURSOR */
+.hop-cs-hover:hover {
+    --hop-cs-hover: initial;
+
+    cursor: var(--hop-cs-hover) !important;
+}
+
+/* PSEUDO | FILL */
+.hop-f-hover:hover {
+    --hop-f-hover: initial;
+
+    fill: var(--hop-f-hover) !important;
+}
+
+.hop-f-focus:focus-visible {
+    --hop-f-focus: initial;
+
+    fill: var(--hop-f-focus) !important;
+}
+
+/* PSEUDO | OPACITY */
+.hop-o-hover:hover {
+    --hop-o-hover: initial;
+
+    opacity: var(--hop-o-hover) !important;
+}
+
+.hop-o-focus:focus-visible {
+    --hop-o-focus: initial;
+
+    opacity: var(--hop-o-focus) !important;
+}
+
+.hop-o-active:active {
+    --hop-o-active: initial;
+
+    opacity: var(--hop-o-active) !important;
+}
+
+/* PSEUDO | OUTLINE */
+.hop-ol-focus:focus-visible {
+    --hop-ol-focus: initial;
+
+    color: var(--hop-ol-focus) !important;
+}
