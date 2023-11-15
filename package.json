@@ -17,7 +17,7 @@
         "doc:start": "pnpm --filter=docs dev",
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
-        "test": "jest",
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
         "build": "pnpm -r build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "build:pkg": "pnpm -r --filter \"{packages/**}\" build ",
