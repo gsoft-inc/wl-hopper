@@ -11,6 +11,7 @@ export function generateIcons(srcDir: string, outputDir: string, fileNameConvert
         const iconFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg")).map(file => {
             const srcPath = path.resolve(file.path, file.name);
             const destFileName = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
+            console.log("icon input", srcPath);
 
             return {
                 srcPath: srcPath,
@@ -31,6 +32,7 @@ export function generateIcons(srcDir: string, outputDir: string, fileNameConvert
                     ...config
                 });
                 writeToFile(iconFile.destPath, data);
+                console.log("icon output", iconFile.destPath);
             });
         });
     });
