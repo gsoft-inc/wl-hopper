@@ -1,4 +1,3 @@
-
 import fs from "fs-extra";
 import path from "path";
 import { optimize } from "svgo";
@@ -7,40 +6,35 @@ import config from "./svgo-config.ts";
 export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
     fs.ensureDirSync(outputDir);
 
-    fs.readdir(srcDir, { recursive: true, withFileTypes: true }, (_, files) => {
-        const iconFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg")).map(file => {
-            const srcPath = path.resolve(file.path, file.name);
-            const destFileName = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
-            console.log("icon input", srcPath);
+    const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
 
-            return {
-                srcPath: srcPath,
-                destPath: destFileName,
-                destFileName
-            };
-        });
+    const iconFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg")).map(file => {
+        const srcPath = path.resolve(file.path, file.name);
+        const destFileName = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
+        console.log("icon input", srcPath);
 
-        // If it's possible to rename a file with the same name, then we need to validate that there are no duplicates
-        if (fileNameConverter) {
-            validateNoNameDuplicate(iconFiles.map(x => x.destFileName));
-        }
-
-        iconFiles.forEach(iconFile => {
-            fs.readFile(iconFile.srcPath, "utf8", (err, contents) => {
-                const { data } = optimize(contents, {
-                    path: iconFile.srcPath,
-                    ...config
-                });
-                writeToFile(iconFile.destPath, data);
-                console.log("icon output", iconFile.destPath);
-            });
-        });
+        return {
+            srcPath: srcPath,
+            destPath: destFileName,
+            destFileName
+        };
     });
-}
 
-function writeToFile(filepath: string, data: string) {
-    const buffer = Buffer.from(data);
-    fs.writeFile(filepath, buffer);
+    // If it's possible to rename a file with the same name, then we need to validate that there are no duplicates
+    if (fileNameConverter) {
+        validateNoNameDuplicate(iconFiles.map(x => x.destFileName));
+    }
+
+    iconFiles.forEach(iconFile => {
+        const contents = fs.readFileSync(iconFile.srcPath, "utf8");
+        const { data } = optimize(contents, {
+            path: iconFile.srcPath,
+            ...config
+        });
+
+        fs.writeFileSync(iconFile.destPath, Buffer.from(data));
+        console.log("icon output", iconFile.destPath);
+    });
 }
 
 function validateNoNameDuplicate(names: string[]) {
