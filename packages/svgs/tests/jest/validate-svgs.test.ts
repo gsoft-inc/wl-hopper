@@ -1,29 +1,34 @@
+import { readdirSync, readFileSync } from "fs";
 import { select, selectAll } from "hast-util-select";
-import path, { dirname } from "path";
+import path from "path";
 import parse from "rehype-parse";
 import { unified } from "unified";
 import { fileURLToPath } from "url";
 import { IconSizes, IconsSourceDirectory } from "../../scripts/constants.ts";
-import { loadIcons } from "../../scripts/load-icons.ts";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const iconsFolderPath = path.resolve(__dirname, `../../${IconsSourceDirectory}`);
+const iconsSrcPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), `../../${IconsSourceDirectory}`);
 
-const allIcons = await loadIcons(iconsFolderPath);
+const allIconsContent = IconSizes.flatMap(size => {
+    return readdirSync(`${iconsSrcPath}/${size}px`, { recursive: true, withFileTypes: true })
+        .filter(file => file.isFile() && file.name.endsWith(".svg"))
+        .map(file => {
+            return {
+                name: file.name,
+                size,
+                content: readFileSync(path.resolve(file.path, file.name), "utf8")
+            };
+        });
+});
 
-const dataGroupedBySize = allIcons.reduce((acc, curr) => {
-    const group = curr.group;
-    if (!acc[group]) {
-        acc[group] = [];
+const dataGroupedBySize = allIconsContent.reduce((acc, icon) => {
+    if (!acc[icon.size]) {
+        acc[icon.size] = [icon.name];
+    } else {
+        acc[icon.size].push(icon.name);
     }
-    acc[group].push(curr);
 
     return acc;
-}, {} as Record<number, typeof allIcons>);
-
-test("has to correct groups assigned", () => {
-    expect(Object.keys(dataGroupedBySize).map(x => Number(x))).toStrictEqual(IconSizes);
-});
+}, {} as Record<typeof IconSizes[number], string[]>);
 
 test("has the same amount of icons in each folder", () => {
     const amountOfIcons = Object.values(dataGroupedBySize).map(group => group.length);
@@ -38,16 +43,16 @@ test("has the same name in all folder", () => {
     Object.values(dataGroupedBySize)
         .slice(1)
         .forEach(group => {
-            const firstGroup = Object.values(dataGroupedBySize)[0].map(icon => icon.name);
-            const otherGroup = group.map(icon => icon.name);
+            const firstGroup = Object.values(dataGroupedBySize)[0].map(icon => icon);
+            const otherGroup = group.map(icon => icon);
 
             expect(otherGroup).toStrictEqual(firstGroup);
         });
 });
 
-allIcons.forEach(icon => {
-    describe(`SVG Contents: ${icon.name} ${icon.group}px`, () => {
-        const expectedSize = icon.group.toString();
+allIconsContent.forEach(icon => {
+    describe(`SVG Contents: ${icon.name} ${icon.size}px`, () => {
+        const expectedSize = icon.size.toString();
         const expectedViewbox = `0 0 ${expectedSize} ${expectedSize}`;
         const iconAst = unified().use(parse, { fragment: true, space: "svg" }).parse(icon.content);
 
