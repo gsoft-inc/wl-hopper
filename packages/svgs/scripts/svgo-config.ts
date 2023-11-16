@@ -1,4 +1,5 @@
 import type { Config } from "svgo";
+import { NeutralIconColor } from "./constants.ts";
 
 const config: Config = {
     multipass: true,
@@ -17,7 +18,7 @@ const config: Config = {
                      * with the currentColor value. This allows us to change the color of the icon with the color CSS property.
                      */
                     convertColors: {
-                        currentColor: "#3C3C3C"
+                        currentColor: NeutralIconColor
                     }
 
                 }

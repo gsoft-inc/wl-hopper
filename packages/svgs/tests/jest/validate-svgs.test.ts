@@ -4,7 +4,7 @@ import path from "path";
 import parse from "rehype-parse";
 import { unified } from "unified";
 import { fileURLToPath } from "url";
-import { IconSizes, IconsSourceDirectory } from "../../scripts/constants.ts";
+import { IconSizes, IconsSourceDirectory, NeutralIconColor, PrimaryIconColor } from "../../scripts/constants.ts";
 
 const iconsSrcPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), `../../${IconsSourceDirectory}`);
 
@@ -93,13 +93,13 @@ allIconsContent.forEach(icon => {
                 "path[stroke], circle[stroke], polygon[stroke], rect[stroke]",
                 iconAst
             );
-    
+
             expect(nodeSources(nodesWithUndefinedFill, icon.content)).toStrictEqual(
                 []
             );
         });
 
-        const expectedFillColors = ["#3C3C3C", "#3B57FF", "none"];
+        const expectedFillColors = [NeutralIconColor, PrimaryIconColor, "none"];
 
         const expectedFillsString = expectedFillColors.join(",");
 
@@ -113,7 +113,7 @@ allIconsContent.forEach(icon => {
                     return false;
                 }
             );
-  
+
             expect(nodeSources(nodesWithInvalidFill, icon.content)).toStrictEqual(
                 []
             );
