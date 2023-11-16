@@ -21,6 +21,7 @@
         "build": "pnpm -r build ",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "build:pkg": "pnpm -r --filter \"{packages/**}\" build ",
+        "clear-cache": "pnpm dlx rimraf node_modules/.cache ",
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",
         "lint": "pnpm run \"/^lint:.*/\" && pnpm run typecheck",
