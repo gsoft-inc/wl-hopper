@@ -7,7 +7,7 @@ export function generateIcons(srcDir: string, outputDir: string, fileNameConvert
     fs.ensureDirSync(outputDir);
 
     const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
-
+    console.log("files", files);
     const iconFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg")).map(file => {
         const srcPath = path.resolve(file.path, file.name);
         const destFileName = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
