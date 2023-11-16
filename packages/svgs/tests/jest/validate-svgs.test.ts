@@ -112,11 +112,7 @@ allIconsContent.forEach(icon => {
         it(`has no nodes that use fill colors other than [${expectedFillsString}]`, () => {
             const nodesWithInvalidFill = selectAll("[fill]", iconAst).filter(
                 node => {
-                    if (node.properties.fill) {
-                        return !expectedFillColors.includes(node.properties.fill.toString());
-                    }
-
-                    return false;
+                    return node.properties.fill && !expectedFillColors.includes(node.properties.fill.toString());
                 }
             );
 
@@ -126,7 +122,6 @@ allIconsContent.forEach(icon => {
         });
     });
 });
-
 
 function nodeSources(nodes: ReturnType<typeof selectAll>, iconSource: string) {
     return nodes.map(node =>
