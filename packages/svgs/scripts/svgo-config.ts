@@ -7,14 +7,47 @@ const config: Config = {
             name: "preset-default",
             params: {
                 overrides: {
-                    removeViewBox: false
+                    /**
+                     * viewBox is needed in order to produce 20px by 20px containers
+                     * with smaller icons inside.
+                    */
+                    removeViewBox: false,
+                    /**
+                     * Some of our icons have multiple fill colors. We want to keep them, but replace the main icon color
+                     * with the currentColor value. This allows us to change the color of the icon with the color CSS property.
+                     */
+                    convertColors: {
+                        currentColor: "#3C3C3C"
+                    }
+
                 }
             }
         },
+        /**
+         * Converts presentation attributes in element styles to the equvilent XML attribute.
+         * Presentation attributes can be used in both attributes and styles, but in most cases it'll take fewer bytes to use attributes
+         */
         { name: "convertStyleToAttrs" },
-        { name: "sortAttrs" },
+        /**
+         * Remove all <style> elements from the document.
+         */
         { name: "removeStyleElement" },
+        /**
+         * Sorts attributes in all elements in the document. This does not reduce the size of the SVG, but improves readability
+         */
+        { name: "sortAttrs" },
+        /**
+         * SVGs can be interactive through JavaScript.
+         * However, unless the SVG is coming from a trusted source, it's strongly advised to strip off JavaScript to avoid XSS attacks.
+         *
+         * Since we're not using JavaScript in our SVGs, we can safely remove the script element.
+         */
         { name: "removeScriptElement" },
+        /**
+         * Removes the clip-rule attribute from all elements.
+         * In the unit tests, we make sure that there is no clipPath in our svgs. Yet for some reason
+         * clip-rule are in almost all of our svgs. So to save some extra bytes, we remove them.
+         */
         {
             name: "removeAttrs",
             params: {
