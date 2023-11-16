@@ -7,18 +7,20 @@ const config: Config = {
             name: "preset-default",
             params: {
                 overrides: {
-                    removeViewBox: false,
-                    convertColors: {
-                        currentColor: true
-                    }
+                    removeViewBox: false
                 }
             }
         },
         { name: "convertStyleToAttrs" },
         { name: "sortAttrs" },
-        { name: "removeXMLNS" },
         { name: "removeStyleElement" },
-        { name: "removeScriptElement" }
+        { name: "removeScriptElement" },
+        {
+            name: "removeAttrs",
+            params: {
+                attrs: "clip-rule"
+            }
+        }
     ]
 };
 

@@ -56,6 +56,13 @@ allIconsContent.forEach(icon => {
         const expectedViewbox = `0 0 ${expectedSize} ${expectedSize}`;
         const iconAst = unified().use(parse, { fragment: true, space: "svg" }).parse(icon.content);
 
+        it("only has the expected root attributes", () => {
+            const properties = Object.keys(
+                select(":root", iconAst)?.properties ?? {}
+            ).sort();
+            expect(properties).toStrictEqual(["viewBox", "xmlns", "fill", "width", "height"].sort());
+        });
+
         it(`has a viewbox of ${expectedViewbox}`, () => {
             const viewBox = select(":root", iconAst)?.properties.viewBox;
             expect(viewBox).toStrictEqual(expectedViewbox);
@@ -79,6 +86,30 @@ allIconsContent.forEach(icon => {
             const groupNodes = selectAll("g, mask, clipPath", iconAst);
 
             expect(nodeSources(groupNodes, icon.content)).toStrictEqual([]);
+        });
+
+        it("does not have <path>s, <polygon>s, <circle>s and <rect>s with a stroke", () => {
+            const nodesWithUndefinedFill = selectAll(
+                "path[stroke], circle[stroke], polygon[stroke], rect[stroke]",
+                iconAst
+            );
+    
+            expect(nodeSources(nodesWithUndefinedFill, icon.content)).toStrictEqual(
+                []
+            );
+        });
+
+        it("only has <path>s, <polygon>s, <circle>s and <rect>s with allowed fill colors", () => {
+            const allowedColor1 = "#3C3C3C";
+            const allowedColor2 = "#3B57FF";
+            const nodesWithInvalidFill = selectAll(
+                `path[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"]), circle[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"]), polygon[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"]), rect[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"])`,
+                iconAst
+            );
+    
+            expect(nodeSources(nodesWithInvalidFill, icon.content)).toStrictEqual(
+                []
+            );
         });
     });
 });
