@@ -99,14 +99,21 @@ allIconsContent.forEach(icon => {
             );
         });
 
-        it("only has <path>s, <polygon>s, <circle>s and <rect>s with allowed fill colors", () => {
-            const allowedColor1 = "#3C3C3C";
-            const allowedColor2 = "#3B57FF";
-            const nodesWithInvalidFill = selectAll(
-                `path[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"]), circle[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"]), polygon[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"]), rect[fill]:not([fill="${allowedColor1}"]):not([fill="${allowedColor2}"])`,
-                iconAst
+        const expectedFillColors = ["#3C3C3C", "#3B57FF", "none"];
+
+        const expectedFillsString = expectedFillColors.join(",");
+
+        it(`has no nodes that use fill colors other than [${expectedFillsString}]`, () => {
+            const nodesWithInvalidFill = selectAll("[fill]", iconAst).filter(
+                node => {
+                    if (node.properties.fill) {
+                        return !expectedFillColors.includes(node.properties.fill.toString());
+                    }
+
+                    return false;
+                }
             );
-    
+  
             expect(nodeSources(nodesWithInvalidFill, icon.content)).toStrictEqual(
                 []
             );

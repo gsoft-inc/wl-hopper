@@ -24,7 +24,7 @@ const config: Config = {
             }
         },
         /**
-         * Converts presentation attributes in element styles to the equvilent XML attribute.
+         * Converts presentation attributes in element styles to the equivalent XML attribute.
          * Presentation attributes can be used in both attributes and styles, but in most cases it'll take fewer bytes to use attributes
          */
         { name: "convertStyleToAttrs" },
