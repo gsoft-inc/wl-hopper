@@ -1,28 +1,36 @@
-import fs from "fs-extra";
+import fs from "fs";
 import path from "path";
 import { optimize } from "svgo";
 import config from "./svgo-config.ts";
 
-export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
-    fs.ensureDirSync(outputDir);
+function ensureDirSync(dir: string) {
+    if(!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+}
 
+export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
+    ensureDirSync(outputDir);
+
+    // This line requires Node.js 20.5.2 or higher to execute properly
+    // https://github.com/nodejs/node/issues/48858
     const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
-    console.log("files", files);
-    const iconFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg")).map(file => {
+
+    const svgFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg"));
+
+    const iconFiles = svgFiles.map(file => {
         const srcPath = path.resolve(file.path, file.name);
-        const destFileName = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
-        console.log("icon input", srcPath);
+        const dstPath = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
 
         return {
             srcPath: srcPath,
-            destPath: destFileName,
-            destFileName
+            dstPath
         };
     });
 
     // If it's possible to rename a file with the same name, then we need to validate that there are no duplicates
     if (fileNameConverter) {
-        validateNoNameDuplicate(iconFiles.map(x => x.destFileName));
+        validateNoNameDuplicate(iconFiles.map(x => x.dstPath));
     }
 
     iconFiles.forEach(iconFile => {
@@ -32,22 +40,23 @@ export function generateIcons(srcDir: string, outputDir: string, fileNameConvert
             ...config
         });
 
-        fs.writeFileSync(iconFile.destPath, Buffer.from(data));
-        console.log("icon output", iconFile.destPath);
+        fs.writeFileSync(iconFile.dstPath, Buffer.from(data));
     });
 }
 
 function validateNoNameDuplicate(names: string[]) {
-    const uniqueNames = new Set(names);
-    if (names.length !== uniqueNames.size) {
-        names.reduce((acc, name) => {
-            if (acc.has(name)) {
-                throw new Error(`Duplicate icon name detected: ${name}`);
-            } else {
-                acc.add(name);
-            }
+    const duplicateNames: string[] = [];
+    const nameSet = new Set<string>();
 
-            return acc;
-        }, new Set<string>());
+    for (const name of names) {
+        if (nameSet.has(name)) {
+            duplicateNames.push(name);
+        } else {
+            nameSet.add(name);
+        }
+    }
+
+    if (duplicateNames.length > 0) {
+        throw new Error(`Duplicate icon names detected: ${duplicateNames.join(', ')}`);
     }
 }
