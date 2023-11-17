@@ -5,7 +5,7 @@ import config from "./svgo-config.ts";
 
 function ensureDirSync(dir: string) {
     if(!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
+        fs.mkdirSync(dir, {recursive: true});
     }
 }
 
