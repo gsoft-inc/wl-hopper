@@ -24,12 +24,12 @@ function fileNameConverter(filePath: string) {
     return `${kebabCaseName}-${size}.svg`;
 }
 
-async function main() {
+function main() {
     console.time("The optimization toke");
     console.log("⚙️  Optimizing icons...\n");
 
     try {
-        await generateIcons(IconsSourceDirectory, IconsDistDirectory, fileNameConverter);
+        generateIcons(IconsSourceDirectory, IconsDistDirectory, fileNameConverter);
         console.log("✨ The icons have been optimized!\n");
     } catch (error) {
         console.error("❌ Error during icon optimization:", error);

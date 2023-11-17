@@ -1,12 +1,18 @@
-import fs from "fs-extra";
+import fs from "fs";
 import path from "path";
 import { optimize } from "svgo";
 import config from "./svgo-config.ts";
 
-export async function  generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
-    await fs.ensureDir(outputDir);
+function ensureDirSync(dir: string) {
+    if(!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+}
 
-    const files = await fs.readdir(srcDir, { recursive: true, withFileTypes: true });
+export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
+    ensureDirSync(outputDir);
+
+    const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
     const svgFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg"));
     console.log("files", files.map(x => x.name), svgFiles.map(x => x.name));
 
@@ -34,7 +40,7 @@ export async function  generateIcons(srcDir: string, outputDir: string, fileName
             ...config
         });
 
-        await fs.writeFile(iconFile.destPath, Buffer.from(data));
+        fs.writeFileSync(iconFile.destPath, data);
         console.log("icon output", iconFile.destPath);
     }
 }
