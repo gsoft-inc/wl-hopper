@@ -4,7 +4,7 @@ import { optimize } from "svgo";
 import config from "./svgo-config.ts";
 
 function ensureDirSync(dir: string) {
-    if(!fs.existsSync(dir)) {
+    if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
 }
@@ -57,6 +57,6 @@ function validateNoNameDuplicate(names: string[]) {
     }
 
     if (duplicateNames.length > 0) {
-        throw new Error(`Duplicate icon names detected: ${duplicateNames.join(', ')}`);
+        throw new Error(`Duplicate icon names detected: ${duplicateNames.join(", ")}`);
     }
 }
