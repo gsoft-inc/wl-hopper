@@ -103,13 +103,13 @@ importers:
         version: 2.0.0
       contentlayer:
         specifier: 0.3.4
-        version: 0.3.4(esbuild@0.18.17)
+        version: 0.3.4(esbuild@0.18.20)
       next:
         specifier: 14.0.2
         version: 14.0.2(@babel/core@7.22.9)(@opentelemetry/api@1.6.0)(react-dom@18.2.0)(react@18.2.0)
       next-contentlayer:
         specifier: 0.3.4
-        version: 0.3.4(contentlayer@0.3.4)(esbuild@0.18.17)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)
+        version: 0.3.4(contentlayer@0.3.4)(esbuild@0.18.20)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -149,7 +149,7 @@ importers:
         version: 7.5.3(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/nextjs':
         specifier: 7.5.3
-        version: 7.5.3(@swc/core@1.3.96)(@types/react-dom@18.2.15)(@types/react@18.2.37)(esbuild@0.18.17)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(webpack@5.88.2)
+        version: 7.5.3(@swc/core@1.3.96)(@types/react-dom@18.2.15)(@types/react@18.2.37)(esbuild@0.18.20)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(webpack@5.88.2)
       '@storybook/react':
         specifier: 7.5.3
         version: 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
@@ -395,6 +395,9 @@ importers:
       svgo:
         specifier: ^3.0.3
         version: 3.0.3
+      ts-node:
+        specifier: 10.9.1
+        version: 10.9.1(@swc/core@1.3.96)(@types/node@20.9.0)(typescript@5.2.2)
       tsx:
         specifier: 4.1.2
         version: 4.1.2
@@ -2074,10 +2077,10 @@ packages:
     dev: true
     optional: true
 
-  /@contentlayer/cli@0.3.4(esbuild@0.18.17):
+  /@contentlayer/cli@0.3.4(esbuild@0.18.20):
     resolution: {integrity: sha512-vNDwgLuhYNu+m70NZ3XK9kexKNguuxPXg7Yvzj3B34cEilQjjzSrcTY/i+AIQm9V7uT5GGshx9ukzPf+SmoszQ==}
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.17)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.20)
       '@contentlayer/utils': 0.3.4
       clipanion: 3.2.1(typanion@3.13.0)
       typanion: 3.13.0
@@ -2088,10 +2091,10 @@ packages:
       - supports-color
     dev: false
 
-  /@contentlayer/client@0.3.4(esbuild@0.18.17):
+  /@contentlayer/client@0.3.4(esbuild@0.18.20):
     resolution: {integrity: sha512-QSlLyc3y4PtdC5lFw0L4wTZUH8BQnv2nk37hNCsPAqGf+dRO7TLAzdc+2/mVIRgK+vSH+pSOzjLsQpFxxXRTZA==}
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.17)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.20)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild
@@ -2099,7 +2102,7 @@ packages:
       - supports-color
     dev: false
 
-  /@contentlayer/core@0.3.4(esbuild@0.18.17):
+  /@contentlayer/core@0.3.4(esbuild@0.18.20):
     resolution: {integrity: sha512-o68oBLwfYZ+2vtgfk1lgHxOl3LoxvRNiUfeQ8IWFWy/L4wnIkKIqLZX01zlRE5IzYM+ZMMN5V0cKQlO7DsyR9g==}
     peerDependencies:
       esbuild: 0.17.x || 0.18.x
@@ -2113,9 +2116,9 @@ packages:
       '@contentlayer/utils': 0.3.4
       camel-case: 4.1.2
       comment-json: 4.2.3
-      esbuild: 0.18.17
+      esbuild: 0.18.20
       gray-matter: 4.0.3
-      mdx-bundler: 9.2.1(esbuild@0.18.17)
+      mdx-bundler: 9.2.1(esbuild@0.18.20)
       rehype-stringify: 9.0.3
       remark-frontmatter: 4.0.1
       remark-parse: 10.0.2
@@ -2128,10 +2131,10 @@ packages:
       - supports-color
     dev: false
 
-  /@contentlayer/source-files@0.3.4(esbuild@0.18.17):
+  /@contentlayer/source-files@0.3.4(esbuild@0.18.20):
     resolution: {integrity: sha512-4njyn0OFPu7WY4tAjMxiJgWOKeiHuBOGdQ36EYE03iij/pPPRbiWbL+cmLccYXUFEW58mDwpqROZZm6pnxjRDQ==}
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.17)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.20)
       '@contentlayer/utils': 0.3.4
       chokidar: 3.5.3
       fast-glob: 3.3.1
@@ -2149,11 +2152,11 @@ packages:
       - supports-color
     dev: false
 
-  /@contentlayer/source-remote-files@0.3.4(esbuild@0.18.17):
+  /@contentlayer/source-remote-files@0.3.4(esbuild@0.18.20):
     resolution: {integrity: sha512-cyiv4sNUySZvR0uAKlM+kSAELzNd2h2QT1R2e41dRKbwOUVxeLfmGiLugr0aVac6Q3xYcD99dbHyR1xWPV+w9w==}
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.17)
-      '@contentlayer/source-files': 0.3.4(esbuild@0.18.17)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.20)
+      '@contentlayer/source-files': 0.3.4(esbuild@0.18.20)
       '@contentlayer/utils': 0.3.4
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
@@ -2307,14 +2310,14 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@esbuild-plugins/node-resolve@0.1.4(esbuild@0.18.17):
+  /@esbuild-plugins/node-resolve@0.1.4(esbuild@0.18.20):
     resolution: {integrity: sha512-haFQ0qhxEpqtWWY0kx1Y5oE3sMyO1PcoSiWEPrAw6tm/ZOOLXjSs6Q+v1v9eyuVF0nNt50YEvrcrvENmyoMv5g==}
     peerDependencies:
       esbuild: '*'
     dependencies:
       '@types/resolve': 1.20.2
       debug: 4.3.4
-      esbuild: 0.18.17
+      esbuild: 0.18.20
       escape-string-regexp: 4.0.0
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -2327,6 +2330,7 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/android-arm64@0.18.20:
@@ -2335,7 +2339,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/android-arm@0.18.17:
@@ -2344,6 +2347,7 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/android-arm@0.18.20:
@@ -2352,7 +2356,6 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/android-x64@0.18.17:
@@ -2361,6 +2364,7 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/android-x64@0.18.20:
@@ -2369,7 +2373,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/darwin-arm64@0.18.17:
@@ -2378,6 +2381,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/darwin-arm64@0.18.20:
@@ -2386,7 +2390,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/darwin-x64@0.18.17:
@@ -2395,6 +2398,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/darwin-x64@0.18.20:
@@ -2403,7 +2407,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/freebsd-arm64@0.18.17:
@@ -2412,6 +2415,7 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/freebsd-arm64@0.18.20:
@@ -2420,7 +2424,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/freebsd-x64@0.18.17:
@@ -2429,6 +2432,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/freebsd-x64@0.18.20:
@@ -2437,7 +2441,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-arm64@0.18.17:
@@ -2446,6 +2449,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-arm64@0.18.20:
@@ -2454,7 +2458,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-arm@0.18.17:
@@ -2463,6 +2466,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-arm@0.18.20:
@@ -2471,7 +2475,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-ia32@0.18.17:
@@ -2480,6 +2483,7 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-ia32@0.18.20:
@@ -2488,7 +2492,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-loong64@0.18.17:
@@ -2497,6 +2500,7 @@ packages:
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-loong64@0.18.20:
@@ -2505,7 +2509,6 @@ packages:
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-mips64el@0.18.17:
@@ -2514,6 +2517,7 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-mips64el@0.18.20:
@@ -2522,7 +2526,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-ppc64@0.18.17:
@@ -2531,6 +2534,7 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-ppc64@0.18.20:
@@ -2539,7 +2543,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-riscv64@0.18.17:
@@ -2548,6 +2551,7 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-riscv64@0.18.20:
@@ -2556,7 +2560,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-s390x@0.18.17:
@@ -2565,6 +2568,7 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-s390x@0.18.20:
@@ -2573,7 +2577,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-x64@0.18.17:
@@ -2582,6 +2585,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/linux-x64@0.18.20:
@@ -2590,7 +2594,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/netbsd-x64@0.18.17:
@@ -2599,6 +2602,7 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/netbsd-x64@0.18.20:
@@ -2607,7 +2611,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/openbsd-x64@0.18.17:
@@ -2616,6 +2619,7 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/openbsd-x64@0.18.20:
@@ -2624,7 +2628,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/sunos-x64@0.18.17:
@@ -2633,6 +2636,7 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/sunos-x64@0.18.20:
@@ -2641,7 +2645,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-arm64@0.18.17:
@@ -2650,6 +2653,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/win32-arm64@0.18.20:
@@ -2658,7 +2662,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-ia32@0.18.17:
@@ -2667,6 +2670,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/win32-ia32@0.18.20:
@@ -2675,7 +2679,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-x64@0.18.17:
@@ -2684,6 +2687,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /@esbuild/win32-x64@0.18.20:
@@ -2692,7 +2696,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.53.0):
@@ -3227,13 +3230,13 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
-  /@mdx-js/esbuild@2.3.0(esbuild@0.18.17):
+  /@mdx-js/esbuild@2.3.0(esbuild@0.18.20):
     resolution: {integrity: sha512-r/vsqsM0E+U4Wr0DK+0EfmABE/eg+8ITW4DjvYdh3ve/tK2safaqHArNnaqbOk1DjYGrhxtoXoGaM3BY8fGBTA==}
     peerDependencies:
       esbuild: '>=0.11.0'
     dependencies:
       '@mdx-js/mdx': 2.3.0
-      esbuild: 0.18.17
+      esbuild: 0.18.20
       node-fetch: 3.3.2
       vfile: 5.3.7
     transitivePeerDependencies:
@@ -4136,7 +4139,7 @@ packages:
       react-refresh: 0.11.0
       schema-utils: 3.3.0
       source-map: 0.7.4
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /@protobufjs/aspromise@1.1.2:
@@ -6451,7 +6454,7 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/builder-webpack5@7.5.3(esbuild@0.18.17)(typescript@5.2.2):
+  /@storybook/builder-webpack5@7.5.3(esbuild@0.18.20)(typescript@5.2.2):
     resolution: {integrity: sha512-a2kHXFT61AV1+OPNTqXCsYk7Wk4XSqjAOQkSxWc1HK+kyMT+lahO4U06slji6XAVuXc/KY+naNUoaOfpB1hKVw==}
     peerDependencies:
       typescript: '*'
@@ -6486,13 +6489,13 @@ packages:
       semver: 7.5.4
       style-loader: 3.3.3(webpack@5.88.2)
       swc-loader: 0.2.3(@swc/core@1.3.96)(webpack@5.88.2)
-      terser-webpack-plugin: 5.3.9(@swc/core@1.3.96)(esbuild@0.18.17)(webpack@5.88.2)
+      terser-webpack-plugin: 5.3.9(@swc/core@1.3.96)(esbuild@0.18.20)(webpack@5.88.2)
       ts-dedent: 2.2.0
       typescript: 5.2.2
       url: 0.11.1
       util: 0.12.5
       util-deprecate: 1.0.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
       webpack-dev-middleware: 6.1.1(webpack@5.88.2)
       webpack-hot-middleware: 2.25.4
       webpack-virtual-modules: 0.5.0
@@ -6828,7 +6831,7 @@ packages:
     resolution: {integrity: sha512-TXJJd5RAKakWx4BtpwvSNdgTDkKM6RkXU8GK34S/LhidQ5Pjz3wcnqb0TxEkfhK/ztbP8nKHqXFwLfa2CYkvQw==}
     dev: true
 
-  /@storybook/nextjs@7.5.3(@swc/core@1.3.96)(@types/react-dom@18.2.15)(@types/react@18.2.37)(esbuild@0.18.17)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(webpack@5.88.2):
+  /@storybook/nextjs@7.5.3(@swc/core@1.3.96)(@types/react-dom@18.2.15)(@types/react@18.2.37)(esbuild@0.18.20)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(webpack@5.88.2):
     resolution: {integrity: sha512-PYi9AJga6x46IN4aub9CuiKNF9mT3maTh1F9dXqE4kO+ZrbesiKcJ3Uud0D78c56/Jlr8FmHEDpO19OlgRM4kQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -6862,11 +6865,11 @@ packages:
       '@babel/preset-typescript': 7.22.5(@babel/core@7.22.9)
       '@babel/runtime': 7.22.6
       '@storybook/addon-actions': 7.5.3(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/builder-webpack5': 7.5.3(esbuild@0.18.17)(typescript@5.2.2)
+      '@storybook/builder-webpack5': 7.5.3(esbuild@0.18.20)(typescript@5.2.2)
       '@storybook/core-common': 7.5.3
       '@storybook/core-events': 7.5.3
       '@storybook/node-logger': 7.5.3
-      '@storybook/preset-react-webpack': 7.5.3(@babel/core@7.22.9)(@swc/core@1.3.96)(esbuild@0.18.17)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      '@storybook/preset-react-webpack': 7.5.3(@babel/core@7.22.9)(@swc/core@1.3.96)(esbuild@0.18.20)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
       '@storybook/preview-api': 7.5.3
       '@storybook/react': 7.5.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
       '@types/node': 18.15.11
@@ -6891,7 +6894,7 @@ packages:
       tsconfig-paths: 4.2.0
       tsconfig-paths-webpack-plugin: 4.1.0
       typescript: 5.2.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -6923,7 +6926,7 @@ packages:
     resolution: {integrity: sha512-r+H3xGMu2A9yOSsygc3bDFhku8wpOZF3SqO19B7eAML12viHwUtYfyGL74svw4TMcKukyQ+KPn5QsSG+4bjZMg==}
     dev: true
 
-  /@storybook/preset-react-webpack@7.5.3(@babel/core@7.22.9)(@swc/core@1.3.96)(esbuild@0.18.17)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
+  /@storybook/preset-react-webpack@7.5.3(@babel/core@7.22.9)(@swc/core@1.3.96)(esbuild@0.18.20)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
     resolution: {integrity: sha512-/3Zsh97KpMLsx3lkkQ9LAlEVWwBGbAJTwE+ueVxVnAJgwiDCVe95IN7sVpKuwN/PVStnMRwDADUvZPfmw4m3Sg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -6956,7 +6959,7 @@ packages:
       react-refresh: 0.11.0
       semver: 7.5.4
       typescript: 5.2.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     transitivePeerDependencies:
       - '@swc/core'
       - '@types/webpack'
@@ -7009,7 +7012,7 @@ packages:
       react-docgen-typescript: 2.2.2(typescript@5.2.2)
       tslib: 2.6.1
       typescript: 5.2.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8905,7 +8908,7 @@ packages:
       '@babel/core': 7.22.9
       find-cache-dir: 4.0.0
       schema-utils: 4.2.0
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /babel-plugin-add-react-displayname@0.0.5:
@@ -9465,7 +9468,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
 
   /chownr@1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
@@ -9800,17 +9803,17 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /contentlayer@0.3.4(esbuild@0.18.17):
+  /contentlayer@0.3.4(esbuild@0.18.20):
     resolution: {integrity: sha512-FYDdTUFaN4yqep0waswrhcXjmMJnPD5iXDTtxcUCGdklfuIrXM2xLx51xl748cHmGA6IsC+27YZFxU6Ym13QIA==}
     engines: {node: '>=14.18'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@contentlayer/cli': 0.3.4(esbuild@0.18.17)
-      '@contentlayer/client': 0.3.4(esbuild@0.18.17)
-      '@contentlayer/core': 0.3.4(esbuild@0.18.17)
-      '@contentlayer/source-files': 0.3.4(esbuild@0.18.17)
-      '@contentlayer/source-remote-files': 0.3.4(esbuild@0.18.17)
+      '@contentlayer/cli': 0.3.4(esbuild@0.18.20)
+      '@contentlayer/client': 0.3.4(esbuild@0.18.20)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.20)
+      '@contentlayer/source-files': 0.3.4(esbuild@0.18.20)
+      '@contentlayer/source-remote-files': 0.3.4(esbuild@0.18.20)
       '@contentlayer/utils': 0.3.4
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
@@ -9990,7 +9993,7 @@ packages:
       postcss-modules-values: 4.0.0(postcss@8.4.31)
       postcss-value-parser: 4.2.0
       semver: 7.5.4
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /css-select@4.3.0:
@@ -10813,6 +10816,7 @@ packages:
       '@esbuild/win32-arm64': 0.18.17
       '@esbuild/win32-ia32': 0.18.17
       '@esbuild/win32-x64': 0.18.17
+    dev: true
 
   /esbuild@0.18.20:
     resolution: {integrity: sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==}
@@ -10842,7 +10846,6 @@ packages:
       '@esbuild/win32-arm64': 0.18.20
       '@esbuild/win32-ia32': 0.18.20
       '@esbuild/win32-x64': 0.18.20
-    dev: true
 
   /escalade@3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -11762,7 +11765,7 @@ packages:
       semver: 7.5.4
       tapable: 2.2.1
       typescript: 5.2.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /form-data@3.0.1:
@@ -11858,19 +11861,11 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    optional: true
-
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind@1.1.1:
@@ -12588,7 +12583,7 @@ packages:
       lodash: 4.17.21
       pretty-error: 4.0.0
       tapable: 2.2.1
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /htmlparser2@6.1.0:
@@ -13535,7 +13530,7 @@ packages:
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /jest-leak-detector@29.7.0:
@@ -14579,17 +14574,17 @@ packages:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
     dev: true
 
-  /mdx-bundler@9.2.1(esbuild@0.18.17):
+  /mdx-bundler@9.2.1(esbuild@0.18.20):
     resolution: {integrity: sha512-hWEEip1KU9MCNqeH2rqwzAZ1pdqPPbfkx9OTJjADqGPQz4t9BO85fhI7AP9gVYrpmfArf9/xJZUN0yBErg/G/Q==}
     engines: {node: '>=14', npm: '>=6'}
     peerDependencies:
       esbuild: 0.*
     dependencies:
       '@babel/runtime': 7.22.6
-      '@esbuild-plugins/node-resolve': 0.1.4(esbuild@0.18.17)
+      '@esbuild-plugins/node-resolve': 0.1.4(esbuild@0.18.20)
       '@fal-works/esbuild-plugin-global-externals': 2.1.2
-      '@mdx-js/esbuild': 2.3.0(esbuild@0.18.17)
-      esbuild: 0.18.17
+      '@mdx-js/esbuild': 2.3.0(esbuild@0.18.20)
+      esbuild: 0.18.20
       gray-matter: 4.0.3
       remark-frontmatter: 4.0.1
       remark-mdx-frontmatter: 1.1.1
@@ -15233,7 +15228,7 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
-  /next-contentlayer@0.3.4(contentlayer@0.3.4)(esbuild@0.18.17)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0):
+  /next-contentlayer@0.3.4(contentlayer@0.3.4)(esbuild@0.18.20)(next@14.0.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-UtUCwgAl159KwfhNaOwyiI7Lg6sdioyKMeh+E7jxx0CJ29JuXGxBEYmCI6+72NxFGIFZKx8lvttbbQhbnYWYSw==}
     peerDependencies:
       contentlayer: 0.3.4
@@ -15241,9 +15236,9 @@ packages:
       react: '*'
       react-dom: '*'
     dependencies:
-      '@contentlayer/core': 0.3.4(esbuild@0.18.17)
+      '@contentlayer/core': 0.3.4(esbuild@0.18.20)
       '@contentlayer/utils': 0.3.4
-      contentlayer: 0.3.4(esbuild@0.18.17)
+      contentlayer: 0.3.4(esbuild@0.18.20)
       next: 14.0.2(@babel/core@7.22.9)(@opentelemetry/api@1.6.0)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -15399,7 +15394,7 @@ packages:
       url: 0.11.1
       util: 0.12.5
       vm-browserify: 1.1.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /node-releases@2.0.13:
@@ -16049,7 +16044,7 @@ packages:
       jiti: 1.20.0
       postcss: 8.4.31
       semver: 7.5.4
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /postcss-modules-extract-imports@3.0.0(postcss@8.4.31):
@@ -17240,7 +17235,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /run-applescript@5.0.0:
@@ -17322,7 +17317,7 @@ packages:
     dependencies:
       klona: 2.0.6
       neo-async: 2.6.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /saxes@6.0.0:
@@ -17927,7 +17922,7 @@ packages:
     peerDependencies:
       webpack: ^5.0.0
     dependencies:
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /style-search@0.1.0:
@@ -18114,7 +18109,7 @@ packages:
       webpack: '>=2'
     dependencies:
       '@swc/core': 1.3.96(@swc/helpers@0.5.3)
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /symbol-tree@3.2.4:
@@ -18231,7 +18226,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /terser-webpack-plugin@5.3.9(@swc/core@1.3.96)(esbuild@0.18.17)(webpack@5.88.2):
+  /terser-webpack-plugin@5.3.9(@swc/core@1.3.96)(esbuild@0.18.20)(webpack@5.88.2):
     resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -18249,12 +18244,12 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.18
       '@swc/core': 1.3.96(@swc/helpers@0.5.3)
-      esbuild: 0.18.17
+      esbuild: 0.18.20
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.1
       terser: 5.19.2
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /terser@5.19.2:
@@ -19382,11 +19377,11 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.9.0
-      esbuild: 0.18.17
+      esbuild: 0.18.20
       postcss: 8.4.31
       rollup: 3.27.2
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /vm-browserify@1.1.2:
@@ -19466,7 +19461,7 @@ packages:
       mime-types: 2.1.35
       range-parser: 1.2.1
       schema-utils: 4.2.0
-      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.17)
+      webpack: 5.88.2(@swc/core@1.3.96)(esbuild@0.18.20)
     dev: true
 
   /webpack-hot-middleware@2.25.4:
@@ -19486,7 +19481,7 @@ packages:
     resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
     dev: true
 
-  /webpack@5.88.2(@swc/core@1.3.96)(esbuild@0.18.17):
+  /webpack@5.88.2(@swc/core@1.3.96)(esbuild@0.18.20):
     resolution: {integrity: sha512-JmcgNZ1iKj+aiR0OvTYtWQqJwq37Pf683dY9bVORwVbUrDhLhdn/PlO2sHsFHPkj7sHNQF3JwaAkp49V+Sq1tQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
@@ -19517,7 +19512,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.9(@swc/core@1.3.96)(esbuild@0.18.17)(webpack@5.88.2)
+      terser-webpack-plugin: 5.3.9(@swc/core@1.3.96)(esbuild@0.18.20)(webpack@5.88.2)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
