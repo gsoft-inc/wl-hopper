@@ -10,9 +10,9 @@ function ensureDirSync(dir: string) {
 }
 
 export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
+    console.log("resolve", srcDir, path.resolve(srcDir), outputDir, path.resolve(outputDir))
     ensureDirSync(outputDir);
 
-    console.log("resolve", path.resolve(srcDir), path.resolve(outputDir))
 
     const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
     const svgFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg"));
