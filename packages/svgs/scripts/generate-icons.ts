@@ -10,17 +10,19 @@ function ensureDirSync(dir: string) {
 }
 
 export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
-    console.log("resolve", srcDir, path.resolve(srcDir), outputDir, path.resolve(outputDir))
-    ensureDirSync(outputDir);
+    const resolvedSrcDir = path.resolve(srcDir);
+    const resolvedOutputDir = path.resolve(outputDir);
+    console.log("resolve", srcDir, resolvedSrcDir, outputDir, resolvedOutputDir)
+    ensureDirSync(resolvedOutputDir);
 
 
-    const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
+    const files = fs.readdirSync(resolvedSrcDir, { recursive: true, withFileTypes: true });
     const svgFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg"));
     console.log("files", files.map(x => x.name), svgFiles.map(x => x.name));
 
     const iconFiles = svgFiles.map(file => {
         const srcPath = path.resolve(file.path, file.name);
-        const destFileName = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
+        const destFileName = path.resolve(resolvedOutputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
         console.log("icon input", srcPath);
 
         return {
