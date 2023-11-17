@@ -15,6 +15,10 @@ export function generateIcons(srcDir: string, outputDir: string, fileNameConvert
     console.log("resolve", srcDir, resolvedSrcDir, outputDir, resolvedOutputDir)
     ensureDirSync(resolvedOutputDir);
 
+    const test = fs.readdirSync(resolvedSrcDir, { withFileTypes: true });
+    const test2 = fs.readdirSync(resolvedSrcDir, { withFileTypes: true });
+    console.log("files", test, test2);
+
 
     const files = fs.readdirSync(resolvedSrcDir, { recursive: true, withFileTypes: true });
     const svgFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg"));
