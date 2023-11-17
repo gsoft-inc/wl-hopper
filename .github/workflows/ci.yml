@@ -1,6 +1,6 @@
 name: CI
 
-# Pnpm setup based on https://pnpm.io/continuous-integration#github-actions
+# Pnpm setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
 
 on:
   push:
@@ -11,6 +11,10 @@ on:
 env:
   CI: true
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,16 +23,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-            cache: "pnpm"
+          node-version-file: ".nvmrc"
 
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+          
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+            
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
