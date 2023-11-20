@@ -5,7 +5,6 @@ import { createContext, forwardRef, type ElementType, type RefAttributes, type S
 import { useContextProps, type ContextValue } from "react-aria-components";
 import styles from "./Icon.module.css";
 
-export type IconSize = "sm" | "md" | "lg";
 export interface IconProps extends StyledComponentProps<"svg"> {
     /**
      * A slot to place the icon in.
@@ -16,7 +15,7 @@ export interface IconProps extends StyledComponentProps<"svg"> {
     /**
     * The size of the icon.
     */
-    size?: ResponsiveProp<IconSize>;
+    size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
 export const IconContext = createContext<ContextValue<IconProps, SVGSVGElement>>({});
@@ -28,7 +27,7 @@ export interface MultiSourceIcon extends IconProps {
 }
 
 export const MultiSourceIcon = forwardRef<SVGSVGElement, MultiSourceIcon>((props, ref) => {
-    // This is a react-aria-component
+    // This is a react-aria-component pattern
     // eslint-disable-next-line no-param-reassign
     [props, ref] = useContextProps(props, ref, IconContext);
 

@@ -32,7 +32,8 @@
     "dependencies": {
         "@hopper-ui/styled-system": "workspace:*",
         "react-aria-components": "1.0.0-rc.0",
-        "@react-aria/utils": "3.22.0"
+        "@react-aria/utils": "3.22.0",
+        "clsx": "2.0.0"
     },
     "devDependencies": {
         "@hopper-ui/svgs": "workspace:*",
