@@ -14,7 +14,7 @@ export interface MultiVariantIconProps extends IconProps {
 }
 
 // TODO: missing slot = "icon"
-const MultiVariantIcon = forwardRef<SVGSVGElement, MultiVariantIconProps>((props, ref) => {
+const Icon = forwardRef<SVGSVGElement, MultiVariantIconProps>((props, ref) => {
     const {
         size = "md",
         src16,
@@ -40,19 +40,19 @@ const MultiVariantIcon = forwardRef<SVGSVGElement, MultiVariantIconProps>((props
 
         Size via CSS or props? If it's the only css needed, it sucks to have to transpile css just for this
     */
-    return <As ref={ref} {...rest} />;
+    return <As ref={ref} width={48} height={48} {...rest} />;
 });
 
-MultiVariantIcon.displayName = "MultiVariantIcon";
+Icon.displayName = "MultiVariantIcon";
 
 
-export function createMultiVariantIcon(
+export function createHopperIcon(
     src16: ElementType<ComponentProps<"svg">>,
     src24: ElementType<ComponentProps<"svg">>,
     src32: ElementType<ComponentProps<"svg">>
 ) {
     return forwardRef<SVGSVGElement, IconProps>((props, ref) =>
-        <MultiVariantIcon
+        <Icon
             {...props}
             ref={ref}
             src16={src24}
@@ -61,3 +61,4 @@ export function createMultiVariantIcon(
         />
     );
 }
+
