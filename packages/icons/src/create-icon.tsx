@@ -1,7 +1,6 @@
 import { forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
 import { MultiSourceIcon, type IconProps } from "./Icon.tsx";
 
-
 export function createIcon(
     src16: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>,
     src24: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>,
@@ -28,4 +27,3 @@ export function createIcon(
 
     return iconComponent;
 }
-
