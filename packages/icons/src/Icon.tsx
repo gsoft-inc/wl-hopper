@@ -1,64 +1,70 @@
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ComponentProps, type ElementType } from "react";
+import { filterDOMProps } from "@react-aria/utils";
+import clsx from "clsx";
+import { createContext, forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
+import { useContextProps, type ContextValue } from "react-aria-components";
+import styles from "./Icon.module.css";
 
-type IconSize = "sm" | "md" | "lg";
-
+export type IconSize = "sm" | "md" | "lg";
 export interface IconProps extends StyledComponentProps<"svg"> {
+    /**
+     * A slot to place the icon in.
+     * @default 'icon'
+    */
+    slot?: string;
+
+    /**
+    * The size of the icon.
+    */
     size?: ResponsiveProp<IconSize>;
 }
 
-export interface MultiVariantIconProps extends IconProps {
-    src16: ElementType<ComponentProps<"svg">>;
-    src24: ElementType<ComponentProps<"svg">>;
-    src32: ElementType<ComponentProps<"svg">>;
+export const IconContext = createContext<ContextValue<IconProps, SVGSVGElement>>({});
+
+export interface MultiSourceIcon extends IconProps {
+    src16: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
+    src24: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
+    src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
 }
 
-// TODO: missing slot = "icon"
-const Icon = forwardRef<SVGSVGElement, MultiVariantIconProps>((props, ref) => {
+export const MultiSourceIcon = forwardRef<SVGSVGElement, MultiSourceIcon>((props, ref) => {
+    // This is a react-aria-component
+    // eslint-disable-next-line no-param-reassign
+    [props, ref] = useContextProps(props, ref, IconContext);
+
     const {
         size = "md",
         src16,
         src24,
         src32,
+        className,
+        "aria-label": ariaLabel,
+        "aria-hidden": ariaHidden,
         ...rest
     } = useStyledSystem(props);
 
-    let src = src16;
+    let As = src16;
     if (size === "md") {
-        src = src24;
+        As = src24;
     } else if (size === "lg") {
-        src = src32;
+        As = src32;
     }
 
-    const As = src;
-
-    /*
-        focusable: 'false',
-        'aria-label': ariaLabel,
-        'aria-hidden': (ariaLabel ? (ariaHidden || undefined) : true),
-        role: 'img',
-
-        Size via CSS or props? If it's the only css needed, it sucks to have to transpile css just for this
-    */
-    return <As ref={ref} width={48} height={48} {...rest} />;
-});
-
-Icon.displayName = "MultiVariantIcon";
-
-
-export function createHopperIcon(
-    src16: ElementType<ComponentProps<"svg">>,
-    src24: ElementType<ComponentProps<"svg">>,
-    src32: ElementType<ComponentProps<"svg">>
-) {
-    return forwardRef<SVGSVGElement, IconProps>((props, ref) =>
-        <Icon
-            {...props}
+    return (
+        <As
             ref={ref}
-            src16={src24}
-            src24={src24}
-            src32={src32}
+            {...filterDOMProps(rest)}
+            focusable="false"
+            role="img"
+            aria-label={ariaLabel}
+            aria-hidden={(ariaLabel ? (ariaHidden || undefined) : true)}
+            className={clsx(
+                styles["hop-icon"],
+                styles[`hop-icon-${size}`],
+                className
+            )}
         />
     );
-}
+});
 
+MultiSourceIcon.displayName = "MultiSourceIcon";

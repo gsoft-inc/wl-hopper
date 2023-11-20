@@ -1,3 +1,4 @@
+import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { useCallback, useState, type ComponentProps, type ReactNode } from "react";
 import { ColorSchemeContext, type ColorScheme, type ColorSchemeContextType, type ColorSchemeOrSystem } from "./color-scheme/ColorSchemeContext.ts";
@@ -64,7 +65,7 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
             }}
         >
             <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
-                <div className={classNames} {...rest}>
+                <div className={classNames} {...filterDOMProps(rest)}>
                     {withBodyStyle && <BodyStyleProvider />}
                     {withCssVariables && <TokenProvider />}
                     {children}
