@@ -1,4 +1,4 @@
-import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { createContext, forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
@@ -32,7 +32,7 @@ export const MultiSourceIcon = forwardRef<SVGSVGElement, MultiSourceIcon>((props
     [props, ref] = useContextProps(props, ref, IconContext);
 
     const {
-        size = "md",
+        size: sizeProp = "md",
         src16,
         src24,
         src32,
@@ -42,12 +42,14 @@ export const MultiSourceIcon = forwardRef<SVGSVGElement, MultiSourceIcon>((props
         ...rest
     } = useStyledSystem(props);
 
-    let As = src16;
-    if (size === "md") {
-        As = src24;
-    } else if (size === "lg") {
-        As = src32;
-    }
+    const size = useResponsiveValue(sizeProp) ?? "md";
+    const sizeMappings = {
+        sm: src16,
+        md: src24,
+        lg: src32
+    };
+
+    const As = sizeMappings[size];
 
     return (
         <As
