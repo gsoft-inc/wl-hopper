@@ -2,16 +2,10 @@ import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledCo
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { createContext, forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
-import { useContextProps, type ContextValue } from "react-aria-components";
+import { useContextProps, type ContextValue, type SlotProps } from "react-aria-components";
 import styles from "./Icon.module.css";
 
-export interface IconProps extends StyledComponentProps<"svg"> {
-    /**
-     * A slot to place the icon in.
-     * @default 'icon'
-    */
-    slot?: string;
-
+export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
     * The size of the icon.
     */
