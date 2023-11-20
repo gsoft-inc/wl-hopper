@@ -32,7 +32,14 @@ const MultiVariantIcon = forwardRef<SVGSVGElement, MultiVariantIconProps>((props
 
     const As = src;
 
+    /*
+        focusable: 'false',
+        'aria-label': ariaLabel,
+        'aria-hidden': (ariaLabel ? (ariaHidden || undefined) : true),
+        role: 'img',
 
+        Size via CSS or props? If it's the only css needed, it sucks to have to transpile css just for this
+    */
     return <As ref={ref} {...rest} />;
 });
 
