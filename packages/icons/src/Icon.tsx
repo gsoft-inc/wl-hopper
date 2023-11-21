@@ -10,17 +10,23 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     * The size of the icon.
     */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
+    /**
+     * The source of the icon with a size of 16px.
+     */
+    src16: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
+    /**
+     * The source of the icon with a size of 24px.
+     */
+    src24: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
+    /**
+     * The source of the icon with a size of 32px.
+     */
+    src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
 }
 
 export const IconContext = createContext<ContextValue<IconProps, SVGSVGElement>>({});
 
-export interface MultiSourceIcon extends IconProps {
-    src16: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
-    src24: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
-    src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
-}
-
-export const MultiSourceIcon = forwardRef<SVGSVGElement, MultiSourceIcon>((props, ref) => {
+export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     // This is a react-aria-component pattern
     // eslint-disable-next-line no-param-reassign
     [props, ref] = useContextProps(props, ref, IconContext);
@@ -62,4 +68,4 @@ export const MultiSourceIcon = forwardRef<SVGSVGElement, MultiSourceIcon>((props
     );
 });
 
-MultiSourceIcon.displayName = "MultiSourceIcon";
+Icon.displayName = "MultiSourceIcon";

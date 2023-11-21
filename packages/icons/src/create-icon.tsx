@@ -1,5 +1,5 @@
-import { forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
-import { MultiSourceIcon, type IconProps } from "./Icon.tsx";
+import { forwardRef, type ComponentProps, type ElementType, type RefAttributes, type SVGProps } from "react";
+import { Icon, type IconProps } from "./Icon.tsx";
 
 export function createIcon(
     src16: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>,
@@ -7,8 +7,8 @@ export function createIcon(
     src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>,
     displayName: string
 ) {
-    const iconComponent = forwardRef<SVGSVGElement, IconProps>((props, ref) =>
-        <MultiSourceIcon
+    const iconComponent = forwardRef<SVGSVGElement, Omit<IconProps, "src16" | "src24" | "src32">>((props, ref) =>
+        <Icon
             {...props}
             ref={ref}
             src16={src16}
@@ -27,3 +27,5 @@ export function createIcon(
 
     return iconComponent;
 }
+
+export type CreatedIconProps = ComponentProps<ReturnType<typeof createIcon>>;
