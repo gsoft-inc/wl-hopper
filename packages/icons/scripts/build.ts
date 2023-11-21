@@ -5,9 +5,9 @@ import { fetchSvgs } from "./fetch-svgs.ts";
 import { generateComponents } from "./generate-components.ts";
 
 console.log("⚙️ Fetching SVGs...\n");
-const iconsByNames = fetchSvgs(SVGsDirectory);
+const multiSourceIcons = fetchSvgs(SVGsDirectory);
 
 console.log("⚙️ Generating react components...\n");
-generateComponents(ComponentDirectory, iconsByNames);
+generateComponents(ComponentDirectory, multiSourceIcons);
 
 console.log("✨ Build completed!\n");
