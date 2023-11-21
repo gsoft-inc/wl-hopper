@@ -2,6 +2,8 @@
 * THIS FILE IS GENERATED. DO NOT EDIT IT.
 */
 
+/* eslint-disable */
+
 export * from "./AddIcon.tsx";
 export * from "./AddCalendarIcon.tsx";
 export * from "./AddUserIcon.tsx";
@@ -150,3 +152,5 @@ export * from "./VideoIcon.tsx";
 export * from "./VideoCameraIcon.tsx";
 export * from "./VideoCameraDisabledIcon.tsx";
 export * from "./WarningIcon.tsx";
+
+export const iconNames = ["AddIcon","AddCalendarIcon","AddUserIcon","AngleDownIcon","AngleLeftIcon","AngleRightIcon","AngleUpIcon","ArchiveIcon","ArrowDownIcon","ArrowLeftIcon","ArrowRightIcon","ArrowUpIcon","ArrowsUpDownIcon","BarsIcon","BasketballIcon","BentoIcon","BoldIcon","BookIcon","BookmarkIcon","BulletIcon","BullseyeIcon","CalendarIcon","CameraIcon","CarIcon","CaretDownIcon","CaretDownSolidIcon","CaretUpIcon","CaretUpSolidIcon","CatIcon","ChartBarIcon","ChartLineIcon","ChartPieIcon","CheckmarkIcon","CherriesIcon","CircleAngleLeftIcon","CircleAngleRightIcon","ClockIcon","CollapseLeftIcon","CollapseRightIcon","CommentIcon","CommentCheckIcon","CopyIcon","CountIcon","CsvIcon","DeleteIcon","DismissIcon","DollarIcon","DownloadIcon","EditIcon","ExitIcon","EyeHiddenIcon","EyeVisibleIcon","FileCheckIcon","FilterIcon","FiveIcon","FlagIcon","FootballIcon","FourIcon","GaugeIcon","GiftIcon","GraphIcon","GridIcon","GripIcon","HomeIcon","InfoIcon","ItalicIcon","KebabIcon","LightbulbIcon","LinkIcon","LockIcon","LockedNoteIcon","MailIcon","MicrophoneIcon","MicrophoneDisabledIcon","MinusIcon","MoveIcon","NewCommentIcon","NewFilterIcon","NewGiftIcon","NewNoteIcon","NewNotificationIcon","NewStickyIcon","NewTabIcon","NewTemplateIcon","NewTipIcon","NoteIcon","NotebookIcon","NotificationIcon","OneIcon","OpenSmileIcon","OrderedListIcon","OrganizationIcon","PauseIcon","PdfIcon","PeaceIcon","PercentIcon","PinIcon","PinSolidIcon","PlayIcon","PlaySolidIcon","PlusIcon","ProgressIcon","QuestionIcon","ReactionIcon","RecurringIcon","RefreshIcon","ReminderIcon","RemoveIcon","RemoveCalendarIcon","RemoveUserIcon","ReplyIcon","ReportIcon","RewindIcon","RocketIcon","SearchIcon","SectionIcon","SendIcon","SettingsIcon","ShareIcon","SharedIcon","ShieldIcon","SortIcon","SparklesIcon","SproutIcon","StarIcon","StarSolidIcon","StartOverIcon","StickyIcon","StrikethroughIcon","SubstractIcon","SuccessIcon","TagIcon","TeamIcon","TemplateIcon","ThreeIcon","ThumbsDownIcon","ThumbsUpIcon","TipIcon","TwoIcon","UnarchiveIcon","UnderlineIcon","UnorderedListIcon","UpsellIcon","UserIcon","VideoIcon","VideoCameraIcon","VideoCameraDisabledIcon","WarningIcon"]

@@ -1,0 +1,13 @@
+.icons-list {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--hop-space-inset-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.icons-list__item {
+    display: block;
+}
