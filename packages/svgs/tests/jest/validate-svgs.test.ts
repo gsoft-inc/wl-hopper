@@ -30,30 +30,32 @@ const dataGroupedBySize = allIconsContent.reduce((acc, icon) => {
     return acc;
 }, {} as Record<typeof IconSizes[number], string[]>);
 
-test("has not the word icon in it's name", () => {
-    allIconsContent.forEach(icon => {
-        expect(icon.name).not.toMatch(/icon/i);
-    });
-});
-
-test("has the same amount of icons in each folder", () => {
-    const amountOfIcons = Object.values(dataGroupedBySize).map(group => group.length);
-    const unique = [...new Set(amountOfIcons)];
-
-    expect(unique.length).toStrictEqual(1);
-});
-
-test("has the same name in all folder", () => {
-    expect(Object.values(dataGroupedBySize).length).toBeGreaterThan(1);
-
-    Object.values(dataGroupedBySize)
-        .slice(1)
-        .forEach(group => {
-            const firstGroup = Object.values(dataGroupedBySize)[0].map(icon => icon);
-            const otherGroup = group.map(icon => icon);
-
-            expect(otherGroup).toStrictEqual(firstGroup);
+describe("SVGs", () => {
+    test("has not the word icon in it's name", () => {
+        allIconsContent.forEach(icon => {
+            expect(icon.name).not.toMatch(/icon/i);
         });
+    });
+
+    test("has the same amount of icons in each folder", () => {
+        const amountOfIcons = Object.values(dataGroupedBySize).map(group => group.length);
+        const unique = [...new Set(amountOfIcons)];
+
+        expect(unique.length).toStrictEqual(1);
+    });
+
+    test("has the same name in all folder", () => {
+        expect(Object.values(dataGroupedBySize).length).toBeGreaterThan(1);
+
+        Object.values(dataGroupedBySize)
+            .slice(1)
+            .forEach(group => {
+                const firstGroup = Object.values(dataGroupedBySize)[0].map(icon => icon);
+                const otherGroup = group.map(icon => icon);
+
+                expect(otherGroup).toStrictEqual(firstGroup);
+            });
+    });
 });
 
 allIconsContent.forEach(icon => {
