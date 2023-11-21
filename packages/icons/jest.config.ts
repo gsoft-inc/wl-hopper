@@ -13,7 +13,8 @@ const config: Config = {
         ...pathsToModuleNameMapper(compilerOptions.paths, {
             prefix: "<rootDir>"
         })
-    }
+    },
+    setupFilesAfterEnv: ["<rootDir>/setupTests.ts"]
 };
 
 export default config;

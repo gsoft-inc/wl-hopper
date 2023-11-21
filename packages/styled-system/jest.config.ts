@@ -13,10 +13,8 @@ const config: Config = {
         ...pathsToModuleNameMapper(compilerOptions.paths, {
             prefix: "<rootDir>"
         })
-    }
-    // setupFilesAfterEnv: [
-    //     "@testing-library/jest-dom/extend-expect"
-    // ]
+    },
+    setupFilesAfterEnv: ["<rootDir>/setupTests.ts"]
 };
 
 export default config;
