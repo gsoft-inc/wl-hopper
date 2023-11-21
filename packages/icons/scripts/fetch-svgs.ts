@@ -1,4 +1,4 @@
-import fs from "fs-extra";
+import fs from "fs";
 import path from "path";
 
 export interface SVGData {
@@ -21,7 +21,7 @@ const fromKebabToPascalCase = (str: string) => {
 };
 
 export const fetchSvgs = (SVGsDir: string) => {
-    const exists = fs.pathExistsSync(SVGsDir);
+    const exists = fs.existsSync(SVGsDir);
     if (!exists) {
         throw new Error(`Directory, ${SVGsDir}, does not exist. Please create it before continuing.`);
     }

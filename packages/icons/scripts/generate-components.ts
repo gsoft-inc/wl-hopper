@@ -1,5 +1,5 @@
 import { transform } from "@svgr/core";
-import fs from "fs-extra";
+import fs from "fs";
 import path from "path";
 import { PrimaryIconColor } from "./constants.ts";
 import type { IconNameDictionary } from "./fetch-svgs.ts";
@@ -9,7 +9,6 @@ function ensureDirSync(dir: string) {
         fs.mkdirSync(dir, { recursive: true });
     }
 }
-
 
 export async function generateComponents(SVGsDir: string, iconsByNames: IconNameDictionary) {
     ensureDirSync(SVGsDir);
@@ -48,7 +47,7 @@ export async function generateComponents(SVGsDir: string, iconsByNames: IconName
                 template: ({ componentName, jsx, props, imports }, { tpl }) => {
                     return tpl`
                         ${currentIndex === 0 ? imports : ""}
-        
+
                         const ${componentName} = forwardRef((${props}) => (
                             ${jsx}
                         ));
