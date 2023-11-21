@@ -34,9 +34,6 @@ export async function generateComponents(SVGsDir: string, iconsByNames: IconName
                     [PrimaryIconColor]: "var(--hop-primary-icon)"
                 },
                 jsxRuntime: "automatic",
-                svgProps: {
-                    "focusable": "false"
-                },
                 svgoConfig: {
                     plugins: [
                         {
