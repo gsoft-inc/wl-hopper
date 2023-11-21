@@ -1,52 +1,67 @@
 import { transform } from "@svgr/core";
+import fs from "fs-extra";
+import path from "path";
 import { PrimaryIconColor } from "./constants.ts";
+import type { IconNameDictionary } from "./fetch-svgs.ts";
 
-export interface SVGData {
-    data: string;
-    name: string;
-    size: number;
+function ensureDirSync(dir: string) {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
 }
 
-export async function generateComponents(SVGsDir: string, svgDatas: SVGData[]) {
-    const fromKebabToPascalCase = (str: string) => {
-        return str.split("-").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join("");
-    };
 
-    // console.log("SVG Data: ", svgDatas);
-    const test = [svgDatas[0], svgDatas[1]];
-    for (const svgData of test) {
-        const data = transform.sync(svgData.data, {
-            typescript: true,
-            ref: true,
-            replaceAttrValues: {
-                [PrimaryIconColor]: "var(--coucou)" // TODO fix this
-            },
-            jsxRuntime: "automatic",
-            svgProps: {
-                "focusable": "false"
-            },
-            // svgoConfig: config
-            // add svgo config to remove xmlns attribute
-            plugins: ["@svgr/plugin-jsx"],
-            template: ({ componentName, jsx, props, imports }, { tpl }) => {
-                return tpl`
-                ${componentName.endsWith("16") ? imports : ""}
-                ${componentName.endsWith("16") ? "/* eslint-disable max-len */" : ""}
+export async function generateComponents(SVGsDir: string, iconsByNames: IconNameDictionary) {
+    ensureDirSync(SVGsDir);
 
-                const ${componentName} = forwardRef((${props}) => (
-                    ${jsx}
-                ));
-                `;
-            }
-        }, {
-            componentName: fromKebabToPascalCase(svgData.name)
-        });
-        // add this to the package.json
-        /*
-        "@svgr/plugin-svgo": "8.1.0", // optinonal?
-    "@svgr/plugin-jsx": "8.1.0"
-"@svgr/core": "8.1.0",
-        */
-        console.log(data);
+    for (const icon of Object.values(iconsByNames)) {
+        let componentCode = "/* eslint-disable max-len */ import { createIcon } from \"../create-icon.tsx\";";
+        let index = 0;
+        const baseIconName = `${icon.name}Icon`;
+
+        for (const [size, data] of Object.entries(icon.sizes)) {
+            const currentIndex = index;
+            componentCode += transform.sync(data, {
+                typescript: true,
+                ref: true,
+                replaceAttrValues: {
+                    [PrimaryIconColor]: "var(--hop-primary-icon)"
+                },
+                jsxRuntime: "automatic",
+                svgProps: {
+                    "focusable": "false"
+                },
+                svgoConfig: {
+                    plugins: [
+                        {
+                            name: "preset-default",
+                            params: {
+                                overrides: {
+                                    removeViewBox: false
+                                }
+                            }
+                        },
+                        "removeXMLNS"
+                    ]
+                },
+                plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
+                template: ({ componentName, jsx, props, imports }, { tpl }) => {
+                    return tpl`
+                        ${currentIndex === 0 ? imports : ""}
+        
+                        const ${componentName} = forwardRef((${props}) => (
+                            ${jsx}
+                        ));
+                    `;
+                }
+            }, {
+                componentName: baseIconName + size
+            });
+            index++;
+        }
+        componentCode += `export const ${baseIconName} = createIcon(${baseIconName}16, ${baseIconName}24, ${baseIconName}32, "${baseIconName}");`;
+
+        const destinationPath = path.resolve(SVGsDir, baseIconName + ".tsx");
+        fs.writeFileSync(destinationPath, Buffer.from(componentCode));
     }
 }
