@@ -1,9 +1,9 @@
-# @hopper-ui/svgs
+# @hopper-ui/svg-icons
 
 A set of icons handcrafted by Workleap.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](../../LICENSE)
-[![npm version](https://img.shields.io/npm/v/@hopper-ui/svgs)](https://www.npmjs.com/package/@hopper-ui/svgs)
+[![npm version](https://img.shields.io/npm/v/@hopper-ui/svg-icons)](https://www.npmjs.com/package/@hopper-ui/svg-icons)
 
 ## Installation
 
@@ -12,19 +12,19 @@ Install the following packages:
 **With pnpm**
 
 ```shell
-pnpm add @hopper-ui/svgs
+pnpm add @hopper-ui/svg-icons
 ```
 
 **With yarn**
 
 ```shell
-yarn add -D @hopper-ui/svgs
+yarn add -D @hopper-ui/svg-icons
 ```
 
 **With npm**
 
 ```shell
-npm install -D @hopper-ui/svgs
+npm install -D @hopper-ui/svg-icons
 ```
 
 ## Usage
