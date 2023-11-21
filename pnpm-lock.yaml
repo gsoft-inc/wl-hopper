@@ -278,9 +278,9 @@ importers:
         specifier: '*'
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@hopper-ui/svgs':
+      '@hopper-ui/svg-icons':
         specifier: workspace:*
-        version: link:../svgs
+        version: link:../svg-icons
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.3.2)
