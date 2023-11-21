@@ -1,19 +1,10 @@
 import fs from "fs";
 import path from "path";
+import type { IconSizes } from "./constants.ts";
 
-export interface SVGData {
-    data: string;
+export interface MultiSourceIconSource {
     name: string;
-    size: number;
-}
-
-export interface IconNameDictionary {
-    [name: string]: {
-        name: string;
-        sizes: {
-            [size: number]: string;
-        };
-    };
+    sizes: Record<typeof IconSizes[number], string>;
 }
 
 const fromKebabToPascalCase = (str: string) => {
@@ -32,7 +23,7 @@ export const fetchSvgs = (SVGsDir: string) => {
         return path.resolve(file.path, file.name);
     });
 
-    const dict: IconNameDictionary = {};
+    const dict: Record<string, MultiSourceIconSource> = {};
 
     svgFilePaths.forEach(svgFilePath => {
         const svg = fs.readFileSync(svgFilePath, "utf8");
@@ -46,5 +37,5 @@ export const fetchSvgs = (SVGsDir: string) => {
         };
     });
 
-    return dict;
+    return Object.values(dict);
 };
