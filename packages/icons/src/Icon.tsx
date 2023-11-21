@@ -36,6 +36,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
         src16,
         src24,
         src32,
+        style,
         className,
         "aria-label": ariaLabel,
         "aria-hidden": ariaHidden,
@@ -54,6 +55,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     return (
         <As
             ref={ref}
+            style={style}
             {...filterDOMProps(rest)}
             focusable="false"
             role="img"
