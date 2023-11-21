@@ -24,7 +24,7 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
 }
 
-export const IconContext = createContext<ContextValue<IconProps, SVGSVGElement>>({});
+export const IconContext = createContext<ContextValue<Omit<IconProps, "src16" | "src24" | "src32" >, SVGSVGElement>>({});
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     // This is a react-aria-component pattern

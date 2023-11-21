@@ -1,14 +1,14 @@
-import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
-import { useCallback, useState, type ComponentProps, type ReactNode } from "react";
+import { useCallback, useState, type ReactNode } from "react";
 import { ColorSchemeContext, type ColorScheme, type ColorSchemeContextType, type ColorSchemeOrSystem } from "./color-scheme/ColorSchemeContext.ts";
 import { useColorScheme } from "./color-scheme/useColorScheme.ts";
 import { BodyStyleProvider } from "./global-styles/BodyStyleProvider.tsx";
+import { Div, type DivProps } from "./html-wrappers/html.ts";
 import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint, type BreakpointProviderProps } from "./responsive/BreakpointProvider.tsx";
 import { HopperRootCssClass, StyledSystemRootCssClass } from "./styled-system-root-css-class.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
 
-export interface StyledSystemProviderProps extends BreakpointProviderProps, ComponentProps<"div">{
+export interface StyledSystemProviderProps extends BreakpointProviderProps, DivProps {
     /** The children of the component */
     children: ReactNode;
 
@@ -65,11 +65,11 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
             }}
         >
             <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
-                <div className={classNames} {...filterDOMProps(rest)}>
+                <Div className={classNames} {...rest}>
                     {withBodyStyle && <BodyStyleProvider />}
                     {withCssVariables && <TokenProvider />}
                     {children}
-                </div>
+                </Div>
             </BreakpointProvider>
         </ColorSchemeContext.Provider>
     );

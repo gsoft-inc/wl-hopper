@@ -1,6 +1,5 @@
 .hop-icon {
     display: inline-block;
-    color: var(--hop-neutral-icon);
     pointer-events: none;
     height: var(--hop-space-240);
     width: var(--hop-space-240);
