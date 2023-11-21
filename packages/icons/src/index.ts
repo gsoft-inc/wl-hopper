@@ -1,4 +1,4 @@
 export * from "./Icon.tsx";
 export * from "./IconList.tsx";
-export * from "./generate-icon-components/index.ts";
+/* export * from "./generated-icon-components/index.ts"; */
 
