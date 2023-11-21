@@ -14,7 +14,7 @@ const fromKebabToPascalCase = (str: string) => {
 export const fetchSvgs = (SVGsDir: string) => {
     const exists = fs.existsSync(SVGsDir);
     if (!exists) {
-        throw new Error(`Directory, ${SVGsDir}, does not exist. Please create it before continuing.`);
+        throw new Error(`Directory, ${SVGsDir}, does not exist.`);
     }
 
     const files = fs.readdirSync(SVGsDir, { recursive: true, withFileTypes: true });
