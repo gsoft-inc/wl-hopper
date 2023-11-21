@@ -1,9 +1,8 @@
 import type { Dictionary } from "style-dictionary";
+import { isDarkTokens } from "../filter/isDarkTokens.ts";
 
 export const cssDarkMode = function ({ dictionary }: { dictionary: Dictionary }) {
-    const darkTokens = dictionary.allTokens.filter(token => {
-        return token.filePath.includes("dark");
-    }).map(token => {
+    const darkTokens = dictionary.allTokens.filter(isDarkTokens).map(token => {
         let value = token.value;
 
         if (dictionary.usesReference(token.original.value)) {
