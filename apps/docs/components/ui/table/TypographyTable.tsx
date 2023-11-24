@@ -15,7 +15,10 @@ const Sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"] as const;
 
 const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"] as const;
 
-type GroupedItems = Record<typeof Sizes[number], Record<typeof FontProperties[number], string>>;
+interface GroupedItems {
+    overline?: Record<typeof FontProperties[number], string>;
+    [size: string]: Record<typeof FontProperties[number], string> | undefined;
+}
 
 interface TokenData {
     [category: string]: { name: string; value: string }[];
@@ -38,6 +41,32 @@ function transformDataToTokenData(inputData: Record<string, { name: string; valu
 function groupItemsByPropertiesAndSizes(tokenData: TokenData, itemType: string): GroupedItems {
     const groupedItems: GroupedItems = {} as GroupedItems;
 
+    if (itemType === "overline") {
+        const overlineItem = {} as Record<typeof FontProperties[number], string>;
+
+        FontProperties.forEach(property => {
+            const propertyKey = property;
+
+            if (!tokenData[propertyKey]) {
+                return;
+            }
+
+            const matchingItem = tokenData[propertyKey].find(item => {
+                const nameParts = item.name.split("-");
+
+                return nameParts.includes(itemType);
+            });
+
+            if (matchingItem) {
+                overlineItem[propertyKey] = matchingItem.value;
+            }
+        });
+
+        groupedItems["overline"] = overlineItem;
+
+        return groupedItems;
+    }
+
     Sizes.forEach(size => {
         const sizeKey = size as typeof Sizes[number];
         groupedItems[sizeKey] = {} as Record<typeof FontProperties[number], string>;
@@ -52,15 +81,15 @@ function groupItemsByPropertiesAndSizes(tokenData: TokenData, itemType: string):
             const matchingItem = tokenData[propertyKey].find(item => {
                 const nameParts = item.name.split("-");
 
-                return nameParts.includes(itemType === "overline" ? "md" : itemType) && nameParts.includes(size);
+                return nameParts.includes(itemType) && nameParts.includes(size);
             });
 
             if (matchingItem) {
-                groupedItems[sizeKey][propertyKey] = matchingItem.value;
+                groupedItems[sizeKey]![propertyKey] = matchingItem.value;
             }
         });
 
-        if (Object.values(groupedItems[sizeKey]).every(value => !value)) {
+        if (Object.values(groupedItems[sizeKey]!).every(value => !value)) {
             delete groupedItems[sizeKey];
         }
     });
@@ -73,12 +102,18 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
     const filteredData = groupItemsByPropertiesAndSizes(tokenData, type);
 
     const listItems = Object.keys(filteredData).map(size => {
+        const sizeData = filteredData[size as typeof Sizes[number]];
+
+        if (!sizeData) {
+            return null;
+        }
+
         const {
             fontFamily,
             fontSize,
             fontWeight,
             lineHeight
-        } = filteredData[size as typeof Sizes[number]];
+        } = sizeData;
 
         // If the itemType is 'overline', set displaySize to an empty string
         let displaySize = `-${size}`;
