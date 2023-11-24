@@ -1,6 +1,6 @@
+import { AddIcon } from "@hopper-ui/icons";
 import { render, screen, waitFor } from "@hopper-ui/test-utils";
 import { createRef } from "react";
-import { AddIcon } from "../../src/index.ts";
 
 // ***** Refs *****
 test("ref is a DOM element", async () => {
