@@ -1,6 +1,9 @@
+"use client";
+
+import React from "react";
 import type { HTMLAttributes } from "react";
 
-import CopyButton from "@/components/copyButton/CopyButton";
+import CodeBlockCopyButton from "@/components/copyButton/codeblockCopyButton/CodeBlockCopyButton";
 import LangIcon from "@/components/ui/pre/langIcon/LangIcon";
 
 import "./pre.css";
@@ -22,7 +25,8 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
                     }
                     <span className="hd-pre-header__title">{title}</span>
                 </div>
-                {raw && <CopyButton text={raw} className="hd-copy-button--on-dark" />}
+                {raw && <CodeBlockCopyButton className="hd-copy-button--on-dark" text={raw} />
+                }
             </div>
             {children}
         </pre>

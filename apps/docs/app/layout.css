@@ -63,3 +63,8 @@ article ul {
     line-height: 1.5rem;
     padding-left: 1rem;
 }
+
+article p a {
+    color: var(--hd-color-accent-text);
+    text-decoration: underline;
+}

@@ -3,6 +3,8 @@ import type { HTMLAttributes } from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import NextImage from "@/components/ui/image/Image";
 import Card from "@/components/ui/card/Card";
+import IconSpecTable from "@/components/ui/table/IconSpecTable";
+import IconTable from "@/components/iconTable/IconTable";
 import Pre from "@/components/ui/pre/Pre";
 import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
@@ -18,6 +20,8 @@ const components = {
     pre: Pre,
     Table: Table,
     TypographyTable: TypographyTable,
+    IconTable: IconTable,
+    IconSpecTable: IconSpecTable,
     Tabs: Tabs,
     TableSection: TableSection,
     h1: (props: HeadingProps) => {
