@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { type ResponsiveProp, type ColorValue, UL, LI } from "@hopper-ui/styled-system";
 import * as IconLibrary from "@hopper-ui/icons";
+import { LI, UL, type ColorValue, type ResponsiveProp } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
 
 interface ListProps {
     size?: ResponsiveProp<"sm" | "md" | "lg">;
@@ -18,9 +18,11 @@ const List = ({ size, color }: ListProps) => {
             </LI>);
     });
 
-    return <UL display="flex" flexWrap="wrap" alignItems="center" gap="inline-md" margin="core_0" padding="core_0" style={{ listStyle: "none" }}>
-        {listItems}
-    </UL>;
+    return (
+        <UL display="flex" flexWrap="wrap" alignItems="center" gap="inline-md" margin="core_0" padding="core_0" style={{ listStyle: "none" }}>
+            {listItems}
+        </UL>
+    );
 };
 
 const meta: Meta<typeof List> = {

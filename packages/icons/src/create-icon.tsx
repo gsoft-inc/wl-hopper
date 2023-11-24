@@ -20,7 +20,7 @@ export function createIcon(
     iconComponent.displayName = displayName;
 
     /**
-     * This line is added strictly for backward compatibility with Orbiter. Once orbiter is gone, we can remove this line
+     * TODO: This line is added strictly for backward compatibility with Orbiter. Once orbiter is gone, we can remove this line
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (iconComponent as Record<string, any>)["__slot__"] = "icon";
