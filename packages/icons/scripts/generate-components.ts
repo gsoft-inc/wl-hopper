@@ -11,8 +11,10 @@ function ensureDirSync(dir: string) {
     }
 }
 
-export async function generateComponents(SVGsDir: string, icons: MultiSourceIconSource[]) {
-    ensureDirSync(SVGsDir);
+export async function generateComponents(componentDirectory: string, icons: MultiSourceIconSource[]) {
+    // Clear directory (It also removes the directory itself)
+    fs.rmSync(componentDirectory, { recursive: true, force: true });
+    ensureDirSync(componentDirectory);
 
     for (const icon of icons) {
         let componentCode = [
@@ -51,7 +53,7 @@ export async function generateComponents(SVGsDir: string, icons: MultiSourceIcon
         }
         componentCode += `\nexport const ${baseIconName} = createIcon(${baseIconName}16, ${baseIconName}24, ${baseIconName}32, "${baseIconName}");`;
 
-        const destinationPath = path.resolve(SVGsDir, baseIconName + ".tsx");
+        const destinationPath = path.resolve(componentDirectory, baseIconName + ".tsx");
         fs.writeFileSync(destinationPath, Buffer.from(componentCode));
     }
 }

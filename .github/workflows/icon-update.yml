@@ -1,0 +1,41 @@
+name: Update Icons
+
+on:
+  push:
+    paths:
+      - 'packages/svg-icons/src/icons/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version-file: '.nvmrc'
+
+    - name: Install dependencies and generate icons
+      run: |
+        pnpm install
+        pnpm generate-icons
+
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code || echo "::set-output name=changed::true"
+        
+    - name: Commit changes
+      if: steps.git-check.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "Automatically updated icons"
+
+    - name: Create PR comment
+      uses: thollander/actions-comment-pull-request@master
+      with:
+        message: "The icons have been updated automatically"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
