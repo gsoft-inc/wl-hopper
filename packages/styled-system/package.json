@@ -17,6 +17,9 @@
     "sideEffects": [
         "*.css"
     ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
     "exports": {
         ".": {
             "import": "./dist/index.js",

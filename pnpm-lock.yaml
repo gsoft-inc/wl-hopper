@@ -259,9 +259,6 @@ importers:
 
   packages/icons:
     dependencies:
-      '@hopper-ui/styled-system':
-        specifier: workspace:*
-        version: link:../styled-system
       '@react-aria/utils':
         specifier: 3.22.0
         version: 3.22.0(react@18.2.0)
@@ -278,6 +275,9 @@ importers:
         specifier: '*'
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@hopper-ui/styled-system':
+        specifier: workspace:*
+        version: link:../styled-system
       '@hopper-ui/svg-icons':
         specifier: workspace:*
         version: link:../svg-icons
