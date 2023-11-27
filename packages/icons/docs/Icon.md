@@ -2,7 +2,7 @@
 
 # Icon
 
-An icon component allow you to render a custom icon. Thi
+An icon component allow you to render a custom icon.
 
 Hopper provides multiple ways to use icons in your project:
 - Using the [Workleap icon library](https://hopper.workleap.design/icons)
