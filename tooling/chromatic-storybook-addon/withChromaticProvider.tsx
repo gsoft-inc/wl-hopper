@@ -1,4 +1,4 @@
-import { Breakpoint, ColorScheme, Div, HopperProvider, HtmlH1 } from "@hopper-ui/components";
+import { Breakpoint, Breakpoints, ColorScheme, Div, HopperProvider, HtmlH1 } from "@hopper-ui/components";
 import { makeDecorator } from "@storybook/addons";
 import { DisableAnimations } from "./DisableAnimations.tsx";
 import "./disableAnimations.css";
@@ -40,7 +40,7 @@ export const withChromaticProvider = makeDecorator({
                 {colorSchemes.map(colorScheme =>
                     scalesToRender.map(scale => (
                         // TODO: once icons PR merge, update the style tag to styled system properties
-                            <HopperProvider key={`${colorScheme}_${scale}`} colorScheme={colorScheme} style={{display: "flex", flexDirection:"column", height, minHeight}}>
+                            <HopperProvider key={`${colorScheme}_${scale}`} colorScheme={colorScheme} style={{display: "flex", flexDirection:"column", height, minHeight, width: Breakpoints[scale] }}>
                                 <Div margin="core_80" >
                                     <HtmlH1 margin="core_0" padding="core_0">{`${colorScheme}, ${scale}`}</HtmlH1>
                                     {getStory(context) as unknown as JSX.Element}
