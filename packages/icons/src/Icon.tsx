@@ -63,11 +63,10 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
             aria-hidden={(ariaLabel ? (ariaHidden || undefined) : true)}
             className={clsx(
                 styles["hop-icon"],
-                styles[`hop-icon-${size}`],
                 className
             )}
         />
     );
 });
 
-Icon.displayName = "MultiSourceIcon";
+Icon.displayName = "Icon";

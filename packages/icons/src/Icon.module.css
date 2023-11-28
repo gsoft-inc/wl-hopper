@@ -1,21 +1,4 @@
 .hop-icon {
     display: inline-block;
     pointer-events: none;
-    height: var(--hop-space-240);
-    width: var(--hop-space-240);
-}
-
-.hop-icon-sm {
-    height: var(--hop-space-160);
-    width: var(--hop-space-160);
-}
-
-.hop-icon-md {
-    height: var(--hop-space-240);
-    width: var(--hop-space-240);
-}
-
-.hop-icon-lg {
-    height: var(--hop-space-320);
-    width: var(--hop-space-320);
 }
