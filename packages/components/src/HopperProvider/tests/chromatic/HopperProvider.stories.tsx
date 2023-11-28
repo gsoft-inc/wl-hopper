@@ -1,3 +1,4 @@
+import { ChromaticProviderOptions } from "@hopper-ui/chromatic-storybook-addon";
 import { Div, HopperProvider, useColorSchemeContext } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
@@ -20,8 +21,8 @@ const meta: Meta<typeof HopperProvider> = {
     parameters: {
         chromaticProvider: {
             colorSchemes: ["light"],
-            scales: ["medium"]
-        }
+            scales: ["lg"]
+        } satisfies ChromaticProviderOptions
     }
 };
 

@@ -1,5 +1,10 @@
 {
     "extends": "@workleap/typescript-configs/library.json",
     "exclude": ["node_modules"],
-    "include": ["**/*", "../../types/*"]
+    "include": ["**/*", "../../types/*"],
+    "compilerOptions": {
+        "paths": {
+            "@hopper-ui/chromatic-storybook-addon": ["../../tooling/chromatic-storybook-addon/index.ts"],
+        },
+    }
 }

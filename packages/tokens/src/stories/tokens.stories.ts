@@ -1,18 +1,12 @@
-import type { Meta, StoryObj, StorybookSafeParameters } from "@storybook/react";
+import { ChromaticProviderOptions } from "@hopper-ui/chromatic-storybook-addon";
+import type { Meta, StoryObj } from "@storybook/react";
 import { List, type Style, type TokenType } from "./components/List.tsx";
 import darkTokens from "./datas/tokens-dark.json";
 import tokens from "./datas/tokens.json";
 
-const parameters: StorybookSafeParameters = {
-    chromaticProvider: {
-
-    }
-};
-
 const meta: Meta<typeof List> = {
     title: "Tokens/Colors",
     component: List,
-    parameters: parameters
 };
 
 export default meta;
@@ -51,8 +45,8 @@ export const Core: Story = {
     parameters: {
         chromaticProvider: {
             colorSchemes: ["light"] // core color are not semantic
-        }
-    } satisfies StorybookSafeParameters
+        } satisfies ChromaticProviderOptions
+    }
 };
 
 export const SemanticBackgroundLight: Story = {
