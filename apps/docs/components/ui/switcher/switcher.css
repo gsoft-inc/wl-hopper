@@ -71,3 +71,7 @@
     height: var(--hd-space-4);
     width: var(--hd-space-4);
 }
+
+.hd-switcher-choice:has(input:focus-visible) {
+    outline: -webkit-focus-ring-color auto var(--hd-border-size);
+}
