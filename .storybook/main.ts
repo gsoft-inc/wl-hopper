@@ -1,5 +1,10 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import { mergeConfig } from "vite";
+/**
+ * vite-plugin-turbosnap use the syntax export {default as pluginTurbosnap}. This results in exporting a default object
+ * as a named export. So to use it, we need to do turbosnap.default. Their documenting doesn't mention this, but it's
+ * the only way to get it to work with typescript.
+ */
 import turbosnap from "vite-plugin-turbosnap";
 import tsconfigPaths from "vite-tsconfig-paths";
 
@@ -27,10 +32,7 @@ const storybookConfig: StorybookConfig = {
                 // TurboSnap only officially support webpack (https://www.chromatic.com/docs/turbosnap/#prerequisites)
                 // This plugin is suggested by storybook and maintained by a core storybook contributor.
                 // This is experimental, and may not support all project and storybook configurations, yet.
-                // TODO: ts-ignore, it suggests we should use turbosnap.default but i'm not sure yet
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                turbosnap({
+                turbosnap.default({
                 // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
                     rootDir: config.root ?? process.cwd()
                 })
