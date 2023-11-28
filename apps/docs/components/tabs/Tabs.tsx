@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, useState, type ReactElement, isValidElement } from "react";
+import { Children, useState } from "react";
 import cx from "classnames";
 
 import "./tabs.css";
@@ -45,7 +45,7 @@ const Tabs = ({ tabs, className, children }: TabsProps) => {
                 ))}
             </ul>
             <div className="hd-tabs__content">
-                <div className="hd-tabs__pane">{(selectedChild && isValidElement(selectedChild)) && (selectedChild as ReactElement).props.children}</div>
+                <div className="hd-tabs__pane">{selectedChild}</div>
             </div>
         </div>
     );

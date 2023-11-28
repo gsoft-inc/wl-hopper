@@ -4,8 +4,9 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import NextImage from "@/components/ui/image/Image";
 import Card from "@/components/ui/card/Card";
 import IconSpecTable from "@/components/ui/table/IconSpecTable";
-import IconTable from "@/components/iconTable/IconTable";
+import { IconTable } from "@/components/iconTable/IconTable";
 import Pre from "@/components/ui/pre/Pre";
+import Switcher from "@/components/ui/switcher/Switcher";
 import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
 import TypographyTable from "@/components/ui/table/TypographyTable";
@@ -24,6 +25,7 @@ const components = {
     IconSpecTable: IconSpecTable,
     Tabs: Tabs,
     TableSection: TableSection,
+    Switcher: Switcher,
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;
     },
