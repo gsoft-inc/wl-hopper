@@ -8,6 +8,6 @@
     cursor: pointer;
 }
 
-.hd-copy-button[disabled] {
+.hd-copy-button[disabled]:hover {
     cursor: not-allowed;
 }

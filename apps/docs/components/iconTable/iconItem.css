@@ -17,7 +17,6 @@
 .hd-icon-item__icon {
     align-items: center;
     border-radius: var(--hd-space-1);
-    cursor: pointer;
     display: flex;
     height: 3rem;
     justify-content: center;
@@ -25,19 +24,27 @@
     width: 3rem;
 }
 
-.hd-icon-item__icon:hover {
+.hd-icon-item__copy-status {
+    align-items: center;
+    color: var(--hd-color-accent-text);
+    display: flex;
+    font-size: 0.875rem;
+    height: 3rem;
+    justify-content: center;
+    transition: opacity 0.2s ease-in-out;
+    width: 3rem;
+}
+
+.hd-icon-item-copy:not([disabled]):hover {
     background-color: #95959326;
+}
+
+.hd-icon-item-copy[disabled]:hover {
+    cursor: not-allowed;
 }
 
 .hd-icon-item__title {
     color: var(--hd-color-neutral-text-weak);
     margin-top: var(--hd-space-1);
     padding-bottom: var(--hd-space-2);
-}
-
-/* Dialog to move */
-.hd-dialog {
-    border: none;
-    border-radius: var(--hd-space-2);
-    width: 100%;
 }
