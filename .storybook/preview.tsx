@@ -17,7 +17,14 @@ const preview: Preview = {
     decorators: [
         Story => {
             return (
-                <HopperProvider colorScheme="light">
+                <HopperProvider
+                    colorScheme="light"
+                    color="neutral"
+                    backgroundColor="neutral"
+                    lineHeight="body-md"
+                    fontFamily="body-md"
+                    fontSize="body-md"
+                >
                     <Story />
                 </HopperProvider>
             );

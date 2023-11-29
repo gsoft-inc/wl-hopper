@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/components",
     "author": "Workleap",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "The components package.",
     "license": "Apache-2.0",
     "repository": {
@@ -17,8 +17,15 @@
     "sideEffects": [
         "*.css"
     ],
-    "exports": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
     "files": [
         "/dist",
         "CHANGELOG.md",
@@ -58,8 +65,5 @@
         "ts-jest": "29.1.1",
         "tsup": "7.2.0",
         "typescript": "5.2.2"
-    },
-    "engines": {
-        "node": ">=18.0.0"
     }
 }
