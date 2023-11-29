@@ -31,16 +31,15 @@
     ],
     "scripts": {
         "clean:dist": "pnpm dlx rimraf dist",
-        "build": "node --loader ts-node/esm src/style-dictionary/build.ts"
+        "build": "tsx src/style-dictionary/build.ts"
     },
     "devDependencies": {
-        "@types/node": "20.8.10",
+        "@types/node": "20.9.0",
         "@workleap/eslint-plugin": "3.0.0",
         "@workleap/tsup-configs": "3.0.1",
         "@workleap/typescript-configs": "3.0.2",
         "style-dictionary": "3.9.0",
-        "ts-node": "10.9.1",
-        "tsup": "7.2.0",
+        "tsx": "4.1.2",
         "typescript": "5.2.2"
     },
     "sideEffects": false,

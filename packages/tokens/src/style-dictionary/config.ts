@@ -10,7 +10,7 @@ export const fontsConfig: Config = {
     "source": ["src/tokens/asset/*.tokens.json"],
     "platforms": {
         "css-font-face": {
-            "transforms": ["attribute/font"],
+            "transforms": ["name/cti/kebab", "attribute/font"],
             "buildPath": `${BUILD_PATH}`,
             "files": [
                 {
@@ -101,7 +101,6 @@ export function getStyleDictionaryConfig(mode: "light" | "dark"): Config {
     const darkConfig: File = {
         "destination": "dark/tokens.css",
         "format": "css/dark-mode",
-        "filter": "mode/dark",
         "options": {
             "outputReferences": true
         }
