@@ -5,6 +5,7 @@ import { RadioGroup, Radio } from "react-aria-components";
 import { IconTable } from "@/components/iconTable/IconTable";
 import * as IconLibrary from "@hopper-ui/icons";
 import { LI, UL } from "@hopper-ui/styled-system";
+import { HopperProvider } from "@hopper-ui/components";
 
 import "./switcher.css";
 
@@ -23,11 +24,13 @@ const Switcher = React.memo(({ type }: SwitcherProps) => {
         setSelectedSize(value);
     };
 
+    console.log(IconLibrary);
+
     const List = () => {
         const listItems = IconLibrary.iconNames.map(name => {
             return (
                 <LI key={name}>
-                    {IconLibrary[name]}
+                    a
                 </LI>);
         });
 
@@ -39,7 +42,8 @@ const Switcher = React.memo(({ type }: SwitcherProps) => {
     };
 
     return (
-        <div className="hd-switcher">
+        <HopperProvider colorScheme="light">
+            <div className="hd-switcher">
             <List />
             <RadioGroup className="hd-switcher-picker" defaultValue={selectedSize} onChange={handleChange}>
                 <div className="hd-switcher-choices">
@@ -91,6 +95,7 @@ const Switcher = React.memo(({ type }: SwitcherProps) => {
             {selectedSize === "md" && <IconTable type={type} size={type === "react" ? "md" : "24"} />}
             {selectedSize === "lg" && <IconTable type={type} size={type === "react" ? "lg" : "32"} />}
         </div>
+    </HopperProvider>
     );
 });
 
