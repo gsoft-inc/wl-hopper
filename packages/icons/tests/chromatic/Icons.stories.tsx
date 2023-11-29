@@ -11,7 +11,6 @@ const List = ({ size, color }: ListProps) => {
     const listItems = IconLibrary.iconNames.map(name => {
         const Component = IconLibrary[name];
 
-
         return (
             <LI key={name} display="block">
                 <Component size={size} color={color} />

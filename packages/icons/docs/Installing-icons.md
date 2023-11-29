@@ -34,7 +34,7 @@ root.render(
 
 ## Start using icons
 ```tsx
-import { AddIcon } from "@hopper/icons";
+import { AddIcon } from "@hopper-ui/icons";
 
 export const App = () => (
     <div>
