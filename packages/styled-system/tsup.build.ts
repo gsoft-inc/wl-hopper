@@ -1,6 +1,6 @@
+import { createCssModuleEsbuildPlugin } from "@hopper-ui/tsup-css-module-plugin";
 import { defineBuildConfig } from "@workleap/tsup-configs";
 import packageJson from "./package.json";
-import { createCssModuleEsbuildPlugin } from "./tsup-css-module-plugin.ts";
 
 export default defineBuildConfig({
     minify: true,
