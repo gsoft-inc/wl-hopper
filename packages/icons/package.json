@@ -60,7 +60,7 @@
         "@types/jest": "29.5.9",
         "@types/node": "^20.9.3",
         "@types/react": "18.2.38",
-        "@types/react-dom": "18.2.16",
+        "@types/react-dom": "18.2.17",
         "@types/react-test-renderer": "18.0.6",
         "@workleap/eslint-plugin": "3.0.0",
         "@workleap/swc-configs": "2.1.2",
