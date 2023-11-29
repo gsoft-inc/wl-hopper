@@ -1,8 +1,9 @@
 "use client";
 
+import clsx from "clsx";
 import React, { type ReactNode } from "react";
+
 import { Button } from "react-aria-components";
-import cx from "classnames";
 
 import "./copyButton.css";
 
@@ -16,7 +17,7 @@ interface CopyButtonProps {
 }
 
 const CopyButton = ({ text, className, children, onCopy, isCopied, setIsCopied }: CopyButtonProps) => {
-    const classes = cx("hd-copy-button", className);
+    const classes = clsx("hd-copy-button", className);
 
     const copy = async () => {
         await navigator.clipboard.writeText(text);

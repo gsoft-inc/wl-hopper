@@ -1,0 +1,62 @@
+import fs from "fs";
+import path from "path";
+import { optimize } from "svgo";
+import config from "./svgo-config.ts";
+
+function ensureDirSync(dir: string) {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+}
+
+export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
+    ensureDirSync(outputDir);
+
+    // This line requires Node.js 20.5.2 or higher to execute properly
+    // https://github.com/nodejs/node/issues/48858
+    const files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
+
+    const svgFiles = files.filter(file => file.isFile() && file.name.endsWith(".svg"));
+
+    const iconFiles = svgFiles.map(file => {
+        const srcPath = path.resolve(file.path, file.name);
+        const dstPath = path.resolve(outputDir, fileNameConverter ? fileNameConverter(srcPath) : file.name);
+
+        return {
+            srcPath: srcPath,
+            dstPath
+        };
+    });
+
+    // If it's possible to rename a file with the same name, then we need to validate that there are no duplicates
+    if (fileNameConverter) {
+        validateNoNameDuplicate(iconFiles.map(x => x.dstPath));
+    }
+
+    iconFiles.forEach(iconFile => {
+        const contents = fs.readFileSync(iconFile.srcPath, "utf8");
+        const { data } = optimize(contents, {
+            path: iconFile.srcPath,
+            ...config
+        });
+
+        fs.writeFileSync(iconFile.dstPath, Buffer.from(data));
+    });
+}
+
+function validateNoNameDuplicate(names: string[]) {
+    const duplicateNames: string[] = [];
+    const nameSet = new Set<string>();
+
+    for (const name of names) {
+        if (nameSet.has(name)) {
+            duplicateNames.push(name);
+        } else {
+            nameSet.add(name);
+        }
+    }
+
+    if (duplicateNames.length > 0) {
+        throw new Error(`Duplicate icon names detected: ${duplicateNames.join(", ")}`);
+    }
+}

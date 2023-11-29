@@ -1,5 +1,5 @@
-import cx from "classnames";
 import formattingTitleId from "@/utils/formattingTitleId";
+import clsx from "clsx";
 
 import "./title.css";
 
@@ -26,7 +26,7 @@ const Title = ({
 
     return (
         <Component
-            className={cx("hd-title", className, {
+            className={clsx("hd-title", className, {
                 [`hd-title--level${level}`]: level
             })}
             id={level > 1 ? uniqueId : undefined}

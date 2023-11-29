@@ -1,14 +1,14 @@
-import { defineConfig } from "tsup";
+import { defineBuildConfig } from "@workleap/tsup-configs";
+import packageJson from "./package.json";
+import { createCssModuleEsbuildPlugin } from "./tsup-css-module-plugin.ts";
 
-export default defineConfig({
-    dts: true,
-    clean: true,
+export default defineBuildConfig({
     minify: true,
     splitting: false,
-    treeshake: true,
-    entry: ["./src"],
-    outDir: "./dist",
-    format: ["esm"],
-    target: "esnext",
-    platform: "browser"
+    entry: ["./src/*.(ts|tsx)"],
+    esbuildPlugins: [
+        createCssModuleEsbuildPlugin({
+            generateScopedName: "[name]__[local]___[hash:base64:5]",
+            hashPrefix: packageJson.version
+        })]
 });

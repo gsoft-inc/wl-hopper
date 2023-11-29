@@ -1,7 +1,7 @@
 "use client";
 
+import clsx from "clsx";
 import { Children, useState } from "react";
-import cx from "classnames";
 
 import "./tabs.css";
 
@@ -27,17 +27,17 @@ const Tabs = ({ tabs, className, children }: TabsProps) => {
     const selectedChild = arrayChildren[selected];
 
     return (
-        <div className={cx("hd-tabs", className)}>
+        <div className={clsx("hd-tabs", className)}>
             <ul className="hd-tabs__list">
                 {tabs.map((tab, index) => (
                     <li
                         key={`${index.toString()}_${tab.category}`}
-                        className={cx("hd-tabs__item", { "hd-tabs__item--active": index === selected })}
+                        className={clsx("hd-tabs__item", { "hd-tabs__item--active": index === selected })}
                     >
                         <button
                             type="button"
                             onClick={() => handleOnClick(index)}
-                            className={cx("hd-tabs__item-button", { "hd-tabs__item-button--active": index === selected })}
+                            className={clsx("hd-tabs__item-button", { "hd-tabs__item-button--active": index === selected })}
                         >
                             {tab.title}
                         </button>

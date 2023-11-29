@@ -8,15 +8,15 @@ const config: Config = {
     transform: {
         "^.+\\.(js|ts|tsx)$": ["@swc/jest", swcConfig as Record<string, unknown>]
     },
-    testRegex: "/tests/jest/.*\\.test\\.(ts|tsx)$",
     moduleNameMapper: {
+        "\\.css$": "identity-obj-proxy", // https://jestjs.io/docs/webpack#mocking-css-modules
         ...pathsToModuleNameMapper(compilerOptions.paths, {
-            prefix: "<rootDir>/../.."
+            prefix: "<rootDir>"
         })
-    },
-    setupFilesAfterEnv: [
-        "./jest-setup.ts"
-    ]
+    }
+    // setupFilesAfterEnv: [
+    //     "@testing-library/jest-dom/extend-expect"
+    // ]
 };
 
 export default config;
