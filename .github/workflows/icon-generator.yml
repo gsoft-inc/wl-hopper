@@ -3,9 +3,6 @@ name: Icon Generator
 # Pnpm setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
 
 on:
-  push:
-    paths:
-      - "packages/svg-icons/src/icons/**"
   pull_request:
     paths:
       - "packages/svg-icons/src/icons/**"
