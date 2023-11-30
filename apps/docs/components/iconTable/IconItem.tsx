@@ -6,10 +6,10 @@ import * as IconLibrary from "@hopper-ui/icons";
 
 import "./iconItem.css";
 
-interface IconItemProps {
-    name: string;
-    size: string;
-    type: string;
+export interface IconItemProps {
+    name: typeof IconLibrary.iconNames[number];
+    size: "sm" | "md" | "lg";
+    type: "react" | "svg";
 }
 
 const IconItem: React.FC<IconItemProps> = ({ name, type, size }) => {

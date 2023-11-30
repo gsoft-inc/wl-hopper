@@ -7,7 +7,7 @@ import { IconTable } from "@/components/iconTable/IconTable";
 import "./switcher.css";
 
 interface SwitcherProps {
-    type: string;
+    type: "react" | "svg";
 }
 
 interface HandleChange {

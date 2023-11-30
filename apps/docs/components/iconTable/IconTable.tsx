@@ -1,38 +1,27 @@
 "use client";
 
-import "./iconTable.css";
-import IconItem from "./IconItem";
+import IconItem, { type IconItemProps } from "./IconItem";
 import * as IconLibrary from "@hopper-ui/icons";
 import { HopperProvider } from "@hopper-ui/components";
 
-interface IconTableProps {
-    size: string;
-    type: string;
-}
+import "./iconTable.css";
 
-interface ListProps {
-    iconSize: string;
+interface IconTableProps {
+    size: IconItemProps["size"];
+    type: IconItemProps["type"];
 }
 
 export const IconTable = ({ size, type }: IconTableProps) => {
-    const List = ({ iconSize }: ListProps) => {
-        const listItems = IconLibrary.iconNames.map(name => {
-            return (
-                <IconItem type={type} size={iconSize} name={name} />
-            );
-        });
-
+    const listItems = IconLibrary.iconNames.map(name => {
         return (
-            <>
-                {listItems}
-            </>
+            <IconItem type={type} size={size} name={name} />
         );
-    };
+    });
 
     return (
         <HopperProvider colorScheme="light">
             <div className="hd-icon-table">
-                <List iconSize={size} />
+                {listItems}
             </div>
         </HopperProvider>
     );
