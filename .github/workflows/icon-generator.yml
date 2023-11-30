@@ -57,9 +57,9 @@ jobs:
         id: check-changes
         run: |
           if git diff --quiet; then
-            echo "{result}={No changes}" >> $GITHUB_OUTPUT
+            echo "result=No changes" >> $GITHUB_OUTPUT
           else
-            echo "{result}={Changes detected}" >> $GITHUB_OUTPUT
+            echo "result=Changes detected" >> $GITHUB_OUTPUT
           fi
 
       - name: Commit changes
