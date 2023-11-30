@@ -5,16 +5,10 @@ import { PrimaryIconColor } from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetch-svgs.ts";
 import svgoConfig from "./svgo-config.ts";
 
-function ensureDirSync(dir: string) {
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-}
-
 export async function generateComponents(componentDirectory: string, icons: MultiSourceIconSource[]) {
     // Clear directory (It also removes the directory itself)
     fs.rmSync(componentDirectory, { recursive: true, force: true });
-    ensureDirSync(componentDirectory);
+    fs.mkdirSync(componentDirectory, { recursive: true });
 
     for (const icon of icons) {
         let componentCode = [

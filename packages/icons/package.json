@@ -32,9 +32,8 @@
         "./index.css": "./dist/index.css"
     },
     "scripts": {
-        "build:ts": "tsup --config ./tsup.build.ts",
-        "build:generate-icons": "tsx scripts/build.ts",
-        "build": "pnpm run build:generate-icons && pnpm run build:ts"
+        "build": "tsup --config ./tsup.build.ts",
+        "generate-icons": "tsx scripts/build.ts"
     },
     "peerDependencies": {
         "@hopper-ui/styled-system": "*",
