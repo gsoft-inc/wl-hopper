@@ -7,7 +7,7 @@
         "paths": {
             "@hopper-ui/components": ["./packages/components/src/index.ts"],
             "@hopper-ui/styled-system": ["./packages/styled-system/src/index.ts"],
-            "@hopper-ui/chromatic-storybook-addon": ["./tooling/chromatic-storybook-addon/index.ts"],
+            "@hopper-ui/hopper-chromatic-addon": ["./tooling/hopper-chromatic-addon/index.ts"]
         }
     }
 }

@@ -1,5 +1,5 @@
-import { ChromaticProviderOptions } from "@hopper-ui/chromatic-storybook-addon";
 import { Div, HopperProvider, useColorSchemeContext } from "@hopper-ui/components";
+import { HopperProviderOptions } from "@hopper-ui/hopper-chromatic-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
 
@@ -19,10 +19,9 @@ const meta: Meta<typeof HopperProvider> = {
         children: <ColoredDiv />
     },
     parameters: {
-        chromaticProvider: {
-            colorSchemes: ["light"],
-            scales: ["lg"]
-        } satisfies ChromaticProviderOptions
+        hopperProvider: {
+            disabled: true
+        } satisfies HopperProviderOptions
     }
 };
 

@@ -1,5 +1,6 @@
-import { withChromaticProvider } from "@hopper-ui/chromatic-storybook-addon";
+// import { withHopperProvider } from "@hopper-ui/hopper-chromatic-addon";
 import type { Preview } from "@storybook/react";
+import { withHopperProvider } from "../tooling/hopper-chromatic-addon/index.tsx";
 
 const preview: Preview = {
     parameters: {
@@ -15,7 +16,7 @@ const preview: Preview = {
         }
     },
     decorators: [
-        withChromaticProvider
+        withHopperProvider
     ]
 };
 

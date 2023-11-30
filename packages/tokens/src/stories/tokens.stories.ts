@@ -1,4 +1,4 @@
-import { ChromaticProviderOptions } from "@hopper-ui/chromatic-storybook-addon";
+import { HopperProviderOptions } from "@hopper-ui/hopper-chromatic-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { List, type Style, type TokenType } from "./components/List.tsx";
 import darkTokens from "./datas/tokens-dark.json";
@@ -43,9 +43,9 @@ export const Core: Story = {
         tokenType: "core"
     },
     parameters: {
-        chromaticProvider: {
+        hopperProvider: {
             colorSchemes: ["light"] // core color are not semantic
-        } satisfies ChromaticProviderOptions
+        } satisfies HopperProviderOptions
     }
 };
 

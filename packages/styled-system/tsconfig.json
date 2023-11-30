@@ -6,7 +6,8 @@
         "paths": {
             "@hopper-ui/components": ["../components/src/index.ts"],
             "@hopper-ui/styled-system": ["./src/index.ts"],
-            "@hopper-ui/test-utils": ["../../test-utils/index.ts"]
+            "@hopper-ui/test-utils": ["../../test-utils/index.ts"],
+            "@hopper-ui/hopper-chromatic-addon": ["../../tooling/hopper-chromatic-addon/index.ts"]
         }
     }
 }

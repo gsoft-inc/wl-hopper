@@ -6,7 +6,7 @@
         "paths": {
             "@hopper-ui/styled-system": ["../styled-system/src/index.ts"],
             "@hopper-ui/components": ["./src/index.ts"],
-            "@hopper-ui/chromatic-storybook-addon": ["../../tooling/chromatic-storybook-addon/index.ts"],
+            "@hopper-ui/hopper-chromatic-addon": ["../../tooling/hopper-chromatic-addon/index.ts"],
         }
     }
 }

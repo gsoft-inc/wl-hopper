@@ -1,3 +1,4 @@
+import { HopperProviderOptions } from "@hopper-ui/hopper-chromatic-addon";
 import { Breakpoints, Div, type DivProps } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -11,7 +12,10 @@ const meta: Meta<DivProps> = {
             delay: 100,
             viewports: viewports
         },
-        controls: { hideNoControlsWarning: true }
+        controls: { hideNoControlsWarning: true },
+        hopperProvider: {
+            disabled: true
+        } satisfies HopperProviderOptions
     },
     args: {
         color: "core_samoyed",
