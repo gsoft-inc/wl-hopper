@@ -57,6 +57,7 @@ jobs:
         id: check-changes
         run: |
           git diff --exit-code || echo "Changes detected"
+          echo "Result: ${{ steps.check-changes.outputs.result }}"
 
       - name: Commit changes
         if: steps.check-changes.outputs.result == 'Changes detected'
