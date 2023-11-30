@@ -69,7 +69,7 @@ jobs:
             git config --local user.name "GitHub Actions"
             git add .
             git commit -m "Update icons [skip ci]"
-            git push
+            git push origin ${{ github.head_ref }}
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
