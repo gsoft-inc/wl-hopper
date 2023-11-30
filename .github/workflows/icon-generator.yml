@@ -1,0 +1,88 @@
+name: Icon Generator
+
+# Pnpm setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
+
+on:
+  push:
+    paths:
+      - "packages/svg-icons/src/icons/**"
+  pull_request:
+    paths:
+      - "packages/svg-icons/src/icons/**"
+
+env:
+  CI: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Test packages #we make sure the icons are in the correct format before generating them
+        run: pnpm test
+
+      - name: Generate icons
+        run: pnpm generate-icons
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          git diff --exit-code || echo "Changes detected"
+
+      - name: Commit changes
+        if: steps.check-changes.outputs.result == 'Changes detected'
+        run: |
+            git config --local user.email "actions@github.com"
+            git config --local user.name "GitHub Actions"
+            git add .
+            git commit -m "Update icons [skip ci]"
+
+      - name: Push changes
+        if: steps.check-changes.outputs.result == 'Changes detected'
+        run: |
+            git push origin ${{ github.head_ref }}
+
+      - name: Comment on pull request
+        if: steps.check-changes.outputs.result == 'Changes detected'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = 'Optimized icons have been automatically generated and pushed to the repository. Don't forget to add a changeset file for @hopper-ui/svg-icons and @hopper-ui/icons.';
+            github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+            });
