@@ -62,18 +62,14 @@ jobs:
             echo "result=Changes detected" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit changes
+      - name: Commit and Push changes
         if: steps.check-changes.outputs.result == 'Changes detected'
         run: |
             git config --local user.email "actions@github.com"
             git config --local user.name "GitHub Actions"
             git add .
             git commit -m "Update icons [skip ci]"
-
-      - name: Push changes
-        if: steps.check-changes.outputs.result == 'Changes detected'
-        run: |
-            git push origin ${{ github.head_ref }}
+            git push
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
