@@ -3,9 +3,6 @@
 import React, { useState } from "react";
 import { RadioGroup, Radio } from "react-aria-components";
 import { IconTable } from "@/components/iconTable/IconTable";
-import * as IconLibrary from "@hopper-ui/icons";
-import { LI, UL } from "@hopper-ui/styled-system";
-import { HopperProvider } from "@hopper-ui/components";
 
 import "./switcher.css";
 
@@ -24,27 +21,8 @@ const Switcher = React.memo(({ type }: SwitcherProps) => {
         setSelectedSize(value);
     };
 
-    console.log(IconLibrary);
-
-    const List = () => {
-        const listItems = IconLibrary.iconNames.map(name => {
-            return (
-                <LI key={name}>
-                    a
-                </LI>);
-        });
-
-        return (
-            <UL>
-                {listItems}
-            </UL>
-        );
-    };
-
     return (
-        <HopperProvider colorScheme="light">
-            <div className="hd-switcher">
-            <List />
+        <div className="hd-switcher">
             <RadioGroup className="hd-switcher-picker" defaultValue={selectedSize} onChange={handleChange}>
                 <div className="hd-switcher-choices">
                     <Radio className="hd-switcher-choice" value="sm">
@@ -91,11 +69,11 @@ const Switcher = React.memo(({ type }: SwitcherProps) => {
                     </Radio>
                 </div>
             </RadioGroup>
-            {selectedSize === "sm" && <IconTable type={type} size={type === "react" ? "sm" : "16"} />}
-            {selectedSize === "md" && <IconTable type={type} size={type === "react" ? "md" : "24"} />}
-            {selectedSize === "lg" && <IconTable type={type} size={type === "react" ? "lg" : "32"} />}
+            {/* need to do the type assertion lower in the chain as here it breaks as no icon have a numeric size */}
+            {selectedSize === "sm" && <IconTable type={type} size="sm" />}
+            {selectedSize === "md" && <IconTable type={type} size="md" />}
+            {selectedSize === "lg" && <IconTable type={type} size="lg" />}
         </div>
-    </HopperProvider>
     );
 });
 
