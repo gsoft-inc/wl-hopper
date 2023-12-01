@@ -73,14 +73,14 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
-          git commit -m "Update icons [skip ci]"
+          git commit -m "Update icons"
           git push
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
         uses: actions/github-script@v7
         env:
-          PR_MESSAGE: "Optimized icons have been automatically generated and pushed to the repository. Don't forget to add a changeset file for @hopper-ui/svg-icons and @hopper-ui/icons."
+          PR_MESSAGE: "Optimized icons have been automatically generated and pushed to the repository. Do not forget to add a changeset file for @hopper-ui/svg-icons and @hopper-ui/icons."
         with:
           script: |
             github.issues.createComment({
