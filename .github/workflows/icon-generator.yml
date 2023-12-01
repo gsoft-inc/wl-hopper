@@ -87,5 +87,5 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body: ${process.env.PR_MESSAGE}
+                body: process.env.PR_MESSAGE
             });
