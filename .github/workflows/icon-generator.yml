@@ -73,7 +73,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
-          git commit -m "Update icons [skip ci]"
+          git commit -m "Update icons"
           git push
 
       - name: Comment on pull request
