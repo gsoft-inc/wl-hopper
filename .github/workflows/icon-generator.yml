@@ -53,26 +53,31 @@ jobs:
       - name: Test packages #we make sure the icons are in the correct format before generating them
         run: pnpm test
 
-      - name: Generate icons
-        run: pnpm generate-icons
+      #- name: Generate icons
+       # run: pnpm generate-icons
 
-      - name: Check for changes
-        id: check-changes
-        run: |
-          if git diff --name-only --quiet; then
-            echo "result=No changes" >> $GITHUB_OUTPUT
-          else
-            echo "result=Changes detected" >> $GITHUB_OUTPUT
-          fi
+      #- name: Check for changes
+       # id: check-changes
+        #run: |
+         # if git diff --name-only --quiet; then
+          #  echo "result=No changes" >> $GITHUB_OUTPUT
+          #else
+          #  echo "result=Changes detected" >> $GITHUB_OUTPUT
+          #fi
 
-      - name: Commit and Push changes
-        if: steps.check-changes.outputs.result == 'Changes detected'
+      - uses: actions/checkout@v4
+      - name: Run Script
         run: |
-            git config --local user.email "actions@github.com"
-            git config --local user.name "GitHub Actions"
-            git add .
-            git commit -m "Update icons [skip ci]"
-            git push origin HEAD:${{ github.head_ref }} 
+            pnpm generate-icons
+            if git diff --name-only --quiet; then
+              echo "No changes"
+            else
+              git config --local user.email "actions@github.com"
+              git config --local user.name "GitHub Actions"
+              git add .
+              git commit -m "Update icons [skip ci]"
+              git push
+            fi
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
