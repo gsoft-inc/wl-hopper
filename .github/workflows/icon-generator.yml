@@ -68,6 +68,7 @@ jobs:
       - name: Commit and Push changes
         if: steps.check-changes.outputs.result == 'Changes detected'
         run: |
+          git fetch --depth=1
           git checkout -B ${{ github.head_ref }}
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
