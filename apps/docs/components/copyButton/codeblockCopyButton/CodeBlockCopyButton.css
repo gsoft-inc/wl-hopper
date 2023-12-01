@@ -2,14 +2,15 @@
     aspect-ratio: 1/1;
     border-radius: var(--hd-space-05);
     width: var(--hd-space-4);
+    color: var(--hd-neutral-20)
 }
 
 .hd-codeblock-copy-button:not([disabled]):hover {
-    background-color: var(--hd-color-neutral-surface-weak);
+    background-color: var(--hd-neutral-50);
 }
 
 .hd-codeblock-copy-button__icon {
-    stroke: var(--hd-neutral-20);
+    stroke: currentcolor;
 }
 
 .hd-codeblock-copy-button:not([disabled]):hover .hd-codeblock-copy-button__icon {

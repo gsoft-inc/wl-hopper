@@ -30,7 +30,7 @@ const CopyButton = ({ text, className, children, onCopy, isCopied, setIsCopied }
     };
 
     return (
-        <Button isDisabled={isCopied} onPress={copy} className={classes}>
+        <Button isDisabled={isCopied} onPress={copy} className={classes} aria-label="Copy">
             {children}
         </Button>
     );

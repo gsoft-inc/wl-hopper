@@ -1,13 +1,14 @@
 "use client";
 
 import clsx from "clsx";
-import { Children, useState } from "react";
+import { Children, useState, type ReactElement } from "react";
 
 import "./tabs.css";
 
 interface TabProps {
-    title: string;
     category: string;
+    title: string;
+    titleIcon?: ReactElement<SVGElement>;
 }
 
 interface TabsProps {
@@ -39,6 +40,7 @@ const Tabs = ({ tabs, className, children }: TabsProps) => {
                             onClick={() => handleOnClick(index)}
                             className={clsx("hd-tabs__item-button", { "hd-tabs__item-button--active": index === selected })}
                         >
+                            {tab.titleIcon && <span className="hd-tabs__icon">{tab.titleIcon}</span>}
                             {tab.title}
                         </button>
                     </li>

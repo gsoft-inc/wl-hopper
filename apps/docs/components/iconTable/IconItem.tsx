@@ -12,14 +12,14 @@ export interface IconItemProps {
     type: "react" | "svg";
 }
 
+function toKebabCase(str: string) {
+    return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+}
+
 const IconItem: React.FC<IconItemProps> = ({ name, type, size }) => {
     const [isCopied, setIsCopied] = React.useState(false);
 
-    const toLower = (str: string) => str.toLowerCase();
-
-    const toKebabCase = (str: string) => str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
-
-    const getIconNumericSize = (iconSize: string) => {
+    const getIconNumericSize = (iconSize: IconItemProps["size"]) => {
         switch (iconSize) {
             case "sm":
                 return "16";
@@ -33,7 +33,7 @@ const IconItem: React.FC<IconItemProps> = ({ name, type, size }) => {
     };
 
     const formattedName = name.replace("Icon", "");
-    const copyString = type === "react" ? `<${name} size="${size}" />` : `${toLower(toKebabCase(formattedName))}-${getIconNumericSize(size)}.svg` ;
+    const copyString = type === "react" ? `<${name} size="${size}" />` : `${toKebabCase(formattedName).toLowerCase()}-${getIconNumericSize(size)}.svg` ;
     const Component = IconLibrary[name];
 
     return (

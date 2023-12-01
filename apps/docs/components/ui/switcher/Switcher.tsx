@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { RadioGroup, Radio } from "react-aria-components";
+import { RadioGroup, Radio, type RadioGroupProps } from "react-aria-components";
 import { IconTable } from "@/components/iconTable/IconTable";
 
 import "./switcher.css";
@@ -10,14 +10,10 @@ interface SwitcherProps {
     type: "react" | "svg";
 }
 
-interface HandleChange {
-    (value: string): void;
-}
-
 const Switcher = React.memo(({ type }: SwitcherProps) => {
     const [selectedSize, setSelectedSize] = useState("md");
 
-    const handleChange: HandleChange = value => {
+    const handleChange: RadioGroupProps["onChange"] = value => {
         setSelectedSize(value);
     };
 
