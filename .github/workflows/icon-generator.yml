@@ -19,10 +19,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
 
@@ -72,7 +72,7 @@ jobs:
             git config --local user.name "GitHub Actions"
             git add .
             git commit -m "Update icons [skip ci]"
-            git push origin ${{ github.event.pull_request.head.ref }}
+            git push
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
