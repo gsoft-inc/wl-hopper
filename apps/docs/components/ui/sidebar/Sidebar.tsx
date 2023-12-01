@@ -19,7 +19,7 @@ interface SidebarProps {
 
 const Sidebar = ({ data, isOpen, onClose }: SidebarProps) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
-    const links = getPageLinks(data, { order: ["getting-started", "semantic", "core"] });
+    const links = getPageLinks(data, { order: ["getting-started", "semantic", "core", "react-icons", "svg"] });
     const pathName = usePathname();
 
     useEffect(() => {

@@ -33,7 +33,12 @@ const IconItem: React.FC<IconItemProps> = ({ name, type, size }) => {
     };
 
     const formattedName = name.replace("Icon", "");
-    const copyString = type === "react" ? `<${name} size="${size}" />` : `${toKebabCase(formattedName).toLowerCase()}-${getIconNumericSize(size)}.svg` ;
+    const copyString = type === "react"
+        ? size !== "md"
+            ? `<${name} size="${size}" />`
+            : `<${name} />`
+        : `${toKebabCase(formattedName).toLowerCase()}-${getIconNumericSize(size)}.svg`;
+
     const Component = IconLibrary[name];
 
     return (

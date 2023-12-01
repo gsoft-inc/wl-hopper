@@ -64,7 +64,8 @@ article ul {
     padding-left: 1rem;
 }
 
-article p a {
+article p a,
+article li a {
     color: var(--hd-color-accent-text);
     text-decoration: underline;
 }
