@@ -20,7 +20,7 @@ npm install @hopper-ui/icons @hopper-ui/styled-system
 
 ```tsx
 // index.tsx
-import { StyledSystemProvider } from "@hopper/styled-system";
+import { StyledSystemProvider } from "@hopper-ui/styled-system";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
