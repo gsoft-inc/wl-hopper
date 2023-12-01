@@ -68,11 +68,12 @@ jobs:
       - name: Commit and Push changes
         if: steps.check-changes.outputs.result == 'Changes detected'
         run: |
+          git checkout ${{ github.head_ref }}
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add .
           git commit -m "Update icons [skip ci]"
-          git push origin ${{ github.head_ref || github.ref_name }}
+          git push origin ${{ github.head_ref }}
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
