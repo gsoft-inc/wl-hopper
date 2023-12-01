@@ -1,7 +1,6 @@
 ---
 title: Installation
-description: Getting started with Workleap Design Tokens
-order: 2
+description: Getting started with Workleap Design Icons
 ---
 
 export const installMethods = [
@@ -12,24 +11,30 @@ export const installMethods = [
 
 # Installation
 
-## Package manager
-
-Run the following command to install the tokens package.
+## Install packages
 
 <Tabs tabs={installMethods}>
     <div>
     ```shell
-    pnpm add @hopper-ui/tokens
+    pnpm add @hopper-ui/svg-icons
     ```
     </div>
     <div>
     ```shell
-    yarn add -D @hopper-ui/tokens
+    yarn add -D @hopper-ui/svg-icons
     ```
     </div>
     <div>
     ```shell
-    npm add -D @hopper-ui/tokens
+    npm add -D @hopper-ui/svg-icons
     ```
     </div>
 </Tabs>
+
+## Start using icons
+
+```css title="myComponent.css"
+.myComponent {
+    background-image: url("@hopper-ui/svg-icons/alert-24.svg");
+}
+```

@@ -4,34 +4,10 @@
     justify-content: center;
     background-color: transparent;
     border: none;
-    stroke: var(--hd-icon-button-color);
-    aspect-ratio: 1/1;
-    width: var(--hd-space-4);
     border-radius: var(--hd-space-1);
     cursor: pointer;
 }
 
-.hd-copy-button[disabled] {
+.hd-copy-button[disabled]:hover {
     cursor: not-allowed;
-}
-
-.hd-copy-button:not([disabled]):hover {
-    background-color: var(--hd-color-neutral-surface-weak);
-}
-
-.hd-copy-button--small {
-    border-radius: var(--hd-space-05);
-    width: var(--hd-space-3);
-}
-
-.hd-copy-button--inlined {
-    background: var(--hd-color-neutral-surface);
-}
-
-.hd-copy-button--on-dark {
-    stroke: var(--hd-neutral-20);
-}
-
-.hd-copy-button--on-dark:hover {
-    stroke: var(--hd-neutral-900);
 }

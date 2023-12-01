@@ -1,7 +1,7 @@
 ---
 title: Installation
-description: Getting started with Workleap Design Tokens
-order: 2
+description: Getting started with Workleap Design Icons
+order: 1
 ---
 
 export const installMethods = [
@@ -12,24 +12,47 @@ export const installMethods = [
 
 # Installation
 
-## Package manager
+React Icons are typically utilized alongside the `@hopper-ui/components`. If you want to use them without `@hopper-ui/components`, refer to the [standalone installation](/icons/react-icons/standalone-installation).
 
-Run the following command to install the tokens package.
+## Prerequisites
+
+Follow the `@hopper-ui/components` procedure(coming soon).
+
+## Install packages
 
 <Tabs tabs={installMethods}>
     <div>
     ```shell
-    pnpm add @hopper-ui/tokens
+    pnpm add @hopper-ui/icons
     ```
     </div>
     <div>
     ```shell
-    yarn add -D @hopper-ui/tokens
+    yarn add -D @hopper-ui/icons
     ```
     </div>
     <div>
     ```shell
-    npm add -D @hopper-ui/tokens
+    npm add -D @hopper-ui/icons
     ```
     </div>
 </Tabs>
+
+## Import Styles
+
+```css title="index.css"
+@import "@hopper-ui/icons/index.css";
+```
+
+## Start using icons
+
+```tsx title="App.tsx"
+import { AddIcon } from "@hopper-ui/icons";
+
+export const App = () => (
+    <div>
+        <span>Hello World!</span>
+        <AddIcon size="sm" />
+    </div>
+);
+```

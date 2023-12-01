@@ -1,6 +1,6 @@
 ---
-title: Installation
-description: Getting started with Workleap Design Tokens
+title: Standalone Installation
+description: Getting started with Workleap Design Icons
 order: 2
 ---
 
@@ -10,26 +10,62 @@ export const installMethods = [
   { title: "npm", titleIcon: <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><path fill="#C12127" d="M0 256V0h256v256z"/><path fill="#FFF" d="M48 48h160v160h-32V80h-48v128H48z"/></svg> }
 ];
 
-# Installation
+# Standalone Installation
 
-## Package manager
+It is recommended to use `@hopper-ui/icons` with `@hopper-ui/components` as detailed in the [installation section](/icons/react-icons/installation). The standalone installation procedure is detailed in case you only need the icons, and not the components.
 
-Run the following command to install the tokens package.
+## Install packages
 
 <Tabs tabs={installMethods}>
     <div>
     ```shell
-    pnpm add @hopper-ui/tokens
+    pnpm add @hopper-ui/icons @hopper-ui/styled-system
     ```
     </div>
     <div>
     ```shell
-    yarn add -D @hopper-ui/tokens
+    yarn add -D @hopper-ui/icons @hopper-ui/styled-system
     ```
     </div>
     <div>
     ```shell
-    npm add -D @hopper-ui/tokens
+    npm add -D @hopper-ui/icons @hopper-ui/styled-system
     ```
     </div>
 </Tabs>
+
+## Import Styles
+
+```css title="index.css"
+@import "@hopper-ui/icons/index.css";
+@import "@hopper-ui/styled-system/index.css";
+```
+
+## Configure your application
+
+```tsx title="App.tsx"
+import { StyledSystemProvider } from "@hopper-ui/styled-system";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+
+const root = createRoot(document.getElementById("root")!);
+
+root.render(
+    <StyledSystemProvider withBodyStyles colorScheme="light">
+        <App />
+    </StyledSystemProvider>
+);
+```
+
+## Start using icons
+
+```tsx title="myComponent.tsx"
+import { AddIcon } from "@hopper-ui/icons";
+
+export const App = () => (
+    <div>
+        <span>Hello World!</span>
+        <AddIcon size="sm" />
+    </div>
+);
+```
