@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with: 
+            ref: ${{ github.head_ref }}
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -68,20 +70,11 @@ jobs:
       - name: Commit and Push changes
         if: steps.check-changes.outputs.result == 'Changes detected'
         run: |
-          echo >> "Fetch the files, should only fetch the branch we want, but wtv"
-          git fetch --depth=1
-          echo >> "Checkout"
-          git checkout -B ${{ github.head_ref }}
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          echo >> "Add the files"
           git add .
-          echo >> "Next, we commit"
           git commit -m "Update icons [skip ci]"
-          echo >> "We pull"
-          git pull origin {{ github.head_ref }}
-          echo >> "We push"
-          git push --set-upstream origin "HEAD:${{ github.head_ref }}"
+          git push
 
       - name: Comment on pull request
         if: steps.check-changes.outputs.result == 'Changes detected'
