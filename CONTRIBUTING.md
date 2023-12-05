@@ -11,8 +11,8 @@ TODO
   - `packages/svg-icons/src/icons/24px`
   - `packages/svg-icons/src/icons/32px`
 
-2. Manual Generation (Optional)
-- If you want to manually generate optimized SVGs and React components, run the following command:
+2.Optimization and Generation of icons
+- To generate optimized SVGs and React components, run the following command:
 
 ```sh
 pnpm generate-icons
@@ -21,18 +21,14 @@ pnpm generate-icons
 - This command will optimize the SVGs and create React components in the respective folders.
 - Commit the changes to the repository.
 
-3. GitHub Action: Icon Generator (Automatic)
-- If you prefer an automated process, simply commit the icons to the repository.
-- The GitHub Action named "Icon Generator" will run automatically after the push.
-- It will optimize the SVGs and generate React components in the respective folders and commit the code to your branch
-
 4. Run Changeset Command
 
-- After the GitHub Action has completed successfully or after manually generating the icons, run the following command to create release notes for @hopper-ui/svg-icons and @hopper-ui/icons:
+- After manually generating the icons, run the following command to create release notes for @hopper-ui/svg-icons and @hopper-ui/icons:
 ```sh
 pnpm changeset
 ```
 - Follow the prompts to describe the changes made and choose the appropriate version bump.
+- A template for the release notes of svg-icons and icons is available in the `.changeset` folder [here](./.changeset/templates/svg-icons-release.md).
 
 ### Updating or removing an icon
 
