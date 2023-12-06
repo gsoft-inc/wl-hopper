@@ -278,9 +278,6 @@ importers:
       '@hopper-ui/styled-system':
         specifier: workspace:*
         version: link:../styled-system
-      '@hopper-ui/svg-icons':
-        specifier: workspace:*
-        version: link:../svg-icons
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.3.2)

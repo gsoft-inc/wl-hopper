@@ -1,5 +1,5 @@
 export const ComponentDirectory = "src/generated-icon-components";
-export const SVGsDirectory = "node_modules/@hopper-ui/svg-icons/dist/icons";
+export const SVGsDirectory = "../svg-icons/src/optimized-icons/";
 export const IconSizes = [16, 24, 32] as const;
 
 export const NeutralIconColor = "#3C3C3C"; // --hop-neutral-icon
