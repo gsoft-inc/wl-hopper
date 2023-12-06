@@ -3,14 +3,10 @@ import path from "path";
 import { optimize } from "svgo";
 import config from "./svgo-config.ts";
 
-function ensureDirSync(dir: string) {
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-}
-
 export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
-    ensureDirSync(outputDir);
+    // Clear directory (It also removes the directory itself)
+    fs.rmSync(outputDir, { recursive: true, force: true });
+    fs.mkdirSync(outputDir, { recursive: true });
 
     // This line requires Node.js 20.5.2 or higher to execute properly
     // https://github.com/nodejs/node/issues/48858
