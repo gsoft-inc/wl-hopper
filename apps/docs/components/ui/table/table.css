@@ -53,3 +53,12 @@
 .hd-typo__row:has(> :nth-child(4)) > .hd-typo__cell {
     padding-left: 0;
 }
+
+/* Icon Spec Table */
+.hd-table--icon-spec th {
+    width: 25%;
+}
+
+.hd-table--icon-spec .hd-table__column:last-child, .hd-table__cell:last-child {
+    text-align: left;
+}

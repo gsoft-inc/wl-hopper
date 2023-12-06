@@ -57,6 +57,39 @@ export const Tokens = defineDocumentType(() => ({
     }
 }));
 
+export const Icons = defineDocumentType(() => ({
+    name: "Icons",
+    filePathPattern: "icons/**/*.mdx",
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true
+        },
+        description: {
+            type: "string"
+        },
+        section: {
+            type: "string"
+        },
+        order: {
+            type: "number"
+        }
+    },
+    computedFields: {
+        slug: {
+            type: "string",
+            resolve: post => post._raw.sourceFileName.replace(/\.mdx$/, "")
+        },
+        section: {
+            type: "string",
+            resolve: post => {
+                return post._raw.sourceFileDir.replace("icons/", "");
+            }
+        }
+    }
+}));
+
 export const Components = defineDocumentType(() => ({
     name: "Components",
     filePathPattern: "components/**/*.mdx",
@@ -106,7 +139,6 @@ const rehypeOptions = {
             node.properties.className = ["highlighted"];
         }
     },
-
     onVisitHighlightedWord(node, id) {
         // Each word node has no className by default.
         node.properties.className = ["word"];
@@ -129,7 +161,7 @@ const rehypeOptions = {
 
 export default makeSource({
     contentDirPath: "./content",
-    documentTypes: [Page, Tokens, Components],
+    documentTypes: [Page, Tokens, Components, Icons],
     mdx: {
         remarkPlugins: [],
         rehypePlugins: [

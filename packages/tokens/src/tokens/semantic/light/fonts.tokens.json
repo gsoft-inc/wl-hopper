@@ -105,7 +105,7 @@
             },
             "line-height": {
                 "$type": "lineHeight",
-                "$value": "{line-height.1-50}"
+                "$value": "{line-height.1-33}"
             }
         },
         "xs": {
