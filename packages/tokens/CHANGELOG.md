@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.1.1
+
+### Patch Changes
+
+- a31b7e2: Updated the heading small line height token to the right core token
+
 ## 3.1.0
 
 ### Minor Changes
