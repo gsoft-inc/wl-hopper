@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 0.2.2
+
+### Patch Changes
+
+- f40a266: Optimized the build output
+
 ## 0.2.1
 
 ### Patch Changes
