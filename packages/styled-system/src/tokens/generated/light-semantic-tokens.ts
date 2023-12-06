@@ -765,7 +765,7 @@ export const SemanticTokens = {
     "--hop-heading-sm-font-family": "var(--hop-font-family-primary)",
     "--hop-heading-sm-font-size": "var(--hop-font-size-180)",
     "--hop-heading-sm-font-weight": "var(--hop-font-weight-580)",
-    "--hop-heading-sm-line-height": "var(--hop-line-height-1-50)",
+    "--hop-heading-sm-line-height": "var(--hop-line-height-1-33)",
     "--hop-heading-xs-font-family": "var(--hop-font-family-primary)",
     "--hop-heading-xs-font-size": "var(--hop-font-size-160)",
     "--hop-heading-xs-font-weight": "var(--hop-font-weight-410)",
