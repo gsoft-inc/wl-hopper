@@ -11,7 +11,9 @@
         "lint": "next lint",
         "lint:types": "tsc --noEmit",
         "storybook": "storybook dev -p 6010",
-        "build:storybook": "storybook build"
+        "build:storybook": "storybook build",
+        "playroom:start": "playroom start",
+        "playroom:build": "playroom build"
     },
     "dependencies": {
         "clsx": "2.0.0",
@@ -28,6 +30,8 @@
     "devDependencies": {
         "@hopper-ui/components": "workspace:*",
         "@hopper-ui/tokens": "workspace:*",
+        "@hopper-ui/icons": "workspace:*",
+        "@hopper-ui/styled-system": "workspace:*",
         "@storybook/addon-essentials": "7.5.3",
         "@storybook/addon-interactions": "7.5.3",
         "@storybook/addon-links": "7.5.3",
@@ -42,6 +46,7 @@
         "eslint": "8.53.0",
         "eslint-config-next": "14.0.2",
         "eslint-plugin-storybook": "0.6.15",
+        "playroom": "^0.34.0",
         "storybook": "7.5.3",
         "tsconfig-paths-webpack-plugin": "4.1.0",
         "typescript": "5.2.2"
