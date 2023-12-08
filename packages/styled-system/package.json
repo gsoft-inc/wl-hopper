@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/styled-system",
     "author": "Workleap",
-    "version": "0.0.0",
+    "version": "0.2.2",
     "description": "The styled-system package.",
     "license": "Apache-2.0",
     "repository": {
@@ -17,6 +17,9 @@
     "sideEffects": [
         "*.css"
     ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
     "exports": {
         ".": {
             "import": "./dist/index.js",
@@ -51,9 +54,9 @@
         "@testing-library/jest-dom": "6.1.4",
         "@testing-library/react": "14.1.0",
         "@types/jest": "29.5.8",
-        "@types/react-dom": "18.2.15",
+        "@types/react-dom": "18.2.17",
         "@types/react-test-renderer": "18.0.6",
-        "@types/react": "18.2.37",
+        "@types/react": "18.2.38",
         "@workleap/eslint-plugin": "3.0.0",
         "@workleap/swc-configs": "2.1.2",
         "@workleap/tsup-configs": "3.0.1",
@@ -70,8 +73,5 @@
         "tsup": "7.2.0",
         "type-fest": "4.7.1",
         "typescript": "5.2.2"
-    },
-    "engines": {
-        "node": ">=18.0.0"
     }
 }

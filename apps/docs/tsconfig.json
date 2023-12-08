@@ -28,6 +28,9 @@
       "@/*": [
         "./*"
       ],
+      "@hopper-ui/icons": ["../../packages/icons/src/index.ts"],
+      "@hopper-ui/styled-system": ["../../packages/styled-system/src/index.ts"],
+      "@hopper-ui/components": ["../../packages/components/src/index.ts"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },

@@ -33,8 +33,8 @@
 
 [data-rehype-pretty-code-fragment] pre code {
     display: grid;
-    padding: var(--hd-space-1) var(--hd-space-1) var(--hd-space-1) var(--hd-space-2);
     overflow-x: auto;
+    padding: var(--hd-space-1) 0 var(--hd-space-1) var(--hd-space-2);
 }
 
 [data-rehype-pretty-code-fragment] .line {

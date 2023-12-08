@@ -1,0 +1,14 @@
+.hd-inline-copy-button {
+    aspect-ratio: 1/1;
+    background: var(--hd-color-neutral-surface);
+    border-radius: var(--hd-space-05);
+    width: var(--hd-space-3);
+}
+
+.hd-inline-copy-button:not([disabled]):hover {
+    background-color: var(--hd-color-neutral-surface-weak);
+}
+
+.hd-inline-copy-button__icon {
+    stroke: var(--hd-icon-button-color);
+}
