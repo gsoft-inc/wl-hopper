@@ -700,7 +700,7 @@
         },
         "surface-strong": {
             "$type": "color",
-            "$value": "{samoyed}"
+            "$value": "{toad.25}"
         },
         "surface-hover": {
             "$type": "color",
