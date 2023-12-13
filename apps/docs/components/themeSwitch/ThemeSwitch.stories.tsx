@@ -11,5 +11,7 @@ export default meta;
 type Story = StoryObj<typeof ThemeSwitch>;
 
 export const Default: Story = {
-    args: {}
+    args: {
+        text: "Toggle theme"
+    }
 };

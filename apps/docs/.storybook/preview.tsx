@@ -5,8 +5,8 @@ import "../app/globals.css";
 // Storybook styles
 import "./global.css";
 
-const Container = ({ children, theme }) => (
-    <div className="container" data-theme={theme}>{children}</div>
+const Container = ({ children, theme }: { children: React.ReactNode, theme: "light" | "dark"}) => (
+    <div className="shd-container" data-theme={theme}>{children}</div>
 )
 
 const preview: Preview = {

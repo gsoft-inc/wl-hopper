@@ -1,7 +1,20 @@
 @import url("@/styles/tokens.css");
 
-.hd-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--hd-color-surface-primary);
+.shd-container {
+    --rs-landing-demo-bg: #fff;
+    --rs-landing-demo-dot-color: #e2e3e4;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background:
+        linear-gradient(90deg,var(--rs-landing-demo-bg) 10px,transparent 1%) 50%,
+        linear-gradient(var(--rs-landing-demo-bg) 10px,transparent 1%) 50%,
+        var(--rs-landing-demo-dot-color);
+    background-size: 12px 12px;
+}
+
+[data-theme="dark"] {
+    --rs-landing-demo-bg: #1e1e1e;
+    --rs-landing-demo-dot-color: #2e2e2e;
 }
