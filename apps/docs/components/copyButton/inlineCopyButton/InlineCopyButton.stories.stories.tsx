@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import InlineCopyButton from "./InlineCopyButton";
 
 const meta: Meta<typeof InlineCopyButton> = {
-    title: "Component/InlineCopyButton",
+    title: "Component/Copy/InlineButton",
     component: InlineCopyButton
 };
 

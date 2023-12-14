@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import CodeBlockCopyButton from "./CodeBlockCopyButton";
 
 const meta: Meta<typeof CodeBlockCopyButton> = {
-    title: "Component/CodeBlockCopyButton",
+    title: "Component/Copy/CodeBlockButton",
     component: CodeBlockCopyButton
 };
 
