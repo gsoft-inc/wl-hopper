@@ -1,22 +1,27 @@
 .hd-theme-switch__button {
-    width: var(--hd-space-4);
-    aspect-ratio: 1/1;
     background-color: transparent;
     color: var(--hd-color-neutral-icon);
     border-width: 0;
     border-radius: var(--hd-space-05);
     display: flex;
+    gap: var(--hd-space-2);
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
 }
 
-.hd-theme-switch__button:hover {
-    background-color: var(--hd-color-surface-primary-weak-hover);
-    cursor: pointer;
-}
+@media screen and (width >= 48rem) {
+    .hd-theme-switch__button {
+        width: var(--hd-space-4);
+        aspect-ratio: 1/1;
+    }
 
-.hd-theme-switch {
-    display: flex;
-    align-items: center;
-    gap: var(--hd-space-05);
+    .hd-theme-switch__button:hover {
+        background-color: var(--hd-color-neutral-surface-weak);
+        cursor: pointer;
+    }
+
+    .hd-theme-switch__text {
+        display: none;
+    }
 }

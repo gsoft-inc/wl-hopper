@@ -85,7 +85,7 @@
     --hd-color-neutral-text-weak: var(--hd-neutral-300);
     --hd-color-neutral-text-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-text-weakest: var(--hd-neutral-300);
-    --hd-color-neutral-text-weakest-hover: var(--hd-neutral-100);
+    --hd-color-neutral-text-weakest-hover: var(--hd-neutral-50);
     --hd-color-primary-text: var(--hd-primary-600);
     --hd-color-primary-text-hover: var(--hd-white);
     --hd-color-primary-text-strong: var(--hd-primary-900);
