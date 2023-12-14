@@ -25,19 +25,22 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
 
     return (
         <pre {...props} className={classes}>
-            {raw && <CodeBlockCopyButton className="hd-pre-copy-button hd-copy-button--on-dark" text={raw} />}
             {title &&
-            <div className="hd-pre-header">
-                <div className="hd-pre-header__info">
-                    {dataLanguage && (
-                        <span className="hd-pre-header__lang">
-                            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
-                        </span>)
-                    }
-                    <span className="hd-pre-header__title">{title}</span>
+                <div className="hd-pre-header">
+                    <div className="hd-pre-header__info">
+                        {dataLanguage && (
+                            <span className="hd-pre-header__lang">
+                                <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
+                            </span>)
+                        }
+                        <span className="hd-pre-header__title">{title}</span>
+                    </div>
+                    {raw && <CodeBlockCopyButton className="hd-pre__button" text={raw} />}
                 </div>
-            </div>}
-            {children}
+            }
+            <div className="hd-pre__code">
+                {children}
+            </div>
         </pre>
     );
 };

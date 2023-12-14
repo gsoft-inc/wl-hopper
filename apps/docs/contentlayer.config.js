@@ -173,7 +173,6 @@ export default makeSource({
                         if (codeEl.tagName !== "code") {
                             return;
                         }
-
                         node.raw = codeEl.children?.[0].value;
                     }
                 });

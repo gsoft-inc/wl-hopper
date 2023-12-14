@@ -13,8 +13,8 @@ type Story = StoryObj<typeof Pre>;
 export const Default: Story = {
     args: {
         raw: "const foo = 'bar';",
-        title: "Story.jsx",
+        title: "Story.tsx",
         "data-language": "tsx",
-        children: "const foo = 'bar';"
+        children: <code>const foo = 'bar';</code>
     }
 }
