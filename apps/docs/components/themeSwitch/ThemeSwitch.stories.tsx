@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ThemeSwitch from "./ThemeSwitch";
 
 const meta: Meta<typeof ThemeSwitch> = {
-    title: "Component/Theme Switch/Button",
+    title: "Component/Theme Switch",
     component: ThemeSwitch
 };
 

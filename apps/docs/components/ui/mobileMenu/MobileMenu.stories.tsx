@@ -4,7 +4,7 @@ import MobileMenu from "./MobileMenu";
 import MobileMenuTrigger from "./MobileMenuTrigger";
 
 const meta: Meta<typeof MobileMenu> = {
-    title: "Ui/MobileMenu",
+    title: "Mobile/Menu",
     component: MobileMenu
 };
 

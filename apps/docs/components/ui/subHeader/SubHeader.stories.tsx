@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SubHeader from "./SubHeader";
 
 const meta: Meta<typeof SubHeader> = {
-    title: "Ui/SubHeader",
+    title: "Mobile/SubHeader",
     component: SubHeader
 };
 

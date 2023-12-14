@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SectionPopover from "./sectionPopover";
 
 const meta: Meta<typeof SectionPopover> = {
-    title: "Ui/SectionPopover",
+    title: "Mobile/SectionPopover",
     component: SectionPopover
 };
 
