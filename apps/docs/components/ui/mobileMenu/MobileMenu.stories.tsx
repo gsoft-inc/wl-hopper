@@ -20,16 +20,16 @@ type TriggerStory = StoryObj<typeof MobileMenuTrigger>;
 export const Default: Story = {
     args: {
         isOpen: true
-    },
-}
+    }
+};
 
 export const Trigger: TriggerStory = {
     args: {
         onToggle: () => {}
     },
-    render: (args) => {
+    render: args => {
         return (
             <MobileMenuTrigger {...args} />
-        )
-    },
+        );
+    }
 };

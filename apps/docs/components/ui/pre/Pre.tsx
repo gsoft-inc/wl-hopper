@@ -25,12 +25,12 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
 
     const langContent = dataLanguage && (
         <span className="hd-pre-header__lang">
-            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon"/>
+            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
         </span>
-    )
+    );
 
-    const titleContent = <span className="hd-pre-header__title">{title}</span>
-    const copyButton = raw && <CopyButton text={raw}/>
+    const titleContent = <span className="hd-pre-header__title">{title}</span>;
+    const copyButton = raw && <CopyButton text={raw} />;
 
     return (
         <pre {...props} className={classes}>
@@ -46,7 +46,7 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
             <div className="hd-pre__code">
                 {children}
             </div>
-            {!title && <div className="hd-pre__action">{copyButton}</div> }
+            {!title && <div className="hd-pre__action">{copyButton}</div>}
         </pre>
     );
 };

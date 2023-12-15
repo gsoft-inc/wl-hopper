@@ -33,6 +33,6 @@ export const Default: Story = {
                 url: "#section-3",
                 id: "section-3"
             }
-        ],
-    },
-}
+        ]
+    }
+};

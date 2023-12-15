@@ -5,7 +5,7 @@ import Preview from "./Preview";
 const meta = {
     title: "Component/Preview",
     component: Preview
-} satisfies Meta<typeof Preview>
+} satisfies Meta<typeof Preview>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -18,7 +18,7 @@ export const Color: Story = {
         name: "sapphire-500",
         value: "#5f61c5"
     }
-}
+};
 
 export const FontFamily: Story = {
     args: {
@@ -26,7 +26,7 @@ export const FontFamily: Story = {
         name: "font-family-primary",
         value: "ABC Favorit"
     }
-}
+};
 
 export const FontSize: Story = {
     args: {
@@ -34,7 +34,7 @@ export const FontSize: Story = {
         name: "font-size-120",
         value: "1rem"
     }
-}
+};
 
 export const FontWeight: Story = {
     args: {
@@ -42,7 +42,7 @@ export const FontWeight: Story = {
         name: "font-weight-400",
         value: "400"
     }
-}
+};
 
 export const LineHeight: Story = {
     args: {
@@ -50,7 +50,7 @@ export const LineHeight: Story = {
         name: "line-height-120",
         value: "1.125rem"
     }
-}
+};
 
 export const BorderRadius: Story = {
     args: {
@@ -58,7 +58,7 @@ export const BorderRadius: Story = {
         name: "border-radius-4",
         value: "1.5rem"
     }
-}
+};
 
 export const Size: Story = {
     args: {
@@ -66,7 +66,7 @@ export const Size: Story = {
         name: "space-1280",
         value: "8rem"
     }
-}
+};
 
 export const Shadow: Story = {
     args: {
@@ -74,4 +74,4 @@ export const Shadow: Story = {
         name: "shadow-sm",
         value: "0 1px 6px 0 rgba(60, 60, 60, 0.10)"
     }
-}
+};

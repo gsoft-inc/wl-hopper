@@ -17,7 +17,7 @@ export const Default: Story = {
         "data-language": "tsx",
         children: <code>const foo = 'bar';</code>
     }
-}
+};
 
 export const WithoutTitle: Story = {
     args: {
@@ -25,4 +25,4 @@ export const WithoutTitle: Story = {
         "data-language": "tsx",
         children: <code>const foo = 'bar';</code>
     }
-}
+};

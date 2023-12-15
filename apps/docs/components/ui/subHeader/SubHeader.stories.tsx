@@ -35,5 +35,5 @@ export const Default: Story = {
             }
         ],
         toggleOpenState: () => {}
-    },
-}
+    }
+};

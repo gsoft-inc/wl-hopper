@@ -24,7 +24,7 @@ const CopyButton = (
     const [isCopied, setIsCopied] = React.useState(false);
 
     const classes = clsx("hd-copy-button", {
-        [`hd-copy-button--${variant}`]: variant !== "default",
+        [`hd-copy-button--${variant}`]: variant !== "default"
     }, className);
 
     const copy = async () => {
@@ -47,7 +47,7 @@ const CopyButton = (
             : CopiedSvg
     );
 
-    const content = children ?? CopySvg
+    const content = children ?? CopySvg;
 
     return (
         <Button isDisabled={isCopied} onPress={copy} className={classes} aria-label="Copy" {...rest}>

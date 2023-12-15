@@ -5,7 +5,7 @@ import Table from "./Table";
 const meta = {
     title: "Ui/Table",
     component: Table
-} satisfies Meta<typeof Table>
+} satisfies Meta<typeof Table>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -27,5 +27,5 @@ export const Default: Story = {
                 value: "#2040c7"
             }
         ]
-    },
-}
+    }
+};

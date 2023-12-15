@@ -5,7 +5,7 @@ import Header from "./Header";
 const meta = {
     title: "Ui/Header",
     component: Header
-} satisfies Meta<typeof Header>
+} satisfies Meta<typeof Header>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

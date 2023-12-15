@@ -4,7 +4,7 @@ import { IconTable } from "./IconTable";
 
 const meta = {
     title: "Component/IconTable",
-    component: IconTable,
+    component: IconTable
 } satisfies Meta<typeof IconTable>;
 
 export default meta;

@@ -14,4 +14,4 @@ export const Default: Story = {
     args: {
         isOpen: true
     }
-}
+};

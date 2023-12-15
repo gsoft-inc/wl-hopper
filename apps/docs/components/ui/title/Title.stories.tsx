@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const Level: Story = {
-    render: (args) => {
+    render: args => {
         return (
             <>
                 <Title {...args} level={1} />
@@ -33,7 +33,7 @@ export const Level: Story = {
                 <Title {...args} level={4} />
                 <Title {...args} level={5} />
             </>
-            )
+        )
         ;
     }
 };

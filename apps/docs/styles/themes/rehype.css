@@ -1,4 +1,4 @@
-/*!* EDITOR  - THEME SPECIFIC COLORS *!*/
+/* !* EDITOR  - THEME SPECIFIC COLORS *! */
 [data-theme="light"] [data-rehype-pretty-code-fragment]{
     --hd-codeblock-background-color: var(--hd-neutral-800);
 }

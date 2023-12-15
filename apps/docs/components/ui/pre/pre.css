@@ -1,6 +1,7 @@
 .hd-pre {
     overflow: hidden;
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
+
     /* the radius top is larger to eliminate a visual glitch with the header */
     border-radius: 0.6rem 0.6rem 0.5rem 0.5rem;
     color: var(--hd-color-neutral-text);
@@ -28,8 +29,7 @@
 /* pre HEADER */
 .hd-pre-header {
     display: flex;
-    padding-inline-start: var(--hd-space-2);
-    padding-inline-end: var(--hd-space-1);
+    padding-inline: var(--hd-space-2) var(--hd-space-1);
     height: 3rem;
     font-size: 0.875rem;
     font-family: var(--hd-default-font-family);

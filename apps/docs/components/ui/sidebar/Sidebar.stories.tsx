@@ -10,7 +10,7 @@ const meta = {
             defaultViewport: "mobile1"
         }
     }
-} satisfies Meta<typeof Sidebar>
+} satisfies Meta<typeof Sidebar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -23,27 +23,27 @@ export const Default: Story = {
                 title: "Getting Started",
                 _raw: {
                     flattenedPath: "/getting-started",
-                    sourceFileDir: "/pages",
-                },
+                    sourceFileDir: "/pages"
+                }
             },
             {
                 _id: "2",
                 title: "Components",
                 _raw: {
                     flattenedPath: "/components",
-                    sourceFileDir: "/pages",
-                },
+                    sourceFileDir: "/pages"
+                }
             },
             {
                 _id: "3",
                 title: "Icons",
                 _raw: {
                     flattenedPath: "/icons",
-                    sourceFileDir: "/pages",
-                },
+                    sourceFileDir: "/pages"
+                }
             }
         ],
         isOpen: true,
         onClose: () => {}
     }
-}
+};
