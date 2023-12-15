@@ -14,25 +14,18 @@
     flex-direction: column;
 }
 
+.hd-icon-item__icon,
+.hd-icon-item-copy {
+    aspect-ratio: 1;
+    width: 3rem;
+}
+
 .hd-icon-item__icon {
     align-items: center;
     border-radius: var(--hd-space-1);
     display: flex;
-    height: 3rem;
     justify-content: center;
     transition: opacity 0.2s ease-in-out;
-    width: 3rem;
-}
-
-.hd-icon-item__copy-status {
-    align-items: center;
-    color: var(--hd-color-accent-text);
-    display: flex;
-    font-size: 0.875rem;
-    height: 3rem;
-    justify-content: center;
-    transition: opacity 0.2s ease-in-out;
-    width: 3rem;
 }
 
 .hd-icon-item-copy:not([disabled]):hover {

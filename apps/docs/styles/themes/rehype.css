@@ -1,4 +1,8 @@
-/* EDITOR  - THEME SPECIFIC COLORS */
+/* !* EDITOR  - THEME SPECIFIC COLORS *! */
+[data-theme="light"] [data-rehype-pretty-code-fragment]{
+    --hd-codeblock-background-color: var(--hd-neutral-800);
+}
+
 [data-rehype-pretty-code-fragment] {
     /* NORD */
     --hd-codeblock-line-highlighted-border-color: #88C0D0;
@@ -14,6 +18,7 @@
     --hd-codeblock-word-value-text-color: rgb(239 194 198);
     --hd-codeblock-title-background-color: rgb(59 66 82);
     --hd-codeblock-title-text-color: rgb(216 222 233);
+    --hd-codeblock-background-color: var(--hd-neutral-800);
 
     margin-bottom: var(--hd-space-3);
 }
@@ -23,18 +28,17 @@
 }
 
 [data-rehype-pretty-code-fragment] pre {
-    border-radius: var(--hd-space-1);
+    background-color: var(--hd-codeblock-background-color) !important;
 }
 
 [data-rehype-pretty-code-fragment] code {
     /* until we create our own json theme, it's the best way to have a transparent code line */
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 [data-rehype-pretty-code-fragment] pre code {
     display: grid;
     overflow-x: auto;
-    padding: var(--hd-space-1) 0 var(--hd-space-1) var(--hd-space-2);
 }
 
 [data-rehype-pretty-code-fragment] .line {
@@ -88,13 +92,6 @@
 
 /* Block Title */
 [data-rehype-pretty-code-title] {
-    border-radius: var(--hd-space-1) var(--hd-space-1) 0 0;
-    font-weight: 500;
-    font-size: .875rem;
-    background-color: var(--hd-codeblock-title-background-color);
-    padding: var(--hd-space-1);
-    padding-inline-start: .75rem;
-    color: var(--hd-codeblock-title-text-color);
     display: none;
 }
 

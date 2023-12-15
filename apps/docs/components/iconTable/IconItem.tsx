@@ -17,8 +17,6 @@ function toKebabCase(str: string) {
 }
 
 const IconItem: React.FC<IconItemProps> = ({ name, type, size }) => {
-    const [isCopied, setIsCopied] = React.useState(false);
-
     const getIconNumericSize = (iconSize: IconItemProps["size"]) => {
         switch (iconSize) {
             case "sm":
@@ -45,13 +43,11 @@ const IconItem: React.FC<IconItemProps> = ({ name, type, size }) => {
         <>
             <div className="hd-icon-item">
                 <div className="hd-icon-item-content">
-                    <CopyButton className="hd-icon-item-copy" text={copyString} isCopied={isCopied} setIsCopied={setIsCopied}>
-                        {isCopied ? <span className="hd-icon-item__copy-status">Copied!</span> :
-                            <span className="hd-icon-item__icon">
-                                <Component size={size} />
-                            </span>
-                        }
-                    </CopyButton>
+                    <span className="hd-icon-item__icon">
+                        <CopyButton className="hd-icon-item-copy" text={copyString} variant="ghost">
+                            <Component size={size} />
+                        </CopyButton>
+                    </span>
                     <div className="hd-icon-item__title">
                         {formattedName}
                     </div>

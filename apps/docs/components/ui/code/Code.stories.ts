@@ -1,17 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import ThemeSwitch from "./ThemeSwitch";
+import Code from "./Code";
 
 const meta = {
-    title: "Component/Theme Switch",
-    component: ThemeSwitch
-} satisfies Meta<typeof ThemeSwitch>;
+    title: "Ui/Code",
+    component: Code
+} satisfies Meta<typeof Code>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        text: "Toggle theme"
+        children: "const foo = 'bar';",
+        value: "const foo = 'bar';"
     }
 };

@@ -11,7 +11,8 @@ export default function PlaygroundPage() {
                 flexDirection: "column",
                 gap: "0.75rem",
                 marginBlock: "2rem"
-            }}>
+            }}
+            >
                 <li>
                     <Link href="/playground/codeblock">Codeblock →</Link>
                 </li>

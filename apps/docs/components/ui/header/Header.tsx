@@ -46,7 +46,7 @@ const Header = () => {
                     </div>
                     <div className="hd-header__quick-actions">
                         {/*<input type="search" placeholder="Search" />*/}
-                        <ThemeSwitch className="hd-icon-button" />
+                        <ThemeSwitch />
                         <IconButton as={Link} href="https://www.github.com" target="_blank">
                             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 {/* eslint-disable-next-line max-len */}
