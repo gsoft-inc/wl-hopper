@@ -2,13 +2,18 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import SubHeader from "./SubHeader";
 
-const meta: Meta<typeof SubHeader> = {
+const meta = {
     title: "Mobile/SubHeader",
-    component: SubHeader
-};
+    component: SubHeader,
+    parameters: {
+        viewport: {
+            defaultViewport: "mobile1"
+        }
+    }
+} satisfies Meta<typeof SubHeader>;
 
 export default meta;
-type Story = StoryObj<typeof SubHeader>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
@@ -31,9 +36,4 @@ export const Default: Story = {
         ],
         toggleOpenState: () => {}
     },
-    parameters: {
-        viewport: {
-            defaultViewport: "mobile1"
-        }
-    }
 }

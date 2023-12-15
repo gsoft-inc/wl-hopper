@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Image from './Image';
 
-const meta: Meta<typeof Image> = {
+const meta = {
     title: 'Ui/Image',
     component: Image
-};
+} satisfies Meta<typeof Image>
 
 export default meta;
-type Story = StoryObj<typeof Image>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {

@@ -2,17 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Preview from "./Preview";
 
-const meta: Meta<typeof Preview> = {
+const meta = {
     title: "Component/Preview",
     component: Preview
-};
+} satisfies Meta<typeof Preview>
 
 export default meta;
-type Story = StoryObj<typeof Preview>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {}
-};
+export const Default: Story = {};
 
 export const Color: Story = {
     args: {
@@ -38,6 +36,14 @@ export const FontSize: Story = {
     }
 }
 
+export const FontWeight: Story = {
+    args: {
+        category: "fontWeight",
+        name: "font-weight-400",
+        value: "400"
+    }
+}
+
 export const LineHeight: Story = {
     args: {
         category: "lineHeight",
@@ -59,5 +65,13 @@ export const Size: Story = {
         category: "size",
         name: "space-1280",
         value: "8rem"
+    }
+}
+
+export const Shadow: Story = {
+    args: {
+        category: "shadow",
+        name: "shadow-sm",
+        value: "0 1px 6px 0 rgba(60, 60, 60, 0.10)"
     }
 }

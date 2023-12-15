@@ -1,20 +1,20 @@
 @import url("@/styles/tokens.css");
 
 .shd-container {
-    --rs-landing-demo-bg: #fff;
-    --rs-landing-demo-dot-color: #e2e3e4;
+    --sbt-container-background: var(--hd-white);
+    --sbt-container-color: var(--hd-neutral-50);
 
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
     background:
-        linear-gradient(90deg,var(--rs-landing-demo-bg) 10px,transparent 1%) 50%,
-        linear-gradient(var(--rs-landing-demo-bg) 10px,transparent 1%) 50%,
-        var(--rs-landing-demo-dot-color);
+        linear-gradient(90deg,var(--sbt-container-background) 10px,transparent 1%) 50%,
+        linear-gradient(var(--sbt-container-background) 10px,transparent 1%) 50%,
+        var(--sbt-container-color);
     background-size: 12px 12px;
 }
 
 [data-theme="dark"] {
-    --rs-landing-demo-bg: #1e1e1e;
-    --rs-landing-demo-dot-color: #2e2e2e;
+    --sbt-container-background: var(--hd-neutral-900);
+    --sbt-container-color: var(--hd-neutral-800);
 }

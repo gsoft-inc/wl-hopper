@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Title from "./Title";
 
-const meta: Meta<typeof Title> = {
+const meta = {
     title: "Ui/Title",
     component: Title,
     argTypes: {
@@ -12,22 +12,18 @@ const meta: Meta<typeof Title> = {
         level: {
             control: { type: "select" }
         }
-    }
-};
-
-export default meta;
-type Story = StoryObj<typeof Title>;
-
-export const Default: Story = {
+    },
     args: {
         children: "Nothing is cheap"
     }
-};
+} as Meta<typeof Title>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
 
 export const Level: Story = {
-    args: {
-        ...Default.args,
-    },
     render: (args) => {
         return (
             <>

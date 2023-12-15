@@ -3,24 +3,24 @@ import type { Meta, StoryObj } from "@storybook/react";
 import MobileMenu from "./MobileMenu";
 import MobileMenuTrigger from "./MobileMenuTrigger";
 
-const meta: Meta<typeof MobileMenu> = {
+const meta = {
     title: "Mobile/Menu",
-    component: MobileMenu
-};
+    component: MobileMenu,
+    parameters: {
+        viewport: {
+            defaultViewport: "mobile1"
+        }
+    }
+} satisfies Meta<typeof MobileMenu>;
 
 export default meta;
-type Story = StoryObj<typeof MobileMenu>;
+type Story = StoryObj<typeof meta>;
 type TriggerStory = StoryObj<typeof MobileMenuTrigger>;
 
 export const Default: Story = {
     args: {
         isOpen: true
     },
-    parameters: {
-        viewport: {
-            defaultViewport: "mobile1"
-        }
-    }
 }
 
 export const Trigger: TriggerStory = {
@@ -32,9 +32,4 @@ export const Trigger: TriggerStory = {
             <MobileMenuTrigger {...args} />
         )
     },
-    parameters: {
-        viewport: {
-            defaultViewport: "mobile1"
-        }
-    }
 };

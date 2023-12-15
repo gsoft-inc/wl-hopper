@@ -47,11 +47,7 @@ const CopyButton = (
             : CopiedSvg
     );
 
-    const content = (
-        variant === "ghost"
-            ? children
-            : CopySvg
-    );
+    const content = children ?? CopySvg
 
     return (
         <Button isDisabled={isCopied} onPress={copy} className={classes} aria-label="Copy" {...rest}>

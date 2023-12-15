@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import TableSection from "./TableSection";
 
-const meta: Meta<typeof TableSection> = {
+const meta = {
     title: "Component/TableSection",
     component: TableSection
-};
+} satisfies Meta<typeof TableSection>;
 
 export default meta;
-type Story = StoryObj<typeof TableSection>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {

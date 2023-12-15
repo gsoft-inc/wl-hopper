@@ -2,31 +2,28 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import CopyButton from "./CopyButton";
 
-const meta: Meta<typeof CopyButton> = {
-    title: "Component/Copy/Button",
-    component: CopyButton
-};
+const meta = {
+    title: "Component/CopyButton",
+    component: CopyButton,
+    args: {
+        text: "storybook is awesome",
+    }
+} satisfies Meta<typeof CopyButton>;
 
 export default meta;
-type Story = StoryObj<typeof CopyButton>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {
-        text: "this text can be copied in 1 click",
-        children: "this text can be copied in 1 click"
-    },
-};
+export const Default: Story = {};
 
 export const Inline: Story = {
     args: {
-        ...Default.args,
         variant: "inline"
     },
 };
 
 export const Ghost: Story = {
     args: {
-        ...Default.args,
-        variant: "ghost"
+        variant: "ghost",
+        children: "this text can be copied in 1 click"
     },
 };

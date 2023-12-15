@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Nav from "./Nav";
 
-const meta: Meta<typeof Nav> = {
+const meta = {
     title: "Ui/Nav",
     component: Nav
-};
+} satisfies Meta<typeof Nav>;
 
 export default meta;
-type Story = StoryObj<typeof Nav>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {

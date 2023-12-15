@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Pre from "./Pre";
 
-const meta: Meta<typeof Pre> = {
+const meta = {
     title: "Ui/Pre",
     component: Pre
-};
+} satisfies Meta<typeof Pre>;
 
 export default meta;
-type Story = StoryObj<typeof Pre>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
