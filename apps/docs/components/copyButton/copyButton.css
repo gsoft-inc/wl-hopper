@@ -1,13 +1,36 @@
 .hd-copy-button {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
     border: none;
-    border-radius: var(--hd-space-1);
-    cursor: pointer;
+    aspect-ratio: 1/1;
+    border-radius: var(--hd-space-05);
+    width: var(--hd-space-4);
+    background-color: transparent;
+}
+
+.hd-copy-button:not([disabled]):hover {
+    background-color: var(--hd-color-neutral-surface-weak);
+}
+
+.hd-copy-button__icon {
+    stroke: currentcolor;
 }
 
 .hd-copy-button[disabled]:hover {
     cursor: not-allowed;
+}
+
+.hd-copy-button--inline {
+    width: var(--hd-space-3);
+}
+
+.hd-copy-button--ghost {
+    aspect-ratio: unset;
+    width: auto;
+}
+
+.hd-copy-button--ghost:not([disabled]):hover {
+    background-color: transparent;
 }

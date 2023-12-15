@@ -18,3 +18,11 @@ export const Default: Story = {
         children: <code>const foo = 'bar';</code>
     }
 }
+
+export const WithoutTitle: Story = {
+    args: {
+        raw: "const foo = 'bar';",
+        "data-language": "tsx",
+        children: <code>const foo = 'bar';</code>
+    }
+}

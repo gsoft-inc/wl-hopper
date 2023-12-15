@@ -7,8 +7,22 @@
     background-color: var(--hd-color-white-surface);
 }
 
+.hd-pre--no-title {
+    display: flex;
+    align-items: stretch;
+}
+
+.hd-pre--no-title .hd-pre__code {
+    margin-right: auto;
+}
+
 .hd-pre--no-title code {
     align-content: center;
+}
+
+.hd-pre--no-title .hd-pre__action {
+    padding-inline: var(--hd-space-1);
+    margin-block: auto;
 }
 
 /* pre HEADER */
