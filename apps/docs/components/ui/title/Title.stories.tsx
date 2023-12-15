@@ -16,7 +16,7 @@ const meta = {
     args: {
         children: "Nothing is cheap"
     }
-} as Meta<typeof Title>;
+} satisfies Meta<typeof Title>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
