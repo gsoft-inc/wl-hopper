@@ -2,7 +2,7 @@
     font-family: "ABC Favorit";
     font-style: normal;
     font-weight: 410;
-    src: url("https://assets.workleap-dev.com/hopper/fonts/ABCFavorit-Regular.otf") format("opentype");
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavorit-Regular.otf") format("opentype");
     font-display: fallback;
 }
 
