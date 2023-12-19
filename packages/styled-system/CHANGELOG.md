@@ -1,5 +1,12 @@
 # @hopper-ui/styled-system
 
+## 0.2.3
+
+### Patch Changes
+
+- 7f259c1: Changed build target to target ES2019
+- eb5de30: Updated neutral surface strong value in dark mode
+
 ## 0.2.2
 
 ### Patch Changes
