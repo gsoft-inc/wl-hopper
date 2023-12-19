@@ -1,7 +1,20 @@
 @import url("@/styles/tokens.css");
 
-.hd-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--hd-color-surface-primary);
+.shd-container {
+    --sbt-container-background: var(--hd-white);
+    --sbt-container-color: var(--hd-neutral-50);
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background:
+        linear-gradient(90deg,var(--sbt-container-background) 10px,transparent 1%) 50%,
+        linear-gradient(var(--sbt-container-background) 10px,transparent 1%) 50%,
+        var(--sbt-container-color);
+    background-size: 12px 12px;
+}
+
+[data-theme="dark"] {
+    --sbt-container-background: var(--hd-neutral-900);
+    --sbt-container-color: var(--hd-neutral-800);
 }

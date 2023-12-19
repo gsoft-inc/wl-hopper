@@ -1,5 +1,14 @@
 # @hopper-ui/components
 
+## 0.0.5
+
+### Patch Changes
+
+- 7f259c1: Changed build target to target ES2019
+- Updated dependencies [7f259c1]
+- Updated dependencies [eb5de30]
+  - @hopper-ui/styled-system@0.2.3
+
 ## 0.0.4
 
 ### Patch Changes

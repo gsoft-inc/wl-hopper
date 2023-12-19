@@ -3,6 +3,7 @@ import { ToggleButton } from "react-aria-components";
 
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider";
 import Icon from "@/components/themeSwitch/ThemeSwitchIcons";
+import clsx from "clsx";
 
 import "./themeSwitch.css";
 
@@ -25,12 +26,12 @@ const ThemeSwitch = ({ text, className }: ThemeSwitchProps) => {
     if (colorMode) {
         return (
             <ToggleButton
-                className={className}
+                className={clsx("hd-theme-switch__button", className)}
                 onChange={toggleTheme}
                 aria-label="Toggle theme"
             >
                 <Icon icon={colorMode === "dark" ? "sun" : "moon"} />
-                {text}
+                <span className="hd-theme-switch__text">{text}</span>
             </ToggleButton>
         );
     }

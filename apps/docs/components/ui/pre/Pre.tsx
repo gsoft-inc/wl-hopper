@@ -4,7 +4,7 @@ import React from "react";
 import type { HTMLAttributes } from "react";
 import cx from "classnames";
 
-import CodeBlockCopyButton from "@/components/copyButton/codeblockCopyButton/CodeBlockCopyButton";
+import CopyButton from "@/components/copyButton/CopyButton.tsx";
 import LangIcon from "@/components/ui/pre/langIcon/LangIcon";
 
 import "./pre.css";
@@ -23,21 +23,30 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
 
     const classes = cx("hd-pre", preClasses);
 
+    const langContent = dataLanguage && (
+        <span className="hd-pre-header__lang">
+            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
+        </span>
+    );
+
+    const titleContent = <span className="hd-pre-header__title">{title}</span>;
+    const copyButton = raw && <CopyButton text={raw} />;
+
     return (
         <pre {...props} className={classes}>
-            {raw && <CodeBlockCopyButton className="hd-pre-copy-button hd-copy-button--on-dark" text={raw} />}
             {title &&
-            <div className="hd-pre-header">
-                <div className="hd-pre-header__info">
-                    {dataLanguage && (
-                        <span className="hd-pre-header__lang">
-                            <LangIcon lang={dataLanguage} className="hd-pre-header__lang-icon" />
-                        </span>)
-                    }
-                    <span className="hd-pre-header__title">{title}</span>
+                <div className="hd-pre-header">
+                    <div className="hd-pre-header__info">
+                        {langContent}
+                        {titleContent}
+                    </div>
+                    {copyButton}
                 </div>
-            </div>}
-            {children}
+            }
+            <div className="hd-pre__code">
+                {children}
+            </div>
+            {!title && <div className="hd-pre__action">{copyButton}</div>}
         </pre>
     );
 };

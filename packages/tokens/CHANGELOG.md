@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.1.2
+
+### Patch Changes
+
+- eb5de30: Updated neutral surface strong value in dark mode
+
 ## 3.1.1
 
 ### Patch Changes

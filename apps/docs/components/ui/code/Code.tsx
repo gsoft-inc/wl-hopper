@@ -1,5 +1,6 @@
 import React from "react";
-import InlineCopyButton from "@/components/copyButton/inlineCopyButton/InlineCopyButton";
+import CopyButton from "@/components/copyButton/CopyButton";
+
 import "./code.css";
 
 interface CodeProps {
@@ -11,7 +12,7 @@ const Code: React.FC<CodeProps> = ({ children, value }) => {
     return (
         <div className="hd-code__wrapper">
             <code className="hd-code">{children}</code>
-            <InlineCopyButton text={value} className="hd-code__copy" />
+            <CopyButton text={value} variant="inline" className="hd-code__copy" />
         </div>
     );
 };

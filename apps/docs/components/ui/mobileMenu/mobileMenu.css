@@ -1,3 +1,7 @@
+:root {
+    --hd-mobile-header-height: var(--hd-space-8);
+}
+
 .hd-mobile-menu {
     background: var(--hd-color-neutral-surface);
     position: fixed;
@@ -13,7 +17,7 @@
     display: flex;
     align-items: center;
     border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
-    height: var(--hd-header-height);
+    height: var(--hd-mobile-header-height);
 }
 
 .hd-mobile-menu__close {
@@ -70,16 +74,6 @@
 .hd-mobile-menu-footer-link {
     display: flex;
     gap: var(--hd-space-2);
-    font-size: 1rem;
-    color: var(--hd-color-neutral-text);
-}
-
-.hd-mobile-menu-footer-button {
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    gap: 1rem;
     font-size: 1rem;
     color: var(--hd-color-neutral-text);
 }

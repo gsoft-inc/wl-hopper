@@ -1,5 +1,15 @@
 # @hopper-ui/icons
 
+## 1.0.2
+
+### Patch Changes
+
+- 7f259c1: Changed build target to target ES2019
+- 8ab30e7: - `flex-shrink: 0` as been added to icons by default
+- Updated dependencies [7f259c1]
+- Updated dependencies [eb5de30]
+  - @hopper-ui/styled-system@0.2.3
+
 ## 1.0.1
 
 ### Patch Changes
