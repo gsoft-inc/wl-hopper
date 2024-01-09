@@ -395,6 +395,7 @@ export const SemanticTokens = {
     "--hop-neutral-border-hover": "var(--hop-rock-300)",
     "--hop-neutral-border-active": "var(--hop-rock-800)",
     "--hop-neutral-surface-weak-hover": "var(--hop-rock-75)",
+    "--hop-neutral-surface-weak-active": "var(--hop-rock-50)",
     "--hop-neutral-border-weakest": "var(--hop-rock-50)",
     "--hop-neutral-surface-weakest": "var(--hop-rock-25)",
     "--hop-warning-icon-weakest": "var(--hop-koi-100)",

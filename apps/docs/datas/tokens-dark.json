@@ -1488,6 +1488,10 @@
         "value": "#505050"
       },
       {
+        "name": "hop-neutral-surface-weak-active",
+        "value": "#3c3c3c"
+      },
+      {
         "name": "hop-neutral-border-weakest",
         "value": "#3c3c3c"
       },
