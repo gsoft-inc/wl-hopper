@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.1.3
+
+### Patch Changes
+
+- 8860106: Added missing token
+
 ## 3.1.2
 
 ### Patch Changes
