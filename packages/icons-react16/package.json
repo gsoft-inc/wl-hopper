@@ -2,7 +2,7 @@
     "name": "@hopper-ui/icons-react16",
     "author": "Workleap",
     "version": "1.0.2",
-    "description": "The icons package, that was created to target React 16.",
+    "description": "The icons package that targets React 16.",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
