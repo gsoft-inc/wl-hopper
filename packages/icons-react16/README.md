@@ -2,6 +2,8 @@
 
 A set of icons handcrafted by Workleap. This package is meant to be temporary, to allow teams that are still using React 16 to be able to have access to the shared icons.
 
+> This package assumes that you are importing the CSS tokens from Hopper in your application. If you are not, icon colors will not be applied.
+
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](../../LICENSE)
 [![npm version](https://img.shields.io/npm/v/@hopper-ui/icons-react16)](https://www.npmjs.com/package/@hopper-ui/icons-react16)
 
