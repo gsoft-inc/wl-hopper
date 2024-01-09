@@ -762,6 +762,10 @@
             "$type": "color",
             "$value": "{rock.75}"
         },
+        "surface-weak-active": {
+            "$type": "color",
+            "$value": "{rock.50}"
+        },
         "border-weakest": {
             "$type": "color",
             "$value": "{rock.50}"
