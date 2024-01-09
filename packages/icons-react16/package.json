@@ -1,0 +1,63 @@
+{
+    "name": "@hopper-ui/icons-react16",
+    "author": "Workleap",
+    "version": "1.0.2",
+    "description": "The icons package that targets React 16.",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gsoft-inc/wl-hopper.git",
+        "directory": "packages/icons-react16"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "type": "module",
+    "sideEffects": false,
+    "files": [
+        "/dist",
+        "CHANGELOG.md",
+        "README.md"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./index.css": "./dist/index.css"
+    },
+    "scripts": {
+        "build": "tsup --config ./tsup.build.ts",
+        "generate-icons": "tsx scripts/build.ts"
+    },
+    "peerDependencies": {
+        "react": "^16",
+        "react-dom": "^16"
+    },
+    "devDependencies": {
+        "react": "^16",
+        "react-dom": "^16",
+        "@svgr/core": "^8.1.0",
+        "@svgr/plugin-jsx": "^8.1.0",
+        "@svgr/plugin-svgo": "^8.1.0",
+        "@swc/core": "1.3.96",
+        "@swc/helpers": "0.5.3",
+        "@types/node": "^20.9.3",
+        "@types/react": "^16",
+        "@types/react-dom": "^16",
+        "@workleap/eslint-plugin": "3.0.0",
+        "@workleap/swc-configs": "2.1.2",
+        "@workleap/typescript-configs": "3.0.2",
+        "identity-obj-proxy": "3.0.0",
+        "ts-jest": "29.1.1",
+        "ts-node": "10.9.1",
+        "tsup": "8.0.0",
+        "tsx": "4.1.4",
+        "typescript": "5.3.2"
+    }
+}

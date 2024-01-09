@@ -1,0 +1,5 @@
+.hop-icon {
+    display: inline-block;
+    pointer-events: none;
+    flex-shrink: 0;
+}
