@@ -23,7 +23,7 @@
         "build:pkg": "pnpm -r --filter \"{packages/**}\" build ",
         "changeset": "changeset",
         "ci-release": "pnpm build && changeset publish",
-        "generate-icons": "pnpm --filter=\"svg-icons\" generate-icons && pnpm --filter=\"@hopper-ui/icons\" generate-icons",
+        "generate-icons": "pnpm --filter=\"svg-icons\" generate-icons && pnpm --filter=\"@hopper-ui/icons*\" generate-icons",
         "lint": "pnpm run \"/^lint:.*/\" && pnpm run typecheck",
         "lint:eslint": "eslint . --max-warnings=-1 --cache --cache-location node_modules/.cache/eslint",
         "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint",
