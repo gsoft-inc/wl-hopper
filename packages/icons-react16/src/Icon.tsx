@@ -46,18 +46,16 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     ].filter(x => x !== undefined).join(" ");
 
     return (
-        <>
-            <As
-                style={style}
-                {...rest}
-                ref={ref}
-                focusable="false"
-                role="img"
-                aria-label={ariaLabel}
-                aria-hidden={(ariaLabel ? (ariaHidden || undefined) : true)}
-                className={classNames}
-            />
-        </>
+        <As
+            style={style}
+            {...rest}
+            ref={ref}
+            focusable="false"
+            role="img"
+            aria-label={ariaLabel}
+            aria-hidden={(ariaLabel ? (ariaHidden || undefined) : true)}
+            className={classNames}
+        />
     );
 });
 
