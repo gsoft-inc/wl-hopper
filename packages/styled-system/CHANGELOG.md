@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 0.2.4
+
+### Patch Changes
+
+- 20515b9: Modify the breakpoint context to not throw, so components can render even if no provider has been declared
+
 ## 0.2.3
 
 ### Patch Changes
