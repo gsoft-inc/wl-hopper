@@ -1,19 +1,20 @@
 import * as IconLibrary from "@hopper-ui/icons";
-import { LI, UL, type ColorValue, type ResponsiveProp } from "@hopper-ui/styled-system";
+import { LI, UL } from "@hopper-ui/styled-system";
+import type { FillValue, ColorValue, ResponsiveProp } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
 interface ListProps {
     size?: ResponsiveProp<"sm" | "md" | "lg">;
-    color?: ResponsiveProp<ColorValue>;
+    fill?: ResponsiveProp<FillValue>;
 }
 
-const List = ({ size, color }: ListProps) => {
+const List = ({ size, fill }: ListProps) => {
     const listItems = IconLibrary.iconNames.map(name => {
         const Component = IconLibrary[name];
 
         return (
             <LI key={name} display="block">
-                <Component size={size} color={color} />
+                <Component size={size} fill={fill} />
             </LI>);
     });
 
@@ -49,6 +50,7 @@ export const Default: Story = {
 export const Styles: Story = {
     ...Default,
     args: {
-        color: "danger"
+        fill: "danger"
     }
 };
+

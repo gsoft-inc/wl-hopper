@@ -90,7 +90,7 @@ function createPseudoHandler(pseudoClassName: string, pseudoVariable: string, sy
 // Custom handler for borders to allow the following syntax:
 // - border="warning-10" -> style="1px solid var(--hop-warning-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
-// - border="3px solid warning-10" -> style="3px solid var(--hop-warning-10)"
+// - border="3px solid warning-10" -> style="3px solid var(--hop-warning-10)" -> Not supported yet
 function createBorderHandler(systemValues: SystemValues): PropHandler {
     return (name, value, context) => {
         const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);
@@ -285,7 +285,9 @@ const PropsHandlers: Record<string, PropHandler> = {
 };
 
 export function isStyledSystemProp(name: string): name is keyof typeof PropsHandlers {
-    return !isNil(PropsHandlers[name]);
+    const cssProperty = name.replace(UnsafePrefix, ""); // TODO: not 100% accurate but close
+
+    return !isNil(PropsHandlers[cssProperty]);
 }
 
 class StylingContext {
@@ -789,5 +791,9 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         ...rest,
         className: styling.className,
         style: styling.style
-    };
+    } satisfies SatisfiesPropsNotPresent<Omit<StyledSystemProps, "className" | "style">>; // this satisfies make sure that no style-system props are forgotten in the rest parameter
 }
+
+type SatisfiesPropsNotPresent<TPropsToEnsure> = {
+    [key: string]: unknown;
+} & { [key in keyof Required<TPropsToEnsure>]?: never };
