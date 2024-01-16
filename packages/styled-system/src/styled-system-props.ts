@@ -1127,7 +1127,7 @@ export interface StyledSystemProps {
     UNSAFE_borderTopHover?: ResponsiveProp<UNSAFE_BorderValue>;
 
     /**
-     * Sets the `border-top-left-radius` property when hovered.
+     * Sets the `border-top-left-radius` property.
      *
      * If you want to use a **token value** from the **SCALE**, use the **`borderTopLeftRadius`** property instead.
      *
@@ -1136,7 +1136,7 @@ export interface StyledSystemProps {
     UNSAFE_borderTopLeftRadius?: ResponsiveProp<UNSAFE_BorderRadiusValue>;
 
     /**
-     * Sets the `border-top-right-radius` property when hovered.
+     * Sets the `border-top-right-radius` property.
      *
      * If you want to use a **token value** from the **SCALE**, use the **`borderTopRightRadius`** property instead.
      *
@@ -1152,7 +1152,30 @@ export interface StyledSystemProps {
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
     UNSAFE_boxShadow?: ResponsiveProp<UNSAFE_BoxShadowValue>;
-
+    /**
+     * Sets the `box-shadow` property when active.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`boxShadowActive`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_boxShadowActive?: ResponsiveProp<UNSAFE_BoxShadowValue>;
+    /**
+     * Sets the `box-shadow` property when focused.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`boxShadowFocus`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_boxShadowFocus?: ResponsiveProp<UNSAFE_BoxShadowValue>;
+    /**
+     * Sets the `box-shadow` property when hovered.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`boxShadowHover`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_boxShadowHover?: ResponsiveProp<UNSAFE_BoxShadowValue>;
     /**
      * Sets the `color` property.
      *
@@ -1161,7 +1184,30 @@ export interface StyledSystemProps {
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
     UNSAFE_color?: ResponsiveProp<UNSAFE_ColorValue>;
-
+    /**
+     * Sets the `color` property when active.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`colorActive`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_colorActive?: ResponsiveProp<UNSAFE_ColorValue>;
+    /**
+     * Sets the `color` property when focused.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`colorFocus`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_colorFocus?: ResponsiveProp<UNSAFE_ColorValue>;
+    /**
+     * Sets the `color` property when hovered.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`colorHover`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_colorHover?: ResponsiveProp<UNSAFE_ColorValue>;
     /**
      * Sets the `column-gap` property.
      *
@@ -1179,7 +1225,22 @@ export interface StyledSystemProps {
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
     UNSAFE_fill?: ResponsiveProp<UNSAFE_FillValue>;
-
+    /**
+     * Sets the `fill` property when focused.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`fillFocus`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_fillFocus?: ResponsiveProp<UNSAFE_FillValue>;
+    /**
+     * Sets the `fill` property when hovered.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`fillHover`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_fillHover?: ResponsiveProp<UNSAFE_FillValue>;
     /**
      * Sets the `font-family` property.
      *
@@ -1233,7 +1294,22 @@ export interface StyledSystemProps {
      * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
      */
     UNSAFE_gridAutoRows?: ResponsiveProp<UNSAFE_GridAutoRowsValue>;
-
+    /**
+     * Sets the `grid-column-span` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gridColumnSpan`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gridColumnSpan?: ResponsiveProp<GridColumSpanValue>;
+    /**
+     * Sets the `grid-row-span` property.
+     *
+     * If you want to use a **token value** from the **SCALE**, use the **`gridRowSpan`** property instead.
+     *
+     * This property is marked as **UNSAFE** because you're opting out of the intended values of the design system.
+     */
+    UNSAFE_gridRowSpan?: ResponsiveProp<GridRowSpanValue>;
     /**
      * Sets the `grid-template-columns` property.
      *
@@ -1504,4 +1580,3 @@ export interface StyledSystemProps {
 
 export type StyledComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<unknown>>
     = Omit<ComponentProps<T>, keyof StyledSystemProps> & StyledSystemProps;
-

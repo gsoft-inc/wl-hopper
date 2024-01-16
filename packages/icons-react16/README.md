@@ -20,13 +20,13 @@ pnpm add @hopper-ui/icons-react16
 **With yarn**
 
 ```shell
-yarn add -D @hopper-ui/icons-react16
+yarn add @hopper-ui/icons-react16
 ```
 
 **With npm**
 
 ```shell
-npm install -D @hopper-ui/icons-react16
+npm install @hopper-ui/icons-react16
 ```
 
 ### Import Styles
