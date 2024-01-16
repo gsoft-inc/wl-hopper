@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 0.2.5
+
+### Patch Changes
+
+- f5729c5: Modified the isStyledSystemProps to returns true when the UNSAFE\_ props are passed
+
 ## 0.2.4
 
 ### Patch Changes
