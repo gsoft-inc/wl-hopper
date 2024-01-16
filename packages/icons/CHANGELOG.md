@@ -1,5 +1,13 @@
 # @hopper-ui/icons
 
+## 1.0.3
+
+### Patch Changes
+
+- f5729c5: remove fill currentColor values on every path. The value of fill is now driven by the svg, instead of by paths
+- Updated dependencies [f5729c5]
+  - @hopper-ui/styled-system@0.2.5
+
 ## 1.0.2
 
 ### Patch Changes
