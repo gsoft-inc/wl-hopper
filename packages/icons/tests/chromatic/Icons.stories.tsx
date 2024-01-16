@@ -1,20 +1,16 @@
 import * as IconLibrary from "@hopper-ui/icons";
 import { LI, UL } from "@hopper-ui/styled-system";
-import type { FillValue, ColorValue, ResponsiveProp } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
-interface ListProps {
-    size?: ResponsiveProp<"sm" | "md" | "lg">;
-    fill?: ResponsiveProp<FillValue>;
-}
+type ListProps = IconLibrary.CreatedIconProps;
 
-const List = ({ size, fill }: ListProps) => {
+const List = ({ ...iconProps }: ListProps) => {
     const listItems = IconLibrary.iconNames.map(name => {
         const Component = IconLibrary[name];
 
         return (
             <LI key={name} display="block">
-                <Component size={size} fill={fill} />
+                <Component {...iconProps} />
             </LI>);
     });
 
