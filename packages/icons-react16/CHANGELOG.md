@@ -1,5 +1,12 @@
 # @hopper-ui/icons-react16
 
+## 1.1.0
+
+### Minor Changes
+
+- 2e4a5ad: - Renamed ArrowsUpdownIcon to MaximizeIcon.
+  - Added ArrowsOutVerticalIcon.
+
 ## 1.0.3
 
 ### Patch Changes
