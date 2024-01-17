@@ -68,11 +68,11 @@ Icons support t-shirt sizing. When used inside another Hopper component, they'll
 
 ## Styling
 
-The color of the icon can be change using the `color` prop.
+The color of the icon can be change using the `fill` prop.
 All the styled system props are also available.
 
 ```jsx
-<MyIcon color="primary" />
+<MyIcon fill="primary" />
 ```
 
 ## Guidelines

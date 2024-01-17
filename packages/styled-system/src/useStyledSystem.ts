@@ -90,7 +90,7 @@ function createPseudoHandler(pseudoClassName: string, pseudoVariable: string, sy
 // Custom handler for borders to allow the following syntax:
 // - border="warning-10" -> style="1px solid var(--hop-warning-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
-// - border="3px solid warning-10" -> style="3px solid var(--hop-warning-10)"
+// - border="3px solid warning-10" -> style="3px solid var(--hop-warning-10)" -> Not supported yet
 function createBorderHandler(systemValues: SystemValues): PropHandler {
     return (name, value, context) => {
         const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);
@@ -285,7 +285,9 @@ const PropsHandlers: Record<string, PropHandler> = {
 };
 
 export function isStyledSystemProp(name: string): name is keyof typeof PropsHandlers {
-    return !isNil(PropsHandlers[name]);
+    const cssProperty = name.replace(UnsafePrefix, ""); // TODO: not 100% accurate but close
+
+    return !isNil(PropsHandlers[cssProperty]);
 }
 
 class StylingContext {
@@ -344,6 +346,7 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         backgroundRepeat,
         backgroundSize,
         border,
+        borderActive,
         borderBottom,
         borderBottomActive,
         borderBottomFocus,
@@ -352,7 +355,6 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         borderBottomRightRadius,
         borderFocus,
         borderHover,
-        borderActive,
         borderLeft,
         borderLeftActive,
         borderLeftFocus,
@@ -466,17 +468,10 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         textOverflow,
         textTransform,
         top,
-        transition,
         transform,
         transformOrigin,
         transformStyle,
-        verticalAlign,
-        visibility,
-        whiteSpace,
-        width,
-        willChange,
-        wordBreak,
-        zIndex,
+        transition,
         UNSAFE_backgroundColor,
         UNSAFE_backgroundColorActive,
         UNSAFE_backgroundColorFocus,
@@ -507,15 +502,25 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         UNSAFE_borderTopLeftRadius,
         UNSAFE_borderTopRightRadius,
         UNSAFE_boxShadow,
+        UNSAFE_boxShadowActive,
+        UNSAFE_boxShadowFocus,
+        UNSAFE_boxShadowHover,
         UNSAFE_color,
+        UNSAFE_colorActive,
+        UNSAFE_colorFocus,
+        UNSAFE_colorHover,
         UNSAFE_columnGap,
         UNSAFE_fill,
+        UNSAFE_fillFocus,
+        UNSAFE_fillHover,
         UNSAFE_fontFamily,
         UNSAFE_fontSize,
         UNSAFE_fontWeight,
         UNSAFE_gap,
         UNSAFE_gridAutoColumns,
         UNSAFE_gridAutoRows,
+        UNSAFE_gridColumnSpan,
+        UNSAFE_gridRowSpan,
         UNSAFE_gridTemplateColumns,
         UNSAFE_gridTemplateRows,
         UNSAFE_height,
@@ -541,6 +546,13 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         UNSAFE_rowGap,
         UNSAFE_stroke,
         UNSAFE_width,
+        verticalAlign,
+        visibility,
+        whiteSpace,
+        width,
+        willChange,
+        wordBreak,
+        zIndex,
         ...rest
     } = props;
 
@@ -584,14 +596,20 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         backgroundRepeat,
         backgroundSize,
         border,
+        borderActive,
         borderBottom,
         borderBottomActive,
         borderBottomFocus,
         borderBottomHover,
+        borderBottomLeftRadius,
+        borderBottomRightRadius,
+        borderFocus,
+        borderHover,
         borderLeft,
         borderLeftActive,
         borderLeftFocus,
         borderLeftHover,
+        borderRadius,
         borderRight,
         borderRightActive,
         borderRightFocus,
@@ -600,20 +618,13 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         borderTopActive,
         borderTopFocus,
         borderTopHover,
-        borderActive,
-        borderFocus,
-        borderHover,
-        borderRadius,
-        borderBottomLeftRadius,
-        borderBottomRightRadius,
         borderTopLeftRadius,
         borderTopRightRadius,
+        bottom,
         boxShadow,
         boxShadowActive,
         boxShadowFocus,
         boxShadowHover,
-        bottom,
-        matchedBreakpoints,
         className,
         color,
         colorActive,
@@ -672,6 +683,7 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         marginTop,
         marginX,
         marginY,
+        matchedBreakpoints,
         maxHeight,
         maxWidth,
         minHeight,
@@ -707,17 +719,10 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         textOverflow,
         textTransform,
         top,
-        transition,
         transform,
         transformOrigin,
         transformStyle,
-        verticalAlign,
-        visibility,
-        whiteSpace,
-        width,
-        willChange,
-        wordBreak,
-        zIndex,
+        transition,
         UNSAFE_backgroundColor,
         UNSAFE_backgroundColorActive,
         UNSAFE_backgroundColorFocus,
@@ -748,15 +753,25 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         UNSAFE_borderTopLeftRadius,
         UNSAFE_borderTopRightRadius,
         UNSAFE_boxShadow,
+        UNSAFE_boxShadowActive,
+        UNSAFE_boxShadowFocus,
+        UNSAFE_boxShadowHover,
         UNSAFE_color,
+        UNSAFE_colorActive,
+        UNSAFE_colorFocus,
+        UNSAFE_colorHover,
         UNSAFE_columnGap,
         UNSAFE_fill,
+        UNSAFE_fillFocus,
+        UNSAFE_fillHover,
         UNSAFE_fontFamily,
         UNSAFE_fontSize,
         UNSAFE_fontWeight,
         UNSAFE_gap,
         UNSAFE_gridAutoColumns,
         UNSAFE_gridAutoRows,
+        UNSAFE_gridColumnSpan,
+        UNSAFE_gridRowSpan,
         UNSAFE_gridTemplateColumns,
         UNSAFE_gridTemplateRows,
         UNSAFE_height,
@@ -781,7 +796,14 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         UNSAFE_paddingY,
         UNSAFE_rowGap,
         UNSAFE_stroke,
-        UNSAFE_width
+        UNSAFE_width,
+        verticalAlign,
+        visibility,
+        whiteSpace,
+        width,
+        willChange,
+        wordBreak,
+        zIndex
     ]);
     /* eslint-enable react-hooks/exhaustive-deps */
 
@@ -789,5 +811,9 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         ...rest,
         className: styling.className,
         style: styling.style
-    };
+    } satisfies SatisfiesPropsNotPresent<Omit<StyledSystemProps, "className" | "style">>; // this satisfies make sure that no style-system props are forgotten in the rest parameter
 }
+
+type SatisfiesPropsNotPresent<TPropsToEnsure> = {
+    [key: string]: unknown;
+} & { [key in keyof Required<TPropsToEnsure>]?: never };

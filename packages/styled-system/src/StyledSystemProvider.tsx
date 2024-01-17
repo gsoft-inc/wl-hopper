@@ -7,6 +7,7 @@ import { Div, type DivProps } from "./html-wrappers/html.ts";
 import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint, type BreakpointProviderProps } from "./responsive/BreakpointProvider.tsx";
 import { HopperRootCssClass, StyledSystemRootCssClass } from "./styled-system-root-css-class.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
+import { SSRProvider } from "react-aria";
 
 export interface StyledSystemProviderProps extends BreakpointProviderProps, DivProps {
     /** The children of the component */
@@ -58,20 +59,22 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
     );
 
     return (
-        <ColorSchemeContext.Provider
-            value={{
-                colorScheme: computedColorScheme,
-                setColorScheme
-            }}
-        >
-            <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
-                <Div className={classNames} {...rest}>
-                    {withBodyStyle && <BodyStyleProvider />}
-                    {withCssVariables && <TokenProvider />}
-                    {children}
-                </Div>
-            </BreakpointProvider>
-        </ColorSchemeContext.Provider>
+        <SSRProvider>
+            <ColorSchemeContext.Provider
+                value={{
+                    colorScheme: computedColorScheme,
+                    setColorScheme
+                }}
+            >
+                <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
+                    <Div className={classNames} {...rest}>
+                        {withBodyStyle && <BodyStyleProvider />}
+                        {withCssVariables && <TokenProvider />}
+                        {children}
+                    </Div>
+                </BreakpointProvider>
+            </ColorSchemeContext.Provider>
+        </SSRProvider>
     );
 }
 

@@ -54,6 +54,13 @@ const config: Config = {
             params: {
                 attrs: "clip-rule"
             }
+        },
+        // Since we want to be able to set the svg color using both the color props and the fill props, we need to remove the fill attribute from the svg and the paths
+        {
+            name: "removeAttrs",
+            params: {
+                attrs: ["svg:fill:none", "*:fill:currentColor"]
+            }
         }
     ]
 };
