@@ -4,4 +4,4 @@
 "@hopper-ui/icons": minor
 ---
 
-Added UpDownIcon
+Renamed ArrowsUpDown Icon to better represent its look / Added Arrow Out Vertical icon
