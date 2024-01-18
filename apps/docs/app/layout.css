@@ -67,5 +67,14 @@ article ul {
 article p a,
 article li a {
     color: var(--hd-color-accent-text);
-    text-decoration: underline;
+}
+
+article code {
+    background-color: var(--hd-color-neutral-surface-weak);
+    border-radius: 0.25rem;
+    color: var(--hd-color-accent-text);
+    font-family: var(--hd-mono-font-family);
+    font-size: 0.8125rem;
+    padding-block: 0.125rem;
+    padding-inline: 0.25rem;
 }
