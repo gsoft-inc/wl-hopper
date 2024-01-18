@@ -7,12 +7,13 @@ const nextConfig = {
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     transpilePackages: ["@hopper-ui"],
     images: {
+        unoptimized: true,
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "assets.workleap.com",
+                hostname: "cdn.platform.workleap.com",
                 port: "",
-                pathname: "/hopper/**"
+                pathname: "/hopper/**/*"
             }
         ]
     },
