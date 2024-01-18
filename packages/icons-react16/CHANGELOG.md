@@ -1,5 +1,11 @@
 # @hopper-ui/icons-react16
 
+## 1.1.1
+
+### Patch Changes
+
+- 63691bd: fix: fill is not set to currentColor by default
+
 ## 1.1.0
 
 ### Minor Changes
