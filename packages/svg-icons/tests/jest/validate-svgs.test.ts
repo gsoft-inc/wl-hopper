@@ -4,7 +4,7 @@ import path from "path";
 import parse from "rehype-parse";
 import { unified } from "unified";
 import { fileURLToPath } from "url";
-import { IconSizes, IconsSourceDirectory, NeutralIconColor, PrimaryIconColor } from "../../scripts/constants.ts";
+import { IconSizes, IconsSourceDirectory, NeutralIconColor, PrimaryIconColor, WarningWeakIconColor } from "../../scripts/constants.ts";
 
 const iconsSrcPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), `../../${IconsSourceDirectory}`);
 
@@ -107,7 +107,7 @@ allIconsContent.forEach(icon => {
             );
         });
 
-        const expectedFillColors = [NeutralIconColor, PrimaryIconColor, "none"];
+        const expectedFillColors = [NeutralIconColor, PrimaryIconColor, WarningWeakIconColor, "none"];
 
         const expectedFillsString = expectedFillColors.join(",");
 
