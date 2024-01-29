@@ -1,7 +1,7 @@
 import { transform } from "@svgr/core";
 import fs from "fs";
 import path from "path";
-import { PrimaryIconColor } from "./constants.ts";
+import { PrimaryIconColor, WarningWeakIconColor } from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetch-svgs.ts";
 import svgoConfig from "./svgo-config.ts";
 
@@ -28,7 +28,8 @@ export async function generateComponents(componentDirectory: string, icons: Mult
                 typescript: true,
                 ref: true,
                 replaceAttrValues: {
-                    [PrimaryIconColor]: "var(--hop-primary-icon)"
+                    [PrimaryIconColor]: "var(--hop-primary-icon)",
+                    [WarningWeakIconColor]: "var(--hop-warning-icon-weak)"
                 },
                 jsxRuntime: "automatic",
                 svgoConfig: svgoConfig,
