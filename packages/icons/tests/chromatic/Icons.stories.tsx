@@ -1,6 +1,7 @@
 import * as IconLibrary from "@hopper-ui/icons";
 import { LI, UL } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { WithHopperStorybookAddonParameter } from "@hopper-ui/storybook-addon";
 
 type ListProps = IconLibrary.CreatedIconProps;
 
@@ -46,7 +47,7 @@ export const Default: Story = {
 export const Styles: Story = {
     ...Default,
     args: {
-        fill: "danger"
+        fill: "danger-active"
     }
 };
 

@@ -1,6 +1,7 @@
 import { Div, HopperProvider, useColorSchemeContext } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
+import type { WithHopperStorybookAddonParameter } from "@hopper-ui/storybook-addon";
 
 const ColoredDiv = () => {
     return (
@@ -16,7 +17,12 @@ const meta: Meta<typeof HopperProvider> = {
     component: HopperProvider,
     args: {
         children: <ColoredDiv />
-    }
+    },
+    parameters: {
+        hopper: {
+            disabled: true // This file is used to test the HopperProvider in isolation, so we don't want to render the HopperProvider here
+        }
+    } satisfies WithHopperStorybookAddonParameter
 };
 
 export default meta;

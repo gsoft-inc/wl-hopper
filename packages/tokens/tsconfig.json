@@ -2,4 +2,9 @@
     "extends": "@workleap/typescript-configs/library.json",
     "exclude": ["node_modules"],
     "include": ["**/*", "../../types/*"],
+    "compilerOptions": {
+        "paths": {
+            "@hopper-ui/storybook-addon": ["../../tooling/storybook-addon/withHopperProvider.tsx"],
+        }
+    }
 }

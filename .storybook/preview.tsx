@@ -1,8 +1,9 @@
-import { HopperProvider } from "@hopper-ui/components";
 import type { Preview } from "@storybook/react";
+import { withHopperProvider } from "@hopper-ui/storybook-addon";
 
 const preview: Preview = {
     parameters: {
+        layout: "fullscreen", // removes the padding around the preview
         actions: { argTypesRegex: "^on[A-Z].*" },
         controls: {
             matchers: {
@@ -14,22 +15,7 @@ const preview: Preview = {
             disable: true
         }
     },
-    decorators: [
-        Story => {
-            return (
-                <HopperProvider
-                    colorScheme="light"
-                    color="neutral"
-                    backgroundColor="neutral"
-                    lineHeight="body-md"
-                    fontFamily="body-md"
-                    fontSize="body-md"
-                >
-                    <Story />
-                </HopperProvider>
-            );
-        }
-    ]
+    decorators: [withHopperProvider]
 };
 
 export default preview;
