@@ -1,5 +1,17 @@
 # @hopper-ui/icons
 
+## 1.2.0
+
+### Minor Changes
+
+- 72ebf06: **Added**
+
+  | SVG Name                 |
+  | ------------------------ |
+  | BoltIcon                 |
+  | SettingsNotificationIcon |
+  | SettingsWarningIcon      |
+
 ## 1.1.0
 
 ### Minor Changes
