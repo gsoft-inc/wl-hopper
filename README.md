@@ -14,6 +14,7 @@ After cloning the source code, run `pnpm` to install dependencies.
 git clone https://github.com/gsoft-inc/wl-hopper.git
 cd wl-hopper
 pnpm i
+pnpm build
 ```
 
 ### Scripts
