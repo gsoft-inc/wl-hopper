@@ -3,6 +3,8 @@ import { makeDecorator } from "@storybook/preview-api";
 import { DisableAnimations } from "./DisableAnimations.tsx";
 import "./disableAnimations.css";
 
+const AddonName = "hopper";
+
 export interface HopperStorybookAddonOptions {
     /** Whether to disable the hopperProvider. Defaults to true. */
     disabled?: boolean;
@@ -15,15 +17,14 @@ export interface HopperStorybookAddonOptions {
 }
 
 export interface WithHopperStorybookAddonParameter {
-    hopper?: HopperStorybookAddonOptions;
+    [AddonName]?: HopperStorybookAddonOptions;
 }
-
 
 export const ColorSchemes = ["light", "dark"] satisfies HopperStorybookAddonOptions["colorSchemes"];
 
 export const withHopperProvider = makeDecorator({
     name: "withHopperProvider",
-    parameterName: "hopper" satisfies keyof WithHopperStorybookAddonParameter,
+    parameterName: AddonName,
     wrapper: (getStory, context, { options: optionProp, parameters }) => {
         const options = { ...optionProp, ...parameters } as HopperStorybookAddonOptions;
 
