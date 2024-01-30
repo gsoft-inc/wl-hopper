@@ -5,6 +5,7 @@
     "compilerOptions": {
         "paths": {
             "@hopper-ui/storybook-addon": ["../../tooling/storybook-addon/withHopperProvider.tsx"],
+            "@hopper-ui/components": ["../components/src/index.ts"],
         }
     }
 }
