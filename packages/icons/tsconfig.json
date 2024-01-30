@@ -9,7 +9,7 @@
             "@hopper-ui/test-utils": ["../../tooling/test-utils/index.ts"],
             "@hopper-ui/components": ["../components/src/index.ts"],
             "@hopper-ui/icons": ["./src/index.ts"],
-            "@hopper-ui/storybook-addon": ["../../tooling/storybook-addon/withHopperProvider.tsx"],
+            "@hopper-ui/storybook-addon": ["../../tooling/storybook-addon/withHopperProvider.tsx"]
         }
     }
 }
