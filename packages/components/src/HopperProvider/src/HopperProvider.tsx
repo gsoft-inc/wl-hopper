@@ -7,6 +7,8 @@ export type HopperProviderProps = StyledSystemProviderProps;
  * - Adding CSS variables to the document
  * - Managing color scheme (light, dark, auto)
  * - Optionally adding body styles to the document
+ *
+ * [View Documentation](TODO)
  */
 export function HopperProvider({ children, withBodyStyle = false, colorScheme = "light", withCssVariables = true, ...rest }: HopperProviderProps) {
     return (
@@ -15,3 +17,5 @@ export function HopperProvider({ children, withBodyStyle = false, colorScheme = 
         </StyledSystemProvider>
     );
 }
+
+HopperProvider.displayName = "HopperProvider";

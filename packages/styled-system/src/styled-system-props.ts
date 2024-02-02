@@ -1,6 +1,6 @@
 // this file will contain handlers for all the style props
 import type { Property } from "csstype";
-import type { CSSProperties, ComponentProps, JSXElementConstructor } from "react";
+import type { ComponentProps, JSXElementConstructor } from "react";
 import type { ResponsiveProp } from "./responsive/useResponsiveValue.tsx";
 import type {
     BackgroundColorValue,
@@ -57,10 +57,6 @@ import type {
 export const UnsafePrefix = "UNSAFE_";
 
 export interface StyledSystemProps {
-    className?: string;
-
-    style?: CSSProperties;
-
     /**
    * Sets the `align-content` property.
    * @see {@link https://developer.mozilla.org/docs/Web/CSS/align-content}
@@ -1578,5 +1574,7 @@ export interface StyledSystemProps {
     zIndex?: ResponsiveProp<Property.ZIndex>;
 }
 
-export type StyledComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<unknown>>
-    = Omit<ComponentProps<T>, keyof StyledSystemProps> & StyledSystemProps;
+export type StyledComponentProps<T>
+    = T extends keyof JSX.IntrinsicElements | JSXElementConstructor<unknown> ?
+        Omit<ComponentProps<T>, keyof StyledSystemProps> & StyledSystemProps :
+        Omit<T, keyof StyledSystemProps> & StyledSystemProps;

@@ -1,4 +1,4 @@
-import { type ColorScheme, HopperProvider } from "@hopper-ui/components";
+import { type ColorScheme, HopperProvider } from "../../packages/components/src/index.ts";
 import { makeDecorator } from "@storybook/preview-api";
 import { DisableAnimations } from "./DisableAnimations.tsx";
 import "./disableAnimations.css";

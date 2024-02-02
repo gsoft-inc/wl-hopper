@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/eslintrc",
+    "root": true,
+    "extends": "plugin:@workleap/react-library",
+    "overrides": [
+        {
+            // only in src folders, ignore tests and doc
+            "files": ["src/**/src/**/*.(ts|tsx)"],
+            "rules": {
+                "react/display-name": ["warn", {
+                    "ignoreTranspilerName": true,
+                    "checkContextObjects": true
+                }]
+            }
+        }
+    ]
+}

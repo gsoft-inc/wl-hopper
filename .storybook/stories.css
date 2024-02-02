@@ -1,0 +1,39 @@
+.bg-red {
+    background: red;
+}
+
+.border-red {
+    border: 0.0625rem solid red;
+}
+
+.red {
+    color: red;
+}
+
+.fill-red {
+    fill: red;
+}
+
+.stroke-red {
+    stroke: red;
+}
+
+.bg-blue {
+    background: blue;
+}
+
+.border-blue {
+    border: 0.0625rem solid blue;
+}
+
+.fill-blue {
+    fill: blue;
+}
+
+.zoom-in {
+    zoom: 120%;
+}
+
+.zoom-out {
+    zoom: 90%;
+}

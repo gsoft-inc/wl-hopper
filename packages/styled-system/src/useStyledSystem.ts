@@ -330,8 +330,13 @@ class StylingContext {
     }
 }
 
+export interface StylingProps {
+    className?: string;
+    style?: CSSProperties;
+}
+
 export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
-    : Omit<TProps, keyof StyledSystemProps> & { className?: string; style?: CSSProperties } {
+    : Omit<TProps, keyof StyledSystemProps> & { stylingProps: StylingProps } {
     const {
         alignContent,
         alignItems,
@@ -375,7 +380,6 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         boxShadowActive,
         boxShadowFocus,
         boxShadowHover,
-        className,
         color,
         colorActive,
         colorFocus,
@@ -462,7 +466,6 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         right,
         rowGap,
         stroke,
-        style,
         textAlign,
         textDecoration,
         textOverflow,
@@ -565,7 +568,7 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     /* eslint-disable react-hooks/exhaustive-deps */
     const styling = useMemo(() => {
-        const context = new StylingContext(className, style, matchedBreakpoints);
+        const context = new StylingContext(undefined, undefined, matchedBreakpoints);
 
         Object.keys(props).forEach(key => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -625,7 +628,6 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         boxShadowActive,
         boxShadowFocus,
         boxShadowHover,
-        className,
         color,
         colorActive,
         colorFocus,
@@ -713,7 +715,6 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
         right,
         rowGap,
         stroke,
-        style,
         textAlign,
         textDecoration,
         textOverflow,
@@ -809,9 +810,11 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
 
     return {
         ...rest,
-        className: styling.className,
-        style: styling.style
-    } satisfies SatisfiesPropsNotPresent<Omit<StyledSystemProps, "className" | "style">>; // this satisfies make sure that no style-system props are forgotten in the rest parameter
+        stylingProps: {
+            className: styling.className,
+            style: styling.style
+        }
+    } satisfies SatisfiesPropsNotPresent<StyledSystemProps>; // this satisfies make sure that no style-system props are forgotten in the rest parameter
 }
 
 type SatisfiesPropsNotPresent<TPropsToEnsure> = {
