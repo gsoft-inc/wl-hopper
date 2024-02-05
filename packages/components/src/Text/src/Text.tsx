@@ -1,10 +1,11 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { type ForwardedRef, createContext, forwardRef } from "react";
-import { Text as RACText, useContextProps, type TextProps as RACTextProps, type ContextValue } from "react-aria-components";
+import { type ForwardedRef, forwardRef } from "react";
+import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 import clsx from "clsx";
 import styles from "./Text.module.css";
 import { mergeProps } from "@react-aria/utils";
 import { cssModule } from "../../utils/src/css-module.ts";
+import { TextContext } from "./TextContext.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
 const GlobalTextCssSelector = "hop-Text-component";
@@ -20,10 +21,7 @@ export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTe
     size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
 }
 
-export const TextContext = createContext<ContextValue<TextProps, HTMLSpanElement>>({});
-TextContext.displayName = "TextContext";
-
-const Text = (props:TextProps, ref: ForwardedRef<HTMLSpanElement>) => {
+function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
     // eslint-disable-next-line no-param-reassign, react/destructuring-assignment
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, TextContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
@@ -52,7 +50,7 @@ const Text = (props:TextProps, ref: ForwardedRef<HTMLSpanElement>) => {
             {children}
         </RACText>
     );
-};
+}
 
 /**
  * A primitive text component matching Hopper's typography type scale.

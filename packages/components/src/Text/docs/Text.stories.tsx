@@ -1,5 +1,6 @@
-import { Text, TextContext } from "../src/Text.tsx";
-import { StyleProvider } from "../../utils/src/style-provider.tsx"; // TOOD fix this
+import { Text } from "../src/Text.tsx";
+import { TextContext } from "../src/TextContext.ts";
+import { StyleProvider } from "../../utils/src/style-provider.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**

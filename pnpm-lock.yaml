@@ -189,9 +189,9 @@ importers:
 
   packages/components:
     dependencies:
-      '@hopper-ui/styled-system':
+      '@hopper-ui/icons':
         specifier: workspace:*
-        version: link:../styled-system
+        version: link:../icons
       '@react-aria/utils':
         specifier: 3.23.0
         version: 3.23.0(react@18.2.0)
@@ -202,6 +202,9 @@ importers:
         specifier: 1.0.1
         version: 1.0.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@hopper-ui/styled-system':
+        specifier: workspace:*
+        version: link:../styled-system
       '@swc/core':
         specifier: 1.3.106
         version: 1.3.106(@swc/helpers@0.5.3)
@@ -241,6 +244,9 @@ importers:
       '@workleap/typescript-configs':
         specifier: 3.0.2
         version: 3.0.2(typescript@5.3.3)
+      identity-obj-proxy:
+        specifier: 3.0.0
+        version: 3.0.0
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.11.7)(ts-node@10.9.2)

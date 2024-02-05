@@ -1,11 +1,11 @@
 {
-  "$schema": "https://json.schemastore.org/eslintrc",
-  "root": true,
-  "env": {
-    "node": true
-  },
-  "extends": [
-    "plugin:@workleap/react-library",
-    "plugin:storybook/recommended"
-  ]
+    "$schema": "https://json.schemastore.org/eslintrc",
+    "root": true,
+    "env": {
+        "node": true
+    },
+    "extends": [
+        "plugin:@workleap/react-library",
+        "plugin:storybook/recommended"
+    ]
 }

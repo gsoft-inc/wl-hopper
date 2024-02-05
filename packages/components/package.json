@@ -38,15 +38,17 @@
     },
     "peerDependencies": {
         "react": "*",
-        "react-dom": "*"
+        "react-dom": "*",
+        "@hopper-ui/styled-system": "*"
     },
     "dependencies": {
-        "@hopper-ui/styled-system": "workspace:*",
+        "@hopper-ui/icons": "workspace:*",
         "clsx": "2.1.0",
         "react-aria-components": "1.0.1",
         "@react-aria/utils": "3.23.0"
     },
     "devDependencies": {
+        "@hopper-ui/styled-system": "workspace:*",
         "@swc/core": "1.3.106",
         "@swc/helpers": "0.5.3",
         "@swc/jest": "0.2.31",

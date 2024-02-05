@@ -1,4 +1,4 @@
-import { Breakpoints, Div, type DivProps } from "@hopper-ui/styled-system";
+import { Breakpoints, Div, type DivProps } from "../../src/index.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const viewports = Object.values(Breakpoints);

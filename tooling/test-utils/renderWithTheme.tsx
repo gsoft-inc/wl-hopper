@@ -16,7 +16,7 @@ function createHopperProviderWrapper({ colorScheme = "light" }: HopperProviderWr
     };
 }
 
-export function renderWithTheme(
+function renderWithTheme(
     ui: ReactElement,
     testingLibraryOptions: RenderOptions = {},
     themeOptions?: HopperProviderWrapperOptions
@@ -27,7 +27,7 @@ export function renderWithTheme(
     });
 }
 
-export function renderHookWithTheme<TProps, TResult>(
+function renderHookWithTheme<TProps, TResult>(
     callback: (props: TProps) => TResult, renderHookOptions: RenderHookOptions<TProps> = {},
     themeOptions?: HopperProviderWrapperOptions
 ): ReturnType<typeof renderHook<TResult, TProps>> {

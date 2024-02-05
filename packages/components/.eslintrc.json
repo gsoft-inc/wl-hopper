@@ -5,12 +5,9 @@
     "overrides": [
         {
             // only in src folders, ignore tests and doc
-            "files": ["src/**/src/**/*.(ts|tsx)"],
+            "files": ["src/**/src/**/*.ts", "src/**/src/**/*.tsx"],
             "rules": {
-                "react/display-name": ["warn", {
-                    "ignoreTranspilerName": true,
-                    "checkContextObjects": true
-                }]
+                "no-console": ["warn", { "allow": ["warn", "error"] }]
             }
         }
     ]

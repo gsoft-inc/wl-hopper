@@ -1,4 +1,4 @@
-import * as IconLibrary from "@hopper-ui/icons";
+import * as IconLibrary from "../../src/index.ts";
 import { LI, UL } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
