@@ -2,10 +2,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { List, type Style, type TokenType } from "./components/List.tsx";
 import darkTokens from "./datas/tokens-dark.json";
 import tokens from "./datas/tokens.json";
+import type { WithHopperStorybookAddonParameter } from "@hopper-ui/storybook-addon";
 
 const meta: Meta<typeof List> = {
     title: "Tokens/Colors",
-    component: List
+    component: List,
+    parameters: {
+        hopper: {
+            disabled: true // We are testing the tokens generated from a json file. No need for the hopper provider
+        }
+    } satisfies WithHopperStorybookAddonParameter
 };
 
 export default meta;

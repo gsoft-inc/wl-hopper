@@ -46,7 +46,7 @@ export const Default: Story = {
 export const Styles: Story = {
     ...Default,
     args: {
-        fill: "danger"
+        fill: "danger-active"
     }
 };
 
