@@ -1,7 +1,6 @@
-import { useMemo, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { useBreakpointContext } from "./responsive/BreakpointContext.tsx";
 import type { Breakpoint } from "./responsive/Breakpoints.ts";
-import { ResponsiveProp, parseResponsiveValue } from "./responsive/useResponsiveValue.tsx";
 import {
     BackgroundColorMapping,
     BorderMapping,
@@ -28,6 +27,7 @@ import { isNil } from "./utils/assertion.ts";
 // eslint-disable-next-line @workleap/strict-css-modules-names
 import styles from "./UseStyledSystem.module.css";
 import { UnsafePrefix, type StyledSystemProps } from "./styled-system-props.ts";
+import { type ResponsiveProp, parseResponsiveValue } from "./responsive/useResponsiveValue.ts";
 
 type PropHandler = (name: string, value: ResponsiveProp<string | number>, context: StylingContext) => void;
 type SystemValues = Record<string | number, string>;
@@ -297,7 +297,7 @@ class StylingContext {
 
     constructor(className: string | undefined, style: CSSProperties | undefined, matchedBreakpoints: Breakpoint[]) {
         this.#classes = !isNil(className) ? [className] : [];
-        this.#style = { ...style } ?? {}; // TODO: different than orbit, in order to not modify the original style object https://github.com/gsoft-inc/sg-orbit/issues/1211
+        this.#style = { ...(style ?? {}) } ; // TODO: different than orbit, in order to not modify the original style object https://github.com/gsoft-inc/sg-orbit/issues/1211
         this.matchedBreakpoints = matchedBreakpoints;
     }
 
@@ -359,6 +359,7 @@ function removeStyledSystemProps<TProps extends StyledSystemProps>(props: TProps
         .filter(x => !isStyledSystemProp(x))
         .reduce((acc, key) => {
             acc[key] = (props as Record<string, unknown>)[key];
+
             return acc;
         }, {} as Record<string, unknown>) as Omit<TProps, keyof StyledSystemProps>;
 }
@@ -368,6 +369,7 @@ export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
     const { matchedBreakpoints } = useBreakpointContext();
 
     const stylingProps = convertStyleProps(props, PropsHandlers, matchedBreakpoints);
+
     return {
         ...removeStyledSystemProps(props),
         stylingProps
