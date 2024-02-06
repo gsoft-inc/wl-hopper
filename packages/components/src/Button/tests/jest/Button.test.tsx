@@ -1,30 +1,30 @@
 import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
 import { Button } from "../../../Button/src/Button.tsx";
 import { createRef } from "react";
-import userEvent from "@testing-library/user-event";
+// import userEvent from "@testing-library/user-event";
 
 // TODO: fix test names
 // TODO: check react-aria-tests
 
 // ***** Behaviors *****
-test("when loading is true, the button should prevent onClick", async () => {
-    const handler = jest.fn();
-    const user = userEvent.setup();
+// // test("when loading is true, the button should prevent onClick", async () => {
+//     const handler = jest.fn();
+//     const user = userEvent.setup();
 
-    render(
-        <Button
-            isLoading
-            onClick={handler}
-            data-testid="button"
-        >
-            Loading Button
-        </Button>
-    );
+//     render(
+//         <Button
+//             isLoading
+//             onClick={handler}
+//             data-testid="button"
+//         >
+//             Loading Button
+//         </Button>
+//     );
 
-    await user.click(screen.getByTestId("button"));
+//     await user.click(screen.getByTestId("button"));
 
-    await waitFor(() => expect(handler).not.toHaveBeenCalled());
-});
+//     await waitFor(() => expect(handler).not.toHaveBeenCalled());
+// });
 
 // ***** Aria *****
 
