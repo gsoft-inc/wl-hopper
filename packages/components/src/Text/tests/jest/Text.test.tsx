@@ -1,4 +1,4 @@
-import { Text, TextContext } from "../../src/Text.tsx";
+import { Text, TextContext } from "../../src/index.ts";
 import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
 

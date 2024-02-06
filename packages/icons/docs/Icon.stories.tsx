@@ -8,7 +8,7 @@ An icon component allow you to render a custom icon.
  * -
  * [View package](https://www.npmjs.com/package/@hopper-ui/icons)
  * -
- * View storybook
+ * View storybook TODO
  */
 const meta: Meta<typeof AddIcon> = {
     title: "Docs/Icon",

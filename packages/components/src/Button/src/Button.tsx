@@ -5,7 +5,7 @@ import styles from "./Button.module.css";
 import { mergeProps } from "@react-aria/utils";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { Text } from "../../Text/src/Text.tsx";
-import { StyleProvider, composeClassnameRenderProps } from "../../utils/src/index.ts";
+import { SlotProvider, composeClassnameRenderProps } from "../../utils/src/index.ts";
 import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext } from "./ButtonContext.ts";
 import { TextContext } from "../../Text/src/index.ts";
@@ -86,7 +86,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const loader = <Text>LOADING...</Text>;
 
     return (
-        <StyleProvider
+        <SlotProvider
             values={[
                 [IconContext, {
                     slots: {
@@ -125,7 +125,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
             >
                 {isLoading ? loader : content}
             </RACButton>
-        </StyleProvider>
+        </SlotProvider>
     );
 };
 

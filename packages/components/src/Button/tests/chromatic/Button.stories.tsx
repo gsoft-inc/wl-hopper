@@ -18,7 +18,7 @@ export default meta;
 type ButtonStory = StoryObj<typeof meta>;
 
 // TODO: use real layout component
-const Inline = ({ alignY, ...props }: DivProps & { alignY: string }) => <Div {...props} alignItems={alignY} display="flex" UNSAFE_gap="1.25rem" />;
+const Inline = ({ alignY, ...props }: DivProps & { alignY?: string }) => <Div {...props} alignItems={alignY} display="flex" UNSAFE_gap="1.25rem" />;
 const Stack = (props: DivProps) => <Div {...props} display="flex" flexDirection="column" UNSAFE_gap="1.25rem" />;
 
 export const Primary: ButtonStory = {

@@ -6,7 +6,6 @@ import styles from "./htmlElement.module.css";
 
 export type HtmlElementProps<T extends keyof JSX.IntrinsicElements> = StyledComponentProps<T>;
 
-
 export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: T) {
     return forwardRef<ElementRef<T>, HtmlElementProps<T>>((props, ref) => {
         const { stylingProps, className, style, ...ownProps } = useStyledSystem(props);
@@ -18,7 +17,6 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
             className,
             stylingProps.className
         );
-
 
         return (
             // It's too hard for typescript, a generic elementType, with generic props.

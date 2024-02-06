@@ -1,6 +1,6 @@
 import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
-import { StyleProvider } from "../../utils/src/style-provider.tsx";
+import { SlotProvider } from "../../utils/src/style-provider.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
@@ -10,7 +10,7 @@ import type { Meta, StoryObj } from "@storybook/react";
  * -
  * [View package](https://www.npmjs.com/package/@hopper-ui/components)
  * -
- * View storybook
+ * View storybook TODO
  */
 const meta: Meta<typeof Text> = {
     title: "Docs/Typography/Text",
@@ -73,11 +73,11 @@ export const Inherit: TextStory = {
  */
 export const AdvancedCustomization: TextStory = {
     render: props => (
-        <StyleProvider values={[
+        <SlotProvider values={[
             [TextContext, { size: "xl" }]
         ]}
         >
             <Text {...props} />
-        </StyleProvider>
+        </SlotProvider>
     )
 };

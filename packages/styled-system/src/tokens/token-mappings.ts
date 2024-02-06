@@ -1,7 +1,7 @@
 import type { Globals, Property } from "csstype";
 import type { Breakpoint } from "../responsive/Breakpoints.ts";
-import { parseResponsiveValue } from "../responsive/useResponsiveValue.tsx";
-import { isNil } from "../utils/assertion.ts";
+import { type ResponsiveProp, parseResponsiveValue } from "../responsive/useResponsiveValue.tsx";
+import { isNil, isObject } from "../utils/assertion.ts";
 import {
     BackgroundColors,
     CoreSpace,
@@ -199,16 +199,18 @@ export type UNSAFE_WidthValue = keyof typeof SizingMapping | Property.Width;
 export type GridColumSpanValue = number;
 export type GridRowSpanValue = number;
 
-export function parseResponsiveSystemValue<TValue extends string | number>(value: TValue | undefined, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
+export function parseResponsiveSystemValue<TValue extends string | number>(value: TValue | ResponsiveProp<TValue> | undefined, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
     if (isNil(value)) {
         return value;
     }
 
     // Quick lookup since most values will be a non responsive system value and will not requires to parse for a responsive value.
-    const systemValue = getSystemValue(value, systemValues);
+    if (!isObject(value)) {
+        const systemValue = getSystemValue(value, systemValues);
 
-    if (!isNil(systemValue)) {
-        return systemValue;
+        if (!isNil(systemValue)) {
+            return systemValue;
+        }
     }
 
     const underlyingValue = parseResponsiveValue(value, matchedBreakpoints);

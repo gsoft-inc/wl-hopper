@@ -1,0 +1,85 @@
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hop-spinner {
+    --hop-spinner-component-border-radius: var(--hop-shape-circle);
+    --hop-spinner-component-sm-wheel-size: 1rem;
+    --hop-spinner-component-md-wheel-size: 1.25rem;
+    --hop-spinner-component-lg-wheel-size: 1.5rem;
+
+    /* Track */
+    --hop-spinner-component-track-width: 0.2rem;
+    --hop-spinner-component-track-opacity: 0.2;
+    --hop-spinner-component-track-border: var(--hop-spinner-component-track-width) solid currentcolor;
+
+    /* Fill */
+    --hop-spinner-component-fill-animation: spin .8s infinite linear;
+    --hop-spinner-component-fill-animation-reduced-motion-duration: 2s;
+    --hop-spinner-component-fill-border: var(--hop-spinner-component-track-width) solid transparent;
+    --hop-spinner-component-fill-border-inline-start: var(--hop-spinner-component-track-width) solid currentcolor;
+
+    /* Label */
+    --hop-spinner-component-margin-left: var(--hop-space-stack-sm);
+
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: "spinner label";
+    grid-template-columns: min-content auto;
+    align-items: center;
+    color: var(--hop-neutral-text);
+}
+
+.hop-spinner--sm {
+    --width: var(--hop-spinner-component-sm-wheel-size);
+    --height: var(--hop-spinner-component-sm-wheel-size);
+}
+
+.hop-spinner--md {
+    --width: var(--hop-spinner-component-md-wheel-size);
+    --height: var(--hop-spinner-component-md-wheel-size);
+}
+
+.hop-spinner--lg {
+    --width: var(--hop-spinner-component-lg-wheel-size);
+    --height: var(--hop-spinner-component-lg-wheel-size);
+}
+
+.hop-spinner__track {
+    box-sizing: border-box;
+    inline-size: var(--width);
+    block-size: var(--height);
+    border-radius: var(--hop-spinner-component-border-radius);
+    border: var(--hop-spinner-component-track-border);
+    opacity: var(--hop-spinner-component-track-opacity);
+    grid-area: spinner;
+}
+
+.hop-spinner__fill {
+    box-sizing: border-box;
+    inline-size: var(--width);
+    block-size: var(--height);
+    border-radius: var(--hop-spinner-component-border-radius);
+    border: var( --hop-spinner-component-fill-border);
+    border-inline-start: var(--hop-spinner-component-fill-border-inline-start);
+    grid-area: spinner;
+    animation: var(--hop-spinner-component-fill-animation);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hop-spinner__fill {
+        animation-duration: var(--hop-spinner-component-fill-animation-reduced-motion-duration);
+    }
+}
+
+
+.hop-spinner__label {
+    margin-inline-start: var(--hop-spinner-component-margin-left);
+    grid-area: label;
+}
