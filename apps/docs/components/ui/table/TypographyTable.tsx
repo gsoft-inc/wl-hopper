@@ -52,11 +52,21 @@ function groupItemsByPropertiesAndSizes(tokenData: TokenData, itemType: string):
             const matchingItem = tokenData[propertyKey].find(item => {
                 const nameParts = item.name.split("-");
 
-                return nameParts.includes(itemType === "overline" ? "md" : itemType) && nameParts.includes(size);
+                return nameParts.includes(itemType) && nameParts.includes(size);
+            });
+
+            const matchingItemOverline = tokenData[propertyKey].find(item => {
+                const nameParts = item.name.split("-");
+
+                return nameParts.includes(itemType);
             });
 
             if (matchingItem) {
                 groupedItems[sizeKey][propertyKey] = matchingItem.value;
+            }
+
+            if (matchingItemOverline && sizeKey === "md") {
+                groupedItems[sizeKey][propertyKey] = matchingItemOverline.value;
             }
         });
 
