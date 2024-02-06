@@ -27,7 +27,7 @@ import { isNil } from "./utils/assertion.ts";
 // eslint-disable-next-line @workleap/strict-css-modules-names
 import styles from "./UseStyledSystem.module.css";
 import { UnsafePrefix, type StyledSystemProps } from "./styled-system-props.ts";
-import { type ResponsiveProp, parseResponsiveValue } from "./responsive/useResponsiveValue.ts";
+import { type ResponsiveProp, parseResponsiveValue } from "./responsive/useResponsiveValue.tsx";
 
 type PropHandler = (name: string, value: ResponsiveProp<string | number>, context: StylingContext) => void;
 type SystemValues = Record<string | number, string>;
