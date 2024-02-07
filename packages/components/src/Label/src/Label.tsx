@@ -1,19 +1,20 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
-import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
+import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 import clsx from "clsx";
-import styles from "./Text.module.css";
+import styles from "./Label.module.css";
 import { mergeProps } from "@react-aria/utils";
 import { cssModule } from "../../utils/src/css-module.ts";
-import { TextContext } from "./TextContext.ts";
+import { LabelContext } from "./LabelContext.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalTextCssSelector = "hop-Text-component";
-const DefaultSlot = "text";
+const GlobalLabelCssSelector = "hop-Label-component";
+const DefaultSlot = "label";
 
-export type RACTextPropsToOmit = "elementType";
+export type RACLabelPropsToOmit = "elementType";
 
-export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTextPropsToOmit>> {
+// TODO: Add necessityIndicator and required Props
+export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RACLabelPropsToOmit>> {
     /**
      * The Typography Type Scale to use.
      * @default "md"
@@ -21,19 +22,19 @@ export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTe
     size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
 }
 
-function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
+function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     // eslint-disable-next-line no-param-reassign, react/destructuring-assignment
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, TextContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, ...otherProps } = ownProps;
 
     const size = useResponsiveValue(sizeProp ?? "md");
 
     const classNames = clsx(
-        GlobalTextCssSelector,
+        GlobalLabelCssSelector,
         cssModule(
             styles,
-            "hop-text",
+            "hop-label",
             size
         ),
         stylingProps.className,
@@ -41,25 +42,24 @@ function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
     );
 
     return (
-        <RACText
+        <RACLabel
             {...mergeProps({ ...stylingProps }, otherProps)}
             ref={ref}
-            elementType="span"
             className={classNames}
         >
             {children}
-        </RACText>
+        </RACLabel>
     );
 }
 
 /**
- * A primitive text component matching Hopper's typography type scale.
+ * A primitive label component matching Hopper's typography type scale.
  *
  * [View Documentation](TODO)
  */
-const _Text = forwardRef<HTMLSpanElement, TextProps>(Text);
-_Text.displayName = "Text";
+const _Label = forwardRef<HTMLLabelElement, LabelProps>(Label);
+_Label.displayName = "Label";
 
-export { _Text as Text };
+export { _Label as Label };
 
 

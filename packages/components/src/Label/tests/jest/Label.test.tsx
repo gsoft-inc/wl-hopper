@@ -1,25 +1,25 @@
-import { Text, TextContext } from "../../src/index.ts";
+import { Label, LabelContext } from "../../src/index.ts";
 import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
 
-describe("Text", () => {
+describe("Label", () => {
     it("should render a span with default class", () => {
-        render(<Text>Test</Text>);
+        render(<Label>Test</Label>);
 
         const element = screen.getByText("Test");
-        expect(element).toHaveClass("hop-Text-component");
+        expect(element).toHaveClass("hop-Label-component");
     });
 
     it("should render a span with custom class", () => {
-        render(<Text className="test">Test</Text>);
+        render(<Label className="test">Test</Label>);
 
         const element = screen.getByText("Test");
-        expect(element).toHaveClass("hop-Text-component");
+        expect(element).toHaveClass("hop-Label-component");
         expect(element).toHaveClass("test");
     });
 
     it("should support DOM props", () => {
-        render(<Text data-foo="bar">Test</Text>);
+        render(<Label data-foo="bar">Test</Label>);
 
         const element = screen.getByText("Test");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -27,9 +27,9 @@ describe("Text", () => {
 
     it("should support slot", () => {
         render(
-            <TextContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <Text slot="test">Test</Text>
-            </TextContext.Provider>
+            <LabelContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
+                <Label slot="test">Test</Label>
+            </LabelContext.Provider>
         );
 
         const element = screen.getByText("Test");
@@ -38,10 +38,10 @@ describe("Text", () => {
     });
 
     it("should support refs", () => {
-        const ref = createRef<HTMLSpanElement>();
-        render(<Text ref={ref}>Test</Text>);
+        const ref = createRef<HTMLLabelElement>();
+        render(<Label ref={ref}>Test</Label>);
 
         expect(ref.current).not.toBeNull();
-        expect(ref.current instanceof HTMLSpanElement).toBeTruthy();
+        expect(ref.current instanceof HTMLLabelElement).toBeTruthy();
     });
 });

@@ -4,26 +4,34 @@ import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
 
 describe("Spinner", () => {
-    it("should render a span with default class", () => {
+    it("should render a spinner with default class", () => {
         render(<Spinner aria-label="Loading…" />);
 
-        const text = screen.getByRole("progressbar");
-        expect(text).toHaveClass("hop-Spinner-component");
+        const element = screen.getByRole("progressbar");
+        expect(element).toHaveClass("hop-Spinner-component");
     });
 
-    it("should render a span with custom class", () => {
+    it("should render a spinner with custom class", () => {
         render(<Spinner aria-label="Loading…" className="test" />);
 
-        const text = screen.getByRole("progressbar");
-        expect(text).toHaveClass("hop-Spinner-component");
-        expect(text).toHaveClass("test");
+        const element = screen.getByRole("progressbar");
+        expect(element).toHaveClass("hop-Spinner-component");
+        expect(element).toHaveClass("test");
+    });
+
+    it("should render a spinner with custom style", () => {
+        render(<Spinner aria-label="Loading…" marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
+
+        const element = screen.getByRole("progressbar");
+        screen.debug(element);
+        expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
         render(<Spinner aria-label="Loading…" data-foo="bar" />);
 
-        const text = screen.getByRole("progressbar");
-        expect(text).toHaveAttribute("data-foo", "bar");
+        const element = screen.getByRole("progressbar");
+        expect(element).toHaveAttribute("data-foo", "bar");
     });
 
     it("should support slot", () => {
@@ -33,9 +41,9 @@ describe("Spinner", () => {
             </SpinnerContext.Provider>
         );
 
-        const text = screen.getByRole("progressbar");
-        expect(text).toHaveAttribute("slot", "test");
-        expect(text).toHaveAttribute("aria-label", "test label");
+        const element = screen.getByRole("progressbar");
+        expect(element).toHaveAttribute("slot", "test");
+        expect(element).toHaveAttribute("aria-label", "test label");
     });
 
     it("should support refs", () => {
@@ -46,5 +54,3 @@ describe("Spinner", () => {
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
     });
 });
-
-// TODO: test styles?

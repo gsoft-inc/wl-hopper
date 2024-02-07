@@ -1,11 +1,11 @@
 import { useStyledSystem, type ResponsiveProp, useResponsiveValue, type StyledSystemProps } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef } from "react";
-import { ProgressBar } from "react-aria-components";
+import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
+import { ProgressBar, useContextProps } from "react-aria-components";
 import { composeClassnameRenderProps, cssModule, type SizeAdapter } from "../../utils/src/index.ts";
-import { Text, type TextProps } from "../../Text/src/index.ts";
 import type { BaseComponentProps } from "../../utils/src/types.ts";
 import styles from "./Spinner.module.css";
-import { useId } from "@react-aria/utils";
+import { SpinnerContext } from "./SpinnerContext.ts";
+import { Label, type LabelProps } from "../../Label/src/Label.tsx";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
 const GlobalSpinnerCssSelector = "hop-Spinner-component";
@@ -18,21 +18,22 @@ export interface SpinnerProps extends StyledSystemProps, BaseComponentProps {
     size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
-const SpinnerToTextSizeAdapter: SizeAdapter<SpinnerProps["size"], TextProps["size"]> = {
+const SpinnerToLabelSizeAdapter: SizeAdapter<SpinnerProps["size"], LabelProps["size"]> = {
     sm: "xs",
     md: "sm",
     lg: "md"
 };
 
 const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
+    // eslint-disable-next-line no-param-reassign, react/destructuring-assignment
+    [props, ref] = useContextProps(props, ref, SpinnerContext);
+
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
         style,
         size: sizeProp,
         children,
-        "aria-label": ariaLabel,
-        "aria-labelledby": ariaLabelledbyProp,
         ...otherProps
     } = ownProps;
     const size = useResponsiveValue(sizeProp) ?? "md";
@@ -48,28 +49,20 @@ const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
         stylingProps.className
     );
 
-    const mergedStyles = {
+    const mergedStyles: CSSProperties = {
         ...stylingProps.style,
-        style
+        ...style
     };
 
-    if (!children && !ariaLabel && !ariaLabelledbyProp) {
-        console.warn("[Hopper] You should provide an aria-label or aria-labelledby to the Spinner component to make it accessible.");
-    }
-
-    const labelId = useId();
     const labelMarkup = children && (
-        <Text
-            id={labelId}
+        <Label
             className={cssModule(
                 styles,
                 "hop-spinner__label"
             )}
-            size={SpinnerToTextSizeAdapter[size]}
-        >{children}</Text>
+            size={SpinnerToLabelSizeAdapter[size]}
+        >{children}</Label>
     );
-    const ariaLabelledBy = ariaLabelledbyProp || labelMarkup ? labelId : undefined;
-
 
     return (
         <ProgressBar
@@ -77,8 +70,6 @@ const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
             isIndeterminate
             className={classNames}
             style={mergedStyles}
-            aria-label={ariaLabel}
-            aria-labelledby={ariaLabelledBy}
             {...otherProps}
         >
             <div className={
@@ -105,7 +96,7 @@ const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
  *
  * [View Documentation](TODO)
  */
-export const _Spinner = forwardRef<HTMLDivElement, SpinnerProps>(Spinner);
+const _Spinner = forwardRef<HTMLDivElement, SpinnerProps>(Spinner);
 _Spinner.displayName = "Spinner";
 
 export { _Spinner as Spinner };

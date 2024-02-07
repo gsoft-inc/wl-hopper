@@ -2,13 +2,7 @@
     "$schema": "https://json.schemastore.org/eslintrc",
     "root": true,
     "extends": "plugin:@workleap/react-library",
-    "overrides": [
-        {
-            // only in src folders, ignore tests and doc
-            "files": ["src/**/src/**/*.ts", "src/**/src/**/*.tsx"],
-            "rules": {
-                "no-console": ["warn", { "allow": ["warn", "error"] }]
-            }
-        }
-    ]
+    "rules": {
+        "no-console": ["warn", { "allow": ["warn", "error"] }]
+    }
 }
