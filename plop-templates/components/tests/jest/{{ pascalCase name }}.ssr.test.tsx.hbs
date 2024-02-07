@@ -1,0 +1,16 @@
+/**
+ * @jest-environment node
+ */
+import { {{ pascalCase name }} } from "../../src/{{ pascalCase name }}.tsx";
+import { renderToString } from "react-dom/server";
+
+describe("{{ pascalCase name }}", () => {
+    it("can render on the server", () => {
+        const renderOnServer = () =>
+            renderToString(
+                <{{ pascalCase name }}>Text</{{ pascalCase name }}>
+            );
+
+        expect(renderOnServer).not.toThrow();
+    });
+});
