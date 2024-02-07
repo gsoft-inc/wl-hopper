@@ -13,7 +13,7 @@ import type { Meta, StoryObj } from "@storybook/react";
  * View storybook TODO
  */
 const meta: Meta<typeof Label> = {
-    title: "Docs/Typography/Label",
+    title: "Docs/Label",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories

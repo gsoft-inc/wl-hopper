@@ -13,7 +13,7 @@ import type { Meta, StoryObj } from "@storybook/react";
  * View storybook TODO
  */
 const meta: Meta<typeof Text> = {
-    title: "Docs/Typography/Text",
+    title: "Docs/Text",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
