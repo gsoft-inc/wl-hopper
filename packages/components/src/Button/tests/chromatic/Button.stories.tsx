@@ -26,35 +26,40 @@ export const Primary: ButtonStory = {
     render: args => {
         return (
             <Stack>
-                <Inline alignY="end">
-                    <Button size="sm" {...args}>Button</Button>
-                    <Button {...args}>Button</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button isLoading size="sm" {...args}>Button</Button>
-                    <Button isLoading {...args}>Button</Button>
-                </Inline>
-                <Div>
-                    <Button fluid {...args}>Button</Button>
-                </Div>
-                <Div UNSAFE_width="10%">
-                    <Button fluid {...args}>Button</Button>
-                </Div>
-                <Div>
-                    <Button isLoading fluid {...args}>Button</Button>
-                </Div>
-                <Inline alignY="end">
-                    <Button size="sm" {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                </Inline>
-                {/* TODO missing iconlist */}
-                {/* <Inline alignY="end">
+                <Stack>
+                    <h2>Default</h2>
+                    <Inline alignY="end">
+                        <Button size="sm" {...args}>Button</Button>
+                        <Button {...args}>Button</Button>
+                    </Inline>
+                    <Inline alignY="end">
+                        <Button isLoading size="sm" {...args}>Button</Button>
+                        <Button isLoading {...args}>Button</Button>
+                    </Inline>
+                    <Div>
+                        <Button fluid {...args}>Button</Button>
+                    </Div>
+                    <Div UNSAFE_width="10%">
+                        <Button fluid {...args}>Button</Button>
+                    </Div>
+                    <Div>
+                        <Button isLoading fluid {...args}>Button</Button>
+                    </Div>
+                </Stack>
+                <Stack>
+                    <h2>Icons</h2>
+                    <Inline alignY="end">
+                        <Button size="sm" {...args}>
+                            <PlusIcon />
+                            <Text>Button</Text>
+                        </Button>
+                        <Button {...args}>
+                            <PlusIcon />
+                            <Text>Button</Text>
+                        </Button>
+                    </Inline>
+                    {/* TODO missing iconlist */}
+                    {/* <Inline alignY="end">
                     <Button size="sm" {...args}>
                         <IconList>
                             <StartOverIcon /><StartOverIcon /><StartOverIcon />
@@ -68,42 +73,45 @@ export const Primary: ButtonStory = {
                         <Text>Button</Text>
                     </Button>
                 </Inline> */}
-                <Inline alignY="end">
-                    <Button isLoading size="sm" {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button isLoading {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button isDisabled {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                </Div>
-                <Stack>
-                    <Button fluid {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button fluid {...args}>
-                        <Text>Button</Text>
-                    </Button>
+                    <Inline alignY="end">
+                        <Button isLoading size="sm" {...args}>
+                            <PlusIcon />
+                            <Text>Button</Text>
+                        </Button>
+                        <Button isLoading {...args}>
+                            <PlusIcon />
+                            <Text>Button</Text>
+                        </Button>
+                    </Inline>
+                    <Div>
+                        <Button isDisabled {...args}>
+                            <PlusIcon />
+                            <Text>Button</Text>
+                        </Button>
+                    </Div>
+                    <Stack>
+                        <Button fluid {...args}>
+                            <PlusIcon />
+                            <Text>Button</Text>
+                        </Button>
+                        <Button fluid {...args}>
+                            <Text>Button</Text>
+                        </Button>
+                    </Stack>
                 </Stack>
-                <Inline alignY="end">
-                    <Button size="sm" {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                {/* <Inline alignY="end">
+                <Stack>
+                    <h1>End icons</h1>
+                    <Inline alignY="end">
+                        <Button size="sm" {...args}>
+                            <Text>Button</Text>
+                            <PlusIcon slot="end-icon" />
+                        </Button>
+                        <Button {...args}>
+                            <Text>Button</Text>
+                            <PlusIcon slot="end-icon" />
+                        </Button>
+                    </Inline>
+                    {/* <Inline alignY="end">
                     <Button size="sm" {...args}>
                         <Text>Button</Text>
                         <IconList slot="end-icon">
@@ -117,87 +125,91 @@ export const Primary: ButtonStory = {
                         </IconList>
                     </Button>
                 </Inline> */}
-                <Inline alignY="end">
-                    <Button isLoading size="sm" {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button isLoading {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                </Div>
-                <Stack>
-                    <Button fluid {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button fluid {...args}>
-                        <Text>Button</Text>
-                    </Button>
+                    <Inline alignY="end">
+                        <Button isLoading size="sm" {...args}>
+                            <Text>Button</Text>
+                            <PlusIcon slot="end-icon" />
+                        </Button>
+                        <Button isLoading {...args}>
+                            <Text>Button</Text>
+                            <PlusIcon slot="end-icon" />
+                        </Button>
+                    </Inline>
+                    <Div>
+                        <Button isDisabled {...args}>
+                            <Text>Button</Text>
+                            <PlusIcon slot="end-icon" />
+                        </Button>
+                    </Div>
+                    <Stack>
+                        <Button fluid {...args}>
+                            <Text>Button</Text>
+                            <PlusIcon slot="end-icon" />
+                        </Button>
+                        <Button fluid {...args}>
+                            <Text>Button</Text>
+                        </Button>
+                    </Stack>
                 </Stack>
                 <Stack>
-                    <Inline alignY="end">
-                        <Button data-pressed size="sm" {...args}>Button</Button>
-                        <Button data-pressed {...args}>Button</Button>
-                        <Button isLoading data-pressed {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button data-focus-visible size="sm" {...args}>Button</Button>
-                        <Button data-focus-visible {...args}>Button</Button>
-                        <Button isLoading data-focus-visible {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button data-hovered size="sm" {...args}>Button</Button>
-                        <Button data-hovered {...args}>Button</Button>
-                        <Button isLoading data-hovered {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button data-focus-visible data-hovered size="sm" {...args}>Button</Button>
-                        <Button data-focus-visible data-hovered {...args}>Button</Button>
-                        <Button isLoading data-focus-visible data-hovered {...args}>Button</Button>
-                    </Inline>
+                    <h1>Zoom</h1>
+                    <Div className="zoom-in">
+                        <Button {...args}>Button</Button>
+                    </Div>
+                    <Div className="zoom-out'">
+                        <Button {...args}>Button</Button>
+                    </Div>
                 </Stack>
-                <Stack>
-                    {/* TODO: states tests don't work like this  */}
-                    <Inline alignY="end">
-                        <Button isDisabled size="sm" {...args}>Button</Button>
-                        <Button isDisabled {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isDisabled data-pressed size="sm" {...args}>Button</Button>
-                        <Button isDisabled data-pressed {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isDisabled data-focus-visible size="sm" {...args}>Button</Button>
-                        <Button isDisabled data-focus-visible {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isDisabled data-hovered size="sm" {...args}>Button</Button>
-                        <Button isDisabled data-hovered {...args}>Button</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isDisabled data-focus-visible data-hovered size="sm" {...args}>Button</Button>
-                        <Button isDisabled data-focus-visible data-hovered {...args}>Button</Button>
-                    </Inline>
-                </Stack>
-                <Div className="zoom-in">
-                    <Button {...args}>Button</Button>
-                </Div>
-                <Div className="zoom-out'">
-                    <Button {...args}>Button</Button>
-                </Div>
             </Stack>
         );
     }
 };
 
+// <Stack>
+//                     <Inline alignY="end">
+//                         <Button data-pressed size="sm" {...args}>Button</Button>
+//                         <Button data-pressed {...args}>Button</Button>
+//                         <Button isLoading data-pressed {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button data-focus-visible size="sm" {...args}>Button</Button>
+//                         <Button data-focus-visible {...args}>Button</Button>
+//                         <Button isLoading data-focus-visible {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button data-hovered size="sm" {...args}>Button</Button>
+//                         <Button data-hovered {...args}>Button</Button>
+//                         <Button isLoading data-hovered {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button data-focus-visible data-hovered size="sm" {...args}>Button</Button>
+//                         <Button data-focus-visible data-hovered {...args}>Button</Button>
+//                         <Button isLoading data-focus-visible data-hovered {...args}>Button</Button>
+//                     </Inline>
+//                 </Stack>
+//                 <Stack>
+//                     {/* TODO: states tests don't work like this  */}
+//                     <Inline alignY="end">
+//                         <Button isDisabled size="sm" {...args}>Button</Button>
+//                         <Button isDisabled {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button isDisabled data-pressed size="sm" {...args}>Button</Button>
+//                         <Button isDisabled data-pressed {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button isDisabled data-focus-visible size="sm" {...args}>Button</Button>
+//                         <Button isDisabled data-focus-visible {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button isDisabled data-hovered size="sm" {...args}>Button</Button>
+//                         <Button isDisabled data-hovered {...args}>Button</Button>
+//                     </Inline>
+//                     <Inline alignY="end">
+//                         <Button isDisabled data-focus-visible data-hovered size="sm" {...args}>Button</Button>
+//                         <Button isDisabled data-focus-visible data-hovered {...args}>Button</Button>
+//                     </Inline>
+//                 </Stack>
 export const Secondary: ButtonStory = {
     ...Primary,
     name: "secondary",

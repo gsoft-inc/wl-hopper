@@ -23,7 +23,6 @@ export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RAC
 }
 
 function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
-    // eslint-disable-next-line no-param-reassign, react/destructuring-assignment
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, ...otherProps } = ownProps;

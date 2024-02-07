@@ -1,4 +1,5 @@
-import { Breakpoints, Div, type DivProps } from "../../src/index.ts";
+import { Div, type DivProps } from "../../src/html-wrappers/html.ts";
+import { Breakpoints } from "../../src/responsive/Breakpoints.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const viewports = Object.values(Breakpoints);

@@ -1,14 +1,16 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
-import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent } from "react-aria-components";
+import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
 import styles from "./Button.module.css";
-import { mergeProps } from "@react-aria/utils";
+import { useId } from "@react-aria/utils";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { Text } from "../../Text/src/Text.tsx";
-import { SlotProvider, composeClassnameRenderProps } from "../../utils/src/index.ts";
+import { SlotProvider, composeClassnameRenderProps } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext } from "./ButtonContext.ts";
-import { TextContext } from "../../Text/src/index.ts";
+import { TextContext } from "../../Text/index.ts";
+import { useLocalizedString } from "../../intl/index.ts";
+import { Spinner } from "../../Spinner/index.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
 const GlobalButtonCssSelector = "hop-Button-component";
@@ -34,18 +36,17 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     isLoading?:boolean;
 
     /**
-     * TODO: sugar synthax for the onPress event
+     * TODO: sugar syntax for the onPress event
      */
     onClick?: ((e: PressEvent) => void);
 }
 
 const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-    // eslint-disable-next-line no-param-reassign, react/destructuring-assignment
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, ButtonContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        children,
+        children: childrenProp,
         size: sizeProp = "md",
         fluid: fluidProp,
         variant = "primary",
@@ -53,6 +54,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         onPress: onPressProp,
         isDisabled,
         isLoading,
+        style: styleProp,
         ...otherProps
     } = ownProps;
 
@@ -66,6 +68,8 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     // TODO: utilities for resolving multiple responsive values?
     const size = useResponsiveValue(sizeProp);
     const fluid = useResponsiveValue(fluidProp);
+
+    const stringFormatter = useLocalizedString();
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -81,9 +85,25 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         stylingProps.className
     );
 
-    const content = typeof children === "string" ? <Text>{children}</Text> : children;
-    // TODO: add loader component
-    const loader = <Text>LOADING...</Text>;
+    const children = composeRenderProps(childrenProp, prev => {
+        if (typeof prev === "string") {
+            return <Text>{prev}</Text>;
+        }
+
+        return prev;
+    });
+
+    const style = composeRenderProps(styleProp, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const spinnerId = useId();
+
+    const hasAriaLabel = !!props["aria-label"] || !!props["aria-labelledby"];
+    const isLoadingAriaLiveLabel = `${hasAriaLabel ? props["aria-label"] : ""} ${stringFormatter.format("button.pending")}`.trim();
 
     return (
         <SlotProvider
@@ -111,19 +131,28 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
             ]}
         >
             <RACButton
-                {...mergeProps(
-                    {
-                        ...stylingProps, // TODO: mergeProps doesn't merge style for some reasons
-                        onPress,
-                        isDisabled: isInteractionDisabled
-                    },
-                    otherProps
-                )}
                 ref={ref}
                 className={classNames}
+                style={style}
                 data-loading={isLoading}
+                onPress={onPress}
+                isDisabled={isInteractionDisabled}
+                {...otherProps}
             >
-                {isLoading ? loader : content}
+                {buttonProps => {
+                    return (
+                        <>
+                            {children(buttonProps)}
+                            {isLoading && (
+                                <Spinner
+                                    id={spinnerId}
+                                    aria-label={isLoadingAriaLiveLabel}
+                                    className={styles["hop-button__Spinner"]}
+                                />
+                            )}
+                        </>
+                    );
+                }}
             </RACButton>
         </SlotProvider>
     );

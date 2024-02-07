@@ -30,8 +30,6 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
 }
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-    // This is a react-aria-component pattern
-    // eslint-disable-next-line no-param-reassign
     [props, ref] = useContextProps({ ...props, slot: props.slot ?? DefaultSlot }, ref, IconContext);
 
     const {

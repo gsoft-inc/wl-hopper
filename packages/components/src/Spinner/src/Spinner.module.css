@@ -33,7 +33,6 @@
     grid-template-areas: "spinner label";
     grid-template-columns: min-content auto;
     align-items: center;
-    color: var(--hop-neutral-text);
 }
 
 .hop-spinner--sm {

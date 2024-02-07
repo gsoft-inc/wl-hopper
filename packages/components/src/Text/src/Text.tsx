@@ -22,7 +22,6 @@ export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTe
 }
 
 function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
-    // eslint-disable-next-line no-param-reassign, react/destructuring-assignment
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, TextContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, ...otherProps } = ownProps;

@@ -1,5 +1,5 @@
 import { renderHook } from "@hopper-ui/test-utils";
-import { useColorSchemeValue } from "../../src/index.ts";
+import { useColorSchemeValue } from "../../src/color-scheme/useColorSchemeValue.ts";
 
 test("return the light color value when the color scheme is light", async () => {
     const { result } = renderHook(() => useColorSchemeValue("light-color", "dark-color"), undefined, { colorScheme: "light" });

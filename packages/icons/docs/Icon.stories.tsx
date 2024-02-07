@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AddIcon } from "../src/index.ts";
+import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
 
 /**
 An icon component allow you to render a custom icon.

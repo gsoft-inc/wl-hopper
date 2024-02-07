@@ -23,7 +23,6 @@ describe("Spinner", () => {
         render(<Spinner aria-label="Loading…" marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
 
         const element = screen.getByRole("progressbar");
-        screen.debug(element);
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 

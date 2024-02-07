@@ -163,6 +163,9 @@ export const BothIcon: ButtonStory = {
     }
 };
 
+/**
+ * A button can show a loading indicator. The button text is hidden but the button maintains the width that it would have if the text were visible.
+ */
 export const Loading: ButtonStory = {
     ...Variants,
     args: {

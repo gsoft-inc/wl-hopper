@@ -3,6 +3,8 @@
     "root": true,
     "extends": "plugin:@workleap/react-library",
     "rules": {
-        "no-console": ["warn", { "allow": ["warn", "error"] }]
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "react/destructuring-assignment": "off",
+        "no-param-reassign": "off"
     }
 }

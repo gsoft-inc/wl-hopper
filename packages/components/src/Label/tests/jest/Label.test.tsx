@@ -1,4 +1,5 @@
-import { Label, LabelContext } from "../../src/index.ts";
+import { Label } from "../../src/Label.tsx";
+import { LabelContext } from "../../src/LabelContext.ts";
 import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
 

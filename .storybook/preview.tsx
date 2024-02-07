@@ -22,7 +22,7 @@ const preview: Preview = {
             }
         },
         designToken: {
-            disable: true
+            disable: true // TODO: What is this?
         },
         typescript: {
             reactDocgen: "react-docgen"
@@ -40,7 +40,34 @@ const preview: Preview = {
                 );
             }
         }
-
+    },
+    globalTypes: {
+        locale: {
+            description: "Internationalization locale",
+            defaultValue: "en-US",
+            toolbar: {
+                title: "Locale",
+                icon: "globe",
+                items: [
+                    { value: "en-US", right: "US", title: "English" },
+                    { value: "fr-CA", right: "FR", title: "Français" }
+                ],
+                dynamicTitle: true
+            }
+        },
+        theme: {
+            description: "Global theme for components",
+            defaultValue: "light",
+            toolbar: {
+                title: "Theme",
+                icon: "circlehollow",
+                items: [
+                    { value: "light", title: "Light" },
+                    { value: "dark", title: "Dark" }
+                ],
+                dynamicTitle: true
+            }
+        }
     },
     decorators: [withHopperProvider]
 };

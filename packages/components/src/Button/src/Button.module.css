@@ -240,6 +240,10 @@
     --border: var(--hop-button-component-negative-border-pressed);
 }
 
+.hop-button__Spinner {
+    color: var(--color)
+}
+
 .hop-button__icon {
     grid-area: start-icon;
     justify-self: end;
