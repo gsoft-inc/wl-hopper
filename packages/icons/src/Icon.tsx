@@ -7,8 +7,8 @@ import styles from "./Icon.module.css";
 import { cssModule } from "../../components/src/utils/src/css-module.ts";
 import { IconContext } from "./IconContext.ts";
 
-const GlobalIconCssSelector = "hop-Icon-component";
-const DefaultSlot = "icon";
+const GlobalIconCssSelector = "hop-icon-component";
+const DefaultIconSlot = "icon";
 
 export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
@@ -30,7 +30,7 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
 }
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-    [props, ref] = useContextProps({ ...props, slot: props.slot ?? DefaultSlot }, ref, IconContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot ?? DefaultIconSlot }, ref, IconContext);
 
     const {
         stylingProps,

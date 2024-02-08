@@ -8,8 +8,8 @@ import { cssModule } from "../../utils/src/css-module.ts";
 import { LabelContext } from "./LabelContext.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalLabelCssSelector = "hop-Label-component";
-const DefaultSlot = "label";
+const GlobalLabelCssSelector = "hop-label-component";
+const DefaultLabelSlot = "label";
 
 export type RACLabelPropsToOmit = "elementType";
 
@@ -23,7 +23,7 @@ export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RAC
 }
 
 function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, LabelContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultLabelSlot }, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, ...otherProps } = ownProps;
 

@@ -2,6 +2,7 @@ import { Text } from "../../Text/src/Text.tsx";
 import { Button } from "../src/Button.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "@hopper-ui/icons";
+import { IconList } from "../../index.ts";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -129,10 +130,10 @@ export const Fluid: ButtonStory = {
 export const Icon: ButtonStory = {
     ...Size,
     args: {
-        children: ([
+        children: [
             <PlusIcon />,
             <Text>Save</Text>
-        ])
+        ]
     }
 };
 
@@ -170,5 +171,30 @@ export const Loading: ButtonStory = {
     ...Variants,
     args: {
         isLoading: true
+    }
+};
+
+export const IconListStory: ButtonStory = {
+    ...Size,
+    args: {
+        children: [
+            <Text>Save</Text>,
+            <IconList>
+                <PlusIcon /><PlusIcon /><PlusIcon />
+            </IconList>
+        ]
+    }
+};
+
+
+export const EndIconList: ButtonStory = {
+    ...Size,
+    args: {
+        children: [
+            <IconList slot="end-icon">
+                <PlusIcon /><PlusIcon /><PlusIcon />
+            </IconList>,
+            <Text>Save</Text>
+        ]
     }
 };

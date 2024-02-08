@@ -1,0 +1,6 @@
+.hop-iconList  {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: wrap;
+    gap: var(--hop-space-stack-xs);
+}

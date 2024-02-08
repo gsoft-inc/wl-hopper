@@ -9,12 +9,13 @@ import { SlotProvider, composeClassnameRenderProps } from "../../utils/index.ts"
 import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext } from "./ButtonContext.ts";
 import { TextContext } from "../../Text/index.ts";
+import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalButtonCssSelector = "hop-Button-component";
-const DefaultSlot = "button";
+const GlobalButtonCssSelector = "hop-button-component";
+const DefaultButtonSlot = "button";
 
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
@@ -42,7 +43,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 }
 
 const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, ButtonContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonSlot }, ref, ButtonContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -108,6 +109,16 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     return (
         <SlotProvider
             values={[
+                [IconListContext, {
+                    slots: {
+                        icon: {
+                            className: styles["hop-button__icon-list"]
+                        },
+                        "end-icon": {
+                            className: styles["hop-button__end-icon-list"]
+                        }
+                    }
+                }],
                 [IconContext, {
                     slots: {
                         icon: {

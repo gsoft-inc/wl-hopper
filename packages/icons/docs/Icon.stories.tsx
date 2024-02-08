@@ -41,8 +41,8 @@ export const Sizing: IconStory = {
 };
 
 /**
-// The color of the icon can be change using the `fill` prop.
-// All the styled system props are also available.
+ * The color of the icon can be change using the `fill` prop.
+ * All the styled system props are also available.
  */
 export const Styling: IconStory = {
     args: {

@@ -31,6 +31,6 @@ export interface RenderProps<T> extends StyleRenderProps<T> {
 }
 
 // TODO: i added this, not sure if it will make sense
-export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotProps{
+export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotProps {
 
 }

@@ -8,7 +8,7 @@ import { SpinnerContext } from "./SpinnerContext.ts";
 import { Label, type LabelProps } from "../../Label/src/Label.tsx";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalSpinnerCssSelector = "hop-Spinner-component";
+const GlobalSpinnerCssSelector = "hop-spinner-component";
 
 // We don't extends RACProgressBarProps here, since we don't want to expose any of the progress bar props.
 export interface SpinnerProps extends StyledSystemProps, BaseComponentProps {

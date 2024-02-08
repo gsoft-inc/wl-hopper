@@ -241,10 +241,13 @@
 }
 
 .hop-button__Spinner {
+    grid-area: content;
+    justify-self: center;
     color: var(--color)
 }
 
-.hop-button__icon {
+.hop-button__icon,
+.hop-button__icon-list {
     grid-area: start-icon;
     justify-self: end;
 }
@@ -257,6 +260,12 @@
     user-select: none;
 }
 
-.hop-button__end-icon {
+.hop-button[data-loading] .hop-button__text {
+    opacity: 0;
+}
+
+
+.hop-button__end-icon,
+.hop-button__end-icon-list {
     grid-area: end-icon;
 }

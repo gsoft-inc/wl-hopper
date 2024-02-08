@@ -8,8 +8,8 @@ import { cssModule } from "../../utils/src/css-module.ts";
 import { TextContext } from "./TextContext.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalTextCssSelector = "hop-Text-component";
-const DefaultSlot = "text";
+const GlobalTextCssSelector = "hop-text-component";
+const DefaultTextSlot = "text";
 
 export type RACTextPropsToOmit = "elementType";
 
@@ -22,7 +22,7 @@ export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTe
 }
 
 function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSlot }, ref, TextContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultTextSlot }, ref, TextContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, ...otherProps } = ownProps;
 
