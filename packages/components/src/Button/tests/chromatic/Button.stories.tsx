@@ -1,9 +1,9 @@
 import { Div, type DivProps } from "@hopper-ui/styled-system";
 import { Button } from "../../src/Button.tsx";
-
+import { IconList } from "../../../IconList/src/IconList.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
-import { PlusIcon } from "@hopper-ui/icons";
+import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
 
 const meta: Meta<typeof Button> = {
     title: "Components/Buttons/Button",
@@ -58,21 +58,20 @@ export const Primary: ButtonStory = {
                             <Text>Button</Text>
                         </Button>
                     </Inline>
-                    {/* TODO missing iconlist */}
-                    {/* <Inline alignY="end">
-                    <Button size="sm" {...args}>
-                        <IconList>
-                            <StartOverIcon /><StartOverIcon /><StartOverIcon />
-                        </IconList>
-                        <Text>Button</Text>
-                    </Button>
-                    <Button {...args}>
-                        <IconList>
-                            <StartOverIcon /><StartOverIcon /><StartOverIcon />
-                        </IconList>
-                        <Text>Button</Text>
-                    </Button>
-                </Inline> */}
+                    <Inline alignY="end">
+                        <Button size="sm" {...args}>
+                            <IconList>
+                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                            </IconList>
+                            <Text>Button</Text>
+                        </Button>
+                        <Button {...args}>
+                            <IconList>
+                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                            </IconList>
+                            <Text>Button</Text>
+                        </Button>
+                    </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <PlusIcon />
@@ -111,20 +110,20 @@ export const Primary: ButtonStory = {
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
-                    {/* <Inline alignY="end">
-                    <Button size="sm" {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <StartOverIcon /><StartOverIcon /><StartOverIcon />
-                        </IconList>
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <StartOverIcon /><StartOverIcon /><StartOverIcon />
-                        </IconList>
-                    </Button>
-                </Inline> */}
+                    <Inline alignY="end">
+                        <Button size="sm" {...args}>
+                            <Text>Button</Text>
+                            <IconList slot="end-icon">
+                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                            </IconList>
+                        </Button>
+                        <Button {...args}>
+                            <Text>Button</Text>
+                            <IconList slot="end-icon">
+                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                            </IconList>
+                        </Button>
+                    </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <Text>Button</Text>

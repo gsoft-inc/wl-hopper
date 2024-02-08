@@ -94,7 +94,7 @@
     border-radius: var(--hop-button-component-border-radius);
     outline: none;
     outline-offset: 0.125rem;
-    transition: color, background-color, border 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) /* TODO: create transition for components */;
+    transition: color, background-color, border , 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) /* TODO: create transition for components */;
     inline-size: var(--inline-size);
     block-size: var(--block-size);
     background-color: var(--background-color);
@@ -241,7 +241,7 @@
 }
 
 .hop-button__Spinner {
-    grid-area: content;
+    position: absolute;
     justify-self: center;
     color: var(--color)
 }
@@ -260,12 +260,15 @@
     user-select: none;
 }
 
-.hop-button[data-loading] .hop-button__text {
-    opacity: 0;
-}
-
-
 .hop-button__end-icon,
 .hop-button__end-icon-list {
     grid-area: end-icon;
+}
+
+/* Keep element present to:
+ - allows screen readers to read the content
+ - preserve the button's size
+*/
+.hop-button[data-loading] > *:not(.hop-button__Spinner) {
+    opacity: 0;
 }
