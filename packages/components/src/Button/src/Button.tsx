@@ -14,7 +14,7 @@ import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalButtonCssSelector = "hop-button-component";
+const GlobalButtonCssSelector = "hop-Button";
 const DefaultButtonSlot = "button";
 
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {

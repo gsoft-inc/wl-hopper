@@ -7,7 +7,7 @@ import styles from "./Icon.module.css";
 import { cssModule } from "../../components/src/utils/src/css-module.ts";
 import { IconContext } from "./IconContext.ts";
 
-const GlobalIconCssSelector = "hop-icon-component";
+const GlobalIconCssSelector = "hop-Icon";
 const DefaultIconSlot = "icon";
 
 export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {

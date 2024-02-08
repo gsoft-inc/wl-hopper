@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalIconListCssSelector = "hop-icon-list-component";
+const GlobalIconListCssSelector = "hop-IconList";
 const DefaultIconListSlot = "icon";
 
 export interface IconListProps extends StyledSystemProps, BaseComponentProps {

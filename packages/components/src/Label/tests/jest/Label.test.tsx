@@ -8,14 +8,14 @@ describe("Label", () => {
         render(<Label>Test</Label>);
 
         const element = screen.getByText("Test");
-        expect(element).toHaveClass("hop-Label-component");
+        expect(element).toHaveClass("hop-Label");
     });
 
     it("should render a span with custom class", () => {
         render(<Label className="test">Test</Label>);
 
         const element = screen.getByText("Test");
-        expect(element).toHaveClass("hop-Label-component");
+        expect(element).toHaveClass("hop-Label");
         expect(element).toHaveClass("test");
     });
 

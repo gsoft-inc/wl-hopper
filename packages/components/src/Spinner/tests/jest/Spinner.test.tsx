@@ -8,14 +8,14 @@ describe("Spinner", () => {
         render(<Spinner aria-label="Loading…" />);
 
         const element = screen.getByRole("progressbar");
-        expect(element).toHaveClass("hop-Spinner-component");
+        expect(element).toHaveClass("hop-Spinner");
     });
 
     it("should render a spinner with custom class", () => {
         render(<Spinner aria-label="Loading…" className="test" />);
 
         const element = screen.getByRole("progressbar");
-        expect(element).toHaveClass("hop-Spinner-component");
+        expect(element).toHaveClass("hop-Spinner");
         expect(element).toHaveClass("test");
     });
 

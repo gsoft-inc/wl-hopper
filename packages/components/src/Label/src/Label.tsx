@@ -8,7 +8,7 @@ import { cssModule } from "../../utils/src/css-module.ts";
 import { LabelContext } from "./LabelContext.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalLabelCssSelector = "hop-label-component";
+const GlobalLabelCssSelector = "hop-Label";
 const DefaultLabelSlot = "label";
 
 export type RACLabelPropsToOmit = "elementType";

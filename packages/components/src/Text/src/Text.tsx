@@ -8,7 +8,7 @@ import { cssModule } from "../../utils/src/css-module.ts";
 import { TextContext } from "./TextContext.ts";
 
 // TODO: create some kind of meta object with global css selectors, default slot and context?
-const GlobalTextCssSelector = "hop-text-component";
+const GlobalTextCssSelector = "hop-Text";
 const DefaultTextSlot = "text";
 
 export type RACTextPropsToOmit = "elementType";
