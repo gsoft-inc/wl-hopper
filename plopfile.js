@@ -1,6 +1,10 @@
-import type { NodePlopAPI } from "plop";
+// import type { NodePlopAPI } from "plop";
+// @ts-check
 
-export default function (plop: NodePlopAPI) {
+/**
+ * @param {import("plop").NodePlopAPI} plop
+ */
+export default function (plop) {
     plop.setGenerator("components", {
         description: "a new component in @hopper-ui/components",
         prompts: [{
@@ -10,8 +14,10 @@ export default function (plop: NodePlopAPI) {
         }],
         actions: [{
             type: "addMany",
+            skipIfExists: true,
             destination: "./packages/components/src/{{name}}",
-            templateFiles: "plop-templates/components/*"
+            base: "plop-templates/components",
+            templateFiles: "plop-templates/components/"
         }]
     });
 }

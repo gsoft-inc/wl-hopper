@@ -1,6 +1,4 @@
 import { {{ pascalCase name }} } from "../src/{{ pascalCase name }}.tsx";
-import { {{ pascalCase name }}Context } from "../src/{{ pascalCase name }}Context.ts";
-import { SlotProvider } from "../../utils/src/style-provider.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 
 /**
@@ -19,7 +17,7 @@ const meta: Meta<typeof {{ pascalCase name }}> = {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: {{ pascalCase name }},
+    component: {{ pascalCase name }}
 };
 
 export default meta;
