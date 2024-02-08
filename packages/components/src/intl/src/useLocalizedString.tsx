@@ -1,13 +1,13 @@
 import { useLocalizedStringFormatter } from "react-aria";
 
-import englishStrings from "./en-US.json";
-import frenchStrings from "./fr-CA.json";
+import resourcesEnUS from "./en-US.json";
+import resourcesFrCa from "./fr-CA.json";
 
-const intlMessages = {
-    "en-US": englishStrings,
-    "fr-CA": frenchStrings
+const Resources = {
+    "en-US": resourcesEnUS,
+    "fr-CA": resourcesFrCa
 };
 
 export function useLocalizedString() {
-    return useLocalizedStringFormatter(intlMessages, "@hopper-ui/components");
+    return useLocalizedStringFormatter(Resources, "@hopper-ui/components");
 }

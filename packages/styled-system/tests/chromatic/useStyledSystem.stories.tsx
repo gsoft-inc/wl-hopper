@@ -25,21 +25,18 @@ export default meta;
 type UseStyledSystemStory = StoryObj<typeof meta>;
 
 export const EverySingleBreakpoints: UseStyledSystemStory = {
-    name: "every single breakpoints",
     args: {
         backgroundColor: { base: "core_sapphire-300", xs: "core_moss-300", sm: "core_amanita-300", md: "core_orchid-bloom-300", lg: "core_quetzal-300", xl: "core_moss-300" }
     }
 };
 
 export const MatchHigherBreakpoint: UseStyledSystemStory = {
-    name: "match higher breakpoint",
     args: {
         backgroundColor: { base: "core_sapphire-400", sm: "core_sapphire-400" }
     }
 };
 
 export const MatchBase: UseStyledSystemStory = {
-    name: "match base",
     args: {
         backgroundColor: { base: "core_sapphire-400" }
     }
