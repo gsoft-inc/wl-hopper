@@ -5,7 +5,7 @@ import { Button } from "../../src/Button.tsx";
 import { renderToString } from "react-dom/server";
 
 describe("Text", () => {
-    it("can render on the server", () => {
+    it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
                 <Button autoFocus variant="secondary">Cutoff</Button>

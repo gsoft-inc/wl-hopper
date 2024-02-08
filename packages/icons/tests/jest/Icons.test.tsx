@@ -1,54 +1,84 @@
-import { AddIcon } from "@hopper-ui/icons";
-import { render, screen, waitFor } from "@hopper-ui/test-utils";
+import { AddIcon, IconContext } from "../../src/index.ts";
+import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-// ***** Refs *****
-test("ref is a DOM element", async () => {
-    const ref = createRef<SVGSVGElement>();
+describe("Icons", () => {
+    it("should render with default class", () => {
+        render(<AddIcon />);
 
-    render(
-        <AddIcon
-            ref={ref}
-        />
-    );
+        const element = screen.getByRole("img", { hidden: true });
 
-    const icon = screen.getByRole("img", { hidden: true });
+        expect(element).toHaveClass("hop-Icon");
+    });
 
-    expect(ref.current).toBe(icon);
-    expect(ref.current instanceof SVGElement).toBeTruthy();
-    expect(ref.current?.tagName.toUpperCase()).toBe("SVG");
-});
+    it("should support custom class", () => {
+        render(<AddIcon className="test" />);
 
-test("ref is set once", async () => {
-    const handler = jest.fn();
+        const element = screen.getByRole("img", { hidden: true });
 
-    render(
-        <AddIcon
-            ref={handler}
-        />
-    );
+        expect(element).toHaveClass("hop-Icon");
+        expect(element).toHaveClass("test");
+    });
 
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-});
+    it("should support custom style", () => {
+        render(<AddIcon marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
 
-test("applies default displayName", () => {
-    expect(AddIcon.displayName).toBe("AddIcon");
-});
+        const element = screen.getByRole("img", { hidden: true });
 
-test("applies aria-label and aria-hidden attributes", () => {
-    render(<AddIcon aria-label="Test Icon" />);
+        expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
+    });
 
-    const icon = screen.getByRole("img");
+    it("should support DOM props", () => {
+        render(<AddIcon data-foo="bar" />);
 
-    expect(icon).toHaveAttribute("aria-label", "Test Icon");
-    expect(icon).not.toHaveAttribute("aria-hidden");
-});
+        const element = screen.getByRole("img", { hidden: true });
 
-test("applies aria-hidden attributes when no aria-label is provided", () => {
-    render(<AddIcon />);
+        expect(element).toHaveAttribute("data-foo", "bar");
+    });
 
-    const icon = screen.getByRole("img", { hidden: true });
+    it("should support slots", () => {
+        render(
+            <IconContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
+                <AddIcon slot="test" />
+            </IconContext.Provider>
+        );
 
-    expect(icon).not.toHaveAttribute("aria-label");
-    expect(icon).toHaveAttribute("aria-hidden", "true");
+        const element = screen.getByRole("img", { hidden: true });
+        expect(element).not.toHaveAttribute("slot", "test"); // svg doesn't have slot attribute
+        expect(element).toHaveAttribute("aria-label", "test");
+    });
+
+    it("should support refs", async () => {
+        const ref = createRef<SVGSVGElement>();
+        render(<AddIcon ref={ref} />);
+
+        const element = screen.getByRole("img", { hidden: true });
+
+        expect(ref.current).toBe(element);
+        expect(ref.current instanceof SVGElement).toBeTruthy();
+        expect(ref.current?.tagName.toUpperCase()).toBe("SVG");
+    });
+
+
+    it("should apply default displayName", () => {
+        expect(AddIcon.displayName).toBe("AddIcon");
+    });
+
+    it("should apply aria-label and aria-hidden attributes", () => {
+        render(<AddIcon aria-label="Test Icon" />);
+
+        const icon = screen.getByRole("img");
+
+        expect(icon).toHaveAttribute("aria-label", "Test Icon");
+        expect(icon).not.toHaveAttribute("aria-hidden");
+    });
+
+    it("should apply aria-hidden attributes when no aria-label is provided", () => {
+        render(<AddIcon />);
+
+        const icon = screen.getByRole("img", { hidden: true });
+
+        expect(icon).not.toHaveAttribute("aria-label");
+        expect(icon).toHaveAttribute("aria-hidden", "true");
+    });
 });

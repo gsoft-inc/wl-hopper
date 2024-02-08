@@ -31,20 +31,20 @@ const dataGroupedBySize = allIconsContent.reduce((acc, icon) => {
 }, {} as Record<typeof IconSizes[number], string[]>);
 
 describe("SVGs", () => {
-    test("has not the word icon in it's name", () => {
+    it("should not have the word icon in it's name", () => {
         allIconsContent.forEach(icon => {
             expect(icon.name).not.toMatch(/icon/i);
         });
     });
 
-    test("has the same amount of icons in each folder", () => {
+    it("should have the same amount of icons in each folder", () => {
         const amountOfIcons = Object.values(dataGroupedBySize).map(group => group.length);
         const unique = [...new Set(amountOfIcons)];
 
         expect(unique.length).toStrictEqual(1);
     });
 
-    test("has the same name in all folder", () => {
+    it("should have the same name in all folder", () => {
         expect(Object.values(dataGroupedBySize).length).toBeGreaterThan(1);
 
         Object.values(dataGroupedBySize)
@@ -64,19 +64,19 @@ allIconsContent.forEach(icon => {
         const expectedViewbox = `0 0 ${expectedSize} ${expectedSize}`;
         const iconAst = unified().use(parse, { fragment: true, space: "svg" }).parse(icon.content);
 
-        it("only has the expected root attributes", () => {
+        it("should only have the expected root attributes", () => {
             const properties = Object.keys(
                 select(":root", iconAst)?.properties ?? {}
             ).sort();
             expect(properties).toStrictEqual(["viewBox", "xmlns", "fill", "width", "height"].sort());
         });
 
-        it(`has a viewbox of ${expectedViewbox}`, () => {
+        it(`should have a viewbox of ${expectedViewbox}`, () => {
             const viewBox = select(":root", iconAst)?.properties.viewBox;
             expect(viewBox).toStrictEqual(expectedViewbox);
         });
 
-        it(`has a width and height of ${expectedSize}`, () => {
+        it(`should have a width and height of ${expectedSize}`, () => {
             const properties = select(":root", iconAst)?.properties;
             expect(properties).not.toBeUndefined();
 
@@ -85,18 +85,18 @@ allIconsContent.forEach(icon => {
             expect(height).toStrictEqual(expectedSize);
         });
 
-        it("has an xml namespace", () => {
+        it("should have an xml namespace", () => {
             const xmlns = select(":root", iconAst)?.properties.xmlns;
             expect(xmlns).toBe("http://www.w3.org/2000/svg");
         });
 
-        it("has no groups (<g>) or masks (<mask>) or clip path(<clipPath>)", () => {
+        it("should have no groups (<g>) or masks (<mask>) or clip path(<clipPath>)", () => {
             const groupNodes = selectAll("g, mask, clipPath", iconAst);
 
             expect(nodeSources(groupNodes, icon.content)).toStrictEqual([]);
         });
 
-        it("does not have <path>s, <polygon>s, <circle>s and <rect>s with a stroke", () => {
+        it("should not have <path>s, <polygon>s, <circle>s and <rect>s with a stroke", () => {
             const nodesWithUndefinedFill = selectAll(
                 "path[stroke], circle[stroke], polygon[stroke], rect[stroke]",
                 iconAst
@@ -111,7 +111,7 @@ allIconsContent.forEach(icon => {
 
         const expectedFillsString = expectedFillColors.join(",");
 
-        it(`has no nodes that use fill colors other than [${expectedFillsString}]`, () => {
+        it(`should have no nodes that use fill colors other than [${expectedFillsString}]`, () => {
             const nodesWithInvalidFill = selectAll("[fill]", iconAst).filter(
                 node => {
                     return node.properties.fill && !expectedFillColors.includes(node.properties.fill.toString());

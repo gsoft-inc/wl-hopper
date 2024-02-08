@@ -4,19 +4,26 @@ import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
 
 describe("Label", () => {
-    it("should render a span with default class", () => {
+    it("should render with default class", () => {
         render(<Label>Test</Label>);
 
         const element = screen.getByText("Test");
         expect(element).toHaveClass("hop-Label");
     });
 
-    it("should render a span with custom class", () => {
+    it("should render with custom class", () => {
         render(<Label className="test">Test</Label>);
 
         const element = screen.getByText("Test");
         expect(element).toHaveClass("hop-Label");
         expect(element).toHaveClass("test");
+    });
+
+    it("should support custom style", () => {
+        render(<Label marginTop="stack-sm" style={{ marginBottom: "13px" }} >Test</Label>);
+
+        const element = screen.getByText("Test");
+        expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
@@ -26,7 +33,7 @@ describe("Label", () => {
         expect(element).toHaveAttribute("data-foo", "bar");
     });
 
-    it("should support slot", () => {
+    it("should support slots", () => {
         render(
             <LabelContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
                 <Label slot="test">Test</Label>

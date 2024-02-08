@@ -4,14 +4,14 @@ import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
 
 describe("Spinner", () => {
-    it("should render a spinner with default class", () => {
+    it("should render with default class", () => {
         render(<Spinner aria-label="Loading…" />);
 
         const element = screen.getByRole("progressbar");
         expect(element).toHaveClass("hop-Spinner");
     });
 
-    it("should render a spinner with custom class", () => {
+    it("should support custom class", () => {
         render(<Spinner aria-label="Loading…" className="test" />);
 
         const element = screen.getByRole("progressbar");
@@ -19,7 +19,7 @@ describe("Spinner", () => {
         expect(element).toHaveClass("test");
     });
 
-    it("should render a spinner with custom style", () => {
+    it("should support custom style", () => {
         render(<Spinner aria-label="Loading…" marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
 
         const element = screen.getByRole("progressbar");
@@ -33,7 +33,7 @@ describe("Spinner", () => {
         expect(element).toHaveAttribute("data-foo", "bar");
     });
 
-    it("should support slot", () => {
+    it("should support slots", () => {
         render(
             <SpinnerContext.Provider value={{ slots: { test: { "aria-label": "test label" } } }}>
                 <Spinner slot="test" />
