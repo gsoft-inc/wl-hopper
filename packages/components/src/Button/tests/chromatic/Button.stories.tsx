@@ -4,6 +4,8 @@ import { IconList } from "../../../IconList/src/IconList.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
+import { within } from "@storybook/testing-library";
+
 
 const meta: Meta<typeof Button> = {
     title: "Components/Buttons/Button",
@@ -22,7 +24,6 @@ const Inline = ({ alignY, ...props }: DivProps & { alignY?: string }) => <Div {.
 const Stack = (props: DivProps) => <Div {...props} display="flex" flexDirection="column" UNSAFE_gap="1.25rem" />;
 
 export const Primary: ButtonStory = {
-    name: "primary",
     render: args => {
         return (
             <Stack>
@@ -163,55 +164,8 @@ export const Primary: ButtonStory = {
         );
     }
 };
-
-// <Stack>
-//                     <Inline alignY="end">
-//                         <Button data-pressed size="sm" {...args}>Button</Button>
-//                         <Button data-pressed {...args}>Button</Button>
-//                         <Button isLoading data-pressed {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button data-focus-visible size="sm" {...args}>Button</Button>
-//                         <Button data-focus-visible {...args}>Button</Button>
-//                         <Button isLoading data-focus-visible {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button data-hovered size="sm" {...args}>Button</Button>
-//                         <Button data-hovered {...args}>Button</Button>
-//                         <Button isLoading data-hovered {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button data-focus-visible data-hovered size="sm" {...args}>Button</Button>
-//                         <Button data-focus-visible data-hovered {...args}>Button</Button>
-//                         <Button isLoading data-focus-visible data-hovered {...args}>Button</Button>
-//                     </Inline>
-//                 </Stack>
-//                 <Stack>
-//                     {/* TODO: states tests don't work like this  */}
-//                     <Inline alignY="end">
-//                         <Button isDisabled size="sm" {...args}>Button</Button>
-//                         <Button isDisabled {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button isDisabled data-pressed size="sm" {...args}>Button</Button>
-//                         <Button isDisabled data-pressed {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button isDisabled data-focus-visible size="sm" {...args}>Button</Button>
-//                         <Button isDisabled data-focus-visible {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button isDisabled data-hovered size="sm" {...args}>Button</Button>
-//                         <Button isDisabled data-hovered {...args}>Button</Button>
-//                     </Inline>
-//                     <Inline alignY="end">
-//                         <Button isDisabled data-focus-visible data-hovered size="sm" {...args}>Button</Button>
-//                         <Button isDisabled data-focus-visible data-hovered {...args}>Button</Button>
-//                     </Inline>
-//                 </Stack>
 export const Secondary: ButtonStory = {
     ...Primary,
-    name: "secondary",
     args: {
         variant: "secondary"
     }
@@ -219,26 +173,232 @@ export const Secondary: ButtonStory = {
 
 export const Tertiary: ButtonStory = {
     ...Primary,
-    name: "tertiary",
     args: {
         variant: "tertiary"
     }
 };
 
-
 export const Upsell: ButtonStory = {
     ...Primary,
-    name: "upsell",
     args: {
         variant: "upsell"
     }
 };
 
-
 export const Negative: ButtonStory = {
     ...Primary,
-    name: "negative",
     args: {
         variant: "negative"
     }
 };
+
+export const PrimaryStates: ButtonStory = {
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const buttons = canvas.getAllByRole("button");
+
+        buttons.forEach(button => {
+            if (button.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
+                if (button.getAttribute("data-chromatic-force-press")) {
+                    button.setAttribute("data-pressed", "true");
+                    button.removeAttribute("data-chromatic-force-press");
+                }
+
+                if (button.getAttribute("data-chromatic-force-focus")) {
+                    button.setAttribute("data-focus-visible", "true");
+                    button.removeAttribute("data-chromatic-force-focus");
+                }
+
+                if (button.getAttribute("data-chromatic-force-hover")) {
+                    button.setAttribute("data-hovered", "true");
+                    button.removeAttribute("data-chromatic-force-hover");
+                }
+            }
+        });
+    },
+    render: args => {
+        return (
+            <Stack>
+                <h1>Default</h1>
+                <Inline alignY="end">
+                    <Button size="sm" {...args}>Button</Button>
+                    <Button {...args}>Button</Button>
+                    <Button {...args}>
+                        <PlusIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button {...args}>
+                        <Text>Button</Text>
+                        <PlusIcon slot="end-icon" />
+                    </Button>
+                    <Button {...args}>
+                        <Text>Button</Text>
+                        <IconList>
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                    <Button {...args}>
+                        <Text>Button</Text>
+                        <IconList slot="end-icon">
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+                <h1>Disabled</h1>
+                <Inline alignY="end">
+                    <Button isDisabled size="sm" {...args}>Button</Button>
+                    <Button isDisabled {...args}>Button</Button>
+                    <Button isDisabled {...args}>
+                        <PlusIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button isDisabled {...args}>
+                        <Text>Button</Text>
+                        <PlusIcon slot="end-icon" />
+                    </Button>
+                    <Button isDisabled {...args}>
+                        <Text>Button</Text>
+                        <IconList>
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                    <Button isDisabled {...args}>
+                        <Text>Button</Text>
+                        <IconList slot="end-icon">
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+                <h1>Pressed</h1>
+                <Inline alignY="end">
+                    <Button data-chromatic-force-press size="sm" {...args}>Button</Button>
+                    <Button data-chromatic-force-press {...args}>Button</Button>
+                    <Button data-chromatic-force-press {...args}>
+                        <PlusIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button data-chromatic-force-press {...args}>
+                        <Text>Button</Text>
+                        <PlusIcon slot="end-icon" />
+                    </Button>
+                    <Button data-chromatic-force-press {...args}>
+                        <Text>Button</Text>
+                        <IconList>
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                    <Button data-chromatic-force-press {...args}>
+                        <Text>Button</Text>
+                        <IconList slot="end-icon">
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+                <h1>Focus Visible</h1>
+                <Inline alignY="end">
+                    <Button data-chromatic-force-focus size="sm" {...args}>Button</Button>
+                    <Button data-chromatic-force-focus {...args}>Button</Button>
+                    <Button data-chromatic-force-focus {...args}>
+                        <PlusIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button data-chromatic-force-focus {...args}>
+                        <Text>Button</Text>
+                        <PlusIcon slot="end-icon" />
+                    </Button>
+                    <Button data-chromatic-force-focus {...args}>
+                        <Text>Button</Text>
+                        <IconList>
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                    <Button data-chromatic-force-focus {...args}>
+                        <Text>Button</Text>
+                        <IconList slot="end-icon">
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+                <h1>Hovered</h1>
+                <Inline alignY="end">
+                    <Button data-chromatic-force-hover size="sm" {...args}>Button</Button>
+                    <Button data-chromatic-force-hover {...args}>Button</Button>
+                    <Button data-chromatic-force-hover {...args}>
+                        <PlusIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button data-chromatic-force-hover {...args}>
+                        <Text>Button</Text>
+                        <PlusIcon slot="end-icon" />
+                    </Button>
+                    <Button data-chromatic-force-hover {...args}>
+                        <Text>Button</Text>
+                        <IconList>
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                    <Button data-chromatic-force-hover {...args}>
+                        <Text>Button</Text>
+                        <IconList slot="end-icon">
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+                <h1>Focus Visible and Hovered</h1>
+                <Inline alignY="end">
+                    <Button data-chromatic-force-focus data-chromatic-force-hover size="sm" {...args}>Button</Button>
+                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>Button</Button>
+                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
+                        <PlusIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
+                        <Text>Button</Text>
+                        <PlusIcon slot="end-icon" />
+                    </Button>
+                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
+                        <Text>Button</Text>
+                        <IconList>
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
+                        <Text>Button</Text>
+                        <IconList slot="end-icon">
+                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+            </Stack>
+        );
+    }
+};
+export const SecondaryStates: ButtonStory = {
+    ...PrimaryStates,
+    args: {
+        variant: "secondary"
+    }
+};
+
+export const TertiaryStates: ButtonStory = {
+    ...PrimaryStates,
+    args: {
+        variant: "tertiary"
+    }
+};
+
+export const UpsellStates: ButtonStory = {
+    ...PrimaryStates,
+    args: {
+        variant: "upsell"
+    }
+};
+
+export const NegativeStates: ButtonStory = {
+    ...PrimaryStates,
+    args: {
+        variant: "negative"
+    }
+};
+
+
