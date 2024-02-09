@@ -17,13 +17,13 @@ export interface IconListProps extends StyledSystemProps, BaseComponentProps {
 function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps({ ...props, slot: props.slot ?? DefaultIconListSlot }, ref, IconListContext);
 
-    const { stylingProps, children, style, slot, ...ownProps } = useStyledSystem(props);
+    const { stylingProps, children, style, className, slot, ...ownProps } = useStyledSystem(props);
 
-    const className = clsx(
+    const classNames = clsx(
+        className,
         GlobalIconListCssSelector,
         styles["hop-iconList"],
-        stylingProps.className,
-        props.className
+        stylingProps.className
     );
 
     const computedStyles: CSSProperties = {
@@ -35,7 +35,7 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
         <span
             {...ownProps}
             ref={ref}
-            className={className}
+            className={classNames}
             style={computedStyles}
             slot={slot ?? undefined}
         >

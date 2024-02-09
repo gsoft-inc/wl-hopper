@@ -1,4 +1,4 @@
-export * from "./Button/index.ts";
+export * from "./Buttons/index.ts";
 export * from "./HopperProvider/index.ts";
 export * from "./IconList/index.ts";
 export * from "./Label/index.ts";

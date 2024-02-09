@@ -7,7 +7,7 @@ import { IconList } from "../../index.ts";
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
  *
- * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Button/src)
+ * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Buttons/src)
  * -
  * [View ARIA pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
  * -
@@ -41,13 +41,15 @@ export const Default: ButtonStory = {
 /**
  * A button can use different variants.
  *
- * **Primary** buttons are used to indicate the main action of a page or a section. This is usually the action we want the user to take. In a button group, there can be only 1 primary button. This will be reserved for the suggested action.
+ * **Primary**: For the principal call to action on the page. Primary buttons should only appear once per screen (not including the application header, modal or side panel).
  *
- * **Secondary** buttons are used for user actions that need less prominence in the page or the section. It’s also the button used when there are no suggested actions to the user.
+ * **Secondary**: For secondary actions on each page. Secondary buttons can be used in conjunction with a primary button or on its own. Paired with a Primary button, the secondary button usually performs the negative action of the set, such as “Cancel.”
  *
- * **Tertiary** buttons are used for actions that need to be there but that we don't want to encourage. A common use case would be a Cancel button in a message or an alert.
+ * **Tertiary**: TODO
  *
- * **Negative** buttons are used for actions that would result in a deletion or another non recoverable negative action. These are mostly useful in modals.
+ * **Upsell**: For upsell actions that relates to upgrading an account or a plan. Use the upsell button to distinguish from an existing primary button. In some case a primary button can be used in its place when the general context of the page is about upselling.
+ *
+ * **Negative**: For actions that could have destructive effects on the user’s data.
  */
 export const Variants: ButtonStory = {
     render: props => (

@@ -64,12 +64,12 @@ const StyledSystemProvider = (props:StyledSystemProviderProps, ref: ForwardedRef
     }, [setRemoteColorScheme]);
 
     const classNames = clsx(
+        className,
         GlobalStyledSystemProviderCssSelector,
         HopperRootCssClass,
         `${HopperRootCssClass}-${computedColorScheme}`,
         StyledSystemRootCssClass,
-        `${StyledSystemRootCssClass}-${computedColorScheme}`,
-        className
+        `${StyledSystemRootCssClass}-${computedColorScheme}`
     );
 
     return (

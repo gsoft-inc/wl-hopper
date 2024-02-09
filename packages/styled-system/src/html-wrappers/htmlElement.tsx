@@ -12,9 +12,9 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
 
         const As = elementType;
         const classNames = clsx(
+            className,
             styles["html-element"],
             `hop-html-${elementType}`, // this selector is not used, but could be used as a selector for the element type wrapper
-            className,
             stylingProps.className
         );
 

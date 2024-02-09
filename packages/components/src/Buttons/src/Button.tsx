@@ -33,7 +33,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
      */
     fluid?: ResponsiveProp<boolean>;
 
-    // TODO: implement this
+    // A button can show a loading indicator.
     isLoading?:boolean;
 
     /**
@@ -45,6 +45,8 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonSlot }, ref, ButtonContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+    const stringFormatter = useLocalizedString();
+
     const {
         className,
         children: childrenProp,
@@ -66,11 +68,8 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const onPress = onPressProp ?? onClick;
     const isInteractionDisabled = isDisabled || isLoading;
 
-    // TODO: utilities for resolving multiple responsive values?
     const size = useResponsiveValue(sizeProp);
     const fluid = useResponsiveValue(fluidProp);
-
-    const stringFormatter = useLocalizedString();
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -157,6 +156,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                             {isLoading && (
                                 <Spinner
                                     id={spinnerId}
+                                    size="lg"
                                     aria-label={isLoadingAriaLiveLabel}
                                     className={styles["hop-button__Spinner"]}
                                 />
@@ -178,5 +178,3 @@ const _Button = forwardRef<HTMLButtonElement, ButtonProps>(Button);
 _Button.displayName = "Button";
 
 export { _Button as Button };
-
-

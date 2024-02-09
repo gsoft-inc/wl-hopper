@@ -30,14 +30,14 @@ function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     const size = useResponsiveValue(sizeProp ?? "md");
 
     const classNames = clsx(
+        className,
         GlobalLabelCssSelector,
         cssModule(
             styles,
             "hop-label",
             size
         ),
-        stylingProps.className,
-        className
+        stylingProps.className
     );
 
     return (

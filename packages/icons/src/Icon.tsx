@@ -59,13 +59,13 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     const As = sizeMappings[size];
 
     const classNames = clsx(
+        className,
         GlobalIconCssSelector,
         cssModule(
             styles,
             "hop-icon"
         ),
-        stylingProps.className,
-        className
+        stylingProps.className
     );
 
     return (
