@@ -38,6 +38,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 
     /**
      * TODO: sugar syntax for the onPress event
+     * Should we also handle MouseUp and MouseDown events? vs PressStart and PressEnd
      */
     onClick?: ((e: PressEvent) => void);
 }
@@ -178,3 +179,4 @@ const _Button = forwardRef<HTMLButtonElement, ButtonProps>(Button);
 _Button.displayName = "Button";
 
 export { _Button as Button };
+
