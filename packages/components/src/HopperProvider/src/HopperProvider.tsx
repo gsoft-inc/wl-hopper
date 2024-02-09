@@ -1,7 +1,7 @@
 import { StyledSystemProvider, type StyledSystemProviderProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
-import { I18nProvider } from "react-aria-components";
+import { I18nProvider, RouterProvider } from "react-aria-components";
 
 const GlobalHopperProviderCssSelector = "hop-HopperProvider";
 
@@ -11,6 +11,11 @@ export interface HopperProviderProps extends StyledSystemProviderProps {
      * @example "en-US"
     */
     locale?: string;
+
+    /**
+     * Set this up once in the root of your app, and any Hopper component with the href prop will automatically navigate using your router.
+     */
+    navigate?: (path: string) => void;
 }
 
 const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -21,6 +26,7 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
         colorScheme = "light",
         withCssVariables = true,
         className,
+        navigate,
         ...rest
     } = props;
 
@@ -29,10 +35,16 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
         className
     );
 
+    let content = children;
+    if (navigate) {
+        content = <RouterProvider navigate={navigate}>{children}</RouterProvider>;
+    }
+
+
     return (
         <StyledSystemProvider ref={ref} withBodyStyle={withBodyStyle} colorScheme={colorScheme} withCssVariables={withCssVariables} className={classNames} {...rest}>
             <I18nProvider locale={locale}>
-                {children}
+                {content}
             </I18nProvider>
         </StyledSystemProvider>
     );
