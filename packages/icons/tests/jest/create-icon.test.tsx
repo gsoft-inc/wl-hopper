@@ -56,7 +56,7 @@ describe("create-icon", () => {
         expect(element).toHaveAttribute("aria-label", "test");
     });
 
-    it("should support refs", async () => {
+    it("should support refs", () => {
         const ref = createRef<SVGSVGElement>();
         render(<CustomIcon ref={ref} />);
 

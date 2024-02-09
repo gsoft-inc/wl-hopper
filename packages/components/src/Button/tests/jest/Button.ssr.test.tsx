@@ -8,7 +8,7 @@ describe("Text", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <Button autoFocus variant="secondary">Cutoff</Button>
+                <Button>Cutoff</Button>
             );
 
         expect(renderOnServer).not.toThrow();
