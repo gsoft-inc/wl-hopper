@@ -18,13 +18,13 @@ pnpm add @hopper-ui/components
 **With yarn**
 
 ```shell
-yarn add -D @hopper-ui/components
+yarn add @hopper-ui/components
 ```
 
 **With npm**
 
 ```shell
-npm install -D @hopper-ui/components
+npm install @hopper-ui/components
 ```
 
 ## Usage
