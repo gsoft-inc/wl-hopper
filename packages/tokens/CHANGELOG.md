@@ -1,5 +1,12 @@
 # @hopper-ui/tokens
 
+## 3.1.4
+
+### Patch Changes
+
+- 2639596: Updated some dependencies + move some to peer dependency.
+  Fixed a warning that was being thrown in the console regarding SSR.
+
 ## 3.1.3
 
 ### Patch Changes
