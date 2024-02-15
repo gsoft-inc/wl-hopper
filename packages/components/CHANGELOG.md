@@ -1,5 +1,14 @@
 # @hopper-ui/components
 
+## 0.0.8
+
+### Patch Changes
+
+- 2639596: Updated some dependencies + move some to peer dependency.
+  Fixed a warning that was being thrown in the console regarding SSR.
+- Updated dependencies [2639596]
+  - @hopper-ui/styled-system@0.2.6
+
 ## 0.0.7
 
 ### Patch Changes

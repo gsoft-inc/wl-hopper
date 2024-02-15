@@ -1,5 +1,12 @@
 # @hopper-ui/svg-icons
 
+## 2.2.1
+
+### Patch Changes
+
+- 2639596: Updated some dependencies + move some to peer dependency.
+  Fixed a warning that was being thrown in the console regarding SSR.
+
 ## 2.2.0
 
 ### Minor Changes

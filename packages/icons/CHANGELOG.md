@@ -1,5 +1,14 @@
 # @hopper-ui/icons
 
+## 1.2.1
+
+### Patch Changes
+
+- 2639596: Updated some dependencies + move some to peer dependency.
+  Fixed a warning that was being thrown in the console regarding SSR.
+- Updated dependencies [2639596]
+  - @hopper-ui/styled-system@0.2.6
+
 ## 1.2.0
 
 ### Minor Changes
