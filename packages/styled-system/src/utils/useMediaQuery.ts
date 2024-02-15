@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useIsSSR } from "react-aria";
+import { useIsSSR } from "@react-aria/ssr";
 
 // Ensure that matchMedia function exists. In a jest environnement or in SSR, this function is not available.
 export const supportsMatchMedia = typeof window !== "undefined" && typeof window.matchMedia === "function";

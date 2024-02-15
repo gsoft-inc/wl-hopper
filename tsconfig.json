@@ -6,6 +6,7 @@
         "baseUrl": ".",
         "paths": {
             "@hopper-ui/components": ["./packages/components/src/index.ts"],
+            "@hopper-ui/icons": ["./packages/icons/src/index.ts"],
             "@hopper-ui/styled-system": ["./packages/styled-system/src/index.ts"],
             "@hopper-ui/storybook-addon": ["./tooling/storybook-addon/index.ts"],
         }
