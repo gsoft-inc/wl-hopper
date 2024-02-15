@@ -5,28 +5,6 @@ A set of icons handcrafted by Workleap.
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](../../LICENSE)
 [![npm version](https://img.shields.io/npm/v/@hopper-ui/icons)](https://www.npmjs.com/package/@hopper-ui/icons)
 
-## Installation
-
-Install the following packages:
-
-**With pnpm**
-
-```shell
-pnpm add @hopper-ui/icons
-```
-
-**With yarn**
-
-```shell
-yarn add -D @hopper-ui/icons
-```
-
-**With npm**
-
-```shell
-npm install -D @hopper-ui/icons
-```
-
 ## Usage
 
 View the [user's documentation](https://hopper.workleap.design/).

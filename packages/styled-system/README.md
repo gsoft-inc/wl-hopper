@@ -5,28 +5,6 @@ Hopper's styled-system offers a collection of utility functions that add style p
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](../../LICENSE)
 [![npm version](https://img.shields.io/npm/v/@hopper-ui/styled-system)](https://www.npmjs.com/package/@hopper-ui/styled-system)
 
-## Installation
-
-Install the following packages:
-
-**With pnpm**
-
-```shell
-pnpm add @hopper-ui/styled-system
-```
-
-**With yarn**
-
-```shell
-yarn add -D @hopper-ui/styled-system
-```
-
-**With npm**
-
-```shell
-npm install -D @hopper-ui/styled-system
-```
-
 ## Usage
 
 View the [user's documentation](https://hopper.workleap.design/).
