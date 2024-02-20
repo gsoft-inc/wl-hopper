@@ -40,7 +40,6 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
         content = <RouterProvider navigate={navigate}>{children}</RouterProvider>;
     }
 
-
     return (
         <StyledSystemProvider ref={ref} withBodyStyle={withBodyStyle} colorScheme={colorScheme} withCssVariables={withCssVariables} className={classNames} {...rest}>
             <I18nProvider locale={locale}>
@@ -49,7 +48,6 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
         </StyledSystemProvider>
     );
 };
-
 
 /**
  * HopperProvider is required to be rendered at the root of your application. It is responsible for:
