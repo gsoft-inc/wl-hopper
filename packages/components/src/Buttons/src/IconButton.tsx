@@ -31,7 +31,10 @@ export interface IconButtonProps extends StyledComponentProps<RACButtonProps> {
     isLoading?:boolean;
 
     /**
-     * TODO: sugar syntax for the onPress event
+     * This prop will be called when the button is clicked.
+     *
+     * The onClick prop is an alias for onPress and should not be used in conjunction with it. Use one or the other.
+     * onPress is the recommended prop to use for handling button clicks.
      */
     onClick?: ((e: PressEvent) => void);
 }

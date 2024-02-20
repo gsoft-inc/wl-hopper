@@ -1,7 +1,7 @@
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
-import { forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
+import { forwardRef, type ElementType, type RefAttributes, type SVGProps, type CSSProperties } from "react";
 import { useContextProps, type SlotProps } from "react-aria-components";
 import styles from "./Icon.module.css";
 import { cssModule } from "../../components/src/utils/src/css-module.ts";
@@ -30,12 +30,8 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
 }
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-    [props, ref] = useContextProps({ ...props, slot: props.slot ?? DefaultIconSlot }, ref, IconContext);
-
-    const {
-        stylingProps,
-        ...ownProps
-    } = useStyledSystem(props);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultIconSlot }, ref, IconContext);
+    const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const {
         size: sizeProp,
@@ -68,13 +64,15 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
         stylingProps.className
     );
 
+    const mergedStyles: CSSProperties = {
+        ...stylingProps.style,
+        ...style
+    };
+
     return (
         <As
             ref={ref}
-            style={{
-                ...stylingProps.style,
-                ...style
-            }}
+            style={mergedStyles}
             {...filterDOMProps(otherProps)}
             focusable="false"
             role="img"

@@ -1,9 +1,8 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef } from "react";
+import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 import clsx from "clsx";
 import styles from "./Label.module.css";
-import { mergeProps } from "@react-aria/utils";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { LabelContext } from "./LabelContext.ts";
 
@@ -25,7 +24,7 @@ export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RAC
 function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultLabelSlot }, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, size: sizeProp, children, ...otherProps } = ownProps;
+    const { className, size: sizeProp, children, style, ...otherProps } = ownProps;
 
     const size = useResponsiveValue(sizeProp ?? "md");
 
@@ -40,11 +39,17 @@ function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
         stylingProps.className
     );
 
+    const mergedStyles: CSSProperties = {
+        ...stylingProps.style,
+        ...style
+    };
+
     return (
         <RACLabel
-            {...mergeProps({ ...stylingProps }, otherProps)}
+            {...otherProps}
             ref={ref}
             className={classNames}
+            style={mergedStyles}
         >
             {children}
         </RACLabel>

@@ -1,22 +1,31 @@
 import clsx from "clsx";
-import { forwardRef, type ElementRef } from "react";
+import { forwardRef, type ElementRef, type CSSProperties } from "react";
 import type { StyledComponentProps } from "../styled-system-props.ts";
 import { useStyledSystem } from "../useStyledSystem.ts";
 import styles from "./htmlElement.module.css";
 
 export type HtmlElementProps<T extends keyof JSX.IntrinsicElements> = StyledComponentProps<T>;
 
+const GlobalHtmlElementCssSelector = "hop-Html";
+
 export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: T) {
     return forwardRef<ElementRef<T>, HtmlElementProps<T>>((props, ref) => {
-        const { stylingProps, className, style, ...ownProps } = useStyledSystem(props);
+        const { stylingProps, ...ownProps } = useStyledSystem(props);
+        const { className, style, ...otherProps } = ownProps;
 
         const As = elementType;
         const classNames = clsx(
             className,
             styles["html-element"],
-            `hop-html-${elementType}`, // this selector is not used, but could be used as a selector for the element type wrapper
+            GlobalHtmlElementCssSelector,
+            `${GlobalHtmlElementCssSelector}-${elementType}`,
             stylingProps.className
         );
+
+        const mergedStyles: CSSProperties = {
+            ...stylingProps.style,
+            ...style
+        };
 
         return (
             // It's too hard for typescript, a generic elementType, with generic props.
@@ -24,7 +33,7 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
             // useStyledSystem removes the styled system props, so what is remaining is valid for the elementType.
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            <As ref={ref} style={{ ...stylingProps.style, ...style }} {...ownProps} className={classNames} />
+            <As ref={ref} style={mergedStyles} {...otherProps} className={classNames} />
         );
     });
 }
