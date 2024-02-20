@@ -2,7 +2,7 @@ import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useRes
 import { type ForwardedRef, forwardRef } from "react";
 import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
 import styles from "./IconButton.module.css";
-import { useId } from "@react-aria/utils";
+import { useId } from "react-aria";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { SlotProvider, composeClassnameRenderProps } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";

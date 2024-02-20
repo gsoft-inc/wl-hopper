@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/components",
     "author": "Workleap",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "The components package.",
     "license": "Apache-2.0",
     "repository": {
@@ -39,13 +39,13 @@
     "peerDependencies": {
         "react": "*",
         "react-dom": "*",
-        "@hopper-ui/styled-system": "*"
+        "@hopper-ui/styled-system": "*",
+        "react-aria-components": "^1.1.0",
+        "react-aria": "^3.32.0"
     },
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
-        "clsx": "2.1.0",
-        "react-aria-components": "1.0.1",
-        "@react-aria/utils": "3.23.0"
+        "clsx": "2.1.0"
     },
     "devDependencies": {
         "@hopper-ui/styled-system": "workspace:*",
@@ -67,6 +67,8 @@
         "jest": "29.7.0",
         "jest-environment-jsdom": "29.7.0",
         "react": "18.2.0",
+        "react-aria": "3.32.1",
+        "react-aria-components": "1.1.1",
         "react-dom": "18.2.0",
         "react-test-renderer": "18.2.0",
         "ts-jest": "29.1.2",
