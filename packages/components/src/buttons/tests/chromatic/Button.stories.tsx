@@ -1,10 +1,11 @@
-import { Div, type DivProps } from "@hopper-ui/styled-system";
+import { Div } from "@hopper-ui/styled-system";
 import { Button } from "../../src/Button.tsx";
 import { IconList } from "../../../IconList/src/IconList.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
 import { within } from "@storybook/testing-library";
+import { Inline, Stack } from "../../../layouts/index.ts";
 
 
 const meta: Meta<typeof Button> = {
@@ -19,21 +20,17 @@ export default meta;
 
 type ButtonStory = StoryObj<typeof meta>;
 
-// TODO: use real layout component
-const Inline = ({ alignY, ...props }: DivProps & { alignY?: string }) => <Div {...props} alignItems={alignY} display="flex" UNSAFE_gap="1.25rem" />;
-const Stack = (props: DivProps) => <Div {...props} display="flex" flexDirection="column" UNSAFE_gap="1.25rem" />;
-
 export const Primary: ButtonStory = {
     render: args => {
         return (
             <Stack>
                 <Stack>
                     <h2>Default</h2>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button size="sm" {...args}>Button</Button>
                         <Button {...args}>Button</Button>
                     </Inline>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button isLoading size="sm" {...args}>Button</Button>
                         <Button isLoading {...args}>Button</Button>
                     </Inline>
@@ -49,7 +46,7 @@ export const Primary: ButtonStory = {
                 </Stack>
                 <Stack>
                     <h2>Icons</h2>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button size="sm" {...args}>
                             <PlusIcon />
                             <Text>Button</Text>
@@ -59,7 +56,7 @@ export const Primary: ButtonStory = {
                             <Text>Button</Text>
                         </Button>
                     </Inline>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button size="sm" {...args}>
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
@@ -73,7 +70,7 @@ export const Primary: ButtonStory = {
                             <Text>Button</Text>
                         </Button>
                     </Inline>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button isLoading size="sm" {...args}>
                             <PlusIcon />
                             <Text>Button</Text>
@@ -101,7 +98,7 @@ export const Primary: ButtonStory = {
                 </Stack>
                 <Stack>
                     <h1>End icons</h1>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button size="sm" {...args}>
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
@@ -111,7 +108,7 @@ export const Primary: ButtonStory = {
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button size="sm" {...args}>
                             <Text>Button</Text>
                             <IconList slot="end-icon">
@@ -125,7 +122,7 @@ export const Primary: ButtonStory = {
                             </IconList>
                         </Button>
                     </Inline>
-                    <Inline alignY="end">
+                    <Inline align="end">
                         <Button isLoading size="sm" {...args}>
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
@@ -220,7 +217,7 @@ export const PrimaryStates: ButtonStory = {
         return (
             <Stack>
                 <h1>Default</h1>
-                <Inline alignY="end">
+                <Inline align="end">
                     <Button size="sm" {...args}>Button</Button>
                     <Button {...args}>Button</Button>
                     <Button {...args}>
@@ -245,7 +242,7 @@ export const PrimaryStates: ButtonStory = {
                     </Button>
                 </Inline>
                 <h1>Disabled</h1>
-                <Inline alignY="end">
+                <Inline align="end">
                     <Button isDisabled size="sm" {...args}>Button</Button>
                     <Button isDisabled {...args}>Button</Button>
                     <Button isDisabled {...args}>
@@ -270,7 +267,7 @@ export const PrimaryStates: ButtonStory = {
                     </Button>
                 </Inline>
                 <h1>Pressed</h1>
-                <Inline alignY="end">
+                <Inline align="end">
                     <Button data-chromatic-force-press size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-press {...args}>Button</Button>
                     <Button data-chromatic-force-press {...args}>
@@ -295,7 +292,7 @@ export const PrimaryStates: ButtonStory = {
                     </Button>
                 </Inline>
                 <h1>Focus Visible</h1>
-                <Inline alignY="end">
+                <Inline align="end">
                     <Button data-chromatic-force-focus size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-focus {...args}>Button</Button>
                     <Button data-chromatic-force-focus {...args}>
@@ -320,7 +317,7 @@ export const PrimaryStates: ButtonStory = {
                     </Button>
                 </Inline>
                 <h1>Hovered</h1>
-                <Inline alignY="end">
+                <Inline align="end">
                     <Button data-chromatic-force-hover size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-hover {...args}>Button</Button>
                     <Button data-chromatic-force-hover {...args}>
@@ -345,7 +342,7 @@ export const PrimaryStates: ButtonStory = {
                     </Button>
                 </Inline>
                 <h1>Focus Visible and Hovered</h1>
-                <Inline alignY="end">
+                <Inline align="end">
                     <Button data-chromatic-force-focus data-chromatic-force-hover size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>Button</Button>
                     <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>

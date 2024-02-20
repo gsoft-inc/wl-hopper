@@ -1,6 +1,6 @@
-import { Div, type DivProps } from "@hopper-ui/styled-system";
 import { Spinner } from "../../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Inline, Stack } from "../../../layouts/index.ts";
 
 export default {
     component: Spinner,
@@ -14,16 +14,11 @@ export default {
 
 } as Meta<typeof Spinner>;
 
-// TODO: use real layout component
-const Inline = ({ alignY, ...props }: DivProps & { alignY?: string }) => <Div {...props} alignItems={alignY} display="flex" UNSAFE_gap="1.25rem" />;
-const Stack = (props: DivProps) => <Div {...props} display="flex" flexDirection="column" UNSAFE_gap="1.25rem" />;
-Stack.displayName = "Stack"; Inline.displayName = "Inline";
-
 type SpinnerStory = StoryObj<typeof Spinner>;
 
 export const Default: SpinnerStory = {
     render: args => (
-        <Inline alignY="end">
+        <Inline align="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
@@ -36,7 +31,7 @@ export const Default: SpinnerStory = {
 
 export const InheritColor: SpinnerStory = {
     render: args => (
-        <Inline alignY="end" backgroundColor="primary-strong">
+        <Inline align="end" backgroundColor="primary-strong">
             <Spinner color="core_samoyed" aria-label="Crawling in progress…" {...args} />
             <Spinner color="core_samoyed" {...args}>Crawling in progress…</Spinner>
         </Inline>
@@ -56,12 +51,12 @@ export const Styling: SpinnerStory = {
 export const Zoom: SpinnerStory = {
     render: args => (
         <Stack>
-            <Inline alignY="end" className="zoom-in">
+            <Inline align="end" className="zoom-in">
                 <Spinner size="sm" {...args} />
                 <Spinner {...args} />
                 <Spinner size="lg" {...args} />
             </Inline>
-            <Inline alignY="end" className="zoom-out">
+            <Inline align="end" className="zoom-out">
                 <Spinner size="sm" {...args} />
                 <Spinner {...args} />
                 <Spinner size="lg" {...args} />
@@ -75,7 +70,7 @@ export const Zoom: SpinnerStory = {
 
 export const Label: SpinnerStory = {
     render: args => (
-        <Inline alignY="end" >
+        <Inline align="end" >
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />

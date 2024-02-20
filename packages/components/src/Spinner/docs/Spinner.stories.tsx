@@ -1,6 +1,7 @@
-import { Div, type DivProps } from "@hopper-ui/styled-system";
+import { Div } from "@hopper-ui/styled-system";
 import { Spinner } from "../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Inline } from "../../layouts/index.ts";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -23,9 +24,6 @@ export default {
     }
 } as Meta<typeof Spinner>;
 
-// TODO: use real layout component
-const Inline = ({ alignY, ...props }: DivProps & { alignY?: string }) => <Div {...props} alignItems={alignY} display="flex" UNSAFE_gap="1.25rem" />;
-Inline.displayName = "Inline";
 type SpinnerStory = StoryObj<typeof Spinner>;
 
 /**
@@ -42,7 +40,7 @@ export const Default: SpinnerStory = {
  */
 export const Size: SpinnerStory = {
     render: args => (
-        <Inline alignY="end">
+        <Inline align="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
@@ -58,7 +56,7 @@ export const Size: SpinnerStory = {
  */
 export const Label: SpinnerStory = {
     render: args => (
-        <Inline alignY="end">
+        <Inline align="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
