@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [7717443]
+  - @hopper-ui/styled-system@0.2.7
+
 ## 0.0.8
 
 ### Patch Changes

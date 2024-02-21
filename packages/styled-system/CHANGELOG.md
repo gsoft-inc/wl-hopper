@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 0.2.7
+
+### Patch Changes
+
+- 7717443: StyledSystemProvider now accepts a ref
+
 ## 0.2.6
 
 ### Patch Changes
