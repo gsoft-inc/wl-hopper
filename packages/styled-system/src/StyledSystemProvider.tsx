@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useState, type ReactNode, forwardRef, type ForwardedRef } from "react";
 import { ColorSchemeContext, type ColorScheme, type ColorSchemeContextType, type ColorSchemeOrSystem } from "./color-scheme/ColorSchemeContext.ts";
 import { useColorScheme } from "./color-scheme/useColorScheme.ts";
 import { BodyStyleProvider } from "./global-styles/BodyStyleProvider.tsx";
@@ -7,6 +7,8 @@ import { Div, type DivProps } from "./html-wrappers/html.ts";
 import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint, type BreakpointProviderProps } from "./responsive/BreakpointProvider.tsx";
 import { HopperRootCssClass, StyledSystemRootCssClass } from "./styled-system-root-css-class.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
+
+const GlobalStyledSystemProviderCssSelector = "hop-StyledSystemProvider";
 
 export interface StyledSystemProviderProps extends BreakpointProviderProps, DivProps {
     /** The children of the component */
@@ -35,13 +37,18 @@ export interface StyledSystemProviderProps extends BreakpointProviderProps, DivP
     withCssVariables?: boolean;
 }
 
-/**
- * StyledSystemProvider is required to be rendered at the root of your application. It is responsible for:
- * - Adding CSS variables to the document
- * - Managing color scheme (light, dark, auto)
- * - Optionally adding body styles to the document
- */
-export function StyledSystemProvider({ children, withBodyStyle = false, withCssVariables = true, colorScheme = "light", defaultColorScheme = "light", unsupportedMatchMediaBreakpoint = DefaultUnsupportedMatchMediaBreakpoint, className, ...rest }: StyledSystemProviderProps) {
+const StyledSystemProvider = (props:StyledSystemProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const {
+        children,
+        withBodyStyle = false,
+        withCssVariables = true,
+        colorScheme = "light",
+        defaultColorScheme = "light",
+        unsupportedMatchMediaBreakpoint = DefaultUnsupportedMatchMediaBreakpoint,
+        className,
+        ...rest
+    } = props;
+
     const [remoteColorScheme, setRemoteColorScheme] = useState<ColorScheme>();
     const computedColorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
 
@@ -50,11 +57,12 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
     }, [setRemoteColorScheme]);
 
     const classNames = clsx(
+        className,
+        GlobalStyledSystemProviderCssSelector,
         HopperRootCssClass,
         `${HopperRootCssClass}-${computedColorScheme}`,
         StyledSystemRootCssClass,
-        `${StyledSystemRootCssClass}-${computedColorScheme}`,
-        className
+        `${StyledSystemRootCssClass}-${computedColorScheme}`
     );
 
     return (
@@ -65,7 +73,7 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
             }}
         >
             <BreakpointProvider unsupportedMatchMediaBreakpoint={unsupportedMatchMediaBreakpoint}>
-                <Div className={classNames} {...rest}>
+                <Div ref={ref} className={classNames} {...rest}>
                     {withBodyStyle && <BodyStyleProvider />}
                     {withCssVariables && <TokenProvider />}
                     {children}
@@ -73,5 +81,15 @@ export function StyledSystemProvider({ children, withBodyStyle = false, withCssV
             </BreakpointProvider>
         </ColorSchemeContext.Provider>
     );
-}
+};
 
+/**
+ * StyledSystemProvider is required to be rendered at the root of your application. It is responsible for:
+ * - Adding CSS variables to the document
+ * - Managing color scheme (light, dark, auto)
+ * - Optionally adding body styles to the document
+ */
+const _StyledSystemProvider = forwardRef<HTMLDivElement, StyledSystemProviderProps>(StyledSystemProvider);
+_StyledSystemProvider.displayName = "StyledSystemProvider";
+
+export { _StyledSystemProvider as StyledSystemProvider };
