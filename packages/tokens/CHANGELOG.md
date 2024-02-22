@@ -1,5 +1,12 @@
 # @hopper-ui/tokens
 
+## 3.1.5
+
+### Patch Changes
+
+- 2f18e75: - Upsell disabled surface value has been set to treasure-25
+  - Upsell surface value has been set to treasure-75
+
 ## 3.1.4
 
 ### Patch Changes
