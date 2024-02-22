@@ -38,7 +38,7 @@
         },
         "surface-disabled": {
             "$type": "color",
-            "$value": "{sunken-treasure.75}"
+            "$value": "{sunken-treasure.25}"
         },
         "text": {
             "$type": "color",
@@ -62,7 +62,7 @@
         },
         "surface": {
             "$type": "color",
-            "$value": "{sunken-treasure.25}"
+            "$value": "{sunken-treasure.75}"
         }
     },
     "danger": {
