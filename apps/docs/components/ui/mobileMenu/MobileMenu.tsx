@@ -94,7 +94,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
                     <nav>
                         <ul className="hd-mobile-menu-footer-list">
                             <li>
-                                <Link href="https://www.github.com" target="_blank" className="hd-mobile-menu-footer-link">
+                                <Link href="https://github.com/gsoft-inc/wl-hopper" target="_blank" className="hd-mobile-menu-footer-link">
                                     <GithubLogo />
                                     GitHub
                                 </Link>
