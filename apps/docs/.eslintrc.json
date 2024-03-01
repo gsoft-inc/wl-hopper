@@ -14,6 +14,7 @@
       "Card": true,
       "Table": true,
       "TypographyTable": true,
+      "TypographyTableVariation": true,
       "Tabs": true,
       "TableSection": true,
       "Switcher": true,
