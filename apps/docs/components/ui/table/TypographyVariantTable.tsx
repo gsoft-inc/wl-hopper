@@ -13,7 +13,6 @@ interface TypographyVariantTableProps {
 
 const TypographyVariantTable = ({ type, data }: TypographyVariantTableProps) => {
     const tokenData = data["fontWeight"];
-    console.log(type);
 
     const filteredDataByType: Array<{ name: string; value: string }> = tokenData.filter(item =>
         item.name.includes(type)
