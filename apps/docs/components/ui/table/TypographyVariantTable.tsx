@@ -8,18 +8,24 @@ import "./table.css";
 
 interface TypographyVariantTableProps {
     data: Record<string, { name: string; value: string }[]>;
+    type: string;
 }
 
-const TypographyVariantTable = ({ data }: TypographyVariantTableProps) => {
+const TypographyVariantTable = ({ type, data }: TypographyVariantTableProps) => {
     const tokenData = data["fontWeight"];
+    console.log(type);
 
-    const filteredData: Array<{ name: string; value: string }> = tokenData.filter(item =>
+    const filteredDataByType: Array<{ name: string; value: string }> = tokenData.filter(item =>
+        item.name.includes(type)
+    );
+
+    const filteredDataByWeightVariation: Array<{ name: string; value: string }> = filteredDataByType.filter(item =>
         item.name.includes("bold") ||
         item.name.includes("semibold") ||
         item.name.includes("medium")
     );
 
-    const listItems = filteredData.map(item => {
+    const listItems = filteredDataByWeightVariation.map(item => {
         const fontWeight = item.value;
 
         return (
