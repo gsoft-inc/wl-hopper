@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "Inter Var";
+    font-style: normal;
+    font-weight: 410;
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var.woff2") format("opentype");
+    font-display: fallback;
+}
+
 .hd-preview {
-    font-family: "ABC Favorit", Inter, sans-serif;
+    font-family: "Inter Var", sans-serif;
     width: var(--hd-space-5);
     height: var(--hd-space-3);
     border-radius: 0;

@@ -156,7 +156,6 @@ const rehypeOptions = {
             node.properties["data-word-id"] = id;
         }
     }
-
 };
 
 export default makeSource({
