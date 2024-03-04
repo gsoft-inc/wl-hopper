@@ -1,5 +1,11 @@
 # @hopper-ui/svg-icons
 
+## 2.3.0
+
+### Minor Changes
+
+- 4cef0d7: Added new icons
+
 ## 2.2.1
 
 ### Patch Changes
