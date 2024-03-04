@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 1.3.0
+
+### Minor Changes
+
+- 4cef0d7: Added new icons
+
 ## 1.2.1
 
 ### Patch Changes
