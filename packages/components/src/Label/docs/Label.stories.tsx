@@ -1,7 +1,7 @@
 import { Label } from "../src/Label.tsx";
 import { LabelContext } from "../src/LabelContext.ts";
-import { SlotProvider } from "../../utils/src/style-provider.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Provider } from "react-aria-components";
 
 /**
  * A primitive label component matching Hopper's typography type scale.
@@ -71,11 +71,11 @@ export const Inherit: LabelStory = {
  */
 export const AdvancedCustomization: LabelStory = {
     render: props => (
-        <SlotProvider values={[
+        <Provider values={[
             [LabelContext, { size: "xl" }]
         ]}
         >
             <Label {...props} />
-        </SlotProvider>
+        </Provider>
     )
 };

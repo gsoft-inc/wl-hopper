@@ -1,10 +1,10 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
-import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
+import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps, Provider } from "react-aria-components";
 import styles from "./IconButton.module.css";
 import { useId } from "react-aria";
 import { cssModule } from "../../utils/src/css-module.ts";
-import { SlotProvider, composeClassnameRenderProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
 import { IconButtonContext } from "./IconButtonContext.ts";
 import { useLocalizedString } from "../../intl/index.ts";
@@ -96,7 +96,7 @@ const IconButton = (props:IconButtonProps, ref: ForwardedRef<HTMLButtonElement>)
     });
 
     return (
-        <SlotProvider
+        <Provider
             values={[
                 [IconContext, {
                     slots: {
@@ -133,7 +133,7 @@ const IconButton = (props:IconButtonProps, ref: ForwardedRef<HTMLButtonElement>)
                     );
                 }}
             </RACButton>
-        </SlotProvider>
+        </Provider>
     );
 };
 

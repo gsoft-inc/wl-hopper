@@ -1,7 +1,7 @@
 import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
-import { SlotProvider } from "../../utils/src/style-provider.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Provider } from "react-aria-components";
 
 /**
  * A primitive text component matching Hopper's typography type scale.
@@ -73,11 +73,11 @@ export const Inherit: TextStory = {
  */
 export const AdvancedCustomization: TextStory = {
     render: props => (
-        <SlotProvider values={[
+        <Provider values={[
             [TextContext, { size: "xl" }]
         ]}
         >
             <Text {...props} />
-        </SlotProvider>
+        </Provider>
     )
 };

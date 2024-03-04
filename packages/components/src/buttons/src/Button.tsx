@@ -1,11 +1,11 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
-import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
+import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps, Provider } from "react-aria-components";
 import styles from "./Button.module.css";
 import { useId } from "react-aria";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { Text } from "../../Text/src/Text.tsx";
-import { SlotProvider, composeClassnameRenderProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext } from "./ButtonContext.ts";
 import { TextContext } from "../../Text/index.ts";
@@ -109,7 +109,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const isLoadingAriaLiveLabel = `${hasAriaLabel ? props["aria-label"] : ""} ${stringFormatter.format("button.pending")}`.trim();
 
     return (
-        <SlotProvider
+        <Provider
             values={[
                 [IconListContext, {
                     slots: {
@@ -168,7 +168,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                     );
                 }}
             </RACButton>
-        </SlotProvider>
+        </Provider>
     );
 };
 
