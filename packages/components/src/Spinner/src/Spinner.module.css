@@ -77,7 +77,6 @@
     }
 }
 
-
 .hop-spinner__label {
     margin-inline-start: var(--hop-spinner-component-margin-left);
     grid-area: label;

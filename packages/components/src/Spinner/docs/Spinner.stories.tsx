@@ -1,7 +1,7 @@
 import { Div } from "@hopper-ui/styled-system";
 import { Spinner } from "../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { _Grid } from "../../layouts/index.ts";
+import { Inline } from "../../layouts/index.ts";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -42,11 +42,11 @@ export const Default: Story = {
  */
 export const Size: Story = {
     render: args => (
-        <_Grid alignItems="end">
+        <Inline alignItems="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
-        </_Grid>
+        </Inline>
     ),
     args: {
         "aria-label": "Loading…"
@@ -58,11 +58,11 @@ export const Size: Story = {
  */
 export const Label: Story = {
     render: args => (
-        <_Grid alignItems="end">
+        <Inline alignItems="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
-        </_Grid>
+        </Inline>
     ),
     args: {
         children: "Loading…"

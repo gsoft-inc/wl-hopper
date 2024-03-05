@@ -59,7 +59,6 @@ describe("Icons", () => {
         expect(ref.current?.tagName.toUpperCase()).toBe("SVG");
     });
 
-
     it("should apply default displayName", () => {
         expect(AddIcon.displayName).toBe("AddIcon");
     });

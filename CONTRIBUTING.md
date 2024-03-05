@@ -48,7 +48,6 @@ pnpm changeset
 
 - Steps 2-5 are the same as adding a new icon.
 
-
 ## Developing a new component
 
 ### Checklist:

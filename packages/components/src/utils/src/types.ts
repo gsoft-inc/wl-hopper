@@ -6,7 +6,6 @@ import type { SlotProps } from "react-aria-components";
  * Taken from https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/src/utils.tsx
  */
 
-
 export interface StyleProps {
     /** The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. */
     className?: string;

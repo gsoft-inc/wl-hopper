@@ -20,6 +20,7 @@ import type {
     GridAutoRowsValue,
     GridColumSpanValue,
     GridRowSpanValue,
+    GridTemplateAreasValue,
     GridTemplateColumnsValue,
     GridTemplateRowsValue,
     HeightValue,
@@ -553,7 +554,7 @@ export interface StyledSystemProps {
    * Sets the `grid-template-areas` property.
    * @see {@link https://developer.mozilla.org/docs/Web/CSS/grid-template-areas}
    */
-    gridTemplateAreas?: ResponsiveProp<Property.GridTemplateAreas>;
+    gridTemplateAreas?: ResponsiveProp<GridTemplateAreasValue>;
 
     /**
      * Sets the `grid-template-columns` property.

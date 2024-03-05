@@ -65,5 +65,3 @@ const _Label = forwardRef<HTMLLabelElement, LabelProps>(Label);
 _Label.displayName = "Label";
 
 export { _Label as Label };
-
-

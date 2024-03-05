@@ -61,5 +61,3 @@ const _HopperProvider = forwardRef<HTMLDivElement, HopperProviderProps>(HopperPr
 _HopperProvider.displayName = "HopperProvider";
 
 export { _HopperProvider as HopperProvider };
-
-

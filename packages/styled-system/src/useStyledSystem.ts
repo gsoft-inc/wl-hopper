@@ -27,9 +27,9 @@ import { isNil } from "./utils/assertion.ts";
 // eslint-disable-next-line @workleap/strict-css-modules-names
 import styles from "./UseStyledSystem.module.css";
 import { UnsafePrefix, type StyledSystemProps } from "./styled-system-props.ts";
-import { type ResponsiveProp, parseResponsiveValue } from "./responsive/useResponsiveValue.tsx";
+import { type ResponsiveProp, parseResponsiveValue, type ResponsiveValue } from "./responsive/useResponsiveValue.tsx";
 
-type PropHandler = (name: string, value: ResponsiveProp<string | number>, context: StylingContext) => void;
+type PropHandler = (name: string, value: ResponsiveProp<string | number | string[]>, context: StylingContext) => void;
 type SystemValues = Record<string | number, string>;
 
 // This is a simple handler for property that only accept tokens
@@ -138,6 +138,30 @@ const gridRowSpanHandler: PropHandler = (name, value, context) => {
     }
 };
 
+const gridTemplateDimensionsHandler: PropHandler = (name, value, context) => {
+    let parsedValue = parseResponsiveSystemValue(value, SizingMapping, context.matchedBreakpoints);
+
+    if (!isNil(parsedValue)) {
+        if (Array.isArray(parsedValue)) {
+            parsedValue = parsedValue.join(" ");
+        }
+
+        context.addStyleValue(name, parsedValue);
+    }
+};
+
+const gridTemplateAreasHandler: PropHandler = (name, value, context) => {
+    let parsedValue = parseResponsiveValue(value, context.matchedBreakpoints);
+
+    if (!isNil(parsedValue)) {
+        if (Array.isArray(parsedValue)) {
+            parsedValue = parsedValue.map(v => `"${v}"`).join(" ");
+        }
+
+        context.addStyleValue("gridTemplateAreas", parsedValue);
+    }
+};
+
 const PropsHandlers: Record<string, PropHandler> = {
     alignContent: createPassthroughHandler(),
     alignItems: createPassthroughHandler(),
@@ -221,9 +245,9 @@ const PropsHandlers: Record<string, PropHandler> = {
     gridRowSpan: gridRowSpanHandler,
     gridRowStart: createPassthroughHandler(),
     gridTemplate: createPassthroughHandler(),
-    gridTemplateAreas: createPassthroughHandler(),
-    gridTemplateColumns: createSystemValueHandler(SizingMapping),
-    gridTemplateRows: createSystemValueHandler(SizingMapping),
+    gridTemplateAreas: gridTemplateAreasHandler,
+    gridTemplateColumns: gridTemplateDimensionsHandler,
+    gridTemplateRows: gridTemplateDimensionsHandler,
     height: createSystemValueHandler(SizingMapping),
     justifyContent: createPassthroughHandler(),
     justifyItems: createPassthroughHandler(),
@@ -346,7 +370,7 @@ function convertStyleProps<T extends StyledSystemProps>(props: T, handlers: Reco
             const handler = handlers[cssProperty];
 
             if (!isNil(handler)) {
-                handler(cssProperty, value as NonNullable<StyledSystemProps[keyof StyledSystemProps]>, context);
+                handler(cssProperty, value as ResponsiveValue<string | number | string[]>, context);
             }
         }
     });

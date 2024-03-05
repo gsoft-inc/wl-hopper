@@ -22,7 +22,6 @@ export const List = ({ styles, tokenType }: ListProps) => {
     return <ul className="list">{listItems}</ul>;
 };
 
-
 interface DisplayComponentProps extends ComponentProps<"div">{
     value: Style["value"];
     tokenType : TokenType;

@@ -54,5 +54,3 @@ const _IconList = forwardRef<HTMLSpanElement, IconListProps>(IconList);
 _IconList.displayName = "IconList";
 
 export { _IconList as IconList };
-
-

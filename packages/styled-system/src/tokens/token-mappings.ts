@@ -139,12 +139,13 @@ export const SizingMapping = {
 };
 
 export type Percentage = `${number}%`;
+export type FRValues = `${number}fr`;
 
 // Custom CSS values to use instead of Property.X to offer less useless values in intellisense and
 // stop showing too many values in props docs.
 export type CssColor = Globals | "currentcolor" | "transparent";
 export type CssFill = Globals | "child" | "context-fill" | "context-stroke" | "none" | "transparent" | "currentcolor";
-export type CssGrid = "auto" | "max-content" | "min-content" | Globals | Percentage;
+export type CssGrid = "auto" | "max-content" | "min-content" | Globals | Percentage | FRValues;
 export type CssGridTemplate = "none" | "subgrid" | CssGrid;
 export type CssBoxShadow = Globals | "none";
 export type CssBorder = Globals | 0;
@@ -191,11 +192,13 @@ export type UNSAFE_GridAutoColumnsValue = keyof typeof SizingMapping | Property.
 export type GridAutoRowsValue = keyof typeof SizingMapping | CssGrid;
 export type UNSAFE_GridAutoRowsValue = keyof typeof SizingMapping | Property.GridAutoRows;
 
-export type GridTemplateColumnsValue = keyof typeof SizingMapping | CssGridTemplate;
-export type UNSAFE_GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns;
+export type GridTemplateAreasValue = Property.GridTemplateAreas | Array<string>;
 
-export type GridTemplateRowsValue = keyof typeof SizingMapping | CssGridTemplate;
-export type UNSAFE_GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows;
+export type GridTemplateColumnsValue = keyof typeof SizingMapping | CssGridTemplate | Array<keyof typeof SizingMapping | CssGridTemplate>;
+export type UNSAFE_GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns | Array<keyof typeof SizingMapping | Property.GridTemplateColumns>;
+
+export type GridTemplateRowsValue = keyof typeof SizingMapping | CssGridTemplate | Array<keyof typeof SizingMapping | CssGridTemplate>;
+export type UNSAFE_GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows | Array<keyof typeof SizingMapping | Property.GridTemplateRows>;
 
 export type HeightValue = keyof typeof SizingMapping | CSSSizing;
 export type UNSAFE_HeightValue = keyof typeof SizingMapping | Property.Height;
@@ -228,27 +231,43 @@ export type UNSAFE_WidthValue = keyof typeof SizingMapping | Property.Width;
 export type GridColumSpanValue = number;
 export type GridRowSpanValue = number;
 
-export function parseResponsiveSystemValue<TValue extends string | number>(value: TValue | ResponsiveProp<TValue> | undefined, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
+export function parseResponsiveSystemValue<TValue extends string | number>(value: TValue | TValue[] | ResponsiveProp<TValue | TValue[]> | undefined, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
     if (isNil(value)) {
         return value;
     }
 
     // Quick lookup since most values will be a non responsive system value and will not requires to parse for a responsive value.
     if (!isObject(value)) {
-        const systemValue = getSystemValue(value, systemValues);
+        if (Array.isArray(value)) {
+            const systemValueArray = value.map(x => getSystemValue(x, systemValues));
 
-        if (!isNil(systemValue)) {
-            return systemValue;
+            if (!isNil(systemValueArray)) {
+                return systemValueArray;
+            }
+        } else {
+            const systemValue = getSystemValue(value, systemValues);
+
+            if (!isNil(systemValue)) {
+                return systemValue;
+            }
         }
     }
 
     const underlyingValue = parseResponsiveValue(value, matchedBreakpoints);
 
     if (!isNil(underlyingValue)) {
-        const underlyingSystemValue = getSystemValue(underlyingValue, systemValues);
+        if (Array.isArray(underlyingValue)) {
+            const underlyingSystemValue = underlyingValue.map(x => getSystemValue(x, systemValues));
 
-        if (!isNil(underlyingSystemValue)) {
-            return underlyingSystemValue;
+            if (!isNil(underlyingSystemValue)) {
+                return underlyingSystemValue;
+            }
+        } else {
+            const underlyingSystemValue = getSystemValue(underlyingValue, systemValues);
+
+            if (!isNil(underlyingSystemValue)) {
+                return underlyingSystemValue;
+            }
         }
     }
 

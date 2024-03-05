@@ -99,5 +99,3 @@ const _Spinner = forwardRef<HTMLDivElement, SpinnerProps>(Spinner);
 _Spinner.displayName = "Spinner";
 
 export { _Spinner as Spinner };
-
-

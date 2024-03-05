@@ -65,5 +65,3 @@ const _Text = forwardRef<HTMLSpanElement, TextProps>(Text);
 _Text.displayName = "Text";
 
 export { _Text as Text };
-
-

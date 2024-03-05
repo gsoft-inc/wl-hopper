@@ -1,6 +1,6 @@
 import { Spinner } from "../../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { _Grid, Stack } from "../../../layouts/index.ts";
+import { Inline, Stack } from "../../../layouts/index.ts";
 
 const meta = {
     component: Spinner,
@@ -20,11 +20,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: args => (
-        <_Grid alignItems="end">
+        <Inline alignItems="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
-        </_Grid>
+        </Inline>
     ),
     args: {
         "aria-label": "Crawling in progress…"
@@ -33,36 +33,36 @@ export const Default: Story = {
 
 export const InheritColor: Story = {
     render: args => (
-        <_Grid alignItems="end" backgroundColor="primary-strong">
+        <Inline alignItems="end" backgroundColor="primary-strong">
             <Spinner color="core_samoyed" aria-label="Crawling in progress…" {...args} />
             <Spinner color="core_samoyed" {...args}>Crawling in progress…</Spinner>
-        </_Grid>
+        </Inline>
     )
 };
 
 export const Styling: Story = {
     render: args => (
-        <_Grid>
+        <Inline>
             <Spinner UNSAFE_color="red" {...args}>Crawling in progress…</Spinner>
             <Spinner className="border-red" aria-label="Crawling in progress…" {...args} />
             <Spinner style={{ border: "1px solid red" }} aria-label="Crawling in progress…" {...args} />
-        </_Grid>
+        </Inline>
     )
 };
 
 export const Zoom: Story = {
     render: args => (
         <Stack>
-            <_Grid alignItems="end" className="zoom-in">
+            <Inline alignItems="end" className="zoom-in">
                 <Spinner size="sm" {...args} />
                 <Spinner {...args} />
                 <Spinner size="lg" {...args} />
-            </_Grid>
-            <_Grid alignItems="end" className="zoom-out">
+            </Inline>
+            <Inline alignItems="end" className="zoom-out">
                 <Spinner size="sm" {...args} />
                 <Spinner {...args} />
                 <Spinner size="lg" {...args} />
-            </_Grid>
+            </Inline>
         </Stack>
     ),
     args: {
@@ -72,11 +72,11 @@ export const Zoom: Story = {
 
 export const Label: Story = {
     render: args => (
-        <_Grid alignItems="end" >
+        <Inline alignItems="end" >
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
-        </_Grid>
+        </Inline>
     ),
     args: {
         children: "Crawling in progress…"

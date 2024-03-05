@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
 import { within } from "@storybook/testing-library";
-import { _Grid, Stack } from "../../../layouts/index.ts";
+import { Inline, Stack } from "../../../layouts/index.ts";
 
 
 const meta: Meta<typeof Button> = {
@@ -26,14 +26,14 @@ export const Primary: Story = {
             <Stack>
                 <Stack>
                     <h2>Default</h2>
-                    <_Grid justifyContent="end">
+                    <Inline justifyContent="end">
                         <Button size="sm" {...args}>Button</Button>
                         <Button {...args}>Button</Button>
-                    </_Grid>
-                    <_Grid justifyContent="end">
+                    </Inline>
+                    <Inline justifyContent="end">
                         <Button isLoading size="sm" {...args}>Button</Button>
                         <Button isLoading {...args}>Button</Button>
-                    </_Grid>
+                    </Inline>
                     <Div>
                         <Button fluid {...args}>Button</Button>
                     </Div>
@@ -46,7 +46,7 @@ export const Primary: Story = {
                 </Stack>
                 <Stack>
                     <h2>Icons</h2>
-                    <_Grid justifyContent="end">
+                    <Inline justifyContent="end">
                         <Button size="sm" {...args}>
                             <PlusIcon />
                             <Text>Button</Text>
@@ -55,8 +55,8 @@ export const Primary: Story = {
                             <PlusIcon />
                             <Text>Button</Text>
                         </Button>
-                    </_Grid>
-                    <_Grid justifyContent="end">
+                    </Inline>
+                    <Inline justifyContent="end">
                         <Button size="sm" {...args}>
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
@@ -69,8 +69,8 @@ export const Primary: Story = {
                             </IconList>
                             <Text>Button</Text>
                         </Button>
-                    </_Grid>
-                    <_Grid justifyContent="end">
+                    </Inline>
+                    <Inline justifyContent="end">
                         <Button isLoading size="sm" {...args}>
                             <PlusIcon />
                             <Text>Button</Text>
@@ -79,7 +79,7 @@ export const Primary: Story = {
                             <PlusIcon />
                             <Text>Button</Text>
                         </Button>
-                    </_Grid>
+                    </Inline>
                     <Div>
                         <Button isDisabled {...args}>
                             <PlusIcon />
@@ -98,7 +98,7 @@ export const Primary: Story = {
                 </Stack>
                 <Stack>
                     <h1>End icons</h1>
-                    <_Grid justifyContent="end">
+                    <Inline justifyContent="end">
                         <Button size="sm" {...args}>
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
@@ -107,8 +107,8 @@ export const Primary: Story = {
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
-                    </_Grid>
-                    <_Grid justifyContent="end">
+                    </Inline>
+                    <Inline justifyContent="end">
                         <Button size="sm" {...args}>
                             <Text>Button</Text>
                             <IconList slot="end-icon">
@@ -121,8 +121,8 @@ export const Primary: Story = {
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
                         </Button>
-                    </_Grid>
-                    <_Grid justifyContent="end">
+                    </Inline>
+                    <Inline justifyContent="end">
                         <Button isLoading size="sm" {...args}>
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
@@ -131,7 +131,7 @@ export const Primary: Story = {
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
-                    </_Grid>
+                    </Inline>
                     <Div>
                         <Button isDisabled {...args}>
                             <Text>Button</Text>
@@ -217,7 +217,7 @@ export const PrimaryStates: Story = {
         return (
             <Stack>
                 <h1>Default</h1>
-                <_Grid justifyContent="end">
+                <Inline justifyContent="end">
                     <Button size="sm" {...args}>Button</Button>
                     <Button {...args}>Button</Button>
                     <Button {...args}>
@@ -240,9 +240,9 @@ export const PrimaryStates: Story = {
                             <RefreshIcon /><RefreshIcon /><RefreshIcon />
                         </IconList>
                     </Button>
-                </_Grid>
+                </Inline>
                 <h1>Disabled</h1>
-                <_Grid justifyContent="end">
+                <Inline justifyContent="end">
                     <Button isDisabled size="sm" {...args}>Button</Button>
                     <Button isDisabled {...args}>Button</Button>
                     <Button isDisabled {...args}>
@@ -265,9 +265,9 @@ export const PrimaryStates: Story = {
                             <RefreshIcon /><RefreshIcon /><RefreshIcon />
                         </IconList>
                     </Button>
-                </_Grid>
+                </Inline>
                 <h1>Pressed</h1>
-                <_Grid justifyContent="end">
+                <Inline justifyContent="end">
                     <Button data-chromatic-force-press size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-press {...args}>Button</Button>
                     <Button data-chromatic-force-press {...args}>
@@ -290,9 +290,9 @@ export const PrimaryStates: Story = {
                             <RefreshIcon /><RefreshIcon /><RefreshIcon />
                         </IconList>
                     </Button>
-                </_Grid>
+                </Inline>
                 <h1>Focus Visible</h1>
-                <_Grid justifyContent="end">
+                <Inline justifyContent="end">
                     <Button data-chromatic-force-focus size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-focus {...args}>Button</Button>
                     <Button data-chromatic-force-focus {...args}>
@@ -315,9 +315,9 @@ export const PrimaryStates: Story = {
                             <RefreshIcon /><RefreshIcon /><RefreshIcon />
                         </IconList>
                     </Button>
-                </_Grid>
+                </Inline>
                 <h1>Hovered</h1>
-                <_Grid justifyContent="end">
+                <Inline justifyContent="end">
                     <Button data-chromatic-force-hover size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-hover {...args}>Button</Button>
                     <Button data-chromatic-force-hover {...args}>
@@ -340,9 +340,9 @@ export const PrimaryStates: Story = {
                             <RefreshIcon /><RefreshIcon /><RefreshIcon />
                         </IconList>
                     </Button>
-                </_Grid>
+                </Inline>
                 <h1>Focus Visible and Hovered</h1>
-                <_Grid justifyContent="end">
+                <Inline justifyContent="end">
                     <Button data-chromatic-force-focus data-chromatic-force-hover size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>Button</Button>
                     <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
@@ -365,7 +365,7 @@ export const PrimaryStates: Story = {
                             <RefreshIcon /><RefreshIcon /><RefreshIcon />
                         </IconList>
                     </Button>
-                </_Grid>
+                </Inline>
             </Stack>
         );
     }
@@ -397,5 +397,3 @@ export const NegativeStates: Story = {
         variant: "negative"
     }
 };
-
-

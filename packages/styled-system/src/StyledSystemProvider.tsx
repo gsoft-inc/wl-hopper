@@ -89,7 +89,6 @@ const StyledSystemProvider = (props:StyledSystemProviderProps, ref: ForwardedRef
     );
 };
 
-
 /**
  * StyledSystemProvider is required to be rendered at the root of your application. It is responsible for:
  * - Adding CSS variables to the document
@@ -100,5 +99,3 @@ const _StyledSystemProvider = forwardRef<HTMLDivElement, StyledSystemProviderPro
 _StyledSystemProvider.displayName = "StyledSystemProvider";
 
 export { _StyledSystemProvider as StyledSystemProvider };
-
-

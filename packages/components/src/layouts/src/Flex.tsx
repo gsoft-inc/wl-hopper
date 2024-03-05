@@ -55,7 +55,6 @@ function Flex(props: FlexProps, ref: Ref<HTMLDivElement>) {
         ...otherProps
     } = props;
 
-
     const wrap = useResponsiveValue(wrapProp);
     const alignItems = useResponsiveValue(alignItemsProp);
     const justifyContent = useResponsiveValue(justifyContentProp);
@@ -69,7 +68,6 @@ function Flex(props: FlexProps, ref: Ref<HTMLDivElement>) {
             flexBasis={basis}
             flexGrow={grow}
             flexShrink={shrink}
-
             flexWrap={flexWrapValue(wrap)}
             alignItems={flexAlignValue(alignItems)}
             justifyContent={flexAlignValue(justifyContent)}
@@ -78,7 +76,6 @@ function Flex(props: FlexProps, ref: Ref<HTMLDivElement>) {
         />
     );
 }
-
 
 /**
  * Normalize 'start' and 'end' alignment values to 'flex-start' and 'flex-end'

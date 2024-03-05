@@ -9,7 +9,6 @@ export const BreakpointContext = createContext<BreakpointContextType>({
     matchedBreakpoints: []
 });
 
-
 export function useBreakpointContext() {
     const context = useContext(BreakpointContext);
 

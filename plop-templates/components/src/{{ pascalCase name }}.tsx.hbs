@@ -4,7 +4,6 @@ import { {{ pascalCase name }}Context } from "./{{ pascalCase name }}Context.ts"
 // TODO: create some kind of meta object with global css selectors, default slot and context?
 const Global{{ pascalCase name }}CssSelector = "hop-{{ pascalCase name }}";
 
-
 export interface {{ pascalCase name }}Props {
 }
 
@@ -25,5 +24,3 @@ const _{{ pascalCase name }} = forwardRef<any, {{ pascalCase name }}Props>({{ pa
 _{{ pascalCase name }}.displayName = "{{ pascalCase name }}";
 
 export { _{{ pascalCase name }} as {{ pascalCase name }} };
-
-
