@@ -1,3 +1,5 @@
+/* Helper class for storybook stories to test styling overrides */
+
 .bg-red {
     background: red;
 }
