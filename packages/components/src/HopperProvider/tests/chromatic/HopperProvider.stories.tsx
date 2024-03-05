@@ -28,28 +28,28 @@ const meta: Meta<typeof HopperProvider> = {
 
 export default meta;
 
-type HopperProviderStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const Light: HopperProviderStory = {
+export const Light: Story = {
     args: {
         colorScheme: "light"
     }
 };
 
-export const Dark: HopperProviderStory = {
+export const Dark: Story = {
     args: {
         colorScheme: "dark"
     }
 };
 
-export const WithBodyStyles: HopperProviderStory = {
+export const WithBodyStyles: Story = {
     args: {
         colorScheme: "light",
         withBodyStyle: true
     }
 };
 
-export const DarkWithBodyStyles: HopperProviderStory = {
+export const DarkWithBodyStyles: Story = {
     args: {
         colorScheme: "dark",
         withBodyStyle: true
@@ -66,7 +66,7 @@ const SwitchColorScheme = () => {
     return null;
 };
 
-export const SetColorSchemeWithApi: HopperProviderStory = {
+export const SetColorSchemeWithApi: Story = {
     args: {
         colorScheme: "light",
         withBodyStyle: true,

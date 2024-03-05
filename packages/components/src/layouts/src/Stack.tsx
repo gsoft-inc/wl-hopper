@@ -1,41 +1,24 @@
-import { Div, type DivProps } from "@hopper-ui/styled-system";
 import { forwardRef, type Ref } from "react";
+import { Flex, type FlexProps } from "./Flex.tsx";
 
-export interface StackProps
-    extends Omit<DivProps,
-    | "flexDirection"
-    | "alignItems"
-    | "justifyContent"
-    > {
+export interface StackProps extends Omit<FlexProps, "direction"> {
     /**
-     * The flex direction of the container. Can be row, column, row-reverse or column-reverse.
+     * Whether or not to reverse the order of the elements.
      */
-    direction?: DivProps["flexDirection"];
-
-    /**
-     * An alias for the css align-items property.
-     */
-    align?: DivProps["alignItems"];
-
-    /**
-     * An alias for the css justify-content property.
-     */
-    justify?: DivProps["justifyContent"];
+    reverse?: boolean;
 }
 
 function Stack(props: StackProps, ref: Ref<HTMLDivElement>) {
     const {
-        display = "flex",
-        direction = "column",
+        reverse,
         gap = "stack-md",
         ...rest
     } = props;
 
     return (
-        <Div
+        <Flex
             ref={ref}
-            display={display}
-            flexDirection={direction}
+            direction={reverse ? "column-reverse" : "column"}
             gap={gap}
             {...rest}
         />
@@ -43,7 +26,7 @@ function Stack(props: StackProps, ref: Ref<HTMLDivElement>) {
 }
 
 /**
- * The Stack pattern is a layout primitive that can be used to create a vertical or horizontal stack of elements.
+ * The Stack pattern is a layout primitive that can be used to stack elements in the vertical direction and apply a space between them.
  *
  * [View Documentation](TODO)
  */

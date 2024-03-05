@@ -1,6 +1,6 @@
 import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
-import { Button } from "../../../Button/src/Button.tsx";
-import { ButtonContext } from "../../../Button/src/ButtonContext.ts";
+import { Button } from "../../src/Button.tsx";
+import { ButtonContext } from "../../src/ButtonContext.ts";
 import { createRef } from "react";
 import { userEvent } from "@testing-library/user-event";
 

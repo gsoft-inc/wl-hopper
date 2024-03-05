@@ -22,15 +22,15 @@ const meta: Meta<typeof AddIcon> = {
 
 export default meta;
 
-type IconStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: IconStory = {
+export const Default: Story = {
 };
 
 /**
  * Icons support t-shirt sizing. When used inside another Hopper component, they'll generally be sized automatically, but if you use icons standalone, you can use the size prop to control the sizing. The default size is "md".
  */
-export const Sizing: IconStory = {
+export const Sizing: Story = {
     render: props => (
         <>
             <AddIcon size="sm" {...props} />
@@ -44,7 +44,7 @@ export const Sizing: IconStory = {
  * The color of the icon can be change using the `fill` prop.
  * All the styled system props are also available.
  */
-export const Styling: IconStory = {
+export const Styling: Story = {
     args: {
         fill:"primary"
     }

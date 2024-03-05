@@ -11,9 +11,9 @@ const meta: Meta<typeof Text> = {
 
 export default meta;
 
-type TextStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: TextStory = {
+export const Default: Story = {
     render: props => (
         <>
             <Text size="2xl" {...props} />
@@ -26,7 +26,7 @@ export const Default: TextStory = {
     )
 };
 
-export const Inherit: TextStory = {
+export const Inherit: Story = {
     render: props => (
         <div style={{ fontSize: "0.625rem" }}>
             <Text size="inherit" {...props} />
@@ -34,7 +34,7 @@ export const Inherit: TextStory = {
     )
 };
 
-export const Styling: TextStory = {
+export const Styling: Story = {
     render: props => (
         <>
             <Text border="warning-strong" {...props} />

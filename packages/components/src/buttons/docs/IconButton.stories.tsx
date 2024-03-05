@@ -28,12 +28,12 @@ const meta: Meta<typeof IconButton> = {
 
 export default meta;
 
-type ButtonStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
 /**
  * A default button.
  */
-export const Default: ButtonStory = {
+export const Default: Story = {
 };
 
 /**
@@ -45,7 +45,7 @@ export const Default: ButtonStory = {
  *
  * **Tertiary**: TODO
  */
-export const Variants: ButtonStory = {
+export const Variants: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem" }}>
             <IconButton variant="primary" {...props} />
@@ -58,7 +58,7 @@ export const Variants: ButtonStory = {
 /**
  * A button can vary in size.
  */
-export const Size: ButtonStory = {
+export const Size: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem", flexDirection: "column" }}>
             <div style={{ display: "flex", gap: "1.25rem" }}>
@@ -78,7 +78,7 @@ export const Size: ButtonStory = {
 /**
  * A button can be disabled.
  */
-export const Disabled: ButtonStory = {
+export const Disabled: Story = {
     ...Variants,
     args: {
         isDisabled: true
@@ -88,7 +88,7 @@ export const Disabled: ButtonStory = {
 /**
  * A button can show a loading indicator. The button text is hidden but the button maintains the width that it would have if the text were visible.
  */
-export const Loading: ButtonStory = {
+export const Loading: Story = {
     ...Variants,
     args: {
         isLoading: true

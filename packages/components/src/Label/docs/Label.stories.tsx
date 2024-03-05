@@ -27,20 +27,20 @@ const meta: Meta<typeof Label> = {
 
 export default meta;
 
-type LabelStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
 /**
  * The Label component provides default styling based on it's `size` prop`, but can also receive styling from a parent component
  * when used as a child of a Hopper component.
  */
-export const Default: LabelStory = {
+export const Default: Story = {
 };
 
 /**
  * You can alter the size of the label by specifying a `size` prop.
  * The available sizes match Hopper Typography Type Scale (a type scale is a set of [font-size and line-height](https://hopper.workleap.design/tokens/semantic/typography#body) pairs).
  */
-export const Size: LabelStory = {
+export const Size: Story = {
     render: props => (
         <>
             <Label size="xs" {...props} />
@@ -56,7 +56,7 @@ export const Size: LabelStory = {
 /**
  * You can also alter the size to match the parent element's type scale by using the `inherit` size.
  */
-export const Inherit: LabelStory = {
+export const Inherit: Story = {
     render: props => (
         <div style={{ fontSize: "0.625rem" }}>
             <Label size="inherit" {...props} />
@@ -69,7 +69,7 @@ export const Inherit: LabelStory = {
  * You can send any prop or ref via context that you could pass to the corresponding component.
  * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
  */
-export const AdvancedCustomization: LabelStory = {
+export const AdvancedCustomization: Story = {
     render: props => (
         <Provider values={[
             [LabelContext, { size: "xl" }]

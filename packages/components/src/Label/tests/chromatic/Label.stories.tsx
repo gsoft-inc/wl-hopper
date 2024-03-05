@@ -11,9 +11,9 @@ const meta: Meta<typeof Label> = {
 
 export default meta;
 
-type LabelStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: LabelStory = {
+export const Default: Story = {
     render: props => (
         <>
             <Label size="2xl" {...props} />
@@ -26,7 +26,7 @@ export const Default: LabelStory = {
     )
 };
 
-export const Inherit: LabelStory = {
+export const Inherit: Story = {
     render: props => (
         <div style={{ fontSize: "0.625rem" }}>
             <Label size="inherit" {...props} />
@@ -34,7 +34,7 @@ export const Inherit: LabelStory = {
     )
 };
 
-export const Styling: LabelStory = {
+export const Styling: Story = {
     render: props => (
         <>
             <Label border="warning-strong" {...props} />

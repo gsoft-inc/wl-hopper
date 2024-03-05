@@ -29,15 +29,15 @@ const meta: Meta<typeof IconList> = {
 
 export default meta;
 
-type IconListStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
 /**
  * To inline multiple icons in a component, wrap your icons in an icon list component.
  */
-export const Default: IconListStory = {
+export const Default: Story = {
 };
 
-export const Styling: IconListStory = {
+export const Styling: Story = {
     args: {
         color: "primary",
         gap: "core_480"

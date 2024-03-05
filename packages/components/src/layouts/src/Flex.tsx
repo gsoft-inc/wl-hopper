@@ -1,12 +1,11 @@
-import { Div, type DivProps } from "@hopper-ui/styled-system";
+import { Div, useResponsiveValue, type DivProps, type ResponsiveProp } from "@hopper-ui/styled-system";
 import { forwardRef, type Ref } from "react";
 
 export interface FlexProps
     extends Omit<DivProps,
+    | "display"
     | "flexDirection"
     | "flexWrap"
-    | "alignItems"
-    | "justifyContent"
     | "flexBasis"
     | "flexGrow"
     | "flexShrink"
@@ -17,19 +16,9 @@ export interface FlexProps
     direction?: DivProps["flexDirection"];
 
     /**
-     * Whether to wrap the flex items. The value is a boolean.
+     * Whether to wrap the flex items. The value can also be a boolean.
      */
-    wrap?: DivProps["flexWrap"];
-
-    /**
-     * An alias for the css align-items property.
-     */
-    align?: DivProps["alignItems"];
-
-    /**
-     * An alias for the css justify-content property.
-     */
-    justify?: DivProps["justifyContent"];
+    wrap?: DivProps["flexWrap"] | ResponsiveProp<boolean>;
 
     /**
      * An alias for the css flex-basis property.
@@ -45,37 +34,74 @@ export interface FlexProps
      * An alias for the css flex-shrink property.
      */
     shrink?: DivProps["flexShrink"];
+
+    /**
+     * Whether to display the flex container as an inline element.
+     */
+    inline?: boolean;
 }
 
 function Flex(props: FlexProps, ref: Ref<HTMLDivElement>) {
     const {
-        display = "flex",
-        gap = "stack-md",
         direction,
-        wrap,
-        align,
-        justify,
+        inline,
         basis,
         grow,
         shrink,
+        wrap: wrapProp,
+        alignItems: alignItemsProp,
+        justifyContent: justifyContentProp,
+        alignContent: alignContentProp,
         ...otherProps
     } = props;
+
+
+    const wrap = useResponsiveValue(wrapProp);
+    const alignItems = useResponsiveValue(alignItemsProp);
+    const justifyContent = useResponsiveValue(justifyContentProp);
+    const alignContent = useResponsiveValue(alignContentProp);
 
     return (
         <Div
             ref={ref}
-            display={display}
+            display={inline ? "inline-flex" : "flex"}
             flexDirection={direction}
-            flexWrap={wrap}
-            alignItems={align}
-            justifyContent={justify}
             flexBasis={basis}
             flexGrow={grow}
             flexShrink={shrink}
-            gap={gap}
+
+            flexWrap={flexWrapValue(wrap)}
+            alignItems={flexAlignValue(alignItems)}
+            justifyContent={flexAlignValue(justifyContent)}
+            alignContent={flexAlignValue(alignContent)}
             {...otherProps}
         />
     );
+}
+
+
+/**
+ * Normalize 'start' and 'end' alignment values to 'flex-start' and 'flex-end'
+ * in flex containers for browser compatibility.
+ */
+function flexAlignValue<T>(value: T) {
+    if (value === "start") {
+        return "flex-start";
+    }
+
+    if (value === "end") {
+        return "flex-end";
+    }
+
+    return value;
+}
+
+function flexWrapValue(value: DivProps["flexWrap"] | boolean) {
+    if (typeof value === "boolean") {
+        return value ? "wrap" : "nowrap";
+    }
+
+    return value;
 }
 
 /**

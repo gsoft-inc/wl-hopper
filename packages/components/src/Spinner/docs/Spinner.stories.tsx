@@ -1,7 +1,7 @@
 import { Div } from "@hopper-ui/styled-system";
 import { Spinner } from "../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Inline } from "../../layouts/index.ts";
+import { _Grid } from "../../layouts/index.ts";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -14,7 +14,7 @@ import { Inline } from "../../layouts/index.ts";
  * -
  * View storybook TODO
  */
-export default {
+const meta = {
     component: Spinner,
     title: "Docs/Spinner",
     tags: ["autodocs"],
@@ -22,14 +22,16 @@ export default {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     }
-} as Meta<typeof Spinner>;
+} satisfies Meta<typeof Spinner>;
 
-type SpinnerStory = StoryObj<typeof Spinner>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 /**
  * A simple spinner.
  */
-export const Default: SpinnerStory = {
+export const Default: Story = {
     args: {
         "aria-label": "Loading…"
     }
@@ -38,13 +40,13 @@ export const Default: SpinnerStory = {
 /**
  * A spinner can vary in size.
  */
-export const Size: SpinnerStory = {
+export const Size: Story = {
     render: args => (
-        <Inline align="end">
+        <_Grid alignItems="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
-        </Inline>
+        </_Grid>
     ),
     args: {
         "aria-label": "Loading…"
@@ -54,13 +56,13 @@ export const Size: SpinnerStory = {
 /**
  * A spinner can vary in size.
  */
-export const Label: SpinnerStory = {
+export const Label: Story = {
     render: args => (
-        <Inline align="end">
+        <_Grid alignItems="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
-        </Inline>
+        </_Grid>
     ),
     args: {
         children: "Loading…"
@@ -70,7 +72,7 @@ export const Label: SpinnerStory = {
 /**
  * You can change a spinner style when over a background by setting a color property on the spinner.
  */
-export const OverBackground: SpinnerStory = {
+export const OverBackground: Story = {
     render: args => (
         <Div backgroundColor="primary-strong" padding="inset-md">
             <Spinner color="core_samoyed" {...args} />

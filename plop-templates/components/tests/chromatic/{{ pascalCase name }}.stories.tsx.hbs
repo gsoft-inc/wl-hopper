@@ -1,14 +1,14 @@
 import { {{ pascalCase name }} } from "../../src/{{ pascalCase name }}.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof {{ pascalCase name }}> = {
+const meta = {
     title: "Components/{{ pascalCase name }}",
     component: {{ pascalCase name }}
-};
+} satisfies Meta<typeof {{ pascalCase name }}></typeof>;
 
 export default meta;
 
-type {{ pascalCase name }}Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: {{ pascalCase name }}Story = {
+export const Default: Story = {
 };

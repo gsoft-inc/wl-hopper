@@ -1,27 +1,36 @@
 import { forwardRef, type Ref } from "react";
-import { Stack, type StackProps } from "./Stack.tsx";
+import { Flex, type FlexProps } from "./Flex.tsx";
 
-export type InlineProps = StackProps;
+export interface InlineProps extends Omit<FlexProps, "direction"> {
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
+    reverse?: boolean;
+}
 
 function Inline(props: InlineProps, ref: Ref<HTMLDivElement>) {
     const {
-        align = "center",
-        direction = "row",
+        alignItems = "center",
+        gap = "stack-md",
+        wrap = true,
+        reverse,
         ...rest
     } = props;
 
     return (
-        <Stack
+        <Flex
             ref={ref}
-            align={align}
-            direction={direction}
+            alignItems={alignItems}
+            direction={reverse ? "row-reverse" : "row"}
+            gap={gap}
+            wrap={wrap}
             {...rest}
         />
     );
 }
 
 /**
- * The Inline component is a wrapper around the stack component that sets the direction property to horizontal, and centers the elements vertically.
+ * The Inline pattern is a layout primitive that can be used to stack elements in the horizontal direction and apply a space between them.
  *
  * [View Documentation](TODO)
  */

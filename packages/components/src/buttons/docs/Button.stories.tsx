@@ -30,12 +30,12 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-type ButtonStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
 /**
  * A default button.
  */
-export const Default: ButtonStory = {
+export const Default: Story = {
 };
 
 /**
@@ -51,7 +51,7 @@ export const Default: ButtonStory = {
  *
  * **Negative**: For actions that could have destructive effects on the user’s data.
  */
-export const Variants: ButtonStory = {
+export const Variants: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem" }}>
             <Button variant="primary" {...props} />
@@ -66,7 +66,7 @@ export const Variants: ButtonStory = {
 /**
  * A button can vary in size.
  */
-export const Size: ButtonStory = {
+export const Size: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem", flexDirection: "column" }}>
             <div style={{ display: "flex", gap: "1.25rem" }}>
@@ -90,7 +90,7 @@ export const Size: ButtonStory = {
 /**
  * A button can be disabled.
  */
-export const Disabled: ButtonStory = {
+export const Disabled: Story = {
     ...Variants,
     args: {
         isDisabled: true
@@ -100,7 +100,7 @@ export const Disabled: ButtonStory = {
 /**
  * A button can be expanded to full width to fill its parent container.
  */
-export const Fluid: ButtonStory = {
+export const Fluid: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem", flexDirection: "column" }}>
             <Button {...props} >
@@ -129,7 +129,7 @@ export const Fluid: ButtonStory = {
 /**
  * A button can contain icons.
  */
-export const Icon: ButtonStory = {
+export const Icon: Story = {
     ...Size,
     args: {
         children: [
@@ -142,7 +142,7 @@ export const Icon: ButtonStory = {
 /**
  * Non standard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go to.
  */
-export const EndIcon: ButtonStory = {
+export const EndIcon: Story = {
     ...Size,
     args: {
         children: ([
@@ -155,7 +155,7 @@ export const EndIcon: ButtonStory = {
 /**
  * Non standard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go to.
  */
-export const BothIcon: ButtonStory = {
+export const BothIcon: Story = {
     ...Size,
     args: {
         children: ([
@@ -169,14 +169,14 @@ export const BothIcon: ButtonStory = {
 /**
  * A button can show a loading indicator. The button text is hidden but the button maintains the width that it would have if the text were visible.
  */
-export const Loading: ButtonStory = {
+export const Loading: Story = {
     ...Variants,
     args: {
         isLoading: true
     }
 };
 
-export const IconListStory: ButtonStory = {
+export const IconListStory: Story = {
     ...Size,
     args: {
         children: [
@@ -189,7 +189,7 @@ export const IconListStory: ButtonStory = {
 };
 
 
-export const EndIconList: ButtonStory = {
+export const EndIconList: Story = {
     ...Size,
     args: {
         children: [

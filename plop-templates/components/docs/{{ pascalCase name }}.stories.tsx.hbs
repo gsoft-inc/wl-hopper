@@ -10,7 +10,7 @@ import type { Meta, StoryObj } from "@storybook/react";
  * -
  * View storybook TODO
  */
-const meta: Meta<typeof {{ pascalCase name }}> = {
+const meta = {
     title: "Docs/{{ pascalCase name }}",
     tags: ["autodocs"],
     parameters: {
@@ -18,14 +18,14 @@ const meta: Meta<typeof {{ pascalCase name }}> = {
         chromatic: { disableSnapshot: true }
     },
     component: {{ pascalCase name }}
-};
+} satisfies Meta<typeof {{ pascalCase name }}>;
 
 export default meta;
 
-type {{ pascalCase name }}Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
 /**
  * TODO: Add description
  */
-export const Default: {{ pascalCase name }}Story = {
+export const Default: Story = {
 };
