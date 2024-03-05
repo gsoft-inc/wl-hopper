@@ -41,13 +41,13 @@
     overflow-x: auto;
 }
 
-[data-rehype-pretty-code-fragment] .line {
-    font-size: 1rem;
-    line-height: 2.25;
+[data-rehype-pretty-code-fragment] [data-line] {
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
-[data-rehype-pretty-code-fragment] pre code .line {
-    padding: 0  var(--hd-space-3);
+[data-rehype-pretty-code-fragment] pre code [data-line] {
+    padding: 0 var(--hd-space-1) 0 0;
     border-left: 0.125rem solid transparent;
 }
 
@@ -57,7 +57,7 @@
     box-shadow: 0 0 0 var(--hd-space-05) var(--hd-codeblock-word-selection-background-color);
 }
 
-[data-rehype-pretty-code-fragment] pre  code .line.highlighted {
+[data-rehype-pretty-code-fragment] pre  code [data-highlighted-chars] {
     background-color: var(--hd-codeblock-line-highlighted-background-color);
     border-left-color: var(--hd-codeblock-line-highlighted-border-color);
 }
@@ -67,26 +67,26 @@
     counter-reset: line;
 }
 
-[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line::before {
+[data-rehype-pretty-code-fragment] code[data-line-numbers] > [data-line]::before {
     counter-increment: line;
     content: counter(line);
     display: inline-block;
     width: var(--hd-space-2);
-    margin-right: var(--hd-space-4);
+    margin-right: var(--hd-space-2);
     text-align: right;
     color: var(--hd-codeblock-line-line-number-color);
 }
 
-[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='2'] > .line::before {
+[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='2'] > [data-line]::before {
     width: var(--hd-space-4);
 }
 
-[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='3'] > .line::before {
+[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='3'] > [data-line]::before {
     width: var(--hd-space-6);
 }
 
 /* LINE NUMBERS HIGHLIGHT - NUMBER COLOR */
-[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line.highlighted::before {
+[data-rehype-pretty-code-fragment] code[data-line-numbers] > [data-line].highlighted::before {
     color: var(--hd-codeblock-line-line-number-color-highlight);
 }
 
