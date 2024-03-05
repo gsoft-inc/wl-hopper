@@ -1,5 +1,18 @@
 # @hopper-ui/styled-system
 
+## 0.2.8
+
+### Patch Changes
+
+- 2f18e75: - Upsell disabled surface value has been set to treasure-25
+  - Upsell surface value has been set to treasure-75
+
+## 0.2.7
+
+### Patch Changes
+
+- 7717443: StyledSystemProvider now accepts a ref
+
 ## 0.2.6
 
 ### Patch Changes

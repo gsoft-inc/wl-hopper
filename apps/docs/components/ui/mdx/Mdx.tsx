@@ -10,6 +10,7 @@ import Switcher from "@/components/ui/switcher/Switcher";
 import Title from "@/components/ui/title/Title";
 import Table from "@/components/ui/table/Table";
 import TypographyTable from "@/components/ui/table/TypographyTable";
+import TypographyVariantTable from "@/components/ui/table/TypographyVariantTable";
 import Tabs from "@/components/tabs/Tabs";
 import TableSection from "@/components/tableSection/TableSection";
 
@@ -21,6 +22,7 @@ const components = {
     pre: Pre,
     Table: Table,
     TypographyTable: TypographyTable,
+    TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,
     IconSpecTable: IconSpecTable,
     Tabs: Tabs,

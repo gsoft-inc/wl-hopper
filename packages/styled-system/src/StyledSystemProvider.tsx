@@ -37,12 +37,6 @@ export interface StyledSystemProviderProps extends BreakpointProviderProps, DivP
     withCssVariables?: boolean;
 }
 
-/**
- * StyledSystemProvider is required to be rendered at the root of your application. It is responsible for:
- * - Adding CSS variables to the document
- * - Managing color scheme (light, dark, auto)
- * - Optionally adding body styles to the document
- */
 const StyledSystemProvider = (props:StyledSystemProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
     const {
         children,
