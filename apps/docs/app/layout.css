@@ -69,7 +69,7 @@ article li a {
     color: var(--hd-color-accent-text);
 }
 
-article :not(figure) code {
+article code {
     background-color: var(--hd-color-neutral-surface-weak);
     border-radius: 0.25rem;
     color: var(--hd-color-accent-text);
