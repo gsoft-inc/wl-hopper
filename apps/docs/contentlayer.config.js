@@ -181,10 +181,6 @@ export default makeSource({
             () => tree => {
                 visit(tree, node => {
                     if (node?.type === "element" && node?.tagName === "div") {
-                        if (!("data-rehype-pretty-code-fragment" in node.properties)) {
-                            return;
-                        }
-
                         const titleChild = node.children.find(child => {
                             return (
                                 child.properties &&
