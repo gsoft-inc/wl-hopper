@@ -180,7 +180,7 @@ export default makeSource({
             [rehypePrettyCode, rehypeOptions],
             () => tree => {
                 visit(tree, node => {
-                    if (node?.type === "element" && node?.tagName === "div") {
+                    if (node?.type === "element" && node?.tagName === "figure") {
                         const titleChild = node.children.find(child => {
                             return (
                                 child.properties &&
