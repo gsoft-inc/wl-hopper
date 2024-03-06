@@ -6,8 +6,9 @@ import styles from "./Label.module.css";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { LabelContext } from "./LabelContext.ts";
 
-// TODO: create some kind of meta object with global css selectors, default slot and context?
 const GlobalLabelCssSelector = "hop-Label";
+
+// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultLabelSlot = "label";
 
 export type RACLabelPropsToOmit = "elementType";

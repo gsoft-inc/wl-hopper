@@ -13,8 +13,9 @@ import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 
-// TODO: create some kind of meta object with global css selectors, default slot and context?
 const GlobalButtonCssSelector = "hop-Button";
+
+// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultButtonSlot = "button";
 
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {

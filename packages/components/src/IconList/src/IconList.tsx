@@ -6,8 +6,9 @@ import type { BaseComponentProps } from "../../index.ts";
 import clsx from "clsx";
 import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
 
-// TODO: create some kind of meta object with global css selectors, default slot and context?
 const GlobalIconListCssSelector = "hop-IconList";
+
+// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultIconListSlot = "icon";
 
 export interface IconListProps extends StyledSystemProps, BaseComponentProps {
