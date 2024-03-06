@@ -5,12 +5,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 const meta = {
     title: "Components/Stack",
     component: Stack,
-    children: [
-        <Div key="1" backgroundColor="core_sapphire-500">Alpha</Div>,
-        <Div key="2" backgroundColor="core_sapphire-500">Bravo</Div>,
-        <Div key="3" backgroundColor="core_sapphire-500">Charlie</Div>
-    ]
-} as Meta<typeof Stack>;
+    args:{
+        children: [
+            <Div key="1" backgroundColor="core_sapphire-500">Alpha</Div>,
+            <Div key="2" backgroundColor="core_sapphire-500">Bravo</Div>,
+            <Div key="3" backgroundColor="core_sapphire-500">Charlie</Div>
+        ]
+    }
+
+} satisfies Meta<typeof Stack>;
 
 export default meta;
 
