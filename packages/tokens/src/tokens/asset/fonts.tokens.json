@@ -4,19 +4,19 @@
             "Inter": {
                 "normal": {
                     "410": {
-                        "value": "assets/fonts/Inter-Regular",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
                         "formats": ["woff2"]
                     },
                     "505": {
-                        "value": "assets/fonts/Inter-Medium",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
                         "formats": ["woff2"]
                     },
                     "590": {
-                        "value": "assets/fonts/Inter-SemiBold",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
                         "formats": ["woff2"]
                     },
                     "690": {
-                        "value": "assets/fonts/Inter-Bold",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
                         "formats": ["woff2"]
                     }
                 }
@@ -24,7 +24,7 @@
             "ABC Favorit Mono": {
                 "normal": {
                     "400": {
-                        "value": "assets/fonts/ABCFavoritMono-Regular",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritMono-Regular",
                         "formats": ["woff2"]
                     }
                 }
@@ -32,15 +32,15 @@
             "ABC Favorit": {
                 "normal": {
                     "410": {
-                        "value": "assets/fonts/ABCFavorit-Regular",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable",
                         "formats": ["woff2"]
                     },
                     "580": {
-                        "value": "assets/fonts/ABCFavorit-Medium",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable",
                         "formats": ["woff2"]
                     },
                     "680": {
-                        "value": "assets/fonts/ABCFavorit-Bold",
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable",
                         "formats": ["woff2"]
                     }
                 }

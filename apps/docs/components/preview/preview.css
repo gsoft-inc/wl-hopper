@@ -1,13 +1,29 @@
 @font-face {
-    font-family: "Inter Var";
+    font-family: Inter;
     font-style: normal;
-    font-weight: 410;
-    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var.woff2") format("opentype");
-    font-display: fallback;
+    font-weight: 100 900;
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ABC Favorit";
+    font-style: normal;
+    font-weight: 100 900;
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ABC Favorit Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritMono-Regular.woff2") format("woff2");
+    font-display: swap;
 }
 
 .hd-preview {
-    font-family: "Inter Var", sans-serif;
+    font-family: Inter, sans-serif;
     width: var(--hd-space-5);
     height: var(--hd-space-3);
     border-radius: 0;
