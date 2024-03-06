@@ -4,7 +4,7 @@
 import { Button } from "../../src/Button.tsx";
 import { renderToString } from "react-dom/server";
 
-describe("Text", () => {
+describe("Button", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(

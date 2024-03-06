@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Inline } from "../../layouts/index.ts";
 
 /**
- * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+ * A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Spinner/src)
  * -

@@ -18,7 +18,7 @@ const Stacked = forwardRef<HTMLDivElement, Omit<StackProps, "children">>((props,
     );
 });
 
-describe("Inline", () => {
+describe("Stack", () => {
     it("should render with custom class", () => {
         render(<Stacked className="test" />);
 
