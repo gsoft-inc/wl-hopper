@@ -6,7 +6,7 @@ import styles from "./htmlElement.module.css";
 
 export type HtmlElementProps<T extends keyof JSX.IntrinsicElements> = StyledComponentProps<T>;
 
-const GlobalHtmlElementCssSelector = "hop-Html";
+export const GlobalHtmlElementCssSelector = "hop-Html";
 
 export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: T) {
     return forwardRef<ElementRef<T>, HtmlElementProps<T>>((props, ref) => {

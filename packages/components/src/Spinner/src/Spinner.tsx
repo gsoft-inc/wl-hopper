@@ -7,7 +7,7 @@ import styles from "./Spinner.module.css";
 import { SpinnerContext } from "./SpinnerContext.ts";
 import { Label, type LabelProps } from "../../Label/src/Label.tsx";
 
-const GlobalSpinnerCssSelector = "hop-Spinner";
+export const GlobalSpinnerCssSelector = "hop-Spinner";
 
 // We don't extends RACProgressBarProps here, since we don't want to expose any of the progress bar props.
 export interface SpinnerProps extends StyledSystemProps, BaseComponentProps {

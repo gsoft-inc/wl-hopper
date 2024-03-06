@@ -6,7 +6,7 @@ import styles from "./Label.module.css";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { LabelContext } from "./LabelContext.ts";
 
-const GlobalLabelCssSelector = "hop-Label";
+export const GlobalLabelCssSelector = "hop-Label";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultLabelSlot = "label";

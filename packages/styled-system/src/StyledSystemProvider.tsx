@@ -8,7 +8,7 @@ import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint, type Breakp
 import { HopperRootCssClass, StyledSystemRootCssClass } from "./styled-system-root-css-class.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
 
-const GlobalStyledSystemProviderCssSelector = "hop-StyledSystemProvider";
+export const GlobalStyledSystemProviderCssSelector = "hop-StyledSystemProvider";
 
 export interface StyledSystemProviderProps extends BreakpointProviderProps, DivProps {
     /** The children of the component */

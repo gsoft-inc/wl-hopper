@@ -13,7 +13,7 @@ import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 
-const GlobalButtonCssSelector = "hop-Button";
+export const GlobalButtonCssSelector = "hop-Button";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultButtonSlot = "button";

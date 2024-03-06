@@ -7,7 +7,9 @@ import styles from "./Icon.module.css";
 import { cssModule } from "../../components/src/utils/src/css-module.ts";
 import { IconContext } from "./IconContext.ts";
 
-const GlobalIconCssSelector = "hop-Icon";
+export const GlobalIconCssSelector = "hop-Icon";
+
+// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultIconSlot = "icon";
 
 export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {

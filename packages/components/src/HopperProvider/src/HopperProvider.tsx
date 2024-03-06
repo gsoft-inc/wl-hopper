@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
 import { I18nProvider, RouterProvider } from "react-aria-components";
 
-const GlobalHopperProviderCssSelector = "hop-HopperProvider";
+export const GlobalHopperProviderCssSelector = "hop-HopperProvider";
 
 export interface HopperProviderProps extends StyledSystemProviderProps {
     /**

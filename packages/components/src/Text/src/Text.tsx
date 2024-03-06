@@ -6,7 +6,7 @@ import styles from "./Text.module.css";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { TextContext } from "./TextContext.ts";
 
-const GlobalTextCssSelector = "hop-Text";
+export const GlobalTextCssSelector = "hop-Text";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultTextSlot = "text";
