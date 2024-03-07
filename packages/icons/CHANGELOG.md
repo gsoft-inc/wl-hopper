@@ -4,14 +4,6 @@
 
 ### Minor Changes
 
-- 9503e64: **Added**
-
-  | SVG Name      |
-  | ------------- |
-  | folder-16.svg |
-  | folder-24.svg |
-  | folder-32.svg |
-
 - 1225e9e: **Added**
 
   | Icon Name  |
