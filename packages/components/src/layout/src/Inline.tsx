@@ -22,7 +22,7 @@ function Inline(props: InlineProps, ref: Ref<HTMLDivElement>) {
     const {
         alignX,
         alignY = "center",
-        gap = "stack-md",
+        gap = "inline-md",
         wrap = true,
         reverse,
         ...rest

@@ -26,10 +26,11 @@
     --hop-spinner-component-fill-border-inline-start: var(--hop-spinner-component-track-width) solid currentcolor;
 
     /* Label */
-    --hop-spinner-component-margin-left: var(--hop-space-stack-sm);
+    --hop-spinner-component-gap: var(--hop-space-inline-sm);
 
     box-sizing: border-box;
     display: grid;
+    column-gap: var(--hop-spinner-component-gap);
     grid-template-areas: "spinner label";
     grid-template-columns: min-content auto;
     align-items: center;
@@ -78,6 +79,5 @@
 }
 
 .hop-spinner__label {
-    margin-inline-start: var(--hop-spinner-component-margin-left);
     grid-area: label;
 }
