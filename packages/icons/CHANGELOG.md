@@ -1,5 +1,23 @@
 # @hopper-ui/icons
 
+## 1.4.0
+
+### Minor Changes
+
+- 9503e64: **Added**
+
+  | SVG Name      |
+  | ------------- |
+  | folder-16.svg |
+  | folder-24.svg |
+  | folder-32.svg |
+
+- 1225e9e: **Added**
+
+  | Icon Name  |
+  | ---------- |
+  | FolderIcon |
+
 ## 1.3.0
 
 ### Minor Changes
