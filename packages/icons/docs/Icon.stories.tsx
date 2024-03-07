@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
+import { Stack } from "@hopper-ui/components";
 
 /**
 An icon component allow you to render a custom icon.
@@ -32,11 +33,11 @@ export const Default: Story = {
  */
 export const Sizing: Story = {
     render: props => (
-        <>
+        <Stack>
             <AddIcon size="sm" {...props} />
             <AddIcon size="md" {...props} />
             <AddIcon size="lg" {...props} />
-        </>
+        </Stack>
     )
 };
 

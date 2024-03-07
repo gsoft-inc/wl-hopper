@@ -1,7 +1,9 @@
 import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Stack } from "../../layout/src/Stack.tsx";
 import { Provider } from "react-aria-components";
+import { Div } from "@hopper-ui/styled-system";
 
 /**
  * A primitive text component matching Hopper's typography type scale.
@@ -44,14 +46,14 @@ export const Default: Story = {
  */
 export const Size: Story = {
     render: props => (
-        <>
+        <Stack>
             <Text size="xs" {...props} />
             <Text size="sm" {...props} />
             <Text size="md" {...props} />
             <Text size="lg" {...props} />
             <Text size="xl" {...props} />
             <Text size="2xl" {...props} />
-        </>
+        </Stack>
     )
 };
 
@@ -60,9 +62,9 @@ export const Size: Story = {
  */
 export const Inherit: Story = {
     render: props => (
-        <div style={{ fontSize: "0.625rem" }}>
+        <Div fontSize="body-xs">
             <Text size="inherit" {...props} />
-        </div>
+        </Div>
     )
 };
 

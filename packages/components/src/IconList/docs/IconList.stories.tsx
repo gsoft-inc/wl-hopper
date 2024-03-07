@@ -40,6 +40,6 @@ export const Default: Story = {
 export const Styling: Story = {
     args: {
         color: "primary",
-        gap: "core_480"
+        gap: "inline-xl"
     }
 };

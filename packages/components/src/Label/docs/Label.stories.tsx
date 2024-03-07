@@ -1,3 +1,5 @@
+import { Div } from "@hopper-ui/styled-system";
+import { Stack } from "../../layout/src/Stack.tsx";
 import { Label } from "../src/Label.tsx";
 import { LabelContext } from "../src/LabelContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -42,14 +44,14 @@ export const Default: Story = {
  */
 export const Size: Story = {
     render: props => (
-        <>
+        <Stack>
             <Label size="xs" {...props} />
             <Label size="sm" {...props} />
             <Label size="md" {...props} />
             <Label size="lg" {...props} />
             <Label size="xl" {...props} />
             <Label size="2xl" {...props} />
-        </>
+        </Stack>
     )
 };
 
@@ -58,9 +60,9 @@ export const Size: Story = {
  */
 export const Inherit: Story = {
     render: props => (
-        <div style={{ fontSize: "0.625rem" }}>
+        <Div fontSize="body-xs">
             <Label size="inherit" {...props} />
-        </div>
+        </Div>
     )
 };
 
