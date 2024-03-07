@@ -1,7 +1,7 @@
 import { Div } from "@hopper-ui/styled-system";
 import { Spinner } from "../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Inline } from "../../layouts/index.ts";
+import { Inline } from "../../layout/index.ts";
 
 /**
  * A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.
@@ -42,7 +42,7 @@ export const Default: Story = {
  */
 export const Size: Story = {
     render: args => (
-        <Inline alignItems="end">
+        <Inline alignY="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
@@ -58,7 +58,7 @@ export const Size: Story = {
  */
 export const Label: Story = {
     render: args => (
-        <Inline alignItems="end">
+        <Inline alignY="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />

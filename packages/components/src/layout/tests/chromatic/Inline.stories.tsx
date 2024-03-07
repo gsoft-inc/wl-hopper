@@ -1,15 +1,19 @@
-import { Div } from "@hopper-ui/styled-system";
+import { Div, type DivProps } from "@hopper-ui/styled-system";
 import { Inline } from "../../src/Inline.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+function Square(props: DivProps) {
+    return <Div backgroundColor="decorative-option1" height="core_640" width="core_640" flexShrink={0} {...props} />;
+}
 
 const meta = {
     title: "Components/Inline",
     component: Inline,
     args: {
         children: [
-            <Div key="1" backgroundColor="core_sapphire-500">Alpha</Div>,
-            <Div key="2" backgroundColor="core_sapphire-500">Bravo</Div>,
-            <Div key="3" backgroundColor="core_sapphire-500">Charlie</Div>
+            <Square key="1" backgroundColor="decorative-option1" />,
+            <Square key="2" backgroundColor="decorative-option3" />,
+            <Square key="3" backgroundColor="decorative-option4" />
         ]
     }
 } satisfies Meta<typeof Inline>;
@@ -27,74 +31,77 @@ export const Reverse: Story = {
     }
 };
 
-export const JustifyContentStart: Story = {
+export const AlignXStart: Story = {
     args: {
-        justifyContent: "start"
+        alignX: "start"
     }
 };
 
-export const JustifyContentCenter: Story = {
+export const AlignXCenter: Story = {
     args: {
-        justifyContent: "center"
+        alignX: "center"
     }
 };
 
-export const JustifyContentEnd: Story = {
+export const AlignXEnd: Story = {
     args: {
-        justifyContent: "end"
+        alignX: "end"
     }
 };
 
-export const AlignItemsStart: Story = {
+export const AlignYStart: Story = {
     args: {
-        height: "core_800",
-        alignItems: "end"
+        height: "core_1280",
+        alignY: "start"
     }
 };
 
-export const AlignItemsCenter: Story = {
+export const AlignYCenter: Story = {
+    ...AlignYStart,
     args: {
-        height: "core_800",
-        alignItems: "center"
+        ...AlignYStart.args,
+        alignY: "center"
     }
 };
 
-export const AlignItemsEnd: Story = {
+export const AlignYEnd: Story = {
+    ...AlignYStart,
     args: {
-        height: "core_800",
-        alignItems: "end"
+        ...AlignYStart.args,
+        alignY: "end"
     }
 };
 
 export const Wrap: Story = {
     args: {
-        width: "core_240"
+        UNSAFE_width: "150px"
     }
 };
 
 export const Nowrap: Story = {
+    ...Wrap,
     args: {
-        width: "core_240",
+        ...Wrap.args,
         wrap: false
     }
 };
 
 export const DefaultInline: Story = {
     render: args => (
-        <>
+        <Div>
             <Inline inline {...args} />
             <Inline inline {...args} />
-        </>
+        </Div>
     )
 };
 
 export const Nested: Story = {
     render: args => (
         <Inline gap="core_400">
-            <Inline gap="core_40">
+            <Inline>
                 {args.children}
             </Inline>
-            <Inline gap="core_800">
+            <Inline>
                 {args.children}
             </Inline>
         </Inline>

@@ -1,16 +1,29 @@
 import { forwardRef, type Ref } from "react";
 import { Flex, type FlexProps } from "./Flex.tsx";
 
-export interface StackProps extends Omit<FlexProps, "direction"> {
+export interface StackProps extends Omit<FlexProps, "direction" | "alignItems" | "justifyContent"> {
     /**
      * Whether or not to reverse the order of the elements.
      */
     reverse?: boolean;
+
+    /**
+     * An alias for the css align-items property.
+     */
+    alignX?: FlexProps["alignItems"];
+
+    /**
+     * An alias for the css justify-content property.
+     */
+    alignY?: FlexProps["justifyContent"];
+
 }
 
 function Stack(props: StackProps, ref: Ref<HTMLDivElement>) {
     const {
         reverse,
+        alignX,
+        alignY,
         gap = "stack-md",
         ...rest
     } = props;
@@ -18,6 +31,8 @@ function Stack(props: StackProps, ref: Ref<HTMLDivElement>) {
     return (
         <Flex
             ref={ref}
+            alignItems={alignX}
+            justifyContent={alignY}
             direction={reverse ? "column-reverse" : "column"}
             gap={gap}
             {...rest}

@@ -1,16 +1,27 @@
 import { forwardRef, type Ref } from "react";
 import { Flex, type FlexProps } from "./Flex.tsx";
 
-export interface InlineProps extends Omit<FlexProps, "direction"> {
+export interface InlineProps extends Omit<FlexProps, "direction" | "alignItems" | "justifyContent"> {
     /**
      * Whether or not to reverse the order of the elements.
      */
     reverse?: boolean;
+
+    /**
+     * An alias for the css justify-content property.
+     */
+    alignX?: FlexProps["justifyContent"];
+
+    /**
+     * An alias for the css align-items property.
+     */
+    alignY?: FlexProps["alignItems"];
 }
 
 function Inline(props: InlineProps, ref: Ref<HTMLDivElement>) {
     const {
-        alignItems = "center",
+        alignX,
+        alignY = "center",
         gap = "stack-md",
         wrap = true,
         reverse,
@@ -20,7 +31,8 @@ function Inline(props: InlineProps, ref: Ref<HTMLDivElement>) {
     return (
         <Flex
             ref={ref}
-            alignItems={alignItems}
+            alignItems={alignY}
+            justifyContent={alignX}
             direction={reverse ? "row-reverse" : "row"}
             gap={gap}
             wrap={wrap}

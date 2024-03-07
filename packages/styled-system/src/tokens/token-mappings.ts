@@ -241,7 +241,7 @@ export function parseResponsiveSystemValue<TValue extends string | number>(value
         if (Array.isArray(value)) {
             const systemValueArray = value.map(x => getSystemValue(x, systemValues));
 
-            if (!isNil(systemValueArray)) {
+            if (!isNil(systemValueArray) && systemValueArray.every(x => !isNil(x))) {
                 return systemValueArray;
             }
         } else {
@@ -259,7 +259,7 @@ export function parseResponsiveSystemValue<TValue extends string | number>(value
         if (Array.isArray(underlyingValue)) {
             const underlyingSystemValue = underlyingValue.map(x => getSystemValue(x, systemValues));
 
-            if (!isNil(underlyingSystemValue)) {
+            if (!isNil(underlyingSystemValue) && underlyingSystemValue.every(x => !isNil(x))) {
                 return underlyingSystemValue;
             }
         } else {
@@ -276,4 +276,8 @@ export function parseResponsiveSystemValue<TValue extends string | number>(value
 
 export function getSystemValue<T extends string | number>(value: T, systemValues: Record<T, string>) {
     return systemValues[value];
+}
+
+export function getSizingValue(value: UNSAFE_SizingValue | string) {
+    return (SizingMapping as Record<string, string>)[value] || value;
 }

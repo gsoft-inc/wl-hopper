@@ -28,7 +28,7 @@ const preview: Preview = {
             reactDocgen: "react-docgen"
         }, // disable prop table as suggested here: https://storybook.js.org/blog/optimize-storybook-7-6/
         viewport,
-        docs: {
+        docs: { // only needed while the documentation is not available
             page: () => {
                 return (
                     <>
@@ -38,6 +38,17 @@ const preview: Preview = {
                         <Stories title="Usage" />
                     </>
                 );
+            }
+        },
+        options: {
+            storySort: {
+                order: [
+                    "Docs",
+                    "Components",
+                    "Styled System",
+                    "Icons",
+                    "Tokens"
+                ]
             }
         }
     },

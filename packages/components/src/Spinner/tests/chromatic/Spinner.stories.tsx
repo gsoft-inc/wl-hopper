@@ -1,6 +1,6 @@
 import { Spinner } from "../../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Inline, Stack } from "../../../layouts/index.ts";
+import { Inline, Stack } from "../../../layout/index.ts";
 
 const meta = {
     component: Spinner,
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: args => (
-        <Inline alignItems="end">
+        <Inline alignY="end">
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />
@@ -33,7 +33,7 @@ export const Default: Story = {
 
 export const InheritColor: Story = {
     render: args => (
-        <Inline alignItems="end" backgroundColor="primary-strong">
+        <Inline alignY="end" backgroundColor="primary-strong">
             <Spinner color="core_samoyed" aria-label="Crawling in progress…" {...args} />
             <Spinner color="core_samoyed" {...args}>Crawling in progress…</Spinner>
         </Inline>
@@ -53,12 +53,12 @@ export const Styling: Story = {
 export const Zoom: Story = {
     render: args => (
         <Stack>
-            <Inline alignItems="end" className="zoom-in">
+            <Inline alignY="end" className="zoom-in">
                 <Spinner size="sm" {...args} />
                 <Spinner {...args} />
                 <Spinner size="lg" {...args} />
             </Inline>
-            <Inline alignItems="end" className="zoom-out">
+            <Inline alignY="end" className="zoom-out">
                 <Spinner size="sm" {...args} />
                 <Spinner {...args} />
                 <Spinner size="lg" {...args} />
@@ -72,7 +72,7 @@ export const Zoom: Story = {
 
 export const Label: Story = {
     render: args => (
-        <Inline alignItems="end" >
+        <Inline alignY="end" >
             <Spinner size="sm" {...args} />
             <Spinner {...args} />
             <Spinner size="lg" {...args} />

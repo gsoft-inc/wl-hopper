@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
 import { within } from "@storybook/testing-library";
-import { Inline, Stack } from "../../../layouts/index.ts";
+import { Inline, Stack } from "../../../layout/index.ts";
 
 
 const meta: Meta<typeof Button> = {
@@ -26,11 +26,11 @@ export const Primary: Story = {
             <Stack>
                 <Stack>
                     <h2>Default</h2>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button size="sm" {...args}>Button</Button>
                         <Button {...args}>Button</Button>
                     </Inline>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>Button</Button>
                         <Button isLoading {...args}>Button</Button>
                     </Inline>
@@ -46,7 +46,7 @@ export const Primary: Story = {
                 </Stack>
                 <Stack>
                     <h2>Icons</h2>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <PlusIcon />
                             <Text>Button</Text>
@@ -56,7 +56,7 @@ export const Primary: Story = {
                             <Text>Button</Text>
                         </Button>
                     </Inline>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
@@ -70,7 +70,7 @@ export const Primary: Story = {
                             <Text>Button</Text>
                         </Button>
                     </Inline>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <PlusIcon />
                             <Text>Button</Text>
@@ -98,7 +98,7 @@ export const Primary: Story = {
                 </Stack>
                 <Stack>
                     <h1>End icons</h1>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
@@ -108,7 +108,7 @@ export const Primary: Story = {
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <Text>Button</Text>
                             <IconList slot="end-icon">
@@ -122,7 +122,7 @@ export const Primary: Story = {
                             </IconList>
                         </Button>
                     </Inline>
-                    <Inline justifyContent="end">
+                    <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <Text>Button</Text>
                             <PlusIcon slot="end-icon" />
@@ -150,12 +150,14 @@ export const Primary: Story = {
                 </Stack>
                 <Stack>
                     <h1>Zoom</h1>
-                    <Div className="zoom-in">
-                        <Button {...args}>Button</Button>
-                    </Div>
-                    <Div className="zoom-out'">
-                        <Button {...args}>Button</Button>
-                    </Div>
+                    <Inline alignY="end">
+                        <Div className="zoom-in">
+                            <Button {...args}>Button</Button>
+                        </Div>
+                        <Div className="zoom-out'">
+                            <Button {...args}>Button</Button>
+                        </Div>
+                    </Inline>
                 </Stack>
             </Stack>
         );
@@ -217,7 +219,7 @@ export const PrimaryStates: Story = {
         return (
             <Stack>
                 <h1>Default</h1>
-                <Inline justifyContent="end">
+                <Inline alignX="end">
                     <Button size="sm" {...args}>Button</Button>
                     <Button {...args}>Button</Button>
                     <Button {...args}>
@@ -242,7 +244,7 @@ export const PrimaryStates: Story = {
                     </Button>
                 </Inline>
                 <h1>Disabled</h1>
-                <Inline justifyContent="end">
+                <Inline alignX="end">
                     <Button isDisabled size="sm" {...args}>Button</Button>
                     <Button isDisabled {...args}>Button</Button>
                     <Button isDisabled {...args}>
@@ -267,7 +269,7 @@ export const PrimaryStates: Story = {
                     </Button>
                 </Inline>
                 <h1>Pressed</h1>
-                <Inline justifyContent="end">
+                <Inline alignX="end">
                     <Button data-chromatic-force-press size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-press {...args}>Button</Button>
                     <Button data-chromatic-force-press {...args}>
@@ -292,7 +294,7 @@ export const PrimaryStates: Story = {
                     </Button>
                 </Inline>
                 <h1>Focus Visible</h1>
-                <Inline justifyContent="end">
+                <Inline alignX="end">
                     <Button data-chromatic-force-focus size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-focus {...args}>Button</Button>
                     <Button data-chromatic-force-focus {...args}>
@@ -317,7 +319,7 @@ export const PrimaryStates: Story = {
                     </Button>
                 </Inline>
                 <h1>Hovered</h1>
-                <Inline justifyContent="end">
+                <Inline alignX="end">
                     <Button data-chromatic-force-hover size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-hover {...args}>Button</Button>
                     <Button data-chromatic-force-hover {...args}>
@@ -342,7 +344,7 @@ export const PrimaryStates: Story = {
                     </Button>
                 </Inline>
                 <h1>Focus Visible and Hovered</h1>
-                <Inline justifyContent="end">
+                <Inline alignX="end">
                     <Button data-chromatic-force-focus data-chromatic-force-hover size="sm" {...args}>Button</Button>
                     <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>Button</Button>
                     <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>

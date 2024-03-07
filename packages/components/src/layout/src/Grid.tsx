@@ -1,4 +1,5 @@
-import { Div, type DivProps, SizingMapping, type CssGrid } from "@hopper-ui/styled-system";
+import { Div, getSizingValue } from "@hopper-ui/styled-system";
+import type { UNSAFE_SizingValue, DivProps, CssGrid } from "@hopper-ui/styled-system";
 import { forwardRef, type Ref } from "react";
 
 export interface GridProps extends
@@ -80,6 +81,10 @@ function Grid(props: GridProps, ref: Ref<HTMLDivElement>) {
         autoColumns,
         autoFlow,
         inline,
+        UNSAFE_autoRows,
+        UNSAFE_templateColumns,
+        UNSAFE_templateRows,
+        UNSAFE_autoColumns,
         ...otherProps
     } = props;
 
@@ -93,16 +98,13 @@ function Grid(props: GridProps, ref: Ref<HTMLDivElement>) {
             gridTemplateRows={templateRows}
             gridAutoColumns={autoColumns}
             gridAutoFlow={autoFlow}
+            UNSAFE_gridAutoRows={UNSAFE_autoRows}
+            UNSAFE_gridTemplateColumns={UNSAFE_templateColumns}
+            UNSAFE_gridTemplateRows={UNSAFE_templateRows}
+            UNSAFE_gridAutoColumns={UNSAFE_autoColumns}
             {...otherProps}
         />
     );
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type SizingValue = keyof typeof SizingMapping | "auto" | "min-content" | "max-content" | "fit-content" | "minmax" | (string & {});
-
-function getSizingValue(value: SizingValue): string {
-    return (SizingMapping as Record<string, string>)[value] || value;
 }
 
 /**
@@ -111,7 +113,7 @@ function getSizingValue(value: SizingValue): string {
  * @param count - The number of times to repeat the fragment.
  * @param repeat - The fragment to repeat.
  */
-export function repeat(count: number | "auto-fill" | "auto-fit", repetition: SizingValue | SizingValue[]) {
+export function repeat(count: number | "auto-fill" | "auto-fit", repetition: UNSAFE_SizingValue | UNSAFE_SizingValue[]) {
     return `repeat(${count}, ${Array.isArray(repetition) ? interpolateGridTemplateArray(repetition) : getSizingValue(repetition)})` as CssGrid;
 }
 
@@ -122,7 +124,7 @@ export function repeat(count: number | "auto-fill" | "auto-fit", repetition: Siz
  * @param min - The minimum size.
  * @param max - The maximum size.
  */
-export function minmax(min: SizingValue, max: SizingValue) {
+export function minmax(min: UNSAFE_SizingValue, max: UNSAFE_SizingValue) {
     return `minmax(${getSizingValue(min)}, ${getSizingValue(max)})` as CssGrid;
 }
 
@@ -131,11 +133,11 @@ export function minmax(min: SizingValue, max: SizingValue) {
  * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content).
  * @param dimension - The size to clamp.
  */
-export function fitContent(dimension: SizingValue | string) {
+export function fitContent(dimension: UNSAFE_SizingValue) {
     return `fit-content(${getSizingValue(dimension)})` as CssGrid;
 }
 
-function interpolateGridTemplateArray(values: SizingValue[]) {
+function interpolateGridTemplateArray(values: UNSAFE_SizingValue[]) {
     return values.map(x => getSizingValue(x)).join(" ");
 }
 
