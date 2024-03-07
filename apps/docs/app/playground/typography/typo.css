@@ -2,20 +2,56 @@
     font-family: "ABC Favorit";
     font-style: normal;
     font-weight: 100 900;
-    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable.woff2") format("woff2");
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable.woff2") format("woff2-variations");
     font-display: fallback;
 }
 
-[data-font="cdn"] h1,
-[data-font="cdn"] h2,
-[data-font="cdn"] h3,
-[data-font="cdn"] h4,
-[data-font="cdn"] h5,
-[data-font="cdn"] h6,
-[data-font="cdn"] p {
+@font-face {
+    font-family: "ABC Favorit Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritMono-Regular.woff2") format("woff2-variations");
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 100 900;
+    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/InterVariable.woff2") format("woff2-variations");
+    font-display: fallback;
+}
+
+[data-font="cdn"] div.favorit {
     font-family: "ABC Favorit", sans-serif;
     font-weight: 410;
     font-style: normal;
     color: var(--hd-color-neutral-text);
     line-height: 1.5;
+}
+
+[data-font="cdn"] div.favorit-mono {
+    font-family: "ABC Favorit Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--hd-color-neutral-text);
+    line-height: 1.5;
+}
+
+[data-font="cdn"] div.inter {
+    font-family: Inter, sans-serif;
+    font-weight: 410;
+    font-style: normal;
+    color: var(--hd-color-neutral-text);
+    line-height: 1.5;
+}
+
+.font-sample {
+    margin-bottom: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid;
+}
+
+.number {
+    font-size: 1.5rem;
 }

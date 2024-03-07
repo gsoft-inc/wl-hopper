@@ -1,9 +1,9 @@
 /* !* EDITOR  - THEME SPECIFIC COLORS *! */
-[data-theme="light"] [data-rehype-pretty-code-fragment]{
+[data-theme="light"] [data-rehype-pretty-code-figure]{
     --hd-codeblock-background-color: var(--hd-neutral-800);
 }
 
-[data-rehype-pretty-code-fragment] {
+[data-rehype-pretty-code-figure] {
     /* NORD */
     --hd-codeblock-line-highlighted-border-color: #88C0D0;
     --hd-codeblock-line-highlighted-background-color: #434C5E;
@@ -23,70 +23,70 @@
     margin-bottom: var(--hd-space-3);
 }
 
-[data-rehype-pretty-code-fragment] *::selection {
+[data-rehype-pretty-code-figure] *::selection {
     background: rgb(67 76 94 / 80%);
 }
 
-[data-rehype-pretty-code-fragment] pre {
+[data-rehype-pretty-code-figure] pre {
     background-color: var(--hd-codeblock-background-color) !important;
 }
 
-[data-rehype-pretty-code-fragment] code {
+[data-rehype-pretty-code-figure] code {
     /* until we create our own json theme, it's the best way to have a transparent code line */
     background-color: transparent !important;
 }
 
-[data-rehype-pretty-code-fragment] pre code {
+[data-rehype-pretty-code-figure] pre code {
     display: grid;
     overflow-x: auto;
 }
 
-[data-rehype-pretty-code-fragment] .line {
-    font-size: 1rem;
-    line-height: 2.25;
+[data-rehype-pretty-code-figure] [data-line] {
+    font-size: 0.875rem;
+    line-height: 1.5;
 }
 
-[data-rehype-pretty-code-fragment] pre code .line {
-    padding: 0  var(--hd-space-3);
+[data-rehype-pretty-code-figure] pre code [data-line] {
+    padding: 0 var(--hd-space-1) 0 0;
     border-left: 0.125rem solid transparent;
 }
 
-[data-rehype-pretty-code-fragment] .word {
+[data-rehype-pretty-code-figure] .word {
     border-radius: var(--hd-space-05);
     background-color: var(--hd-codeblock-word-selection-background-color);
     box-shadow: 0 0 0 var(--hd-space-05) var(--hd-codeblock-word-selection-background-color);
 }
 
-[data-rehype-pretty-code-fragment] pre  code .line.highlighted {
+[data-rehype-pretty-code-figure] pre  code [data-highlighted-chars] {
     background-color: var(--hd-codeblock-line-highlighted-background-color);
     border-left-color: var(--hd-codeblock-line-highlighted-border-color);
 }
 
 /* LINE NUMBERS */
-[data-rehype-pretty-code-fragment] code[data-line-numbers] {
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
     counter-reset: line;
 }
 
-[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line::before {
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
     counter-increment: line;
     content: counter(line);
     display: inline-block;
     width: var(--hd-space-2);
-    margin-right: var(--hd-space-4);
+    margin-right: var(--hd-space-2);
     text-align: right;
     color: var(--hd-codeblock-line-line-number-color);
 }
 
-[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='2'] > .line::before {
+[data-rehype-pretty-code-figure] code[data-line-numbers-max-digits='2'] > [data-line]::before {
     width: var(--hd-space-4);
 }
 
-[data-rehype-pretty-code-fragment] code[data-line-numbers-max-digits='3'] > .line::before {
+[data-rehype-pretty-code-figure] code[data-line-numbers-max-digits='3'] > [data-line]::before {
     width: var(--hd-space-6);
 }
 
 /* LINE NUMBERS HIGHLIGHT - NUMBER COLOR */
-[data-rehype-pretty-code-fragment] code[data-line-numbers] > .line.highlighted::before {
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line].highlighted::before {
     color: var(--hd-codeblock-line-line-number-color-highlight);
 }
 
@@ -105,25 +105,25 @@
 }
 
 /* Custom Word ID */
-[data-rehype-pretty-code-fragment] [data-word-id] {
+[data-rehype-pretty-code-figure] [data-word-id] {
     padding: var(--hd-space-05);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #000000), var(--tw-ring-shadow, 0 0 #000000), var(--tw-shadow);
 }
 
 /* v for value */
-[data-rehype-pretty-code-fragment] [data-word-id="v"] {
+[data-rehype-pretty-code-figure] [data-word-id="v"] {
     background-color: var(--hd-codeblock-word-value-background-color);
     color: var(--hd-codeblock-word-value-text-color);
 }
 
 /* s for setter */
-[data-rehype-pretty-code-fragment] [data-word-id="s"] {
+[data-rehype-pretty-code-figure] [data-word-id="s"] {
     background-color: var(--hd-codeblock-word-setter-background-color);
     color: var(--hd-codeblock-word-setter-text-color);
 }
 
 /* i for initial value */
-[data-rehype-pretty-code-fragment] [data-word-id="i"] {
+[data-rehype-pretty-code-figure] [data-word-id="i"] {
     background-color: var(--hd-codeblock-word-initial-value-background-color);
     color: var(--hd-codeblock-word-initial-value-text-color);
     font-weight: 700;

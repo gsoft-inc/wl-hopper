@@ -3,45 +3,25 @@
         "font": {
             "Inter": {
                 "normal": {
-                    "410": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
-                        "formats": ["woff2"]
-                    },
-                    "505": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
-                        "formats": ["woff2"]
-                    },
-                    "590": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
-                        "formats": ["woff2"]
-                    },
-                    "690": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/Inter.var",
-                        "formats": ["woff2"]
+                    "100 900": {
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/InterVariable.woff2",
+                        "formats": ["woff2-variations"]
                     }
                 }
             },
             "ABC Favorit Mono": {
                 "normal": {
                     "400": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritMono-Regular",
-                        "formats": ["woff2"]
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritMono-Regular.woff2",
+                        "formats": ["woff2-variations"]
                     }
                 }
             },
             "ABC Favorit": {
                 "normal": {
-                    "410": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable",
-                        "formats": ["woff2"]
-                    },
-                    "580": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable",
-                        "formats": ["woff2"]
-                    },
-                    "680": {
-                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable",
-                        "formats": ["woff2"]
+                    "100 900": {
+                        "value": "https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable.woff2",
+                        "formats": ["woff2-variations"]
                     }
                 }
             }
