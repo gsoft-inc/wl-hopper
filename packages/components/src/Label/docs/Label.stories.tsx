@@ -12,7 +12,7 @@ import { Provider } from "react-aria-components";
  * -
  * View storybook TODO
  */
-const meta: Meta<typeof Label> = {
+const meta = {
     title: "Docs/Label",
     tags: ["autodocs"],
     parameters: {
@@ -23,7 +23,7 @@ const meta: Meta<typeof Label> = {
     args: {
         children: "Software built for everyone to do their best work"
     }
-};
+} satisfies Meta<typeof Label>;
 
 export default meta;
 

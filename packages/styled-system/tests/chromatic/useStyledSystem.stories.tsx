@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const viewports = Object.values(Breakpoints);
 
-const meta: Meta<DivProps> = {
+const meta = {
     title: "Styled System/useStyledSystem",
     component: Div,
     parameters: {
@@ -19,7 +19,7 @@ const meta: Meta<DivProps> = {
         width: "core_960",
         children: "Hop"
     }
-};
+} satisfies Meta<DivProps>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

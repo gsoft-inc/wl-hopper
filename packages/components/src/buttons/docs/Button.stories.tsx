@@ -15,7 +15,7 @@ import { IconList } from "../../index.ts";
  * -
  * View storybook TODO
  */
-const meta: Meta<typeof Button> = {
+const meta = {
     title: "Docs/Buttons/Button",
     tags: ["autodocs"],
     parameters: {
@@ -26,7 +26,7 @@ const meta: Meta<typeof Button> = {
     args: {
         children: "Save"
     }
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
 

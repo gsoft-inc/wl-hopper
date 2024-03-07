@@ -1,13 +1,13 @@
 import { Text } from "../../src/Text.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof Text> = {
+const meta = {
     title: "Components/Typography/Text",
     component: Text,
     args: {
         children: "Software built for everyone to do their best work."
     }
-};
+} satisfies Meta<typeof Text>;
 
 export default meta;
 

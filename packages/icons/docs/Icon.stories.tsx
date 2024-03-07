@@ -10,7 +10,7 @@ An icon component allow you to render a custom icon.
  * -
  * View storybook TODO
  */
-const meta: Meta<typeof AddIcon> = {
+const meta = {
     title: "Docs/Icon",
     tags: ["autodocs"],
     parameters: {
@@ -18,7 +18,7 @@ const meta: Meta<typeof AddIcon> = {
         chromatic: { disableSnapshot: true }
     },
     component: AddIcon
-};
+} satisfies Meta<typeof AddIcon>;
 
 export default meta;
 

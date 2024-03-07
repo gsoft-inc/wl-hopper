@@ -13,7 +13,7 @@ const ColoredDiv = () => {
     );
 };
 
-const meta: Meta<typeof HopperProvider> = {
+const meta = {
     title: "Components/HopperProvider",
     component: HopperProvider,
     args: {
@@ -24,7 +24,7 @@ const meta: Meta<typeof HopperProvider> = {
             disabled: true // This file is used to test the HopperProvider in isolation, so we don't want to render the HopperProvider here
         }
     } satisfies WithHopperStorybookAddonParameter
-};
+} satisfies Meta<typeof HopperProvider>;
 
 export default meta;
 

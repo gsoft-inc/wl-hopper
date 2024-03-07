@@ -8,13 +8,13 @@ import { within } from "@storybook/testing-library";
 import { Inline, Stack } from "../../../layout/index.ts";
 
 
-const meta: Meta<typeof Button> = {
+const meta = {
     title: "Components/Buttons/Button",
     component: Button,
     args: {
         children: "Click me!"
     }
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
 

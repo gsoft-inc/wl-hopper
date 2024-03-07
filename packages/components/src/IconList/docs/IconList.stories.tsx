@@ -11,7 +11,7 @@ import type { Meta, StoryObj } from "@storybook/react";
  * -
  * View storybook TODO
  */
-const meta: Meta<typeof IconList> = {
+const meta = {
     title: "Docs/IconList",
     tags: ["autodocs"],
     parameters: {
@@ -25,7 +25,7 @@ const meta: Meta<typeof IconList> = {
             <PlusIcon />
         ]
     }
-};
+} satisfies Meta<typeof IconList>;
 
 export default meta;
 

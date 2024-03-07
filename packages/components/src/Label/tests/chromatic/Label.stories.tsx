@@ -1,13 +1,13 @@
 import { Label } from "../../src/Label.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof Label> = {
+const meta = {
     title: "Components/Typography/Label",
     component: Label,
     args: {
         children: "Software built for everyone to do their best work."
     }
-};
+} satisfies Meta<typeof Label>;
 
 export default meta;
 

@@ -21,10 +21,10 @@ const List = ({ ...iconProps }: ListProps) => {
     );
 };
 
-const meta: Meta<typeof List> = {
+const meta = {
     component: List,
     title: "Icons/Icons"
-};
+} satisfies Meta<typeof List>;
 
 export default meta;
 
