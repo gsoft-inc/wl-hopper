@@ -2,6 +2,8 @@ import { Div } from "@hopper-ui/styled-system";
 import { Spinner } from "../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Inline } from "../../layout/index.ts";
+import { Provider } from "react-aria-components";
+import { SpinnerContext } from "../src/SpinnerContext.ts";
 
 /**
  * A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.
@@ -81,4 +83,21 @@ export const OverBackground: Story = {
     args: {
         children: "Loading…"
     }
+};
+
+/**
+ * All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+ * You can send any prop or ref via context that you could pass to the corresponding component.
+ * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+ */
+export const AdvancedCustomization: Story = {
+
+    render: props => (
+        <Provider values={[
+            [SpinnerContext, { color: "core_amanita-500", size: "lg" }]
+        ]}
+        >
+            <Spinner {...props} />
+        </Provider>
+    )
 };

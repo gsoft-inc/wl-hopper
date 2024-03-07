@@ -1,6 +1,9 @@
 import { IconList } from "../src/IconList.tsx";
 import { AddIcon, PlusIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Stack } from "../../layout/src/Stack.tsx";
+import { IconListContext } from "../src/IconListContext.ts";
+import { Provider } from "react-aria-components";
 
 /**
  * A component that allows you to render a list of icons
@@ -37,9 +40,31 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 };
 
-export const Styling: Story = {
-    args: {
-        color: "primary",
-        gap: "inline-xl"
-    }
+/**
+ * An IconList can vary in size.
+ */
+export const Sizes: Story = {
+    render: args => (
+        <Stack>
+            <IconList {...args} size="sm" />
+            <IconList {...args} size="md" />
+            <IconList {...args} size="lg" />
+        </Stack>
+    )
+};
+
+/**
+ * All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+ * You can send any prop or ref via context that you could pass to the corresponding component.
+ * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+ */
+export const AdvancedCustomization: Story = {
+    render: props => (
+        <Provider values={[
+            [IconListContext, { size: "lg" }]
+        ]}
+        >
+            <IconList {...props} />
+        </Provider>
+    )
 };

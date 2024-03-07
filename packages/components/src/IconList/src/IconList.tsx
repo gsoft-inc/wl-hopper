@@ -1,10 +1,11 @@
-import { useContextProps } from "react-aria-components";
+import { Provider, useContextProps } from "react-aria-components";
 import styles from "./IconList.module.css";
 import { IconListContext } from "./IconListContext.ts";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
 import type { BaseComponentProps } from "../../index.ts";
 import clsx from "clsx";
-import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { useStyledSystem, type StyledSystemProps, type ResponsiveProp } from "@hopper-ui/styled-system";
+import { IconContext } from "@hopper-ui/icons";
 
 export const GlobalIconListCssSelector = "hop-IconList";
 
@@ -12,14 +13,17 @@ export const GlobalIconListCssSelector = "hop-IconList";
 const DefaultIconListSlot = "icon";
 
 export interface IconListProps extends StyledSystemProps, BaseComponentProps {
-
+    /**
+    * The size of the icon.
+    */
+    size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
 function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultIconListSlot }, ref, IconListContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { children, style, className, slot, ...otherProps } = ownProps;
+    const { children, style, className, slot, size, ...otherProps } = ownProps;
 
     const classNames = clsx(
         className,
@@ -41,7 +45,14 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
             style={mergedStyles}
             slot={slot ?? undefined}
         >
-            {children}
+            <Provider values={[
+                [IconContext, {
+                    size
+                }]
+            ]}
+            >
+                {children}
+            </Provider>
         </span>
     );
 }

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
 import { Stack } from "@hopper-ui/components";
+import { Provider } from "react-aria-components";
+import { IconContext } from "../src/IconContext.ts";
 
 /**
 An icon component allow you to render a custom icon.
@@ -49,4 +51,21 @@ export const Styling: Story = {
     args: {
         fill:"primary"
     }
+};
+
+/**
+ * All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+ * You can send any prop or ref via context that you could pass to the corresponding component.
+ * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+ */
+export const AdvancedCustomization: Story = {
+
+    render: props => (
+        <Provider values={[
+            [IconContext, { fill: "primary" }]
+        ]}
+        >
+            <AddIcon {...props} />
+        </Provider>
+    )
 };

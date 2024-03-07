@@ -1,8 +1,10 @@
 import { Text } from "../../Text/src/Text.tsx";
 import { Button } from "../src/Button.tsx";
+import { ButtonContext } from "../src/ButtonContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "@hopper-ui/icons";
 import { IconList } from "../../index.ts";
+import { Provider } from "react-aria-components";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -176,7 +178,11 @@ export const Loading: Story = {
     }
 };
 
+/**
+ * A button can contain an IconList.
+ */
 export const IconListStory: Story = {
+    name: "IconList",
     ...Size,
     args: {
         children: [
@@ -188,7 +194,11 @@ export const IconListStory: Story = {
     }
 };
 
+/**
+ * A button can contain a Non standard end IconList.
+ */
 export const EndIconList: Story = {
+    name: "EndIconList",
     ...Size,
     args: {
         children: [
@@ -198,4 +208,21 @@ export const EndIconList: Story = {
             <Text>Save</Text>
         ]
     }
+};
+
+/**
+ * All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+ * You can send any prop or ref via context that you could pass to the corresponding component.
+ * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+ */
+export const AdvancedCustomization: Story = {
+
+    render: props => (
+        <Provider values={[
+            [ButtonContext, { variant: "secondary", size: "sm" }]
+        ]}
+        >
+            <Button {...props} />
+        </Provider>
+    )
 };
