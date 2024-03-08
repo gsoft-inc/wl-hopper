@@ -143,7 +143,7 @@ const gridTemplateDimensionsHandler: PropHandler = (name, value, context) => {
 
     if (!isNil(parsedValue)) {
         if (Array.isArray(parsedValue)) {
-            parsedValue = parsedValue.join(" ");
+            parsedValue = parsedValue.map(x => parseResponsiveSystemValue(x, SizingMapping, context.matchedBreakpoints)).join(" ");
         }
 
         context.addStyleValue(name, parsedValue);

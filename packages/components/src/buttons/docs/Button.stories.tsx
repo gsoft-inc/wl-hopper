@@ -135,8 +135,8 @@ export const Icon: Story = {
     ...Size,
     args: {
         children: [
-            <PlusIcon />,
-            <Text>Save</Text>
+            <PlusIcon key="1" />,
+            <Text key="2">Save</Text>
         ]
     }
 };
@@ -186,8 +186,8 @@ export const IconListStory: Story = {
     ...Size,
     args: {
         children: [
-            <Text>Save</Text>,
-            <IconList>
+            <Text key="1">Save</Text>,
+            <IconList key="2">
                 <PlusIcon /><PlusIcon /><PlusIcon />
             </IconList>
         ]
@@ -202,10 +202,10 @@ export const EndIconList: Story = {
     ...Size,
     args: {
         children: [
-            <IconList slot="end-icon">
+            <IconList key="1" slot="end-icon">
                 <PlusIcon /><PlusIcon /><PlusIcon />
             </IconList>,
-            <Text>Save</Text>
+            <Text key="2">Save</Text>
         ]
     }
 };

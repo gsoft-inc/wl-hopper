@@ -13,7 +13,7 @@ import type { DivProps } from "@hopper-ui/styled-system";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Flex",
+    title: "Docs/Layout/Flex",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories

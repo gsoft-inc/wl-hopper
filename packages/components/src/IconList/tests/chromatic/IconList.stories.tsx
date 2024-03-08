@@ -7,8 +7,8 @@ const meta = {
     component: IconList,
     args: {
         children: [
-            <AddIcon />,
-            <PlusIcon />
+            <AddIcon key="1" />,
+            <PlusIcon key="2" />
         ]
     }
 } satisfies Meta<typeof IconList>;
