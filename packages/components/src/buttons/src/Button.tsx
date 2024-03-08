@@ -12,6 +12,7 @@ import { TextContext } from "../../Text/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
+import { isTextOnlyChildren } from "../../utils/src/is-text-only-children.ts";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
@@ -90,7 +91,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     );
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (typeof prev === "string") {
+        if (isTextOnlyChildren(prev)) {
             return <Text>{prev}</Text>;
         }
 
