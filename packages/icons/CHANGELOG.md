@@ -1,5 +1,15 @@
 # @hopper-ui/icons
 
+## 1.4.0
+
+### Minor Changes
+
+- 1225e9e: **Added**
+
+  | Icon Name  |
+  | ---------- |
+  | FolderIcon |
+
 ## 1.3.0
 
 ### Minor Changes

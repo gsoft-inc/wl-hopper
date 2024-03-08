@@ -1,5 +1,17 @@
 # @hopper-ui/svg-icons
 
+## 2.4.0
+
+### Minor Changes
+
+- 91bba61: Added
+
+  | SVG Name      |
+  | ------------- |
+  | folder-16.svg |
+  | folder-24.svg |
+  | folder-32.svg |
+
 ## 2.3.0
 
 ### Minor Changes
