@@ -1,27 +1,3 @@
-@font-face {
-    font-family: "ABC Favorit";
-    font-style: normal;
-    font-weight: 100 900;
-    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritVariable.woff2") format("woff2-variations");
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: "ABC Favorit Mono";
-    font-style: normal;
-    font-weight: 400;
-    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/ABCFavoritMono-Regular.woff2") format("woff2-variations");
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 100 900;
-    src: url("https://cdn.platform.workleap-dev.com/hopper/fonts/InterVariable.woff2") format("woff2-variations");
-    font-display: fallback;
-}
-
 [data-font="cdn"] div.favorit {
     font-family: "ABC Favorit", sans-serif;
     font-weight: 410;
