@@ -19,15 +19,18 @@ export function fontFace ({ dictionary, options }: { dictionary: Dictionary; opt
         const {
             attributes,
             formats,
+            fontcategory,
             value: path
         } = prop;
+
+        console.log(attributes);
 
         const urls = formats
             .map((extension: string) => `url("${fontPathPrefix}${path}") format("${formatsMap[extension]}")`);
 
         const fontCss = [
             "@font-face {",
-            `\n\tfont-family: "${attributes?.family}";`,
+            `\n\tfont-family: "${attributes?.family}", ${fontcategory};`,
             `\n\tfont-style: ${attributes?.style};`,
             `\n\tfont-weight: ${attributes?.weight};`,
             `\n\tsrc: ${urls.join(",\n\t\t\t ")};`,

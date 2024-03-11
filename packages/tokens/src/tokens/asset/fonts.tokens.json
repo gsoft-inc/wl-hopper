@@ -5,7 +5,8 @@
                 "normal": {
                     "100 900": {
                         "value": "https://cdn.platform.workleap.com/hopper/fonts/InterVariable.woff2",
-                        "formats": ["woff2-variations"]
+                        "formats": ["woff2-variations"],
+                        "fontcategory": "sans-serif"
                     }
                 }
             },
@@ -13,7 +14,8 @@
                 "normal": {
                     "400": {
                         "value": "https://cdn.platform.workleap.com/hopper/fonts/ABCFavoritMono-Regular.woff2",
-                        "formats": ["woff2-variations"]
+                        "formats": ["woff2-variations"],
+                        "fontcategory": "sans-serif"
                     }
                 }
             },
@@ -21,7 +23,8 @@
                 "normal": {
                     "100 900": {
                         "value": "https://cdn.platform.workleap.com/hopper/fonts/ABCFavoritVariable.woff2",
-                        "formats": ["woff2-variations"]
+                        "formats": ["woff2-variations"],
+                        "fontcategory": "sans-serif"
                     }
                 }
             }
