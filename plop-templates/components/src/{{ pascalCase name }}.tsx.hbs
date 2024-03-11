@@ -1,5 +1,8 @@
-import styles from "./{{ pascalCase name }}.module.css";
+import { forwardRef, type ForwardedRef } from "react";
 import { {{ pascalCase name }}Context } from "./{{ pascalCase name }}Context.ts";
+import { useContextProps } from "react-aria-components";
+
+import styles from "./{{ pascalCase name }}.module.css";
 
 export const Global{{ pascalCase name }}CssSelector = "hop-{{ pascalCase name }}";
 
