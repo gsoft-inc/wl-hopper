@@ -52,7 +52,7 @@ pnpm changeset
 
 ### Checklist:
 
-- [ ] Every component should have a GlobalCssSelector that is unique to the component. This allows the targetting of the component in the global css file.
+- [ ] Every component should have a GlobalCssSelector that is unique to the component. This allows the targetting of the component in the global CSS file.
 ```
 export const GlobalIconCssSelector = "hop-icon";
 ```
@@ -76,7 +76,7 @@ const { children, style, className, slot, ...otherProps } = ownProps;
 ```
 
 - [ ] make sure to merge the classnames and styles from the props with the classnames and styles from the style system.
-Make sure to that the style from the props have higher priority than the style from the style system.
+Make sure that the style from the props have higher priority than the style from the style system.
 ```
     const classNames = clsx(
         className,
