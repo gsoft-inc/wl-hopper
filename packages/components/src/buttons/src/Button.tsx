@@ -31,7 +31,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     size?: ResponsiveProp<"sm" | "md">;
 
     /**
-     * Whether or not the button take up the width of its container.
+     * Whether or not the button takes up the width of its container.
      */
     fluid?: ResponsiveProp<boolean>;
 
