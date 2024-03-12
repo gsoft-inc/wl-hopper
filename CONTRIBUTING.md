@@ -95,4 +95,4 @@ Make sure that the style from the props have higher priority than the style from
 ```
 
 ## Questions:
-is `{...filterDOMProps(otherProps)}` required when passing props to a dom element?
+is `{...filterDOMProps(otherProps)}` required when passing props to a DOM element?
