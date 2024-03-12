@@ -21,9 +21,6 @@ const preview: Preview = {
                 date: /Date$/
             }
         },
-        designToken: {
-            disable: true // TODO: What is this?
-        },
         typescript: {
             reactDocgen: "react-docgen"
         }, // disable prop table as suggested here: https://storybook.js.org/blog/optimize-storybook-7-6/

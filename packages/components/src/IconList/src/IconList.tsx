@@ -1,4 +1,4 @@
-import { Provider, useContextProps } from "react-aria-components";
+import { useContextProps } from "react-aria-components";
 import styles from "./IconList.module.css";
 import { IconListContext } from "./IconListContext.ts";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
@@ -6,6 +6,7 @@ import type { BaseComponentProps } from "../../index.ts";
 import clsx from "clsx";
 import { useStyledSystem, type StyledSystemProps, type ResponsiveProp } from "@hopper-ui/styled-system";
 import { IconContext } from "@hopper-ui/icons";
+import { SlotProvider } from "../../utils/index.ts";
 
 export const GlobalIconListCssSelector = "hop-IconList";
 
@@ -45,14 +46,14 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
             style={mergedStyles}
             slot={slot ?? undefined}
         >
-            <Provider values={[
+            <SlotProvider values={[
                 [IconContext, {
                     size
                 }]
             ]}
             >
                 {children}
-            </Provider>
+            </SlotProvider>
         </span>
     );
 }

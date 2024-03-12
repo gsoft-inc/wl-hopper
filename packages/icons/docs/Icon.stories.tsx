@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
-import { Stack } from "@hopper-ui/components";
-import { Provider } from "react-aria-components";
+import { Stack, SlotProvider } from "@hopper-ui/components";
 import { IconContext } from "../src/IconContext.ts";
 
 /**
@@ -61,11 +60,11 @@ export const Styling: Story = {
 export const AdvancedCustomization: Story = {
 
     render: props => (
-        <Provider values={[
+        <SlotProvider values={[
             [IconContext, { fill: "primary" }]
         ]}
         >
             <AddIcon {...props} />
-        </Provider>
+        </SlotProvider>
     )
 };

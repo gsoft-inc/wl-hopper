@@ -2,8 +2,8 @@ import { Div } from "@hopper-ui/styled-system";
 import { Spinner } from "../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Inline } from "../../layout/index.ts";
-import { Provider } from "react-aria-components";
 import { SpinnerContext } from "../src/SpinnerContext.ts";
+import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.
@@ -91,13 +91,12 @@ export const OverBackground: Story = {
  * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
  */
 export const AdvancedCustomization: Story = {
-
     render: props => (
-        <Provider values={[
+        <SlotProvider values={[
             [SpinnerContext, { color: "core_amanita-500", size: "lg" }]
         ]}
         >
             <Spinner {...props} />
-        </Provider>
+        </SlotProvider>
     )
 };

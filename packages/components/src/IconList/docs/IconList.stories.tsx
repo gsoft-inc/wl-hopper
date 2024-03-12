@@ -3,7 +3,7 @@ import { AddIcon, PlusIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Stack } from "../../layout/src/Stack.tsx";
 import { IconListContext } from "../src/IconListContext.ts";
-import { Provider } from "react-aria-components";
+import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * A component that allows you to render a list of icons
@@ -60,11 +60,11 @@ export const Sizes: Story = {
  */
 export const AdvancedCustomization: Story = {
     render: props => (
-        <Provider values={[
+        <SlotProvider values={[
             [IconListContext, { size: "lg" }]
         ]}
         >
             <IconList {...props} />
-        </Provider>
+        </SlotProvider>
     )
 };

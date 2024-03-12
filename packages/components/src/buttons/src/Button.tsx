@@ -1,11 +1,11 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
-import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps, Provider } from "react-aria-components";
+import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
 import styles from "./Button.module.css";
 import { useId } from "react-aria";
 import { cssModule } from "../../utils/src/css-module.ts";
 import { Text } from "../../Text/src/Text.tsx";
-import { composeClassnameRenderProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext } from "./ButtonContext.ts";
 import { TextContext } from "../../Text/index.ts";
@@ -50,6 +50,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonSlot }, ref, ButtonContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+
     const stringFormatter = useLocalizedString();
 
     const {
@@ -111,7 +112,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const isLoadingAriaLiveLabel = `${hasAriaLabel ? props["aria-label"] : ""} ${stringFormatter.format("button.pending")}`.trim();
 
     return (
-        <Provider
+        <SlotProvider
             values={[
                 [IconListContext, {
                     slots: {
@@ -170,7 +171,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                     );
                 }}
             </RACButton>
-        </Provider>
+        </SlotProvider>
     );
 };
 
@@ -183,4 +184,3 @@ const _Button = forwardRef<HTMLButtonElement, ButtonProps>(Button);
 _Button.displayName = "Button";
 
 export { _Button as Button };
-

@@ -15,7 +15,7 @@
     --hop-spinner-component-lg-wheel-size: 1.5rem;
 
     /* Track */
-    --hop-spinner-component-track-width: 0.2rem;
+    --hop-spinner-component-track-width: 0.125rem;
     --hop-spinner-component-track-opacity: 0.2;
     --hop-spinner-component-track-border: var(--hop-spinner-component-track-width) solid currentcolor;
 

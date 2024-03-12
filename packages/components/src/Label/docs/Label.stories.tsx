@@ -3,7 +3,7 @@ import { Stack } from "../../layout/src/Stack.tsx";
 import { Label } from "../src/Label.tsx";
 import { LabelContext } from "../src/LabelContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Provider } from "react-aria-components";
+import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * A primitive label component matching Hopper's typography type scale.
@@ -73,11 +73,11 @@ export const Inherit: Story = {
  */
 export const AdvancedCustomization: Story = {
     render: props => (
-        <Provider values={[
+        <SlotProvider values={[
             [LabelContext, { size: "xl" }]
         ]}
         >
             <Label {...props} />
-        </Provider>
+        </SlotProvider>
     )
 };

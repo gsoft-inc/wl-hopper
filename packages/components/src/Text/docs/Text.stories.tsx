@@ -2,8 +2,8 @@ import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Stack } from "../../layout/src/Stack.tsx";
-import { Provider } from "react-aria-components";
 import { Div } from "@hopper-ui/styled-system";
+import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * A primitive text component matching Hopper's typography type scale.
@@ -75,11 +75,11 @@ export const Inherit: Story = {
  */
 export const AdvancedCustomization: Story = {
     render: props => (
-        <Provider values={[
+        <SlotProvider values={[
             [TextContext, { size: "xl" }]
         ]}
         >
             <Text {...props} />
-        </Provider>
+        </SlotProvider>
     )
 };

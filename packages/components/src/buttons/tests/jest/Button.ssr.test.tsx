@@ -14,3 +14,4 @@ describe("Button", () => {
         expect(renderOnServer).not.toThrow();
     });
 });
+

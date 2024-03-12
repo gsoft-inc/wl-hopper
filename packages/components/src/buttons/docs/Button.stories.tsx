@@ -1,10 +1,10 @@
-import { Text } from "../../Text/src/Text.tsx";
+import { Text } from "../../Text/index.ts";
 import { Button } from "../src/Button.tsx";
 import { ButtonContext } from "../src/ButtonContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "@hopper-ui/icons";
-import { IconList } from "../../index.ts";
-import { Provider } from "react-aria-components";
+import { IconList } from "../../IconList/index.ts";
+import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -218,11 +218,11 @@ export const EndIconList: Story = {
 export const AdvancedCustomization: Story = {
 
     render: props => (
-        <Provider values={[
+        <SlotProvider values={[
             [ButtonContext, { variant: "secondary", size: "sm" }]
         ]}
         >
             <Button {...props} />
-        </Provider>
+        </SlotProvider>
     )
 };
