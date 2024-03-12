@@ -4,27 +4,24 @@
             "Inter": {
                 "normal": {
                     "100 900": {
-                        "value": "https://cdn.platform.workleap.com/hopper/fonts/InterVariable.woff2",
-                        "formats": ["woff2-variations"],
-                        "fontcategory": "sans-serif"
+                        "value": "https://cdn.platform.workleap.com/hopper/fonts/inter/v4/InterVariable.woff2",
+                        "formats": ["woff2-variations"]
                     }
                 }
             },
             "ABC Favorit Mono": {
                 "normal": {
                     "400": {
-                        "value": "https://cdn.platform.workleap.com/hopper/fonts/ABCFavoritMono-Regular.woff2",
-                        "formats": ["woff2-variations"],
-                        "fontcategory": "sans-serif"
+                        "value": "https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/mono/ABCFavoritMono-Regular.woff2",
+                        "formats": ["woff2-variations"]
                     }
                 }
             },
             "ABC Favorit": {
                 "normal": {
                     "100 900": {
-                        "value": "https://cdn.platform.workleap.com/hopper/fonts/ABCFavoritVariable.woff2",
-                        "formats": ["woff2-variations"],
-                        "fontcategory": "sans-serif"
+                        "value": "https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/ABCFavoritVariable.woff2",
+                        "formats": ["woff2-variations"]
                     }
                 }
             }
