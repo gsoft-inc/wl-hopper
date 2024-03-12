@@ -15,4 +15,3 @@ const FontWeightPreview = ({ values, style }: FontWeightPreviewProps) => {
 };
 
 export default FontWeightPreview;
-

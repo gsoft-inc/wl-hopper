@@ -1,5 +1,5 @@
-import "@hopper-ui/tokens/fonts.css";
 import "./preview.css";
+import "@hopper-ui/tokens/fonts.css";
 
 interface TypographyPreviewProps {
     values?: TypographyValues;
@@ -18,4 +18,3 @@ const TypographyPreview = ({ values, style }: TypographyPreviewProps) => {
 };
 
 export default TypographyPreview;
-
