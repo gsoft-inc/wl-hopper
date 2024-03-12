@@ -1,5 +1,14 @@
 # @hopper-ui/tokens
 
+## 3.2.0
+
+### Minor Changes
+
+- ff7fed1: # Font Tokens
+
+  - Swapped referenced token fonts for variable fonts.
+  - Woff2 are now the defacto font extension.
+
 ## 3.1.5
 
 ### Patch Changes
