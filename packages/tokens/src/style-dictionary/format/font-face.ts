@@ -22,8 +22,6 @@ export function fontFace ({ dictionary, options }: { dictionary: Dictionary; opt
             value: path
         } = prop;
 
-        console.log(attributes);
-
         const urls = formats
             .map((extension: string) => `url("${fontPathPrefix}${path}") format("${formatsMap[extension]}")`);
 
