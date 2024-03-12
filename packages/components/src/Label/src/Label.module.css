@@ -30,7 +30,6 @@
     --hop-label-component-inherit-size-font-family: inherit;
     --hop-label-component-inherit-size-font-weight: inherit;
     --hop-label-component-inherit-size-line-height: inherit;
-
 }
 
 :where(.hop-label) {

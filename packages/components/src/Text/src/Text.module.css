@@ -28,7 +28,6 @@
     --hop-text-component-inherit-size-font-family: inherit;
     --hop-text-component-inherit-size-font-weight: inherit;
     --hop-text-component-inherit-size-line-height: inherit;
-
 }
 
 :where(.hop-text) {
