@@ -125,7 +125,6 @@ export const Wrap: Story = {
             <Square key="37" backgroundColor="decorative-option7-strong" />,
             <Square key="38" backgroundColor="decorative-option8-strong" />,
             <Square key="39" backgroundColor="decorative-option9-strong" />
-
         ]
     }
 };

@@ -2,8 +2,8 @@
     --hop-button-component-padding: 0 var(--hop-space-inset-md);
     --hop-button-component-border-radius: var(--hop-shape-rounded-md);
     --hop-button-component-focus-ring-color: var(--hop-primary-surface-hover); /* TODO: place to centralize tokens like this? */
-    --hop-button-component-md-height: 2.5rem;
     --hop-button-component-sm-height: 2rem;
+    --hop-button-component-md-height: 2.5rem;
 
     /* Primary */
     --hop-button-component-primary-color: var(--hop-primary-text-strong);
