@@ -7,6 +7,7 @@ export function fontFace ({ dictionary, options }: { dictionary: Dictionary; opt
     // https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src
     const formatsMap: { [i: string]: string } = {
         "woff2": "woff2",
+        "woff2-variations": "woff2-variations",
         "woff": "woff",
         "ttf": "truetype",
         "otf": "opentype",
@@ -22,7 +23,7 @@ export function fontFace ({ dictionary, options }: { dictionary: Dictionary; opt
         } = prop;
 
         const urls = formats
-            .map((extension: string) => `url("${fontPathPrefix}${path}.${extension}") format("${formatsMap[extension]}")`);
+            .map((extension: string) => `url("${fontPathPrefix}${path}") format("${formatsMap[extension]}")`);
 
         const fontCss = [
             "@font-face {",

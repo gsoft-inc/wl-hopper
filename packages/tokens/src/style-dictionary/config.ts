@@ -23,8 +23,7 @@ export const fontsConfig: Config = {
                         }
                     }
                 }
-            ],
-            "actions": ["copy_assets"]
+            ]
         }
     }
 };
