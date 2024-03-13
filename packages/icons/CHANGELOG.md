@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 1.5.0
+
+### Minor Changes
+
+- 93a1a16: Added a IconContext, allowing the customization of the icons via a Slot Provider
+
 ## 1.4.0
 
 ### Minor Changes
