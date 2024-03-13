@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.2.1
+
+### Patch Changes
+
+- 1948003: Removal of unnecessary node limitation for tokens
+
 ## 3.2.0
 
 ### Minor Changes
