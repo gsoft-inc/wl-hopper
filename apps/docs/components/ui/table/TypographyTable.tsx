@@ -147,7 +147,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                     <td className="hd-table__cell hd-typo__cell">
                         <Code value={`--hop-${type}${displaySize}-font-family`}>{`--hop-${type}${displaySize}-font-family`}</Code>
                     </td>
-                    <td className="hd-table__cell hd-typo__cell">
+                    <td className="hd-table__cell hd-typo__cell hd-typo__cell-font-family">
                         {fontFamily}
                     </td>
                 </tr>
