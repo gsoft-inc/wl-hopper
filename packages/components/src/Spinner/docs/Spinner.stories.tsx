@@ -77,7 +77,7 @@ export const Label: Story = {
 export const OverBackground: Story = {
     render: args => (
         <Div backgroundColor="primary-strong" padding="inset-md">
-            <Spinner color="core_samoyed" {...args} />
+            <Spinner color="primary-strong" {...args} />
         </Div>
     ),
     args: {
@@ -93,7 +93,7 @@ export const OverBackground: Story = {
 export const AdvancedCustomization: Story = {
     render: props => (
         <SlotProvider values={[
-            [SpinnerContext, { color: "core_amanita-500", size: "lg" }]
+            [SpinnerContext, { color: "primary", size: "lg" }]
         ]}
         >
             <Spinner {...props} />

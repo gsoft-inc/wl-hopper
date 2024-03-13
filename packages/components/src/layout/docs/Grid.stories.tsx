@@ -78,7 +78,7 @@ export const AutoColumns: Story = {
 export const Gap: Story = {
     args:{
         templateColumns: ["1fr", "1fr"],
-        gap: "core_80",
+        gap: "stack-sm",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
             <Square key="2" backgroundColor="decorative-option2" />,
@@ -94,7 +94,7 @@ export const Gap: Story = {
 export const ColumnSpanning: Story = {
     args:{
         templateColumns: ["1fr", "1fr", "1fr"],
-        gap: "core_80",
+        gap: "stack-sm",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
             <Square key="2" backgroundColor="decorative-option2" />,
@@ -110,7 +110,7 @@ export const ColumnSpanning: Story = {
 export const Nesting: Story = {
     args:{
         templateRows: ["1fr", "1fr"],
-        gap: "core_80",
+        gap: "stack-sm",
         children: [
             <Grid key="1" templateColumns={["core_800", "auto"]}>
                 <Square backgroundColor="decorative-option1" />
@@ -131,7 +131,7 @@ export const Repeat: Story = {
     args:{
         templateColumns: repeat("auto-fit", "core_640"),
         autoRows: "core_640",
-        gap: "core_80",
+        gap: "stack-sm",
         children: [
             <Square key="1" backgroundColor="decorative-option1-weak" />,
             <Square key="2" backgroundColor="decorative-option2-weak" />,
@@ -170,7 +170,7 @@ export const Repeat: Story = {
 export const Minmax: Story = {
     args:{
         templateColumns: [minmax("core_800", "1fr"), "core_960", minmax("core_800", "1fr")],
-        gap: "core_80",
+        gap: "stack-sm",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
             <Square key="2" backgroundColor="decorative-option2" />,
@@ -186,7 +186,7 @@ export const FitContent: Story = {
     args:{
         alignItems:"center",
         templateColumns: [fitContent("core_800"), fitContent("core_800"), "1fr"],
-        gap: "core_80",
+        gap: "stack-sm",
         children: [
             <Square key="1" padding="inset-sm" backgroundColor="decorative-option1" />,
             <Square key="2" padding="inset-sm" backgroundColor="decorative-option2" />,

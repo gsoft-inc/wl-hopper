@@ -62,7 +62,7 @@ export const Gap: Story = {
     ...HorizontalAlignment,
     args:{
         ...HorizontalAlignment.args,
-        gap: "core_80"
+        gap: "stack-sm"
     }
 };
 
@@ -145,7 +145,7 @@ export const Reverse: Story = {
  */
 export const Nesting: Story = {
     args:{
-        gap: "core_160",
+        gap: "stack-md",
         children: [
             <Flex key="1">
                 <Square backgroundColor="decorative-option1-weak" />
