@@ -45,7 +45,7 @@
     },
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
-        "clsx": "2.1.0"
+        "clsx": "^2.1.0"
     },
     "devDependencies": {
         "@hopper-ui/styled-system": "workspace:*",
