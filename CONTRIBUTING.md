@@ -54,7 +54,7 @@ pnpm changeset
 
 - [ ] Every component should have a GlobalCssSelector that is unique to the component. This allows the targetting of the component in the global CSS file.
 ```
-export const GlobalIconCssSelector = "hop-icon";
+export const GlobalIconCssSelector = "hop-Icon";
 ```
 
 - [ ] Every component should make sure to merge their props and ref with the context props and ref.
@@ -93,6 +93,3 @@ Make sure that the style from the props have higher priority than the style from
         ...style
     };
 ```
-
-## Questions:
-is `{...filterDOMProps(otherProps)}` required when passing props to a DOM element?

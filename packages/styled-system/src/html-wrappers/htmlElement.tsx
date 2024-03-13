@@ -7,6 +7,7 @@ import styles from "./htmlElement.module.css";
 export type HtmlElementProps<T extends keyof JSX.IntrinsicElements> = StyledComponentProps<T>;
 
 export const GlobalHtmlElementCssSelector = "hop-Html";
+export const GlobalHtmlElementSpecificCssSelector = (elementType: string) => `${GlobalHtmlElementCssSelector}-${elementType}`;
 
 export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: T) {
     return forwardRef<ElementRef<T>, HtmlElementProps<T>>((props, ref) => {
@@ -18,7 +19,7 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
             className,
             styles["html-element"],
             GlobalHtmlElementCssSelector,
-            `${GlobalHtmlElementCssSelector}-${elementType}`,
+            GlobalHtmlElementSpecificCssSelector(elementType),
             stylingProps.className
         );
 
