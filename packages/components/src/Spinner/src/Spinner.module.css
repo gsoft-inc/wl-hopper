@@ -26,11 +26,10 @@
     --hop-spinner-component-fill-border-inline-start: var(--hop-spinner-component-track-width) solid currentcolor;
 
     /* Label */
-    --hop-spinner-component-gap: var(--hop-space-inline-sm);
+    --hop-spinner-component-label-margin-inline-start: var(--hop-space-inline-sm);
 
     box-sizing: border-box;
     display: grid;
-    column-gap: var(--hop-spinner-component-gap);
     grid-template-areas: "spinner label";
     grid-template-columns: min-content auto;
     align-items: center;
@@ -53,8 +52,8 @@
 
 .hop-spinner__track {
     box-sizing: border-box;
-    inline-size: var(--width);
-    block-size: var(--height);
+    inline-size: var(--width, --hop-spinner-component-md-wheel-size);
+    block-size: var(--height, --hop-spinner-component-md-wheel-size);
     border-radius: var(--hop-spinner-component-border-radius);
     border: var(--hop-spinner-component-track-border);
     opacity: var(--hop-spinner-component-track-opacity);
@@ -63,8 +62,8 @@
 
 .hop-spinner__fill {
     box-sizing: border-box;
-    inline-size: var(--width);
-    block-size: var(--height);
+    inline-size: var(--width, --hop-spinner-component-md-wheel-size);
+    block-size: var(--height, --hop-spinner-component-md-wheel-size);
     border-radius: var(--hop-spinner-component-border-radius);
     border: var( --hop-spinner-component-fill-border);
     border-inline-start: var(--hop-spinner-component-fill-border-inline-start);
@@ -80,4 +79,5 @@
 
 .hop-spinner__label {
     grid-area: label;
+    margin-inline-start: var(--hop-spinner-component-label-margin-inline-start);
 }

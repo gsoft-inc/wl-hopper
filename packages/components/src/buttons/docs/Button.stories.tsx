@@ -155,7 +155,7 @@ export const EndIcon: Story = {
 };
 
 /**
- * Non standard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go to.
+ * Non standard end icons with start icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go to.
  */
 export const BothIcon: Story = {
     ...Size,
