@@ -563,15 +563,15 @@
     "fontFamily": [
       {
         "name": "hop-font-family-primary",
-        "value": "ABC Favorit"
+        "value": "'ABC Favorit', Helvetica, Arial, sans-serif"
       },
       {
         "name": "hop-font-family-secondary",
-        "value": "Inter"
+        "value": "'Inter', Helvetica, Arial, sans-serif"
       },
       {
         "name": "hop-font-family-tertiary",
-        "value": "ABC Favorit Mono"
+        "value": "'ABC Favorit Mono', Consolas, 'SF Mono', monospace"
       }
     ],
     "fontSize": [

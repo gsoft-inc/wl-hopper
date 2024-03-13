@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/tokens",
     "author": "Workleap",
-    "version": "3.2.0",
+    "version": "3.3.0",
     "description": "The tokens package.",
     "license": "Apache-2.0",
     "repository": {
@@ -42,8 +42,5 @@
         "tsx": "4.7.0",
         "typescript": "5.3.3"
     },
-    "sideEffects": false,
-    "engines": {
-        "node": ">=18.0.0"
-    }
+    "sideEffects": false
 }

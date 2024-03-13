@@ -14,6 +14,10 @@
     background-color: var(--hd-color-neutral-surface-weak);
 }
 
+.hd-copy-button.hd-copy-button--on-dark:not([disabled]):hover {
+    background-color: var(--hd-neutral-800);
+}
+
 .hd-copy-button__icon {
     stroke: currentcolor;
 }
@@ -33,4 +37,8 @@
 
 .hd-copy-button--ghost:not([disabled]):hover {
     background-color: transparent;
+}
+
+.hd-copy-button--on-dark {
+    color: #FFFFFF;
 }

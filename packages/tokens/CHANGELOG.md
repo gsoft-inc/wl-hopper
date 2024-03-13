@@ -1,5 +1,17 @@
 # @hopper-ui/tokens
 
+## 3.3.0
+
+### Minor Changes
+
+- aa5d10b: Added font fallback to font tokens
+
+## 3.2.1
+
+### Patch Changes
+
+- 1948003: Removal of unnecessary node limitation for tokens
+
 ## 3.2.0
 
 ### Minor Changes
