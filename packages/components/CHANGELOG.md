@@ -1,5 +1,16 @@
 # @hopper-ui/components
 
+## 0.1.0
+
+### Minor Changes
+
+- 93a1a16: Added Button, Grid, Inline, Flex, Stack, Label, Text, IconList, Spinner and localization
+
+### Patch Changes
+
+- Updated dependencies [93a1a16]
+  - @hopper-ui/icons@1.5.0
+
 ## 0.0.11
 
 ### Patch Changes

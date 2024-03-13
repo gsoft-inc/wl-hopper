@@ -1,5 +1,12 @@
 # @hopper-ui/styled-system
 
+## 1.0.0
+
+### Major Changes
+
+- 93a1a16: - Changed the useStyledSystem hook to return an object containing the className and the style, instead of merging it with the input props.
+  - Added some sizing options while we wait for the sizing tokens
+
 ## 0.3.0
 
 ### Minor Changes
