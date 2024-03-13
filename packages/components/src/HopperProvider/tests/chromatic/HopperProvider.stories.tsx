@@ -1,4 +1,5 @@
-import { Div, HopperProvider, useColorSchemeContext } from "@hopper-ui/components";
+import { HopperProvider } from "../../src/HopperProvider.tsx";
+import { Div, useColorSchemeContext } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
 import type { WithHopperStorybookAddonParameter } from "@hopper-ui/storybook-addon";
@@ -12,7 +13,7 @@ const ColoredDiv = () => {
     );
 };
 
-const meta: Meta<typeof HopperProvider> = {
+const meta = {
     title: "Components/HopperProvider",
     component: HopperProvider,
     args: {
@@ -23,36 +24,32 @@ const meta: Meta<typeof HopperProvider> = {
             disabled: true // This file is used to test the HopperProvider in isolation, so we don't want to render the HopperProvider here
         }
     } satisfies WithHopperStorybookAddonParameter
-};
+} satisfies Meta<typeof HopperProvider>;
 
 export default meta;
 
-type HopperProviderStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const Light: HopperProviderStory = {
-    name: "light",
+export const Light: Story = {
     args: {
         colorScheme: "light"
     }
 };
 
-export const Dark: HopperProviderStory = {
-    name: "dark",
+export const Dark: Story = {
     args: {
         colorScheme: "dark"
     }
 };
 
-export const WithBodyStyles: HopperProviderStory = {
-    name: "with body styles",
+export const WithBodyStyles: Story = {
     args: {
         colorScheme: "light",
         withBodyStyle: true
     }
 };
 
-export const DarkWithBodyStyles: HopperProviderStory = {
-    name: "dark with body styles",
+export const DarkWithBodyStyles: Story = {
     args: {
         colorScheme: "dark",
         withBodyStyle: true
@@ -69,8 +66,7 @@ const SwitchColorScheme = () => {
     return null;
 };
 
-export const SetColorSchemeWithApi: HopperProviderStory = {
-    name: "set color scheme with api",
+export const SetColorSchemeWithApi: Story = {
     args: {
         colorScheme: "light",
         withBodyStyle: true,

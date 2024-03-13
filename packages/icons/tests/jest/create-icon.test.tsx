@@ -1,5 +1,5 @@
-import { createIcon } from "@hopper-ui/icons";
-import { render, screen, waitFor } from "@hopper-ui/test-utils";
+import { createIcon, IconContext } from "../../src/index.ts";
+import { render, screen } from "@hopper-ui/test-utils";
 import { createRef, forwardRef, type Ref, type SVGProps } from "react";
 
 /* eslint-disable max-len */
@@ -10,82 +10,94 @@ const CustomIcon32 = forwardRef((props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVG
 
 const CustomIcon = createIcon(CustomIcon16, CustomIcon24, CustomIcon32, "CustomIcon");
 
-// ***** Refs *****
-test("ref is a DOM element", async () => {
-    const ref = createRef<SVGSVGElement>();
-    render(
-        <CustomIcon
-            ref={ref}
-        />
-    );
+describe("create-icon", () => {
+    it("should render with default class", () => {
+        render(<CustomIcon />);
 
-    const icon = screen.getByRole("img", { hidden: true });
+        const element = screen.getByRole("img", { hidden: true });
 
-    expect(ref.current).toBe(icon);
-    expect(ref.current instanceof SVGElement).toBeTruthy();
-    expect(ref.current?.tagName.toUpperCase()).toBe("SVG");
-});
+        expect(element).toHaveClass("hop-Icon");
+    });
 
-test("ref is set once", async () => {
-    const handler = jest.fn();
+    it("should support custom class", () => {
+        render(<CustomIcon className="test" />);
 
-    render(
-        <CustomIcon
-            ref={handler}
-        />
-    );
+        const element = screen.getByRole("img", { hidden: true });
 
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-});
+        expect(element).toHaveClass("hop-Icon");
+        expect(element).toHaveClass("test");
+    });
 
-test("applies default displayName", () => {
-    expect(CustomIcon.displayName).toBe("CustomIcon");
-});
+    it("should support custom style", () => {
+        render(<CustomIcon marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
 
-test("chooses the right source when size sm", () => {
-    const ref = createRef<SVGSVGElement>();
+        const element = screen.getByRole("img", { hidden: true });
 
-    render(
-        <CustomIcon
-            ref={ref}
-            size="sm"
-        />
-    );
+        expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
+    });
 
-    const icon = screen.getByRole("img", { hidden: true });
+    it("should support DOM props", () => {
+        render(<CustomIcon data-foo="bar" />);
 
-    expect(ref.current).toBe(icon);
-    expect(icon).toHaveAttribute("viewBox", "0 0 16 16");
-});
+        const element = screen.getByRole("img", { hidden: true });
 
-test("chooses the right source when size md", () => {
-    const ref = createRef<SVGSVGElement>();
+        expect(element).toHaveAttribute("data-foo", "bar");
+    });
 
-    render(
-        <CustomIcon
-            ref={ref}
-            size="md"
-        />
-    );
+    it("should support slots", () => {
+        render(
+            <IconContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
+                <CustomIcon slot="test" />
+            </IconContext.Provider>
+        );
 
-    const icon = screen.getByRole("img", { hidden: true });
+        const element = screen.getByRole("img", { hidden: true });
+        expect(element).not.toHaveAttribute("slot", "test"); // svg doesn't have slot attribute
+        expect(element).toHaveAttribute("aria-label", "test");
+    });
 
-    expect(ref.current).toBe(icon);
-    expect(icon).toHaveAttribute("viewBox", "0 0 24 24");
-});
+    it("should support refs", () => {
+        const ref = createRef<SVGSVGElement>();
+        render(<CustomIcon ref={ref} />);
 
-test("chooses the right source when size lg", () => {
-    const ref = createRef<SVGSVGElement>();
+        const element = screen.getByRole("img", { hidden: true });
 
-    render(
-        <CustomIcon
-            ref={ref}
-            size="lg"
-        />
-    );
+        expect(ref.current).toBe(element);
+        expect(ref.current instanceof SVGElement).toBeTruthy();
+        expect(ref.current?.tagName.toUpperCase()).toBe("SVG");
+    });
 
-    const icon = screen.getByRole("img", { hidden: true });
+    it("applies default displayName", () => {
+        expect(CustomIcon.displayName).toBe("CustomIcon");
+    });
 
-    expect(ref.current).toBe(icon);
-    expect(icon).toHaveAttribute("viewBox", "0 0 32 32");
+    it("chooses the right source when size sm", () => {
+        const ref = createRef<SVGSVGElement>();
+        render(<CustomIcon ref={ref} size="sm" />);
+
+        const element = screen.getByRole("img", { hidden: true });
+
+        expect(ref.current).toBe(element);
+        expect(element).toHaveAttribute("viewBox", "0 0 16 16");
+    });
+
+    it("chooses the right source when size md", () => {
+        const ref = createRef<SVGSVGElement>();
+        render(<CustomIcon ref={ref} size="md" />);
+
+        const element = screen.getByRole("img", { hidden: true });
+
+        expect(ref.current).toBe(element);
+        expect(element).toHaveAttribute("viewBox", "0 0 24 24");
+    });
+
+    it("chooses the right source when size lg", () => {
+        const ref = createRef<SVGSVGElement>();
+        render(<CustomIcon ref={ref} size="lg" />);
+
+        const element = screen.getByRole("img", { hidden: true });
+
+        expect(ref.current).toBe(element);
+        expect(element).toHaveAttribute("viewBox", "0 0 32 32");
+    });
 });

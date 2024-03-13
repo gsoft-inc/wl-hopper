@@ -1,4 +1,4 @@
-import * as IconLibrary from "@hopper-ui/icons";
+import * as IconLibrary from "../../src/index.ts";
 import { LI, UL } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -21,10 +21,10 @@ const List = ({ ...iconProps }: ListProps) => {
     );
 };
 
-const meta: Meta<typeof List> = {
+const meta = {
     component: List,
     title: "Icons/Icons"
-};
+} satisfies Meta<typeof List>;
 
 export default meta;
 

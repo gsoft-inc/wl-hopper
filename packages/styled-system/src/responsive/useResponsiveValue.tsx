@@ -39,4 +39,3 @@ export function useResponsiveValue<T>(value: T | ResponsiveValue<T>) {
 
     return parseResponsiveValue(value, matchedBreakpoints);
 }
-

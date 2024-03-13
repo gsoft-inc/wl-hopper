@@ -1,9 +1,10 @@
-import { Breakpoints, Div, type DivProps } from "@hopper-ui/styled-system";
+import { Div, type DivProps } from "../../src/html-wrappers/html.ts";
+import { Breakpoints } from "../../src/responsive/Breakpoints.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const viewports = Object.values(Breakpoints);
 
-const meta: Meta<DivProps> = {
+const meta = {
     title: "Styled System/useStyledSystem",
     component: Div,
     parameters: {
@@ -18,27 +19,24 @@ const meta: Meta<DivProps> = {
         width: "core_960",
         children: "Hop"
     }
-};
+} satisfies Meta<DivProps>;
 
 export default meta;
-type UseStyledSystemStory = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>;
 
-export const EverySingleBreakpoints: UseStyledSystemStory = {
-    name: "every single breakpoints",
+export const EverySingleBreakpoints: Story = {
     args: {
         backgroundColor: { base: "core_sapphire-300", xs: "core_moss-300", sm: "core_amanita-300", md: "core_orchid-bloom-300", lg: "core_quetzal-300", xl: "core_moss-300" }
     }
 };
 
-export const MatchHigherBreakpoint: UseStyledSystemStory = {
-    name: "match higher breakpoint",
+export const MatchHigherBreakpoint: Story = {
     args: {
         backgroundColor: { base: "core_sapphire-400", sm: "core_sapphire-400" }
     }
 };
 
-export const MatchBase: UseStyledSystemStory = {
-    name: "match base",
+export const MatchBase: Story = {
     args: {
         backgroundColor: { base: "core_sapphire-400" }
     }

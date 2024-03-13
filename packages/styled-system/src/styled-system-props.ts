@@ -1,6 +1,6 @@
 // this file will contain handlers for all the style props
 import type { Property } from "csstype";
-import type { CSSProperties, ComponentProps, JSXElementConstructor } from "react";
+import type { ComponentProps, JSXElementConstructor } from "react";
 import type { ResponsiveProp } from "./responsive/useResponsiveValue.tsx";
 import type {
     BackgroundColorValue,
@@ -20,6 +20,7 @@ import type {
     GridAutoRowsValue,
     GridColumSpanValue,
     GridRowSpanValue,
+    GridTemplateAreasValue,
     GridTemplateColumnsValue,
     GridTemplateRowsValue,
     HeightValue,
@@ -57,10 +58,6 @@ import type {
 export const UnsafePrefix = "UNSAFE_";
 
 export interface StyledSystemProps {
-    className?: string;
-
-    style?: CSSProperties;
-
     /**
    * Sets the `align-content` property.
    * @see {@link https://developer.mozilla.org/docs/Web/CSS/align-content}
@@ -557,7 +554,7 @@ export interface StyledSystemProps {
    * Sets the `grid-template-areas` property.
    * @see {@link https://developer.mozilla.org/docs/Web/CSS/grid-template-areas}
    */
-    gridTemplateAreas?: ResponsiveProp<Property.GridTemplateAreas>;
+    gridTemplateAreas?: ResponsiveProp<GridTemplateAreasValue>;
 
     /**
      * Sets the `grid-template-columns` property.
@@ -1578,5 +1575,7 @@ export interface StyledSystemProps {
     zIndex?: ResponsiveProp<Property.ZIndex>;
 }
 
-export type StyledComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<unknown>>
-    = Omit<ComponentProps<T>, keyof StyledSystemProps> & StyledSystemProps;
+export type StyledComponentProps<T>
+    = T extends keyof JSX.IntrinsicElements | JSXElementConstructor<unknown> ?
+        Omit<ComponentProps<T>, keyof StyledSystemProps> & StyledSystemProps :
+        Omit<T, keyof StyledSystemProps> & StyledSystemProps;

@@ -8,6 +8,8 @@ const AddonName = "hopper";
 export interface HopperStorybookAddonOptions {
     /** Whether to disable the hopperProvider. Defaults to true. */
     disabled?: boolean;
+    /** The locale. Defaults to en-US. */
+    locale?: string;
     /** The color schemes to render. Defaults to all color schemes. */
     colorSchemes?: ColorScheme[];
     /** The height of the preview. Defaults to 1000px. */
@@ -27,8 +29,10 @@ export const withHopperProvider = makeDecorator({
     parameterName: AddonName,
     wrapper: (getStory, context, { options: optionProp, parameters }) => {
         const options = { ...optionProp, ...parameters } as HopperStorybookAddonOptions;
+        const isDocStory = context.viewMode === "docs";
 
-        const colorSchemes = options.colorSchemes || ColorSchemes;
+        const colorSchemes: ColorScheme[] = options.colorSchemes || (isDocStory && context.globals.theme ? [context.globals.theme] : ColorSchemes);
+        const locale: string = options.locale || (isDocStory && context.globals.locale ? context.globals.locale : "en-US");
         const disabled = options.disabled || false;
 
         if (disabled) {
@@ -50,6 +54,7 @@ export const withHopperProvider = makeDecorator({
                     <HopperProvider
                         key={`${colorScheme}`}
                         colorScheme={colorScheme}
+                        locale={locale}
                         color="neutral"
                         backgroundColor="neutral"
                         lineHeight="body-md"

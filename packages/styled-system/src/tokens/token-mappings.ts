@@ -1,7 +1,7 @@
 import type { Globals, Property } from "csstype";
 import type { Breakpoint } from "../responsive/Breakpoints.ts";
-import { parseResponsiveValue } from "../responsive/useResponsiveValue.tsx";
-import { isNil } from "../utils/assertion.ts";
+import { type ResponsiveProp, parseResponsiveValue } from "../responsive/useResponsiveValue.tsx";
+import { isNil, isObject } from "../utils/assertion.ts";
 import {
     BackgroundColors,
     CoreSpace,
@@ -85,7 +85,9 @@ export const FontFamilyMapping = createMapping(FontFamily);
 
 export const BorderRadiusMapping = createMapping(Shape);
 
-export const SpaceMapping = createMapping(CoreSpace);
+export const SpaceMapping = {
+    ...createMapping(CoreSpace)
+};
 
 export const SimplePaddingMapping = {
     ...createMapping(SemanticSimplePaddingSpace),
@@ -108,20 +110,48 @@ export const ComplexMarginMapping = {
 };
 
 export const SizingMapping = {
-    ...SpaceMapping
-    // TODO: Sizing scale still missing, only core tokens are available at the moment
+    ...SpaceMapping,
+
+    // tailwind like values for scaling since we don't have scale tokens
+    "100vw": "100vw",
+    "100svw": "100svw",
+    "100lvw": "100lvw",
+    "100dvw": "100dvw",
+    "100vh": "100vh",
+    "100svh": "100svh",
+    "100lvh": "100lvh",
+    "100dvh": "100dvh",
+    "1/2": "50%",
+    "1/3": "33.333333%",
+    "2/3": "66.666667%",
+    "1/4": "25%",
+    "2/4": "50%",
+    "3/4": "75%",
+    "1/5": "20%",
+    "2/5": "40%",
+    "3/5": "60%",
+    "4/5": "80%",
+    "1/6": "16.666667%",
+    "2/6": "33.333333%",
+    "3/6": "50%",
+    "4/6": "66.666667%",
+    "5/6": "83.333333%"
 };
+
+export type Percentage = `${number}%`;
+export type FRValues = `${number}fr`;
 
 // Custom CSS values to use instead of Property.X to offer less useless values in intellisense and
 // stop showing too many values in props docs.
 export type CssColor = Globals | "currentcolor" | "transparent";
 export type CssFill = Globals | "child" | "context-fill" | "context-stroke" | "none" | "transparent" | "currentcolor";
-export type CssGrid = "auto" | "max-content" | "min-content" | Globals;
+export type CssGrid = "auto" | "max-content" | "min-content" | Globals | Percentage | FRValues;
 export type CssGridTemplate = "none" | "subgrid" | CssGrid;
 export type CssBoxShadow = Globals | "none";
 export type CssBorder = Globals | 0;
 export type CssBorderRadius = Globals | 0;
 export type CssGap = Globals | "normal" | 0;
+export type CSSSizing = "auto" | "fit-content" | "max-content" | "min-content"| Globals | Percentage;
 
 export type BackgroundColorValue = keyof typeof BackgroundColorMapping | CssColor;
 export type UNSAFE_BackgroundColorValue = keyof typeof BackgroundColorMapping | Property.BackgroundColor ;
@@ -162,13 +192,15 @@ export type UNSAFE_GridAutoColumnsValue = keyof typeof SizingMapping | Property.
 export type GridAutoRowsValue = keyof typeof SizingMapping | CssGrid;
 export type UNSAFE_GridAutoRowsValue = keyof typeof SizingMapping | Property.GridAutoRows;
 
-export type GridTemplateColumnsValue = keyof typeof SizingMapping | CssGridTemplate;
-export type UNSAFE_GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns;
+export type GridTemplateAreasValue = Property.GridTemplateAreas | Array<string>;
 
-export type GridTemplateRowsValue = keyof typeof SizingMapping | CssGridTemplate;
-export type UNSAFE_GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows;
+export type GridTemplateColumnsValue = keyof typeof SizingMapping | CssGridTemplate | Array<keyof typeof SizingMapping | CssGridTemplate>;
+export type UNSAFE_GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns | Array<keyof typeof SizingMapping | Property.GridTemplateColumns>;
 
-export type HeightValue = keyof typeof SizingMapping | Globals;
+export type GridTemplateRowsValue = keyof typeof SizingMapping | CssGridTemplate | Array<keyof typeof SizingMapping | CssGridTemplate>;
+export type UNSAFE_GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows | Array<keyof typeof SizingMapping | Property.GridTemplateRows>;
+
+export type HeightValue = keyof typeof SizingMapping | CSSSizing;
 export type UNSAFE_HeightValue = keyof typeof SizingMapping | Property.Height;
 
 export type LineHeightValue = keyof typeof LineHeightMapping | Globals;
@@ -187,37 +219,55 @@ export type UNSAFE_ComplexPaddingValue = keyof typeof ComplexPaddingMapping | Pr
 export type RowGapValue = keyof typeof SimpleMarginMapping | CssGap;
 export type UNSAFE_RowGapValue = keyof typeof SimpleMarginMapping | Property.RowGap;
 
-export type SizingValue = keyof typeof SizingMapping | Globals;
+export type SizingValue = keyof typeof SizingMapping | CSSSizing;
 export type UNSAFE_SizingValue = keyof typeof SizingMapping | Property.Scale;
 
 export type StrokeValue = keyof typeof IconColorMapping | CssFill;
 export type UNSAFE_StrokeValue = keyof typeof IconColorMapping | Property.Stroke;
 
-export type WidthValue = keyof typeof SizingMapping | Globals;
+export type WidthValue = keyof typeof SizingMapping | CSSSizing;
 export type UNSAFE_WidthValue = keyof typeof SizingMapping | Property.Width;
 
 export type GridColumSpanValue = number;
 export type GridRowSpanValue = number;
 
-export function parseResponsiveSystemValue<TValue extends string | number>(value: TValue | undefined, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
+export function parseResponsiveSystemValue<TValue extends string | number>(value: TValue | TValue[] | ResponsiveProp<TValue | TValue[]> | undefined, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
     if (isNil(value)) {
         return value;
     }
 
     // Quick lookup since most values will be a non responsive system value and will not requires to parse for a responsive value.
-    const systemValue = getSystemValue(value, systemValues);
+    if (!isObject(value)) {
+        if (Array.isArray(value)) {
+            const systemValueArray = value.map(x => getSystemValue(x, systemValues));
 
-    if (!isNil(systemValue)) {
-        return systemValue;
+            if (!isNil(systemValueArray) && systemValueArray.every(x => !isNil(x))) {
+                return systemValueArray;
+            }
+        } else {
+            const systemValue = getSystemValue(value, systemValues);
+
+            if (!isNil(systemValue)) {
+                return systemValue;
+            }
+        }
     }
 
     const underlyingValue = parseResponsiveValue(value, matchedBreakpoints);
 
     if (!isNil(underlyingValue)) {
-        const underlyingSystemValue = getSystemValue(underlyingValue, systemValues);
+        if (Array.isArray(underlyingValue)) {
+            const underlyingSystemValue = underlyingValue.map(x => getSystemValue(x, systemValues));
 
-        if (!isNil(underlyingSystemValue)) {
-            return underlyingSystemValue;
+            if (!isNil(underlyingSystemValue) && underlyingSystemValue.every(x => !isNil(x))) {
+                return underlyingSystemValue;
+            }
+        } else {
+            const underlyingSystemValue = getSystemValue(underlyingValue, systemValues);
+
+            if (!isNil(underlyingSystemValue)) {
+                return underlyingSystemValue;
+            }
         }
     }
 
@@ -226,4 +276,8 @@ export function parseResponsiveSystemValue<TValue extends string | number>(value
 
 export function getSystemValue<T extends string | number>(value: T, systemValues: Record<T, string>) {
     return systemValues[value];
+}
+
+export function getSizingValue(value: UNSAFE_SizingValue | string) {
+    return (SizingMapping as Record<string, string>)[value] || value;
 }

@@ -1,9 +1,16 @@
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
-import { createContext, forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
-import { useContextProps, type ContextValue, type SlotProps } from "react-aria-components";
+import { forwardRef, type ElementType, type RefAttributes, type SVGProps, type CSSProperties } from "react";
+import { useContextProps, type SlotProps } from "react-aria-components";
 import styles from "./Icon.module.css";
+import { cssModule } from "../../components/src/utils/src/css-module.ts";
+import { IconContext } from "./IconContext.ts";
+
+export const GlobalIconCssSelector = "hop-Icon";
+
+// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
+const DefaultIconSlot = "icon";
 
 export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
@@ -24,15 +31,12 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
 }
 
-export const IconContext = createContext<ContextValue<Omit<IconProps, "src16" | "src24" | "src32" >, SVGSVGElement>>({});
-
 export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-    // This is a react-aria-component pattern
-    // eslint-disable-next-line no-param-reassign
-    [props, ref] = useContextProps(props, ref, IconContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultIconSlot }, ref, IconContext);
+    const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const {
-        size: sizeProp = "md",
+        size: sizeProp,
         src16,
         src24,
         src32,
@@ -40,8 +44,8 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
         className,
         "aria-label": ariaLabel,
         "aria-hidden": ariaHidden,
-        ...rest
-    } = useStyledSystem(props);
+        ...otherProps
+    } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
     const sizeMappings = {
@@ -52,19 +56,31 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
 
     const As = sizeMappings[size];
 
+    const classNames = clsx(
+        className,
+        GlobalIconCssSelector,
+        cssModule(
+            styles,
+            "hop-icon"
+        ),
+        stylingProps.className
+    );
+
+    const mergedStyles: CSSProperties = {
+        ...stylingProps.style,
+        ...style
+    };
+
     return (
         <As
             ref={ref}
-            style={style}
-            {...filterDOMProps(rest)}
+            style={mergedStyles}
+            {...filterDOMProps(otherProps)}
             focusable="false"
             role="img"
             aria-label={ariaLabel}
             aria-hidden={(ariaLabel ? (ariaHidden || undefined) : true)}
-            className={clsx(
-                styles["hop-icon"],
-                className
-            )}
+            className={classNames}
         />
     );
 });

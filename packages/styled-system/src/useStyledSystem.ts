@@ -1,7 +1,6 @@
-import { useMemo, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { useBreakpointContext } from "./responsive/BreakpointContext.tsx";
 import type { Breakpoint } from "./responsive/Breakpoints.ts";
-import { parseResponsiveValue } from "./responsive/useResponsiveValue.tsx";
 import {
     BackgroundColorMapping,
     BorderMapping,
@@ -28,8 +27,9 @@ import { isNil } from "./utils/assertion.ts";
 // eslint-disable-next-line @workleap/strict-css-modules-names
 import styles from "./UseStyledSystem.module.css";
 import { UnsafePrefix, type StyledSystemProps } from "./styled-system-props.ts";
+import { type ResponsiveProp, parseResponsiveValue, type ResponsiveValue } from "./responsive/useResponsiveValue.tsx";
 
-type PropHandler = (name: string, value: string | number, context: StylingContext) => void;
+type PropHandler = (name: string, value: ResponsiveProp<string | number | string[]>, context: StylingContext) => void;
 type SystemValues = Record<string | number, string>;
 
 // This is a simple handler for property that only accept tokens
@@ -138,6 +138,30 @@ const gridRowSpanHandler: PropHandler = (name, value, context) => {
     }
 };
 
+const gridTemplateDimensionsHandler: PropHandler = (name, value, context) => {
+    let parsedValue = parseResponsiveSystemValue(value, SizingMapping, context.matchedBreakpoints);
+
+    if (!isNil(parsedValue)) {
+        if (Array.isArray(parsedValue)) {
+            parsedValue = parsedValue.map(x => parseResponsiveSystemValue(x, SizingMapping, context.matchedBreakpoints)).join(" ");
+        }
+
+        context.addStyleValue(name, parsedValue);
+    }
+};
+
+const gridTemplateAreasHandler: PropHandler = (name, value, context) => {
+    let parsedValue = parseResponsiveValue(value, context.matchedBreakpoints);
+
+    if (!isNil(parsedValue)) {
+        if (Array.isArray(parsedValue)) {
+            parsedValue = parsedValue.map(v => `"${v}"`).join(" ");
+        }
+
+        context.addStyleValue("gridTemplateAreas", parsedValue);
+    }
+};
+
 const PropsHandlers: Record<string, PropHandler> = {
     alignContent: createPassthroughHandler(),
     alignItems: createPassthroughHandler(),
@@ -221,9 +245,9 @@ const PropsHandlers: Record<string, PropHandler> = {
     gridRowSpan: gridRowSpanHandler,
     gridRowStart: createPassthroughHandler(),
     gridTemplate: createPassthroughHandler(),
-    gridTemplateAreas: createPassthroughHandler(),
-    gridTemplateColumns: createSystemValueHandler(SizingMapping),
-    gridTemplateRows: createSystemValueHandler(SizingMapping),
+    gridTemplateAreas: gridTemplateAreasHandler,
+    gridTemplateColumns: gridTemplateDimensionsHandler,
+    gridTemplateRows: gridTemplateDimensionsHandler,
     height: createSystemValueHandler(SizingMapping),
     justifyContent: createPassthroughHandler(),
     justifyItems: createPassthroughHandler(),
@@ -297,7 +321,7 @@ class StylingContext {
 
     constructor(className: string | undefined, style: CSSProperties | undefined, matchedBreakpoints: Breakpoint[]) {
         this.#classes = !isNil(className) ? [className] : [];
-        this.#style = { ...style } ?? {}; // TODO: different than orbit, in order to not modify the original style object https://github.com/gsoft-inc/sg-orbit/issues/1211
+        this.#style = { ...(style ?? {}) } ; // TODO: different than orbit, in order to not modify the original style object https://github.com/gsoft-inc/sg-orbit/issues/1211
         this.matchedBreakpoints = matchedBreakpoints;
     }
 
@@ -330,490 +354,48 @@ class StylingContext {
     }
 }
 
-export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
-    : Omit<TProps, keyof StyledSystemProps> & { className?: string; style?: CSSProperties } {
-    const {
-        alignContent,
-        alignItems,
-        alignSelf,
-        aspectRatio,
-        backgroundColor,
-        backgroundColorActive,
-        backgroundColorFocus,
-        backgroundColorHover,
-        backgroundImage,
-        backgroundPosition,
-        backgroundRepeat,
-        backgroundSize,
-        border,
-        borderActive,
-        borderBottom,
-        borderBottomActive,
-        borderBottomFocus,
-        borderBottomHover,
-        borderBottomLeftRadius,
-        borderBottomRightRadius,
-        borderFocus,
-        borderHover,
-        borderLeft,
-        borderLeftActive,
-        borderLeftFocus,
-        borderLeftHover,
-        borderRadius,
-        borderRight,
-        borderRightActive,
-        borderRightFocus,
-        borderRightHover,
-        borderTop,
-        borderTopActive,
-        borderTopFocus,
-        borderTopHover,
-        borderTopLeftRadius,
-        borderTopRightRadius,
-        bottom,
-        boxShadow,
-        boxShadowActive,
-        boxShadowFocus,
-        boxShadowHover,
-        className,
-        color,
-        colorActive,
-        colorFocus,
-        colorHover,
-        columnGap,
-        content,
-        contentVisibility,
-        cursor,
-        cursorHover,
-        display,
-        fill,
-        fillFocus,
-        fillHover,
-        filter,
-        flex,
-        flexBasis,
-        flexDirection,
-        flexFlow,
-        flexGrow,
-        flexShrink,
-        flexWrap,
-        fontFamily,
-        fontSize,
-        fontStyle,
-        fontWeight,
-        gap,
-        grid,
-        gridArea,
-        gridAutoColumns,
-        gridAutoFlow,
-        gridAutoRows,
-        gridColumn,
-        gridColumnEnd,
-        gridColumnSpan,
-        gridColumnStart,
-        gridRow,
-        gridRowEnd,
-        gridRowSpan,
-        gridRowStart,
-        gridTemplate,
-        gridTemplateAreas,
-        gridTemplateColumns,
-        gridTemplateRows,
-        height,
-        justifyContent,
-        justifyItems,
-        justifySelf,
-        left,
-        letterSpacing,
-        lineHeight,
-        margin,
-        marginBottom,
-        marginLeft,
-        marginRight,
-        marginTop,
-        marginX,
-        marginY,
-        maxHeight,
-        maxWidth,
-        minHeight,
-        minWidth,
-        objectFit,
-        objectPosition,
-        opacity,
-        opacityActive,
-        opacityFocus,
-        opacityHover,
-        order,
-        outline,
-        outlineFocus,
-        overflow,
-        overflowX,
-        overflowY,
-        padding,
-        paddingBottom,
-        paddingLeft,
-        paddingRight,
-        paddingTop,
-        paddingX,
-        paddingY,
-        pointerEvents,
-        position,
-        resize,
-        right,
-        rowGap,
-        stroke,
-        style,
-        textAlign,
-        textDecoration,
-        textOverflow,
-        textTransform,
-        top,
-        transform,
-        transformOrigin,
-        transformStyle,
-        transition,
-        UNSAFE_backgroundColor,
-        UNSAFE_backgroundColorActive,
-        UNSAFE_backgroundColorFocus,
-        UNSAFE_backgroundColorHover,
-        UNSAFE_border,
-        UNSAFE_borderActive,
-        UNSAFE_borderBottom,
-        UNSAFE_borderBottomActive,
-        UNSAFE_borderBottomFocus,
-        UNSAFE_borderBottomHover,
-        UNSAFE_borderBottomLeftRadius,
-        UNSAFE_borderBottomRightRadius,
-        UNSAFE_borderFocus,
-        UNSAFE_borderHover,
-        UNSAFE_borderLeft,
-        UNSAFE_borderLeftActive,
-        UNSAFE_borderLeftFocus,
-        UNSAFE_borderLeftHover,
-        UNSAFE_borderRadius,
-        UNSAFE_borderRight,
-        UNSAFE_borderRightActive,
-        UNSAFE_borderRightFocus,
-        UNSAFE_borderRightHover,
-        UNSAFE_borderTop,
-        UNSAFE_borderTopActive,
-        UNSAFE_borderTopFocus,
-        UNSAFE_borderTopHover,
-        UNSAFE_borderTopLeftRadius,
-        UNSAFE_borderTopRightRadius,
-        UNSAFE_boxShadow,
-        UNSAFE_boxShadowActive,
-        UNSAFE_boxShadowFocus,
-        UNSAFE_boxShadowHover,
-        UNSAFE_color,
-        UNSAFE_colorActive,
-        UNSAFE_colorFocus,
-        UNSAFE_colorHover,
-        UNSAFE_columnGap,
-        UNSAFE_fill,
-        UNSAFE_fillFocus,
-        UNSAFE_fillHover,
-        UNSAFE_fontFamily,
-        UNSAFE_fontSize,
-        UNSAFE_fontWeight,
-        UNSAFE_gap,
-        UNSAFE_gridAutoColumns,
-        UNSAFE_gridAutoRows,
-        UNSAFE_gridColumnSpan,
-        UNSAFE_gridRowSpan,
-        UNSAFE_gridTemplateColumns,
-        UNSAFE_gridTemplateRows,
-        UNSAFE_height,
-        UNSAFE_lineHeight,
-        UNSAFE_margin,
-        UNSAFE_marginBottom,
-        UNSAFE_marginLeft,
-        UNSAFE_marginRight,
-        UNSAFE_marginTop,
-        UNSAFE_marginX,
-        UNSAFE_marginY,
-        UNSAFE_maxHeight,
-        UNSAFE_maxWidth,
-        UNSAFE_minHeight,
-        UNSAFE_minWidth,
-        UNSAFE_padding,
-        UNSAFE_paddingBottom,
-        UNSAFE_paddingLeft,
-        UNSAFE_paddingRight,
-        UNSAFE_paddingTop,
-        UNSAFE_paddingX,
-        UNSAFE_paddingY,
-        UNSAFE_rowGap,
-        UNSAFE_stroke,
-        UNSAFE_width,
-        verticalAlign,
-        visibility,
-        whiteSpace,
-        width,
-        willChange,
-        wordBreak,
-        zIndex,
-        ...rest
-    } = props;
-
-    const { matchedBreakpoints } = useBreakpointContext();
-
-    // TODO: We should measure the improvement made by this useMemo. This introduces a lot of complexity in the maintenance and it might not be worth it.
-
-    // We don't have to add "props" as a dependency because useStyledSystem return the "rest" which is all the props that are not already a dependency
-    // of this memoization. If we do add props, the memoization will refresh on every render, which is bad, so don't do it.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    /* eslint-disable react-hooks/exhaustive-deps */
-    const styling = useMemo(() => {
-        const context = new StylingContext(className, style, matchedBreakpoints);
-
-        Object.keys(props).forEach(key => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const value = (props as Record<string, any>)[key];
-
-            if (!isNil(value)) {
-                const cssProperty = key.replace(UnsafePrefix, "");
-                const handler = PropsHandlers[cssProperty];
-
-                if (!isNil(handler)) {
-                    handler(cssProperty, value, context);
-                }
-            }
-        });
-
-        return context.computeStyling();
-    }, [
-        alignContent,
-        alignItems,
-        alignSelf,
-        aspectRatio,
-        backgroundColor,
-        backgroundColorActive,
-        backgroundColorFocus,
-        backgroundColorHover,
-        backgroundImage,
-        backgroundPosition,
-        backgroundRepeat,
-        backgroundSize,
-        border,
-        borderActive,
-        borderBottom,
-        borderBottomActive,
-        borderBottomFocus,
-        borderBottomHover,
-        borderBottomLeftRadius,
-        borderBottomRightRadius,
-        borderFocus,
-        borderHover,
-        borderLeft,
-        borderLeftActive,
-        borderLeftFocus,
-        borderLeftHover,
-        borderRadius,
-        borderRight,
-        borderRightActive,
-        borderRightFocus,
-        borderRightHover,
-        borderTop,
-        borderTopActive,
-        borderTopFocus,
-        borderTopHover,
-        borderTopLeftRadius,
-        borderTopRightRadius,
-        bottom,
-        boxShadow,
-        boxShadowActive,
-        boxShadowFocus,
-        boxShadowHover,
-        className,
-        color,
-        colorActive,
-        colorFocus,
-        colorHover,
-        columnGap,
-        content,
-        contentVisibility,
-        cursor,
-        cursorHover,
-        display,
-        fill,
-        fillFocus,
-        fillHover,
-        filter,
-        flex,
-        flexBasis,
-        flexDirection,
-        flexFlow,
-        flexGrow,
-        flexShrink,
-        flexWrap,
-        fontFamily,
-        fontSize,
-        fontStyle,
-        fontWeight,
-        gap,
-        grid,
-        gridArea,
-        gridAutoColumns,
-        gridAutoFlow,
-        gridAutoRows,
-        gridColumn,
-        gridColumnEnd,
-        gridColumnSpan,
-        gridColumnStart,
-        gridRow,
-        gridRowEnd,
-        gridRowSpan,
-        gridRowStart,
-        gridTemplate,
-        gridTemplateAreas,
-        gridTemplateColumns,
-        gridTemplateRows,
-        height,
-        justifyContent,
-        justifyItems,
-        justifySelf,
-        left,
-        letterSpacing,
-        lineHeight,
-        margin,
-        marginBottom,
-        marginLeft,
-        marginRight,
-        marginTop,
-        marginX,
-        marginY,
-        matchedBreakpoints,
-        maxHeight,
-        maxWidth,
-        minHeight,
-        minWidth,
-        objectFit,
-        objectPosition,
-        opacity,
-        opacityActive,
-        opacityFocus,
-        opacityHover,
-        order,
-        outline,
-        outlineFocus,
-        overflow,
-        overflowX,
-        overflowY,
-        padding,
-        paddingBottom,
-        paddingLeft,
-        paddingRight,
-        paddingTop,
-        paddingX,
-        paddingY,
-        pointerEvents,
-        position,
-        resize,
-        right,
-        rowGap,
-        stroke,
-        style,
-        textAlign,
-        textDecoration,
-        textOverflow,
-        textTransform,
-        top,
-        transform,
-        transformOrigin,
-        transformStyle,
-        transition,
-        UNSAFE_backgroundColor,
-        UNSAFE_backgroundColorActive,
-        UNSAFE_backgroundColorFocus,
-        UNSAFE_backgroundColorHover,
-        UNSAFE_border,
-        UNSAFE_borderActive,
-        UNSAFE_borderBottom,
-        UNSAFE_borderBottomActive,
-        UNSAFE_borderBottomFocus,
-        UNSAFE_borderBottomHover,
-        UNSAFE_borderBottomLeftRadius,
-        UNSAFE_borderBottomRightRadius,
-        UNSAFE_borderFocus,
-        UNSAFE_borderHover,
-        UNSAFE_borderLeft,
-        UNSAFE_borderLeftActive,
-        UNSAFE_borderLeftFocus,
-        UNSAFE_borderLeftHover,
-        UNSAFE_borderRadius,
-        UNSAFE_borderRight,
-        UNSAFE_borderRightActive,
-        UNSAFE_borderRightFocus,
-        UNSAFE_borderRightHover,
-        UNSAFE_borderTop,
-        UNSAFE_borderTopActive,
-        UNSAFE_borderTopFocus,
-        UNSAFE_borderTopHover,
-        UNSAFE_borderTopLeftRadius,
-        UNSAFE_borderTopRightRadius,
-        UNSAFE_boxShadow,
-        UNSAFE_boxShadowActive,
-        UNSAFE_boxShadowFocus,
-        UNSAFE_boxShadowHover,
-        UNSAFE_color,
-        UNSAFE_colorActive,
-        UNSAFE_colorFocus,
-        UNSAFE_colorHover,
-        UNSAFE_columnGap,
-        UNSAFE_fill,
-        UNSAFE_fillFocus,
-        UNSAFE_fillHover,
-        UNSAFE_fontFamily,
-        UNSAFE_fontSize,
-        UNSAFE_fontWeight,
-        UNSAFE_gap,
-        UNSAFE_gridAutoColumns,
-        UNSAFE_gridAutoRows,
-        UNSAFE_gridColumnSpan,
-        UNSAFE_gridRowSpan,
-        UNSAFE_gridTemplateColumns,
-        UNSAFE_gridTemplateRows,
-        UNSAFE_height,
-        UNSAFE_lineHeight,
-        UNSAFE_margin,
-        UNSAFE_marginBottom,
-        UNSAFE_marginLeft,
-        UNSAFE_marginRight,
-        UNSAFE_marginTop,
-        UNSAFE_marginX,
-        UNSAFE_marginY,
-        UNSAFE_maxHeight,
-        UNSAFE_maxWidth,
-        UNSAFE_minHeight,
-        UNSAFE_minWidth,
-        UNSAFE_padding,
-        UNSAFE_paddingBottom,
-        UNSAFE_paddingLeft,
-        UNSAFE_paddingRight,
-        UNSAFE_paddingTop,
-        UNSAFE_paddingX,
-        UNSAFE_paddingY,
-        UNSAFE_rowGap,
-        UNSAFE_stroke,
-        UNSAFE_width,
-        verticalAlign,
-        visibility,
-        whiteSpace,
-        width,
-        willChange,
-        wordBreak,
-        zIndex
-    ]);
-    /* eslint-enable react-hooks/exhaustive-deps */
-
-    return {
-        ...rest,
-        className: styling.className,
-        style: styling.style
-    } satisfies SatisfiesPropsNotPresent<Omit<StyledSystemProps, "className" | "style">>; // this satisfies make sure that no style-system props are forgotten in the rest parameter
+export interface StylingProps {
+    className?: string;
+    style?: CSSProperties;
 }
 
-type SatisfiesPropsNotPresent<TPropsToEnsure> = {
-    [key: string]: unknown;
-} & { [key in keyof Required<TPropsToEnsure>]?: never };
+function convertStyleProps<T extends StyledSystemProps>(props: T, handlers: Record<string, PropHandler>, matchedBreakpoints: Breakpoint[]) {
+    const context = new StylingContext(undefined, undefined, matchedBreakpoints);
+
+    (Object.keys(props) as (keyof T)[]).forEach(key => {
+        const value = props[key];
+
+        if (!isNil(value)) {
+            const cssProperty = key.toString().replace(UnsafePrefix, "");
+            const handler = handlers[cssProperty];
+
+            if (!isNil(handler)) {
+                handler(cssProperty, value as ResponsiveValue<string | number | string[]>, context);
+            }
+        }
+    });
+
+    return context.computeStyling();
+}
+
+function removeStyledSystemProps<TProps extends StyledSystemProps>(props: TProps): Omit<TProps, keyof StyledSystemProps> {
+    return Object.keys(props as Record<string, unknown>)
+        .filter(x => !isStyledSystemProp(x))
+        .reduce((acc, key) => {
+            acc[key] = (props as Record<string, unknown>)[key];
+
+            return acc;
+        }, {} as Record<string, unknown>) as Omit<TProps, keyof StyledSystemProps>;
+}
+
+export function useStyledSystem<TProps extends StyledSystemProps>(props: TProps)
+    : Omit<TProps, keyof StyledSystemProps> & { stylingProps: StylingProps } {
+    const { matchedBreakpoints } = useBreakpointContext();
+
+    const stylingProps = convertStyleProps(props, PropsHandlers, matchedBreakpoints);
+
+    return {
+        ...removeStyledSystemProps(props),
+        stylingProps
+    };
+}

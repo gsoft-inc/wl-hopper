@@ -1,0 +1,89 @@
+.hop-label {
+    /** TODO: Should all labels be --hop-font-weight-580 instead of the default text */
+
+    /** Component Tokens */
+    --hop-label-component-xs-font-size: var(--hop-body-xs-font-size);
+    --hop-label-component-xs-font-family: var(--hop-body-xs-font-family);
+    --hop-label-component-xs-font-weight: var(--hop-body-xs-font-weight);
+    --hop-label-component-xs-line-height: var(--hop-body-xs-line-height);
+    --hop-label-component-sm-font-size: var(--hop-body-sm-font-size);
+    --hop-label-component-sm-font-family: var(--hop-body-sm-font-family);
+    --hop-label-component-sm-font-weight: var(--hop-body-sm-font-weight);
+    --hop-label-component-sm-line-height: var(--hop-body-sm-line-height);
+    --hop-label-component-md-font-size: var(--hop-body-md-font-size);
+    --hop-label-component-md-font-family: var(--hop-body-md-font-family);
+    --hop-label-component-md-font-weight: var(--hop-body-md-font-weight);
+    --hop-label-component-md-line-height: var(--hop-body-md-line-height);
+    --hop-label-component-lg-font-size: var(--hop-body-lg-font-size);
+    --hop-label-component-lg-font-family: var(--hop-body-lg-font-family);
+    --hop-label-component-lg-font-weight: var(--hop-body-lg-font-weight);
+    --hop-label-component-lg-line-height: var(--hop-body-lg-line-height);
+    --hop-label-component-xl-font-size: var(--hop-body-xl-font-size);
+    --hop-label-component-xl-font-family: var(--hop-body-xl-font-family);
+    --hop-label-component-xl-font-weight: var(--hop-body-xl-font-weight);
+    --hop-label-component-xl-line-height: var(--hop-body-xl-line-height);
+    --hop-label-component-2xl-font-size: var(--hop-body-2xl-font-size);
+    --hop-label-component-2xl-font-family: var(--hop-body-2xl-font-family);
+    --hop-label-component-2xl-font-weight: var(--hop-body-2xl-font-weight);
+    --hop-label-component-2xl-line-height: var(--hop-body-2xl-line-height);
+    --hop-label-component-inherit-size-font-size: inherit;
+    --hop-label-component-inherit-size-font-family: inherit;
+    --hop-label-component-inherit-size-font-weight: inherit;
+    --hop-label-component-inherit-size-line-height: inherit;
+}
+
+:where(.hop-label) {
+    font-size: var(--font-size, --hop-label-component-md-font-size);
+    font-family: var(--font-family, --hop-label-component-md-font-family);
+    font-weight: var(--font-weight, --hop-label-component-md-font-weight);
+    line-height: var(--line-height, --hop-label-component-md-line-height);
+}
+
+:where(.hop-label--xs) {
+    --font-size: var(--hop-label-component-xs-font-size);
+    --font-family: var(--hop-label-component-xs-font-family);
+    --font-weight: var(--hop-label-component-xs-font-weight);
+    --line-height: var(--hop-label-component-xs-line-height);
+}
+
+:where(.hop-label--sm) {
+    --font-size: var(--hop-label-component-sm-font-size);
+    --font-family: var(--hop-label-component-sm-font-family);
+    --font-weight: var(--hop-label-component-sm-font-weight);
+    --line-height: var(--hop-label-component-sm-line-height);
+}
+
+:where(.hop-label--md) {
+    --font-size: var(--hop-label-component-md-font-size);
+    --font-family: var(--hop-label-component-md-font-family);
+    --font-weight: var(--hop-label-component-md-font-weight);
+    --line-height: var(--hop-label-component-md-line-height);
+}
+
+:where(.hop-label--lg) {
+    --font-size: var(--hop-label-component-lg-font-size);
+    --font-family: var(--hop-label-component-lg-font-family);
+    --font-weight: var(--hop-label-component-lg-font-weight);
+    --line-height: var(--hop-label-component-lg-line-height);
+}
+
+:where(.hop-label--xl) {
+    --font-size: var(--hop-label-component-xl-font-size);
+    --font-family: var(--hop-label-component-xl-font-family);
+    --font-weight: var(--hop-label-component-xl-font-weight);
+    --line-height: var(--hop-label-component-xl-line-height);
+}
+
+:where(.hop-label--2xl) {
+    --font-size: var(--hop-label-component-2xl-font-size);
+    --font-family: var(--hop-label-component-2xl-font-family);
+    --font-weight: var(--hop-label-component-2xl-font-weight);
+    --line-height: var(--hop-label-component-2xl-line-height);
+}
+
+:where(.hop-label--inherit) {
+    --font-size: var(--hop-label-component-inherit-size-font-size);
+    --font-family: var(--hop-label-component-inherit-size-font-family);
+    --font-weight: var(--hop-label-component-inherit-size-font-weight);
+    --line-height: var(--hop-label-component-inherit-size-line-height);
+}
