@@ -40,9 +40,9 @@ export const FlexInline: Story = {
 
 export const Nesting: Story = {
     render: args => (
-        <Flex direction="column" gap="core_40" width="min-content">
+        <Flex direction="column" gap="stack-xs" width="min-content">
             <Square backgroundColor="decorative-option6" width="100%" />
-            <Flex direction="row" gap="core_40">
+            <Flex direction="row" gap="stack-xs">
                 {args.children}
             </Flex>
             <Square backgroundColor="decorative-option8" width="100%" />
@@ -52,19 +52,19 @@ export const Nesting: Story = {
 
 export const Gap: Story = {
     args: {
-        gap: "core_160"
+        gap: "stack-md"
     }
 };
 
 export const ColumnGap: Story = {
     args: {
-        columnGap: "core_160"
+        columnGap: "stack-md"
     }
 };
 
 export const RowGap: Story = {
     args: {
-        rowGap: "core_160",
+        rowGap: "stack-md",
         direction: "column"
     }
 };

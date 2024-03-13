@@ -29,7 +29,7 @@ export const Default: Story = {
 
 export const Gap: Story = {
     args: {
-        gap: "core_160"
+        gap: "stack-md"
     }
 };
 

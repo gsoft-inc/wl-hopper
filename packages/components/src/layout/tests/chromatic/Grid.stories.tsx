@@ -58,7 +58,7 @@ export const GridInline: Story = {
 
 export const Nesting: Story = {
     render: () => (
-        <Grid templateColumns={["1fr", "1fr"]} gap="core_160">
+        <Grid templateColumns={["1fr", "1fr"]} gap="stack-md">
             <Grid UNSAFE_templateColumns={["8rem", "auto"]}>
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
@@ -73,7 +73,7 @@ export const Nesting: Story = {
 
 export const Gap: Story = {
     args:{
-        gap: "core_160",
+        gap: "stack-md",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
             <Square key="2" backgroundColor="decorative-option2" />,
@@ -87,7 +87,7 @@ export const Gap: Story = {
 
 export const ColumnGap: Story = {
     args:{
-        columnGap: "core_160",
+        columnGap: "stack-md",
         autoFlow: "column",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
@@ -102,7 +102,7 @@ export const ColumnGap: Story = {
 
 export const RowGap: Story = {
     args:{
-        rowGap: "core_160",
+        rowGap: "stack-md",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
             <Square key="2" backgroundColor="decorative-option2" />,
@@ -117,7 +117,7 @@ export const RowGap: Story = {
 export const TemplateColumns: Story = {
     render: () => (
         <Stack>
-            <Grid UNSAFE_templateColumns="80px 64px 80px" gap="core_160">
+            <Grid UNSAFE_templateColumns="80px 64px 80px" gap="stack-md">
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square backgroundColor="decorative-option2-weak" />
                 <Square backgroundColor="decorative-option3-weak" />
@@ -125,7 +125,7 @@ export const TemplateColumns: Story = {
                 <Square backgroundColor="decorative-option5-weak" />
                 <Square backgroundColor="decorative-option6-weak" />
             </Grid>
-            <Grid UNSAFE_templateColumns={["8rem", "4.5rem", "8rem"]} gap="core_160">
+            <Grid UNSAFE_templateColumns={["8rem", "4.5rem", "8rem"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
@@ -133,7 +133,7 @@ export const TemplateColumns: Story = {
                 <Square backgroundColor="decorative-option5" />
                 <Square backgroundColor="decorative-option6" />
             </Grid>
-            <Grid UNSAFE_templateColumns={{ md: ["8rem", "4.5rem"], lg: "150px 100px 150px" }} gap="core_160">
+            <Grid UNSAFE_templateColumns={{ md: ["8rem", "4.5rem"], lg: "150px 100px 150px" }} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -148,17 +148,17 @@ export const TemplateColumns: Story = {
 export const TemplateRows: Story = {
     render: () => (
         <Inline>
-            <Grid UNSAFE_templateRows="200px 100px 200px" gap="core_160">
+            <Grid UNSAFE_templateRows="200px 100px 200px" gap="stack-md">
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square backgroundColor="decorative-option2-weak" />
                 <Square backgroundColor="decorative-option3-weak" />
             </Grid>
-            <Grid UNSAFE_templateRows={["8rem", "3.5rem", "8rem"]} gap="core_160">
+            <Grid UNSAFE_templateRows={["8rem", "3.5rem", "8rem"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
             </Grid>
-            <Grid UNSAFE_templateRows={{ md: ["8rem", "3.5rem", "8rem"], lg: "200px 100px 200px" }} gap="core_160">
+            <Grid UNSAFE_templateRows={{ md: ["8rem", "3.5rem", "8rem"], lg: "200px 100px 200px" }} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -170,14 +170,14 @@ export const TemplateRows: Story = {
 export const Areas: Story = {
     render: () => (
         <Stack>
-            <Grid areas={["a a", "b c", "d e"]} gap="core_160">
+            <Grid areas={["a a", "b c", "d e"]} gap="stack-md">
                 <Square gridArea="a" backgroundColor="decorative-option1" >a</Square>
                 <Square gridArea="b" backgroundColor="decorative-option2" >b</Square>
                 <Square gridArea="c" backgroundColor="decorative-option3" >c</Square>
                 <Square gridArea="d" backgroundColor="decorative-option4" >d</Square>
                 <Square gridArea="e" backgroundColor="decorative-option5" >e</Square>
             </Grid>
-            <Grid areas={{ md: ["a", "b", "c", "d", "e"], lg: ["a a", "b c", "d e"] }} gap="core_160">
+            <Grid areas={{ md: ["a", "b", "c", "d", "e"], lg: ["a a", "b c", "d e"] }} gap="stack-md">
                 <Square gridArea="a" backgroundColor="decorative-option1-strong">a</Square>
                 <Square gridArea="b" backgroundColor="decorative-option2-strong">b</Square>
                 <Square gridArea="c" backgroundColor="decorative-option3-strong">c</Square>
@@ -191,21 +191,21 @@ export const Areas: Story = {
 export const AutoFlow: Story = {
     render: () => (
         <Stack>
-            <Grid autoFlow="column" gap="core_160">
+            <Grid autoFlow="column" gap="stack-md">
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square backgroundColor="decorative-option2-weak" />
                 <Square backgroundColor="decorative-option3-weak" />
                 <Square backgroundColor="decorative-option4-weak" />
                 <Square backgroundColor="decorative-option5-weak" />
             </Grid>
-            <Grid autoFlow="row" gap="core_160">
+            <Grid autoFlow="row" gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
                 <Square backgroundColor="decorative-option4" />
                 <Square backgroundColor="decorative-option5" />
             </Grid>
-            <Grid autoFlow={{ md: "row", lg: "column" }} gap="core_160">
+            <Grid autoFlow={{ md: "row", lg: "column" }} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -219,21 +219,21 @@ export const AutoFlow: Story = {
 export const AutoColumns: Story = {
     render: () => (
         <Stack>
-            <Grid UNSAFE_autoColumns="8rem" gap="core_160">
+            <Grid UNSAFE_autoColumns="8rem" gap="stack-md">
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square gridColumn={2} backgroundColor="decorative-option2-weak" />
                 <Square backgroundColor="decorative-option3-weak" />
                 <Square backgroundColor="decorative-option4-weak" />
                 <Square backgroundColor="decorative-option5-weak" />
             </Grid>
-            <Grid UNSAFE_autoColumns="200px" gap="core_160">
+            <Grid UNSAFE_autoColumns="200px" gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square gridColumn={2} backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
                 <Square backgroundColor="decorative-option4" />
                 <Square backgroundColor="decorative-option5" />
             </Grid>
-            <Grid UNSAFE_autoColumns={{ md: "8rem", lg: "200px" }} gap="core_160">
+            <Grid UNSAFE_autoColumns={{ md: "8rem", lg: "200px" }} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square gridColumn={2} backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -247,21 +247,21 @@ export const AutoColumns: Story = {
 export const AutoRows: Story = {
     render: () => (
         <Stack>
-            <Grid autoRows="core_640" gap="core_160">
+            <Grid autoRows="core_640" gap="stack-md">
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square gridColumn={3} backgroundColor="decorative-option2-weak" />
                 <Square gridColumnSpan={3} backgroundColor="decorative-option3-weak" />
                 <Square backgroundColor="decorative-option4-weak" />
                 <Square backgroundColor="decorative-option5-weak" />
             </Grid>
-            <Grid autoRows="core_640" gap="core_160">
+            <Grid autoRows="core_640" gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square gridColumn={3} backgroundColor="decorative-option2" />
                 <Square gridColumnSpan={3} backgroundColor="decorative-option3" />
                 <Square backgroundColor="decorative-option4" />
                 <Square backgroundColor="decorative-option5" />
             </Grid>
-            <Grid UNSAFE_autoRows={{ md: "core_640", lg: "5.5rem" }} gap="core_160">
+            <Grid UNSAFE_autoRows={{ md: "core_640", lg: "5.5rem" }} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square gridColumn={3} backgroundColor="decorative-option2-strong" />
                 <Square gridColumnSpan={3} backgroundColor="decorative-option3-strong" />
@@ -275,7 +275,7 @@ export const AutoRows: Story = {
 export const ColumnSpan: Story = {
     render: () => (
         <Stack>
-            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="core_160">
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square gridColumnSpan={2} backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
@@ -283,7 +283,7 @@ export const ColumnSpan: Story = {
                 <Square backgroundColor="decorative-option5" />
                 <Square backgroundColor="decorative-option6" />
             </Grid>
-            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="core_160">
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square gridColumnSpan={{ md: undefined, lg: 2 }} backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -298,7 +298,7 @@ export const ColumnSpan: Story = {
 export const RowSpan: Story = {
     render: () => (
         <Stack>
-            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="core_160">
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square gridRowSpan={2} backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
@@ -306,7 +306,7 @@ export const RowSpan: Story = {
                 <Square backgroundColor="decorative-option5" />
                 <Square backgroundColor="decorative-option6" />
             </Grid>
-            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="core_160">
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square gridRowSpan={{ lg: 2 }} backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -321,7 +321,7 @@ export const RowSpan: Story = {
 export const Repeat: Story = {
     render: () => (
         <Stack>
-            <Grid templateColumns={repeat("auto-fit", "4.5rem")} gap="core_160">
+            <Grid templateColumns={repeat("auto-fit", "4.5rem")} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
@@ -329,7 +329,7 @@ export const Repeat: Story = {
                 <Square backgroundColor="decorative-option5" />
                 <Square backgroundColor="decorative-option6" />
             </Grid>
-            <Grid templateColumns={repeat("auto-fit", "4.5rem")} gap="core_160">
+            <Grid templateColumns={repeat("auto-fit", "4.5rem")} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -344,7 +344,7 @@ export const Repeat: Story = {
 export const Minmax: Story = {
     render: () => (
         <Stack>
-            <Grid UNSAFE_templateColumns={[minmax("8rem", "auto"), "4.5rem", "4.5rem"]} gap="core_160">
+            <Grid UNSAFE_templateColumns={[minmax("8rem", "auto"), "4.5rem", "4.5rem"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
@@ -352,7 +352,7 @@ export const Minmax: Story = {
                 <Square backgroundColor="decorative-option5" />
                 <Square backgroundColor="decorative-option6" />
             </Grid>
-            <Grid UNSAFE_templateColumns={[minmax("600px", "auto"), "4.5rem", "4.5rem"]} gap="core_160">
+            <Grid UNSAFE_templateColumns={[minmax("600px", "auto"), "4.5rem", "4.5rem"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />
@@ -367,7 +367,7 @@ export const Minmax: Story = {
 export const FitContent: Story = {
     render: () => (
         <Stack>
-            <Grid UNSAFE_templateColumns={[fitContent("8rem"), "4.5rem", "4.5rem"]} gap="core_160">
+            <Grid UNSAFE_templateColumns={[fitContent("8rem"), "4.5rem", "4.5rem"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option2" />
                 <Square backgroundColor="decorative-option3" />
@@ -375,7 +375,7 @@ export const FitContent: Story = {
                 <Square backgroundColor="decorative-option5" />
                 <Square backgroundColor="decorative-option6" />
             </Grid>
-            <Grid UNSAFE_templateColumns={[fitContent("8rem"), "4.5rem", "4.5rem"]} gap="core_160">
+            <Grid UNSAFE_templateColumns={[fitContent("8rem"), "4.5rem", "4.5rem"]} gap="stack-md">
                 <Square backgroundColor="decorative-option1-strong" />
                 <Square backgroundColor="decorative-option2-strong" />
                 <Square backgroundColor="decorative-option3-strong" />

@@ -92,7 +92,7 @@ export const Inline: Story = {
 
 export const Nested: Story = {
     render: args => (
-        <Stack gap="core_400">
+        <Stack gap="stack-xl">
             <Stack>
                 {args.children}
             </Stack>

@@ -34,8 +34,8 @@ export const Default: Story = {
 export const InheritColor: Story = {
     render: args => (
         <Inline alignY="end" backgroundColor="primary-strong">
-            <Spinner color="core_samoyed" aria-label="Crawling in progress…" {...args} />
-            <Spinner color="core_samoyed" {...args}>Crawling in progress…</Spinner>
+            <Spinner color="primary-strong" aria-label="Crawling in progress…" {...args} />
+            <Spinner color="primary-strong" {...args}>Crawling in progress…</Spinner>
         </Inline>
     )
 };
