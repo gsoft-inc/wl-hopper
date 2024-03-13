@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 0.3.0
+
+### Minor Changes
+
+- aa5d10b: Added font fallback to font tokens
+
 ## 0.2.8
 
 ### Patch Changes
