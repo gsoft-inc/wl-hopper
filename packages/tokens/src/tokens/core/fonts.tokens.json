@@ -3,15 +3,15 @@
         "family": {
             "primary" : {
                 "$type": "fontFamily",
-                "$value": "ABC Favorit"
+                "$value": "'ABC Favorit', Helvetica, Arial, sans-serif"
             },
             "secondary" : {
                 "$type": "fontFamily",
-                "$value": "Inter"
+                "$value": "'Inter', Helvetica, Arial, sans-serif"
             },
             "tertiary" : {
                 "$type": "fontFamily",
-                "$value": "ABC Favorit Mono"
+                "$value": "'ABC Favorit Mono', Consolas, 'SF Mono', monospace"
             }
         },
         "size": {

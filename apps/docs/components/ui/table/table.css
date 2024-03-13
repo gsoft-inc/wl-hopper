@@ -41,6 +41,10 @@
     border-bottom: 0;
 }
 
+.hd-typo__cell-font-family {
+    max-width: 125px;
+}
+
 .hd-top__row .hd-table__cell {
     border-top: var(--hd-border-size) solid var(--hd-color-neutral-border);
 }
