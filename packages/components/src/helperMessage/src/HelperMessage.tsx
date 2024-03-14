@@ -10,10 +10,6 @@ import { cssModule } from "../../utils/src/css-module.ts";
 import styles from "./HelperMessage.module.css";
 
 export const GlobalHelperMessageCssSelector = "hop-HelperMessage";
-
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultHelperMessageSlot = "description";
-
 export interface HelperMessageProps extends StyledComponentProps<Omit<TextProps, "size">> {
     /**
      * Whether or not to show the helper message icon.
