@@ -30,7 +30,9 @@ const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: 
     );
 
     const titleContent = <span className="hd-pre-header__title">{title}</span>;
-    const copyButton = raw && <CopyButton text={raw} />;
+    const isOnDark = !title;
+
+    const copyButton = raw && <CopyButton onDark={isOnDark} text={raw} />;
 
     return (
         <pre {...props} className={classes}>
