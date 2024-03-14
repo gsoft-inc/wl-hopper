@@ -1,0 +1,15 @@
+/* stylelint-disable custom-property-pattern */
+.hop-HelperMessage  {
+    --hop-HelperMessage-color: var(--hop-neutral-text-weak);
+    --hop-HelperMessage-gap: var(--hop-space-inline-xs);
+
+    align-items: center;
+    color: var(--hop-HelperMessage-color);
+    display: flex;
+    gap: var(--hop-HelperMessage-gap);
+}
+
+.hop-HelperMessage__icon {
+    align-self: flex-start;
+    flex: 0 0 auto
+}
