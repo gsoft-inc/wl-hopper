@@ -40,6 +40,6 @@ export const Default: Story = {
  */
 export const Icon: Story = {
     args: {
-        showIcon: true
+        showInfoIcon: true
     }
 };

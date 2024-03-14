@@ -18,13 +18,13 @@ export interface HelperMessageProps extends StyledComponentProps<Omit<TextProps,
     /**
      * Whether or not to show the helper message icon.
      */
-    showIcon?: boolean;
+    showInfoIcon?: boolean;
 }
 
 function HelperMessage(props:HelperMessageProps, ref: ForwardedRef<HTMLSpanElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultHelperMessageSlot }, ref, HelperMessageContext);
+    [props, ref] = useContextProps(props, ref, HelperMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, showIcon, style, ...otherProps } = ownProps;
+    const { className, children, showInfoIcon, style, slot = "description", ...otherProps } = ownProps;
 
     const classNames = clsx(
         GlobalHelperMessageCssSelector,
@@ -48,8 +48,9 @@ function HelperMessage(props:HelperMessageProps, ref: ForwardedRef<HTMLSpanEleme
             className={classNames}
             style={mergedStyles}
             size="xs"
+            slot={slot}
         >
-            {showIcon && <InfoIcon size="sm" className={styles["hop-HelperMessage__icon"]} />}
+            {showInfoIcon && <InfoIcon size="sm" className={styles["hop-HelperMessage__icon"]} />}
             {children}
         </Text>
     );

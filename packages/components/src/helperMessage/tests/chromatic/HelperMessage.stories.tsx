@@ -17,7 +17,7 @@ export const Default: Story = {
     render: props => (
         <>
             <HelperMessage {...props} />
-            <HelperMessage showIcon {...props} />
+            <HelperMessage showInfoIcon {...props} />
         </>
     )
 };
@@ -25,9 +25,9 @@ export const Default: Story = {
 export const Styling: Story = {
     render: props => (
         <>
-            <HelperMessage showIcon border="warning-strong" {...props} />
-            <HelperMessage showIcon className="bg-red" {...props} />
-            <HelperMessage showIcon style={{ backgroundColor: "red" }} {...props} />
+            <HelperMessage showInfoIcon border="warning-strong" {...props} />
+            <HelperMessage showInfoIcon className="bg-red" {...props} />
+            <HelperMessage showInfoIcon style={{ backgroundColor: "red" }} {...props} />
         </>
     )
 };

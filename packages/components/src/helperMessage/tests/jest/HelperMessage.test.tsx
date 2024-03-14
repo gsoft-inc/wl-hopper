@@ -54,7 +54,7 @@ describe("HelperMessage", () => {
     });
 
     it("should support showing an icon", () => {
-        render(<HelperMessage showIcon>Test</HelperMessage>);
+        render(<HelperMessage showInfoIcon>Test</HelperMessage>);
 
         const element = screen.getByText("Test");
         const svgElement = element.querySelector(".hop-Icon");
