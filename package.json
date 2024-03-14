@@ -65,7 +65,6 @@
         "storybook": "7.6.10",
         "stylelint": "16.2.1",
         "stylelint-use-logical": "2.1.2",
-        "stylelint-selector-bem-pattern": "4.0.0",
         "ts-jest": "29.1.2",
         "ts-node": "10.9.2",
         "tsx": "4.7.0",

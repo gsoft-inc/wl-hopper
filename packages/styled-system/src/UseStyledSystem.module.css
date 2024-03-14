@@ -1,4 +1,4 @@
-/* stylelint-disable csstools/use-logical */
+/* stylelint-disable csstools/use-logical, selector-class-pattern */
 
 /* PSEUDO | BORDER */
 .hop-b-hover:hover {

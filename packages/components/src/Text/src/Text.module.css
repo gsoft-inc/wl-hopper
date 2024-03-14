@@ -1,4 +1,4 @@
-.hop-text {
+.hop-Text {
     /** Component Tokens */
     --hop-Text-xs-font-size: var(--hop-body-xs-font-size);
     --hop-Text-xs-font-family: var(--hop-body-xs-font-family);
@@ -30,56 +30,56 @@
     --hop-Text-inherit-size-line-height: inherit;
 }
 
-:where(.hop-text) {
+:where(.hop-Text) {
     font-size: var(--font-size);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
 }
 
-:where(.hop-text--xs) {
+:where(.hop-Text--xs) {
     --font-size: var(--hop-Text-xs-font-size);
     --font-family: var(--hop-Text-xs-font-family);
     --font-weight: var(--hop-Text-xs-font-weight);
     --line-height: var(--hop-Text-xs-line-height);
 }
 
-:where(.hop-text--sm) {
+:where(.hop-Text--sm) {
     --font-size: var(--hop-Text-sm-font-size);
     --font-family: var(--hop-Text-sm-font-family);
     --font-weight: var(--hop-Text-sm-font-weight);
     --line-height: var(--hop-Text-sm-line-height);
 }
 
-:where(.hop-text--md) {
+:where(.hop-Text--md) {
     --font-size: var(--hop-Text-md-font-size);
     --font-family: var(--hop-Text-md-font-family);
     --font-weight: var(--hop-Text-md-font-weight);
     --line-height: var(--hop-Text-md-line-height);
 }
 
-:where(.hop-text--lg) {
+:where(.hop-Text--lg) {
     --font-size: var(--hop-Text-lg-font-size);
     --font-family: var(--hop-Text-lg-font-family);
     --font-weight: var(--hop-Text-lg-font-weight);
     --line-height: var(--hop-Text-lg-line-height);
 }
 
-:where(.hop-text--xl) {
+:where(.hop-Text--xl) {
     --font-size: var(--hop-Text-xl-font-size);
     --font-family: var(--hop-Text-xl-font-family);
     --font-weight: var(--hop-Text-xl-font-weight);
     --line-height: var(--hop-Text-xl-line-height);
 }
 
-:where(.hop-text--2xl) {
+:where(.hop-Text--2xl) {
     --font-size: var(--hop-Text-2xl-font-size);
     --font-family: var(--hop-Text-2xl-font-family);
     --font-weight: var(--hop-Text-2xl-font-weight);
     --line-height: var(--hop-Text-2xl-line-height);
 }
 
-:where(.hop-text--inherit) {
+:where(.hop-Text--inherit) {
     --font-size: var(--hop-Text-inherit-size-font-size);
     --font-family: var(--hop-Text-inherit-size-font-family);
     --font-weight: var(--hop-Text-inherit-size-font-weight);

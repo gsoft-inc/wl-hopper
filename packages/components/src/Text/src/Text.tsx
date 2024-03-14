@@ -32,7 +32,7 @@ function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
         GlobalTextCssSelector,
         cssModule(
             styles,
-            "hop-text",
+            "hop-Text",
             size
         ),
         stylingProps.className,
