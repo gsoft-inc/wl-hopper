@@ -25,8 +25,10 @@
 }
 
 .hd-preview--line-height {
-    border-block: var(--hd-border-size) dashed var(--hd-color-primary-border);
-    font-size: 1.125rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     position: relative;
     width: auto;
 }
@@ -40,6 +42,28 @@
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+}
+
+.hd-preview--line-height__text {
+    position: relative;
+}
+
+.hd-preview--line-height__text::after {
+    content: "";
+    display: block;
+    height: var(--hd-border-size);
+    width: 100%;
+    position: absolute;
+}
+
+.hd-preview--line-height__text-top::after {
+    top: 0;
+    border-bottom: var(--hd-border-size) dashed var(--hd-color-primary-border);
+}
+
+.hd-preview--line-height__text-bottom::after {
+    bottom: 0;
+    border-bottom: var(--hd-border-size) dashed var(--hd-color-primary-border);
 }
 
 .hd-preview--semantic-size {

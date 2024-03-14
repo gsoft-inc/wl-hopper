@@ -50,7 +50,7 @@ const Preview = ({ category, name, value }: PreviewProps) => {
             preview = {
                 style: { lineHeight: value },
                 className: "hd-preview--font hd-preview--line-height",
-                content: <>{sampleText}<br />{sampleText}</>
+                content: <><span className="hd-preview--line-height__text hd-preview--line-height__text-top">{sampleText}</span><span className="hd-preview--line-height__text hd-preview--line-height__text-bottom">{sampleText}</span></>
             };
             break;
         case "mediaQuery":
