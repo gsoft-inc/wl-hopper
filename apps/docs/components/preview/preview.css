@@ -94,6 +94,10 @@
     width: auto;
 }
 
+.hd-preview--inset {
+    background-color: var(--hd-color-accent-surface);
+}
+
 .hd-preview--inline::after {
     width: var(--hd-space-9)
 }
