@@ -56,7 +56,7 @@ jobs:
         run: pnpm build:pkg
 
       - name: Build apps
-        run: pnpm build:docs
+        run: pnpm build:apps
 
       - name: Lint packages
         run: pnpm lint
