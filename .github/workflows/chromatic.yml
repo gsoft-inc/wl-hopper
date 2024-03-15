@@ -71,7 +71,7 @@ jobs:
                   exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
                   skip: ${{ github.event.pull_request.draft == true }}
 
-            - name: Publish github comment
+            - name: Write to Github comment
               uses: thollander/actions-comment-pull-request@v2
               with:
                 message: |
