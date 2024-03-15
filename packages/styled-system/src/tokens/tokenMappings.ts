@@ -20,7 +20,7 @@ import {
     SemanticSimplePaddingSpace,
     Shape,
     TextColors
-} from "./generated/styled-system-to-token-mappings.ts";
+} from "./generated/styledSystemToTokenMappings.ts";
 
 export const ColorExpressionTypes = [
     "#",

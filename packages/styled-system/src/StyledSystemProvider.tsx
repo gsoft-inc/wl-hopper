@@ -5,7 +5,7 @@ import { useColorScheme } from "./color-scheme/useColorScheme.ts";
 import { BodyStyleProvider } from "./global-styles/BodyStyleProvider.tsx";
 import { Div, type DivProps } from "./html-wrappers/html.ts";
 import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint, type BreakpointProviderProps } from "./responsive/BreakpointProvider.tsx";
-import { HopperRootCssClass, StyledSystemRootCssClass } from "./styled-system-root-css-class.ts";
+import { HopperRootCssClass, StyledSystemRootCssClass } from "./styledSystemRootCssClass.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
 
 export const GlobalStyledSystemProviderCssSelector = "hop-StyledSystemProvider";

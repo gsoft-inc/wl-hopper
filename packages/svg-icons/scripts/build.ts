@@ -1,6 +1,6 @@
 import path from "path";
 import { IconSizes, IconsDistDirectory, IconsSourceDirectory } from "./constants.ts";
-import { generateIcons } from "./generate-icons.ts";
+import { generateIcons } from "./generateIcons.ts";
 
 /**
  * Converts a file path to a file name.

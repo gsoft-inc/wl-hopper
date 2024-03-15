@@ -1,4 +1,4 @@
-import { isTextOnlyChildren } from "../../src/is-text-only-children.ts";
+import { isTextOnlyChildren } from "../../src/isTextOnlyChildren.ts";
 
 describe("is-text-only-children", () => {
     it("should return true when children is string", () => {

@@ -1,4 +1,4 @@
-import { cssModule } from "../../src/css-module.ts";
+import { cssModule } from "../../src/cssModule.ts";
 
 const styles = {
     "hop-test": "hop-test_withHash",

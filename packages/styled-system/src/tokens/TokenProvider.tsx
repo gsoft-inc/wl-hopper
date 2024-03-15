@@ -1,4 +1,4 @@
-import { StyledSystemRootCssClass } from "../styled-system-root-css-class.ts";
+import { StyledSystemRootCssClass } from "../styledSystemRootCssClass.ts";
 import { useInsertStyleElement } from "../utils/useInsertStyleElement.ts";
 import { Tokens } from "./tokens.ts";
 
