@@ -14,7 +14,7 @@ on:
       - changeset-release/*
 
 concurrency:
-    group: ${{ github.head_ref || github.ref }}
+    group: chromatic-${{ github.head_ref || github.ref }}
     cancel-in-progress: true
 
 jobs:
@@ -59,7 +59,7 @@ jobs:
               run: pnpm i --frozen-lockfile
 
             - name: Build Packages
-              run: pnpm build
+              run: pnpm build:pkg
 
             - name: Publish to Chromatic
               uses: chromaui/action@v1
