@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-          
+
       - name: Setup pnpm cache
         uses: actions/cache@v3
         with:
@@ -48,12 +48,15 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-            
+
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
       - name: Build packages
-        run: pnpm build
+        run: pnpm build:pkg
+
+      - name: Build docs
+        run: pnpm build:docs
 
       - name: Lint packages
         run: pnpm lint
