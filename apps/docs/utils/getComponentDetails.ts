@@ -7,7 +7,7 @@ import { rehypePluginOptions } from "@/utils/rehypeConfig";
 async function parseFrontMatter(fileContent: string) {
     const { content, frontmatter } = await compileMDX<{ title: string; description: string; status: string }>({
         source: fileContent,
-        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [], rehypePlugins: rehypePluginOptions as unknown as any[]}},
+        options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [], rehypePlugins: rehypePluginOptions as unknown as [] } },
         components: components
     });
 

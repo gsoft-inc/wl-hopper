@@ -1,4 +1,4 @@
-import {visit} from "unist-util-visit";
+import { visit } from "unist-util-visit";
 import rehypePrettyCode from "rehype-pretty-code";
 
 /**
