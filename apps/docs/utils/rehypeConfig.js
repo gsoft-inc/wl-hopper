@@ -1,6 +1,15 @@
 import {visit} from "unist-util-visit";
 import rehypePrettyCode from "rehype-pretty-code";
 
+/**
+ * Options for the rehype-pretty-code plugin.
+ * @type {Object}
+ * @property {string} theme - The theme to use for code highlighting.
+ * @property {boolean} keepBackground - Whether to keep the background color of the code block.
+ * @property {Function} onVisitLine - Function to be called on each line of the code block.
+ * @property {Function} onVisitHighlightedLine - Function to be called on each highlighted line of the code block.
+ * @property {Function} onVisitHighlightedWord - Function to be called on each highlighted word of the code block.
+ */
 export const rehypeOptions = {
     // Use one of Shiki's packaged themes
     theme: "nord",
@@ -41,6 +50,7 @@ export const rehypeOptions = {
         }
     }
 };
+
 
 export const rehypePluginOptions = [
     () => tree => {
