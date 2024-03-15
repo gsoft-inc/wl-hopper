@@ -1,7 +1,7 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-import { mergeConfig } from "vite";
-import turbosnap from "vite-plugin-turbosnap";
-import tsconfigPaths from "vite-tsconfig-paths";
+import type { StorybookConfig } from "@storybook/react-webpack5";
+import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
+import { swcConfig as SwcBuildConfig } from "./swc.build.ts";
+import { swcConfig as SwcDevConfig } from "./swc.dev.ts";
 
 const storybookConfig: StorybookConfig = {
     stories: [
@@ -13,33 +13,35 @@ const storybookConfig: StorybookConfig = {
         "@storybook/addon-interactions"
     ],
     framework: {
-        name: "@storybook/react-vite",
-        options: {}
+        name: "@storybook/react-webpack5",
+        options: {
+            builder: {
+                useSWC: true
+            },
+            fastRefresh: true
+        }
     },
     docs: {
         autodocs: "tag"
     },
-    async viteFinal(config, { configType }) {
-        const plugins = [tsconfigPaths()];
+    swc: (_, { configType }) => {
+        const config = configType === "PRODUCTION" ? SwcBuildConfig : SwcDevConfig;
 
-        if (configType === "PRODUCTION") {
-            plugins.push(
-                // TurboSnap only officially support webpack (https://www.chromatic.com/docs/turbosnap/#prerequisites)
-                // This plugin is suggested by storybook and maintained by a core storybook contributor.
-                // This is experimental, and may not support all project and storybook configurations, yet.
-                // TODO: ts-ignore, it suggests we should use turbosnap.default but i'm not sure yet
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                turbosnap({
-                // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
-                    rootDir: config.root ?? process.cwd()
+        return config;
+    },
+    webpackFinal(config) {
+        config.resolve = {
+            ...config.resolve,
+            plugins: [
+                ...(config.resolve?.plugins || []),
+                new TsconfigPathsPlugin({
+                    configFile: "./tsconfig.json",
+                    extensions: config.resolve?.extensions
                 })
-            );
-        }
+            ]
+        };
 
-        return mergeConfig(config, {
-            plugins
-        });
+        return config;
     }
 };
 
