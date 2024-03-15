@@ -3,7 +3,7 @@ import { type ForwardedRef, forwardRef } from "react";
 import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
 import styles from "./Button.module.css";
 import { useId } from "react-aria";
-import { cssModule } from "../../utils/src/css-module.ts";
+import { cssModule } from "../../utils/src/cssModule.ts";
 import { Text } from "../../Text/src/Text.tsx";
 import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
@@ -12,7 +12,7 @@ import { TextContext } from "../../Text/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { isTextOnlyChildren } from "../../utils/src/is-text-only-children.ts";
+import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
 
 export const GlobalButtonCssSelector = "hop-Button";
 

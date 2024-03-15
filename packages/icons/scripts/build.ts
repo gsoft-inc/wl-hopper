@@ -1,9 +1,9 @@
 // Purpose: Build script for the icons package.
 
 import { ComponentDirectory, SVGsDirectory } from "./constants.ts";
-import { fetchSvgs } from "./fetch-svgs.ts";
-import { generateComponents } from "./generate-components.ts";
-import { generateIndex } from "./generate-index.ts";
+import { fetchSvgs } from "./fetchSvgs.ts";
+import { generateComponents } from "./generateComponents.ts";
+import { generateIndex } from "./generateIndex.ts";
 
 console.log("⚙️ Fetching SVGs...\n");
 const multiSourceIcons = fetchSvgs(SVGsDirectory);

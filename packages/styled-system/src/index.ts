@@ -13,7 +13,7 @@ export * from "./responsive/Breakpoints.ts";
 export * from "./responsive/useResponsiveValue.tsx";
 
 export * from "./tokens/TokenProvider.tsx";
-export * from "./tokens/token-mappings.ts";
+export * from "./tokens/tokenMappings.ts";
 export * from "./tokens/tokens.ts";
 
 // TODO: utils folder should be move to an utils package
@@ -23,7 +23,7 @@ export * from "./utils/useIsomorphicLayoutEffect.ts";
 export * from "./utils/useThemeComputedStyle.ts";
 
 export * from "./StyledSystemProvider.tsx";
-export * from "./styled-system-props.ts";
-export * from "./styled-system-root-css-class.ts";
+export * from "./styledSystemProps.ts";
+export * from "./styledSystemRootCssClass.ts";
 export * from "./useStyledSystem.ts";
 

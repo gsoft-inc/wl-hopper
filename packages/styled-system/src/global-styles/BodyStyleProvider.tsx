@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useColorSchemeContext, type ColorScheme } from "../color-scheme/ColorSchemeContext.ts";
-import { StyledSystemRootCssClass } from "../styled-system-root-css-class.ts";
+import { StyledSystemRootCssClass } from "../styledSystemRootCssClass.ts";
 import type { HopperTokenKey } from "../tokens/tokens.ts";
 import { isNil } from "../utils/assertion.ts";
 import { useInsertStyleElement } from "../utils/useInsertStyleElement.ts";

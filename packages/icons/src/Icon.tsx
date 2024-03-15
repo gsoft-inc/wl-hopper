@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef, type ElementType, type RefAttributes, type SVGProps, type CSSProperties } from "react";
 import { useContextProps, type SlotProps } from "react-aria-components";
 import styles from "./Icon.module.css";
-import { cssModule } from "../../components/src/utils/src/css-module.ts";
+import { cssModule } from "../../components/src/utils/src/cssModule.ts";
 import { IconContext } from "./IconContext.ts";
 
 export const GlobalIconCssSelector = "hop-Icon";

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { forwardRef, type ElementRef, type CSSProperties } from "react";
-import type { StyledComponentProps } from "../styled-system-props.ts";
+import type { StyledComponentProps } from "../styledSystemProps.ts";
 import { useStyledSystem } from "../useStyledSystem.ts";
 import styles from "./htmlElement.module.css";
 

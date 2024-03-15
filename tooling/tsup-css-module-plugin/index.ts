@@ -1,1 +1,1 @@
-export * from "./tsup-css-module-plugin.ts";
+export * from "./createCssModuleEsbuildPlugin.ts";

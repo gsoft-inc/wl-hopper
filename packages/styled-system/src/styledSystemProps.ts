@@ -53,7 +53,7 @@ import type {
     UNSAFE_StrokeValue,
     UNSAFE_WidthValue,
     WidthValue
-} from "./tokens/token-mappings.ts";
+} from "./tokens/tokenMappings.ts";
 
 export const UnsafePrefix = "UNSAFE_";
 
