@@ -5,7 +5,7 @@ import { HelperMessageContext } from "./HelperMessageContext.ts";
 import { useContextProps } from "react-aria-components";
 import { InfoIcon } from "@hopper-ui/icons";
 import { type TextProps, Text } from "../../Text/index.ts";
-import { cssModule } from "../../utils/src/css-module.ts";
+import { cssModule } from "../../utils/src/cssModule.ts";
 
 import styles from "./HelperMessage.module.css";
 

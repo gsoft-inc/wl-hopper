@@ -1,0 +1,23 @@
+/* stylelint-disable custom-property-pattern */
+.hop-ErrorMessage  {
+    --hop-ErrorMessage-color: var(--hop-danger-text-weak);
+    --hop-ErrorMessage-font-family: var(--hop-body-xs-font-family);
+    --hop-ErrorMessage-font-size: var(--hop-body-xs-font-size);
+    --hop-ErrorMessage-font-weight: var(--hop-body-xs-font-weight);
+    --hop-ErrorMessage-line-height: var(--hop-body-xs-line-height);
+    --hop-ErrorMessage-gap: var(--hop-space-inline-xs);
+    
+    align-items: center;
+    color: var(--hop-ErrorMessage-color);
+    display: flex;
+    font-family: var(--hop-ErrorMessage-font-family);
+    font-size: var(--hop-ErrorMessage-font-size);
+    font-weight: var(--hop-ErrorMessage-font-weight);
+    gap: var(--hop-ErrorMessage-gap);
+    line-height: var(--hop-ErrorMessage-line-height);
+}
+
+.hop-ErrorMessage__icon {
+    align-self: flex-start;
+    flex: 0 0 auto
+}
