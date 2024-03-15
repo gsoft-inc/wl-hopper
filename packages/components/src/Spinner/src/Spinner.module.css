@@ -8,25 +8,25 @@
     }
 }
 
-.hop-spinner {
-    --hop-spinner-component-border-radius: var(--hop-shape-circle);
-    --hop-spinner-component-sm-wheel-size: 1rem;
-    --hop-spinner-component-md-wheel-size: 1.25rem;
-    --hop-spinner-component-lg-wheel-size: 1.5rem;
+.hop-Spinner {
+    --hop-Spinner-border-radius: var(--hop-shape-circle);
+    --hop-Spinner-sm-wheel-size: 1rem;
+    --hop-Spinner-md-wheel-size: 1.25rem;
+    --hop-Spinner-lg-wheel-size: 1.5rem;
 
     /* Track */
-    --hop-spinner-component-track-width: 0.125rem;
-    --hop-spinner-component-track-opacity: 0.2;
-    --hop-spinner-component-track-border: var(--hop-spinner-component-track-width) solid currentcolor;
+    --hop-Spinner-track-width: 0.125rem;
+    --hop-Spinner-track-opacity: 0.2;
+    --hop-Spinner-track-border: var(--hop-Spinner-track-width) solid currentcolor;
 
     /* Fill */
-    --hop-spinner-component-fill-animation: spin .8s infinite linear;
-    --hop-spinner-component-fill-animation-reduced-motion-duration: 2s;
-    --hop-spinner-component-fill-border: var(--hop-spinner-component-track-width) solid transparent;
-    --hop-spinner-component-fill-border-inline-start: var(--hop-spinner-component-track-width) solid currentcolor;
+    --hop-Spinner-fill-animation: spin .8s infinite linear;
+    --hop-Spinner-fill-animation-reduced-motion-duration: 2s;
+    --hop-Spinner-fill-border: var(--hop-Spinner-track-width) solid transparent;
+    --hop-Spinner-fill-border-inline-start: var(--hop-Spinner-track-width) solid currentcolor;
 
     /* Label */
-    --hop-spinner-component-label-margin-inline-start: var(--hop-space-inline-sm);
+    --hop-Spinner-label-margin-inline-start: var(--hop-space-inline-sm);
 
     box-sizing: border-box;
     display: grid;
@@ -35,49 +35,49 @@
     align-items: center;
 }
 
-.hop-spinner--sm {
-    --width: var(--hop-spinner-component-sm-wheel-size);
-    --height: var(--hop-spinner-component-sm-wheel-size);
+.hop-Spinner--sm {
+    --width: var(--hop-Spinner-sm-wheel-size);
+    --height: var(--hop-Spinner-sm-wheel-size);
 }
 
-.hop-spinner--md {
-    --width: var(--hop-spinner-component-md-wheel-size);
-    --height: var(--hop-spinner-component-md-wheel-size);
+.hop-Spinner--md {
+    --width: var(--hop-Spinner-md-wheel-size);
+    --height: var(--hop-Spinner-md-wheel-size);
 }
 
-.hop-spinner--lg {
-    --width: var(--hop-spinner-component-lg-wheel-size);
-    --height: var(--hop-spinner-component-lg-wheel-size);
+.hop-Spinner--lg {
+    --width: var(--hop-Spinner-lg-wheel-size);
+    --height: var(--hop-Spinner-lg-wheel-size);
 }
 
-.hop-spinner__track {
+.hop-Spinner__track {
     box-sizing: border-box;
-    inline-size: var(--width, --hop-spinner-component-md-wheel-size);
-    block-size: var(--height, --hop-spinner-component-md-wheel-size);
-    border-radius: var(--hop-spinner-component-border-radius);
-    border: var(--hop-spinner-component-track-border);
-    opacity: var(--hop-spinner-component-track-opacity);
+    inline-size: var(--width, --hop-Spinner-md-wheel-size);
+    block-size: var(--height, --hop-Spinner-md-wheel-size);
+    border-radius: var(--hop-Spinner-border-radius);
+    border: var(--hop-Spinner-track-border);
+    opacity: var(--hop-Spinner-track-opacity);
     grid-area: spinner;
 }
 
-.hop-spinner__fill {
+.hop-Spinner__fill {
     box-sizing: border-box;
-    inline-size: var(--width, --hop-spinner-component-md-wheel-size);
-    block-size: var(--height, --hop-spinner-component-md-wheel-size);
-    border-radius: var(--hop-spinner-component-border-radius);
-    border: var( --hop-spinner-component-fill-border);
-    border-inline-start: var(--hop-spinner-component-fill-border-inline-start);
+    inline-size: var(--width, --hop-Spinner-md-wheel-size);
+    block-size: var(--height, --hop-Spinner-md-wheel-size);
+    border-radius: var(--hop-Spinner-border-radius);
+    border: var( --hop-Spinner-fill-border);
+    border-inline-start: var(--hop-Spinner-fill-border-inline-start);
     grid-area: spinner;
-    animation: var(--hop-spinner-component-fill-animation);
+    animation: var(--hop-Spinner-fill-animation);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hop-spinner__fill {
-        animation-duration: var(--hop-spinner-component-fill-animation-reduced-motion-duration);
+    .hop-Spinner__fill {
+        animation-duration: var(--hop-Spinner-fill-animation-reduced-motion-duration);
     }
 }
 
-.hop-spinner__label {
+.hop-Spinner__label {
     grid-area: label;
-    margin-inline-start: var(--hop-spinner-component-label-margin-inline-start);
+    margin-inline-start: var(--hop-Spinner-label-margin-inline-start);
 }

@@ -1,3 +1,3 @@
-export * from "./expect-assignable.tsx";
+export * from "./expectAssignable.tsx";
 export * from "./renderWithTheme.tsx";
 

@@ -1,6 +1,7 @@
 .hd-tabs__list {
     border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
     display: flex;
+    padding-left: 0;
 }
 
 .hd-tabs__item {

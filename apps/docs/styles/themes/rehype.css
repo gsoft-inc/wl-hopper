@@ -27,7 +27,7 @@
     background: rgb(67 76 94 / 80%);
 }
 
-[data-rehype-pretty-code-figure] pre {
+[data-rehype-pretty-code-figure] .hd-pre__code {
     background-color: var(--hd-codeblock-background-color) !important;
 }
 

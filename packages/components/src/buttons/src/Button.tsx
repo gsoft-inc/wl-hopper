@@ -3,7 +3,7 @@ import { type ForwardedRef, forwardRef } from "react";
 import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
 import styles from "./Button.module.css";
 import { useId } from "react-aria";
-import { cssModule } from "../../utils/src/css-module.ts";
+import { cssModule } from "../../utils/src/cssModule.ts";
 import { Text } from "../../Text/src/Text.tsx";
 import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
@@ -12,7 +12,7 @@ import { TextContext } from "../../Text/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { isTextOnlyChildren } from "../../utils/src/is-text-only-children.ts";
+import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
@@ -82,7 +82,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         GlobalButtonCssSelector,
         cssModule(
             styles,
-            "hop-button",
+            "hop-Button",
             variant,
             size,
             fluid && "fluid",
@@ -117,21 +117,21 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                 [IconListContext, {
                     slots: {
                         icon: {
-                            className: styles["hop-button__icon-list"]
+                            className: styles["hop-Button__icon-list"]
                         },
                         "end-icon": {
-                            className: styles["hop-button__end-icon-list"]
+                            className: styles["hop-Button__end-icon-list"]
                         }
                     }
                 }],
                 [IconContext, {
                     slots: {
                         icon: {
-                            className: styles["hop-button__icon"],
+                            className: styles["hop-Button__icon"],
                             size: "md"
                         },
                         "end-icon": {
-                            className: styles["hop-button__end-icon"],
+                            className: styles["hop-Button__end-icon"],
                             size: "md"
                         }
                     }
@@ -139,7 +139,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                 [TextContext, {
                     slots: {
                         text: {
-                            className: styles["hop-button__text"],
+                            className: styles["hop-Button__text"],
                             size: size
                         }
                     }
@@ -164,7 +164,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                                     id={spinnerId}
                                     size="lg"
                                     aria-label={isLoadingAriaLiveLabel}
-                                    className={styles["hop-button__Spinner"]}
+                                    className={styles["hop-Button__Spinner"]}
                                 />
                             )}
                         </>
