@@ -43,8 +43,8 @@
         "react-dom": "*"
     },
     "dependencies": {
-        "clsx": "^2.1.0",
-        "@react-aria/ssr": "^3.9.2"
+        "@react-aria/ssr": "^3.9.2",
+        "clsx": "^2.1.0"
     },
     "devDependencies": {
         "@hopper-ui/tokens": "workspace:*",
