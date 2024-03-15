@@ -17,6 +17,14 @@ const storybookConfig: StorybookConfig = {
         "@storybook/addon-webpack5-compiler-swc"
     ],
     framework: "@storybook/react-webpack5",
+    core: {
+        builder: {
+            name: "@storybook/builder-webpack5",
+            options: {
+                lazyCompilation: true
+            }
+        },
+    },
     docs: {
         autodocs: "tag"
     },
