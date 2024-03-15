@@ -1,3 +1,4 @@
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 import { swcConfig as SwcBuildConfig } from "./swc.build.ts";
@@ -10,17 +11,18 @@ const storybookConfig: StorybookConfig = {
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-interactions"
+        "@storybook/addon-interactions",
+        "@storybook/addon-webpack5-compiler-swc"
     ],
-    framework: {
-        name: "@storybook/react-webpack5",
-        options: {
-            builder: {
-                useSWC: true
-            },
-            fastRefresh: true
-        }
-    },
+    framework: "@storybook/react-webpack5",
+    // core: {
+    //     builder: {
+    //         name: "@storybook/builder-webpack5",
+    //         options: {
+    //             lazyCompilation: true
+    //         }
+    //     }
+    // },
     docs: {
         autodocs: "tag"
     },
@@ -29,7 +31,7 @@ const storybookConfig: StorybookConfig = {
 
         return config;
     },
-    webpackFinal(config) {
+    webpackFinal(config, { configType }) {
         config.resolve = {
             ...config.resolve,
             plugins: [
@@ -40,6 +42,15 @@ const storybookConfig: StorybookConfig = {
                 })
             ]
         };
+
+        config.plugins = [
+            ...(config.plugins ?? []),
+            configType !== "PRODUCTION" && new ReactRefreshWebpackPlugin({
+                overlay: {
+                    sockIntegration: "whm"
+                }
+            })
+        ].filter(Boolean);
 
         return config;
     }

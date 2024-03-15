@@ -4,7 +4,7 @@ import { IconList } from "../../../IconList/src/IconList.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
-import { within } from "@storybook/testing-library";
+import { within } from "@storybook/test";
 import { Inline, Stack } from "../../../layout/index.ts";
 
 
