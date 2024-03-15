@@ -82,7 +82,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         GlobalButtonCssSelector,
         cssModule(
             styles,
-            "hop-button",
+            "hop-Button",
             variant,
             size,
             fluid && "fluid",
@@ -117,21 +117,21 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                 [IconListContext, {
                     slots: {
                         icon: {
-                            className: styles["hop-button__icon-list"]
+                            className: styles["hop-Button__icon-list"]
                         },
                         "end-icon": {
-                            className: styles["hop-button__end-icon-list"]
+                            className: styles["hop-Button__end-icon-list"]
                         }
                     }
                 }],
                 [IconContext, {
                     slots: {
                         icon: {
-                            className: styles["hop-button__icon"],
+                            className: styles["hop-Button__icon"],
                             size: "md"
                         },
                         "end-icon": {
-                            className: styles["hop-button__end-icon"],
+                            className: styles["hop-Button__end-icon"],
                             size: "md"
                         }
                     }
@@ -139,7 +139,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                 [TextContext, {
                     slots: {
                         text: {
-                            className: styles["hop-button__text"],
+                            className: styles["hop-Button__text"],
                             size: size
                         }
                     }
@@ -164,7 +164,7 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                                     id={spinnerId}
                                     size="lg"
                                     aria-label={isLoadingAriaLiveLabel}
-                                    className={styles["hop-button__Spinner"]}
+                                    className={styles["hop-Button__Spinner"]}
                                 />
                             )}
                         </>

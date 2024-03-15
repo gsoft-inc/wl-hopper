@@ -29,7 +29,7 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
     const classNames = clsx(
         className,
         GlobalIconListCssSelector,
-        styles["hop-iconList"],
+        styles["hop-IconList"],
         stylingProps.className
     );
 

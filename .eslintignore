@@ -3,3 +3,4 @@ node_modules
 *.md
 pnpm-lock.yaml
 !/.storybook
+!.stylelintrc.js

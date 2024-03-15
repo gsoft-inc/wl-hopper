@@ -1,5 +1,5 @@
-:where(.html-element),
-:where(.html-element::after),
-:where(.html-element::before) {
+:where(.hop-HtmlElement),
+:where(.hop-HtmlElement::after),
+:where(.hop-HtmlElement::before) {
     box-sizing: border-box;
 }

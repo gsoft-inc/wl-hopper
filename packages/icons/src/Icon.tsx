@@ -61,7 +61,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
         GlobalIconCssSelector,
         cssModule(
             styles,
-            "hop-icon"
+            "hop-Icon"
         ),
         stylingProps.className
     );

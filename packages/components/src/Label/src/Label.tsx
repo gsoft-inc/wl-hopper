@@ -34,7 +34,7 @@ function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
         GlobalLabelCssSelector,
         cssModule(
             styles,
-            "hop-label",
+            "hop-Label",
             size
         ),
         stylingProps.className

@@ -41,7 +41,7 @@ const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
         GlobalSpinnerCssSelector,
         cssModule(
             styles,
-            "hop-spinner",
+            "hop-Spinner",
             size
         ),
         stylingProps.className
@@ -56,7 +56,7 @@ const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
         <Label
             className={cssModule(
                 styles,
-                "hop-spinner__label"
+                "hop-Spinner__label"
             )}
             size={SpinnerToLabelSizeAdapter[size]}
         >{children}</Label>
@@ -73,14 +73,14 @@ const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
             <div className={
                 cssModule(
                     styles,
-                    "hop-spinner__track"
+                    "hop-Spinner__track"
                 )
             }
             ></div>
             <div className={
                 cssModule(
                     styles,
-                    "hop-spinner__fill"
+                    "hop-Spinner__fill"
                 )
             }
             ></div>
