@@ -3,6 +3,8 @@ import type { StorybookConfig } from "@storybook/react-webpack5";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 import { swcConfig as SwcBuildConfig } from "./swc.build.ts";
 import { swcConfig as SwcDevConfig } from "./swc.dev.ts";
+import type { Options as SwcOptions } from "@swc/core";
+import type { Options } from "@storybook/types";
 
 const storybookConfig: StorybookConfig = {
     stories: [
@@ -15,21 +17,11 @@ const storybookConfig: StorybookConfig = {
         "@storybook/addon-webpack5-compiler-swc"
     ],
     framework: "@storybook/react-webpack5",
-    // core: {
-    //     builder: {
-    //         name: "@storybook/builder-webpack5",
-    //         options: {
-    //             lazyCompilation: true
-    //         }
-    //     }
-    // },
     docs: {
         autodocs: "tag"
     },
-    swc: (_, { configType }) => {
-        const config = configType === "PRODUCTION" ? SwcBuildConfig : SwcDevConfig;
-
-        return config;
+    swc: (_: SwcOptions, { configType }: Options): SwcOptions => {
+        return configType === "PRODUCTION" ? SwcBuildConfig : SwcDevConfig;
     },
     webpackFinal(config, { configType }) {
         config.resolve = {
