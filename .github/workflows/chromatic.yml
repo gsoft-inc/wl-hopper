@@ -20,6 +20,9 @@ concurrency:
 jobs:
     chromatic:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
         steps:
             - name: Checkout Commit
               uses: actions/checkout@v3
@@ -60,9 +63,18 @@ jobs:
 
             - name: Publish to Chromatic
               uses: chromaui/action@v1
+              id: chromatic
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   traceChanged: true
                   onlyChanged: true # TurboSnap
                   exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
                   skip: ${{ github.event.pull_request.draft == true }}
+
+            - name: Write to Github comment
+              uses: thollander/actions-comment-pull-request@v2
+              with:
+                message: |
+                    [View Storybook](${{ steps.chromatic.outputs.storybookUrl }})
+                comment_tag: storybook_url
+              if: github.event_name == 'pull_request'
