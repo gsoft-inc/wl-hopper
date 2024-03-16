@@ -117,3 +117,12 @@ namespace-ComponentName--modifier-name
 namespace-ComponentName__descendent-name
 namespace-ComponentName__descendent-name--modifier-name
 ```
+
+## Testing accessibility with axe via Storybook
+
+The test runner is only available locally, and it is not available in the CI/CD pipeline.
+
+1- Open a first terminal, and run `pnpm storybook-nolazy`
+2- Open a second terminal, and run `pnpm test-storybook`
+
+**Note:** We need to run `storybook-nolazy` because the axe test runner is not compatible with the lazy loading of the stories.

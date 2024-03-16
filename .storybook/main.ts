@@ -6,11 +6,15 @@ import { swcConfig as SwcDevConfig } from "./swc.dev.ts";
 import type { Options as SwcOptions } from "@swc/core";
 import type { Options } from "@storybook/types";
 
+// We sometimes need to disable the lazyCompilation to properly run the test runner on stories
+const isLazyCompilation = !(process.env.STORYBOOK_NO_LAZY === "true");
+
 const storybookConfig: StorybookConfig = {
     stories: [
         "../packages/**/*.stories.@(ts|tsx)"
     ],
     addons: [
+        "@storybook/addon-a11y",
         "@storybook/addon-links",
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
@@ -21,7 +25,7 @@ const storybookConfig: StorybookConfig = {
         builder: {
             name: "@storybook/builder-webpack5",
             options: {
-                lazyCompilation: true
+                lazyCompilation: isLazyCompilation
             }
         },
     },
