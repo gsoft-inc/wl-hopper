@@ -27,7 +27,7 @@ const storybookConfig: StorybookConfig = {
             options: {
                 lazyCompilation: isLazyCompilation
             }
-        },
+        }
     },
     docs: {
         autodocs: "tag"
