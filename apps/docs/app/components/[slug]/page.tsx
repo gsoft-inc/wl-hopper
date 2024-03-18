@@ -1,21 +1,11 @@
 import { notFound } from "next/navigation";
 import { allComponents } from "contentlayer/generated";
-import Mdx from "@/components/ui/mdx/Mdx";
+import { getComponentDetails } from "@/utils/getComponentDetails.ts";
 
 interface PageProps {
     params: {
         slug: string;
     };
-}
-
-async function getNoteFromParams(params: PageProps["params"]) {
-    const componentContent = allComponents.find(component => component.slug === params.slug);
-
-    if (!componentContent) {
-        return null;
-    }
-
-    return componentContent;
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
@@ -25,21 +15,62 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
 }
 
 export default async function ComponentPage({ params }: PageProps) {
-    const componentContent = await getNoteFromParams(params);
+    const component = (await getComponentDetails()).find(componentDetail => componentDetail.slug === params.slug);
 
-    if (!componentContent) {
+    if (!component) {
         notFound();
     }
+
+    const { content, frontmatter: { title, status, description } } = component;
 
     return (
         <div className="hd-container">
             <main>
-                <article key={componentContent._id}>
-                    {componentContent.status &&
-                    `status: ${componentContent.status}`
-                    }
-                    {componentContent.body && <Mdx code={componentContent.body.code} />}
-                </article>
+                <h1>{title}</h1><span>{status}</span>
+                <p>{description}</p>
+                {content}
+
+                {/*the sections below are simply for zoning purposes, they will be replaced by real content*/}
+                <section>
+                    <h2>Preview</h2>
+                    <p>
+                        code here
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Usage</h2>
+                    <p>Alerts are used to communicate a state that affects the entire system, not just a single
+                        component. They are used to communicate a state that affects the entire system, not just a
+                        single component. They are used to communicate a state that affects the entire system, not just
+                        a single component. They are used to communicate a state that affects the entire system, not
+                        just a single component.</p>
+                </section>
+
+                <section>
+                    <h2>Anatomy</h2>
+                </section>
+
+                <section>
+                    <h2>API</h2>
+                </section>
+
+                <section>
+                    <h2>Examples</h2>
+                </section>
+
+                <section>
+                    <h2>Accessibility</h2>
+                </section>
+
+                <section>
+                    <h2>Related</h2>
+                </section>
+
+                <div>
+                    <button type="submit">Preview</button>
+                    <button type="submit">Next</button>
+                </div>
             </main>
         </div>
     );
