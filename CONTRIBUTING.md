@@ -35,7 +35,7 @@ pnpm generate-icons
 pnpm changeset
 ```
 - Follow the prompts to describe the changes made and choose the appropriate version bump.
-- A template for the release notes of svg-icons and icons is available in the `.changeset` folder [here](./.changeset/templates/svg-icons-release.md).
+- A template for the release notes of svg-icons and icons is available in the `.changeset` folder [here](./.changeset-templates/svg-icons-release.md).
 
 5- Go update the react16 icons from this [github repo](https://github.com/gsoft-inc/wl-hopper-react16/blob/main/CONTRIBUTING.md)
 
