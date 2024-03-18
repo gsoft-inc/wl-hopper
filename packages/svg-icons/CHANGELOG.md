@@ -1,5 +1,27 @@
 # @hopper-ui/svg-icons
 
+## 2.5.0
+
+### Minor Changes
+
+- bdc3e10: ## @hopper-ui/svg-icons
+
+  **Added**
+
+  | SVG Name             |
+  | -------------------- |
+  | next-calendar-16.svg |
+  | next-calendar-24.svg |
+  | next-calendar-32.svg |
+
+  ## @hopper-ui/icons
+
+  **Added**
+
+  | Icon Name        |
+  | ---------------- |
+  | nextCalendarIcon |
+
 ## 2.4.0
 
 ### Minor Changes
