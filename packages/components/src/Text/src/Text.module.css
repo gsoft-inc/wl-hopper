@@ -37,6 +37,7 @@
     line-height: var(--line-height);
 }
 
+
 :where(.hop-text--xs) {
     --font-size: var(--hop-text-component-xs-font-size);
     --font-family: var(--hop-text-component-xs-font-family);

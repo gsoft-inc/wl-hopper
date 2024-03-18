@@ -13,7 +13,7 @@ interface TypographyTableProps {
 
 const Sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"] as const;
 
-const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"] as const;
+const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight", "offset"] as const;
 
 type GroupedItems = Record<typeof Sizes[number], Record<typeof FontProperties[number], string>>;
 
@@ -87,17 +87,21 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             fontFamily,
             fontSize,
             fontWeight,
-            lineHeight
+            lineHeight,
+            offset
         } = filteredData[size as typeof Sizes[number]];
 
         // If the itemType is 'overline', set displaySize to an empty string
         let displaySize = `-${size}`;
         let previewAdditionalStyles = {};
 
+        // need to find a way to get offset values, and split them between top and bottom.
+
         if (type === "overline") {
             displaySize = "";
             previewAdditionalStyles = {
-                textTransform: "uppercase"
+                textTransform: "uppercase",
+                letterSpacing: "0.015rem"
             };
         }
 

@@ -16,6 +16,14 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-33}"
+            },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-9px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-15px"
             }
         },
         "2xl": {
@@ -34,6 +42,14 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-25}"
+            },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-10.6672px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-5.33387px"
             }
         },
         "xl": {
@@ -52,6 +68,14 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-14}"
+            },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-7.96px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-2.96px"
             }
         },
         "lg": {
@@ -70,6 +94,14 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-33}"
+            },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-9px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-5px"
             }
         },
         "md": {
@@ -88,6 +120,14 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-20}"
+            },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-5.3333px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-2px"
             }
         },
         "sm": {
@@ -106,6 +146,14 @@
             "line-height": {
                 "$type": "lineHeight",
                 "$value": "{line-height.1-33}"
+            },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-5.9997px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-2.9997px"
             }
         },
         "xs": {
@@ -125,6 +173,14 @@
                 "$type": "lineHeight",
                 "$value": "{line-height.1-50}"
             },
+            "top-offset": {
+                "$type": "offset",
+                "$value": "-6.66667px"
+            },
+            "bottom-offset": {
+                "$type": "offset",
+                "$value": "-4px"
+            },
             "medium": {
                 "font-family": {
                     "$type": "fontFamily",
@@ -141,6 +197,14 @@
                 "line-height": {
                     "$type": "lineHeight",
                     "$value": "{line-height.1-50}"
+                },
+                "top-offset": {
+                    "$type": "offset",
+                    "$value": "-6.66667px"
+                },
+                "bottom-offset": {
+                    "$type": "offset",
+                    "$value": "-4px"
                 }
             }
         }
@@ -161,6 +225,14 @@
         "line-height": {
             "$type": "lineHeight",
             "$value": "{line-height.1-33}"
+        },
+        "top-offset": {
+            "$type": "offset",
+            "$value": "-4px"
+        },
+        "bottom-offset": {
+            "$type": "offset",
+            "$value": "-2px"
         }
     },
     "body": {

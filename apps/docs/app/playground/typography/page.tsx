@@ -54,6 +54,65 @@ export default function CodeBlockPage() {
                     </p>
                     <span className="number">0123456789</span>
                 </div>
+                <h2 className="">Centering</h2>
+                <h3>Contained</h3>
+                <div className="favorit-mono button-sample">
+                    <button className="centering-text overline" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text overline" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text xs" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text xs" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text sm" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text sm" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text md" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text md" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text lg" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text lg" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text xl" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text xl" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text two-xl" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text two-xl" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text three-xl" type="button"><span className="offset">future</span></button>
+                    <button className="centering-text three-xl" type="button"><span className="offset">0123456789</span></button>
+                </div>
+                <h2>Free Text</h2>
+                <div className="favorit-mono free-text-sample">
+                    <p className="centering-text offset overline">The future is in the past tense</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset xs">The future is in the past tense but why</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset sm">The future is in the past tense but why</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset md">The future is in the past tense but why</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset lg">The future is in the past tense but why</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset xl">The future is in the past tense but why</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset two-xl">The future is in the past tense but why</p>
+                </div>
+                <div className="favorit free-text-sample">
+                    <p className="centering-text offset three-xl">The future is in the past tense but why</p>
+                </div>
             </main>
         </>
     );

@@ -1,4 +1,29 @@
-[data-font="cdn"] div.favorit {
+@font-face {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 100 900;
+	src: url("https://cdn.platform.workleap.com/hopper/fonts/inter/v4/InterVariable.woff2") format("woff2-variations");
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "ABC Favorit Mono";
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/mono/ABCFavoritMono-Regular.woff2") format("woff2-variations");
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "ABC Favorit";
+	font-style: normal;
+	font-weight: 100 900;
+	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/ABCFavoritVariable.woff2") format("woff2-variations");
+	font-display: fallback;
+}
+
+/* Font Applications */
+[data-font="cdn"] div.favorit * {
     font-family: "ABC Favorit", sans-serif;
     font-weight: 410;
     font-style: normal;
@@ -6,7 +31,7 @@
     line-height: 1.5;
 }
 
-[data-font="cdn"] div.favorit-mono {
+[data-font="cdn"] div.favorit-mono * {
     font-family: "ABC Favorit Mono", monospace;
     font-weight: 400;
     font-style: normal;
@@ -14,7 +39,7 @@
     line-height: 1.5;
 }
 
-[data-font="cdn"] div.inter {
+[data-font="cdn"] div.inter * {
     font-family: Inter, sans-serif;
     font-weight: 410;
     font-style: normal;
@@ -22,12 +47,216 @@
     line-height: 1.5;
 }
 
+/* Samples wrapper */
 .font-sample {
     margin-bottom: 4rem;
     padding-top: 1.5rem;
     border-top: 0.0625rem solid;
 }
 
-.number {
+.font-sample .number {
     font-size: 1.5rem;
+}
+
+.button-sample {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem
+}
+
+/* Button Styles */
+button.centering-text {
+    border: none;
+    display: flex;
+    background-color: #C9C5B5;
+    height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: 0.5rem;
+    align-items: center;
+}
+
+button.centering-text.lg {
+    height: 3rem;
+}
+
+button.centering-text.xl {
+    height: 4rem;
+}
+
+button.centering-text.two-xl {
+    height: 5rem;
+}
+
+button.centering-text.three-xl {
+    height: 6rem;
+}
+
+button.offset {
+    font-size: 0.75rem;
+    line-height: 1.3333;
+    font-weight: 400;
+    font-family: "ABC Favorit Mono", monospace;
+    background-color: rgba(100 100 100 / 40%);
+}
+
+button.overline {
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}
+
+.overline {
+    font-size: 0.75rem;
+    line-height: 1.3333333!important;
+}
+
+.offset::before,
+.offset::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+}
+
+/* Favorite Mono Overline  */
+.favorit-mono .offset::before {
+    margin-bottom: -2px;
+}
+
+.favorit-mono .offset::after {
+    margin-top: -4px;
+}
+
+/* Favorite */
+
+/* XS */
+.favorit .xs .offset,
+.favorit .xs.offset {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.favorit .xs .offset::before,
+.favorit .xs.offset::before {
+    margin-bottom: -4px;
+}
+
+.favorit .xs .offset::after,
+.favorit .xs.offset::after {
+    margin-top: -6.66667px;
+}
+
+/* SM */
+.favorit .sm .offset,
+.favorit .sm.offset {
+    font-size: 1.125rem;
+    line-height: 1.3333;
+    font-weight: 580;
+}
+
+.favorit .sm .offset::before,
+.favorit .sm.offset::before {
+    margin-bottom: -2.9997px;
+}
+
+.favorit .sm .offset::after,
+.favorit .sm.offset::after {
+    margin-top: -5.9997px;
+}
+
+/* MD */
+.favorit .md .offset,
+.favorit .md.offset {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 580
+}
+
+.favorit .md .offset::before,
+.favorit .md.offset::before {
+    margin-bottom: -2px;
+}
+
+.favorit .md .offset::after,
+.favorit .md.offset::after {
+    margin-top: -5.3333px;
+}
+
+/* LG */
+.favorit .lg .offset,
+.favorit .lg.offset {
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    font-weight: 680
+}
+
+.favorit .lg .offset::before,
+.favorit .lg.offset::before {
+    margin-bottom: -5px;
+}
+
+.favorit .lg .offset::after,
+.favorit .lg.offset::after {
+    margin-top: -9px;
+}
+
+/* XL */
+.favorit .xl .offset,
+.favorit .xl.offset {
+    font-size: 1.75rem;
+    line-height: 1.14;
+    font-weight: 680;
+}
+
+.favorit .xl .offset::before,
+.favorit .xl.offset::before {
+    margin-bottom: -2.96px;
+}
+
+.favorit .xl .offset::after,
+.favorit .xl.offset::after {
+    margin-top: -7.96px;
+}
+
+/* 2XL */
+.favorit .two-xl .offset,
+.favorit .two-xl.offset {
+    font-size: 2rem;
+    line-height: 1.25;
+    font-weight: 580;
+}
+
+.favorit .two-xl .offset::before,
+.favorit .two-xl.offset::before {
+    margin-bottom: -5.33387px;
+}
+
+.favorit .two-xl .offset::after,
+.favorit .two-xl.offset::after {
+    margin-top: -10.6672px;
+}
+
+/* 3XL */
+.favorit .three-xl .offset,
+.favorit .three-xl.offset {
+    font-size: 2.5rem;
+    line-height: 1.3333;
+    font-weight: 680;
+}
+
+.favorit .three-xl .offset::before,
+.favorit .three-xl.offset::before {
+    margin-bottom: -9px;
+}
+
+.favorit .three-xl .offset::after,
+.favorit .three-xl.offset::after {
+    margin-top: -15px;
+}
+
+/* Free Text Tests */
+.free-text-sample {
+    max-width: 20ch;
+    box-shadow: inset 0 0 0 1rem rgba(199, 222, 184, 0.8);
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
