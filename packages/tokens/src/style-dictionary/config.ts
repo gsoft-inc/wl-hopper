@@ -46,7 +46,7 @@ export function getStyledSystemTokensConfig(mode: "light" | "dark"): Config {
                 },
                 "files": [
                     {
-                        "destination": `${isLightMode ? "light-semantic-tokens" : "dark-semantic-tokens" }.ts`,
+                        "destination": `${isLightMode ? "lightSemanticTokens" : "darkSemanticTokens" }.ts`,
                         "format": "custom/ts-tokens",
                         "options": {
                             "outputReferences": true
@@ -74,7 +74,7 @@ export const styledSystemTokenMappingConfig: Config = {
             },
             "files": [
                 {
-                    "destination": "styled-system-to-token-mappings.ts",
+                    "destination": "styledSystemToTokenMappings.ts",
                     "format": "custom/ts-token-mapping",
                     "options": {
                         "outputReferences": true

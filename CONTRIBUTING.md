@@ -93,3 +93,27 @@ Make sure that the style from the props have higher priority than the style from
         ...style
     };
 ```
+
+## CSS Conventions
+
+### CSS Selector naming conventions
+**Namespace (hop-):** Acts as a unique prefix to avoid conflicts with other libraries or stylesheets and to make it clear that this class belongs to the Hopper design system.
+**Component Name (Button):** Directly reflects the React component name, making it straightforward to associate styles with their respective components.
+**BEM-like Structure:** Adopting BEM’s methodology for elements and modifiers but with your specific prefixing and naming strategy.
+
+```
+.namespace-ComponentName--modifier-name
+.namespace-ComponentName__descendent-name
+.namespace-ComponentName__descendent-name--modifier-name
+```
+
+### CSS Variables
+**Namespace (hop-):** Acts as a unique prefix to avoid conflicts with other libraries or stylesheets and to make it clear that this class belongs to the Hopper design system.
+**Component Name (Button):** Directly reflects the React component name, making it straightforward to associate styles with their respective components.
+**Property Name (color):** Reflects the property being defined, making it clear what the variable is for.
+
+```
+namespace-ComponentName--modifier-name
+namespace-ComponentName__descendent-name
+namespace-ComponentName__descendent-name--modifier-name
+```

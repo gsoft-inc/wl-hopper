@@ -13,7 +13,7 @@ interface TypographyTableProps {
 
 const Sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"] as const;
 
-const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight", "offset"] as const;
+const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"] as const;
 
 type GroupedItems = Record<typeof Sizes[number], Record<typeof FontProperties[number], string>>;
 
@@ -87,8 +87,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             fontFamily,
             fontSize,
             fontWeight,
-            lineHeight,
-            offset
+            lineHeight
         } = filteredData[size as typeof Sizes[number]];
 
         // If the itemType is 'overline', set displaySize to an empty string

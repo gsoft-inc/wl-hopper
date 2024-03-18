@@ -3,9 +3,9 @@ import StyleDictionary from "style-dictionary";
 import { fontsConfig, getStyleDictionaryConfig, getStyledSystemTokensConfig, styledSystemTokenMappingConfig } from "./config.ts";
 import { isColorType } from "./filter/isColorType.ts";
 import { isDarkTokens } from "./filter/isDarkTokens.ts";
-import { customTsTokenMapping } from "./format/custom-ts-token-mapping.ts";
+import { customTsTokenMapping } from "./format/customTsTokenMapping.ts";
 import { cssDarkMode, customDoc, customJson, customTsTokens, fontFace } from "./format/index.ts";
-import { w3cTokenJsonParser } from "./parser/w3c-token-parser.ts";
+import { w3cTokenJsonParser } from "./parser/w3cTokenParser.ts";
 import { attributeFont, isSizeType, pxToRem } from "./transform/index.ts";
 
 const { fileHeader } = StyleDictionary.formatHelpers;

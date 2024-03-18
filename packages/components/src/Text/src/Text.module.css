@@ -1,88 +1,87 @@
-.hop-text {
+.hop-Text {
     /** Component Tokens */
-    --hop-text-component-xs-font-size: var(--hop-body-xs-font-size);
-    --hop-text-component-xs-font-family: var(--hop-body-xs-font-family);
-    --hop-text-component-xs-font-weight: var(--hop-body-xs-font-weight);
-    --hop-text-component-xs-line-height: var(--hop-body-xs-line-height);
-    --hop-text-component-sm-font-size: var(--hop-body-sm-font-size);
-    --hop-text-component-sm-font-family: var(--hop-body-sm-font-family);
-    --hop-text-component-sm-font-weight: var(--hop-body-sm-font-weight);
-    --hop-text-component-sm-line-height: var(--hop-body-sm-line-height);
-    --hop-text-component-md-font-size: var(--hop-body-md-font-size);
-    --hop-text-component-md-font-family: var(--hop-body-md-font-family);
-    --hop-text-component-md-font-weight: var(--hop-body-md-font-weight);
-    --hop-text-component-md-line-height: var(--hop-body-md-line-height);
-    --hop-text-component-lg-font-size: var(--hop-body-lg-font-size);
-    --hop-text-component-lg-font-family: var(--hop-body-lg-font-family);
-    --hop-text-component-lg-font-weight: var(--hop-body-lg-font-weight);
-    --hop-text-component-lg-line-height: var(--hop-body-lg-line-height);
-    --hop-text-component-xl-font-size: var(--hop-body-xl-font-size);
-    --hop-text-component-xl-font-family: var(--hop-body-xl-font-family);
-    --hop-text-component-xl-font-weight: var(--hop-body-xl-font-weight);
-    --hop-text-component-xl-line-height: var(--hop-body-xl-line-height);
-    --hop-text-component-2xl-font-size: var(--hop-body-2xl-font-size);
-    --hop-text-component-2xl-font-family: var(--hop-body-2xl-font-family);
-    --hop-text-component-2xl-font-weight: var(--hop-body-2xl-font-weight);
-    --hop-text-component-2xl-line-height: var(--hop-body-2xl-line-height);
-    --hop-text-component-inherit-size-font-size: inherit;
-    --hop-text-component-inherit-size-font-family: inherit;
-    --hop-text-component-inherit-size-font-weight: inherit;
-    --hop-text-component-inherit-size-line-height: inherit;
+    --hop-Text-xs-font-size: var(--hop-body-xs-font-size);
+    --hop-Text-xs-font-family: var(--hop-body-xs-font-family);
+    --hop-Text-xs-font-weight: var(--hop-body-xs-font-weight);
+    --hop-Text-xs-line-height: var(--hop-body-xs-line-height);
+    --hop-Text-sm-font-size: var(--hop-body-sm-font-size);
+    --hop-Text-sm-font-family: var(--hop-body-sm-font-family);
+    --hop-Text-sm-font-weight: var(--hop-body-sm-font-weight);
+    --hop-Text-sm-line-height: var(--hop-body-sm-line-height);
+    --hop-Text-md-font-size: var(--hop-body-md-font-size);
+    --hop-Text-md-font-family: var(--hop-body-md-font-family);
+    --hop-Text-md-font-weight: var(--hop-body-md-font-weight);
+    --hop-Text-md-line-height: var(--hop-body-md-line-height);
+    --hop-Text-lg-font-size: var(--hop-body-lg-font-size);
+    --hop-Text-lg-font-family: var(--hop-body-lg-font-family);
+    --hop-Text-lg-font-weight: var(--hop-body-lg-font-weight);
+    --hop-Text-lg-line-height: var(--hop-body-lg-line-height);
+    --hop-Text-xl-font-size: var(--hop-body-xl-font-size);
+    --hop-Text-xl-font-family: var(--hop-body-xl-font-family);
+    --hop-Text-xl-font-weight: var(--hop-body-xl-font-weight);
+    --hop-Text-xl-line-height: var(--hop-body-xl-line-height);
+    --hop-Text-2xl-font-size: var(--hop-body-2xl-font-size);
+    --hop-Text-2xl-font-family: var(--hop-body-2xl-font-family);
+    --hop-Text-2xl-font-weight: var(--hop-body-2xl-font-weight);
+    --hop-Text-2xl-line-height: var(--hop-body-2xl-line-height);
+    --hop-Text-inherit-size-font-size: inherit;
+    --hop-Text-inherit-size-font-family: inherit;
+    --hop-Text-inherit-size-font-weight: inherit;
+    --hop-Text-inherit-size-line-height: inherit;
 }
 
-:where(.hop-text) {
+:where(.hop-Text) {
     font-size: var(--font-size);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
 }
 
-
-:where(.hop-text--xs) {
-    --font-size: var(--hop-text-component-xs-font-size);
-    --font-family: var(--hop-text-component-xs-font-family);
-    --font-weight: var(--hop-text-component-xs-font-weight);
-    --line-height: var(--hop-text-component-xs-line-height);
+:where(.hop-Text--xs) {
+    --font-size: var(--hop-Text-xs-font-size);
+    --font-family: var(--hop-Text-xs-font-family);
+    --font-weight: var(--hop-Text-xs-font-weight);
+    --line-height: var(--hop-Text-xs-line-height);
 }
 
-:where(.hop-text--sm) {
-    --font-size: var(--hop-text-component-sm-font-size);
-    --font-family: var(--hop-text-component-sm-font-family);
-    --font-weight: var(--hop-text-component-sm-font-weight);
-    --line-height: var(--hop-text-component-sm-line-height);
+:where(.hop-Text--sm) {
+    --font-size: var(--hop-Text-sm-font-size);
+    --font-family: var(--hop-Text-sm-font-family);
+    --font-weight: var(--hop-Text-sm-font-weight);
+    --line-height: var(--hop-Text-sm-line-height);
 }
 
-:where(.hop-text--md) {
-    --font-size: var(--hop-text-component-md-font-size);
-    --font-family: var(--hop-text-component-md-font-family);
-    --font-weight: var(--hop-text-component-md-font-weight);
-    --line-height: var(--hop-text-component-md-line-height);
+:where(.hop-Text--md) {
+    --font-size: var(--hop-Text-md-font-size);
+    --font-family: var(--hop-Text-md-font-family);
+    --font-weight: var(--hop-Text-md-font-weight);
+    --line-height: var(--hop-Text-md-line-height);
 }
 
-:where(.hop-text--lg) {
-    --font-size: var(--hop-text-component-lg-font-size);
-    --font-family: var(--hop-text-component-lg-font-family);
-    --font-weight: var(--hop-text-component-lg-font-weight);
-    --line-height: var(--hop-text-component-lg-line-height);
+:where(.hop-Text--lg) {
+    --font-size: var(--hop-Text-lg-font-size);
+    --font-family: var(--hop-Text-lg-font-family);
+    --font-weight: var(--hop-Text-lg-font-weight);
+    --line-height: var(--hop-Text-lg-line-height);
 }
 
-:where(.hop-text--xl) {
-    --font-size: var(--hop-text-component-xl-font-size);
-    --font-family: var(--hop-text-component-xl-font-family);
-    --font-weight: var(--hop-text-component-xl-font-weight);
-    --line-height: var(--hop-text-component-xl-line-height);
+:where(.hop-Text--xl) {
+    --font-size: var(--hop-Text-xl-font-size);
+    --font-family: var(--hop-Text-xl-font-family);
+    --font-weight: var(--hop-Text-xl-font-weight);
+    --line-height: var(--hop-Text-xl-line-height);
 }
 
-:where(.hop-text--2xl) {
-    --font-size: var(--hop-text-component-2xl-font-size);
-    --font-family: var(--hop-text-component-2xl-font-family);
-    --font-weight: var(--hop-text-component-2xl-font-weight);
-    --line-height: var(--hop-text-component-2xl-line-height);
+:where(.hop-Text--2xl) {
+    --font-size: var(--hop-Text-2xl-font-size);
+    --font-family: var(--hop-Text-2xl-font-family);
+    --font-weight: var(--hop-Text-2xl-font-weight);
+    --line-height: var(--hop-Text-2xl-line-height);
 }
 
-:where(.hop-text--inherit) {
-    --font-size: var(--hop-text-component-inherit-size-font-size);
-    --font-family: var(--hop-text-component-inherit-size-font-family);
-    --font-weight: var(--hop-text-component-inherit-size-font-weight);
-    --line-height: var(--hop-text-component-inherit-size-line-height);
+:where(.hop-Text--inherit) {
+    --font-size: var(--hop-Text-inherit-size-font-size);
+    --font-family: var(--hop-Text-inherit-size-font-family);
+    --font-weight: var(--hop-Text-inherit-size-font-weight);
+    --line-height: var(--hop-Text-inherit-size-line-height);
 }
