@@ -12,6 +12,7 @@ import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/components/tableSection/TableSection.tsx";
 import Switcher from "@/components/ui/switcher/Switcher.tsx";
 import Title from "@/components/ui/title/Title.tsx";
+import PreviewComponent from "@/components/previewComponent/PreviewComponent.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -27,6 +28,9 @@ export const components = {
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
+    PreviewComponent: (props: { name: string}) => {
+        return <PreviewComponent {...props} />;
+    },
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;
     },

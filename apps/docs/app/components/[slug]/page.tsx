@@ -21,23 +21,17 @@ export default async function ComponentPage({ params }: PageProps) {
         notFound();
     }
 
-    const { content, frontmatter: { title, status, description } } = component;
+    const { content, frontmatter: { title, status, description, links } } = component;
 
     return (
         <div className="hd-container">
             <main>
                 <h1>{title}</h1><span>{status}</span>
                 <p>{description}</p>
+                {links.source && <a href={links.source}>Github</a>}
                 {content}
 
                 {/*the sections below are simply for zoning purposes, they will be replaced by real content*/}
-                <section>
-                    <h2>Preview</h2>
-                    <p>
-                        code here
-                    </p>
-                </section>
-
                 <section>
                     <h2>Usage</h2>
                     <p>Alerts are used to communicate a state that affects the entire system, not just a single

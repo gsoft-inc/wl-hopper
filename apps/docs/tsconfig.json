@@ -1,47 +1,58 @@
 {
-  "extends": "@workleap/typescript-configs/library.json",
-  "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+    "extends": "@workleap/typescript-configs/library.json",
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "verbatimModuleSyntax": false,
+        "baseUrl": ".",
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            "@/*": [
+                "./*"
+            ],
+            "@hopper-ui/icons": [
+                "../../packages/icons/src/index.ts"
+            ],
+            "@hopper-ui/styled-system": [
+                "../../packages/styled-system/src/index.ts"
+            ],
+            "@hopper-ui/components": [
+                "../../packages/components/src/index.ts"
+            ],
+            "@hopper-ui/test-utils": [
+                "../../tooling/test-utils/index.ts"
+            ],
+            "contentlayer/generated": [
+                "./.contentlayer/generated"
+            ]
+        }
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".contentlayer/generated"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "verbatimModuleSyntax": false,
-    "baseUrl": ".",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@hopper-ui/icons": ["../../packages/icons/src/index.ts"],
-      "@hopper-ui/styled-system": ["../../packages/styled-system/src/index.ts"],
-      "@hopper-ui/components": ["../../packages/components/src/index.ts"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
-    }
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".contentlayer/generated"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "exclude": [
+        "node_modules"
+    ]
 }
