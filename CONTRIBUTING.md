@@ -1,8 +1,26 @@
 # Contributing
 
-TODO
+## Installation
 
-### Adding a new icon
+To install the project, open a terminal at the root of the workspace and execute the following command:
+
+```bash
+pnpm
+```
+
+You must then run the following command to run the following command to build the tokens:
+
+```bash
+pnpm build:tokens
+```
+
+You can then run storybook to see the components in action:
+
+```bash
+pnpm storybook
+```
+
+## Adding a new icon
 
 1. Add SVGs to Size-Specific Folders
 - Get the three versions (16px, 24px, 32px) of the SVG icon you want to add. Having 3 versions of the icon is mandatory.
@@ -39,7 +57,7 @@ pnpm changeset
 
 5- Go update the react16 icons from this [github repo](https://github.com/gsoft-inc/wl-hopper-react16/blob/main/CONTRIBUTING.md)
 
-### Updating or removing an icon
+## Updating or removing an icon
 
 - Updating or removing an icon is similar to adding a new icon. The only difference is that you will need to delete or replace the SVGs from the following folders:
   - `packages/svg-icons/src/icons/16px`
