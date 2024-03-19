@@ -18,12 +18,12 @@
                 "$value": "{line-height.1-33}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-9px"
+                "$type": "topOffset",
+                "$value": "-0.9375rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-15px"
+                "$type": "bottomOffset",
+                "$value": "-0.5625rem"
             }
         },
         "2xl": {
@@ -44,12 +44,12 @@
                 "$value": "{line-height.1-25}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-10.6672px"
+                "$type": "topOffset",
+                "$value": "-0.6667rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-5.33387px"
+                "$type": "bottomOffset",
+                "$value": "-0.3334rem"
             }
         },
         "xl": {
@@ -70,12 +70,12 @@
                 "$value": "{line-height.1-14}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-7.96px"
+                "$type": "topOffset",
+                "$value": "-0.5rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-2.96px"
+                "$type": "bottomOffset",
+                "$value": "-0.1875rem"
             }
         },
         "lg": {
@@ -96,12 +96,12 @@
                 "$value": "{line-height.1-33}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-9px"
+                "$type": "topOffset",
+                "$value": "-0.5625rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-5px"
+                "$type": "bottomOffset",
+                "$value": "-0.3125rem"
             }
         },
         "md": {
@@ -122,12 +122,12 @@
                 "$value": "{line-height.1-20}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-5.3333px"
+                "$type": "topOffset",
+                "$value": "-0.3333rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-2px"
+                "$type": "bottomOffset",
+                "$value": "-0.125rem"
             }
         },
         "sm": {
@@ -148,12 +148,12 @@
                 "$value": "{line-height.1-33}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-5.9997px"
+                "$type": "topOffset",
+                "$value": "-0.375rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-2.9997px"
+                "$type": "bottomOffset",
+                "$value": "-0.1875rem"
             }
         },
         "xs": {
@@ -174,12 +174,12 @@
                 "$value": "{line-height.1-50}"
             },
             "top-offset": {
-                "$type": "offset",
-                "$value": "-6.66667px"
+                "$type": "topOffset",
+                "$value": "-0.4166rem"
             },
             "bottom-offset": {
-                "$type": "offset",
-                "$value": "-4px"
+                "$type": "bottomOffset",
+                "$value": "-0.25rem"
             },
             "medium": {
                 "font-family": {
@@ -199,12 +199,12 @@
                     "$value": "{line-height.1-50}"
                 },
                 "top-offset": {
-                    "$type": "offset",
-                    "$value": "-6.66667px"
+                    "$type": "topOffset",
+                    "$value": "-0.4166rem"
                 },
                 "bottom-offset": {
-                    "$type": "offset",
-                    "$value": "-4px"
+                    "$type": "bottomOffset",
+                    "$value": "-0.25rem"
                 }
             }
         }
@@ -227,12 +227,12 @@
             "$value": "{line-height.1-33}"
         },
         "top-offset": {
-            "$type": "offset",
-            "$value": "-4px"
+            "$type": "topOffset",
+            "$value": "-0.25rem"
         },
         "bottom-offset": {
-            "$type": "offset",
-            "$value": "-2px"
+            "$type": "bottomOffset",
+            "$value": "-0.125rem"
         }
     },
     "body": {

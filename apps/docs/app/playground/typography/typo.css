@@ -100,13 +100,13 @@ button.offset {
 }
 
 button.overline {
-    letter-spacing: 0.24px;
+    letter-spacing: 0.015rem;
     text-transform: uppercase;
 }
 
 .overline {
     font-size: 0.75rem;
-    line-height: 1.3333333!important;
+    line-height: 1.3333!important;
 }
 
 .offset::before,
@@ -119,11 +119,11 @@ button.overline {
 
 /* Favorite Mono Overline  */
 .favorit-mono .offset::before {
-    margin-bottom: -2px;
+    margin-bottom: -0.125rem;
 }
 
 .favorit-mono .offset::after {
-    margin-top: -4px;
+    margin-top: -0.25rem;
 }
 
 /* Favorite */
@@ -137,12 +137,12 @@ button.overline {
 
 .favorit .xs .offset::before,
 .favorit .xs.offset::before {
-    margin-bottom: -4px;
+    margin-bottom: -0.25rem;
 }
 
 .favorit .xs .offset::after,
 .favorit .xs.offset::after {
-    margin-top: -6.66667px;
+    margin-top: -0.4166rem;
 }
 
 /* SM */
@@ -155,12 +155,12 @@ button.overline {
 
 .favorit .sm .offset::before,
 .favorit .sm.offset::before {
-    margin-bottom: -2.9997px;
+    margin-bottom: -0.1875rem;
 }
 
 .favorit .sm .offset::after,
 .favorit .sm.offset::after {
-    margin-top: -5.9997px;
+    margin-top: -0.375rem;
 }
 
 /* MD */
@@ -173,12 +173,12 @@ button.overline {
 
 .favorit .md .offset::before,
 .favorit .md.offset::before {
-    margin-bottom: -2px;
+    margin-bottom: -0.125rem;
 }
 
 .favorit .md .offset::after,
 .favorit .md.offset::after {
-    margin-top: -5.3333px;
+    margin-top: -0.3333rem;
 }
 
 /* LG */
@@ -191,12 +191,12 @@ button.overline {
 
 .favorit .lg .offset::before,
 .favorit .lg.offset::before {
-    margin-bottom: -5px;
+    margin-bottom: -0.3125rem;
 }
 
 .favorit .lg .offset::after,
 .favorit .lg.offset::after {
-    margin-top: -9px;
+    margin-top: -0.5625rem;
 }
 
 /* XL */
@@ -209,12 +209,12 @@ button.overline {
 
 .favorit .xl .offset::before,
 .favorit .xl.offset::before {
-    margin-bottom: -2.96px;
+    margin-bottom: -0.1875rem;
 }
 
 .favorit .xl .offset::after,
 .favorit .xl.offset::after {
-    margin-top: -7.96px;
+    margin-top: -0.5rem;
 }
 
 /* 2XL */
@@ -227,12 +227,12 @@ button.overline {
 
 .favorit .two-xl .offset::before,
 .favorit .two-xl.offset::before {
-    margin-bottom: -5.33387px;
+    margin-bottom: -0.3334rem;
 }
 
 .favorit .two-xl .offset::after,
 .favorit .two-xl.offset::after {
-    margin-top: -10.6672px;
+    margin-top: -0.6667rem;
 }
 
 /* 3XL */
@@ -245,18 +245,18 @@ button.overline {
 
 .favorit .three-xl .offset::before,
 .favorit .three-xl.offset::before {
-    margin-bottom: -9px;
+    margin-bottom: -0.5625rem;
 }
 
 .favorit .three-xl .offset::after,
 .favorit .three-xl.offset::after {
-    margin-top: -15px;
+    margin-top: -0.9375rem;
 }
 
 /* Free Text Tests */
 .free-text-sample {
     max-width: 20ch;
-    box-shadow: inset 0 0 0 1rem rgba(199, 222, 184, 0.8);
+    box-shadow: inset 0 0 0 1rem rgba(199 222 184 / 80%);
     padding: 1rem;
     margin-bottom: 1rem;
 }

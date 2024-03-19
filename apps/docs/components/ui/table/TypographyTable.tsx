@@ -13,7 +13,7 @@ interface TypographyTableProps {
 
 const Sizes = ["3xl", "2xl", "xl", "lg", "md", "sm", "xs"] as const;
 
-const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight"] as const;
+const FontProperties = ["fontFamily", "fontSize", "fontWeight", "lineHeight", "topOffset", "bottomOffset"] as const;
 
 type GroupedItems = Record<typeof Sizes[number], Record<typeof FontProperties[number], string>>;
 
@@ -87,7 +87,9 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             fontFamily,
             fontSize,
             fontWeight,
-            lineHeight
+            lineHeight,
+            topOffset,
+            bottomOffset
         } = filteredData[size as typeof Sizes[number]];
 
         // If the itemType is 'overline', set displaySize to an empty string
@@ -104,10 +106,12 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             };
         }
 
+        const rowSpan = bottomOffset && topOffset ? 6 : 4;
+
         return (
             <React.Fragment key={`${type}${size}`}>
                 <tr className="hd-typo__row hd-top__row">
-                    {type !== "overline" && <td className="hd-table__cell hd-typo__cell" rowSpan={4}>{size}</td>}
+                    {type !== "overline" && <td className="hd-table__cell hd-typo__cell" rowSpan={rowSpan}>{size}</td>}
                     <td className="hd-table__cell hd-typo__cell" colSpan={3}>
                         Font Size
                     </td>
@@ -154,6 +158,33 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                         {fontFamily}
                     </td>
                 </tr>
+                {bottomOffset && topOffset && (
+                    <React.Fragment>
+                        <tr className="hd-typo__row">
+                            <td className="hd-table__cell hd-typo__cell hd-typo-offset-cell" colSpan={3}>
+                                Bottom Offset*
+                            </td>
+                            <td className="hd-table__cell hd-typo__cell hd-typo-offset-cell">
+                                <Code value={`--hop-${type}${displaySize}-font-family`}>{`--hop-${type}${displaySize}-bottom-offset`}</Code>
+                            </td>
+                            <td className="hd-table__cell hd-typo__cell hd-typo-offset-cell hd-typo__cell-font-family">
+                                {bottomOffset}
+                            </td>
+                        </tr>
+                        <tr className="hd-typo__row">
+                            <td className="hd-table__cell hd-typo__cell" colSpan={3}>
+                            Top Offset*
+                            </td>
+                            <td className="hd-table__cell hd-typo__cell">
+                                <Code value={`--hop-${type}${displaySize}-font-family`}>{`--hop-${type}${displaySize}-top-offset`}</Code>
+                            </td>
+                            <td className="hd-table__cell hd-typo__cell hd-typo__cell-font-family">
+                                {topOffset}
+                            </td>
+                        </tr>
+                    </React.Fragment>
+                )
+                }
             </React.Fragment>
         );
     });

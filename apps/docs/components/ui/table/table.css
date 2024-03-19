@@ -58,6 +58,11 @@
     padding-left: 0;
 }
 
+/* OFFSET */
+.hd-typo-offset-cell {
+    border-top: var(--hd-border-size) dashed var(--hd-color-neutral-border);
+}
+
 /* Icon Spec Table */
 .hd-table--icon-spec th {
     width: 25%;
