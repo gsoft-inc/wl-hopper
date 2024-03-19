@@ -1,45 +1,62 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-import { mergeConfig } from "vite";
-import turbosnap from "vite-plugin-turbosnap";
-import tsconfigPaths from "vite-tsconfig-paths";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import type { StorybookConfig } from "@storybook/react-webpack5";
+import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
+import { swcConfig as SwcBuildConfig } from "./swc.build.ts";
+import { swcConfig as SwcDevConfig } from "./swc.dev.ts";
+import type { Options as SwcOptions } from "@swc/core";
+import type { Options } from "@storybook/types";
+
+// We sometimes need to disable the lazyCompilation to properly run the test runner on stories
+const isLazyCompilation = !(process.env.STORYBOOK_NO_LAZY === "true");
 
 const storybookConfig: StorybookConfig = {
     stories: [
         "../packages/**/*.stories.@(ts|tsx)"
     ],
     addons: [
+        "@storybook/addon-a11y",
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-interactions"
+        "@storybook/addon-interactions",
+        "@storybook/addon-webpack5-compiler-swc"
     ],
-    framework: {
-        name: "@storybook/react-vite",
-        options: {}
+    framework: "@storybook/react-webpack5",
+    core: {
+        builder: {
+            name: "@storybook/builder-webpack5",
+            options: {
+                lazyCompilation: isLazyCompilation
+            }
+        }
     },
     docs: {
         autodocs: "tag"
     },
-    async viteFinal(config, { configType }) {
-        const plugins = [tsconfigPaths()];
-
-        if (configType === "PRODUCTION") {
-            plugins.push(
-                // TurboSnap only officially support webpack (https://www.chromatic.com/docs/turbosnap/#prerequisites)
-                // This plugin is suggested by storybook and maintained by a core storybook contributor.
-                // This is experimental, and may not support all project and storybook configurations, yet.
-                // TODO: ts-ignore, it suggests we should use turbosnap.default but i'm not sure yet
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                turbosnap({
-                // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
-                    rootDir: config.root ?? process.cwd()
+    swc: (_: SwcOptions, { configType }: Options): SwcOptions => {
+        return configType === "PRODUCTION" ? SwcBuildConfig : SwcDevConfig;
+    },
+    webpackFinal(config, { configType }) {
+        config.resolve = {
+            ...config.resolve,
+            plugins: [
+                ...(config.resolve?.plugins || []),
+                new TsconfigPathsPlugin({
+                    configFile: "./tsconfig.json",
+                    extensions: config.resolve?.extensions
                 })
-            );
-        }
+            ]
+        };
 
-        return mergeConfig(config, {
-            plugins
-        });
+        config.plugins = [
+            ...(config.plugins ?? []),
+            configType !== "PRODUCTION" && new ReactRefreshWebpackPlugin({
+                overlay: {
+                    sockIntegration: "whm"
+                }
+            })
+        ].filter(Boolean);
+
+        return config;
     }
 };
 
