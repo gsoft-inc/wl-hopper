@@ -66,11 +66,12 @@ function MotionPreview({ durations, easings }: MotionPreviewProps) {
 
                 <Button onPress={handleClick}>Play this motion</Button>
             </div>
-            <div style={{
-                "--hd-duration": durations.find(x => x.name === duration)?.value,
-                "--hd-easing": easings.find(x => x.name === easing)?.value
-            } as CSSProperties}
-            className={`hd-object ${isAnimated ? "hd-object-animated" : ""}`}
+            <div
+                style={{
+                    "--hd-duration": durations.find(x => x.name === duration)?.value,
+                    "--hd-easing": easings.find(x => x.name === easing)?.value
+                } as CSSProperties}
+                className={`hd-object ${isAnimated ? "hd-object-animated" : ""}`}
             />
         </>
     );
