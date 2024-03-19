@@ -6,7 +6,9 @@ import {
     Subtitle,
     Title
 } from "@storybook/blocks";
+
 import "./stories.css";
+import "@hopper-ui/tokens/fonts.css";
 
 const preview: Preview = {
     parameters: {
