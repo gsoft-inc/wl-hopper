@@ -18,7 +18,8 @@ const storybookConfig: StorybookConfig = {
         "@storybook/addon-links",
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
-        "@storybook/addon-webpack5-compiler-swc"
+        "@storybook/addon-webpack5-compiler-swc",
+        "@chromatic-com/storybook"
     ],
     framework: "@storybook/react-webpack5",
     core: {
