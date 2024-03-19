@@ -1,0 +1,18 @@
+.hd-motion-preview {
+    margin-bottom: var(--hd-space-4);
+    gap: var(--hd-space-5);
+    align-items: flex-end;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.hd-object {;
+    background-color: #6B5B7B;
+    width: 10rem;
+    height: 10rem;
+    transition: transform var(--hd-duration) var(--hd-easing);
+}
+
+.hd-object-animated {
+    transform: translateX(6.25rem);
+}
