@@ -1,8 +1,26 @@
 # Contributing
 
-TODO
+## Installation
 
-### Adding a new icon
+To install the project, open a terminal at the root of the workspace and execute the following command:
+
+```bash
+pnpm
+```
+
+You must then run the following command to run the following command to build the tokens:
+
+```bash
+pnpm build:tokens
+```
+
+You can then run storybook to see the components in action:
+
+```bash
+pnpm storybook
+```
+
+## Adding a new icon
 
 1. Add SVGs to Size-Specific Folders
 - Get the three versions (16px, 24px, 32px) of the SVG icon you want to add. Having 3 versions of the icon is mandatory.
@@ -35,11 +53,11 @@ pnpm generate-icons
 pnpm changeset
 ```
 - Follow the prompts to describe the changes made and choose the appropriate version bump.
-- A template for the release notes of svg-icons and icons is available in the `.changeset` folder [here](./.changeset/templates/svg-icons-release.md).
+- A template for the release notes of svg-icons and icons is available in the `.changeset` folder [here](./.changeset-templates/svg-icons-release.md).
 
 5- Go update the react16 icons from this [github repo](https://github.com/gsoft-inc/wl-hopper-react16/blob/main/CONTRIBUTING.md)
 
-### Updating or removing an icon
+## Updating or removing an icon
 
 - Updating or removing an icon is similar to adding a new icon. The only difference is that you will need to delete or replace the SVGs from the following folders:
   - `packages/svg-icons/src/icons/16px`
@@ -117,3 +135,12 @@ namespace-ComponentName--modifier-name
 namespace-ComponentName__descendent-name
 namespace-ComponentName__descendent-name--modifier-name
 ```
+
+## Testing accessibility with axe via Storybook
+
+The test runner is only available locally, and it is not available in the CI/CD pipeline.
+
+1- Open a first terminal, and run `pnpm storybook-nolazy`
+2- Open a second terminal, and run `pnpm test-storybook`
+
+**Note:** We need to run `storybook-nolazy` because the axe test runner is not compatible with the lazy loading of the stories.

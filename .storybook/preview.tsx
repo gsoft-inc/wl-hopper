@@ -6,7 +6,9 @@ import {
     Subtitle,
     Title
 } from "@storybook/blocks";
+
 import "./stories.css";
+import "@hopper-ui/tokens/fonts.css";
 
 const preview: Preview = {
     parameters: {
@@ -21,9 +23,6 @@ const preview: Preview = {
                 date: /Date$/
             }
         },
-        typescript: {
-            reactDocgen: "react-docgen"
-        }, // disable prop table as suggested here: https://storybook.js.org/blog/optimize-storybook-7-6/
         viewport,
         docs: { // only needed while the documentation is not available
             page: () => {
