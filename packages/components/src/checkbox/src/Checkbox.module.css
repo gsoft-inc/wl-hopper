@@ -56,7 +56,7 @@
     --hop-Checkbox-check-color-invalid: var(--hop-danger-icon-strong);
     --hop-Checkbox-text-color-invalid: var(--hop-danger-text-weak);
     --hop-Checkbox-icon-color-invalid: var(--hop-danger-icon-weak);
-    --hop-Checkbox-description-color-invalid: var(--hop-danger-text-weak); 
+    --hop-Checkbox-description-color-invalid: var(--hop-neutral-text-weak); 
 
     /* Small */
     --hop-Checkbox-row-gap-small: var(--hop-space-stack-xs);
