@@ -13,7 +13,6 @@ function MotionPreview({ durations, easings }: MotionPreviewProps) {
     const [isAnimated, setAnimated] = useState(false);
     const [duration, setDuration] = useState("hop-easing-duration-1");
     const [easing, setEasing] = useState("hop-easing-expressive");
-    console.log(duration, easing, durations, easings); // TODO remove this
     const handleClick = () => {
         setAnimated(!isAnimated);
     };
@@ -29,13 +28,13 @@ function MotionPreview({ durations, easings }: MotionPreviewProps) {
     return (
         <>
             <div className="hd-motion-preview">
-                <Select placeholder="Easing" aria-label="Easing" defaultSelectedKey={easing} onSelectionChange={handleSelectEasing}>
+                <Select className="hd-motion-preview__select" placeholder="Easing" aria-label="Easing" defaultSelectedKey={easing} onSelectionChange={handleSelectEasing}>
                     <Label>Easing</Label>
-                    <Button>
+                    <Button className="hd-motion-preview__select-button">
                         <SelectValue />
                         <span aria-hidden="true">▼</span>
                     </Button>
-                    <Popover>
+                    <Popover className="hd-motion-preview__popover">
                         <ListBox>
                             {easings.map(x => (
                                 <ListBoxItem key={x.name} id={x.name}>
@@ -46,25 +45,25 @@ function MotionPreview({ durations, easings }: MotionPreviewProps) {
                     </Popover>
                 </Select>
 
-                <Select placeholder="Duration" aria-label="Duration" defaultSelectedKey={duration} onSelectionChange={handleSelectDuration}>
+                <Select className="hd-motion-preview__select" placeholder="Duration" aria-label="Duration" defaultSelectedKey={duration} onSelectionChange={handleSelectDuration}>
                     <Label>Duration</Label>
-                    <Button>
+                    <Button className="hd-motion-preview__select-button">
                         <SelectValue />
                         <span aria-hidden="true">▼</span>
                     </Button>
-                    <Popover>
+                    <Popover className="hd-motion-preview__popover">
                         <ListBox>
 
                             {durations.map(x => (
                                 <ListBoxItem key={x.name} id={x.name}>
-                                    {x.name.replace("hop-easing-", "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
+                                    {`${x.name.replace("hop-easing-", "").replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())} (${x.value})`}
                                 </ListBoxItem>
                             ))}
                         </ListBox>
                     </Popover>
                 </Select>
 
-                <Button onPress={handleClick}>Play this motion</Button>
+                <Button className="hd-motion-preview__button" onPress={handleClick}>Play this motion</Button>
             </div>
             <div
                 style={{
