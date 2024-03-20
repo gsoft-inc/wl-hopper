@@ -25,36 +25,6 @@ Lines of text that are too short make the eyes strain while long lines make it h
 
 When aligning different text boxes together horizontally, use their baselines as a guide instead of their true center for a more harmonious look.
 
-## Typefaces
-
-Hopper uses two main typefaces: *[Inter](https://rsms.me/inter/)* and *[ABC Favorit](https://abcdinamo.com/typefaces/favorit)*. *ABC Favorit* can look off centered in some cases, in order to counter this you can use top offset and bottom offset tokens exposed by Hopper.
-
-Hopper components already compensate for this issue, when appropriate. You might need to do the same when *ABC Favorit* or *ABC Favorit Mono* is used in a boxed component not provided by Hopper. Boxed components are components that have a background color or a border.
-
-```css title="off-centered-text.css"
-.off-centered-text {
-  position: relative;
-}
-
-.off-centenred-text::before,
-.off-centered-text::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-}
-
-.off-centered-text::before {
-    /* -0.1875rem */
-    margin-bottom: var(--hop-heading-sm-bottom-offset);
-}
-
-.off-centered-text::after {
-    /* -0.375rem */
-    margin-top: var(--hop-heading-sm-top-offset);
-}
-```
-
 ## Heading
 
 Headings are used to create a hierarchy of content. They are used to help users scan and understand the content on a page.

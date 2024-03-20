@@ -42,6 +42,7 @@ const preview: Preview = {
                 order: [
                     "Docs",
                     "Components",
+                    "Guides",
                     "Styled System",
                     "Icons",
                     "Tokens"

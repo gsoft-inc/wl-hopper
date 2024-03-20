@@ -113,6 +113,10 @@ export default function CodeBlockPage() {
                 <div className="favorit free-text-sample">
                     <p className="centering-text offset three-xl">The future is in the past tense but why</p>
                 </div>
+                <div className="favorit flex">
+                    <div className="tag xs"><span className="offset">My Title</span></div>
+                    <div className="tag xs"><span>My Title</span></div>
+                </div>
             </main>
         </>
     );
