@@ -5,6 +5,7 @@ import NextImage from "@/components/ui/image/Image.tsx";
 import Pre from "@/components/ui/pre/Pre.tsx";
 import Table from "@/components/ui/table/Table.tsx";
 import TypographyTable from "@/components/ui/table/TypographyTable.tsx";
+import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import TypographyVariantTable from "@/components/ui/table/TypographyVariantTable.tsx";
 import { IconTable } from "@/components/iconTable/IconTable.tsx";
 import IconSpecTable from "@/components/ui/table/IconSpecTable.tsx";
@@ -20,6 +21,7 @@ export const components = {
     Image: NextImage,
     pre: Pre,
     Table: Table,
+    MotionPreview: MotionPreview,
     TypographyTable: TypographyTable,
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,

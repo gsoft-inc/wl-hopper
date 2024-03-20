@@ -1,0 +1,61 @@
+.hd-motion-preview {
+    margin-bottom: var(--hd-space-4);
+    gap: var(--hd-space-5);
+    align-items: flex-end;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.hd-object {
+    background-color: var(--hd-accent-900);
+    width: 10rem;
+    height: 10rem;
+    transition: transform var(--hd-duration) var(--hd-easing);
+}
+
+.hd-object-animated {
+    transform: translateX(6.25rem);
+}
+
+.hd-motion-preview__button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    background-color: var(--hd-accent-700);
+    color: var(--hd-white);
+    min-height: 2.5rem;
+    transition: all 0.2s ;
+    border-radius: 0.25rem;
+    background-image: none;
+    cursor: pointer;
+    line-height: 1;
+    border: none;
+    text-align: center;
+    position: relative;
+    width: max-content;
+    font-size: 100%;
+    padding: var(--hd-space-1);
+}
+
+.hd-motion-preview__popover {
+    border-radius: 0.25rem;
+    background-color: var(--hd-color-neutral-surface-weak);
+    border: 0.0625rem solid var(--hd-color-neutral-border);
+    box-shadow: "0 4px 10px 4px rgba(60, 60, 60, 0.08)";
+    padding: var(--hd-space-1);
+}
+
+.hd-motion-preview__select-button {
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
+    padding: var(--hd-space-1);
+    border-radius: 0.25rem;
+}
+
+.hd-motion-preview__select {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hd-space-1);
+    font-size: 0.75rem;
+}
