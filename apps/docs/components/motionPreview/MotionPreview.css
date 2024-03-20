@@ -7,7 +7,7 @@
 }
 
 .hd-object {
-    background-color: #6B5B7B;
+    background-color: var(--hd-accent-900);
     width: 10rem;
     height: 10rem;
     transition: transform var(--hd-duration) var(--hd-easing);
@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     height: max-content;
-    background-color: #4767fe;
+    background-color: var(--hd-accent-700);
     color: var(--hd-white);
     min-height: 2.5rem;
     transition: all 0.2s ;
@@ -48,7 +48,7 @@
 }
 
 .hd-motion-preview__select-button {
-    border: 0.0625rem solid var(--hd-color-neutral-border);
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
     padding: var(--hd-space-1);
     border-radius: 0.25rem;
 }
@@ -56,6 +56,6 @@
 .hd-motion-preview__select {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--hd-space-1);
     font-size: 0.75rem;
 }

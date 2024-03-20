@@ -13,17 +13,17 @@ Our motion utilities consists of two set of values, *durations* and *easings*.
 
 Both variables can be combined in [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) as well in CSS [animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) to set the tone of an animation/transition (animation is used interchangeably with transition from now on).
 
-In transition declaration :
+In a transition declaration:
 
-```css
+```css title="tease.css"
 .tease {
     transition: color var(--hop-easing-duration-1) var(--hop-easing-focus);
 }
 ```
 
-In animation declaration :
+In an animation declaration:
 
-```css
+```css title="tease.css"
 @keyframes tease-animation  {
     0% {
         opacity: 0;
