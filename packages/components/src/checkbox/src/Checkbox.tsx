@@ -1,28 +1,134 @@
 import { forwardRef, type ForwardedRef } from "react";
+import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { CheckboxContext } from "./CheckboxContext.ts";
-import { useContextProps } from "react-aria-components";
+import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps } from "react-aria-components";
+import { cssModule } from "../../utils/src/cssModule.ts";
+import { composeClassnameRenderProps, SlotProvider, type SizeAdapter } from "../../utils/index.ts";
+import { Text, TextContext, type TextProps } from "../../Text/index.ts";
+import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
+import { IconContext, CheckmarkIcon, MinusIcon } from "@hopper-ui/icons";
+import { IconListContext } from "../../IconList/index.ts";
 
 import styles from "./Checkbox.module.css";
 
 export const GlobalCheckboxCssSelector = "hop-Checkbox";
 
-export interface CheckboxProps {
+export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
+    /**
+     * A checkbox can vary in size.
+     */
+    size?: ResponsiveProp<"sm" | "md">;
 }
 
-function Checkbox(props:CheckboxProps, ref: ForwardedRef<any>) {
+function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, CheckboxContext);
+    const { stylingProps, ...ownProps } = useStyledSystem(props);
+    const {
+        className,
+        children: childrenProp,
+        size: sizeProp = "md",
+        style: styleProp,
+        ...otherProps
+    } = ownProps;
+
+    
+    const size = useResponsiveValue(sizeProp) ?? "md";
+
+    const classNames = composeClassnameRenderProps(
+        className,
+        GlobalCheckboxCssSelector,
+        cssModule(
+            styles,
+            "hop-Checkbox",
+            size
+        ),
+        stylingProps.className
+    );
+
+    const style = composeRenderProps(styleProp, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const children = composeRenderProps(childrenProp, prev => {
+        if (isTextOnlyChildren(prev)) {
+            return <Text>{prev}</Text>;
+        }
+
+        return prev;
+    });
+
+    const CheckboxToDescriptionSizeAdapter: SizeAdapter<CheckboxProps["size"], TextProps["size"]> = {
+        sm: "xs",
+        md: "sm"
+    };
 
     return (
-        <div></div>
+        
+        <RACCheckbox
+            ref={ref}
+            className={classNames}
+            style={style}
+            {...otherProps}
+        >
+            {checkboxProps => {
+                const checkboxIconClassName = styles["hop-Checkbox__check"];
+                const icon = checkboxProps.isIndeterminate ? 
+                    <MinusIcon size="sm" className={checkboxIconClassName} /> : 
+                    <CheckmarkIcon size="sm" className={checkboxIconClassName} />;
+
+                return (
+                    <>
+                        <div className={styles["hop-Checkbox__box"]}>{icon}</div>
+                        <SlotProvider
+                            values={[
+                                [TextContext, {
+                                    slots: {
+                                        text: {
+                                            className: styles["hop-Checkbox__text"],
+                                            size: size
+                                        },
+                                        description: {
+                                            className: styles["hop-Checkbox__description"],
+                                            size: CheckboxToDescriptionSizeAdapter[size]
+                                        }
+                                    }
+                                }],
+                                [IconListContext, {
+                                    slots: {
+                                        icon: {
+                                            className: styles["hop-Checkbox__icon-list"],
+                                            size: size
+                                        }
+                                    }
+                                }],
+                                [IconContext, {
+                                    slots: {
+                                        icon: {
+                                            className: styles["hop-Checkbox__icon"],
+                                            size: size
+                                        }
+                                    }
+                                }]
+                            ]}
+                        >
+                            {children(checkboxProps)}
+                        </SlotProvider>
+                    </>
+                );
+            }}
+        </RACCheckbox>
     );
 }
 
 /**
- * TODO: tagline
+ * The Checkbox component indicates the selection state of an option. It displays either one of three states: checked, unchecked, or indeterminate.
  *
  * [View Documentation](TODO)
  */
-const _Checkbox = forwardRef<any, CheckboxProps>(Checkbox);
+const _Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(Checkbox);
 _Checkbox.displayName = "Checkbox";
 
 export { _Checkbox as Checkbox };

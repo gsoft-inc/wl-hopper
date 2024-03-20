@@ -2,6 +2,6 @@ import { createContext } from "react";
 import type { ContextValue } from "react-aria-components";
 import type { CheckboxProps } from "./Checkbox.tsx";
 
-export const CheckboxContext = createContext<ContextValue<CheckboxProps, any>>({});
+export const CheckboxContext = createContext<ContextValue<CheckboxProps, HTMLLabelElement>>({});
 
 CheckboxContext.displayName = "CheckboxContext";
