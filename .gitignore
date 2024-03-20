@@ -51,3 +51,6 @@ build-storybook.log
 # build artifacts
 **/dist/
 **/stories/datas
+
+# contains our project's chromatic ID
+chromatic.config.json
