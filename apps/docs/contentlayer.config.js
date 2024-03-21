@@ -1,5 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import { rehypePluginOptions } from "./utils/rehypeConfig.js";
+import { rehypePluginOptions } from "./app/lib/rehypeConfig.js";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 

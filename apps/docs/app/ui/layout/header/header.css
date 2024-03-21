@@ -17,7 +17,7 @@
     background-color: var(--hd-header-background-color);
     backdrop-filter: blur(1rem);
     border-block-end: var(--hd-border-size) solid var(--hd-header-border-color);
-    z-index: 1;
+    z-index: 999;
 }
 
 @media screen and (width >= 48rem) {

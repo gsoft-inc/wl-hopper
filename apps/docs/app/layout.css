@@ -65,6 +65,8 @@ p {
 }
 
 .hd-content code {
+    display: inline-flex;
+    align-items: center;
     background-color: var(--hd-color-neutral-surface-weak);
     border-radius: 0.25rem;
     color: var(--hd-color-accent-text);
