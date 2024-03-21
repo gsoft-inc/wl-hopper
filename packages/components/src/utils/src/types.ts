@@ -29,6 +29,12 @@ export interface RenderProps<T> extends StyleRenderProps<T> {
     children?: ReactNode | ((values: T) => ReactNode);
 }
 
+export interface RenderPropsHookOptions<T> extends RenderProps<T>, SharedDOMProps, AriaLabelingProps {
+    values: T;
+    defaultChildren?: ReactNode;
+    defaultClassName?: string;
+}
+
 // TODO: i added this, not sure if it will make sense
 export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotProps {
 

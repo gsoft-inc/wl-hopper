@@ -1,12 +1,12 @@
 import { Div } from "@hopper-ui/styled-system";
-import { Button } from "../../src/Button.tsx";
+import { Button, type ButtonProps } from "../../src/Button.tsx";
 import { IconList } from "../../../IconList/src/IconList.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
 import { within } from "@storybook/test";
 import { Inline, Stack } from "../../../layout/index.ts";
-
+import type { ElementType } from "react";
 
 const meta = {
     title: "Components/Buttons/Button",
@@ -191,6 +191,33 @@ export const Negative: Story = {
     }
 };
 
+const StateTemplate = <T extends ElementType>(args: Partial<ButtonProps<T>>) => (
+    <Inline alignY="end">
+        <Button size="sm" {...args}>Button</Button>
+        <Button {...args}>Button</Button>
+        <Button {...args}>
+            <PlusIcon />
+            <Text>Button</Text>
+        </Button>
+        <Button {...args}>
+            <Text>Button</Text>
+            <PlusIcon slot="end-icon" />
+        </Button>
+        <Button {...args}>
+            <Text>Button</Text>
+            <IconList>
+                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+            </IconList>
+        </Button>
+        <Button {...args}>
+            <Text>Button</Text>
+            <IconList slot="end-icon">
+                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+            </IconList>
+        </Button>
+    </Inline>
+);
+
 export const PrimaryStates: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
@@ -219,155 +246,17 @@ export const PrimaryStates: Story = {
         return (
             <Stack>
                 <h1>Default</h1>
-                <Inline alignX="end">
-                    <Button size="sm" {...args}>Button</Button>
-                    <Button {...args}>Button</Button>
-                    <Button {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} />
                 <h1>Disabled</h1>
-                <Inline alignX="end">
-                    <Button isDisabled size="sm" {...args}>Button</Button>
-                    <Button isDisabled {...args}>Button</Button>
-                    <Button isDisabled {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} isDisabled />
                 <h1>Pressed</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-press size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-press {...args}>Button</Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-press />
                 <h1>Focus Visible</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-focus size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-focus {...args}>Button</Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-focus />
                 <h1>Hovered</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-hover size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-hover {...args}>Button</Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-hover />
                 <h1>Focus Visible and Hovered</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-focus data-chromatic-force-hover size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>Button</Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
             </Stack>
         );
     }
