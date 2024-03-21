@@ -68,6 +68,6 @@
     width: 25%;
 }
 
-.hd-table--icon-spec .hd-table__column:last-child, .hd-table__cell:last-child {
+.hd-table--icon-spec .hd-table__column:last-child, .hd-table--icon-spec .hd-table__cell:last-child {
     text-align: left;
 }

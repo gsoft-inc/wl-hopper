@@ -22,6 +22,12 @@ export interface WithHopperStorybookAddonParameter {
     [AddonName]?: HopperStorybookAddonOptions;
 }
 
+export function hopperParameters(parameters: HopperStorybookAddonOptions): WithHopperStorybookAddonParameter {
+    return {
+        [AddonName]: parameters
+    };
+}
+
 export const ColorSchemes = ["light", "dark"] satisfies HopperStorybookAddonOptions["colorSchemes"];
 
 export const withHopperProvider = makeDecorator({
