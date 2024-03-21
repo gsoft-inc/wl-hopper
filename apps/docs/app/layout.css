@@ -51,25 +51,25 @@ p {
     line-height: 1.5;
 }
 
-p:not(:last-child) {
+.hd-content p:not(:last-child) {
     margin-block-end: 1.25rem;
 }
 
-p + * {
+.hd-content p + * {
     margin-block-start: var(--hd-space-3);
 }
 
-article ul {
+.hd-content ul {
     line-height: 1.5rem;
     padding-left: 1rem;
 }
 
-article p a,
-article li a {
+.hd-content p a,
+.hd-content li a {
     color: var(--hd-color-accent-text);
 }
 
-article code {
+.hd-content code {
     background-color: var(--hd-color-neutral-surface-weak);
     border-radius: 0.25rem;
     color: var(--hd-color-accent-text);

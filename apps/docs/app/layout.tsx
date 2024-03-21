@@ -1,4 +1,4 @@
-import Header from "@/components/ui/header/Header";
+import Header from "@/app/ui/layout/header/Header";
 import { ThemeProvider } from "@/context/theme/ThemeProvider";
 
 import "./globals.css";

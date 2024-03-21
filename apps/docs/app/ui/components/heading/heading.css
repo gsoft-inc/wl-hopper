@@ -1,0 +1,14 @@
+.hd-heading__title {
+    display: flex;
+    align-items: baseline;
+    gap: var(--hd-space-1);
+}
+
+.hd-heading__description {
+    margin-block-end: var(--hd-space-2);
+}
+
+.hd-heading__links {
+    display: flex;
+    gap: var(--hd-space-1);
+}

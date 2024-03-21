@@ -1,4 +1,4 @@
-@import url("@/styles/tokens.css");
+@import url("@/app/tokens.css");
 
 .shd-container {
     --sbt-container-background: var(--hd-white);
@@ -7,10 +7,9 @@
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
-    background:
-        linear-gradient(90deg,var(--sbt-container-background) 10px,transparent 1%) 50%,
-        linear-gradient(var(--sbt-container-background) 10px,transparent 1%) 50%,
-        var(--sbt-container-color);
+    background: linear-gradient(90deg, var(--sbt-container-background) 10px, transparent 1%) 50%,
+    linear-gradient(var(--sbt-container-background) 10px, transparent 1%) 50%,
+    var(--sbt-container-color);
     background-size: 12px 12px;
 }
 

@@ -1,8 +1,9 @@
-import type { StorybookConfig } from "@storybook/nextjs";
+import type {StorybookConfig} from "@storybook/nextjs";
+
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const config: StorybookConfig = {
-    stories: ["../components/**/*.stories.@(ts|tsx)"],
+    stories: ["../components/**/*.stories.@(ts|tsx)", "../app/ui/**/*.stories.@(ts|tsx)"],
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
@@ -17,7 +18,7 @@ const config: StorybookConfig = {
     },
     webpackFinal: async (config) => {
         // Configure aliases
-        if(config.resolve) {
+        if (config.resolve) {
             config.resolve.plugins = [
                 ...(config.resolve.plugins || []),
                 new TsconfigPathsPlugin({

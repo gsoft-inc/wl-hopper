@@ -1,13 +1,8 @@
 import { notFound } from "next/navigation";
 import { allComponents } from "contentlayer/generated";
-
-import Tag from "@/components/ui/tag/Tag";
-import LinkList from "@/components/linkList/LinkList";
-
-import { getComponentDetails } from "@/utils/getComponentDetails.ts";
-import Title from "@/components/ui/title/Title.tsx";
-
-import "./components.css";
+import LinkList from "@/app/ui/components/linkList/LinkList";
+import Heading from "@/app/ui/components/heading/Heading.tsx";
+import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 
 interface PageProps {
     params: {
@@ -30,7 +25,7 @@ export default async function ComponentPage({ params }: PageProps) {
 
     const { content, frontmatter: { title, status, description, links } } = component;
 
-    const linksList = [
+    const componentLinks = [
         {
             name: "github",
             src: links.source,
@@ -51,14 +46,7 @@ export default async function ComponentPage({ params }: PageProps) {
     return (
         <div className="hd-container">
             <main>
-                <div className="hd-flex hd-component-heading">
-                    <Title as="h1">{title}</Title>
-                    {status && <Tag>{status}</Tag>}
-                </div>
-
-                <p>{description}</p>
-                
-                <LinkList links={linksList} />
+                <Heading title={title} tag={status} description={description} links={componentLinks} />
 
                 {content}
 

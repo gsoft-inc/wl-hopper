@@ -27,6 +27,7 @@
         "unist-util-visit": "5.0.0"
     },
     "devDependencies": {
+        "@codesandbox/sandpack-react": "^2.13.5",
         "@hopper-ui/components": "workspace:*",
         "@hopper-ui/tokens": "workspace:*",
         "@storybook/addon-essentials": "7.6.10",
@@ -43,9 +44,9 @@
         "eslint": "8.56.0",
         "eslint-config-next": "14.1.0",
         "eslint-plugin-storybook": "0.6.15",
-        "unified": "11.0.4",
         "storybook": "7.6.10",
         "tsconfig-paths-webpack-plugin": "4.1.0",
-        "typescript": "5.3.3"
+        "typescript": "5.3.3",
+        "unified": "11.0.4"
     }
 }
