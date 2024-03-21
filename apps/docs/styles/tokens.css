@@ -16,9 +16,11 @@
     --hd-neutral-20: #FCFBFB;
     --hd-neutral-50: #ECEBE8;
     --hd-neutral-75: #E0DFDD;
+    --hd-neutral-100: #D7D6D6;
     --hd-neutral-300: #959593;
     --hd-neutral-400: #777775;
     --hd-neutral-700: #505050;
+    --hd-neutral-750: #4B4B4B;
     --hd-neutral-800: #3C3C3C;
     --hd-neutral-900: #292929;
     --hd-primary-0: #EDFCF6;
@@ -57,6 +59,7 @@
     --hd-color-neutral-surface-weak: var(--hd-neutral-50);
     --hd-color-surface-neutral-selection: var(--hd-neutral-75);
     --hd-color-neutral-text: var(--hd-neutral-900);
+    --hd-color-neutral-text-strong: var(--hd-neutral-0);
     --hd-color-neutral-text-weak: var(--hd-neutral-700);
     --hd-color-neutral-text-weak-hover: var(--hd-neutral-900);
     --hd-color-neutral-text-weakest: var(--hd-neutral-400);
@@ -75,6 +78,10 @@
     --hd-color-neutral-border-weak: var(--hd-neutral-20);
     --hd-color-accent-text: var(--hd-accent-700);
     --hd-color-accent-surface: var(--hd-accent-100);
+    --hd-color-surface-neutral-gradient: linear-gradient(0deg, var(--hd-neutral-900) 0%, var(--hd-neutral-750) 100%);
+    --hd-color-surface-neutral-gradient-hover: linear-gradient(0deg, var(--hd-neutral-800) 0%, var(--hd-neutral-800) 100%);
+    --hd-focus-ring: 0 0 0 2px var(--hd-neutral-0), 0 0 0 4px var(--hd-neutral-900);
+    --hd-color-shadow-neutral-gradient: 0 1px 2px 0 rgba(255, 255, 255, 0.40) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.10) inset;
 }
 
 /* Dark Theme Overrides */
@@ -84,6 +91,7 @@
     --hd-color-neutral-surface-weak: var(--hd-neutral-800);
     --hd-color-surface-neutral-selection: var(--hd-neutral-300);
     --hd-color-neutral-text: var(--hd-neutral-0);
+    --hd-color-neutral-text-strong: var(--hd-neutral-900);
     --hd-color-neutral-text-weak: var(--hd-neutral-300);
     --hd-color-neutral-text-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-text-weakest: var(--hd-neutral-300);
@@ -102,4 +110,8 @@
     --hd-color-neutral-border: var(--hd-neutral-700);
     --hd-color-accent-text: var(--hd-accent-300);
     --hd-color-accent-surface: var(--hd-accent-900);
+    --hd-color-surface-neutral-gradient: linear-gradient(0deg, var(--hd-neutral-100) 0%, var(--hd-neutral-0) 100%);
+    --hd-color-surface-neutral-gradient-hover: linear-gradient(0deg, var(--hd-neutral-20) 0%, var(--hd-neutral-20) 100%);
+    --hd-focus-ring: 0 0 0 2px var(--hd-neutral-800), 0 0 0 4px var(--hd-neutral-20);
+    --hd-color-shadow-neutral-gradient: 0 1px 2px 0 rgba(0, 0, 0, 0.20) inset, 0 -1px 1px 0 rgba(255, 255, 255, 0.40) inset;
 }
