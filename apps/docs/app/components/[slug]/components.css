@@ -1,0 +1,4 @@
+.hd-component-heading {
+    align-items: baseline;
+    gap: var(--hd-space-1);
+}
