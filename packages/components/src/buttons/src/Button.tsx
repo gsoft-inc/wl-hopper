@@ -1,25 +1,28 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef } from "react";
-import { Button as RACButton, useContextProps, type ButtonProps as RACButtonProps, type PressEvent, composeRenderProps } from "react-aria-components";
+import { type ForwardedRef, forwardRef, type ElementType, type ReactElement, type ForwardRefExoticComponent, type Ref } from "react";
+import { useContextProps, composeRenderProps, type SlotProps, type ButtonRenderProps, ButtonContext as RACButtonContext } from "react-aria-components";
 import styles from "./Button.module.css";
-import { useId } from "react-aria";
+import { useId, type AriaButtonProps, type HoverEvents, useButton, useHover, useFocusRing, mergeProps } from "react-aria";
 import { cssModule } from "../../utils/src/cssModule.ts";
 import { Text } from "../../Text/src/Text.tsx";
-import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
+import { composeClassnameRenderProps, SlotProvider, type RenderProps } from "../../utils/index.ts";
 import { IconContext } from "@hopper-ui/icons";
-import { ButtonContext } from "./ButtonContext.ts";
+import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
 import { TextContext } from "../../Text/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
+import { filterDOMProps } from "@react-aria/utils";
+import { useRenderProps } from "../../utils/src/useRenderProps.ts";
+import { useSlot } from "../../utils/src/index.ts";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultButtonSlot = "button";
 
-export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
+export interface ButtonProps<T extends ElementType = "button"> extends StyledComponentProps<Omit<AriaButtonProps<T>, "children" | "className" | "style">>, HoverEvents, SlotProps, RenderProps<ButtonRenderProps> {
     /**
      * The visual style of the button.
      */
@@ -38,19 +41,40 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     // A button can show a loading indicator.
     isLoading?:boolean;
 
+
     /**
-     * This prop will be called when the button is clicked.
-     *
-     * The onClick prop is an alias for onPress and should not be used in conjunction with it. Use one or the other.
-     * onPress is the recommended prop to use for handling button clicks.
-     */
-    onClick?: ((e: PressEvent) => void);
+   * The <form> element to associate the button with.
+   * The value of this attribute must be the id of a <form> in the same document.
+   */
+    form?: string;
+    /**
+   * The URL that processes the information submitted by the button.
+   * Overrides the action attribute of the button's form owner.
+   */
+    formAction?: string;
+    /** Indicates how to encode the form data that is submitted. */
+    formEncType?: string;
+    /** Indicates the HTTP method used to submit the form. */
+    formMethod?: string;
+    /** Indicates that the form is not to be validated when it is submitted. */
+    formNoValidate?: boolean;
+    /** Overrides the target attribute of the button's form owner. */
+    formTarget?: string;
+    /** Submitted as a pair with the button's value as part of the form data. */
+    name?: string;
+    /** The value associated with the button's name when it's submitted with the form data. */
+    value?: string;
 }
 
-const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonSlot }, ref, ButtonContext);
-    const { stylingProps, ...ownProps } = useStyledSystem(props);
+const additionalButtonHTMLAttributes = new Set(["form", "formAction", "formEncType", "formMethod", "formNoValidate", "formTarget", "name", "value"]);
 
+function Button<T extends ElementType = "button">(props: ButtonProps<T>, ref: ForwardedRef<HTMLElement>) {
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonSlot }, ref, ButtonContext);
+    // since we can't use the Button from react-aria-components, we need to make sure we still get the context value
+    // from react-aria-components.  However, since our  Button might be something else than a button, we need to cast the ref
+    [props, ref] = useContextProps(props, ref as ForwardedRef<HTMLButtonElement>, RACButtonContext);
+    const ctx = props as ButtonContextValue;
+    const { stylingProps, ...ownProps } = useStyledSystem(props);
     const stringFormatter = useLocalizedString();
 
     const {
@@ -59,20 +83,23 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         size: sizeProp = "md",
         fluid: fluidProp,
         variant = "primary",
-        onClick,
-        onPress: onPressProp,
         isDisabled,
         isLoading,
         style: styleProp,
+        elementType: As = "button",
         ...otherProps
     } = ownProps;
 
-    if (onPressProp && onClick) {
-        console.warn("[Hopper] The onClick prop is an alias for onPress and should not be used in conjunction with it. Use one or the other.");
-    }
-
-    const onPress = onPressProp ?? onClick;
     const isInteractionDisabled = isDisabled || isLoading;
+
+    const { buttonProps, isPressed } = useButton({
+        ...ownProps,
+        isDisabled: isInteractionDisabled
+    }, ref);
+    const { focusProps, isFocused, isFocusVisible } = useFocusRing(props);
+    const { hoverProps, isHovered } = useHover(props);
+
+    const [textRef, hasText] = useSlot();
 
     const size = useResponsiveValue(sizeProp);
     const fluid = useResponsiveValue(fluidProp);
@@ -86,10 +113,18 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
             variant,
             size,
             fluid && "fluid",
-            isLoading && "loading"
+            isLoading && "loading",
+            !hasText && "icon-only"
         ),
         stylingProps.className
     );
+
+    const style = composeRenderProps(styleProp, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
 
     const children = composeRenderProps(childrenProp, prev => {
         if (isTextOnlyChildren(prev)) {
@@ -99,17 +134,21 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
         return prev;
     });
 
-    const style = composeRenderProps(styleProp, prev => {
-        return {
-            ...stylingProps.style,
-            ...prev
-        };
+    const renderProps = useRenderProps({
+        className: classNames,
+        style,
+        children,
+        values: { isHovered, isPressed, isFocused, isFocusVisible, isDisabled: isInteractionDisabled || false }
     });
 
     const spinnerId = useId();
 
     const hasAriaLabel = !!props["aria-label"] || !!props["aria-labelledby"];
     const isLoadingAriaLiveLabel = `${hasAriaLabel ? props["aria-label"] : ""} ${stringFormatter.format("button.pending")}`.trim();
+
+    if (!hasText && !hasAriaLabel) {
+        console.warn("[hopper-ui] If you do not provide a text children, you must specify an aria-label for accessibility");
+    }
 
     return (
         <SlotProvider
@@ -140,47 +179,47 @@ const Button = (props:ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
                     slots: {
                         text: {
                             className: styles["hop-Button__text"],
-                            size: size
+                            size: size,
+                            ref: textRef
                         }
                     }
                 }]
             ]}
         >
-            <RACButton
-                ref={ref}
-                className={classNames}
-                style={style}
+            <As
+                {...filterDOMProps(otherProps, { propNames: additionalButtonHTMLAttributes })}
+                {...mergeProps(buttonProps, focusProps, hoverProps)}
+                {...renderProps}
+                ref={ref as Ref<never>}
+                slot={props.slot || undefined}
+                data-disabled={isInteractionDisabled || undefined}
+                data-pressed={ctx.isPressed || isPressed || undefined}
+                data-hovered={isHovered || undefined}
+                data-focused={isFocused || undefined}
+                data-focus-visible={isFocusVisible || undefined}
                 data-loading={isLoading}
-                onPress={onPress}
-                isDisabled={isInteractionDisabled}
-                {...otherProps}
             >
-                {buttonProps => {
-                    return (
-                        <>
-                            {children(buttonProps)}
-                            {isLoading && (
-                                <Spinner
-                                    id={spinnerId}
-                                    size="lg"
-                                    aria-label={isLoadingAriaLiveLabel}
-                                    className={styles["hop-Button__Spinner"]}
-                                />
-                            )}
-                        </>
-                    );
-                }}
-            </RACButton>
+                {children({ isHovered, isPressed, isFocused, isFocusVisible, isDisabled: isInteractionDisabled || false })}
+                {isLoading && (
+                    <Spinner
+                        id={spinnerId}
+                        size="lg"
+                        aria-label={isLoadingAriaLiveLabel}
+                        className={styles["hop-Button__Spinner"]}
+                    />
+                )}
+            </As>
         </SlotProvider>
     );
-};
+}
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
  *
  * [View Documentation](TODO)
  */
-const _Button = forwardRef<HTMLButtonElement, ButtonProps>(Button);
-_Button.displayName = "Button";
+const _Button = forwardRef(Button) as <T extends ElementType = "button">(props: ButtonProps<T> & { ref?: ForwardedRef<HTMLElement> }) => ReactElement;
+
+(_Button as ForwardRefExoticComponent<unknown>).displayName = "Button";
 
 export { _Button as Button };

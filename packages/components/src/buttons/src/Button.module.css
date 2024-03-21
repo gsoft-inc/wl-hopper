@@ -1,7 +1,11 @@
 .hop-Button {
     --hop-Button-padding: 0 var(--hop-space-inset-md);
     --hop-Button-border-radius: var(--hop-shape-rounded-md);
-    --hop-Button-focus-ring-color: var(--hop-primary-surface-hover); /* TODO: place to centralize tokens like this? */
+    --hop-Button-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
+
+    /* sizes */
+    --hop-Button-icon-only-sm-padding: 0 var(--hop-space-inset-xs);
+    --hop-Button-icon-only-md-padding: 0 var(--hop-space-inset-sm);
     --hop-Button-sm-height: 2rem;
     --hop-Button-md-height: 2.5rem;
 
@@ -14,10 +18,10 @@
     --hop-Button-primary-background-color-hover: var(--hop-primary-surface-hover);
     --hop-Button-primary-background-color-pressed: var(--hop-primary-surface-active);
     --hop-Button-primary-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-primary-border: 0;
-    --hop-Button-primary-border-hover: 0;
-    --hop-Button-primary-border-pressed: 0;
-    --hop-Button-primary-border-disabled: 0;
+    --hop-Button-primary-border: 0.0625rem solid var(--hop-Button-primary-background-color); /* same color as the background */
+    --hop-Button-primary-border-hover: 0.0625rem solid var(--hop-Button-primary-background-color-hover); /* same color as the background */
+    --hop-Button-primary-border-pressed: 0.0625rem solid var(--hop-Button-primary-background-color-pressed); /* same color as the background */
+    --hop-Button-primary-border-disabled: 0.0625rem solid var(--hop-Button-primary-background-color-disabled); /* same color as the background */
 
     /* Secondary */
     --hop-Button-secondary-color: var(--hop-neutral-text);
@@ -31,7 +35,7 @@
     --hop-Button-secondary-border: 0.0625rem solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-border-active);
-    --hop-Button-secondary-border-disabled: 0;
+    --hop-Button-secondary-border-disabled: 0.0625rem solid var(--hop-Button-secondary-background-color-disabled); /* same color as the background */
 
     /* Tertiary */
     --hop-Button-tertiary-color: var(--hop-neutral-text);
@@ -42,10 +46,10 @@
     --hop-Button-tertiary-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-tertiary-background-color-pressed: var(--hop-neutral-surface-weak-active);
     --hop-Button-tertiary-background-color-disabled: var(--hop-neutral-surface);
-    --hop-Button-tertiary-border: 0;
-    --hop-Button-tertiary-border-hover: 0;
-    --hop-Button-tertiary-border-pressed: 0;
-    --hop-Button-tertiary-border-disabled: 0;
+    --hop-Button-tertiary-border: 0.0625rem solid var(--hop-Button-tertiary-background-color); /* same color as the background */
+    --hop-Button-tertiary-border-hover: 0.0625rem solid var(--hop-Button-tertiary-background-color-hover); /* same color as the background */
+    --hop-Button-tertiary-border-pressed: 0.0625rem solid var(--hop-Button-tertiary-background-color-pressed); /* same color as the background */
+    --hop-Button-tertiary-border-disabled: 0.0625rem solid var(--hop-Button-tertiary-background-color-disabled); /* same color as the background */
 
     /* Upsell */
     --hop-Button-upsell-color: var(--hop-upsell-text);
@@ -56,10 +60,10 @@
     --hop-Button-upsell-background-color-hover: var(--hop-upsell-surface-hover);
     --hop-Button-upsell-background-color-pressed: var(--hop-upsell-surface-active);
     --hop-Button-upsell-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-upsell-border: 0.0625rem solid var(--hop-upsell-surface); /* same color as the background */
-    --hop-Button-upsell-border-hover: 0.0625rem solid var(--hop-upsell-surface-hover); /* same color as the background */
+    --hop-Button-upsell-border: 0.0625rem solid var(--hop-Button-upsell-background-color); /* same color as the background */
+    --hop-Button-upsell-border-hover: 0.0625rem solid var(--hop-Button-upsell-background-color-hover); /* same color as the background */
     --hop-Button-upsell-border-pressed: 0.0625rem solid var(--hop-upsell-border-active);
-    --hop-Button-upsell-border-disabled: 0;
+    --hop-Button-upsell-border-disabled: 0.0625rem solid var(--hop-Button-upsell-background-color-disabled); /* same color as the background */
 
     /* Negative */
     --hop-Button-negative-color: var(--hop-danger-text-strong);
@@ -70,10 +74,10 @@
     --hop-Button-negative-background-color-hover: var(--hop-danger-surface-hover);
     --hop-Button-negative-background-color-pressed: var(--hop-danger-surface-active);
     --hop-Button-negative-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-negative-border: 0.0625rem solid var(--hop-danger-surface-strong); /* same color as the background */
-    --hop-Button-negative-border-hover: 0.0625rem solid var(--hop-danger-surface-hover); /* same color as the background */
+    --hop-Button-negative-border: 0.0625rem solid var(--hop-Button-negative-background-color); /* same color as the background */
+    --hop-Button-negative-border-hover: 0.0625rem solid var(--hop-Button-negative-background-color-hover); /* same color as the background */
     --hop-Button-negative-border-pressed: 0.0625rem solid var(--hop-danger-border-active);
-    --hop-Button-negative-border-disabled: 0;
+    --hop-Button-negative-border-disabled: 0.0625rem solid var(--hop-Button-negative-background-color-disabled); /* same color as the background */
 
     /* Internal variable */
     --inline-size: max-content;
@@ -103,8 +107,20 @@
     background-color: var(--background-color);
     color: var(--color);
     border: var(--border);
-    align-items:center
+    align-items:center;
+    text-decoration: none;
+}
 
+.hop-Button--icon-only {
+    column-gap: 0;
+}
+
+.hop-Button--icon-only.hop-Button--sm {
+    padding: var(--hop-Button-icon-only-sm-padding);
+}
+
+.hop-Button--icon-only.hop-Button--md {
+    padding: var(--hop-Button-icon-only-md-padding);
 }
 
 .hop-Button[data-disabled] {
@@ -135,7 +151,7 @@
     --border: var(--hop-Button-primary-border-disabled);
 }
 
-.hop-Button--primary[data-hovered] {
+.hop-Button--primary[data-hovered]:not([data-disabled]) {
     --background-color: var(--hop-Button-primary-background-color-hover);
     --color: var(--hop-Button-primary-color-hover);
     --border: var(--hop-Button-primary-border-hover);
@@ -159,7 +175,7 @@
     --border: var(--hop-Button-secondary-border-disabled);
 }
 
-.hop-Button--secondary[data-hovered] {
+.hop-Button--secondary[data-hovered]:not([data-disabled]) {
     --background-color: var(--hop-Button-secondary-background-color-hover);
     --color: var(--hop-Button-secondary-color-hover);
     --border: var(--hop-Button-secondary-border-hover);
@@ -183,7 +199,7 @@
     --border: var(--hop-Button-tertiary-border-disabled);
 }
 
-.hop-Button--tertiary[data-hovered] {
+.hop-Button--tertiary[data-hovered]:not([data-disabled]) {
     --background-color: var(--hop-Button-tertiary-background-color-hover);
     --color: var(--hop-Button-tertiary-color-hover);
     --border: var(--hop-Button-tertiary-border-hover);
@@ -207,7 +223,7 @@
     --border: var(--hop-Button-upsell-border-disabled);
 }
 
-.hop-Button--upsell[data-hovered] {
+.hop-Button--upsell[data-hovered]:not([data-disabled]) {
     --background-color: var(--hop-Button-upsell-background-color-hover);
     --color: var(--hop-Button-upsell-color-hover);
     --border: var(--hop-Button-upsell-border-hover);
@@ -231,7 +247,7 @@
     --border: var(--hop-Button-negative-border-disabled);
 }
 
-.hop-Button--negative[data-hovered] {
+.hop-Button--negative[data-hovered]:not([data-disabled]) {
     --background-color: var(--hop-Button-negative-background-color-hover);
     --color: var(--hop-Button-negative-color-hover);
     --border: var(--hop-Button-negative-border-hover);
