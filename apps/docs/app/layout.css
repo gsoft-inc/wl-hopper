@@ -59,11 +59,6 @@ p {
     margin-block-start: var(--hd-space-3);
 }
 
-.hd-content ul {
-    line-height: 1.5rem;
-    padding-left: 1rem;
-}
-
 .hd-content p a,
 .hd-content li a {
     color: var(--hd-color-accent-text);
