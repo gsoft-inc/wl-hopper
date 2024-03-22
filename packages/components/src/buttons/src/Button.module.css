@@ -123,7 +123,8 @@
     padding: var(--hop-Button-icon-only-md-padding);
 }
 
-.hop-Button[data-disabled] {
+.hop-Button[data-disabled],
+.hop-Button[data-loading] {
     cursor: not-allowed;
 }
 
@@ -151,13 +152,13 @@
     --border: var(--hop-Button-primary-border-disabled);
 }
 
-.hop-Button--primary[data-hovered]:not([data-disabled]) {
+.hop-Button--primary[data-hovered]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-primary-background-color-hover);
     --color: var(--hop-Button-primary-color-hover);
     --border: var(--hop-Button-primary-border-hover);
 }
 
-.hop-Button--primary[data-pressed] {
+.hop-Button--primary[data-pressed]:not([data-loading]) {
     --background-color: var(--hop-Button-primary-background-color-pressed);
     --color: var(--hop-Button-primary-color-pressed);
     --border: var(--hop-Button-primary-border-pressed);
@@ -175,13 +176,13 @@
     --border: var(--hop-Button-secondary-border-disabled);
 }
 
-.hop-Button--secondary[data-hovered]:not([data-disabled]) {
+.hop-Button--secondary[data-hovered]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-secondary-background-color-hover);
     --color: var(--hop-Button-secondary-color-hover);
     --border: var(--hop-Button-secondary-border-hover);
 }
 
-.hop-Button--secondary[data-pressed] {
+.hop-Button--secondary[data-pressed]:not([data-loading]) {
     --background-color: var(--hop-Button-secondary-background-color-pressed);
     --color: var(--hop-Button-secondary-color-pressed);
     --border: var(--hop-Button-secondary-border-pressed);
@@ -199,13 +200,13 @@
     --border: var(--hop-Button-tertiary-border-disabled);
 }
 
-.hop-Button--tertiary[data-hovered]:not([data-disabled]) {
+.hop-Button--tertiary[data-hovered]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-tertiary-background-color-hover);
     --color: var(--hop-Button-tertiary-color-hover);
     --border: var(--hop-Button-tertiary-border-hover);
 }
 
-.hop-Button--tertiary[data-pressed] {
+.hop-Button--tertiary[data-pressed]:not([data-loading]) {
     --background-color: var(--hop-Button-tertiary-background-color-pressed);
     --color: var(--hop-Button-tertiary-color-pressed);
     --border: var(--hop-Button-tertiary-border-pressed);
@@ -223,13 +224,13 @@
     --border: var(--hop-Button-upsell-border-disabled);
 }
 
-.hop-Button--upsell[data-hovered]:not([data-disabled]) {
+.hop-Button--upsell[data-hovered]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-upsell-background-color-hover);
     --color: var(--hop-Button-upsell-color-hover);
     --border: var(--hop-Button-upsell-border-hover);
 }
 
-.hop-Button--upsell[data-pressed] {
+.hop-Button--upsell[data-pressed]:not([data-loading]) {
     --background-color: var(--hop-Button-upsell-background-color-pressed);
     --color: var(--hop-Button-upsell-color-pressed);
     --border: var(--hop-Button-upsell-border-pressed);
@@ -247,13 +248,13 @@
     --border: var(--hop-Button-negative-border-disabled);
 }
 
-.hop-Button--negative[data-hovered]:not([data-disabled]) {
+.hop-Button--negative[data-hovered]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-negative-background-color-hover);
     --color: var(--hop-Button-negative-color-hover);
     --border: var(--hop-Button-negative-border-hover);
 }
 
-.hop-Button--negative[data-pressed] {
+.hop-Button--negative[data-pressed]:not([data-loading]) {
     --background-color: var(--hop-Button-negative-background-color-pressed);
     --color: var(--hop-Button-negative-color-pressed);
     --border: var(--hop-Button-negative-border-pressed);

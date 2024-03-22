@@ -2,7 +2,6 @@ import { Button, type ButtonProps } from "../../src/Button.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { AddIcon } from "@hopper-ui/icons";
-import type { ElementType } from "react";
 import { within } from "@storybook/test";
 
 const meta = {
@@ -68,10 +67,12 @@ export const Negative: Story = {
 };
 
 
-const StateTemplate = <T extends ElementType>(args: Partial<ButtonProps<T>>) => (
+const StateTemplate = (args: Partial<ButtonProps>) => (
     <Inline alignY="end">
         <Button size="sm" {...args} />
         <Button {...args} />
+        <Button isLoading size="sm" {...args} />
+        <Button isLoading {...args} />
     </Inline>
 );
 

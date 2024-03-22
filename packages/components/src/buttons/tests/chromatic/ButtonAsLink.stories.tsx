@@ -18,7 +18,6 @@ export const Primary: Story = {
     ...PrimaryButtonStory,
     args:{
         ...PrimaryButtonStory.args,
-        elementType:"a",
         href: "https://www.google.com"
     }
 };
@@ -59,7 +58,6 @@ export const PrimaryStates: Story = {
     ...PrimaryStatesButtonStory,
     args:{
         ...PrimaryStatesButtonStory.args,
-        elementType:"a",
         href: "https://www.google.com"
     }
 };
