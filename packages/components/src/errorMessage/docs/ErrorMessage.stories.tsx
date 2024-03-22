@@ -63,7 +63,7 @@ export const FormErrors: Story = {
 };
 
 /**
- * An ErrorMessage can display an icon
+ * An ErrorMessage can hide its icon
  */
 export const Icon: Story = {
     render: () => {
@@ -75,7 +75,7 @@ export const Icon: Story = {
             }]
         ]}
         >
-            <ErrorMessage showWarningIcon>Test Error Message</ErrorMessage>
+            <ErrorMessage showWarningIcon={false}>Test Error Message</ErrorMessage>
         </SlotProvider>;
     }
 };

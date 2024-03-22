@@ -1,27 +1,49 @@
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
 import clsx from "clsx";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import { ErrorMessageContext } from "./ErrorMessageContext.ts";
-import { useContextProps, FieldError as RACFieldError, type FieldErrorProps as RACFieldErrorProps, type TextProps as RACTextProps, TextContext } from "react-aria-components";
+import { useContextProps, type FieldErrorProps as RACFieldErrorProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
 import { WarningIcon } from "@hopper-ui/icons";
-import { SlotProvider } from "@hopper-ui/components";
 import { cssModule } from "../../utils/src/cssModule.ts";
+import { useRenderProps } from "../../utils/src/useRenderProps.ts";
+import { type TextProps, Text } from "../../Text/index.ts";
 
 import styles from "./ErrorMessage.module.css";
 
 export const GlobalErrorMessageCssSelector = "hop-ErrorMessage";
 
-export interface ErrorMessageProps extends StyledComponentProps<RACFieldErrorProps>, Omit<RACTextProps, "style" | "className" | "children" | "color" | "content"> {
+export interface ErrorMessageProps extends StyledComponentProps<RACFieldErrorProps>, Omit<TextProps, "style" | "className" | "children" | "color" | "content"> {
     /**
      * Whether or not to show the error message icon.
+     * @default true
      */
     showWarningIcon?: boolean;
 }
 
 function ErrorMessage(props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElement>) {
+    const validation = useContext(RACFieldErrorContext);
+    if (!validation?.isInvalid) {
+        return null;
+    }
+    
+    return <FieldErrorInner {...props} ref={ref} />;
+}
+
+/**
+ * An ErrorMessage displays validation errors for a form field.
+ *
+ * [View Documentation](TODO)
+ */
+const _ErrorMessage = forwardRef<HTMLSpanElement, ErrorMessageProps>(ErrorMessage);
+_ErrorMessage.displayName = "ErrorMessage";
+
+export { _ErrorMessage as ErrorMessage };
+
+const FieldErrorInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElement>) => {
+    const validation = useContext(RACFieldErrorContext)!;
     [props, ref] = useContextProps(props, ref, ErrorMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, showWarningIcon, style, slot = "errorMessage", ...otherProps } = ownProps;
+    const { className, children, showWarningIcon = true, style, slot = "errorMessage", ...otherProps } = ownProps;
 
     const classNames = clsx(
         GlobalErrorMessageCssSelector,
@@ -38,32 +60,23 @@ function ErrorMessage(props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElemen
         ...style
     };
 
+    const warningIcon = showWarningIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
+
+    const renderProps = useRenderProps({
+        className: classNames,
+        children: children ? <>{warningIcon} {children}</> : null,
+        defaultChildren: <>{warningIcon} {validation.validationErrors.join(" ")}</>,
+        values: validation
+    });
+
+  
     return (
-        <SlotProvider values={[
-            [TextContext, { ...otherProps, slot }]
-        ]}
-        >
-            <RACFieldError
-                {...otherProps}
-                ref={ref}
-                className={classNames}
-                style={mergedStyles}
-            >
-                {children ? <>
-                    {showWarningIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />}
-                    {children}
-                </> : null}
-            </RACFieldError>
-        </SlotProvider>
+        <Text
+            {...otherProps}
+            {...renderProps}
+            slot={slot}
+            ref={ref}
+            style={mergedStyles}
+        />
     );
-}
-
-/**
- * An ErrorMessage displays validation errors for a form field.
- *
- * [View Documentation](TODO)
- */
-const _ErrorMessage = forwardRef<HTMLSpanElement, ErrorMessageProps>(ErrorMessage);
-_ErrorMessage.displayName = "ErrorMessage";
-
-export { _ErrorMessage as ErrorMessage };
+});

@@ -26,7 +26,7 @@ export const Default: Story = {
         ]}
         >
             <ErrorMessage />
-            <ErrorMessage showWarningIcon {...props} />
+            <ErrorMessage showWarningIcon={false} {...props} />
         </SlotProvider>
     )
 };

@@ -17,7 +17,7 @@ export const Default: Story = {
     render: props => (
         <>
             <HelperMessage {...props} />
-            <HelperMessage showInfoIcon {...props} />
+            <HelperMessage showInfoIcon={false} {...props} />
         </>
     )
 };

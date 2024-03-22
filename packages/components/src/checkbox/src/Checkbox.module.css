@@ -7,7 +7,6 @@
     --hop-Checkbox-check-display: none;
     --hop-Checkbox-text-color: var(--hop-neutral-text);
     --hop-Checkbox-icon-color: var(--hop-neutral-icon);
-    --hop-Checkbox-description-color: var(--hop-neutral-text-weak); 
 
     /* Hover */
     --hop-Checkbox-box-border-color-hover: var(--hop-neutral-border-hover);
@@ -16,7 +15,6 @@
     --hop-Checkbox-box-background-color-checked-hover: var(--hop-neutral-surface-active);
     --hop-Checkbox-text-color-hover: var(--hop-neutral-text);
     --hop-Checkbox-icon-color-hover: var(--hop-neutral-icon);
-    --hop-Checkbox-description-color-hover: var(--hop-neutral-text-weak); 
 
     /* Checked */
     --hop-Checkbox-box-border-color-checked: var(--hop-neutral-border-active);
@@ -24,7 +22,6 @@
     --hop-Checkbox-check-display-checked: block;
     --hop-Checkbox-text-color-checked: var(--hop-neutral-text);
     --hop-Checkbox-icon-color-checked: var(--hop-neutral-icon);
-    --hop-Checkbox-description-color-checked: var(--hop-neutral-text-weak); 
 
     /* Disabled */
     --hop-Checkbox-box-border-color-disabled: var(--hop-neutral-border-disabled);
@@ -34,7 +31,6 @@
     --hop-Checkbox-check-color-disabled: var(--hop-neutral-icon-disabled);
     --hop-Checkbox-text-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Checkbox-icon-color-disabled: var(--hop-neutral-icon-disabled);
-    --hop-Checkbox-description-color-disabled: var(--hop-neutral-text-disabled); 
 
     /* Focus */
     --hop-Checkbox-box-border-color-focus: var(--hop-neutral-border-hover);
@@ -44,7 +40,6 @@
     --hop-Checkbox-box-background-color-checked-focus: var(--hop-neutral-surface-active);
     --hop-Checkbox-text-color-focus: var(--hop-neutral-text);
     --hop-Checkbox-icon-color-focus: var(--hop-neutral-icon);
-    --hop-Checkbox-description-color-focus: var(--hop-neutral-text-weak); 
 
     /* Invalid  */
     --hop-Checkbox-box-border-color-invalid: var(--hop-danger-border-strong);
@@ -56,17 +51,16 @@
     --hop-Checkbox-check-color-invalid: var(--hop-danger-icon-strong);
     --hop-Checkbox-text-color-invalid: var(--hop-danger-text-weak);
     --hop-Checkbox-icon-color-invalid: var(--hop-danger-icon-weak);
-    --hop-Checkbox-description-color-invalid: var(--hop-neutral-text-weak); 
 
     /* Small */
-    --hop-Checkbox-row-gap-small: var(--hop-space-stack-xs);
     --hop-Checkbox-box-inline-size-small: 1rem;
     --hop-Checkbox-text-top-offset-small: calc((var(--box-inline-size) - (var(--hop-body-sm-line-height) * var(--hop-body-sm-font-size))) / 2); 
+    --hop-Checkbox-text-margin-inline-start-small: calc(var(--hop-space-inline-sm) - var(--hop-space-inline-xs));
 
     /* Medium */
-    --hop-Checkbox-row-gap-medium: var(--hop-space-stack-sm);
     --hop-Checkbox-box-inline-size-medium: 1.5rem;
     --hop-Checkbox-text-top-offset-medium: calc((var(--box-inline-size) - (var(--hop-body-md-line-height) * var(--hop-body-md-font-size))) / 2); 
+    --hop-Checkbox-text-margin-inline-start-medium: calc(var(--hop-space-inline-md) - var(--hop-space-inline-xs));
 
     /* Internal variable */
     --box-background-color: var(--hop-Checkbox-box-background-color);
@@ -74,19 +68,17 @@
     --box-border-radius: var(--hop-shape-rounded-sm);
     --check-color: var(--hop-Checkbox-check-color);
     --check-display: var(--hop-Checkbox-check-display);
-    --text-margin-inline-start: calc(var(--hop-space-inline-md) - var(--hop-space-inline-xs));
     --cursor: pointer;
     --text-color: var(--hop-Checkbox-text-color);
     --icon-color: var(--hop-Checkbox-icon-color);
     --description-color: var(--hop-Checkbox-description-color);
 
     align-items: start;
+    column-gap: var(--hop-space-inline-xs);
     cursor: var(--cursor);
-    gap: var(--row-gap, var(--hop-space-stack-sm)) var(--hop-space-inline-xs);
     display: grid;
     grid-template:
     "checkbox label icon" auto
-    "checkbox description description" auto
     / auto auto auto;
     inline-size: max-content;
     justify-content: start; 
@@ -167,12 +159,14 @@
     --row-gap: var(--hop-Checkbox-row-gap-small);
     --box-inline-size: var(--hop-Checkbox-box-inline-size-small);
     --text-top-offset: var(--hop-Checkbox-text-top-offset-small);
+    --text-margin-inline-start: var(--hop-Checkbox-text-margin-inline-start-small);
 }
 
 .hop-Checkbox--md {
     --row-gap: var(--hop-Checkbox-row-gap-medium);
     --box-inline-size: var(--hop-Checkbox-box-inline-size-medium);
     --text-top-offset: var(--hop-Checkbox-text-top-offset-medium);
+    --text-margin-inline-start: var(--hop-Checkbox-text-margin-inline-start-medium);
 }
 
 /* Icons */
@@ -209,12 +203,5 @@
     color: var(--text-color);
     grid-area: label;
     margin-block-start: var(--text-top-offset, var(--hop-Checkbox-text-top-offset-medium));
-    margin-inline-start: var(--text-margin-inline-start);
-}
-
-/* Description */
-.hop-Checkbox__description {
-    color: var(--description-color);
-    grid-area: description;
-    margin-inline-start: var(--text-margin-inline-start);
+    margin-inline-start: var(--text-margin-inline-start, var(--hop-Checkbox-text-margin-inline-start-medium));
 }

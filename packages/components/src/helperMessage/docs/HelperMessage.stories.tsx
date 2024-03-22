@@ -36,10 +36,10 @@ export const Default: Story = {
 };
 
 /**
- * You can show an icon with the HelperMessage.
+ * You can hide the icon in the HelperMessage.
  */
 export const Icon: Story = {
     args: {
-        showInfoIcon: true
+        showInfoIcon: false
     }
 };

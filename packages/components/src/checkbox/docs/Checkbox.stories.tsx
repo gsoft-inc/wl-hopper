@@ -15,7 +15,7 @@ import { IconList } from "../../IconList/index.ts";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Checkbox",
+    title: "Docs/Checkbox/Checkbox",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
@@ -35,18 +35,6 @@ export const Default: Story = {
     args: {
         children: "Option 1"
     }
-};
-
-/**
- * A checkbox with a description.
- */
-export const Description: Story = {
-    render: props => (
-        <Checkbox {...props}>
-            <Text>Option 1</Text>
-            <Text slot="description">Description</Text>
-        </Checkbox>
-    )
 };
 
 /**
@@ -87,8 +75,7 @@ export const Disabled: Story = {
         isDisabled: true,
         children: [
             <PlusIcon key="1" />,
-            <Text key="2">Option 1</Text>,
-            <Text key="3" slot="description">Description</Text>
+            <Text key="2">Option 1</Text>
         ]
     }
 };
@@ -102,8 +89,7 @@ export const Invalid: Story = {
         isInvalid: true,
         children: [
             <PlusIcon key="1" />,
-            <Text key="2">Option 1</Text>,
-            <Text key="3" slot="description">Description</Text>
+            <Text key="2">Option 1</Text>
         ]
     }
 };
@@ -145,8 +131,7 @@ export const IconListStory: Story = {
             <IconList key="1">
                 <PlusIcon /><PlusIcon /><PlusIcon />
             </IconList>,
-            <Text key="2">Option 1</Text>,
-            <Text key="3" slot="description">Description</Text>
+            <Text key="2">Option 1</Text>
         ]
     }
 };

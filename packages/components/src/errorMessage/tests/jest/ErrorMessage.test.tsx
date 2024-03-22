@@ -138,4 +138,24 @@ describe("ErrorMessage", () => {
         
         expect(svgElement).not.toBeNull();
     });
+
+    it("should support hiding the icon", () => {
+        render(
+            <SlotProvider values={[
+                [FieldErrorContext, {
+                    isInvalid: true,
+                    validationErrors: [] as never[],
+                    validationDetails: {} as never
+                }]
+            ]}
+            >
+                <ErrorMessage showWarningIcon={false}>Test</ErrorMessage>
+            </SlotProvider>
+        );
+
+        const element = screen.getByText("Test");
+        const svgElement = element.querySelector(".hop-Icon");
+        
+        expect(svgElement).toBeNull();
+    });
 });

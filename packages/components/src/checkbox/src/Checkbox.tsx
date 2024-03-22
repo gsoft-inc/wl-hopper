@@ -3,8 +3,8 @@ import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useRes
 import { CheckboxContext } from "./CheckboxContext.ts";
 import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps } from "react-aria-components";
 import { cssModule } from "../../utils/src/cssModule.ts";
-import { composeClassnameRenderProps, SlotProvider, type SizeAdapter } from "../../utils/index.ts";
-import { Text, TextContext, type TextProps } from "../../Text/index.ts";
+import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
+import { Text, TextContext } from "../../Text/index.ts";
 import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
 import { IconContext, CheckmarkIcon, MinusIcon } from "@hopper-ui/icons";
 import { IconListContext } from "../../IconList/index.ts";
@@ -12,6 +12,9 @@ import { IconListContext } from "../../IconList/index.ts";
 import styles from "./Checkbox.module.css";
 
 export const GlobalCheckboxCssSelector = "hop-Checkbox";
+
+// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
+const DefaultCheckboxSlot = "checkbox";
 
 export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
     /**
@@ -21,7 +24,7 @@ export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
 }
 
 function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps(props, ref, CheckboxContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxSlot }, ref, CheckboxContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -60,11 +63,6 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
         return prev;
     });
 
-    const CheckboxToDescriptionSizeAdapter: SizeAdapter<CheckboxProps["size"], TextProps["size"]> = {
-        sm: "xs",
-        md: "sm"
-    };
-
     return (
         
         <RACCheckbox
@@ -89,10 +87,6 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
                                         text: {
                                             className: styles["hop-Checkbox__text"],
                                             size: size
-                                        },
-                                        description: {
-                                            className: styles["hop-Checkbox__description"],
-                                            size: CheckboxToDescriptionSizeAdapter[size]
                                         }
                                     }
                                 }],
