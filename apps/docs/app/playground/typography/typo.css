@@ -263,7 +263,7 @@ button.overline {
 
 /* Button Sample */
 .tag {
-    border: 1px solid #C9C5B5;
+    border: var(--hd-border-size) solid #C9C5B5;
     font-weight: 505;
     width: auto;
     display: inline-flex;
