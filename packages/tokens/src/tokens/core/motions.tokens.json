@@ -1,0 +1,38 @@
+{
+    "easing-duration": {
+        "1": {
+            "$type": "duration",
+            "$value": "100ms"
+        },
+        "2": {
+            "$type": "duration",
+            "$value": "200ms"
+        },
+        "3": {
+            "$type": "duration",
+            "$value": "300ms"
+        },
+        "4": {
+            "$type": "duration",
+            "$value": "500ms"
+        },
+        "5": {
+            "$type": "duration",
+            "$value": "800ms"
+        }
+    },
+    "easing": {
+        "productive": {
+            "$type": "timingFunction",
+            "$value": "cubic-bezier(0.22, 0.61, 0.36, 1)"
+        },
+        "focus": {
+            "$type": "timingFunction",
+            "$value": "cubic-bezier(0.46, 0.03, 0.52, 0.96)"
+        },
+        "expressive": {
+            "$type": "timingFunction",
+            "$value": "cubic-bezier(0.72, -0.66, 0.15, 1.5)"
+        }
+    }
+}

@@ -1,0 +1,69 @@
+---
+title: Motion
+description: Getting started with Workleap Design Tokens
+---
+
+import tokens from '../../../datas/tokens.json';
+
+# Motion
+
+Our motion utilities consists of two set of values, *durations* and *easings*.
+
+## Usage
+
+Both variables can be combined in [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) as well in CSS [animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) to set the tone of an animation/transition (animation is used interchangeably with transition from now on).
+
+In a transition declaration:
+
+```css title="tease.css"
+.tease {
+    transition: color var(--hop-easing-duration-1) var(--hop-easing-focus);
+}
+```
+
+In an animation declaration:
+
+```css title="tease.css"
+@keyframes tease-animation  {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tease {
+    animation: tease-animation var(--hop-easing-duration-2) var(--hop-easing-productive);
+}
+```
+
+## Duration
+
+Hopper exposes 5 durations, they help convey a message and makes animations smooth and responsive.
+
+<Table category={"duration"} data={tokens.core["duration"]} noPreview />
+
+## Easings
+
+[Easings](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) denotes a mathematical function that describes the rate at which a numerical value changes. They adds life to motion, providing natural rests, they set the mood of an animation. Hopper provides 3 pre-defined easings, each having their use.
+
+### Productive
+
+Used in animations that are not in the way, they quickly change from one state to another.
+
+### Focus
+
+Used in animations that are designed to draw the user’s attention on what changed, in order to let them move on with their next task.
+
+### Expressive
+
+Used in animations that are meant to give a sense of completeness or resolution to the user. Use them wisely.
+
+<Table category={"timingFunction"} data={tokens.core["timingFunction"]} noPreview />
+
+## Playground
+
+<MotionPreview durations={tokens.core["duration"]} easings={tokens.core["timingFunction"]} noPreview />
