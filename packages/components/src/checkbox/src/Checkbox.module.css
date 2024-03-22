@@ -156,14 +156,12 @@
 }
 
 .hop-Checkbox--sm {
-    --row-gap: var(--hop-Checkbox-row-gap-small);
     --box-inline-size: var(--hop-Checkbox-box-inline-size-small);
     --text-top-offset: var(--hop-Checkbox-text-top-offset-small);
     --text-margin-inline-start: var(--hop-Checkbox-text-margin-inline-start-small);
 }
 
 .hop-Checkbox--md {
-    --row-gap: var(--hop-Checkbox-row-gap-medium);
     --box-inline-size: var(--hop-Checkbox-box-inline-size-medium);
     --text-top-offset: var(--hop-Checkbox-text-top-offset-medium);
     --text-margin-inline-start: var(--hop-Checkbox-text-margin-inline-start-medium);

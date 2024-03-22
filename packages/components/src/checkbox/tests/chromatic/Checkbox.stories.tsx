@@ -1,9 +1,9 @@
 import { Checkbox } from "../../src/Checkbox.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { within } from "@storybook/test";
 import { Text } from "../../../Text/index.ts";
 import { IconList } from "../../../IconList/src/IconList.tsx";
-import { Inline, Stack } from "../../../layout/index.ts";
+import { Inline, Stack, Flex } from "../../../layout/index.ts";
+import { Div } from "@hopper-ui/styled-system";
 import { EditIcon } from "@hopper-ui/icons";
 
 const meta = {
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const Unchecked: Story = {
     play: async ({ canvasElement }) => {
         const checkboxLabels = canvasElement.querySelectorAll("label");
-        console.log(checkboxLabels);
+
         checkboxLabels.forEach(checkboxLabel => {
             const checkbox = checkboxLabel.querySelector("input[type='checkbox']");
             if (checkbox && checkbox.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
@@ -170,6 +170,27 @@ export const Unchecked: Story = {
                         </Checkbox>
                     </Inline>
                 </Stack>
+            </Inline>
+            <h1>Overflow</h1>
+            <Flex alignItems="end" maxWidth="core_1280">
+                <Checkbox {...props}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
+            </Flex>
+            <Flex alignItems="end" maxWidth="core_1280">
+                <Checkbox {...props}>
+                    <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
+                    <IconList>
+                        <EditIcon /><EditIcon />
+                    </IconList>
+                </Checkbox>
+            </Flex>
+            <h1>Zoom</h1>
+            <Inline>
+                <Div className="zoom-in">
+                    <Checkbox {...props}>Option 1</Checkbox>
+                </Div>
+                <Div className="zoom-out'">
+                    <Checkbox {...props}>Option 2</Checkbox>
+                </Div>
             </Inline>
         </Stack>
     )
