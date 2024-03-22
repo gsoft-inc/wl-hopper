@@ -162,7 +162,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                     <React.Fragment>
                         <tr className="hd-typo__row">
                             <td className="hd-table__cell hd-typo__cell hd-typo-offset-cell" colSpan={3}>
-                                Bottom Offset*
+                                Bottom Offset<a href="#offset-tokens" className="hd-table__link"><sup>1</sup></a>
                             </td>
                             <td className="hd-table__cell hd-typo__cell hd-typo-offset-cell">
                                 <Code value={`--hop-${type}${displaySize}-font-family`}>{`--hop-${type}${displaySize}-bottom-offset`}</Code>
@@ -173,7 +173,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                         </tr>
                         <tr className="hd-typo__row">
                             <td className="hd-table__cell hd-typo__cell" colSpan={3}>
-                            Top Offset*
+                            Top Offset<a href="#offset-tokens" className="hd-table__link"><sup>1</sup></a>
                             </td>
                             <td className="hd-table__cell hd-typo__cell">
                                 <Code value={`--hop-${type}${displaySize}-font-family`}>{`--hop-${type}${displaySize}-top-offset`}</Code>

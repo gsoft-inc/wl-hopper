@@ -71,3 +71,10 @@
 .hd-table--icon-spec .hd-table__column:last-child, .hd-table--icon-spec .hd-table__cell:last-child {
     text-align: left;
 }
+
+/* Links in Table */
+.hd-table__link {
+    color: var(--hd-color-accent-text);
+    font-weight: 600;
+    text-decoration: none;
+}
