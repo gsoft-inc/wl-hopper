@@ -83,28 +83,16 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
                         <SlotProvider
                             values={[
                                 [TextContext, {
-                                    slots: {
-                                        text: {
-                                            className: styles["hop-Checkbox__text"],
-                                            size: size
-                                        }
-                                    }
+                                    className: styles["hop-Checkbox__text"],
+                                    size: size
                                 }],
                                 [IconListContext, {
-                                    slots: {
-                                        icon: {
-                                            className: styles["hop-Checkbox__icon-list"],
-                                            size: size
-                                        }
-                                    }
+                                    className: styles["hop-Checkbox__icon-list"],
+                                    size: size
                                 }],
                                 [IconContext, {
-                                    slots: {
-                                        icon: {
-                                            className: styles["hop-Checkbox__icon"],
-                                            size: size
-                                        }
-                                    }
+                                    className: styles["hop-Checkbox__icon"],
+                                    size: size
                                 }]
                             ]}
                         >

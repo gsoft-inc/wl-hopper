@@ -8,10 +8,16 @@ import { cssModule } from "../../utils/src/cssModule.ts";
 import type { BaseComponentProps } from "../../utils/src/types.ts";
 import { SlotProvider, type SizeAdapter } from "../../utils/index.ts";
 import { TextContext, type TextProps } from "../../Text/index.ts";
+import { useId } from "react-aria";
 
 import styles from "./CheckboxField.module.css";
 
 export const GlobalCheckboxFieldCssSelector = "hop-CheckboxField";
+
+const CheckboxToDescriptionSizeAdapter: SizeAdapter<CheckboxFieldProps["size"], TextProps["size"]> = {
+    sm: "xs",
+    md: "sm"
+};
 
 export interface CheckboxFieldProps extends StyledSystemProps, BaseComponentProps {
     /**
@@ -56,30 +62,21 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
         ...style
     };
 
-    const CheckboxToDescriptionSizeAdapter: SizeAdapter<CheckboxFieldProps["size"], TextProps["size"]> = {
-        sm: "xs",
-        md: "sm"
-    };
+    const descriptionId = useId();
 
     return (
         <SlotProvider
             values={[
                 [TextContext, {
-                    slots: {
-                        description: {
-                            className: styles["hop-CheckboxField__description"],
-                            size: CheckboxToDescriptionSizeAdapter[size]
-                        }
-                    }
+                    id: descriptionId,
+                    className: styles["hop-CheckboxField__description"],
+                    size: CheckboxToDescriptionSizeAdapter[size]
                 }],
                 [CheckboxContext, {
-                    slots: {
-                        checkbox: {
-                            className: styles["hop-CheckboxField__checkbox"],
-                            size: size,
-                            isDisabled: isDisabled
-                        }
-                    }
+                    className: styles["hop-CheckboxField__checkbox"],
+                    size: size,
+                    isDisabled: isDisabled,
+                    "aria-describedby": descriptionId 
                 }]
             ]}
         >

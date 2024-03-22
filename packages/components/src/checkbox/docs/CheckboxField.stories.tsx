@@ -2,6 +2,7 @@ import { CheckboxField } from "../src/CheckboxField.tsx";
 import { Checkbox } from "../src/Checkbox.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "../../Text/index.ts";
+import { Stack } from "../../layout/index.ts";
 
 /**
  * The CheckboxField component is used to group a checkbox with a description.
@@ -57,16 +58,31 @@ export const Description: Story = {
  * A checkboxField can be rendered in a disabled state.
  */
 export const Disabled: Story = {
-    render: props => (
-        <CheckboxField {...props}>
-            <Checkbox>
-                <Text>Option 1</Text>
-            </Checkbox>
-            <Text slot="description">Description</Text>
-        </CheckboxField>
-    ),
+    ...Description,
     args: {
         isDisabled: true
     }
+};
+
+/**
+ * A checkboxField can be rendered in two different sizes.
+ */
+export const Sizes: Story = {
+    render: props => (
+        <Stack>
+            <CheckboxField {...props} size="sm">
+                <Checkbox>
+                    <Text>Option 1</Text>
+                </Checkbox>
+                <Text slot="description">Description</Text>
+            </CheckboxField>
+            <CheckboxField {...props} size="md">
+                <Checkbox>
+                    <Text>Option 1</Text>
+                </Checkbox>
+                <Text slot="description">Description</Text>
+            </CheckboxField>
+        </Stack>
+    )
 };
 
