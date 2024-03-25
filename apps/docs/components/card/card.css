@@ -1,5 +1,36 @@
 .hd-card {
+    --background: var(--hd-white);
+    --color: var(--hd-neutral-50);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--hd-space-2);
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
     padding: var(--hd-space-4);
+    background: linear-gradient(90deg, var(--background) 10px, transparent 1%) 50%,
+    linear-gradient(var(--background) 10px, transparent 1%) 50%,
+    var(--color);
+    background-size: 12px 12px;
+}
+
+.hd-card--sm {
+    padding: var(--hd-space-2);
+}
+
+.hd-card--lg {
+    padding: var(--hd-space-6);
+}
+
+.hd-card--end {
+    justify-content: flex-end;
+}
+
+.hd-card--start {
+    justify-content: flex-start;
+}
+
+[data-theme="dark"] {
+    --background: var(--hd-neutral-900);
+    --color: var(--hd-neutral-800);
 }

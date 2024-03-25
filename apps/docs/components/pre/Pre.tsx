@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import type { HTMLAttributes } from "react";
-import cx from "classnames";
+import React, { type HTMLAttributes } from "react";
+import clsx from "clsx";
 
 import CopyButton from "@/components/copyButton/CopyButton.tsx";
 import LangIcon from "@/components/pre/langIcon/LangIcon";
@@ -12,16 +11,13 @@ import "./pre.css";
 export type PreProps = React.DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
     "data-language"?: string;
     raw?: string;
+    className?: string;
 };
 
-const Pre = ({ children, title, "data-language": dataLanguage, raw, ...props }: PreProps) => {
-    let preClasses = "";
-
-    if (!title) {
-        preClasses = "hd-pre--no-title";
-    }
-
-    const classes = cx("hd-pre", preClasses);
+const Pre = ({ children, className, title, "data-language": dataLanguage, raw, ...props }: PreProps) => {
+    const classes = clsx("hd-pre", {
+        "hd-pre--title": title
+    }, className);
 
     const langContent = dataLanguage && (
         <span className="hd-pre-header__lang">

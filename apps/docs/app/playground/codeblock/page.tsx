@@ -1,5 +1,3 @@
-"use client";
-
 import { allPages } from "contentlayer/generated";
 import Mdx from "@/components/mdx/Mdx";
 

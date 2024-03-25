@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { allComponents } from "contentlayer/generated";
-import LinkList from "@/app/ui/components/linkList/LinkList";
 import Heading from "@/app/ui/components/heading/Heading.tsx";
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 
@@ -24,7 +23,6 @@ export default async function ComponentPage({ params }: PageProps) {
     }
 
     const { content, frontmatter: { title, status, description, links } } = component;
-
     const componentLinks = [
         {
             name: "github",
@@ -48,7 +46,9 @@ export default async function ComponentPage({ params }: PageProps) {
             <main>
                 <Heading title={title} tag={status} description={description} links={componentLinks} />
 
-                {content}
+                <div className="hd-content">
+                    {content}
+                </div>
 
                 {/*the sections below are simply for zoning purposes, they will be replaced by real content*/}
                 {/*<section>*/}

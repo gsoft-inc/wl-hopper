@@ -5,7 +5,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 export const rehypeOptions = {
     // Use one of Shiki's packaged themes
     theme: "nord",
-    keepBackground: true,
+    keepBackground: false,
     onVisitLine(node) {
         // Prevent lines from collapsing in `display: grid` mode, and
         // allow empty lines to be copy/pasted

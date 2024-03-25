@@ -1,31 +1,37 @@
-"use client";
+import { Suspense } from "react";
+import Tabs from "@/components/tabs/Tabs.tsx";
+import ComponentWrapper from "@/components/previewComponent/ComponentWrapper.tsx";
+import PlaygroundWrapper from "@/components/previewComponent/PlaygroundWrapper.tsx";
+import CodeWrapper from "@/components/previewComponent/CodeWrapper.tsx";
+import PreviewSkeleton from "@/components/previewComponent/PreviewSkeleton.tsx";
 
-import dynamic from "next/dynamic";
-import { StyledSystemProvider } from "@hopper-ui/styled-system";
-import { Sandpack, SandpackLayout, SandpackPreview, SandpackProvider } from "@codesandbox/sandpack-react";
+import "./previewComponent.css";
 
-const PreviewComponent = ({ name } : { name: string }) => {
-    if (!name) {return null;}
+const tabsConfig = [
+    { category: "preview", title: "Preview" },
+    { category: "code", title: "Code" },
+    { category: "playground", title: "Playground" }
+];
 
-    const Component = dynamic(() => import((`../../../../packages/components/src/${name}.tsx`)), {
-        ssr: false,
-        loading: () => <p>Loading...</p>
-    });
+const PreviewComponent = ({ name }: { name: string }) => {
+    if (!name) {
+        return null;
+    }
+
 
     return (
-        <StyledSystemProvider colorScheme="light">
-            <Component />
-            {/*<SandpackProvider*/}
-            {/*    options={{*/}
-            {/*        initMode: "user-visible",*/}
-            {/*        initModeObserverOptions: { rootMargin: `1000px 0px` }*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*    <SandpackLayout>*/}
-            {/*        <SandpackPreview />*/}
-            {/*    </SandpackLayout>*/}
-            {/*</SandpackProvider>*/}
-        </StyledSystemProvider>
+        <div className="hd-preview-component">
+            <Tabs tabs={tabsConfig}>
+
+                <ComponentWrapper className="hd-preview-component__content" key="preview" name={name} />
+
+                <Suspense fallback={<PreviewSkeleton />}>
+                    <CodeWrapper name={name} key="code" />
+                </Suspense>
+
+                <PlaygroundWrapper key="playground" />
+            </Tabs>
+        </div>
     );
 };
 
