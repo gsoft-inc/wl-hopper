@@ -188,7 +188,7 @@ export const Unchecked: Story = {
                 <Div className="zoom-in">
                     <Checkbox {...props}>Option 1</Checkbox>
                 </Div>
-                <Div className="zoom-out'">
+                <Div className="zoom-out">
                     <Checkbox {...props}>Option 2</Checkbox>
                 </Div>
             </Inline>
