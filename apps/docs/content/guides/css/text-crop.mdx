@@ -1,0 +1,66 @@
+---
+title: Text Crop
+description: A technique to crop the whitespace above and below text to make it appear more centered.
+order: 1
+---
+
+# Text Crop
+
+Every web font includes whitespace above and below the text, while useful in some instances, it can be a problem when vertically centering text or aligning text with other elements. This problem arises when a font has uneven whitespace. This is especially true when using a typeface with a large x-height, like *ABC Favorit*.
+
+<Card>
+    <Image src="https://wlprodcdnst3e6bc61cec24.blob.core.windows.net/hopper/webdoc/text-crop-desired-outcome.png" width="1290" height="284" alt="Text Crop desired outcome" />
+</Card>
+
+One way to compensate for this is to use a negative margin on the top and bottom of the text. This will crop the whitespace and make the text appear more centered, while preserving the line-height of the text.
+
+<Card>
+    <Image src="https://wlprodcdnst3e6bc61cec24.blob.core.windows.net/hopper/webdoc/text-crop-css.png" width="1290" height="290" alt="Text Crop desired outcome" />
+</Card>
+
+## Implementation
+
+It is suggested to apply this technique on a text element, such as a `span`, rather than on it's container, such as a `button` element.
+
+Using a negative margin on the top and bottom of the text will crop the whitespace while preserving line height between lines in a multi-line block of text.
+
+If you need to implement this technique, you can use the following CSS. Keep in mind that each font weight and line-height combinations have their own set of values. You need to use the right token for the job, these are documented in the [tokens section](/tokens/semantic/typography).
+
+```tsx title="component.tsx"
+<div className="myBadge">
+    <span className="off-centered-text">NEW</span>
+</div>
+```
+
+```css title="component.css"
+.off-centered-text {
+  font-family: 'ABC Favorit Mono', sans-serif;
+}
+
+.off-centenred-text::before,
+.off-centered-text::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.off-centered-text::before {
+    /* -0.125rem */
+    margin-bottom: var(--hop-overline-bottom-offset);
+}
+
+.off-centered-text::after {
+    /* -0.25rem */
+    margin-top: var(--hop-overline-top-offset);
+}
+```
+
+Feel free to inspect the above examples to see how the solution is applied in different contexts.
+
+<div className="hd-sample hd-sample-text-offset">
+    <div className="hd-sample__wrapper">
+        <div className="myBadge"><span className="hd-sample-off-centered-text fixed">New</span></div>
+        <div className="myHeadline"><span className="hd-sample-off-centered-text fixed">Bring out the best in your team</span></div>
+    </div>
+</div>

@@ -37,6 +37,9 @@
             "@hopper-ui/components": [
                 "../../packages/components/src/index.ts"
             ],
+            "@hopper-ui/storybook-addon": [
+                "../../tooling/storybook-addon/index.ts"
+            ],
             "@hopper-ui/test-utils": [
                 "../../tooling/test-utils/index.ts"
             ],

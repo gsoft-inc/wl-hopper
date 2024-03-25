@@ -67,3 +67,7 @@ p {
 .hd-content [data-rehype-pretty-code-figure] {
     margin-block-end: var(--hd-space-3);
 }
+
+article table + p {
+    margin-block-start: 2rem;
+}

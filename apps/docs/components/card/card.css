@@ -34,3 +34,7 @@
     --background: var(--hd-neutral-900);
     --color: var(--hd-neutral-800);
 }
+
+.hd-card + p {
+    margin-top: var(--hd-space-4);
+}

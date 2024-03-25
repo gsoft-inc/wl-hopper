@@ -13,6 +13,8 @@
   "globals": {
       "Card": true,
       "Table": true,
+      "MotionPreview": true,
+      "Footnote": true,
       "TypographyTable": true,
       "TypographyVariantTable": true,
       "Tabs": true,

@@ -13,6 +13,8 @@ import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
 import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
 import Title from "@/components/title/Title.tsx";
 import PreviewComponent from "@/components/previewComponent/PreviewComponent.tsx";
+import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
+import Footnote from "@/components/footnote/Footnote.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -20,6 +22,8 @@ export const components = {
     Card,
     Image: NextImage,
     pre: Pre,
+    MotionPreview: MotionPreview,
+    Footnote: Footnote,
     Table: Table,
     TypographyTable: TypographyTable,
     TypographyVariantTable: TypographyVariantTable,

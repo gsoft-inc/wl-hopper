@@ -9,13 +9,14 @@ import "./table.css";
 
 interface TableProps {
     category: string;
+    noPreview?: boolean;
     data: {
         name: string;
         value: string;
     }[];
 }
 
-const Table = ({ category, data }: TableProps) => {
+const Table = ({ category, data, noPreview }: TableProps) => {
     const listItems = data?.map(token => {
         const { name, value } = token;
 
@@ -25,9 +26,9 @@ const Table = ({ category, data }: TableProps) => {
                     <Code value={`--${name}`}>{`--${name}`}</Code>
                 </Cell>
                 <Cell className="hd-table__cell">{value}</Cell>
-                <Cell className="hd-table__cell">
+                {!noPreview && <Cell className="hd-table__cell">
                     <Preview value={value} name={name} category={category} />
-                </Cell>
+                </Cell>}
             </Row>
         );
     });
@@ -37,7 +38,7 @@ const Table = ({ category, data }: TableProps) => {
             <TableHeader>
                 <Column className="hd-table__column" isRowHeader>Name</Column>
                 <Column className="hd-table__column">Value</Column>
-                <Column className="hd-table__column">Preview</Column>
+                {!noPreview && <Column className="hd-table__column">Preview</Column>}
             </TableHeader>
             <TableBody>
                 {listItems}

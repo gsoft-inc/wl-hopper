@@ -17,22 +17,22 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function TokenPage({ params }: PageProps) {
+export default function IconPage({ params }: PageProps) {
     const [section, type] = params.slug;
-    const designToken = allIcons.find(icon => icon.slug === type && icon.section === section);
+    const icons = allIcons.find(icon => icon.slug === type && icon.section === section);
 
-    if (!designToken) {
+    if (!icons) {
         notFound();
     }
 
-    const sectionLinks = getSectionLinks(designToken);
+    const sectionLinks = getSectionLinks(icons);
 
     return (
         <div className="hd-container">
             <Aside title="On this page" links={sectionLinks} />
             <main>
-                <article className="hd-content" key={designToken._id}>
-                    <Mdx code={designToken.body.code} />
+                <article className="hd-content" key={icons._id}>
+                    <Mdx code={icons.body.code} />
                 </article>
             </main>
         </div>

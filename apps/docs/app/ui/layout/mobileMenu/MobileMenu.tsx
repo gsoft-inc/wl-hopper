@@ -15,7 +15,7 @@ import HopperLogo from "./assets/hopper-logo.svg";
 import "./mobileMenu.css";
 
 interface MobileMenuProps {
-    onClose: () => void;
+    onClose?: () => void;
     isOpen: boolean;
 }
 
@@ -48,7 +48,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
     useEffect(() => {
         const handleWindowResize = () => {
             if (window.innerWidth > 600) {
-                onClose();
+                onClose?.();
             }
         };
 

@@ -94,10 +94,10 @@
     border-radius: var(--hop-Button-border-radius);
     outline: none;
     outline-offset: 0.125rem;
-    transition:/* TODO: create transition for components */
-        color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1),
-        background-color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1),
-        border 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition:
+        color var(--hop-easing-duration-2) var(--hop-easing-productive),
+        background-color var(--hop-easing-duration-2) var(--hop-easing-productive),
+        border var(--hop-easing-duration-2) var(--hop-easing-productive);
     inline-size: var(--inline-size);
     block-size: var(--block-size);
     background-color: var(--background-color);

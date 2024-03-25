@@ -1,5 +1,6 @@
 import { Text } from "../../src/Text.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 
 const meta = {
     title: "Components/Typography/Text",
@@ -35,6 +36,9 @@ export const Inherit: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disabled: true })
+    },
     render: props => (
         <>
             <Text border="warning-strong" {...props} />

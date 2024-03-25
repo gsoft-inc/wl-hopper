@@ -5,9 +5,9 @@ import "../app/globals.css";
 // Storybook styles
 import "./global.css";
 
-const Container = ({ children, theme }: { children: React.ReactNode, theme: "light" | "dark"}) => (
+const Container = ({ children, theme }: { children: React.ReactNode; theme: "light" | "dark" }) => (
     <div className="shd-container" data-theme={theme}>{children}</div>
-)
+);
 
 const preview: Preview = {
     parameters: {
@@ -16,9 +16,9 @@ const preview: Preview = {
         controls: {
             matchers: {
                 color: /(background|color)$/i,
-                date: /Date$/,
-            },
-        },
+                date: /Date$/
+            }
+        }
     },
     globalTypes: {
         scheme: {
@@ -28,7 +28,7 @@ const preview: Preview = {
             toolbar: {
                 icon: "mirror",
                 items: ["light", "dark"],
-                dynamicTitle: true,
+                dynamicTitle: true
             }
         }
     },
@@ -44,6 +44,6 @@ const preview: Preview = {
             );
         }
     ]
-}
+};
 
-export default preview
+export default preview;

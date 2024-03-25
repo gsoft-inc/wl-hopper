@@ -31,7 +31,7 @@ const Sidebar = ({ data, isOpen, onClose }: SidebarProps) => {
 
         const handleLockScroll = () => {
             const shouldLockScroll = window.innerWidth <= 768 && isOpen;
-            document.body.style.overflow = shouldLockScroll ? "hidden" : "auto";
+            document.body.style.overflow = shouldLockScroll ? "hidden" : "visible";
         };
 
         const handleKeyDown = (event: KeyboardEvent) => {
