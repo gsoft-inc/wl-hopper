@@ -13,6 +13,7 @@ import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/components/tableSection/TableSection.tsx";
 import Switcher from "@/components/ui/switcher/Switcher.tsx";
 import Title from "@/components/ui/title/Title.tsx";
+import Footnote from "@/components/ui/footnote/Footnote.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -22,6 +23,7 @@ export const components = {
     pre: Pre,
     Table: Table,
     MotionPreview: MotionPreview,
+    Footnote: Footnote,
     TypographyTable: TypographyTable,
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,
