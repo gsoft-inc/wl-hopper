@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.4.0
+
+### Minor Changes
+
+- 6a2fe45: Added offset tokens to semantic Typographic composite tokens
+
 ## 3.3.0
 
 ### Minor Changes
