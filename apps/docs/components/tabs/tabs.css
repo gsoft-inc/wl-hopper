@@ -1,5 +1,5 @@
 .hd-tabs__list {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-family: var(--hd-header-font-family);
     display: inline-flex;
     gap: 0.125rem;
