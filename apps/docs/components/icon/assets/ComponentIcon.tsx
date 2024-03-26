@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { forwardRef, type Ref, type SVGProps } from "react";
 
 const ComponentIcon = forwardRef((props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => <svg width={24}
