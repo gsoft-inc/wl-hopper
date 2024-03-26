@@ -28,7 +28,7 @@
     border-bottom-right-radius: var(--hd-codeblock-border-radius);
 }
 
-/*!* pre HEADER *!*/
+/* !* pre HEADER *! */
 .hd-pre-header {
     display: flex;
     padding-inline: var(--hd-space-2) var(--hd-space-1);

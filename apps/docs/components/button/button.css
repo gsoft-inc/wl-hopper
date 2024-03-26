@@ -39,7 +39,7 @@
 .hd-btn--secondary {
     background: var(--hd-color-white-surface);
     color: var(--hd-color-neutral-text);
-    border: 1px solid var(--hd-color-neutral-border);
+    border: 0.0625rem solid var(--hd-color-neutral-border);
     box-shadow: none;
 }
 

@@ -2,7 +2,7 @@
     font-size: 0.875rem;
     font-family: var(--hd-header-font-family);
     display: inline-flex;
-    gap: 2px;
+    gap: 0.125rem;
     padding-inline: var(--hd-space-05);
     padding-block: var(--hd-space-05);
     border-radius: var(--hd-space-1);
@@ -32,7 +32,7 @@
 .hd-tabs__item-button:hover {
     color: var(--hd-color-neutral-text);
     background-color: var(--hd-color-neutral-surface);
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.0625rem 0 0 rgb(0 0 0 / 15%);
 }
 
 .hd-tabs__item-button:focus-visible {
