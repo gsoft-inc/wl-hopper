@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 1.1.0
+
+### Minor Changes
+
+- 6a2fe45: Added offset tokens to semantic Typographic composite tokens
+
 ## 1.0.0
 
 ### Major Changes

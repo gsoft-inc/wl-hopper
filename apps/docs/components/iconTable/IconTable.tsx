@@ -14,7 +14,7 @@ interface IconTableProps {
 export const IconTable = ({ size, type }: IconTableProps) => {
     const listItems = IconLibrary.iconNames.map(name => {
         return (
-            <IconItem type={type} size={size} name={name} />
+            <IconItem type={type} size={size} name={name} key={name} />
         );
     });
 
