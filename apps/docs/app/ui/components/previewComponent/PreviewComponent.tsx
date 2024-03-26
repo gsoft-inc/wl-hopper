@@ -1,23 +1,21 @@
 import { Suspense } from "react";
 import Tabs from "@/components/tabs/Tabs.tsx";
-import ComponentWrapper from "@/components/previewComponent/ComponentWrapper.tsx";
-import PlaygroundWrapper from "@/components/previewComponent/PlaygroundWrapper.tsx";
-import CodeWrapper from "@/components/previewComponent/CodeWrapper.tsx";
-import PreviewSkeleton from "@/components/previewComponent/PreviewSkeleton.tsx";
+import ComponentWrapper from "@/app/ui/components/previewComponent/ComponentWrapper.tsx";
+import CodeWrapper from "@/app/ui/components/previewComponent/CodeWrapper.tsx";
+import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleton.tsx";
 
 import "./previewComponent.css";
 
 const tabsConfig = [
     { category: "preview", title: "Preview" },
-    { category: "code", title: "Code" },
-    { category: "playground", title: "Playground" }
+    { category: "code", title: "Code" }
+    // { category: "playground", title: "Playground" }
 ];
 
 const PreviewComponent = ({ name }: { name: string }) => {
     if (!name) {
         return null;
     }
-
 
     return (
         <div className="hd-preview-component">
@@ -29,7 +27,7 @@ const PreviewComponent = ({ name }: { name: string }) => {
                     <CodeWrapper name={name} key="code" />
                 </Suspense>
 
-                <PlaygroundWrapper key="playground" />
+                {/*<PlaygroundWrapper key="playground" />*/}
             </Tabs>
         </div>
     );

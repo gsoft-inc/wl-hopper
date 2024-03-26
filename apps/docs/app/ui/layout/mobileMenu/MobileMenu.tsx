@@ -1,18 +1,20 @@
 "use client";
 
-import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
-import IconButton from "@/components/iconButton/IconButton";
-import { navigation } from "@/configs/navigation";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
+import IconButton from "@/components/iconButton/IconButton";
+import { navigation } from "@/configs/navigation";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
 import CloseIcon from "./assets/close.svg";
 import GithubLogo from "./assets/github.svg";
 import HopperLogo from "./assets/hopper-logo.svg";
 
 import "./mobileMenu.css";
+
 
 interface MobileMenuProps {
     onClose?: () => void;
@@ -23,6 +25,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
     const pathname = usePathname()!;
     let firstPathLevel: string;
 
+    const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isAnimating, setIsAnimating] = useState(false);
     const [animationDirection, setAnimationDirection] = useState<"opening" | "closing">("opening");
 
@@ -56,6 +59,15 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
             window.addEventListener("resize", handleWindowResize);
         }
     }, [isOpen, onClose]);
+
+
+    const toggleTheme = () => {
+        const theme: ColorScheme = colorMode === "dark"
+            ? "light"
+            : "dark";
+
+        setColorMode(theme);
+    };
 
     const navItems = navigation.map(item => {
         const { path, label } = item;
@@ -108,7 +120,11 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
                                 </Link>
                             </li>
                             <li>
-                                <ThemeSwitch text="Appearance" className="hd-mobile-menu-footer-button" />
+                                <ThemeSwitch onChange={toggleTheme}
+                                    colorMode={colorMode as ColorScheme}
+                                    text="Appearance"
+                                    className="hd-mobile-menu-footer-button"
+                                />
                             </li>
                         </ul>
                     </nav>

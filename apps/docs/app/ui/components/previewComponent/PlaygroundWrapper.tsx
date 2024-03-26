@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 
-import { Sandpack, SandpackLayout, SandpackPreview, SandpackProvider } from "@codesandbox/sandpack-react";
+import { SandpackLayout, SandpackPreview, SandpackProvider } from "@codesandbox/sandpack-react";
 
 const PlaygroundWrapper = ({ key, className }: { key: string; className?: string }) => {
     return (

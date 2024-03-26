@@ -12,6 +12,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        text: "Toggle theme"
+        text: "Toggle theme",
+        colorMode: "light",
+        onChange: () => {
+        }
     }
 };

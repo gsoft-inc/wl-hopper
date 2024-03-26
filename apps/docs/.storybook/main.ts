@@ -1,4 +1,4 @@
-import type {StorybookConfig} from "@storybook/nextjs";
+import type { StorybookConfig } from "@storybook/nextjs";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 
 export default {

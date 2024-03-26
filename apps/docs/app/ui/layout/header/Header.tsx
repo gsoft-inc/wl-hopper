@@ -8,12 +8,14 @@ import MobileMenu from "@/app/ui/layout/mobileMenu/MobileMenu";
 import MobileMenuTrigger from "@/app/ui/layout/mobileMenu/MobileMenuTrigger";
 import Nav from "@/app/ui/layout/nav/Nav";
 import { navigation } from "@/configs/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import HopperLogo from "./assets/hopper-logo.svg";
 import "./header.css";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
 const Header = () => {
+    const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -23,6 +25,14 @@ const Header = () => {
             document.body.style.overflow = "visible";
         }
     });
+
+    const toggleTheme = () => {
+        const theme: ColorScheme = colorMode === "dark"
+            ? "light"
+            : "dark";
+
+        setColorMode(theme);
+    };
 
     const handleMobileMenuToggle = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -46,7 +56,7 @@ const Header = () => {
                     </div>
                     <div className="hd-header__quick-actions">
                         {/*<input type="search" placeholder="Search" />*/}
-                        <ThemeSwitch />
+                        <ThemeSwitch onChange={toggleTheme} colorMode={colorMode as ColorScheme} />
                         <IconButton as={Link} href="https://github.com/gsoft-inc/wl-hopper" target="_blank">
                             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 {/* eslint-disable-next-line max-len */}

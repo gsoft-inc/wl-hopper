@@ -23,7 +23,7 @@ export default async function ComponentPage({ params }: PageProps) {
     }
 
     const { content, frontmatter: { title, status, description, links } } = component;
-    const componentLinks = [
+    const componentLinks = links && [
         {
             name: "github",
             src: links.source,
@@ -49,41 +49,6 @@ export default async function ComponentPage({ params }: PageProps) {
                 <div className="hd-content">
                     {content}
                 </div>
-
-                {/*the sections below are simply for zoning purposes, they will be replaced by real content*/}
-                {/*<section>*/}
-                {/*    <h2>Usage</h2>*/}
-                {/*    <p>Alerts are used to communicate a state that affects the entire system, not just a single*/}
-                {/*        component. They are used to communicate a state that affects the entire system, not just a*/}
-                {/*        single component. They are used to communicate a state that affects the entire system, not just*/}
-                {/*        a single component. They are used to communicate a state that affects the entire system, not*/}
-                {/*        just a single component.</p>*/}
-                {/*</section>*/}
-
-                {/*<section>*/}
-                {/*    <h2>Anatomy</h2>*/}
-                {/*</section>*/}
-
-                {/*<section>*/}
-                {/*    <h2>API</h2>*/}
-                {/*</section>*/}
-
-                {/*<section>*/}
-                {/*    <h2>Examples</h2>*/}
-                {/*</section>*/}
-
-                {/*<section>*/}
-                {/*    <h2>Accessibility</h2>*/}
-                {/*</section>*/}
-
-                {/*<section>*/}
-                {/*    <h2>Related</h2>*/}
-                {/*</section>*/}
-
-                {/*<div>*/}
-                {/*    <button type="submit">Preview</button>*/}
-                {/*    <button type="submit">Next</button>*/}
-                {/*</div>*/}
             </main>
         </div>
     );

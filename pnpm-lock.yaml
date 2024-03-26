@@ -131,6 +131,9 @@ importers:
       contentlayer:
         specifier: 0.3.4
         version: 0.3.4(esbuild@0.20.2)
+      fs:
+        specifier: 0.0.1-security
+        version: 0.0.1-security
       next:
         specifier: 14.1.4
         version: 14.1.4(@babel/core@7.24.3)(@opentelemetry/api@1.8.0)(react-dom@18.2.0)(react@18.2.0)
@@ -12020,6 +12023,10 @@ packages:
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
+
+  /fs@0.0.1-security:
+    resolution: {integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==}
+    dev: false
 
   /fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}

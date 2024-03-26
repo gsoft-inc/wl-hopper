@@ -1,5 +1,5 @@
 import { getFileContent } from "@/app/lib/getFileContent.ts";
-import { CodeBlock } from "@/components/codeBlock/CodeBlock.tsx";
+import { CodeBlock } from "@/app/ui/components/codeBlock/CodeBlock.tsx";
 import clsx from "clsx";
 
 const CodeExample = async ({ name, key, className }: { name: string; key: string; className?: string }) => {

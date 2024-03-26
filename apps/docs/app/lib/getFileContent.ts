@@ -1,5 +1,4 @@
-import path from "path";
-import fs from "fs";
+import { promises as fs } from "fs";
 
 /**
  * Get the content of a file
@@ -7,7 +6,5 @@ import fs from "fs";
  * @returns The content of the file
  */
 export async function getFileContent(filePath: string) {
-    const absolutePath = path.resolve(filePath);
-
-    return await fs.promises.readFile(absolutePath, "utf8");
+    return await fs.readFile(process.cwd() + "/" + filePath, "utf8");
 }
