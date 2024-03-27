@@ -5,12 +5,16 @@ import rehypeStringify from "rehype-stringify";
 import rehypePrettyCode from "rehype-pretty-code";
 import { rehypeOptions } from "@/app/lib/rehypeConfig";
 
-export async function CodeBlock({ code, className, key }: { code: string; className: string; key: string }) {
+interface CodeBlockProps {
+    code: string;
+    className?: string;
+}
+
+export async function CodeBlock({ code, className }: CodeBlockProps) {
     const highlightedCode = await highlightCode(code);
 
     return (
         <section
-            key={key}
             className={className}
             dangerouslySetInnerHTML={{
                 __html: highlightedCode

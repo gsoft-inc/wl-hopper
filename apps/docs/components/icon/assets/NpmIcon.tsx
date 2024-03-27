@@ -6,7 +6,7 @@ const NpmIcon = forwardRef((props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGEleme
     ref={ref}
     {...props}
 >
-    <path d="M1 15H8V4.5H11.5V15H15V1H1V15Z" fill="currentColor" />
+    <path d="M1 15H8V4.5H11.5V15H15V1H1V15Z" fill="rgb(203, 0, 0)" />
 </svg>);
 
 export default NpmIcon;

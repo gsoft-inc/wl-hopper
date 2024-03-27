@@ -1,8 +1,12 @@
 import { getFileContent } from "@/app/lib/getFileContent.ts";
 import { CodeBlock } from "@/app/ui/components/codeBlock/CodeBlock.tsx";
-import clsx from "clsx";
 
-const CodeExample = async ({ name, key, className }: { name: string; key: string; className?: string }) => {
+interface CodeExampleProps {
+    name: string;
+    className?: string;
+}
+
+const CodeExample = async ({ name, className }: CodeExampleProps) => {
     const code = await getFileContent(`../../packages/components/src/${name}.tsx`);
 
     const formattedCode = `
@@ -11,7 +15,7 @@ ${code}
 \`\`\`
 `;
 
-    return <CodeBlock className={clsx(className)} key={key} code={formattedCode} />;
+    return <CodeBlock className={className} code={formattedCode} />;
 };
 
 export default CodeExample;

@@ -9,11 +9,12 @@ import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleto
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch.tsx";
 import type { ColorScheme } from "@/context/theme/ThemeProvider.tsx";
 
-const ComponentWrapper = ({ key, className, name }: {
-    key: string;
+interface ComponentWrapperProps {
     className: string;
     name: string;
-}) => {
+}
+
+const ComponentWrapper = ({ className, name }: ComponentWrapperProps) => {
     const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${name}.tsx`), {
         ssr: false,
         loading: () => <PreviewSkeleton overlay />
@@ -30,10 +31,10 @@ const ComponentWrapper = ({ key, className, name }: {
     };
 
     return (
-        <StyledSystemProvider colorScheme={colorScheme} key={key}>
+        <StyledSystemProvider colorScheme={colorScheme}>
             <div className={clsx("hd-component-wrapper", `hd-component-wrapper--${colorScheme}`)}>
                 <ThemeSwitch className="hd-component-wrapper__action" onChange={toggleTheme} colorMode={colorScheme} />
-                <Card className={className} key={key} size="sm">
+                <Card className={className} size="sm">
                     <DynamicComponent />
                 </Card>
             </div>

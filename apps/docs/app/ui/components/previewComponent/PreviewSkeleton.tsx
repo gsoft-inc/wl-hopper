@@ -1,6 +1,10 @@
 import clsx from "clsx";
 
-const PreviewSkeleton = ({ overlay = false }: { overlay?: boolean }) => <div
+interface PreviewSkeletonProps {
+    overlay?: boolean;
+}
+
+const PreviewSkeleton = ({ overlay = false }: PreviewSkeletonProps) => <div
     className={clsx("hd-preview-component--skeleton", {
         "hd-preview-component--skeleton-overlay": overlay
     })}

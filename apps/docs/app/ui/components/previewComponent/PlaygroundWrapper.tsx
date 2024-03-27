@@ -1,15 +1,16 @@
 "use client";
 
-import clsx from "clsx";
-
 import { SandpackLayout, SandpackPreview, SandpackProvider } from "@codesandbox/sandpack-react";
 
-const PlaygroundWrapper = ({ key, className }: { key: string; className?: string }) => {
+interface PlaygroundWrapperProps {
+    className: string;
+}
+
+const PlaygroundWrapper = ({ className }: PlaygroundWrapperProps) => {
     return (
-        <div className={clsx(className)} key={key}>
+        <div className={className}>
             <SandpackProvider
                 options={{
-
                     initMode: "user-visible",
                     initModeObserverOptions: { rootMargin: "1000px 0px" }
                 }}

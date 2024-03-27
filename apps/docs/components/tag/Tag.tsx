@@ -2,7 +2,11 @@ import type { ReactNode } from "react";
 
 import "./tag.css";
 
-const Tag = ({ children }: { children: ReactNode }) => {
+interface TagProps {
+    children: ReactNode;
+}
+
+const Tag = ({ children }: TagProps) => {
     return (
         <span className="hd-tag">
             {children}

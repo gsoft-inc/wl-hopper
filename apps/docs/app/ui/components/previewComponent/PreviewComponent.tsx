@@ -6,13 +6,17 @@ import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleto
 
 import "./previewComponent.css";
 
+interface PreviewComponentProps {
+    name: string;
+}
+
 const tabsConfig = [
     { category: "preview", title: "Preview" },
     { category: "code", title: "Code" }
     // { category: "playground", title: "Playground" }
 ];
 
-const PreviewComponent = ({ name }: { name: string }) => {
+const PreviewComponent = ({ name }: PreviewComponentProps) => {
     if (!name) {
         return null;
     }
@@ -21,10 +25,10 @@ const PreviewComponent = ({ name }: { name: string }) => {
         <div className="hd-preview-component">
             <Tabs tabs={tabsConfig}>
 
-                <ComponentWrapper className="hd-preview-component__content" key="preview" name={name} />
+                <ComponentWrapper className="hd-preview-component__content" name={name} />
 
                 <Suspense fallback={<PreviewSkeleton />}>
-                    <CodeWrapper name={name} key="code" />
+                    <CodeWrapper name={name} />
                 </Suspense>
 
                 {/*<PlaygroundWrapper key="playground" />*/}
