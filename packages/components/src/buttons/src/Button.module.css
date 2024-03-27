@@ -109,6 +109,7 @@
     border: var(--border);
     align-items:center;
     text-decoration: none;
+    user-select: none;
 }
 
 .hop-Button--icon-only {

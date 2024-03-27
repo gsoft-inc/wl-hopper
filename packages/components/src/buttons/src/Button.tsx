@@ -1,9 +1,9 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject, type RefObject } from "react";
+import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject } from "react";
 import { useContextProps, composeRenderProps, type ButtonProps as RACButtonProps, type ButtonRenderProps, ButtonContext as RACButtonContext } from "react-aria-components";
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
 import styles from "./Button.module.css";
-import { useId, useButton, useHover, useFocusRing, mergeProps } from "react-aria";
+import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
 import { cssModule } from "../../utils/src/cssModule.ts";
 import { Text } from "../../Text/src/Text.tsx";
 import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
@@ -11,7 +11,6 @@ import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
 import { TextContext } from "../../Text/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
 import { useRenderProps } from "../../utils/src/useRenderProps.ts";
@@ -43,31 +42,18 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 
     /** A URL to link to. Setting this makes the component render an `a` tag instead of a `button` */
     href?: string;
+
     /** The target window for the link. */
     target?: string;
+
     /** The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). */
     rel?: string;
 }
 
+/**
+ * Taken from RAC Buttons
+ */
 const additionalButtonHTMLAttributes = new Set(["form", "formAction", "formEncType", "formMethod", "formNoValidate", "formTarget", "name", "value"]);
-
-function disableLoadingProps(props: ButtonProps) {
-    // Don't allow interaction while isLoading is true
-    // We don't want to disable the button, but we want to prevent any interaction.
-    // Not disabling the button allows the user to still focus the button, and screen readers to read the button.
-    if (props.isLoading) {
-        props.onPress = undefined;
-        props.onPressStart = undefined;
-        props.onPressEnd = undefined;
-        props.onPressChange = undefined;
-        props.onPressUp = undefined;
-        props.onKeyDown = undefined;
-        props.onKeyUp = undefined;
-        props.href = undefined;
-    }
-
-    return props;
-}
 
 /**
  * If we were to use Button from "react-aria-components", all this would be done automatically inside the component.
@@ -81,13 +67,15 @@ function useSimulatedRACButton(props: ButtonProps, ref: MutableRefObject<HTMLEle
     const elementType = props.href ? "a" : "button";
     const { buttonProps, isPressed } = useButton({
         ...props,
-        elementType
+        elementType,
+        isDisabled: props.isDisabled || props.isLoading
     }, ref);
 
     const state: ButtonRenderProps = { isFocused, isFocusVisible, isHovered, isPressed, isDisabled: props.isDisabled || false };
 
     const mergedProps = {
         ...mergeProps(buttonProps, focusProps, hoverProps),
+        "data-disabled": props.isDisabled || undefined,
         "data-pressed": ctx.isPressed || isPressed || undefined,
         "data-hovered": isHovered || undefined,
         "data-focused": isFocused || undefined,
@@ -98,7 +86,7 @@ function useSimulatedRACButton(props: ButtonProps, ref: MutableRefObject<HTMLEle
 }
 
 // This logic is usually located in the useLink hook.
-function useRouteLinkClick() {
+function useCreateRouterLinkClickEventHandler() {
     const router = useRouter();
 
     return (e: MouseEvent<HTMLElement>) => {
@@ -123,9 +111,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
     // from react-aria-components.  However, since our  Button might be something else than a button, we need to cast the ref
     [props, ref] = useContextProps(props, ref as ForwardedRef<HTMLButtonElement>, RACButtonContext);
 
-    props = disableLoadingProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const stringFormatter = useLocalizedString();
     const [buttonProps, state] = useSimulatedRACButton(ownProps, ref);
 
     const {
@@ -181,10 +167,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
         values: state
     });
 
-    const spinnerId = useId();
-
-    const hasAriaLabel = !!props["aria-label"] || !!props["aria-labelledby"];
-    const isLoadingAriaLiveLabel = `${hasAriaLabel ? props["aria-label"] : ""} ${stringFormatter.format("button.pending")}`.trim();
+    const hasAriaLabel = !!buttonProps["aria-label"] || !!buttonProps["aria-labelledby"];
 
     if (!hasText && !hasAriaLabel) {
         console.warn("[hopper-ui] If you do not provide a text children, you must specify an aria-label for accessibility");
@@ -192,7 +175,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
 
     const onClick = chain(
         buttonProps.onClick,
-        useRouteLinkClick()
+        useCreateRouterLinkClickEventHandler()
     );
 
     const As = props.href ? "a" : "button";
@@ -233,17 +216,17 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                 {...buttonProps}
                 {...renderProps}
                 onClick={onClick}
-                ref={ref as RefObject<HTMLButtonElement & HTMLAnchorElement>}
+                // We know the ref type match, ignore the error
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                ref={ref}
                 slot={props.slot || undefined}
-                aria-disabled={buttonProps["aria-disabled"] || isLoading || undefined}
                 data-loading={isLoading}
             >
                 {renderProps.children}
                 {isLoading && (
                     <Spinner
-                        id={spinnerId}
                         size="lg"
-                        aria-label={isLoadingAriaLiveLabel}
                         className={styles["hop-Button__Spinner"]}
                     />
                 )}

@@ -26,21 +26,21 @@ export const Primary: Story = {
                 <Stack>
                     <h2>Default</h2>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>Button</Button>
-                        <Button {...args}>Button</Button>
+                        <Button size="sm" {...args}>Save</Button>
+                        <Button {...args}>Save</Button>
                     </Inline>
                     <Inline alignY="end">
-                        <Button isLoading size="sm" {...args}>Button</Button>
-                        <Button isLoading {...args}>Button</Button>
+                        <Button isLoading size="sm" {...args}>Save</Button>
+                        <Button isLoading {...args}>Save</Button>
                     </Inline>
                     <Div>
-                        <Button fluid {...args}>Button</Button>
+                        <Button fluid {...args}>Save</Button>
                     </Div>
                     <Div width="10%">
-                        <Button fluid {...args}>Button</Button>
+                        <Button fluid {...args}>Save</Button>
                     </Div>
                     <Div>
-                        <Button isLoading fluid {...args}>Button</Button>
+                        <Button isLoading fluid {...args}>Save</Button>
                     </Div>
                 </Stack>
                 <Stack>
@@ -48,11 +48,11 @@ export const Primary: Story = {
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
@@ -60,38 +60,38 @@ export const Primary: Story = {
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button {...args}>
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button isLoading {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Div>
                         <Button isDisabled {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Div>
                     <Stack>
                         <Button fluid {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button fluid {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Stack>
                 </Stack>
@@ -99,23 +99,23 @@ export const Primary: Story = {
                     <h1>End icons</h1>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                         <Button {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <IconList slot="end-icon">
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
                         </Button>
                         <Button {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <IconList slot="end-icon">
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
@@ -123,27 +123,27 @@ export const Primary: Story = {
                     </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                         <Button isLoading {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
                     <Div>
                         <Button isDisabled {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Div>
                     <Stack>
                         <Button fluid {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                         <Button fluid {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Stack>
                 </Stack>
@@ -151,10 +151,10 @@ export const Primary: Story = {
                     <h1>Zoom</h1>
                     <Inline alignY="end">
                         <Div className="zoom-in">
-                            <Button {...args}>Button</Button>
+                            <Button {...args}>Save</Button>
                         </Div>
                         <Div className="zoom-out'">
-                            <Button {...args}>Button</Button>
+                            <Button {...args}>Save</Button>
                         </Div>
                     </Inline>
                 </Stack>
@@ -192,26 +192,26 @@ export const Negative: Story = {
 
 const StateTemplate = (args: Partial<ButtonProps>) => (
     <Inline alignY="end">
-        <Button size="sm" {...args}>Button</Button>
-        <Button {...args}>Button</Button>
-        <Button isLoading size="sm" {...args}>Button</Button>
-        <Button isLoading {...args}>Button</Button>
+        <Button size="sm" {...args}>Save</Button>
+        <Button {...args}>Save</Button>
+        <Button isLoading size="sm" {...args}>Save</Button>
+        <Button isLoading {...args}>Save</Button>
         <Button {...args}>
             <PlusIcon />
-            <Text>Button</Text>
+            <Text>Save</Text>
         </Button>
         <Button {...args}>
-            <Text>Button</Text>
+            <Text>Save</Text>
             <PlusIcon slot="end-icon" />
         </Button>
         <Button {...args}>
-            <Text>Button</Text>
+            <Text>Save</Text>
             <IconList>
                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
             </IconList>
         </Button>
         <Button {...args}>
-            <Text>Button</Text>
+            <Text>Save</Text>
             <IconList slot="end-icon">
                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
             </IconList>
