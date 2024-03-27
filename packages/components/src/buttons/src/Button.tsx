@@ -15,6 +15,7 @@ import { Spinner } from "../../Spinner/index.ts";
 import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
 import { useRenderProps } from "../../utils/src/useRenderProps.ts";
 import { useSlot } from "../../utils/src/index.ts";
+import { useLocalizedString } from "../../intl/index.ts";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
@@ -25,7 +26,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
      */
-    variant?: "primary" | "secondary" | "tertiary" | "negative" | "upsell";
+    variant?: "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
 
     /**
      * A button can vary in size.
@@ -112,12 +113,13 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref as ForwardedRef<HTMLButtonElement>, RACButtonContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const [buttonProps, state] = useSimulatedRACButton(ownProps, ref);
+    const [{ onClick, ...buttonProps }, state] = useSimulatedRACButton(ownProps, ref);
+    const stringFormatter = useLocalizedString();
 
     const {
         className,
         children: childrenProp,
-        size: sizeProp = "md",
+        size: sizeProp,
         fluid: fluidProp,
         variant = "primary",
         isLoading,
@@ -127,8 +129,8 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
 
     const [textRef, hasText] = useSlot();
 
-    const size = useResponsiveValue(sizeProp);
-    const fluid = useResponsiveValue(fluidProp);
+    const size = useResponsiveValue(sizeProp) ?? "md";
+    const fluid = useResponsiveValue(fluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -173,8 +175,8 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
         console.warn("[hopper-ui] If you do not provide a text children, you must specify an aria-label for accessibility");
     }
 
-    const onClick = chain(
-        buttonProps.onClick,
+    const handleClick = chain(
+        onClick,
         useCreateRouterLinkClickEventHandler()
     );
 
@@ -194,12 +196,13 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                     }
                 }],
                 [IconContext, {
-                    size: "md",
                     slots: {
                         icon: {
+                            size: size,
                             className: styles["hop-Button__icon"]
                         },
                         "end-icon": {
+                            size: size,
                             className: styles["hop-Button__end-icon"]
                         }
                     }
@@ -215,7 +218,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                 {...filterDOMProps(otherProps, { propNames: additionalButtonHTMLAttributes })}
                 {...buttonProps}
                 {...renderProps}
-                onClick={onClick}
+                onClick={handleClick}
                 // We know the ref type match, ignore the error
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-expect-error
@@ -226,6 +229,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                 {renderProps.children}
                 {isLoading && (
                     <Spinner
+                        aria-label={stringFormatter.format("Button.spinnerAriaLabel")}
                         size="lg"
                         className={styles["hop-Button__Spinner"]}
                     />

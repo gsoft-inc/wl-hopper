@@ -20,8 +20,9 @@
     --hop-Button-primary-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-primary-border: 0.0625rem solid var(--hop-Button-primary-background-color); /* same color as the background */
     --hop-Button-primary-border-hover: 0.0625rem solid var(--hop-Button-primary-background-color-hover); /* same color as the background */
-    --hop-Button-primary-border-pressed: 0.0625rem solid var(--hop-Button-primary-background-color-pressed); /* same color as the background */
+    --hop-Button-primary-border-pressed: 0.0625rem solid var(--hop-primary-border-active);
     --hop-Button-primary-border-disabled: 0.0625rem solid var(--hop-Button-primary-background-color-disabled); /* same color as the background */
+    --hop-Button-primary-spinner-color: var(--hop-primary-icon-strong);
 
     /* Secondary */
     --hop-Button-secondary-color: var(--hop-neutral-text);
@@ -33,23 +34,10 @@
     --hop-Button-secondary-background-color-pressed: var(--hop-neutral-surface-active);
     --hop-Button-secondary-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-secondary-border: 0.0625rem solid var(--hop-neutral-border-strong);
-    --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong);
-    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-border-active);
+    --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong-hover);
+    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-Button-secondary-background-color-active);/* same color as the background */
     --hop-Button-secondary-border-disabled: 0.0625rem solid var(--hop-Button-secondary-background-color-disabled); /* same color as the background */
-
-    /* Tertiary */
-    --hop-Button-tertiary-color: var(--hop-neutral-text);
-    --hop-Button-tertiary-color-hover: var(--hop-neutral-text-hover);
-    --hop-Button-tertiary-color-pressed: var(--hop-neutral-text);
-    --hop-Button-tertiary-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-Button-tertiary-background-color: var(--hop-neutral-surface);
-    --hop-Button-tertiary-background-color-hover: var(--hop-neutral-surface-hover);
-    --hop-Button-tertiary-background-color-pressed: var(--hop-neutral-surface-weak-active);
-    --hop-Button-tertiary-background-color-disabled: var(--hop-neutral-surface);
-    --hop-Button-tertiary-border: 0.0625rem solid var(--hop-Button-tertiary-background-color); /* same color as the background */
-    --hop-Button-tertiary-border-hover: 0.0625rem solid var(--hop-Button-tertiary-background-color-hover); /* same color as the background */
-    --hop-Button-tertiary-border-pressed: 0.0625rem solid var(--hop-Button-tertiary-background-color-pressed); /* same color as the background */
-    --hop-Button-tertiary-border-disabled: 0.0625rem solid var(--hop-Button-tertiary-background-color-disabled); /* same color as the background */
+    --hop-Button-secondary-spinner-color: var(--hop-neutral-icon);
 
     /* Upsell */
     --hop-Button-upsell-color: var(--hop-upsell-text);
@@ -64,26 +52,74 @@
     --hop-Button-upsell-border-hover: 0.0625rem solid var(--hop-Button-upsell-background-color-hover); /* same color as the background */
     --hop-Button-upsell-border-pressed: 0.0625rem solid var(--hop-upsell-border-active);
     --hop-Button-upsell-border-disabled: 0.0625rem solid var(--hop-Button-upsell-background-color-disabled); /* same color as the background */
+    --hop-Button-upsell-spinner-color: var(--hop-upsell-icon);
 
-    /* Negative */
-    --hop-Button-negative-color: var(--hop-danger-text-strong);
-    --hop-Button-negative-color-hover: var(--hop-danger-text-strong-hover);
-    --hop-Button-negative-color-pressed: var(--hop-danger-text-active);
-    --hop-Button-negative-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-Button-negative-background-color: var(--hop-danger-surface-strong);
-    --hop-Button-negative-background-color-hover: var(--hop-danger-surface-hover);
-    --hop-Button-negative-background-color-pressed: var(--hop-danger-surface-active);
-    --hop-Button-negative-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-negative-border: 0.0625rem solid var(--hop-Button-negative-background-color); /* same color as the background */
-    --hop-Button-negative-border-hover: 0.0625rem solid var(--hop-Button-negative-background-color-hover); /* same color as the background */
-    --hop-Button-negative-border-pressed: 0.0625rem solid var(--hop-danger-border-active);
-    --hop-Button-negative-border-disabled: 0.0625rem solid var(--hop-Button-negative-background-color-disabled); /* same color as the background */
+    /* Danger */
+    --hop-Button-danger-color: var(--hop-danger-text-strong);
+    --hop-Button-danger-color-hover: var(--hop-danger-text-strong-hover);
+    --hop-Button-danger-color-pressed: var(--hop-danger-text-active);
+    --hop-Button-danger-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Button-danger-background-color: var(--hop-danger-surface-strong);
+    --hop-Button-danger-background-color-hover: var(--hop-danger-surface-hover);
+    --hop-Button-danger-background-color-pressed: var(--hop-danger-surface-active);
+    --hop-Button-danger-background-color-disabled: var(--hop-neutral-surface-disabled);
+    --hop-Button-danger-border: 0.0625rem solid var(--hop-Button-danger-background-color); /* same color as the background */
+    --hop-Button-danger-border-hover: 0.0625rem solid var(--hop-Button-danger-background-color-hover); /* same color as the background */
+    --hop-Button-danger-border-pressed: 0.0625rem solid var(--hop-danger-border-active);
+    --hop-Button-danger-border-disabled: 0.0625rem solid var(--hop-Button-danger-background-color-disabled); /* same color as the background */
+    --hop-Button-danger-spinner-color: var(--hop-primary-icon-strong);
+
+    /* Ghost Primary */
+    --hop-Button-ghost-primary-color: var(--hop-primary-text);
+    --hop-Button-ghost-primary-color-hover: var(--hop-primary-text-hover);
+    --hop-Button-ghost-primary-color-pressed: var(--hop-primary-text-active);
+    --hop-Button-ghost-primary-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Button-ghost-primary-background-color: var(--hop-neutral-surface);
+    --hop-Button-ghost-primary-background-color-hover: var(--hop-neutral-surface-hover);
+    --hop-Button-ghost-primary-background-color-pressed: var(--hop-primary-surface-active);
+    --hop-Button-ghost-primary-background-color-disabled: var(--hop-neutral-surface);
+    --hop-Button-ghost-primary-border: 0.0625rem solid var(--hop-Button-ghost-primary-background-color); /* same color as the background */
+    --hop-Button-ghost-primary-border-hover: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-hover); /* same color as the background */
+    --hop-Button-ghost-primary-border-pressed: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-pressed); /* same color as the background */
+    --hop-Button-ghost-primary-border-disabled: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-primary-spinner-color: var(--hop-neutral-icon);
+
+    /* Ghost Secondary */
+    --hop-Button-ghost-secondary-color: var(--hop-neutral-text);
+    --hop-Button-ghost-secondary-color-hover: var(--hop-neutral-text-hover);
+    --hop-Button-ghost-secondary-color-pressed: var(--hop-neutral-text);
+    --hop-Button-ghost-secondary-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Button-ghost-secondary-background-color: var(--hop-neutral-surface);
+    --hop-Button-ghost-secondary-background-color-hover: var(--hop-neutral-surface-hover);
+    --hop-Button-ghost-secondary-background-color-pressed: var(--hop-neutral-surface-weak-active);
+    --hop-Button-ghost-secondary-background-color-disabled: var(--hop-neutral-surface);
+    --hop-Button-ghost-secondary-border: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color); /* same color as the background */
+    --hop-Button-ghost-secondary-border-hover: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-hover); /* same color as the background */
+    --hop-Button-ghost-secondary-border-pressed: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-pressed); /* same color as the background */
+    --hop-Button-ghost-secondary-border-disabled: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-secondary-spinner-color: var(--hop-neutral-icon);
+
+    /* Ghost Danger */
+    --hop-Button-ghost-danger-color: var(--hop-danger-text-weak);
+    --hop-Button-ghost-danger-color-hover: var(--hop-danger-text-hover);
+    --hop-Button-ghost-danger-color-pressed: var(--hop-danger-text-active);
+    --hop-Button-ghost-danger-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Button-ghost-danger-background-color: var(--hop-neutral-surface);
+    --hop-Button-ghost-danger-background-color-hover: var(--hop-neutral-surface-hover);
+    --hop-Button-ghost-danger-background-color-pressed: var(--hop-danger-surface-active);
+    --hop-Button-ghost-danger-background-color-disabled: var(--hop-neutral-surface);
+    --hop-Button-ghost-danger-border: 0.0625rem solid var(--hop-Button-ghost-danger-background-color); /* same color as the background */
+    --hop-Button-ghost-danger-border-hover: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-hover); /* same color as the background */
+    --hop-Button-ghost-danger-border-pressed: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-pressed); /* same color as the background */
+    --hop-Button-ghost-danger-border-disabled: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-danger-spinner-color: var(--hop-neutral-icon);
 
     /* Internal variable */
     --inline-size: max-content;
     --block-size: var(--hop-Button-md-height);
     --background-color: var(--hop-primary-surface-strong);
     --color: var(--hop-primary-text-strong);
+    --spinner: var(--hop-primary-icon-strong);
     --border: 0;
 
     /** styles */
@@ -109,7 +145,6 @@
     border: var(--border);
     align-items:center;
     text-decoration: none;
-    user-select: none;
 }
 
 .hop-Button--icon-only {
@@ -145,6 +180,7 @@
     --background-color: var(--hop-Button-primary-background-color);
     --color: var(--hop-Button-primary-color);
     --border: var(--hop-Button-primary-border);
+    --spinner-color: var(--hop-Button-primary-spinner-color);
 }
 
 .hop-Button--primary[data-disabled]:not([data-loading]) {
@@ -169,6 +205,7 @@
     --background-color: var(--hop-Button-secondary-background-color);
     --color: var(--hop-Button-secondary-color);
     --border: var(--hop-Button-secondary-border);
+    --spinner-color: var(--hop-Button-secondary-spinner-color);
 }
 
 .hop-Button--secondary[data-disabled]:not([data-loading]) {
@@ -189,34 +226,11 @@
     --border: var(--hop-Button-secondary-border-pressed);
 }
 
-.hop-Button--tertiary {
-    --background-color: var(--hop-Button-tertiary-background-color);
-    --color: var(--hop-Button-tertiary-color);
-    --border: var(--hop-Button-tertiary-border);
-}
-
-.hop-Button--tertiary[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-tertiary-background-color-disabled);
-    --color: var(--hop-Button-tertiary-color-disabled);
-    --border: var(--hop-Button-tertiary-border-disabled);
-}
-
-.hop-Button--tertiary[data-hovered]:not([data-disabled], [data-loading]) {
-    --background-color: var(--hop-Button-tertiary-background-color-hover);
-    --color: var(--hop-Button-tertiary-color-hover);
-    --border: var(--hop-Button-tertiary-border-hover);
-}
-
-.hop-Button--tertiary[data-pressed]:not([data-loading]) {
-    --background-color: var(--hop-Button-tertiary-background-color-pressed);
-    --color: var(--hop-Button-tertiary-color-pressed);
-    --border: var(--hop-Button-tertiary-border-pressed);
-}
-
 .hop-Button--upsell {
     --background-color: var(--hop-Button-upsell-background-color);
     --color: var(--hop-Button-upsell-color);
     --border: var(--hop-Button-upsell-border);
+    --spinner-color: var(--hop-Button-upsell-spinner-color);
 }
 
 .hop-Button--upsell[data-disabled]:not([data-loading]) {
@@ -237,34 +251,110 @@
     --border: var(--hop-Button-upsell-border-pressed);
 }
 
-.hop-Button--negative {
-    --background-color: var(--hop-Button-negative-background-color);
-    --color: var(--hop-Button-negative-color);
-    --border: var(--hop-Button-negative-border);
+.hop-Button--danger {
+    --background-color: var(--hop-Button-danger-background-color);
+    --color: var(--hop-Button-danger-color);
+    --border: var(--hop-Button-danger-border);
+    --spinner-color: var(--hop-Button-danger-spinner-color);
 }
 
-.hop-Button--negative[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-negative-background-color-disabled);
-    --color: var(--hop-Button-negative-color-disabled);
-    --border: var(--hop-Button-negative-border-disabled);
+.hop-Button--danger[data-disabled]:not([data-loading]) {
+    --background-color: var(--hop-Button-danger-background-color-disabled);
+    --color: var(--hop-Button-danger-color-disabled);
+    --border: var(--hop-Button-danger-border-disabled);
 }
 
-.hop-Button--negative[data-hovered]:not([data-disabled], [data-loading]) {
-    --background-color: var(--hop-Button-negative-background-color-hover);
-    --color: var(--hop-Button-negative-color-hover);
-    --border: var(--hop-Button-negative-border-hover);
+.hop-Button--danger[data-hovered]:not([data-disabled], [data-loading]) {
+    --background-color: var(--hop-Button-danger-background-color-hover);
+    --color: var(--hop-Button-danger-color-hover);
+    --border: var(--hop-Button-danger-border-hover);
 }
 
-.hop-Button--negative[data-pressed]:not([data-loading]) {
-    --background-color: var(--hop-Button-negative-background-color-pressed);
-    --color: var(--hop-Button-negative-color-pressed);
-    --border: var(--hop-Button-negative-border-pressed);
+.hop-Button--danger[data-pressed]:not([data-loading]) {
+    --background-color: var(--hop-Button-danger-background-color-pressed);
+    --color: var(--hop-Button-danger-color-pressed);
+    --border: var(--hop-Button-danger-border-pressed);
+}
+
+.hop-Button--ghost-primary {
+    --background-color: var(--hop-Button-ghost-primary-background-color);
+    --color: var(--hop-Button-ghost-primary-color);
+    --border: var(--hop-Button-ghost-primary-border);
+    --spinner-color: var(--hop-Button-ghost-primary-spinner-color);
+}
+
+.hop-Button--ghost-primary[data-disabled]:not([data-loading]) {
+    --background-color: var(--hop-Button-ghost-primary-background-color-disabled);
+    --color: var(--hop-Button-ghost-primary-color-disabled);
+    --border: var(--hop-Button-ghost-primary-border-disabled);
+}
+
+.hop-Button--ghost-primary[data-hovered]:not([data-disabled], [data-loading]) {
+    --background-color: var(--hop-Button-ghost-primary-background-color-hover);
+    --color: var(--hop-Button-ghost-primary-color-hover);
+    --border: var(--hop-Button-ghost-primary-border-hover);
+}
+
+.hop-Button--ghost-primary[data-pressed]:not([data-loading]) {
+    --background-color: var(--hop-Button-ghost-primary-background-color-pressed);
+    --color: var(--hop-Button-ghost-primary-color-pressed);
+    --border: var(--hop-Button-ghost-primary-border-pressed);
+}
+
+.hop-Button--ghost-secondary {
+    --background-color: var(--hop-Button-ghost-secondary-background-color);
+    --color: var(--hop-Button-ghost-secondary-color);
+    --border: var(--hop-Button-ghost-secondary-border);
+    --spinner-color: var(--hop-Button-ghost-secondary-spinner-color);
+}
+
+.hop-Button--ghost-secondary[data-disabled]:not([data-loading]) {
+    --background-color: var(--hop-Button-ghost-secondary-background-color-disabled);
+    --color: var(--hop-Button-ghost-secondary-color-disabled);
+    --border: var(--hop-Button-ghost-secondary-border-disabled);
+}
+
+.hop-Button--ghost-secondary[data-hovered]:not([data-disabled], [data-loading]) {
+    --background-color: var(--hop-Button-ghost-secondary-background-color-hover);
+    --color: var(--hop-Button-ghost-secondary-color-hover);
+    --border: var(--hop-Button-ghost-secondary-border-hover);
+}
+
+.hop-Button--ghost-secondary[data-pressed]:not([data-loading]) {
+    --background-color: var(--hop-Button-ghost-secondary-background-color-pressed);
+    --color: var(--hop-Button-ghost-secondary-color-pressed);
+    --border: var(--hop-Button-ghost-secondary-border-pressed);
+}
+
+.hop-Button--ghost-danger {
+    --background-color: var(--hop-Button-ghost-danger-background-color);
+    --color: var(--hop-Button-ghost-danger-color);
+    --border: var(--hop-Button-ghost-danger-border);
+    --spinner-color: var(--hop-Button-ghost-danger-spinner-color);
+}
+
+.hop-Button--ghost-danger[data-disabled]:not([data-loading]) {
+    --background-color: var(--hop-Button-ghost-danger-background-color-disabled);
+    --color: var(--hop-Button-ghost-danger-color-disabled);
+    --border: var(--hop-Button-ghost-danger-border-disabled);
+}
+
+.hop-Button--ghost-danger[data-hovered]:not([data-disabled], [data-loading]) {
+    --background-color: var(--hop-Button-ghost-danger-background-color-hover);
+    --color: var(--hop-Button-ghost-danger-color-hover);
+    --border: var(--hop-Button-ghost-danger-border-hover);
+}
+
+.hop-Button--ghost-danger[data-pressed]:not([data-loading]) {
+    --background-color: var(--hop-Button-ghost-danger-background-color-pressed);
+    --color: var(--hop-Button-ghost-danger-color-pressed);
+    --border: var(--hop-Button-ghost-danger-border-pressed);
 }
 
 .hop-Button__Spinner {
     position: absolute;
     justify-self: center;
-    color: var(--color)
+    color: var(--spinner-color)
 }
 
 .hop-Button__icon,
@@ -279,6 +369,16 @@
     overflow: visible;
     text-wrap: nowrap;
     user-select: none;
+}
+
+.hop-Button--ghost-primary[data-hovered]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-secondary[data-hovered]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-danger[data-hovered]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-primary[data-focus-visible]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-secondary[data-focus-visible]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-danger[data-focus-visible]:not([data-loading]) .hop-Button__text {
+    text-decoration: underline;
+    text-underline-offset: 0.125rem;
 }
 
 .hop-Button__end-icon,
