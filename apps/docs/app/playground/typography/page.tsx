@@ -16,7 +16,7 @@ export default function CodeBlockPage() {
                     <p>
                         Hopper, our Design System, is the cornerstone of our development approach. Designed to deliver a
                         seamless
-                        and efficient user experience, Hopper provides a comprehensive library of consistent components,
+                        and efficient user experience. Hopper provides a comprehensive library of consistent components,
                         icons and
                         styles. By integrating Hopper into our projects, we are committed to maintaining a unified
                         visual design,
