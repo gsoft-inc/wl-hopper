@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { AddIcon } from "@hopper-ui/icons";
 import { within } from "@storybook/test";
+import { ButtonContext } from "../../index.ts";
 
 const meta = {
     title: "Components/Buttons/Button/Icon Only",
@@ -42,14 +43,6 @@ export const Secondary: Story = {
     }
 };
 
-export const Tertiary: Story = {
-    ...Primary,
-    args:{
-        ...Primary.args,
-        variant: "tertiary"
-    }
-};
-
 export const Upsell: Story = {
     ...Primary,
     args:{
@@ -58,14 +51,38 @@ export const Upsell: Story = {
     }
 };
 
-export const Negative: Story = {
+export const Danger: Story = {
     ...Primary,
     args:{
         ...Primary.args,
-        variant: "negative"
+        variant: "danger"
     }
 };
 
+export const GhostPrimary: Story = {
+    ...Primary,
+    args:{
+        ...Primary.args,
+        variant: "ghost-primary"
+    }
+};
+
+
+export const GhostSecondary: Story = {
+    ...Primary,
+    args:{
+        ...Primary.args,
+        variant: "ghost-secondary"
+    }
+};
+
+export const GhostDanger: Story = {
+    ...Primary,
+    args:{
+        ...Primary.args,
+        variant: "ghost-danger"
+    }
+};
 
 const StateTemplate = (args: Partial<ButtonProps>) => (
     <Inline alignY="end">
@@ -83,11 +100,6 @@ export const PrimaryStates: Story = {
 
         buttons.forEach(button => {
             if (button.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
-                if (button.getAttribute("data-chromatic-force-press")) {
-                    button.setAttribute("data-pressed", "true");
-                    button.removeAttribute("data-chromatic-force-press");
-                }
-
                 if (button.getAttribute("data-chromatic-force-focus")) {
                     button.setAttribute("data-focus-visible", "true");
                     button.removeAttribute("data-chromatic-force-focus");
@@ -108,7 +120,9 @@ export const PrimaryStates: Story = {
                 <h1>Disabled</h1>
                 <StateTemplate {...args} isDisabled />
                 <h1>Pressed</h1>
-                <StateTemplate {...args} data-chromatic-force-press />
+                <ButtonContext.Provider value={{ isPressed: true }}>
+                    <StateTemplate {...args} />
+                </ButtonContext.Provider>
                 <h1>Focus Visible</h1>
                 <StateTemplate {...args} data-chromatic-force-focus />
                 <h1>Hovered</h1>
@@ -127,13 +141,6 @@ export const SecondaryStates: Story = {
     }
 };
 
-export const TertiaryStates: Story = {
-    ...PrimaryStates,
-    args: {
-        variant: "tertiary"
-    }
-};
-
 export const UpsellStates: Story = {
     ...PrimaryStates,
     args: {
@@ -141,9 +148,30 @@ export const UpsellStates: Story = {
     }
 };
 
-export const NegativeStates: Story = {
+export const DangerStates: Story = {
     ...PrimaryStates,
     args: {
-        variant: "negative"
+        variant: "danger"
+    }
+};
+
+export const GhostPrimaryStates: Story = {
+    ...PrimaryStates,
+    args: {
+        variant: "ghost-primary"
+    }
+};
+
+export const GhostSecondaryStates: Story = {
+    ...PrimaryStates,
+    args: {
+        variant: "ghost-secondary"
+    }
+};
+
+export const GhostDangerStates: Story = {
+    ...PrimaryStates,
+    args: {
+        variant: "ghost-danger"
     }
 };
