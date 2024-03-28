@@ -155,10 +155,10 @@ export const Icon: Story = {
 export const EndIcon: Story = {
     ...Size,
     args: {
-        children: ([
-            <PlusIcon slot="end-icon" />,
-            <Text>Save</Text>
-        ])
+        children: [
+            <PlusIcon key="1" slot="end-icon" />,
+            <Text key="2">Save</Text>
+        ]
     }
 };
 
@@ -168,11 +168,11 @@ export const EndIcon: Story = {
 export const BothIcon: Story = {
     ...Size,
     args: {
-        children: ([
-            <PlusIcon />,
-            <Text>Save</Text>,
-            <PlusIcon slot="end-icon" />
-        ])
+        children: [
+            <PlusIcon key="1" />,
+            <Text key="2">Save</Text>,
+            <PlusIcon key="3" slot="end-icon" />
+        ]
     }
 };
 
