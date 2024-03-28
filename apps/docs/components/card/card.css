@@ -1,0 +1,41 @@
+.hd-card {
+    --background: var(--hd-white);
+    --color: var(--hd-neutral-50);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--hd-space-2);
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
+    padding: var(--hd-space-4);
+    background: linear-gradient(90deg, var(--background) 0.625rem, transparent 1%) 50%,
+    linear-gradient(var(--background) 0.625rem, transparent 1%) 50%,
+    var(--color);
+    background-size: 0.75rem 0.75rem;
+}
+
+.hd-card--sm {
+    padding: var(--hd-space-2);
+}
+
+.hd-card--lg {
+    padding: var(--hd-space-6);
+}
+
+.hd-card--end {
+    justify-content: flex-end;
+}
+
+.hd-card--start {
+    justify-content: flex-start;
+}
+
+.hd-card + p {
+    margin-top: var(--hd-space-4);
+}
+
+[data-theme="dark"] .hd-card {
+    --background: var(--hd-neutral-900);
+    --color: var(--hd-neutral-800);
+}
+

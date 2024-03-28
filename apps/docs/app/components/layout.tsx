@@ -1,10 +1,10 @@
 "use client";
 
 import { allComponents } from "contentlayer/generated";
-import Sidebar from "@/components/ui/sidebar/Sidebar";
+import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
 import useSidebarState from "@/hooks/useSidebarState";
 
-export default function ComponentsLayout({ children } : { children: React.ReactNode }) {
+export default function ComponentsLayout({ children }: { children: React.ReactNode }) {
     const { isOpen, toggleOpenState } = useSidebarState(false);
 
     return (

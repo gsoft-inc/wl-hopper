@@ -2,10 +2,10 @@
 
 import { allGuides } from "contentlayer/generated";
 import { useSelectedLayoutSegment } from "next/navigation";
-import Sidebar from "@/components/ui/sidebar/Sidebar";
-import SubHeader from "@/components/ui/subHeader/SubHeader";
+import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
+import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
 import useSidebarState from "@/hooks/useSidebarState";
-import getSectionLinks from "@/utils/getSectionLinks";
+import getSectionLinks from "@/app/lib/getSectionLinks";
 
 export default function TokenLayout({ children }: { children: React.ReactNode }) {
     const { isOpen, toggleOpenState } = useSidebarState(false);
