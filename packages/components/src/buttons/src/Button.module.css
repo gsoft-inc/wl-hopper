@@ -3,7 +3,7 @@
     --hop-Button-border-radius: var(--hop-shape-rounded-md);
     --hop-Button-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
 
-    /* sizes */
+    /* Sizes */
     --hop-Button-icon-only-sm-padding: 0 var(--hop-space-inset-xs);
     --hop-Button-icon-only-md-padding: 0 var(--hop-space-inset-sm);
     --hop-Button-sm-height: 2rem;
@@ -143,7 +143,7 @@
     background-color: var(--background-color);
     color: var(--color);
     border: var(--border);
-    align-items:center;
+    align-items: center;
     text-decoration: none;
 }
 

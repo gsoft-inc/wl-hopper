@@ -13,7 +13,6 @@ const meta = {
             <Button key="2" variant="secondary">Remind me later</Button>,
             <Button key="3" variant="primary">Rate Now</Button>
         ]
-
     }
 } satisfies Meta<typeof ButtonGroup>;
 
@@ -87,4 +86,3 @@ export const Zoom: Story = {
         </Stack>
     )
 };
-
