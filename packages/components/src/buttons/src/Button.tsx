@@ -188,9 +188,11 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                 [IconListContext, {
                     slots: {
                         icon: {
+                            size: size,
                             className: styles["hop-Button__icon-list"]
                         },
                         "end-icon": {
+                            size: size,
                             className: styles["hop-Button__end-icon-list"]
                         }
                     }
@@ -230,7 +232,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                 {isLoading && (
                     <Spinner
                         aria-label={stringFormatter.format("Button.spinnerAriaLabel")}
-                        size="lg"
+                        size={size}
                         className={styles["hop-Button__Spinner"]}
                     />
                 )}
