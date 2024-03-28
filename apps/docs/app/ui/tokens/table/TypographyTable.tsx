@@ -104,11 +104,6 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
             };
         }
 
-        // Accent MD is not a size, until we have a use case for it we will not display it, instead of doing some technical gymnastics, we will just return an empty string
-        if (type === "accent" && size === "md") {
-            return "";
-        }
-
         const rowSpan = bottomOffset && topOffset ? 6 : 4;
 
         return (
