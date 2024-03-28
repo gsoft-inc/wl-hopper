@@ -1,8 +1,19 @@
-import "./home/home.css";
+"use client";
+
+import { HopperProvider } from "@hopper-ui/components";
 import AccessibleIcon from "./home/assets/accessible.svg";
 import InternationalIcon from "./home/assets/international.svg";
 import TypescriptIcon from "./home/assets/typescript.svg";
 import DarkModeIcon from "./home/assets/dark-mode.svg";
+import FontSizeIcon from "./home/assets/font-size.svg";
+import LineHeightIcon from "./home/assets/line-height.svg";
+import MarginIcon from "./home/assets/margin.svg";
+import SelectArrowIcon from "./home/assets/select-arrow.svg";
+
+import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, ProfileIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, ThumbsUpIcon, WarningIcon } from "@hopper-ui/icons";
+
+import "./home/home.css";
+import "@hopper-ui/tokens/fonts.css";
 
 export default function Home() {
     return (
@@ -51,36 +62,117 @@ export default function Home() {
                                     <div className="hd-home-sample__colors">
                                         <div className="hd-home-sample__colors-row">
                                             <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-rock-300"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-rock-400"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-rock-500"></span>
                                         </div>
                                         <div className="hd-home-sample__colors-row">
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
-                                            <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-sapphire-200"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-sapphire-300"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-sapphire-400"></span>
+                                            <span className="hd-home-sample__color hd-home-sample__color-sapphire-500"></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="hd-home-sample__item">
+                                <div className="hd-home-sample__item hd-home-sample__item-sizes">
                                     <h3 className="hd-home-sample__title">Sizes</h3>
+                                    <div className="hd-home-sample__sizes">
+                                        <div className="hd-home-sample__size hd-home-sample__size-16">
+                                            <span className="hd-home-sample__size-text">16</span>
+                                            <div className="hd-home-sample__size-bar"></div>
+                                        </div>
+                                        <div className="hd-home-sample__size hd-home-sample__size-24">
+                                            <span className="hd-home-sample__size-text">24</span>
+                                            <div className="hd-home-sample__size-bar"></div>
+                                        </div>
+                                        <div className="hd-home-sample__size hd-home-sample__size-32">
+                                            <span className="hd-home-sample__size-text">32</span>
+                                            <div className="hd-home-sample__size-bar"></div>
+                                        </div>
+                                        <div className="hd-home-sample__size hd-home-sample__size-40">
+                                            <span className="hd-home-sample__size-text">40</span>
+                                            <div className="hd-home-sample__size-bar"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="hd-home-samples__col">
-                                <div className="hd-home-sample__item">
+                                <div className="hd-home-sample__item hd-home-sample__item-text-styles">
                                     <h3 className="hd-home-sample__title">Text Styles</h3>
+                                    <div className="hd-home-sample__text-styles">
+                                        <div className="hd-home-sample__text-styles-col">
+                                            <span className="hd-home-sample__text">A<span className="hd-home-sample__text-lowercase">a</span></span>
+                                        </div>
+                                        <div className="hd-home-sample__text-styles-col hd-home-sample__text-styles-controls">
+                                            <div className="hd-home-sample__control-knob-title">
+                                                <span className="hd-home-sample__control-title">Regular</span>
+                                                <SelectArrowIcon />
+                                            </div>
+                                            <div className="hd-home-sample__control-knob">
+                                                <FontSizeIcon />
+                                                <span className="hd-home-sample__control-knob-value">84</span>
+                                            </div>
+                                            <div className="hd-home-sample__control-knob">
+                                                <LineHeightIcon />
+                                                <span className="hd-home-sample__control-knob-value">96</span>
+                                            </div>
+                                            <div className="hd-home-sample__control-knob">
+                                                <MarginIcon />
+                                                <span className="hd-home-sample__control-knob-value">0</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="hd-home-sample__item">
+                        <div className="hd-home-sample__item hd-home-sample__item-icons">
                             <h3 className="hd-home-sample__title">Icons</h3>
                             <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            <HopperProvider colorScheme="light">
+                                <div className="hd-home-sample__icons">
+                                    <div className="hd-home-sample__icons-row">
+                                        <CalendarIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <ChartBarIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <CheckmarkIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <FilterIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                        <LightbulbIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <MailIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <SearchIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                        <ShareIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <WarningIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    </div>
+                                    <div className="hd-home-sample__icons-row">
+                                        <ThumbsUpIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <LockIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--active" size="sm" />
+                                        <ItalicIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <EyeVisibleIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <LockIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                        <DeleteIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <StarIcon className="hd-home-sample__icons-icon" size="sm" />
+                                        <StickyIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                        <ProfileIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    </div>
+                                </div>
+                            </HopperProvider>
                         </div>
                     </div>
-                    <div className="hd-home-sample__item">
+                    <div className="hd-home-sample__item hd-home-sample__item-components">
                         <h3 className="hd-home-sample__title">Components</h3>
                         <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <div className="hd-home-sample-components">
+                            <div className="hd-home-sample-components__item">
+                                <div className="hd-home-sample-components__fake-avatar"></div>
+                            </div>
+                            <div className="hd-home-sample-components__item">
+                                <div className="hd-home-sample-components__fake-select"></div>
+                            </div>
+                            <div className="hd-home-sample-components__item">
+                                <div className="hd-home-sample-components__fake-buttons"></div>
+                            </div>
+                            <div className="hd-home-sample-components__item">
+                                <div className="hd-home-sample-components__fake-radios"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
