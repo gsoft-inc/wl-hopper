@@ -58,15 +58,15 @@ function groupItemsByPropertiesAndSizes(tokenData: TokenData, itemType: string):
             const matchingItemOverline = tokenData[propertyKey].find(item => {
                 const nameParts = item.name.split("-");
 
-                return nameParts.includes(itemType);
+                return nameParts.includes("overline");
             });
-
-            if (matchingItem) {
-                groupedItems[sizeKey][propertyKey] = matchingItem.value;
-            }
 
             if (matchingItemOverline && sizeKey === "md") {
                 groupedItems[sizeKey][propertyKey] = matchingItemOverline.value;
+            }
+
+            if (matchingItem) {
+                groupedItems[sizeKey][propertyKey] = matchingItem.value;
             }
         });
 
@@ -96,14 +96,17 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
         let displaySize = `-${size}`;
         let previewAdditionalStyles = {};
 
-        // need to find a way to get offset values, and split them between top and bottom.
-
         if (type === "overline") {
             displaySize = "";
             previewAdditionalStyles = {
                 textTransform: "uppercase",
                 letterSpacing: "0.015rem"
             };
+        }
+
+        // Accent MD is not a size, until we have a use case for it we will not display it, instead of doing some technical gymnastics, we will just return an empty string
+        if (type === "accent" && size === "md") {
+            return "";
         }
 
         const rowSpan = bottomOffset && topOffset ? 6 : 4;
