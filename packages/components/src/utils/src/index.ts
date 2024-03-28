@@ -4,3 +4,5 @@ export * from "./sizeAdapter.ts";
 export * from "./types.ts";
 export * from "./isTextOnlyChildren.ts";
 export * from "./SlotProvider.ts";
+export * from "./useSlot.ts";
+export * from "./ClearSlots.tsx";

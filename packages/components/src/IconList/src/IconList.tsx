@@ -2,7 +2,7 @@ import { useContextProps } from "react-aria-components";
 import styles from "./IconList.module.css";
 import { IconListContext } from "./IconListContext.ts";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
-import type { BaseComponentProps } from "../../index.ts";
+import type { BaseComponentProps } from "../../utils/index.ts";
 import clsx from "clsx";
 import { useStyledSystem, type StyledSystemProps, type ResponsiveProp } from "@hopper-ui/styled-system";
 import { IconContext } from "@hopper-ui/icons";

@@ -91,6 +91,9 @@ export const OverBackground: Story = {
  * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
  */
 export const AdvancedCustomization: Story = {
+    args: {
+        "aria-label": "Loading…"
+    },
     render: props => (
         <SlotProvider values={[
             [SpinnerContext, { color: "primary", size: "lg" }]
