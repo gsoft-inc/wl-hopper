@@ -1,15 +1,15 @@
 @import url("@/app/tokens.css");
 
 .shd-container {
-    --sbt-container-background: var(--hd-white);
-    --sbt-container-color: var(--hd-neutral-50);
+    --stb-container-background: var(--hd-white);
+    --stb-container-color: var(--hd-neutral-50);
 
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
-    background: linear-gradient(90deg, var(--sbt-container-background) 10px, transparent 1%) 50%,
-    linear-gradient(var(--sbt-container-background) 10px, transparent 1%) 50%,
-    var(--sbt-container-color);
+    background: linear-gradient(90deg, var(--stb-container-background) 10px, transparent 1%) 50%,
+    linear-gradient(var(--stb-container-background) 10px, transparent 1%) 50%,
+    var(--stb-container-color);
     background-size: 12px 12px;
 }
 

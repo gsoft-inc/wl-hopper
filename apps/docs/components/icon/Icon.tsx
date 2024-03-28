@@ -1,4 +1,4 @@
-import { forwardRef, type ElementType, type RefAttributes, type SVGProps } from "react";
+import type { ElementType, RefAttributes, SVGProps } from "react";
 import { useContextProps, type SlotProps } from "react-aria-components";
 
 import { IconContext } from "./IconContext.ts";
@@ -8,13 +8,13 @@ export interface IconProps extends SlotProps {
     className?: string;
 }
 
-const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || "hd-icon" }, ref, IconContext);
+const Icon = (props: IconProps) => {
+    [props] = useContextProps({ ...props, slot: props.slot || "hd-icon" }, null, IconContext);
     const { src, ...otherProps } = props;
 
     const Component = src;
 
-    return <Component ref={ref} {...otherProps} />;
-});
+    return <Component {...otherProps} />;
+};
 
 export default Icon;

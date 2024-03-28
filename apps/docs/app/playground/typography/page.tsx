@@ -69,46 +69,67 @@ export default function CodeBlockPage() {
                 <h2 className="">Centering</h2>
                 <h3>Contained</h3>
                 <div className="favorit-mono button-sample">
-                    <button className="centering-text overline" type="button"><span className="offset">future</span>
+                    <button className="centering-text overline" type="button">
+                        <span className="offset">future</span>
                     </button>
-                    <button className="centering-text overline" type="button"><span className="offset">0123456789</span>
-                    </button>
-                </div>
-                <div className="favorit button-sample">
-                    <button className="centering-text xs" type="button"><span className="offset">future</span></button>
-                    <button className="centering-text xs" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text overline" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <div className="favorit button-sample">
-                    <button className="centering-text sm" type="button"><span className="offset">future</span></button>
-                    <button className="centering-text sm" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text xs" type="button">
+                        <span className="offset">future</span>
+                    </button>
+                    <button className="centering-text xs" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <div className="favorit button-sample">
-                    <button className="centering-text md" type="button"><span className="offset">future</span></button>
-                    <button className="centering-text md" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text sm" type="button">
+                        <span className="offset">future</span>
+                    </button>
+                    <button className="centering-text sm" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <div className="favorit button-sample">
-                    <button className="centering-text lg" type="button"><span className="offset">future</span></button>
-                    <button className="centering-text lg" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text md" type="button">
+                        <span className="offset">future</span>
+                    </button>
+                    <button className="centering-text md" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <div className="favorit button-sample">
-                    <button className="centering-text xl" type="button"><span className="offset">future</span></button>
-                    <button className="centering-text xl" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text lg" type="button">
+                        <span className="offset">future</span>
+                    </button>
+                    <button className="centering-text lg" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <div className="favorit button-sample">
-                    <button className="centering-text two-xl" type="button"><span className="offset">future</span>
+                    <button className="centering-text xl" type="button">
+                        <span className="offset">future</span>
                     </button>
-                    <button className="centering-text two-xl" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text xl" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <div className="favorit button-sample">
-                    <button className="centering-text three-xl" type="button"><span className="offset">future</span>
+                    <button className="centering-text two-xl" type="button">
+                        <span className="offset">future</span>
                     </button>
-                    <button className="centering-text three-xl" type="button"><span className="offset">0123456789</span>
+                    <button className="centering-text two-xl" type="button">
+                        <span className="offset">0123456789</span>
+                    </button>
+                </div>
+                <div className="favorit button-sample">
+                    <button className="centering-text three-xl" type="button">
+                        <span className="offset">future</span>
+                    </button>
+                    <button className="centering-text three-xl" type="button">
+                        <span className="offset">0123456789</span>
                     </button>
                 </div>
                 <h2>Free Text</h2>
@@ -137,8 +158,12 @@ export default function CodeBlockPage() {
                     <p className="centering-text offset three-xl">The future is in the past tense but why</p>
                 </div>
                 <div className="favorit flex">
-                    <div className="tag xs"><span className="offset">My Title</span></div>
-                    <div className="tag xs"><span>My Title</span></div>
+                    <div className="tag xs">
+                        <span className="offset">My Title</span>
+                    </div>
+                    <div className="tag xs">
+                        <span>My Title</span>
+                    </div>
                 </div>
             </main>
         </article>

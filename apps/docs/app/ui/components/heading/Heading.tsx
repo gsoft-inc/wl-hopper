@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Title from "@/components/title/Title.tsx";
 import Tag from "@/components/tag/Tag.tsx";
 import LinkList, { type Links } from "@/app/ui/components/linkList/LinkList.tsx";
+
 import "./heading.css";
 
 export interface HeadingProps {

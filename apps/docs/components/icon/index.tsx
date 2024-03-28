@@ -1,8 +1,8 @@
-import NpmIcon from "./assets/NpmIcon.tsx";
-import GithubIcon from "./assets/GithubIcon.tsx";
-import ExternalLinkIcon from "./assets/ExternalLinkIcon.tsx";
-import ComponentIcon from "./assets/ComponentIcon.tsx";
-import TokenIcon from "./assets/TokenIcon.tsx";
+import NpmIcon from "./assets/npm.svg";
+import GithubIcon from "./assets/github.svg";
+import ExternalLinkIcon from "./assets/external-link.svg";
+import ComponentIcon from "./assets/component.svg";
+import TokenIcon from "./assets/tokens.svg";
 import Icon, { type IconProps } from "./Icon.tsx";
 
 export {
