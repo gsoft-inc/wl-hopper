@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ThemeSwitch from "./ThemeSwitch";
 
 const meta = {
-    title: "Component/Theme Switch",
+    title: "components/Theme Switch",
     component: ThemeSwitch
 } satisfies Meta<typeof ThemeSwitch>;
 
@@ -12,6 +12,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        text: "Toggle theme"
+        text: "Toggle theme",
+        colorMode: "light",
+        onChange: () => {
+        }
     }
 };

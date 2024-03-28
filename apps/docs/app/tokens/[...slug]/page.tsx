@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { allTokens } from "contentlayer/generated";
 
-import Aside from "@/components/ui/aside/Aside.tsx";
-import Mdx from "@/components/ui/mdx/Mdx.tsx";
-import getSectionLinks from "@/utils/getSectionLinks.ts";
+import Aside from "@/app/ui/layout/aside/Aside.tsx";
+import Mdx from "@/components/mdx/Mdx.tsx";
+import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 
 interface PageProps {
     params: {
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export default function TokenPage({ params }: PageProps) {
-    const [ section, type ] = params.slug;
+    const [section, type] = params.slug;
     const designToken = allTokens.find(token => token.slug === type && token.section === section);
 
     if (!designToken) {
@@ -31,7 +31,7 @@ export default function TokenPage({ params }: PageProps) {
         <div className="hd-container">
             <Aside title="On this page" links={sectionLinks} />
             <main>
-                <article key={designToken._id}>
+                <article className="hd-content" key={designToken._id}>
                     <Mdx code={designToken.body.code} />
                 </article>
             </main>
