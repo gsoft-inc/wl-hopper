@@ -119,7 +119,7 @@ describe("ErrorMessage", () => {
         expect(ref.current instanceof HTMLSpanElement).toBeTruthy();
     });
 
-    it("should support showing an icon", () => {
+    it("should support showing an icon by default", () => {
         render(
             <SlotProvider values={[
                 [FieldErrorContext, {
@@ -129,7 +129,7 @@ describe("ErrorMessage", () => {
                 }]
             ]}
             >
-                <ErrorMessage showWarningIcon>Test</ErrorMessage>
+                <ErrorMessage>Test</ErrorMessage>
             </SlotProvider>
         );
 
@@ -149,7 +149,7 @@ describe("ErrorMessage", () => {
                 }]
             ]}
             >
-                <ErrorMessage showWarningIcon={false}>Test</ErrorMessage>
+                <ErrorMessage hideWarningIcon>Test</ErrorMessage>
             </SlotProvider>
         );
 

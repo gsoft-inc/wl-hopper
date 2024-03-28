@@ -1,4 +1,3 @@
-/* stylelint-disable custom-property-pattern */
 .hop-ErrorMessage  {
     --hop-ErrorMessage-color: var(--hop-danger-text-weak);
     --hop-ErrorMessage-font-family: var(--hop-body-xs-font-family);

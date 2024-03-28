@@ -1,61 +1,64 @@
-.hop-CheckboxField  {
+.hop-CheckboxGroup  {
     /* Default */
-    --hop-CheckboxField-description-color: var(--hop-neutral-text-weak); 
-
-    /* Disabled */
-    --hop-CheckboxField-description-color-disabled: var(--hop-neutral-text-disabled); 
 
     /* Small */
-    --hop-CheckboxField-row-gap-small: var(--hop-space-stack-xs);
-    --hop-CheckboxField-checkbox-inline-size-small: 1rem;
-    --hop-CheckboxField-description-margin-inline-start-small: calc(var(--hop-CheckboxField-checkbox-inline-size-small) + var(--hop-space-inline-sm));
+    --hop-CheckboxGroup-column-gap-small: var(--hop-space-inline-sm);
+    --hop-CheckboxGroup-row-gap-small: var(--hop-space-stack-sm);
 
     /* Medium */
-    --hop-CheckboxField-row-gap-medium: var(--hop-space-stack-sm);
-    --hop-CheckboxField-checkbox-inline-size-medium: 1.5rem;
-    --hop-CheckboxField-description-margin-inline-start-medium: calc(var(--hop-CheckboxField-checkbox-inline-size-medium) + var(--hop-space-inline-md));
+    --hop-CheckboxGroup-column-gap-medium: var(--hop-space-inline-md);
+    --hop-CheckboxGroup-row-gap-medium: var(--hop-space-stack-md);
+
+    /* Vertical */
+    --hop-CheckboxGroup-flex-direction-vertical: column;
+
+    /* Horizontal */
+    --hop-CheckboxGroup-flex-direction-horizontal: row;
 
     /* Internal variable */
-    --description-color: var(--hop-CheckboxField-description-color);
+    --flex-direction: var(--hop-CheckboxGroup-flex-direction-vertical);
 
     align-items: start;
-    gap: var(--row-gap, var(--hop-space-stack-sm)) var(--hop-space-inline-xs);
-    display: grid;
-    grid-template:
-    "checkbox" auto
-    "description" auto
-    / auto;
+    gap: var(--row-gap, var(--hop-space-stack-md)) var(--column-gap, var(--hop-space-inline-md));
+    display: flex;
+    flex-flow: var(--flex-direction) wrap;
     inline-size: max-content;
     justify-content: start; 
     max-inline-size: 100%;
 }
 
-.hop-CheckboxField,
-.hop-CheckboxField * {
+.hop-CheckboxGroup,
+.hop-CheckboxGroup * {
     box-sizing: border-box;
 }
 
-.hop-CheckboxField[data-disabled] {
-    --description-color: var(--hop-CheckboxField-description-color-disabled);
+.hop-CheckboxGroup--sm {
+    --column-gap: var(--hop-CheckboxGroup-column-gap-small);
+    --row-gap: var(--hop-CheckboxGroup-row-gap-small);
 }
 
-.hop-CheckboxField--sm {
-    --row-gap: var(--hop-CheckboxField-row-gap-small);
-    --description-margin-inline-start: var(--hop-CheckboxField-description-margin-inline-start-small);
+.hop-CheckboxGroup--md {
+    --column-gap: var(--hop-CheckboxGroup-column-gap-medium);
+    --row-gap: var(--hop-CheckboxGroup-row-gap-medium);
 }
 
-.hop-CheckboxField--md {
-    --row-gap: var(--hop-CheckboxField-row-gap-medium);
-    --description-margin-inline-start: var(--hop-CheckboxField-description-margin-inline-start-medium);
+.hop-CheckboxGroup--horizontal {
+    --flex-direction: var(--hop-CheckboxGroup-flex-direction-horizontal);
 }
 
-/* Description */
-.hop-CheckboxField__description {
-    color: var(--description-color);
-    grid-area: description;
-    margin-inline-start: var(--description-margin-inline-start, var(--hop-CheckboxField-description-margin-inline-start-medium));
+.hop-CheckboxGroup > .hop-CheckboxGroup__label {
+    flex: 1 1 100%;
+    order: 1;
 }
 
-.hop-CheckboxField__checkbox {
-    grid-area: checkbox;
+.hop-CheckboxGroup > .hop-CheckboxGroup__checkbox,
+.hop-CheckboxGroup > .hop-CheckboxGroup__checkbox-field {
+    flex: 0 0 auto;
+    order: 2;
+}
+
+.hop-CheckboxGroup > .hop-CheckboxGroup__error-message,
+.hop-CheckboxGroup > .hop-CheckboxGroup__helper-message {
+    flex: 1 1 100%;
+    order: 3;
 }

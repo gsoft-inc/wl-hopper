@@ -11,12 +11,16 @@ import { ErrorMessageContext } from "../../errorMessage/index.ts";
 
 import styles from "./CheckboxGroup.module.css";
 
-export const GlobalCheckboxCssSelector = "hop-Checkbox";
+export const GlobalCheckboxGroupCssSelector = "hop-CheckboxGroup";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultCheckboxSlot = "checkboxGroup";
 
 export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
+    /**
+     * A checkbox can be displayed horizontally or vertically.
+     */
+    orientation?: ResponsiveProp<"horizontal" | "vertical">;
     /**
      * A checkbox can vary in size.
      */
@@ -29,21 +33,25 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
     const {
         className,
         children,
+        isInvalid,
+        orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
         ...otherProps
     } = ownProps;
 
     
+    const orientation = useResponsiveValue(orientationProp) ?? "vertical";
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = composeClassnameRenderProps(
         className,
-        GlobalCheckboxCssSelector,
+        GlobalCheckboxGroupCssSelector,
         cssModule(
             styles,
-            "hop-Checkbox",
-            size
+            "hop-CheckboxGroup",
+            size,
+            orientation
         ),
         stylingProps.className
     );
@@ -82,6 +90,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                 ref={ref}
                 className={classNames}
                 style={style}
+                isInvalid={isInvalid}
                 {...otherProps}
             >
                 {children}

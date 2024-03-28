@@ -53,12 +53,21 @@ describe("HelperMessage", () => {
         expect(ref.current instanceof HTMLSpanElement).toBeTruthy();
     });
 
-    it("should support showing an icon", () => {
-        render(<HelperMessage showInfoIcon>Test</HelperMessage>);
+    it("should support showing an icon by default", () => {
+        render(<HelperMessage>Test</HelperMessage>);
 
         const element = screen.getByText("Test");
         const svgElement = element.querySelector(".hop-Icon");
         
         expect(svgElement).not.toBeNull();
+    });
+
+    it("should support hiding an icon", () => {
+        render(<HelperMessage hideInfoIcon>Test</HelperMessage>);
+
+        const element = screen.getByText("Test");
+        const svgElement = element.querySelector(".hop-Icon");
+        
+        expect(svgElement).toBeNull();
     });
 });

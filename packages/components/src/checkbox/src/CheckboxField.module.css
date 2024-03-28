@@ -19,7 +19,7 @@
     --description-color: var(--hop-CheckboxField-description-color);
 
     align-items: start;
-    gap: var(--row-gap, var(--hop-space-stack-sm)) var(--hop-space-inline-xs);
+    row-gap: var(--row-gap, var(--hop-space-stack-sm));
     display: grid;
     grid-template:
     "checkbox" auto

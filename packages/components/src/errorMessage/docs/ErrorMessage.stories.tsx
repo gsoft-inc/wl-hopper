@@ -75,7 +75,7 @@ export const Icon: Story = {
             }]
         ]}
         >
-            <ErrorMessage showWarningIcon={false}>Test Error Message</ErrorMessage>
+            <ErrorMessage hideWarningIcon>Test Error Message</ErrorMessage>
         </SlotProvider>;
     }
 };

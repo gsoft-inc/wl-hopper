@@ -1,7 +1,7 @@
 import { forwardRef, type ForwardedRef } from "react";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { CheckboxContext } from "./CheckboxContext.ts";
-import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps } from "react-aria-components";
+import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps, TextContext as RACTextContext } from "react-aria-components";
 import { cssModule } from "../../utils/src/cssModule.ts";
 import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
 import { Text, TextContext } from "../../Text/index.ts";
@@ -85,6 +85,9 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
                                 [TextContext, {
                                     className: styles["hop-Checkbox__text"],
                                     size: size
+                                }],
+                                [RACTextContext, {
+                                    slots: undefined
                                 }],
                                 [IconListContext, {
                                     className: styles["hop-Checkbox__icon-list"],

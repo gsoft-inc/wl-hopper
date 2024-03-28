@@ -46,6 +46,8 @@
     --hop-Checkbox-box-background-color-invalid: var(--hop-neutral-surface);
     --hop-Checkbox-box-border-color-hover-invalid: var(--hop-danger-border-strong);
     --hop-Checkbox-box-background-color-hover-invalid: var(--hop-danger-surface);
+    --hop-Checkbox-box-border-color-focus-invalid: var(--hop-danger-border-strong);
+    --hop-Checkbox-box-background-color-focus-invalid: var(--hop-danger-surface);
     --hop-Checkbox-box-border-color-checked-invalid: var(--hop-danger-border-strong);
     --hop-Checkbox-box-background-color-checked-invalid: var(--hop-danger-surface-strong);
     --hop-Checkbox-check-color-invalid: var(--hop-danger-icon-strong);
@@ -148,6 +150,11 @@
 .hop-Checkbox[data-invalid][data-hovered] {
     --box-background-color: var(--hop-Checkbox-box-background-color-hover-invalid);
     --box-border-color: var(--hop-Checkbox-box-border-color-hover-invalid);
+}
+
+.hop-Checkbox[data-invalid][data-focus-visible] {
+    --box-background-color: var(--hop-Checkbox-box-background-color-focus-invalid);
+    --box-border-color: var(--hop-Checkbox-box-border-color-focus-invalid);
 }
 
 .hop-Checkbox[data-invalid][data-selected] {

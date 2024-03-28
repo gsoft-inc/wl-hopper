@@ -26,7 +26,7 @@ export const Default: Story = {
         ]}
         >
             <ErrorMessage />
-            <ErrorMessage showWarningIcon={false} {...props} />
+            <ErrorMessage hideWarningIcon {...props} />
         </SlotProvider>
     )
 };
@@ -41,9 +41,9 @@ export const Styling: Story = {
             }]
         ]}
         >
-            <ErrorMessage showWarningIcon border="primary-strong" {...props} />
-            <ErrorMessage showWarningIcon className="bg-blue" {...props} />
-            <ErrorMessage showWarningIcon style={{ backgroundColor: "blue" }} {...props} />
+            <ErrorMessage border="primary-strong" {...props} />
+            <ErrorMessage className="bg-blue" {...props} />
+            <ErrorMessage style={{ backgroundColor: "blue" }} {...props} />
         </SlotProvider>
     )
 };

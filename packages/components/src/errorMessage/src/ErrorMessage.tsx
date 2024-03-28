@@ -14,10 +14,10 @@ export const GlobalErrorMessageCssSelector = "hop-ErrorMessage";
 
 export interface ErrorMessageProps extends StyledComponentProps<RACFieldErrorProps>, Omit<TextProps, "style" | "className" | "children" | "color" | "content"> {
     /**
-     * Whether or not to show the error message icon.
+     * Whether or not to hide the error message icon.
      * @default true
      */
-    showWarningIcon?: boolean;
+    hideWarningIcon?: boolean;
 }
 
 function ErrorMessage(props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElement>) {
@@ -26,7 +26,7 @@ function ErrorMessage(props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElemen
         return null;
     }
     
-    return <FieldErrorInner {...props} ref={ref} />;
+    return <ErrorMessageInner {...props} ref={ref} />;
 }
 
 /**
@@ -39,11 +39,11 @@ _ErrorMessage.displayName = "ErrorMessage";
 
 export { _ErrorMessage as ErrorMessage };
 
-const FieldErrorInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElement>) => {
+const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElement>) => {
     const validation = useContext(RACFieldErrorContext)!;
     [props, ref] = useContextProps(props, ref, ErrorMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, showWarningIcon = true, style, slot = "errorMessage", ...otherProps } = ownProps;
+    const { className, children, hideWarningIcon = false, style, slot = "errorMessage", ...otherProps } = ownProps;
 
     const classNames = clsx(
         GlobalErrorMessageCssSelector,
@@ -60,7 +60,7 @@ const FieldErrorInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRef<
         ...style
     };
 
-    const warningIcon = showWarningIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
+    const warningIcon = !hideWarningIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
 
     const renderProps = useRenderProps({
         className: classNames,
