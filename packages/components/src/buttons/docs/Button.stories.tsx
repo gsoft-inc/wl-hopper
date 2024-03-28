@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "@hopper-ui/icons";
 import { IconList } from "../../IconList/index.ts";
 import { SlotProvider } from "../../utils/index.ts";
+import { Inline, Stack } from "../../layout/index.ts";
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
@@ -47,21 +48,24 @@ export const Default: Story = {
  *
  * **Secondary**: For secondary actions on each page. Secondary buttons can be used in conjunction with a primary button or on its own. Paired with a Primary button, the secondary button usually performs the negative action of the set, such as “Cancel.”
  *
- * **Tertiary**: TODO
- *
  * **Upsell**: For upsell actions that relates to upgrading an account or a plan. Use the upsell button to distinguish from an existing primary button. In some case a primary button can be used in its place when the general context of the page is about upselling.
  *
- * **Negative**: For actions that could have destructive effects on the user’s data.
+ * **Danger**: For actions that could have destructive effects on the user’s data.
+ *
+ * **Ghost-[primary|secondary|danger]**: For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Ghost buttons can also be used for sub-tasks on a
+ * page where a primary button for the main and final action is present.
  */
 export const Variants: Story = {
     render: props => (
-        <div style={{ display: "flex", gap: "1.25rem" }}>
+        <Inline>
             <Button variant="primary" {...props} />
             <Button variant="secondary" {...props} />
-            <Button variant="tertiary" {...props} />
-            <Button variant="negative" {...props} />
             <Button variant="upsell" {...props} />
-        </div>
+            <Button variant="danger" {...props} />
+            <Button variant="ghost-primary" {...props} />
+            <Button variant="ghost-secondary" {...props} />
+            <Button variant="ghost-danger" {...props} />
+        </Inline>
     )
 };
 
@@ -70,22 +74,26 @@ export const Variants: Story = {
  */
 export const Size: Story = {
     render: props => (
-        <div style={{ display: "flex", gap: "1.25rem", flexDirection: "column" }}>
-            <div style={{ display: "flex", gap: "1.25rem" }}>
+        <Stack>
+            <Inline>
                 <Button size="sm" variant="primary" {...props} />
                 <Button size="sm" variant="secondary" {...props} />
-                <Button size="sm" variant="tertiary" {...props} />
-                <Button size="sm" variant="negative" {...props} />
                 <Button size="sm" variant="upsell" {...props} />
-            </div>
-            <div style={{ display: "flex", gap: "1.25rem" }}>
+                <Button size="sm" variant="danger" {...props} />
+                <Button size="sm" variant="ghost-primary" {...props} />
+                <Button size="sm" variant="ghost-secondary" {...props} />
+                <Button size="sm" variant="ghost-danger" {...props} />
+            </Inline>
+            <Inline>
                 <Button size="md" variant="primary" {...props} />
                 <Button size="md" variant="secondary" {...props} />
-                <Button size="md" variant="tertiary" {...props} />
-                <Button size="md" variant="negative" {...props} />
                 <Button size="md" variant="upsell" {...props} />
-            </div>
-        </div>
+                <Button size="md" variant="danger" {...props} />
+                <Button size="md" variant="ghost-primary" {...props} />
+                <Button size="md" variant="ghost-secondary" {...props} />
+                <Button size="md" variant="ghost-danger" {...props} />
+            </Inline>
+        </Stack>
     )
 };
 
