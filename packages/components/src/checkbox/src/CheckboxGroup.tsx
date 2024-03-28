@@ -25,6 +25,10 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
      * A checkbox can vary in size.
      */
     size?: ResponsiveProp<"sm" | "md">;
+    /**
+     * A CheckboxGroup has two variants: borderless and bordered.
+     */
+    variant?: "borderless" | "bordered";
 }
 
 function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -33,10 +37,12 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
     const {
         className,
         children,
+        isDisabled,
         isInvalid,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
+        variant,
         ...otherProps
     } = ownProps;
 
@@ -51,7 +57,8 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
             styles,
             "hop-CheckboxGroup",
             size,
-            orientation
+            orientation,
+            variant
         ),
         stylingProps.className
     );
@@ -75,8 +82,9 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                     size: size
                 }],
                 [CheckboxFieldContext, {
-                    className: styles["hop-CheckboxGroup__checkbox-field"],
-                    size: size
+                    className: styles["hop-CheckboxGroup__checkbox"],
+                    size: size,
+                    isDisabled: isDisabled
                 }],
                 [ErrorMessageContext, {
                     className: styles["hop-CheckboxGroup__error-message"]
@@ -91,6 +99,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                 className={classNames}
                 style={style}
                 isInvalid={isInvalid}
+                isDisabled={isDisabled}
                 {...otherProps}
             >
                 {children}

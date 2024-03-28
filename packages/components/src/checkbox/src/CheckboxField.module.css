@@ -6,14 +6,14 @@
     --hop-CheckboxField-description-color-disabled: var(--hop-neutral-text-disabled); 
 
     /* Small */
-    --hop-CheckboxField-row-gap-small: var(--hop-space-stack-xs);
-    --hop-CheckboxField-checkbox-inline-size-small: 1rem;
-    --hop-CheckboxField-description-margin-inline-start-small: calc(var(--hop-CheckboxField-checkbox-inline-size-small) + var(--hop-space-inline-sm));
+    --hop-CheckboxField-sm-row-gap: var(--hop-space-stack-xs);
+    --hop-CheckboxField-checkbox-sm-inline-size: 1rem;
+    --hop-CheckboxField-description-sm-margin-inline-start: calc(var(--hop-CheckboxField-checkbox-sm-inline-size) + var(--hop-space-inline-sm));
 
     /* Medium */
-    --hop-CheckboxField-row-gap-medium: var(--hop-space-stack-sm);
-    --hop-CheckboxField-checkbox-inline-size-medium: 1.5rem;
-    --hop-CheckboxField-description-margin-inline-start-medium: calc(var(--hop-CheckboxField-checkbox-inline-size-medium) + var(--hop-space-inline-md));
+    --hop-CheckboxField-md-row-gap: var(--hop-space-stack-sm);
+    --hop-CheckboxField-checkbox-md-inline-size: 1.5rem;
+    --hop-CheckboxField-description-md-margin-inline-start: calc(var(--hop-CheckboxField-checkbox-md-inline-size) + var(--hop-space-inline-md));
 
     /* Internal variable */
     --description-color: var(--hop-CheckboxField-description-color);
@@ -40,20 +40,20 @@
 }
 
 .hop-CheckboxField--sm {
-    --row-gap: var(--hop-CheckboxField-row-gap-small);
-    --description-margin-inline-start: var(--hop-CheckboxField-description-margin-inline-start-small);
+    --row-gap: var(--hop-CheckboxField-sm-row-gap);
+    --description-margin-inline-start: var(--hop-CheckboxField-description-sm-margin-inline-start);
 }
 
 .hop-CheckboxField--md {
-    --row-gap: var(--hop-CheckboxField-row-gap-medium);
-    --description-margin-inline-start: var(--hop-CheckboxField-description-margin-inline-start-medium);
+    --row-gap: var(--hop-CheckboxField-md-row-gap);
+    --description-margin-inline-start: var(--hop-CheckboxField-description-md-margin-inline-start);
 }
 
 /* Description */
 .hop-CheckboxField__description {
     color: var(--description-color);
     grid-area: description;
-    margin-inline-start: var(--description-margin-inline-start, var(--hop-CheckboxField-description-margin-inline-start-medium));
+    margin-inline-start: var(--description-margin-inline-start, var(--hop-CheckboxField-description-md-margin-inline-start));
 }
 
 .hop-CheckboxField__checkbox {

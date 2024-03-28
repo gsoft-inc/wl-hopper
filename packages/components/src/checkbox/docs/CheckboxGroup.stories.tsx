@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { CheckboxGroup } from "../src/CheckboxGroup.tsx";
+import { CheckboxField } from "../src/CheckboxField.tsx";
 import { Checkbox } from "../src/Checkbox.tsx";
+import { Text } from "../../Text/index.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Label } from "../../Label/index.ts";
 import { ErrorMessage } from "../../errorMessage/index.ts";
@@ -38,7 +40,10 @@ export const Default = {
         <CheckboxGroup {...props}>
             <Checkbox value="developer">Developer</Checkbox>
             <Checkbox value="designer">Designer</Checkbox>
-            <Checkbox value="manager">Manager</Checkbox>
+            <CheckboxField>
+                <Checkbox value="manager">Manager</Checkbox>
+                <Text slot="description">Team Manager</Text>
+            </CheckboxField>
         </CheckboxGroup>
     ),
     args: {
@@ -61,6 +66,23 @@ export const LabelStory = {
     )
 } satisfies Story;
 
+/**
+ * A CheckboxGroup can have a description to provide more information to the user.
+ */
+export const Description = {
+    render: props => (
+        <CheckboxGroup {...props}>
+            <Label>Roles</Label>
+            <Checkbox value="developer">Developer</Checkbox>
+            <Checkbox value="designer">Designer</Checkbox>
+            <CheckboxField>
+                <Checkbox value="manager">Manager</Checkbox>
+                <Text slot="description">Team Manager</Text>
+            </CheckboxField>
+            <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
+        </CheckboxGroup>
+    )
+} satisfies Story;
 
 /**
  * A CheckboxGroup differs in appearance based on the size prop.
@@ -73,31 +95,29 @@ export const Size = {
                 <Checkbox value="developer">Developer</Checkbox>
                 <Checkbox value="designer">Designer</Checkbox>
                 <Checkbox value="manager">Manager</Checkbox>
+                <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
             </CheckboxGroup>
             <CheckboxGroup {...props} size="md">
                 <Label>Roles</Label>
                 <Checkbox value="developer">Developer</Checkbox>
                 <Checkbox value="designer">Designer</Checkbox>
                 <Checkbox value="manager">Manager</Checkbox>
+                <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
             </CheckboxGroup>
         </Inline>
     )
 } satisfies Story;
 
 /**
- * A CheckboxGroup can have a description to provide more information to the user.
+ * A CheckboxGroup can be `bordered` by using the `variant` prop.
  */
-export const Description = {
-    render: props => (
-        <CheckboxGroup {...props}>
-            <Label>Roles</Label>
-            <Checkbox value="developer">Developer</Checkbox>
-            <Checkbox value="designer">Designer</Checkbox>
-            <Checkbox value="manager">Manager</Checkbox>
-            <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
-        </CheckboxGroup>
-    )
+export const Bordered = {
+    ...Description,
+    args: {
+        variant: "bordered"
+    }
 } satisfies Story;
+
 
 /**
  * If a CheckboxGroup is invalid, it will display an error message. Displaying this error message will hide the helper message.
