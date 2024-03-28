@@ -1,11 +1,14 @@
 .hop-Button {
-    --hop-Button-padding: 0 var(--hop-space-inset-md);
+    --hop-Button-padding-x: var(--hop-space-inset-md);
+    --hop-Button-padding-y: 0;
     --hop-Button-border-radius: var(--hop-shape-rounded-md);
     --hop-Button-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
 
     /* Sizes */
-    --hop-Button-icon-only-sm-padding: 0 var(--hop-space-inset-xs);
-    --hop-Button-icon-only-md-padding: 0 var(--hop-space-inset-sm);
+    --hop-Button-icon-only-sm-padding-x: var(--hop-space-inset-xs);
+    --hop-Button-icon-only-sm-padding-y: 0;
+    --hop-Button-icon-only-md-padding-x: var(--hop-space-inset-sm);
+    --hop-Button-icon-only-md-padding-y: 0;
     --hop-Button-sm-height: 2rem;
     --hop-Button-md-height: 2.5rem;
 
@@ -35,7 +38,7 @@
     --hop-Button-secondary-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-secondary-border: 0.0625rem solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong-hover);
-    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-Button-secondary-background-color-active);/* same color as the background */
+    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-Button-secondary-background-color-pressed);/* same color as the background */
     --hop-Button-secondary-border-disabled: 0.0625rem solid var(--hop-Button-secondary-background-color-disabled); /* same color as the background */
     --hop-Button-secondary-spinner-color: var(--hop-neutral-icon);
 
@@ -130,7 +133,8 @@
     column-gap: var(--hop-space-inline-xs);
     box-sizing: border-box;
     position: relative;
-    padding: var(--hop-Button-padding);
+    padding-block: var(--hop-Button-padding-y);
+    padding-inline: var(--hop-Button-padding-x);
     border-radius: var(--hop-Button-border-radius);
     outline: none;
     outline-offset: 0.125rem;
@@ -152,11 +156,13 @@
 }
 
 .hop-Button--icon-only.hop-Button--sm {
-    padding: var(--hop-Button-icon-only-sm-padding);
+    padding-block: var(--hop-Button-icon-only-sm-padding-y);
+    padding-inline: var(--hop-Button-icon-only-sm-padding-x);
 }
 
 .hop-Button--icon-only.hop-Button--md {
-    padding: var(--hop-Button-icon-only-md-padding);
+    padding-block: var(--hop-Button-icon-only-md-padding-y);
+    padding-inline: var(--hop-Button-icon-only-md-padding-x);
 }
 
 .hop-Button[data-disabled],
