@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from "react";
+import dynamic from "next/dynamic";
 
 import Card from "@/components/card/Card.tsx";
 import NextImage from "@/components/image/Image.tsx";
@@ -12,11 +13,13 @@ import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
 import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
 import Title from "@/components/title/Title.tsx";
-import PreviewComponent from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
+import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
+
+const PreviewComponent = dynamic(() => import("@/app/ui/components/previewComponent/PreviewComponent.tsx"));
 
 export const components = {
     Card,
@@ -32,7 +35,7 @@ export const components = {
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
-    PreviewComponent: (props: { name: string }) => {
+    PreviewComponent: (props: PreviewComponentProps) => {
         return <PreviewComponent {...props} />;
     },
     h1: (props: HeadingProps) => {

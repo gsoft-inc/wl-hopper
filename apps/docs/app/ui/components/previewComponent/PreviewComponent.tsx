@@ -1,13 +1,14 @@
+import path from "path";
 import { Suspense } from "react";
 import Tabs from "@/components/tabs/Tabs.tsx";
 import ComponentWrapper from "@/app/ui/components/previewComponent/ComponentWrapper.tsx";
-import CodeWrapper from "@/app/ui/components/previewComponent/CodeWrapper.tsx";
+import { CodeBlock } from "@/app/ui/components/codeBlock/CodeBlock.tsx";
 import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleton.tsx";
 
 import "./previewComponent.css";
 
-interface PreviewComponentProps {
-    name: string;
+export interface PreviewComponentProps {
+    filePath: string;
 }
 
 const tabsConfig = [
@@ -16,19 +17,21 @@ const tabsConfig = [
     // { category: "playground", title: "Playground" }
 ];
 
-const PreviewComponent = ({ name }: PreviewComponentProps) => {
-    if (!name) {
+const PreviewComponent = async ({ filePath }: PreviewComponentProps) => {
+    if (!filePath) {
         return null;
     }
 
     return (
         <div className="hd-preview-component">
-            <Tabs tabs={tabsConfig}>
 
-                <ComponentWrapper className="hd-preview-component__content" name={name} />
+            <Tabs tabs={tabsConfig}>
+                <ComponentWrapper className="hd-preview-component__content"
+                    filePath={filePath}
+                />
 
                 <Suspense fallback={<PreviewSkeleton />}>
-                    <CodeWrapper name={name} />
+                    <CodeBlock filePath={filePath} />
                 </Suspense>
 
                 {/*<PlaygroundWrapper key="playground" />*/}

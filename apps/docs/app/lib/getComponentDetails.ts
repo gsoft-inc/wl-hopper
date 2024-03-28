@@ -4,6 +4,8 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { components } from "@/components/mdx/components.tsx";
 import { rehypePluginOptions } from "@/app/lib/rehypeConfig";
 
+export const COMPONENT_PATH = path.join(process.cwd(), "content", "components");
+
 async function parseFrontMatter(fileContent: string) {
     const { content, frontmatter } = await compileMDX<{
         title: string;
@@ -48,7 +50,7 @@ function getMDXData(dir: string) {
 }
 
 export async function getComponentDetails() {
-    const mdxDataPromises = getMDXData(path.join(process.cwd(), "content", "components"));
+    const mdxDataPromises = getMDXData(COMPONENT_PATH);
 
     return await Promise.all(mdxDataPromises);
 }

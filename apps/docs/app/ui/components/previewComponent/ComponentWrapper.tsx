@@ -10,15 +10,15 @@ import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch.tsx";
 import type { ColorScheme } from "@/context/theme/ThemeProvider.tsx";
 
 interface ComponentWrapperProps {
-    className: string;
-    name: string;
+    className?: string;
+    filePath: string;
 }
 
-const ComponentWrapper = ({ className, name }: ComponentWrapperProps) => {
-    const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${name}.tsx`), {
+const ComponentWrapper = ({ className, filePath }: ComponentWrapperProps) => {
+    const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${filePath}.tsx`), {
         ssr: false,
         loading: () => <PreviewSkeleton overlay />
-    }), [name]);
+    }), [filePath]);
 
     const [colorScheme, setColorScheme] = useState<"light" | "dark">("light");
 

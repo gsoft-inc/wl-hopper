@@ -4,14 +4,19 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypePrettyCode from "rehype-pretty-code";
 import { rehypeOptions } from "@/app/lib/rehypeConfig";
+import { getExampleComponentPath, getFileContent, getFormattedCode } from "@/app/lib/getFileContent.ts";
 
 interface CodeBlockProps {
-    code: string;
+    filePath: string;
     className?: string;
 }
 
-export async function CodeBlock({ code, className }: CodeBlockProps) {
-    const highlightedCode = await highlightCode(code);
+
+export async function CodeBlock({ filePath, className }: CodeBlockProps) {
+    const examplePath = getExampleComponentPath(filePath);
+    const codeExample = await getFileContent(`${examplePath}.tsx`);
+    const formattedCode = await getFormattedCode(codeExample);
+    const highlightedCode = await highlightCode(formattedCode);
 
     return (
         <section

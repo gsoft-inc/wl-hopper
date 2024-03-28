@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { allComponents } from "contentlayer/generated";
 import Heading from "@/app/ui/components/heading/Heading.tsx";
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 
@@ -10,7 +9,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-    return allComponents.map(({ slug }) => ({
+    const componentsDetails = await getComponentDetails();
+
+    return componentsDetails.map(({ slug }) => ({
         slug
     }));
 }
