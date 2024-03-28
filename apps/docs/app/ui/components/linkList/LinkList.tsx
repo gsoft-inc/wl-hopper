@@ -17,7 +17,7 @@ export interface LinkListProps {
 export default function LinkList({ links, className }: LinkListProps) {
     return (
         <div className={clsx("hd-link-list", className)}>
-            {links.map((link, index) => {
+            {links.map((link, key) => {
                 let icon;
                 switch (link.name) {
                     case "github":
@@ -32,7 +32,13 @@ export default function LinkList({ links, className }: LinkListProps) {
                 }
 
                 return (
-                    <Button as="a" size="sm" variant="ghost" href={link.src} target="_blank" key={index}>{link.label}
+                    <Button as="a"
+                        size="sm"
+                        variant="ghost"
+                        href={link.src}
+                        target="_blank"
+                        key={`link-list-${key.toString()}`}
+                    >{link.label}
                         <Icon slot="icon"
                             src={icon as IconProps["src"]}
                         />

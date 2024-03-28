@@ -1,4 +1,3 @@
-import path from "path";
 import { Suspense } from "react";
 import Tabs from "@/components/tabs/Tabs.tsx";
 import ComponentWrapper from "@/app/ui/components/previewComponent/ComponentWrapper.tsx";
