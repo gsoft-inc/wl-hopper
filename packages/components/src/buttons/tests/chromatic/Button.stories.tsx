@@ -25,7 +25,7 @@ export const Primary: Story = {
         return (
             <Stack>
                 <Stack>
-                    <h2>Default</h2>
+                    <h1>Default</h1>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>Save</Button>
                         <Button {...args}>Save</Button>
@@ -45,7 +45,7 @@ export const Primary: Story = {
                     </Div>
                 </Stack>
                 <Stack>
-                    <h2>Icons</h2>
+                    <h1>Icons</h1>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <PlusIcon />
