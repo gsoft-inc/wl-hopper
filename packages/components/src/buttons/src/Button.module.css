@@ -177,6 +177,7 @@
     border: var(--border);
     align-items: center;
     text-decoration: none;
+    overflow: hidden;
 }
 
 .hop-Button--icon-only {
@@ -476,6 +477,11 @@
 .hop-Button__end-icon,
 .hop-Button__end-icon-list {
     grid-area: end-icon;
+}
+
+.hop-Button .hop-Button__icon-list,
+.hop-Button .hop-Button__end-icon-list {
+    flex-wrap: nowrap;
 }
 
 /* Keep element present to:
