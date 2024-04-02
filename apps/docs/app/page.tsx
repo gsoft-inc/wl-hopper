@@ -1,6 +1,6 @@
 "use client";
 
-import { HopperProvider } from "@hopper-ui/components";
+import { Button as HopperButton, HopperProvider } from "@hopper-ui/components";
 import AccessibleIcon from "./home/assets/accessible.svg";
 import InternationalIcon from "./home/assets/international.svg";
 import TypescriptIcon from "./home/assets/typescript.svg";
@@ -9,13 +9,20 @@ import FontSizeIcon from "./home/assets/font-size.svg";
 import LineHeightIcon from "./home/assets/line-height.svg";
 import MarginIcon from "./home/assets/margin.svg";
 import SelectArrowIcon from "./home/assets/select-arrow.svg";
+import { ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { useContext } from "react";
+import Button from "../components/button/Button";
 
 import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, ProfileIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, ThumbsUpIcon, WarningIcon } from "@hopper-ui/icons";
 
-import "./home/home.css";
 import "@hopper-ui/tokens/fonts.css";
+import "./home/home.css";
 
 export default function Home() {
+    const { colorMode } = useContext(ThemeContext);
+
+    const theme = colorMode;
+
     return (
         <div className="hd-wrapper">
             <main className="hd-home">
@@ -24,8 +31,8 @@ export default function Home() {
                     <p className="hd-home__copy">Sed condimentum, arcu sit amet tempus posuere, sapien ex vulputate risus, placerat convallis lectus ex.</p>
                 </div>
                 <div className="hd-home__ctas">
-                    <button type="button">Get Started</button>
-                    <button type="button">Github </button>
+                    <Button as="a" href="#a" className="hd-button hd-button-primary">Get Started</Button>
+                    <a href="https://github.com/gsoft-inc/wl-hopper" className="hd-button hd-button-secondary">Github </a>
                 </div>
                 <div className="hd-home__features">
                     <div className="hd-home__feature-item">
@@ -167,7 +174,12 @@ export default function Home() {
                                 <div className="hd-home-sample-components__fake-select"></div>
                             </div>
                             <div className="hd-home-sample-components__item">
-                                <div className="hd-home-sample-components__fake-buttons"></div>
+                                <HopperProvider colorScheme={theme}>
+                                    <div className="hd-home-sample-components__buttons">
+                                        <HopperButton>Confirm</HopperButton>
+                                        <HopperButton variant="secondary">I need help</HopperButton>
+                                    </div>
+                                </HopperProvider>
                             </div>
                             <div className="hd-home-sample-components__item">
                                 <div className="hd-home-sample-components__fake-radios"></div>
