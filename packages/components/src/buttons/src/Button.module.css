@@ -195,7 +195,9 @@
     --border: var(--hop-Button-primary-border-disabled);
 }
 
-.hop-Button--primary[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--primary[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--primary[data-focus-visible]:not([data-disabled], [data-loading])
+ {
     --background-color: var(--hop-Button-primary-background-color-hover);
     --color: var(--hop-Button-primary-color-hover);
     --border: var(--hop-Button-primary-border-hover);
@@ -220,7 +222,8 @@
     --border: var(--hop-Button-secondary-border-disabled);
 }
 
-.hop-Button--secondary[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--secondary[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--secondary[data-focus-visible]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-secondary-background-color-hover);
     --color: var(--hop-Button-secondary-color-hover);
     --border: var(--hop-Button-secondary-border-hover);
@@ -245,7 +248,8 @@
     --border: var(--hop-Button-upsell-border-disabled);
 }
 
-.hop-Button--upsell[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--upsell[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--upsell[data-focus-visible]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-upsell-background-color-hover);
     --color: var(--hop-Button-upsell-color-hover);
     --border: var(--hop-Button-upsell-border-hover);
@@ -270,7 +274,8 @@
     --border: var(--hop-Button-danger-border-disabled);
 }
 
-.hop-Button--danger[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--danger[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--danger[data-focus-visible]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-danger-background-color-hover);
     --color: var(--hop-Button-danger-color-hover);
     --border: var(--hop-Button-danger-border-hover);
@@ -295,7 +300,8 @@
     --border: var(--hop-Button-ghost-primary-border-disabled);
 }
 
-.hop-Button--ghost-primary[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--ghost-primary[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--ghost-primary[data-focus-visible]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-ghost-primary-background-color-hover);
     --color: var(--hop-Button-ghost-primary-color-hover);
     --border: var(--hop-Button-ghost-primary-border-hover);
@@ -320,7 +326,8 @@
     --border: var(--hop-Button-ghost-secondary-border-disabled);
 }
 
-.hop-Button--ghost-secondary[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--ghost-secondary[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--ghost-secondary[data-focus-visible]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-ghost-secondary-background-color-hover);
     --color: var(--hop-Button-ghost-secondary-color-hover);
     --border: var(--hop-Button-ghost-secondary-border-hover);
@@ -345,7 +352,8 @@
     --border: var(--hop-Button-ghost-danger-border-disabled);
 }
 
-.hop-Button--ghost-danger[data-hovered]:not([data-disabled], [data-loading]) {
+.hop-Button--ghost-danger[data-hovered]:not([data-disabled], [data-loading]),
+.hop-Button--ghost-danger[data-focus-visible]:not([data-disabled], [data-loading]) {
     --background-color: var(--hop-Button-ghost-danger-background-color-hover);
     --color: var(--hop-Button-ghost-danger-color-hover);
     --border: var(--hop-Button-ghost-danger-border-hover);

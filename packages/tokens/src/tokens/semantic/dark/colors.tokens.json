@@ -246,7 +246,7 @@
         },
         "text-strong-hover": {
             "$type": "color",
-            "$value": "{sapphire.300}"
+            "$value": "{samoyed}"
         },
         "text-hover": {
             "$type": "color",
