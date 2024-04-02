@@ -31,7 +31,7 @@ export function TypographyTableRow({ type, properties, size }: TypographyTableRo
 
     return (
         <tr className="hd-typo__row hd-top__row">
-            {size && <td className="hd-table__cell hd-typo__cell">{size}</td>}
+            {size && <td className="hd-table__cell hd-typo__cell hd-typo__cell-size">{size}</td>}
             <PropertiesCell properties={properties} />
             <td className="hd-table__cell hd-typo__cell">
                 <TypographyPreview
@@ -126,24 +126,13 @@ function PropertyRow({ tokenName, displayName, value, ...rest }: PropertyRowProp
 
     return (
         <tr {...rest} >
-            <td style={{
-                textWrap: "nowrap",
-                padding: "var(--hd-space-1)"
-            }}
-            >
+            <td className="hd-properties-table__cell">
                 {displayName}
             </td>
-            <td style={{
-                textWrap: "nowrap",
-                padding: "var(--hd-space-1)"
-            }}
-            >
+            <td className="hd-properties-table__cell">
                 <Code value={tokenName}>{tokenName}</Code>
             </td>
-            <td style={{
-                padding: "var(--hd-space-1)"
-            }}
-            >
+            <td className="hd-properties-table__token-value-cell">
                 {tokenValue}
             </td>
         </tr>

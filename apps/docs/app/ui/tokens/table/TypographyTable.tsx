@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-import "./table.css";
+import clsx from "clsx";
 import { groupItemsByProperties, groupItemsByPropertiesAndSizes, type Size, type TokenData } from "./getTypographyTokens";
 import { TypographyTableRow } from "./TypographyTableRow";
+
+import "./table.css";
 
 // maps the raw token list of a list filtered by property
 function transformDataToTokenData(inputData: Record<string, { name: string; value: string }[]>): TokenData {
@@ -32,10 +34,10 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
     const listItems = hasNoSizes ? generateSizelessRows(tokenData, type) : generateSizeRows(tokenData, type);
 
     return (
-        <table className="hd-table hd-typo-table" aria-label="Tokens">
+        <table className={clsx("hd-table hd-typo-table", hasNoSizes && "hd-typo-table--has-no-sizes")} aria-label="Tokens">
             <thead>
                 <tr>
-                    {!hasNoSizes && <th className="hd-table__column">Size</th>}
+                    {!hasNoSizes && <th className="hd-table__column hd-table__column--size">Size</th>}
                     <th className="hd-table__column">Values</th>
                     <th className="hd-table__column">Preview</th>
                 </tr>
