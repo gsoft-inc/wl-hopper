@@ -139,6 +139,19 @@ export const Fluid: Story = {
 };
 
 /**
+ * A button can contain only an icons.
+ */
+export const IconOnly: Story = {
+    ...Size,
+    args: {
+        "aria-label": "Add",
+        children: [
+            <PlusIcon key="1" />
+        ]
+    }
+};
+
+/**
  * A button can contain icons.
  */
 export const Icon: Story = {
