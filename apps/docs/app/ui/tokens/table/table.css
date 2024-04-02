@@ -59,7 +59,7 @@
 }
 
 /* OFFSET */
-.hd-typo-offset-cell {
+.hd-properties-table__tbody > .hd-typo-offset-cell td {
     border-top: var(--hd-border-size) dashed var(--hd-color-neutral-border);
 }
 
