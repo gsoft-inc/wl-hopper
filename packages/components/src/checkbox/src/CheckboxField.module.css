@@ -18,15 +18,12 @@
     /* Internal variable */
     --description-color: var(--hop-CheckboxField-description-color);
 
-    align-items: start;
+    align-items: flex-start;
     row-gap: var(--row-gap, var(--hop-space-stack-sm));
-    display: grid;
-    grid-template:
-    "checkbox" auto
-    "description" auto
-    / auto;
+    display: flex;
+    flex-direction: column;
     inline-size: max-content;
-    justify-content: start; 
+    justify-content: flex-start; 
     max-inline-size: 100%;
 }
 
@@ -52,10 +49,11 @@
 /* Description */
 .hop-CheckboxField__description {
     color: var(--description-color);
-    grid-area: description;
     margin-inline-start: var(--description-margin-inline-start, var(--hop-CheckboxField-description-md-margin-inline-start));
+    order: 2;
 }
 
 .hop-CheckboxField__checkbox {
     grid-area: checkbox;
+    order: 1;
 }

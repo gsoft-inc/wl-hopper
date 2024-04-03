@@ -76,7 +76,7 @@ export const Unchecked: Story = {
                 <Checkbox {...props} size="md" aria-label="Option 2" />
             </Inline>
             <Inline alignY="end">
-                <Checkbox size="sm" aria-label="Option 1" >
+                <Checkbox size="sm" aria-label="Option 1">
                     <EditIcon />
                 </Checkbox>
                 <Checkbox aria-label="Option 2">
@@ -84,10 +84,10 @@ export const Unchecked: Story = {
                 </Checkbox>
             </Inline>
             <Inline alignY="end">
-                <Checkbox {...props} size="sm">
+                <Checkbox {...props} size="sm" aria-label="Option 1">
                     <IconList><EditIcon /><EditIcon /><EditIcon /></IconList>
                 </Checkbox>
-                <Checkbox {...props} size="md">
+                <Checkbox {...props} size="md" aria-label="Option 2">
                     <IconList><EditIcon /><EditIcon /><EditIcon /></IconList>
                 </Checkbox>
             </Inline>
@@ -172,10 +172,10 @@ export const Unchecked: Story = {
                 </Stack>
             </Inline>
             <h1>Overflow</h1>
-            <Flex alignItems="end" maxWidth="core_1280">
+            <Flex alignItems="end" maxWidth="1/4">
                 <Checkbox {...props}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
             </Flex>
-            <Flex alignItems="end" maxWidth="core_1280">
+            <Flex alignItems="end" maxWidth="1/4">
                 <Checkbox {...props}>
                     <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                     <IconList>

@@ -56,7 +56,7 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (isTextOnlyChildren(prev)) {
+        if (prev && isTextOnlyChildren(prev)) {
             return <Text>{prev}</Text>;
         }
 

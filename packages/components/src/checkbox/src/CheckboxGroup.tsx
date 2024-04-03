@@ -5,7 +5,7 @@ import { useContextProps, CheckboxGroup as RACCheckboxGroup, type CheckboxGroupP
 import { cssModule } from "../../utils/src/cssModule.ts";
 import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
 import { LabelContext } from "../../Label/index.ts";
-import { CheckboxContext, CheckboxFieldContext } from "../../checkbox/index.ts";
+import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../../checkbox/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 
@@ -85,6 +85,9 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                     className: styles["hop-CheckboxGroup__checkbox"],
                     size: size,
                     isDisabled: isDisabled
+                }],
+                [CheckboxListContext, {
+                    className: styles["hop-CheckboxGroup__list"]
                 }],
                 [ErrorMessageContext, {
                     className: styles["hop-CheckboxGroup__error-message"]

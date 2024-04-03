@@ -78,10 +78,7 @@
     align-items: start;
     column-gap: var(--hop-space-inline-xs);
     cursor: var(--cursor);
-    display: grid;
-    grid-template:
-    "checkbox label icon" auto
-    / auto auto auto;
+    display: flex;
     inline-size: max-content;
     justify-content: start; 
     max-inline-size: 100%;
@@ -107,21 +104,6 @@
     --text-color: var(--hop-Checkbox-text-color-checked);
     --icon-color: var(--hop-Checkbox-icon-color-checked);
     --description-color: var(--hop-Checkbox-description-color-checked);
-}
-
-.hop-Checkbox[data-disabled] {
-    --box-background-color: var(--hop-Checkbox-box-background-color-disabled);
-    --box-border-color: var(--hop-Checkbox-box-border-color-disabled);
-    --check-color: var(--hop-Checkbox-check-color-disabled);
-    --cursor: not-allowed;
-    --text-color: var(--hop-Checkbox-text-color-disabled);
-    --icon-color: var(--hop-Checkbox-icon-color-disabled);
-    --description-color: var(--hop-Checkbox-description-color-disabled);
-}
-
-.hop-Checkbox[data-disabled][data-selected] {
-    --box-background-color: var(--hop-Checkbox-box-background-color-checked-disabled);
-    --box-border-color: var(--hop-Checkbox-box-border-color-checked-disabled);
 }
 
 .hop-Checkbox[data-focus-visible] {
@@ -162,6 +144,21 @@
     --box-border-color: var(--hop-Checkbox-box-border-color-checked-invalid);
 }
 
+.hop-Checkbox[data-disabled] {
+    --box-background-color: var(--hop-Checkbox-box-background-color-disabled);
+    --box-border-color: var(--hop-Checkbox-box-border-color-disabled);
+    --check-color: var(--hop-Checkbox-check-color-disabled);
+    --cursor: not-allowed;
+    --text-color: var(--hop-Checkbox-text-color-disabled);
+    --icon-color: var(--hop-Checkbox-icon-color-disabled);
+    --description-color: var(--hop-Checkbox-description-color-disabled);
+}
+
+.hop-Checkbox[data-disabled][data-selected] {
+    --box-background-color: var(--hop-Checkbox-box-background-color-checked-disabled);
+    --box-border-color: var(--hop-Checkbox-box-border-color-checked-disabled);
+}
+
 .hop-Checkbox--sm {
     --box-inline-size: var(--hop-Checkbox-box-sm-inline-size);
     --text-top-offset: var(--hop-Checkbox-text-sm-top-offset);
@@ -178,7 +175,8 @@
 .hop-Checkbox__icon,
 .hop-Checkbox__icon-list {
     color: var(--icon-color);
-    grid-area: icon;
+    flex: 0 0 auto;
+    order: 3;
 }
 
 /* Box */
@@ -189,9 +187,10 @@
     border: var(--hop-Checkbox-box-border-size) solid var(--box-border-color);
     border-radius: var(--box-border-radius);
     display: flex;
-    grid-area: checkbox;
+    flex: 0 0 auto;
     inline-size: var(--box-inline-size, var(--hop-Checkbox-box-md-inline-size));
     justify-content: center;
+    order: 1;
     outline: var(--box-outline, none);
     outline-offset: 0.125rem;
 }
@@ -204,9 +203,10 @@
 
 /* Text */
 .hop-Checkbox__text {
-    align-self: center;
     color: var(--text-color);
-    grid-area: label;
+    flex: 1 1 auto;
     margin-block-start: var(--text-top-offset, var(--hop-Checkbox-text-md-top-offset));
     margin-inline-start: var(--text-margin-inline-start, var(--hop-Checkbox-text-md-margin-inline-start));
+    min-inline-size: 0;
+    order: 2;
 }
