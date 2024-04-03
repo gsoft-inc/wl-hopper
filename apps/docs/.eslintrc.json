@@ -1,24 +1,26 @@
 {
-  "$schema": "https://json.schemastore.org/eslintrc",
-  "root": true,
-  "extends": [
-    "next",
-    "plugin:@workleap/web-application"
-  ],
-  "settings": {
-    "next": {
-        "rootDir": "apps/docs"
+    "$schema": "https://json.schemastore.org/eslintrc",
+    "root": true,
+    "extends": [
+        "next",
+        "plugin:@workleap/web-application"
+    ],
+    "settings": {
+        "next": {
+            "rootDir": "apps/docs"
+        }
+    },
+    "globals": {
+        "Card": true,
+        "Table": true,
+        "MotionPreview": true,
+        "Footnote": true,
+        "TypographyTable": true,
+        "TypographyVariantTable": true,
+        "Tabs": true,
+        "TableSection": true,
+        "Switcher": true,
+        "IconSpecTable": true,
+        "PreviewComponent": true
     }
-  },
-  "globals": {
-      "Card": true,
-      "Table": true,
-      "MotionPreview": true,
-      "TypographyTable": true,
-      "TypographyVariantTable": true,
-      "Tabs": true,
-      "TableSection": true,
-      "Switcher": true,
-      "IconSpecTable": true
-  }
 }

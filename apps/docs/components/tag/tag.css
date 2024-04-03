@@ -1,0 +1,20 @@
+:root {
+    --hd-tag-font-family: var(--hd-default-font-family);
+    --hd-tag-font-size: 0.875rem;
+    --hd-tag-line-height: 1.43;
+    --hd-tag-background-color: var(--hd-color-accent-surface);
+    --hd-tag-color: var(--hd-color-accent-text);
+    --hd-tag-padding-inline: var(--hd-space-1);
+    --hd-tag-border-radius: var(--hd-space-3);
+}
+
+.hd-tag {
+    display: inline-block;
+    font-family: var(--hd-tag-font-family);
+    font-size: var(--hd-tag-font-size);
+    line-height: var(--hd-tag-line-height);
+    color: var(--hd-tag-color);
+    background-color: var(--hd-tag-background-color);
+    padding-inline: var(--hd-tag-padding-inline);
+    border-radius: var(--hd-tag-border-radius);
+}

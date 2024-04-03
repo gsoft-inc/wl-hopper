@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/styled-system",
     "author": "Workleap",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "The styled-system package.",
     "license": "Apache-2.0",
     "repository": {
