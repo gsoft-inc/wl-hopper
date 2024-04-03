@@ -1,7 +1,10 @@
 .hop-Icon {
-    color: inherit;
-    fill: currentcolor;
-    display: inline-block;
     pointer-events: none;
+
+    display: inline-block;
     flex-shrink: 0;
+
+    color: inherit;
+
+    fill: currentcolor;
 }

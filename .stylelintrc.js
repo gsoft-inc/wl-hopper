@@ -13,10 +13,11 @@ const config = {
         {
             files: ["./packages/**/*.css"],
             plugins: ["stylelint-use-logical"],
-            extends: ["stylelint-config-clean-order"],
+            extends: [
+                "stylelint-config-clean-order" // This is a plugin that enforces a consistent order of CSS properties
+            ],
             rules: {
-                // 2024-03-14: This rules creates some warnings in the console that can be ignored for now,
-                // but will be fixed in the next version of stylelint: https://github.com/stylelint/stylelint/pull/7532
+                // We want to enforce the use of logical properties
                 "csstools/use-logical": true,
                 "selector-class-pattern": [
                     /** Selector that ensures our classNames have the pattern hop-ComponentName__element-name--modifier-name */
