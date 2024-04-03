@@ -812,12 +812,20 @@
         "value": "#c28b12"
       },
       {
+        "name": "hop-upsell-icon-weak-hover",
+        "value": "#e2a934"
+      },
+      {
+        "name": "hop-upsell-icon-weak-pressed",
+        "value": "#c28b12"
+      },
+      {
         "name": "hop-upsell-border",
         "value": "#e2a934"
       },
       {
         "name": "hop-upsell-surface-hover",
-        "value": "#eac96d"
+        "value": "#c28b12"
       },
       {
         "name": "hop-upsell-border-disabled",
@@ -832,20 +840,52 @@
         "value": "#4b390f"
       },
       {
+        "name": "hop-upsell-surface-weak-hover",
+        "value": "#654c0d"
+      },
+      {
+        "name": "hop-upsell-surface-weak-pressed",
+        "value": "#7e5e0a"
+      },
+      {
         "name": "hop-upsell-surface-disabled",
         "value": "#654c0d"
       },
       {
         "name": "hop-upsell-text",
-        "value": "#2f250d"
+        "value": "#7e5e0a"
+      },
+      {
+        "name": "hop-upsell-text-weak",
+        "value": "#eac96d"
+      },
+      {
+        "name": "hop-upsell-text-weak-hover",
+        "value": "#e2a934"
+      },
+      {
+        "name": "hop-upsell-text-weak-pressed",
+        "value": "#c28b12"
       },
       {
         "name": "hop-upsell-icon",
         "value": "#2f250d"
       },
       {
+        "name": "hop-upsell-icon-hover",
+        "value": "#654c0d"
+      },
+      {
+        "name": "hop-upsell-icon-pressed",
+        "value": "#4b390f"
+      },
+      {
         "name": "hop-upsell-text-hover",
         "value": "#654c0d"
+      },
+      {
+        "name": "hop-upsell-text-pressed",
+        "value": "#4b390f"
       },
       {
         "name": "hop-upsell-text-disabled",
@@ -858,6 +898,10 @@
       {
         "name": "hop-upsell-surface",
         "value": "#fff2b8"
+      },
+      {
+        "name": "hop-upsell-surface-pressed",
+        "value": "#996f08"
       },
       {
         "name": "hop-danger-border-active",
@@ -888,6 +932,10 @@
         "value": "#ff8e8e"
       },
       {
+        "name": "hop-danger-surface-pressed",
+        "value": "#fa4d59"
+      },
+      {
         "name": "hop-danger-surface-strong",
         "value": "#fa4d59"
       },
@@ -898,6 +946,14 @@
       {
         "name": "hop-danger-surface-weak",
         "value": "#431a17"
+      },
+      {
+        "name": "hop-danger-surface-weak-hover",
+        "value": "#952927"
+      },
+      {
+        "name": "hop-danger-surface-weak-pressed",
+        "value": "#ba2d2d"
       },
       {
         "name": "hop-danger-border-strong",
@@ -912,6 +968,14 @@
         "value": "#ffbcb7"
       },
       {
+        "name": "hop-danger-icon-weak-hover",
+        "value": "#ff8e8e"
+      },
+      {
+        "name": "hop-danger-icon-weak-pressed",
+        "value": "#fa4d59"
+      },
+      {
         "name": "hop-danger-text",
         "value": "#431a17"
       },
@@ -922,6 +986,14 @@
       {
         "name": "hop-danger-text-weak",
         "value": "#ffbcb7"
+      },
+      {
+        "name": "hop-danger-text-weak-hover",
+        "value": "#ff8e8e"
+      },
+      {
+        "name": "hop-danger-text-weak-pressed",
+        "value": "#fa4d59"
       },
       {
         "name": "hop-danger-text-strong",
@@ -940,8 +1012,16 @@
         "value": "#ff8e8e"
       },
       {
+        "name": "hop-danger-icon-pressed",
+        "value": "#fde6e5"
+      },
+      {
         "name": "hop-danger-text-disabled",
         "value": "#ba2d2d"
+      },
+      {
+        "name": "hop-danger-text-pressed",
+        "value": "#fde6e5"
       },
       {
         "name": "hop-danger-icon-disabled",
@@ -988,6 +1068,10 @@
         "value": "#6c8ffd"
       },
       {
+        "name": "hop-primary-icon-pressed",
+        "value": "#4767fe"
+      },
+      {
         "name": "hop-primary-icon-disabled",
         "value": "#2040c7"
       },
@@ -1000,6 +1084,10 @@
         "value": "#152450"
       },
       {
+        "name": "hop-primary-surface-pressed",
+        "value": "#3b57ff"
+      },
+      {
         "name": "hop-primary-text-disabled",
         "value": "#2040c7"
       },
@@ -1010,6 +1098,14 @@
       {
         "name": "hop-primary-surface-weak",
         "value": "#1b3587"
+      },
+      {
+        "name": "hop-primary-surface-weak-hover",
+        "value": "#2040c7"
+      },
+      {
+        "name": "hop-primary-surface-weak-pressed",
+        "value": "#2a43e8"
       },
       {
         "name": "hop-primary-surface-strong",
@@ -1028,8 +1124,12 @@
         "value": "#95b1ff"
       },
       {
+        "name": "hop-primary-text-pressed",
+        "value": "#4767fe"
+      },
+      {
         "name": "hop-primary-surface-hover",
-        "value": "#95b1ff"
+        "value": "#4767fe"
       },
       {
         "name": "hop-primary-text-strong",
@@ -1420,6 +1520,14 @@
         "value": "#b3b3b1"
       },
       {
+        "name": "hop-neutral-text-weak-hover",
+        "value": "#e0dfdd"
+      },
+      {
+        "name": "hop-neutral-text-weak-pressed",
+        "value": "#ecebe8"
+      },
+      {
         "name": "hop-neutral-surface-disabled",
         "value": "#505050"
       },
@@ -1434,6 +1542,10 @@
       {
         "name": "hop-neutral-surface",
         "value": "#1d1d1c"
+      },
+      {
+        "name": "hop-neutral-surface-pressed",
+        "value": "#505050"
       },
       {
         "name": "hop-neutral-text-disabled",
@@ -1488,6 +1600,14 @@
         "value": "#b3b3b1"
       },
       {
+        "name": "hop-neutral-icon-weak-hover",
+        "value": "#e0dfdd"
+      },
+      {
+        "name": "hop-neutral-icon-weak-pressed",
+        "value": "#ecebe8"
+      },
+      {
         "name": "hop-neutral-border",
         "value": "#6c6c6b"
       },
@@ -1508,6 +1628,10 @@
         "value": "#ecebe8"
       },
       {
+        "name": "hop-neutral-icon-pressed",
+        "value": "#fef6ef"
+      },
+      {
         "name": "hop-neutral-icon-active",
         "value": "#292929"
       },
@@ -1522,6 +1646,10 @@
       {
         "name": "hop-neutral-surface-weak-hover",
         "value": "#505050"
+      },
+      {
+        "name": "hop-neutral-surface-weak-pressed",
+        "value": "#636362"
       },
       {
         "name": "hop-neutral-surface-weak-active",
