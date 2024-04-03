@@ -1,8 +1,8 @@
 .hop-IconList  {
     --hop-IconList-gap: var(--hop-space-inline-xs);
 
-    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     gap: var(--hop-IconList-gap);
+    box-sizing: border-box;
 }
