@@ -411,27 +411,9 @@ a.hd-home-sample__item:hover::after {
 }
 
 /* Components - Fake */
-.hd-home-sample-components__fake-avatar {
-    background-color: olive;
-    width: 137px;
-    height: 32px;
-}
-
-.hd-home-sample-components__fake-select {
-    border: 1px solid olive;
-    width: 100%;
-    height: 40px;
-}
-
 .hd-home-sample-components__buttons {
     display: flex;
     gap: var(--hd-space-2);
-}
-
-.hd-home-sample-components__fake-radios {
-    border: 1px solid olive;
-    height: 48px;
-    width: 99px;
 }
 
 /* Upcoming */

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button as HopperButton, HopperProvider } from "@hopper-ui/components";
+import Image from "next/image";
 import AccessibleIcon from "./home/assets/accessible.svg";
 import InternationalIcon from "./home/assets/international.svg";
 import TypescriptIcon from "./home/assets/typescript.svg";
@@ -174,10 +175,10 @@ export default function Home() {
                         <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                         <div className="hd-home-sample-components">
                             <div className="hd-home-sample-components__item">
-                                <div className="hd-home-sample-components__fake-avatar"></div>
+                                <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-avatar-group-${theme}.png`} width="137" height="32" alt="Avatar Group component preview" />
                             </div>
                             <div className="hd-home-sample-components__item">
-                                <div className="hd-home-sample-components__fake-select"></div>
+                                <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-select-field-${theme}.png`} width="220" height="40" alt="Select Fielg component preview" />
                             </div>
                             <div className="hd-home-sample-components__item">
                                 <HopperProvider colorScheme={theme}>
@@ -188,7 +189,7 @@ export default function Home() {
                                 </HopperProvider>
                             </div>
                             <div className="hd-home-sample-components__item">
-                                <div className="hd-home-sample-components__fake-radios"></div>
+                                <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-radio-group-${theme}.png`} width="99" height="48" alt="Radio Group Component preview" />
                             </div>
                         </div>
                     </div>
