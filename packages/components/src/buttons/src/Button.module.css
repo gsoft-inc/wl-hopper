@@ -3,10 +3,7 @@
     --hop-Button-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
 
     /* Sizes */
-    --hop-Button-icon-only-sm-padding-x: var(--hop-space-inset-xs);
-    --hop-Button-icon-only-sm-padding-y: 0;
-    --hop-Button-icon-only-md-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-icon-only-md-padding-y: 0;
+    --hop-Button-icon-only-padding: 0;
     --hop-Button-sm-height: 2rem;
     --hop-Button-md-height: 2.5rem;
 
@@ -180,19 +177,18 @@
     overflow: hidden;
 }
 
+/** Focus Ring */
+.hop-Button[data-focus-visible] {
+    outline: 0.125rem solid var(--hop-Button-focus-ring-color);
+}
+
+/** Modifier */
 .hop-Button--icon-only {
     column-gap: 0;
     aspect-ratio: 1;
-}
 
-.hop-Button--icon-only.hop-Button--sm {
-    --padding-block: var(--hop-Button-icon-only-sm-padding-y);
-    --padding-inline: var(--hop-Button-icon-only-sm-padding-x);
-}
-
-.hop-Button--icon-only.hop-Button--md {
-    --padding-block: var(--hop-Button-icon-only-md-padding-y);
-    --padding-inline: var(--hop-Button-icon-only-md-padding-x);
+    --padding-block: var(--hop-Button-icon-only-padding);
+    --padding-inline: var(--hop-Button-icon-only-padding);
 }
 
 .hop-Button[data-disabled],
@@ -200,30 +196,91 @@
     cursor: not-allowed;
 }
 
-.hop-Button[data-focus-visible] {
-    outline: 0.125rem solid var(--hop-Button-focus-ring-color);
-}
-
 .hop-Button--fluid {
     --inline-size: 100%;
 }
 
+/** Sizes */
 .hop-Button--sm {
     --block-size: var(--hop-Button-sm-height);
 }
 
+.hop-Button--primary.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-primary-sm-padding-x);
+    --padding-block: var(--hop-Button-primary-sm-padding-y);
+}
+
+.hop-Button--primary.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-primary-md-padding-x);
+    --padding-block: var(--hop-Button-primary-md-padding-y);
+}
+
+.hop-Button--secondary.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-secondary-md-padding-x);
+    --padding-block: var(--hop-Button-secondary-md-padding-y);
+}
+
+.hop-Button--secondary.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-secondary-sm-padding-x);
+    --padding-block: var(--hop-Button-secondary-sm-padding-y);
+}
+
+.hop-Button--upsell.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-upsell-md-padding-x);
+    --padding-block: var(--hop-Button-upsell-md-padding-y);
+}
+
+.hop-Button--upsell.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-upsell-sm-padding-x);
+    --padding-block: var(--hop-Button-upsell-sm-padding-y);
+}
+
+.hop-Button--danger.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-danger-md-padding-x);
+    --padding-block: var(--hop-Button-danger-md-padding-y);
+}
+
+.hop-Button--danger.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-danger-sm-padding-x);
+    --padding-block: var(--hop-Button-danger-sm-padding-y);
+}
+
+.hop-Button--ghost-danger.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-ghost-danger-md-padding-x);
+    --padding-block: var(--hop-Button-ghost-danger-md-padding-y);
+}
+
+.hop-Button--ghost-danger.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-ghost-danger-sm-padding-x);
+    --padding-block: var(--hop-Button-ghost-danger-sm-padding-y);
+}
+
+.hop-Button--ghost-secondary.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-ghost-secondary-md-padding-x);
+    --padding-block: var(--hop-Button-ghost-secondary-md-padding-y);
+}
+
+.hop-Button--ghost-secondary.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-ghost-secondary-sm-padding-x);
+    --padding-block: var(--hop-Button-ghost-secondary-sm-padding-y);
+}
+
+.hop-Button--ghost-primary.hop-Button--md:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-ghost-primary-md-padding-x);
+    --padding-block: var(--hop-Button-ghost-primary-md-padding-y);
+}
+
+.hop-Button--ghost-primary.hop-Button--sm:not(.hop-Button--icon-only) {
+    --padding-inline: var(--hop-Button-ghost-primary-sm-padding-x);
+    --padding-block: var(--hop-Button-ghost-primary-sm-padding-y);
+}
+
+/** Variants */
 .hop-Button--primary {
     --background-color: var(--hop-Button-primary-background-color);
     --color: var(--hop-Button-primary-color);
     --border: var(--hop-Button-primary-border);
     --spinner-color: var(--hop-Button-primary-spinner-color);
-    --padding-inline: var(--hop-Button-primary-md-padding-x);
-    --padding-block: var(--hop-Button-primary-md-padding-y);
-}
-
-.hop-Button--primary.hop-Button--sm {
-    --padding-inline: var(--hop-Button-primary-sm-padding-x);
-    --padding-block: var(--hop-Button-primary-sm-padding-y);
 }
 
 .hop-Button--primary[data-disabled]:not([data-loading]) {
@@ -251,13 +308,6 @@
     --color: var(--hop-Button-secondary-color);
     --border: var(--hop-Button-secondary-border);
     --spinner-color: var(--hop-Button-secondary-spinner-color);
-    --padding-inline: var(--hop-Button-secondary-md-padding-x);
-    --padding-block: var(--hop-Button-secondary-md-padding-y);
-}
-
-.hop-Button--secondary.hop-Button--sm {
-    --padding-inline: var(--hop-Button-secondary-sm-padding-x);
-    --padding-block: var(--hop-Button-secondary-sm-padding-y);
 }
 
 .hop-Button--secondary[data-disabled]:not([data-loading]) {
@@ -284,13 +334,6 @@
     --color: var(--hop-Button-upsell-color);
     --border: var(--hop-Button-upsell-border);
     --spinner-color: var(--hop-Button-upsell-spinner-color);
-    --padding-inline: var(--hop-Button-upsell-md-padding-x);
-    --padding-block: var(--hop-Button-upsell-md-padding-y);
-}
-
-.hop-Button--upsell.hop-Button--sm {
-    --padding-inline: var(--hop-Button-upsell-sm-padding-x);
-    --padding-block: var(--hop-Button-upsell-sm-padding-y);
 }
 
 .hop-Button--upsell[data-disabled]:not([data-loading]) {
@@ -317,13 +360,6 @@
     --color: var(--hop-Button-danger-color);
     --border: var(--hop-Button-danger-border);
     --spinner-color: var(--hop-Button-danger-spinner-color);
-    --padding-inline: var(--hop-Button-danger-md-padding-x);
-    --padding-block: var(--hop-Button-danger-md-padding-y);
-}
-
-.hop-Button--danger.hop-Button--sm {
-    --padding-inline: var(--hop-Button-danger-sm-padding-x);
-    --padding-block: var(--hop-Button-danger-sm-padding-y);
 }
 
 .hop-Button--danger[data-disabled]:not([data-loading]) {
@@ -350,13 +386,6 @@
     --color: var(--hop-Button-ghost-primary-color);
     --border: var(--hop-Button-ghost-primary-border);
     --spinner-color: var(--hop-Button-ghost-primary-spinner-color);
-    --padding-inline: var(--hop-Button-ghost-primary-md-padding-x);
-    --padding-block: var(--hop-Button-ghost-primary-md-padding-y);
-}
-
-.hop-Button--ghost-primary.hop-Button--sm {
-    --padding-inline: var(--hop-Button-ghost-primary-sm-padding-x);
-    --padding-block: var(--hop-Button-ghost-primary-sm-padding-y);
 }
 
 .hop-Button--ghost-primary[data-disabled]:not([data-loading]) {
@@ -383,14 +412,8 @@
     --color: var(--hop-Button-ghost-secondary-color);
     --border: var(--hop-Button-ghost-secondary-border);
     --spinner-color: var(--hop-Button-ghost-secondary-spinner-color);
-    --padding-inline: var(--hop-Button-ghost-secondary-md-padding-x);
-    --padding-block: var(--hop-Button-ghost-secondary-md-padding-y);
 }
 
-.hop-Button--ghost-secondary.hop-Button--sm {
-    --padding-inline: var(--hop-Button-ghost-secondary-sm-padding-x);
-    --padding-block: var(--hop-Button-ghost-secondary-sm-padding-y);
-}
 
 .hop-Button--ghost-secondary[data-disabled]:not([data-loading]) {
     --background-color: var(--hop-Button-ghost-secondary-background-color-disabled);
@@ -416,13 +439,6 @@
     --color: var(--hop-Button-ghost-danger-color);
     --border: var(--hop-Button-ghost-danger-border);
     --spinner-color: var(--hop-Button-ghost-danger-spinner-color);
-    --padding-inline: var(--hop-Button-ghost-danger-md-padding-x);
-    --padding-block: var(--hop-Button-ghost-danger-md-padding-y);
-}
-
-.hop-Button--ghost-danger.hop-Button--sm {
-    --padding-inline: var(--hop-Button-ghost-danger-sm-padding-x);
-    --padding-block: var(--hop-Button-ghost-danger-sm-padding-y);
 }
 
 .hop-Button--ghost-danger[data-disabled]:not([data-loading]) {
@@ -444,6 +460,7 @@
     --border: var(--hop-Button-ghost-danger-border-pressed);
 }
 
+/** Elements */
 .hop-Button__Spinner {
     position: absolute;
     justify-self: center;
