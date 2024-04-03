@@ -13,6 +13,7 @@ const config = {
         {
             files: ["./packages/**/*.css"],
             plugins: ["stylelint-use-logical"],
+            extends: ["stylelint-config-clean-order"],
             rules: {
                 // 2024-03-14: This rules creates some warnings in the console that can be ignored for now,
                 // but will be fixed in the next version of stylelint: https://github.com/stylelint/stylelint/pull/7532
