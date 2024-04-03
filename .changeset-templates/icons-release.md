@@ -13,15 +13,15 @@ Modified the following icons:
 
 **Added**
 
-| Icon Name                             |
+| Icon Name                            |
 | ------------------------------------ |
 | AddIcon                              |
 | ApplaudIcon                          |
 
 **Updated**
 
-| Icon Name                             | Changes   |
-| ------------------------------------ | --------- |
-| AddIcon                           | Remove the extra fill="none" property   |
-| ApplaudIcon                           | Reworked the icon    |
-| PlusIcon                           | Removed hardcoded color   |
+| Icon Name                            | Changes                                 |
+| ------------------------------------ | --------------------------------------- |
+| AddIcon                              | Remove the extra fill="none" property   |
+| ApplaudIcon                          | Reworked the icon                       |
+| PlusIcon                             | Removed hardcoded color                 |
