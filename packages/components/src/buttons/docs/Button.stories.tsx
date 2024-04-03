@@ -202,38 +202,6 @@ export const Loading: Story = {
 };
 
 /**
- * A button can contain an IconList.
- */
-export const IconListStory: Story = {
-    name: "IconList",
-    ...Size,
-    args: {
-        children: [
-            <Text key="1">Save</Text>,
-            <IconList key="2">
-                <PlusIcon /><PlusIcon /><PlusIcon />
-            </IconList>
-        ]
-    }
-};
-
-/**
- * A button can contain a Non standard end IconList.
- */
-export const EndIconList: Story = {
-    name: "EndIconList",
-    ...Size,
-    args: {
-        children: [
-            <IconList key="1" slot="end-icon">
-                <PlusIcon /><PlusIcon /><PlusIcon />
-            </IconList>,
-            <Text key="2">Save</Text>
-        ]
-    }
-};
-
-/**
  * A button can be rendered as a link by using the href property.
  */
 export const AsLink: Story = {
