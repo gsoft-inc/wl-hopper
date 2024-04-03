@@ -8,10 +8,12 @@ import DarkModeIcon from "./home/assets/dark-mode.svg";
 import FontSizeIcon from "./home/assets/font-size.svg";
 import LineHeightIcon from "./home/assets/line-height.svg";
 import MarginIcon from "./home/assets/margin.svg";
+import ArrowIcon from "./home/assets/arrow.svg";
 import SelectArrowIcon from "./home/assets/select-arrow.svg";
-import { ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import { useContext } from "react";
 import Button from "../components/button/Button";
+import { ExternalLinkIcon, Icon } from "@/components/icon";
 
 import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, ProfileIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, ThumbsUpIcon, WarningIcon } from "@hopper-ui/icons";
 
@@ -21,7 +23,7 @@ import "./home/home.css";
 export default function Home() {
     const { colorMode } = useContext(ThemeContext);
 
-    const theme = colorMode;
+    const theme = colorMode as ColorScheme;
 
     return (
         <div className="hd-wrapper">
@@ -31,8 +33,8 @@ export default function Home() {
                     <p className="hd-home__copy">Sed condimentum, arcu sit amet tempus posuere, sapien ex vulputate risus, placerat convallis lectus ex.</p>
                 </div>
                 <div className="hd-home__ctas">
-                    <Button as="a" href="#a" className="hd-button hd-button-primary">Get Started</Button>
-                    <a href="https://github.com/gsoft-inc/wl-hopper" className="hd-button hd-button-secondary">Github </a>
+                    <Button as="a" href="/components">Get Started</Button>
+                    <Button as="a" href="https://github.com/gsoft-inc/wl-hopper" variant="secondary" target="_blank">Github <Icon src={ExternalLinkIcon} slot="end-icon" /></Button>
                 </div>
                 <div className="hd-home__features">
                     <div className="hd-home__feature-item">
@@ -64,8 +66,8 @@ export default function Home() {
                     <div className="hd-home-samples__col">
                         <div className="hd-home-samples__row">
                             <div className="hd-home-samples__col">
-                                <div className="hd-home-sample__item hd-home-sample__item-colors">
-                                    <h3 className="hd-home-sample__title">Colors</h3>
+                                <a className="hd-home-sample__item hd-home-sample__item-colors" href="/tokens/semantic/color">
+                                    <h3 className="hd-home-sample__title">Colors <ArrowIcon className="hd-home-sample__title-icon"/></h3>
                                     <div className="hd-home-sample__colors">
                                         <div className="hd-home-sample__colors-row">
                                             <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
@@ -80,9 +82,9 @@ export default function Home() {
                                             <span className="hd-home-sample__color hd-home-sample__color-sapphire-500"></span>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="hd-home-sample__item hd-home-sample__item-sizes">
-                                    <h3 className="hd-home-sample__title">Sizes</h3>
+                                </a>
+                                <a className="hd-home-sample__item hd-home-sample__item-sizes" href="/tokens/semantic/space">
+                                    <h3 className="hd-home-sample__title">Sizes <ArrowIcon className="hd-home-sample__title-icon"/></h3>
                                     <div className="hd-home-sample__sizes">
                                         <div className="hd-home-sample__size hd-home-sample__size-16">
                                             <span className="hd-home-sample__size-text">16</span>
@@ -101,11 +103,11 @@ export default function Home() {
                                             <div className="hd-home-sample__size-bar"></div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div className="hd-home-samples__col">
-                                <div className="hd-home-sample__item hd-home-sample__item-text-styles">
-                                    <h3 className="hd-home-sample__title">Text Styles</h3>
+                                <a className="hd-home-sample__item hd-home-sample__item-text-styles" href="/tokens/semantic/typography">
+                                    <h3 className="hd-home-sample__title">Text Styles <ArrowIcon className="hd-home-sample__title-icon"/></h3>
                                     <div className="hd-home-sample__text-styles">
                                         <div className="hd-home-sample__text-styles-col">
                                             <span className="hd-home-sample__text">A<span className="hd-home-sample__text-lowercase">a</span></span>
@@ -129,11 +131,11 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
-                        <div className="hd-home-sample__item hd-home-sample__item-icons">
-                            <h3 className="hd-home-sample__title">Icons</h3>
+                        <a className="hd-home-sample__item hd-home-sample__item-icons" href="/icons/getting-started/introduction">
+                            <h3 className="hd-home-sample__title">Icons <ArrowIcon className="hd-home-sample__title-icon"/></h3>
                             <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             <HopperProvider colorScheme="light">
                                 <div className="hd-home-sample__icons">
@@ -161,10 +163,14 @@ export default function Home() {
                                     </div>
                                 </div>
                             </HopperProvider>
-                        </div>
+                        </a>
                     </div>
                     <div className="hd-home-sample__item hd-home-sample__item-components">
-                        <h3 className="hd-home-sample__title">Components</h3>
+                        <div className="hd-home-sample__item-upcoming"></div>
+                        <div className="hd-home-sample__title-wrap">
+                            <h3 className="hd-home-sample__title">Components</h3>
+                            <span className="hd-tag-accent">upcoming</span>
+                        </div>
                         <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                         <div className="hd-home-sample-components">
                             <div className="hd-home-sample-components__item">
