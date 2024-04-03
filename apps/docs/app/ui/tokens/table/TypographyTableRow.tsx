@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import TypographyPreview from "../preview/TypographyPreview";
 import Code from "@/components/code/Code";
-import type { FontProperties, Size } from "./getTypographyTokens";
+import type { FontProperties, Size } from "@/app/lib/getTypographyTokens";
 import "./table.css";
 
 interface TypographyTableRowProps {

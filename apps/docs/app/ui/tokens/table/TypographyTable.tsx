@@ -2,7 +2,7 @@
 
 import React from "react";
 import clsx from "clsx";
-import { groupItemsByProperties, groupItemsByPropertiesAndSizes, type Size, type TokenData } from "./getTypographyTokens";
+import { groupItemsByProperties, groupItemsByPropertiesAndSizes, type Size, type TokenData } from "@/app/lib/getTypographyTokens";
 import { TypographyTableRow } from "./TypographyTableRow";
 
 import "./table.css";
