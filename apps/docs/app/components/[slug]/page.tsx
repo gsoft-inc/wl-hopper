@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { allComponents } from "contentlayer/generated";
-import { getComponentDetails } from "@/utils/getComponentDetails.ts";
+import Heading from "@/app/ui/components/heading/Heading.tsx";
+import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 
 interface PageProps {
     params: {
@@ -9,7 +9,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-    return allComponents.map(({ slug }) => ({
+    const componentsDetails = await getComponentDetails();
+
+    return componentsDetails.map(({ slug }) => ({
         slug
     }));
 }
@@ -21,55 +23,32 @@ export default async function ComponentPage({ params }: PageProps) {
         notFound();
     }
 
-    const { content, frontmatter: { title, status, description } } = component;
+    const { content, frontmatter: { title, status, description, links } } = component;
+    const componentLinks = links && [
+        {
+            name: "github",
+            src: links.source,
+            label: "View source"
+        },
+        {
+            name: "npm",
+            src: links.npm,
+            label: "View on npm"
+        },
+        {
+            name: "issue",
+            src: links.issue,
+            label: "Report an issue"
+        }
+    ];
 
     return (
         <div className="hd-container">
             <main>
-                <h1>{title}</h1><span>{status}</span>
-                <p>{description}</p>
-                {content}
+                <Heading title={title} tag={status} description={description} links={componentLinks} />
 
-                {/*the sections below are simply for zoning purposes, they will be replaced by real content*/}
-                <section>
-                    <h2>Preview</h2>
-                    <p>
-                        code here
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Usage</h2>
-                    <p>Alerts are used to communicate a state that affects the entire system, not just a single
-                        component. They are used to communicate a state that affects the entire system, not just a
-                        single component. They are used to communicate a state that affects the entire system, not just
-                        a single component. They are used to communicate a state that affects the entire system, not
-                        just a single component.</p>
-                </section>
-
-                <section>
-                    <h2>Anatomy</h2>
-                </section>
-
-                <section>
-                    <h2>API</h2>
-                </section>
-
-                <section>
-                    <h2>Examples</h2>
-                </section>
-
-                <section>
-                    <h2>Accessibility</h2>
-                </section>
-
-                <section>
-                    <h2>Related</h2>
-                </section>
-
-                <div>
-                    <button type="submit">Preview</button>
-                    <button type="submit">Next</button>
+                <div className="hd-content">
+                    {content}
                 </div>
             </main>
         </div>

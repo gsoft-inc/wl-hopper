@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Title from "@/components/ui/title/Title";
+import Title from "@/components/title/Title";
 
 export default function PlaygroundPage() {
     return (

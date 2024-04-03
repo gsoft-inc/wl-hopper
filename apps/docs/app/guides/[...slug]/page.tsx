@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { allGuides } from "contentlayer/generated";
 
-import Aside from "@/components/ui/aside/Aside.tsx";
-import Mdx from "@/components/ui/mdx/Mdx";
-import getSectionLinks from "@/utils/getSectionLinks.ts";
+import Aside from "@/app/ui/layout/aside/Aside.tsx";
+import Mdx from "@/components/mdx/Mdx.tsx";
+import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 
 interface PageProps {
     params: {
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 }
 
 export default function GuidePage({ params }: PageProps) {
-    const [ section, type ] = params.slug;
+    const [section, type] = params.slug;
     const guides = allGuides.find(icon => icon.slug === type && icon.section === section);
 
     if (!guides) {
@@ -31,7 +31,7 @@ export default function GuidePage({ params }: PageProps) {
         <div className="hd-container">
             <Aside title="On this page" links={sectionLinks} />
             <main>
-                <article key={guides._id}>
+                <article className="hd-content" key={guides._id}>
                     <Mdx code={guides.body.code} />
                 </article>
             </main>

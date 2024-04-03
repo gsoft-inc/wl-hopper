@@ -1,25 +1,36 @@
 {
-  "$schema": "https://json.schemastore.org/eslintrc",
-  "root": true,
-  "extends": [
-    "next",
-    "plugin:@workleap/web-application"
-  ],
-  "settings": {
-    "next": {
-        "rootDir": "apps/docs"
-    }
-  },
-  "globals": {
-      "Card": true,
-      "Table": true,
-      "MotionPreview": true,
-      "Footnote": true,
-      "TypographyTable": true,
-      "TypographyVariantTable": true,
-      "Tabs": true,
-      "TableSection": true,
-      "Switcher": true,
-      "IconSpecTable": true
-  }
+    "$schema": "https://json.schemastore.org/eslintrc",
+    "root": true,
+    "extends": [
+        "next",
+        "plugin:@workleap/web-application"
+    ],
+    "settings": {
+        "next": {
+            "rootDir": "apps/docs"
+        }
+    },
+    "globals": {
+        "Card": true,
+        "Table": true,
+        "MotionPreview": true,
+        "Footnote": true,
+        "TypographyTable": true,
+        "TypographyVariantTable": true,
+        "Tabs": true,
+        "TableSection": true,
+        "Switcher": true,
+        "IconSpecTable": true,
+        "PreviewComponent": true
+    },
+    "overrides": [
+        {
+            "files": ["*.{js,jsx,ts,tsx}"],
+            "rules": {
+                "no-console": ["warn", { "allow": ["warn", "error"] }],
+                "react/destructuring-assignment": "off",
+                "no-param-reassign": "off"
+            }
+        }
+    ]
 }

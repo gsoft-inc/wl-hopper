@@ -14,24 +14,24 @@ export function useRenderProps<T>(props: RenderPropsHookOptions<T>) {
         defaultChildren,
         values
     } = props;
-  
+
     return useMemo(() => {
         let computedClassName: string | undefined;
         let computedStyle: CSSProperties | undefined;
         let computedChildren: ReactNode | undefined;
-  
+
         if (typeof className === "function") {
             computedClassName = className(values);
         } else {
             computedClassName = className;
         }
-  
+
         if (typeof style === "function") {
             computedStyle = style(values);
         } else {
             computedStyle = style;
         }
-        
+
         if (typeof children === "function") {
             computedChildren = children(values);
         } else if (children == null) {
@@ -39,7 +39,7 @@ export function useRenderProps<T>(props: RenderPropsHookOptions<T>) {
         } else {
             computedChildren = children;
         }
-  
+
         return {
             className: computedClassName ?? defaultClassName,
             style: computedStyle,

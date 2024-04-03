@@ -1,0 +1,14 @@
+.hd-link {
+    font-family: var(--hd-title-font-family);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--hd-space-05);
+}
+
+.hd-link:hover {
+    text-decoration: underline;
+}
+
+.hd-link--underline {
+    text-decoration: underline;
+}
