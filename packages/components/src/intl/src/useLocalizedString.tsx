@@ -8,6 +8,13 @@ const Resources = {
     "fr-CA": resourcesFrCa
 };
 
+/**
+ * This hook is used to get the localized string formatter.
+ * It uses the resources from the component package.
+ *
+ * This does not support complex string formatting at the moment. We would need to make sur @internationalized/string-formatter
+ * is running in our build to support that.
+ */
 export function useLocalizedString(): LocalizedStringFormatter {
     return useLocalizedStringFormatter(Resources, "@hopper-ui/components");
 }

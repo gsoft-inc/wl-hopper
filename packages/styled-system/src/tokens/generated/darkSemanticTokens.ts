@@ -63,7 +63,7 @@ export const DarkSemanticTokens = {
     "--hop-primary-text": "var(--hop-sapphire-200)",
     "--hop-primary-surface-hover": "var(--hop-sapphire-200)",
     "--hop-primary-text-strong": "var(--hop-samoyed)",
-    "--hop-primary-text-strong-hover": "var(--hop-sapphire-300)",
+    "--hop-primary-text-strong-hover": "var(--hop-samoyed)",
     "--hop-primary-text-hover": "var(--hop-sapphire-300)",
     "--hop-primary-surface-active": "var(--hop-sapphire-800)",
     "--hop-decorative-option9-border": "var(--hop-rock-400)",

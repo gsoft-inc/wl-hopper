@@ -83,3 +83,16 @@ export const AdvancedCustomization: Story = {
         </SlotProvider>
     )
 };
+
+/**
+ * The Text component can be nested within other Text components and inherit the parent's size by default.
+ */
+export const Nested: Story = {
+    args: {
+        size: "lg",
+        children: [
+            <Text key="1" color="primary">Nested</Text>,
+            " Text"
+        ]
+    }
+};

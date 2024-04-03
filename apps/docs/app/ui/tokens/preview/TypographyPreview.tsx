@@ -11,6 +11,8 @@ interface TypographyValues {
     fontWeight?: string;
     fontSize?: string;
     fontFamily?: string;
+    topOffset?: string;
+    bottomOffset?: string;
 }
 
 const TypographyPreview = ({ values, style }: TypographyPreviewProps) => {
