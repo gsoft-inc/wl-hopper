@@ -1,4 +1,3 @@
-import type { Preview } from "@storybook/react";
 import { withHopperProvider, viewport } from "@hopper-ui/storybook-addon";
 import {
     Description,
@@ -6,6 +5,7 @@ import {
     Subtitle,
     Title
 } from "@storybook/blocks";
+import type { Preview } from "@storybook/react";
 
 import "./stories.css";
 import "@hopper-ui/tokens/fonts.css";

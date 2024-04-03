@@ -1,11 +1,14 @@
 import { useStyledSystem, type ResponsiveProp, useResponsiveValue, type StyledSystemProps } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { ProgressBar, useContextProps } from "react-aria-components";
+
+import { Label, type LabelProps } from "../../Label/src/Label.tsx";
 import { composeClassnameRenderProps, cssModule, type SizeAdapter } from "../../utils/index.ts";
 import type { BaseComponentProps } from "../../utils/src/types.ts";
-import styles from "./Spinner.module.css";
+
 import { SpinnerContext } from "./SpinnerContext.ts";
-import { Label, type LabelProps } from "../../Label/src/Label.tsx";
+
+import styles from "./Spinner.module.css";
 
 export const GlobalSpinnerCssSelector = "hop-Spinner";
 

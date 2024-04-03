@@ -1,10 +1,14 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
-import clsx from "clsx";
-import styles from "./Label.module.css";
+
+
 import { cssModule } from "../../utils/src/cssModule.ts";
+
 import { LabelContext } from "./LabelContext.ts";
+
+import styles from "./Label.module.css";
 
 export const GlobalLabelCssSelector = "hop-Label";
 

@@ -1,7 +1,8 @@
 import { Div, type DivProps } from "@hopper-ui/styled-system";
-import { Inline } from "../../src/Inline.tsx";
-import { Flex } from "../../src/Flex.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Flex } from "../../src/Flex.tsx";
+import { Inline } from "../../src/Inline.tsx";
 
 const meta = {
     title: "Components/Flex/Row",

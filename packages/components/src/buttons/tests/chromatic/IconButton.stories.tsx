@@ -1,9 +1,10 @@
-import { Button, type ButtonProps } from "../../src/Button.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Inline, Stack } from "../../../layout/index.ts";
 import { AddIcon } from "@hopper-ui/icons";
+import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
+
+import { Inline, Stack } from "../../../layout/index.ts";
 import { ButtonContext } from "../../index.ts";
+import { Button, type ButtonProps } from "../../src/Button.tsx";
 
 const meta = {
     title: "Components/Buttons/Button/Icon Only",
@@ -66,7 +67,6 @@ export const GhostPrimary: Story = {
         variant: "ghost-primary"
     }
 };
-
 
 export const GhostSecondary: Story = {
     ...Primary,

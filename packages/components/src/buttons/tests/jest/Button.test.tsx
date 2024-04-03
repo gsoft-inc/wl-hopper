@@ -1,10 +1,12 @@
 import { act, screen, waitFor, render, fireEvent } from "@hopper-ui/test-utils";
+import { userEvent } from "@testing-library/user-event";
+import { createRef, type PropsWithChildren } from "react";
+import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-dom";
+
+import { HopperProvider } from "../../../HopperProvider/index.ts";
 import { Button } from "../../src/Button.tsx";
 import { ButtonContext } from "../../src/ButtonContext.ts";
-import { createRef, type PropsWithChildren } from "react";
-import { userEvent } from "@testing-library/user-event";
-import { HopperProvider } from "../../../HopperProvider/index.ts";
-import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-dom";
+
 
 function WithReactRouterProvider({ children }: PropsWithChildren) {
     const navigate = useNavigate();

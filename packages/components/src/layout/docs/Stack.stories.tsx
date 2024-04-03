@@ -1,7 +1,9 @@
 import { Div } from "@hopper-ui/styled-system";
-import { Stack } from "../src/Stack.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import type { DivProps } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Stack } from "../src/Stack.tsx";
+
 
 /**
  * The Stack pattern is a layout primitive that can be used to stack elements in the vertical direction and apply a space between them.

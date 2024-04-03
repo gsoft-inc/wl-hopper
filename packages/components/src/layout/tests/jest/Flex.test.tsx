@@ -1,6 +1,7 @@
-import { Flex, type FlexProps } from "../../src/Flex.tsx";
-import { createRef, forwardRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef, forwardRef } from "react";
+
+import { Flex, type FlexProps } from "../../src/Flex.tsx";
 
 const TestId = "TestId";
 

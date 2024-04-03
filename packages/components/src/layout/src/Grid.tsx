@@ -117,7 +117,6 @@ export function repeat(count: number | "auto-fill" | "auto-fit", repetition: UNS
     return `repeat(${count}, ${Array.isArray(repetition) ? interpolateGridTemplateArray(repetition) : getSizingValue(repetition)})` as CssGrid;
 }
 
-
 /**
  * Defines a size range greater than or equal to min and less than or equal to max.
  * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax).

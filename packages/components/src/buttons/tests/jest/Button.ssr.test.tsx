@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Button } from "../../src/Button.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Button } from "../../src/Button.tsx";
 
 describe("Button", () => {
     it("should render on the server", () => {

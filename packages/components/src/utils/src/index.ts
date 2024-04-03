@@ -6,3 +6,4 @@ export * from "./isTextOnlyChildren.ts";
 export * from "./SlotProvider.ts";
 export * from "./useSlot.ts";
 export * from "./ClearSlots.tsx";
+export * from "./useRenderProps.ts";

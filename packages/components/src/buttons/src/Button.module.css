@@ -415,7 +415,6 @@
     --spinner-color: var(--hop-Button-ghost-secondary-spinner-color);
 }
 
-
 .hop-Button--ghost-secondary[data-disabled]:not([data-loading]) {
     --background-color: var(--hop-Button-ghost-secondary-background-color-disabled);
     --color: var(--hop-Button-ghost-secondary-color-disabled);

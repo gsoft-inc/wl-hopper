@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
 import type { DOMProps as SharedDOMProps, AriaLabelingProps } from "@react-types/shared";
+import type { CSSProperties, ReactNode } from "react";
 import type { SlotProps } from "react-aria-components";
 
 /**

@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Spinner } from "../../src/Spinner.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Spinner } from "../../src/Spinner.tsx";
 
 describe("Spinner", () => {
     it("should render on the server", () => {

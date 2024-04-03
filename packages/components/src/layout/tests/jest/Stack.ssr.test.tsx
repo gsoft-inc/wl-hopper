@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Stack } from "../../src/Stack.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Stack } from "../../src/Stack.tsx";
 
 describe("Stack", () => {
     it("should render on the server", () => {
