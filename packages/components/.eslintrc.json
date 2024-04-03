@@ -5,6 +5,27 @@
     "rules": {
         "no-console": ["warn", { "allow": ["warn", "error"] }],
         "react/destructuring-assignment": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+
+        "import/order": ["error", {
+            "newlines-between": "always",
+            "groups": [
+                ["builtin", "external"], //external components / types included
+                "parent", // local components
+                ["sibling", "index"]
+            ],
+            "pathGroups": [
+                {
+                    "pattern": "./*.module.css", // CSS comes in a group after the last group
+                    "group": "object",
+                    "position": "after"
+                }
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "alphabetize": {
+                "order": "asc",
+                "caseInsensitive": true
+            }
+        }]
     }
 }
