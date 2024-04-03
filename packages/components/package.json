@@ -45,6 +45,7 @@
     },
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
+        "@react-aria/utils": "^3.23.2",
         "clsx": "^2.1.0"
     },
     "devDependencies": {
@@ -66,6 +67,7 @@
         "identity-obj-proxy": "3.0.0",
         "jest": "29.7.0",
         "jest-environment-jsdom": "29.7.0",
+        "jest-fetch-mock": "3.0.3",
         "react": "18.2.0",
         "react-aria": "3.32.1",
         "react-aria-components": "1.1.1",

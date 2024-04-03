@@ -22,5 +22,15 @@
         "Switcher": true,
         "IconSpecTable": true,
         "PreviewComponent": true
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.{js,jsx,ts,tsx}"],
+            "rules": {
+                "no-console": ["warn", { "allow": ["warn", "error"] }],
+                "react/destructuring-assignment": "off",
+                "no-param-reassign": "off"
+            }
+        }
+    ]
 }
