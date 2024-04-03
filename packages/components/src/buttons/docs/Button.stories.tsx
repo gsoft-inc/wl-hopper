@@ -3,7 +3,6 @@ import { Button } from "../src/Button.tsx";
 import { ButtonContext } from "../src/ButtonContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "@hopper-ui/icons";
-import { IconList } from "../../IconList/index.ts";
 import { SlotProvider } from "../../utils/index.ts";
 import { Inline, Stack } from "../../layout/index.ts";
 import { HopperProvider } from "../../index.ts";
