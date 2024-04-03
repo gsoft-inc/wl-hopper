@@ -22,6 +22,6 @@ Modified the following icons:
 
 | Icon Name                            | Changes                                 |
 | ------------------------------------ | --------------------------------------- |
-| AddIcon                              | Remove the extra fill="none" property   |
+| AddIcon                              | Removed the extra fill="none" property  |
 | ApplaudIcon                          | Reworked the icon                       |
 | PlusIcon                             | Removed hardcoded color                 |
