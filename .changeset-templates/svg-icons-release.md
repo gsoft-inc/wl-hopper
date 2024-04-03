@@ -1,3 +1,9 @@
+---
+"@hopper-ui/svg-icons": X
+---
+
+Modified the following SVG icons:
+
 **BREAKING: Removed**
 
 | SVG Name                             |

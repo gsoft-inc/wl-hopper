@@ -1,7 +1,7 @@
 .hop-ButtonGroup {
     display: inline-flex;
-    gap: var(--hop-space-inline-md);
     flex-wrap: nowrap;
+    gap: var(--hop-space-inline-md);
 }
 
 .hop-ButtonGroup--horizontal {

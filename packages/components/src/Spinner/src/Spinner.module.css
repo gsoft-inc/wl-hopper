@@ -28,11 +28,12 @@
     /* Label */
     --hop-Spinner-label-margin-inline-start: var(--hop-space-inline-sm);
 
-    box-sizing: border-box;
     display: grid;
     grid-template-areas: "spinner label";
     grid-template-columns: min-content auto;
     align-items: center;
+
+    box-sizing: border-box;
 }
 
 .hop-Spinner--sm {
@@ -51,23 +52,28 @@
 }
 
 .hop-Spinner__track {
+    grid-area: spinner;
+
     box-sizing: border-box;
     inline-size: var(--width, --hop-Spinner-md-wheel-size);
     block-size: var(--height, --hop-Spinner-md-wheel-size);
-    border-radius: var(--hop-Spinner-border-radius);
-    border: var(--hop-Spinner-track-border);
+
     opacity: var(--hop-Spinner-track-opacity);
-    grid-area: spinner;
+    border: var(--hop-Spinner-track-border);
+    border-radius: var(--hop-Spinner-border-radius);
 }
 
 .hop-Spinner__fill {
+    grid-area: spinner;
+
     box-sizing: border-box;
     inline-size: var(--width, --hop-Spinner-md-wheel-size);
     block-size: var(--height, --hop-Spinner-md-wheel-size);
-    border-radius: var(--hop-Spinner-border-radius);
+
     border: var( --hop-Spinner-fill-border);
     border-inline-start: var(--hop-Spinner-fill-border-inline-start);
-    grid-area: spinner;
+    border-radius: var(--hop-Spinner-border-radius);
+
     animation: var(--hop-Spinner-fill-animation);
 }
 
