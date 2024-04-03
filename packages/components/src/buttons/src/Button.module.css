@@ -3,7 +3,7 @@
     --hop-Button-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
 
     /* Sizes */
-    --hop-Button-icon-only-padding: 0;
+    --hop-Button-icon-only-padding: 0; /* Since the content is centered, no need for padding */
     --hop-Button-sm-height: 2rem;
     --hop-Button-md-height: 2.5rem;
 

@@ -38,10 +38,10 @@
     justify-content: flex-end;
 }
 
-.hop-ButtonGroup--wrap{
+.hop-ButtonGroup--wrap {
     flex-wrap: wrap;
 }
 
-.hop-ButtonGroup--fluid{
+.hop-ButtonGroup--fluid {
     inline-size: 100%;
 }
