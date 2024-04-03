@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "@hopper-ui/icons";
 import { SlotProvider } from "../../utils/index.ts";
 import { Inline, Stack } from "../../layout/index.ts";
-import { HopperProvider } from "../../index.ts";
+import { HopperProvider } from "../../HopperProvider/index.ts";
 import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
 /**

@@ -6,5 +6,58 @@
         "no-console": ["warn", { "allow": ["warn", "error"] }],
         "react/destructuring-assignment": "off",
         "no-param-reassign": "off"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["src/**/src/*"],
+            "rules": {
+                "no-restricted-imports": ["error", {
+                    "patterns": [
+                        {
+                            "group": ["../**/src/*"],
+                            "message": "Please import from the nearest index.ts file instead. ../../Text/src/Text.tsx -> ../../Text/index.ts"
+                        },
+                        {
+                            "group": ["../../index.ts", "../index.ts", "../../../index.", "./index"],
+                            "message": "Avoid importing from index.ts files directly next or above the current file"
+                        }
+                    ]
+                }]
+            }
+        },
+        {
+            "files": ["src/**/tests/*"],
+            "rules": {
+                "no-restricted-imports": ["error", {
+                    "patterns": [
+                        {
+                            "group": ["../../../**/src/*"],
+                            "message": "Please import from the nearest index.ts file instead. example: ../../utils/src/file.tsx -> ../../utils/index.ts"
+                        },
+                        {
+                            "group": ["../../index.ts", "../index.ts", "../../../index.", "./index"],
+                            "message": "avoid importing from index.ts files directly next or above the current file"
+                        }
+                    ]
+                }]
+            }
+        },
+        {
+            "files": ["src/**/docs/*"],
+            "rules": {
+                "no-restricted-imports": ["error", {
+                    "patterns": [
+                        {
+                            "group": ["../../**/src/*"],
+                            "message": "Please import from the nearest index.ts file instead. example: ../../utils/src/file.tsx -> ../../utils/index.ts"
+                        },
+                        {
+                            "group": ["../../index.ts", "../index.ts", "../../../index.", "./index"],
+                            "message": "avoid importing from index.ts files directly next or above the current file"
+                        }
+                    ]
+                }]
+            }
+        }
+    ]
 }
