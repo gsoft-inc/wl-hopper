@@ -1,7 +1,9 @@
 import type { Globals, Property } from "csstype";
+
 import type { Breakpoint } from "../responsive/Breakpoints.ts";
 import { type ResponsiveProp, parseResponsiveValue } from "../responsive/useResponsiveValue.tsx";
 import { isNil, isObject } from "../utils/assertion.ts";
+
 import {
     BackgroundColors,
     CoreSpace,

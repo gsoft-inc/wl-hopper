@@ -1,6 +1,8 @@
-import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { useIsSSR } from "@react-aria/ssr";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
+
 import { supportsMatchMedia } from "../utils/useMediaQuery.ts";
+
 import { BreakpointContext } from "./BreakpointContext.tsx";
 import { Breakpoints, type Breakpoint } from "./Breakpoints.ts";
 

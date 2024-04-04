@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
 import { Stack, SlotProvider } from "@hopper-ui/components";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
 import { IconContext } from "../src/IconContext.ts";
 
 /**

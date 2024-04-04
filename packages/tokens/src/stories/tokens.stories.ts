@@ -1,8 +1,9 @@
+import { hopperParameters, a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { List, type Style, type TokenType } from "./components/List.tsx";
 import darkTokens from "./datas/tokens-dark.json";
 import tokens from "./datas/tokens.json";
-import { hopperParameters, a11yParameters } from "@hopper-ui/storybook-addon";
 
 const meta = {
     title: "Tokens/Colors",

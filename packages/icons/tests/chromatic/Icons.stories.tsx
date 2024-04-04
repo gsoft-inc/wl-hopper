@@ -1,6 +1,7 @@
-import * as IconLibrary from "../../src/index.ts";
 import { LI, UL } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import * as IconLibrary from "../../src/index.ts";
 
 type ListProps = IconLibrary.CreatedIconProps;
 

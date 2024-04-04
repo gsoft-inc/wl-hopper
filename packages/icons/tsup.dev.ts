@@ -1,5 +1,6 @@
 import { createCssModuleEsbuildPlugin } from "@hopper-ui/tsup-css-module-plugin";
 import { defineDevConfig } from "@workleap/tsup-configs";
+
 import packageJson from "./package.json";
 
 export default defineDevConfig({

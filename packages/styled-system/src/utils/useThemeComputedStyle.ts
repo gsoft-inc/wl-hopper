@@ -1,4 +1,5 @@
 import type { RefObject } from "react";
+
 import { isNil } from "../utils/assertion.ts";
 
 /**

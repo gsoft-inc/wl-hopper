@@ -5,27 +5,7 @@
     "rules": {
         "no-console": ["warn", { "allow": ["warn", "error"] }],
         "react/destructuring-assignment": "off",
-        "no-param-reassign": "off",
-        "import/order": ["error", {
-            "newlines-between": "always",
-            "groups": [
-                ["builtin", "external"],
-                "parent",
-                ["sibling", "index"]
-            ],
-            "pathGroups": [
-                {
-                    "pattern": "./*.module.css", // CSS comes in a group after the last group
-                    "group": "object",
-                    "position": "after"
-                }
-            ],
-            "pathGroupsExcludedImportTypes": ["builtin"],
-            "alphabetize": {
-                "order": "asc",
-                "caseInsensitive": true
-            }
-        }]
+        "no-param-reassign": "off"
     },
     "overrides": [
         {
@@ -38,7 +18,7 @@
                             "message": "Please import from the nearest index.ts file instead. ../../Text/src/Text.tsx -> ../../Text/index.ts"
                         },
                         {
-                            "group": ["../../index.ts", "../index.ts", "../../../index.", "./index"],
+                            "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
                             "message": "Avoid importing from index.ts files directly next or above the current file"
                         }
                     ]
@@ -55,8 +35,8 @@
                             "message": "Please import from the nearest index.ts file instead. example: ../../utils/src/file.tsx -> ../../utils/index.ts"
                         },
                         {
-                            "group": ["../../index.ts", "../index.ts", "../../../index.", "./index"],
-                            "message": "avoid importing from index.ts files directly next or above the current file"
+                            "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
+                            "message": "Avoid importing from index.ts files directly next or above the current file"
                         }
                     ]
                 }]
@@ -72,8 +52,8 @@
                             "message": "Please import from the nearest index.ts file instead. example: ../../utils/src/file.tsx -> ../../utils/index.ts"
                         },
                         {
-                            "group": ["../../index.ts", "../index.ts", "../../../index.", "./index"],
-                            "message": "avoid importing from index.ts files directly next or above the current file"
+                            "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
+                            "message": "Avoid importing from index.ts files directly next or above the current file"
                         }
                     ]
                 }]

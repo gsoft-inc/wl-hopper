@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { optimize } from "svgo";
+
 import config from "./svgoConfig.ts";
 
 export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
