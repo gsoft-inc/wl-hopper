@@ -1,9 +1,10 @@
+import { Div } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Stack } from "../../layout/index.ts";
+import { SlotProvider } from "../../utils/index.ts";
 import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Stack } from "../../layout/index.ts";
-import { Div } from "@hopper-ui/styled-system";
-import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * A primitive text component matching Hopper's typography type scale.

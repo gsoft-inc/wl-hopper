@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { HopperProvider } from "../../../HopperProvider/index.ts";
 import { renderToString } from "react-dom/server";
+
+import { HopperProvider } from "../../../HopperProvider/index.ts";
 
 describe("HopperProvider", () => {
     it("should render on the server", () => {

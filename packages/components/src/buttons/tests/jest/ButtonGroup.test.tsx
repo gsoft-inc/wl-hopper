@@ -1,6 +1,7 @@
 import { screen, render } from "@hopper-ui/test-utils";
-import { Button } from "../../src/Button.tsx";
 import { createRef, forwardRef } from "react";
+
+import { Button } from "../../src/Button.tsx";
 import { ButtonGroup, type ButtonGroupProps } from "../../src/ButtonGroup.tsx";
 import { ButtonGroupContext } from "../../src/ButtonGroupContext.ts";
 
@@ -16,7 +17,6 @@ const ExampleButtonGroup = forwardRef<HTMLDivElement, Omit<ButtonGroupProps, "ch
         </ButtonGroup>
     );
 });
-
 
 describe("ButtonGroup", () => {
     it("should render with default class", () => {

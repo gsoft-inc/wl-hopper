@@ -1,9 +1,10 @@
 /**
  * @jest-environment node
  */
-import { IconList } from "../../src/IconList.tsx";
-import { renderToString } from "react-dom/server";
 import { AddIcon, PlusIcon } from "@hopper-ui/icons";
+import { renderToString } from "react-dom/server";
+
+import { IconList } from "../../src/IconList.tsx";
 
 describe("IconList", () => {
     it("should render on the server", () => {

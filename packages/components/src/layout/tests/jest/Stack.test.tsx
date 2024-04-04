@@ -1,6 +1,7 @@
-import { Stack, type StackProps } from "../../src/Stack.tsx";
-import { createRef, forwardRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef, forwardRef } from "react";
+
+import { Stack, type StackProps } from "../../src/Stack.tsx";
 
 const TestId = "TestId";
 

@@ -1,7 +1,8 @@
 import { Div, type DivProps } from "@hopper-ui/styled-system";
-import { Inline } from "../../src/Inline.tsx";
-import { Flex } from "../../src/Flex.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Flex } from "../../src/Flex.tsx";
+import { Inline } from "../../src/Inline.tsx";
 
 function Square(props: DivProps) {
     return <Div backgroundColor="decorative-option1" height="core_640" width="core_640" {...props} />;
@@ -26,7 +27,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 };
-
 
 export const Gap: Story = {
     args:{
@@ -91,7 +91,6 @@ export const JustifyContentEnd: Story = {
         width: "100%"
     }
 };
-
 
 export const JustifyContentSpaceBetween: Story = {
     ...JustifyContentStart,

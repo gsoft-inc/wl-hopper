@@ -1,12 +1,15 @@
-import { useContextProps } from "react-aria-components";
-import styles from "./IconList.module.css";
-import { IconListContext } from "./IconListContext.ts";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
-import type { BaseComponentProps } from "../../utils/index.ts";
-import clsx from "clsx";
-import { useStyledSystem, type StyledSystemProps, type ResponsiveProp } from "@hopper-ui/styled-system";
 import { IconContext } from "@hopper-ui/icons";
+import { useStyledSystem, type StyledSystemProps, type ResponsiveProp } from "@hopper-ui/styled-system";
+import clsx from "clsx";
+import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { useContextProps } from "react-aria-components";
+
+import type { BaseComponentProps } from "../../utils/index.ts";
 import { SlotProvider } from "../../utils/index.ts";
+
+import { IconListContext } from "./IconListContext.ts";
+
+import styles from "./IconList.module.css";
 
 export const GlobalIconListCssSelector = "hop-IconList";
 

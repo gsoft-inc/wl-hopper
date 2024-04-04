@@ -1,4 +1,5 @@
 import { useMemo, type CSSProperties, type ReactNode } from "react";
+
 import type { RenderPropsHookOptions } from "./types.ts";
 
 /**

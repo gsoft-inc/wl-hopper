@@ -1,4 +1,5 @@
 import { forwardRef, type Ref } from "react";
+
 import { Flex, type FlexProps } from "./Flex.tsx";
 
 export interface InlineProps extends Omit<FlexProps, "direction" | "alignItems" | "justifyContent"> {

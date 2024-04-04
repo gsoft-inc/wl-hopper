@@ -1,6 +1,7 @@
-import { Spinner } from "../../src/Spinner.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { Inline, Stack } from "../../../layout/index.ts";
+import { Spinner } from "../../src/Spinner.tsx";
 
 const meta = {
     component: Spinner,

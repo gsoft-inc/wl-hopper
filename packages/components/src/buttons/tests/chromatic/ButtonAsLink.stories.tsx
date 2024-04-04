@@ -1,5 +1,7 @@
-import { Button } from "../../src/Button.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "../../src/Button.tsx";
+
 import { Primary as PrimaryButtonStory, PrimaryStates as PrimaryStatesButtonStory } from "./Button.stories.tsx";
 
 const meta = {

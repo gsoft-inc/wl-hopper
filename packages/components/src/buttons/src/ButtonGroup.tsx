@@ -1,13 +1,16 @@
-import { forwardRef, type ForwardedRef, type HTMLAttributes, type CSSProperties } from "react";
-import { ButtonContext } from "./ButtonContext.ts";
-import type { Orientation } from "react-aria";
 import { useStyledSystem, type StyledComponentProps, useResponsiveValue, type ResponsiveProp } from "@hopper-ui/styled-system";
-import { useContextProps } from "react-aria-components";
-import { ButtonGroupContext } from "./ButtonGroupContext.ts";
-import { SlotProvider, cssModule } from "../../utils/index.ts";
-import styles from "./ButtonGroup.module.css";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
+import { forwardRef, type ForwardedRef, type HTMLAttributes, type CSSProperties } from "react";
+import type { Orientation } from "react-aria";
+import { useContextProps } from "react-aria-components";
+
+import { SlotProvider, cssModule } from "../../utils/index.ts";
+
+import { ButtonContext } from "./ButtonContext.ts";
+import { ButtonGroupContext } from "./ButtonGroupContext.ts";
+
+import styles from "./ButtonGroup.module.css";
 
 export interface ButtonGroupProps extends StyledComponentProps<HTMLAttributes<HTMLDivElement>> {
     /**

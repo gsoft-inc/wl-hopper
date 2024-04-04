@@ -1,6 +1,7 @@
-import { Grid, type GridProps } from "../../src/Grid.tsx";
-import { createRef, forwardRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef, forwardRef } from "react";
+
+import { Grid, type GridProps } from "../../src/Grid.tsx";
 
 const TestId = "TestId";
 
