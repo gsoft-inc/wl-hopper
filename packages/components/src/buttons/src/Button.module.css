@@ -152,30 +152,36 @@
 
     /** styles */
     cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
     display: grid;
     grid-template-areas:"start-icon content end-icon";
     grid-template-columns: auto min-content auto;
     column-gap: var(--hop-space-inline-xs);
+    align-items: center;
+
     box-sizing: border-box;
-    position: relative;
+    inline-size: var(--inline-size);
+    block-size: var(--block-size);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    color: var(--color);
+    text-decoration: none;
+    white-space: nowrap;
+
+    background-color: var(--background-color);
+    border: var(--border);
     border-radius: var(--hop-Button-border-radius);
     outline: none;
     outline-offset: 0.125rem;
+
     transition:
         color var(--hop-easing-duration-2) var(--hop-easing-productive),
         background-color var(--hop-easing-duration-2) var(--hop-easing-productive),
         border var(--hop-easing-duration-2) var(--hop-easing-productive);
-    inline-size: var(--inline-size);
-    block-size: var(--block-size);
-    background-color: var(--background-color);
-    padding-block: var(--padding-block);
-    padding-inline: var(--padding-inline);
-    color: var(--color);
-    border: var(--border);
-    align-items: center;
-    text-decoration: none;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 /** Focus Ring */
@@ -185,11 +191,11 @@
 
 /** Modifier */
 .hop-Button--icon-only {
-    column-gap: 0;
-    aspect-ratio: 1;
-
     --padding-block: var(--hop-Button-icon-only-padding);
     --padding-inline: var(--hop-Button-icon-only-padding);
+
+    column-gap: 0;
+    aspect-ratio: 1;
 }
 
 .hop-Button[data-disabled],
@@ -474,11 +480,13 @@
 }
 
 .hop-Button__text {
-    grid-area: content;
-    font-weight: var(--hop-font-weight-505);
-    overflow: visible;
-    text-wrap: nowrap;
     user-select: none;
+
+    overflow: visible;
+    grid-area: content;
+
+    font-weight: var(--hop-font-weight-505);
+    text-wrap: nowrap;
 }
 
 .hop-Button--ghost-primary[data-hovered]:not([data-loading]) .hop-Button__text,

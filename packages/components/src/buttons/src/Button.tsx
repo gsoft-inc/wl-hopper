@@ -8,13 +8,8 @@ import { useContextProps, composeRenderProps, type ButtonProps as RACButtonProps
 import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { TextContext } from "../../Text/index.ts";
-import { Text } from "../../Text/src/Text.tsx";
-import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
-import { cssModule } from "../../utils/src/cssModule.ts";
-import { useSlot } from "../../utils/src/index.ts";
-import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
-import { useRenderProps } from "../../utils/src/useRenderProps.ts";
+import { TextContext, Text } from "../../Text/index.ts";
+import { composeClassnameRenderProps, SlotProvider, cssModule, useSlot, isTextOnlyChildren, useRenderProps } from "../../utils/index.ts";
 
 import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
 

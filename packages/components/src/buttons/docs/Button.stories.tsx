@@ -2,7 +2,7 @@ import { PlusIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
-import { HopperProvider } from "../../index.ts";
+import { HopperProvider } from "../../HopperProvider/index.ts";
 import { Inline, Stack } from "../../layout/index.ts";
 import { Text } from "../../Text/index.ts";
 import { SlotProvider } from "../../utils/index.ts";

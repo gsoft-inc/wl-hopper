@@ -3,9 +3,7 @@ import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 
-import { SlotProvider } from "../../index.ts";
-import { ClearContainerSlots } from "../../utils/src/ClearSlots.tsx";
-import { cssModule } from "../../utils/src/cssModule.ts";
+import { cssModule, SlotProvider, ClearContainerSlots } from "../../utils/index.ts";
 
 import { TextContext } from "./TextContext.ts";
 

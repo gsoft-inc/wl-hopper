@@ -2,9 +2,8 @@ import { useStyledSystem, type ResponsiveProp, useResponsiveValue, type StyledSy
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { ProgressBar, useContextProps } from "react-aria-components";
 
-import { Label, type LabelProps } from "../../Label/src/Label.tsx";
-import { composeClassnameRenderProps, cssModule, type SizeAdapter } from "../../utils/index.ts";
-import type { BaseComponentProps } from "../../utils/src/types.ts";
+import { Label, type LabelProps } from "../../Label/index.ts";
+import { composeClassnameRenderProps, cssModule, type SizeAdapter, type BaseComponentProps } from "../../utils/index.ts";
 
 import { SpinnerContext } from "./SpinnerContext.ts";
 

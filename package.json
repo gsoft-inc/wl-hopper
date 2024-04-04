@@ -75,6 +75,7 @@
         "react-router-dom": "6.22.3",
         "storybook": "8.0.2",
         "stylelint": "16.3.1",
+        "stylelint-config-clean-order": "5.4.2",
         "stylelint-use-logical": "2.1.2",
         "ts-jest": "29.1.2",
         "ts-node": "10.9.2",
