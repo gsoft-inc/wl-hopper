@@ -110,12 +110,9 @@ importers:
       stylelint:
         specifier: 16.3.1
         version: 16.3.1(typescript@5.4.2)
-<<<<<<< HEAD
       stylelint-config-clean-order:
         specifier: 5.4.2
         version: 5.4.2(stylelint@16.3.1)
-=======
->>>>>>> main
       stylelint-use-logical:
         specifier: 2.1.2
         version: 2.1.2(stylelint@16.3.1)
@@ -19086,7 +19083,6 @@ packages:
       client-only: 0.0.1
       react: 18.2.0
 
-<<<<<<< HEAD
   /stylelint-config-clean-order@5.4.2(stylelint@16.3.1):
     resolution: {integrity: sha512-lhPnDUL1gQbZYqG9kQx5dfEfiD/EpyVbb6jOiR7YfKzkIVv7Rw4jSKzvxr4v5PZqmRyCSzM3goc93jqfF+OZbA==}
     peerDependencies:
@@ -19096,8 +19092,6 @@ packages:
       stylelint-order: 6.0.4(stylelint@16.3.1)
     dev: true
 
-=======
->>>>>>> main
   /stylelint-config-recommended@14.0.0(stylelint@16.3.1):
     resolution: {integrity: sha512-jSkx290CglS8StmrLp2TxAppIajzIBZKYm3IxT89Kg6fGlxbPiTiyH9PS5YUuVAFwaJLl1ikiXX0QWjI0jmgZQ==}
     engines: {node: '>=18.12.0'}
@@ -19117,7 +19111,6 @@ packages:
       stylelint-config-recommended: 14.0.0(stylelint@16.3.1)
     dev: true
 
-<<<<<<< HEAD
   /stylelint-order@6.0.4(stylelint@16.3.1):
     resolution: {integrity: sha512-0UuKo4+s1hgQ/uAxlYU4h0o0HS4NiQDud0NAUNI0aa8FJdmYHA5ZZTFHiV5FpmE3071e9pZx5j0QpVJW5zOCUA==}
     peerDependencies:
@@ -19128,8 +19121,6 @@ packages:
       stylelint: 16.3.1(typescript@5.4.2)
     dev: true
 
-=======
->>>>>>> main
   /stylelint-prettier@5.0.0(prettier@3.2.5)(stylelint@16.3.1):
     resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
     engines: {node: '>=18.12.0'}
