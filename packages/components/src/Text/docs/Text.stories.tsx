@@ -1,7 +1,7 @@
 import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Stack } from "../../layout/src/Stack.tsx";
+import { Stack } from "../../layout/index.ts";
 import { Div } from "@hopper-ui/styled-system";
 import { SlotProvider } from "../../utils/index.ts";
 

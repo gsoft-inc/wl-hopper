@@ -1,7 +1,7 @@
 import { IconList } from "../src/IconList.tsx";
 import { AddIcon, PlusIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Stack } from "../../layout/src/Stack.tsx";
+import { Stack } from "../../layout/index.ts";
 import { IconListContext } from "../src/IconListContext.ts";
 import { SlotProvider } from "../../utils/index.ts";
 

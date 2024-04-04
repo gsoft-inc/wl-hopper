@@ -4,17 +4,12 @@ import { useContextProps, composeRenderProps, type ButtonProps as RACButtonProps
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
 import styles from "./Button.module.css";
 import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
-import { cssModule } from "../../utils/src/cssModule.ts";
-import { Text } from "../../Text/src/Text.tsx";
-import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
+import { cssModule, composeClassnameRenderProps, SlotProvider, isTextOnlyChildren, useRenderProps, useSlot } from "../../utils/index.ts";
+import { Text, TextContext } from "../../Text/index.ts";
 import { IconContext } from "@hopper-ui/icons";
 import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
-import { TextContext } from "../../Text/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
-import { useRenderProps } from "../../utils/src/useRenderProps.ts";
-import { useSlot } from "../../utils/src/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 
 export const GlobalButtonCssSelector = "hop-Button";

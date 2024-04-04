@@ -3,10 +3,8 @@ import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 import clsx from "clsx";
 import styles from "./Text.module.css";
-import { cssModule } from "../../utils/src/cssModule.ts";
+import { cssModule, SlotProvider, ClearContainerSlots } from "../../utils/index.ts";
 import { TextContext } from "./TextContext.ts";
-import { ClearContainerSlots } from "../../utils/src/ClearSlots.tsx";
-import { SlotProvider } from "../../index.ts";
 
 export const GlobalTextCssSelector = "hop-Text";
 
