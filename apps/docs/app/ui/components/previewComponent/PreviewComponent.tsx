@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Tabs from "@/components/tabs/Tabs.tsx";
 import ComponentWrapper from "@/app/ui/components/previewComponent/ComponentWrapper.tsx";
-import { CodeBlock } from "@/app/ui/components/codeBlock/CodeBlock.tsx";
+import CodeWrapper from "@/app/ui/components/previewComponent/CodeWrapper.tsx";
 import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleton.tsx";
 
 import "./previewComponent.css";
@@ -30,7 +30,7 @@ const PreviewComponent = async ({ filePath }: PreviewComponentProps) => {
                 />
 
                 <Suspense fallback={<PreviewSkeleton />}>
-                    <CodeBlock filePath={filePath} />
+                    <CodeWrapper filePath={filePath} />
                 </Suspense>
 
                 {/*<PlaygroundWrapper key="playground" />*/}
