@@ -1,5 +1,17 @@
 # @hopper-ui/tokens
 
+## 3.5.0
+
+### Minor Changes
+
+- c6004a4: #### Changed
+
+  **Semantic dark**
+
+  | Token                           | Value   | Status |
+  | ------------------------------- | ------- | ------ |
+  | --hop-primary-text-strong-hover | samoyed | update |
+
 ## 3.4.0
 
 ### Minor Changes
