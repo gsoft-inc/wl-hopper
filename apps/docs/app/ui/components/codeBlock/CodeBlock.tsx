@@ -16,7 +16,7 @@ function useProcessor(text: string) {
     useEffect(() => {
         unified()
             .use(rehypeParse, { fragment: true })
-            // @ts-expect-error: Unreachable code error
+            // @ts-expect-error: rehype-react types error
             .use(rehypeReact, production)
             .process(text)
             .then(file => {
