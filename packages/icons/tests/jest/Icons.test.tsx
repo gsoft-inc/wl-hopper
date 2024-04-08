@@ -1,6 +1,7 @@
-import { AddIcon, IconContext } from "../../src/index.ts";
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
+
+import { AddIcon, IconContext } from "../../src/index.ts";
 
 describe("Icons", () => {
     it("should render with default class", () => {

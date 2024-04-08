@@ -4,8 +4,10 @@
     "env": {
         "node": true
     },
+    "plugins": ["hopper-monorepo"],
     "extends": [
         "plugin:@workleap/react-library",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
+        "plugin:hopper-monorepo/import-order"
     ]
 }

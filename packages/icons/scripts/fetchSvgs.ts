@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+
 import type { IconSizes } from "./constants.ts";
 
 export interface MultiSourceIconSource {

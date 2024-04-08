@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import { forwardRef, type ElementRef, type CSSProperties } from "react";
+
 import type { StyledComponentProps } from "../styledSystemProps.ts";
 import { useStyledSystem } from "../useStyledSystem.ts";
+
 import styles from "./htmlElement.module.css";
 
 export type HtmlElementProps<T extends keyof JSX.IntrinsicElements> = StyledComponentProps<T>;

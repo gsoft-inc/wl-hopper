@@ -1,6 +1,9 @@
 import type { CSSProperties } from "react";
+
 import { useBreakpointContext } from "./responsive/BreakpointContext.tsx";
 import type { Breakpoint } from "./responsive/Breakpoints.ts";
+import { type ResponsiveProp, parseResponsiveValue, type ResponsiveValue } from "./responsive/useResponsiveValue.tsx";
+import { UnsafePrefix, type StyledSystemProps } from "./styledSystemProps.ts";
 import {
     BackgroundColorMapping,
     BorderMapping,
@@ -22,12 +25,11 @@ import {
     parseResponsiveSystemValue
 } from "./tokens/tokenMappings.ts";
 import { isNil } from "./utils/assertion.ts";
+
 // TODO: There is an issue with CSS Modules files that starts with a lowercase letter at the moment
 // This should be investigated at a later time.
 // eslint-disable-next-line @workleap/strict-css-modules-names
 import styles from "./UseStyledSystem.module.css";
-import { UnsafePrefix, type StyledSystemProps } from "./styledSystemProps.ts";
-import { type ResponsiveProp, parseResponsiveValue, type ResponsiveValue } from "./responsive/useResponsiveValue.tsx";
 
 type PropHandler = (name: string, value: ResponsiveProp<string | number | string[]>, context: StylingContext) => void;
 type SystemValues = Record<string | number, string>;

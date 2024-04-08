@@ -1,6 +1,7 @@
 import { transform } from "@svgr/core";
 import fs from "fs";
 import path from "path";
+
 import { PrimaryIconColor, WarningWeakIconColor } from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetchSvgs.ts";
 import svgoConfig from "./svgo-config.ts";
