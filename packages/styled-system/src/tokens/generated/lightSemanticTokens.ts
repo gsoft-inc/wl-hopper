@@ -301,6 +301,7 @@ export const SemanticTokens = {
     "--hop-primary-surface-strong": "var(--hop-sapphire-400)",
     "--hop-primary-surface-strong-active": "var(--hop-sapphire-50)",
     "--hop-primary-surface-strong-hover": "var(--hop-sapphire-600)",
+    "--hop-primary-surface-strong-pressed": "var(--hop-sapphire-700)",
     "--hop-primary-text": "var(--hop-sapphire-500)",
     "--hop-primary-text-pressed": "var(--hop-sapphire-700)",
     "--hop-primary-surface-hover": "var(--hop-sapphire-200)",

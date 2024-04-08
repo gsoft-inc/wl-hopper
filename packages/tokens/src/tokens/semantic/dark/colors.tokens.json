@@ -324,6 +324,10 @@
             "$type": "color",
             "$value": "{sapphire.200}"
         },
+        "surface-strong-pressed": {
+            "$type": "color",
+            "$value": "{sapphire.600}"
+        },
         "surface-strong-active": {
             "$type": "color",
             "$value": "{sapphire.800}"

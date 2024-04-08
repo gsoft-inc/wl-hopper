@@ -1116,6 +1116,10 @@
         "value": "#95b1ff"
       },
       {
+        "name": "hop-primary-surface-strong-pressed",
+        "value": "#2a43e8"
+      },
+      {
         "name": "hop-primary-surface-strong-active",
         "value": "#1b3587"
       },

@@ -8,7 +8,7 @@
     /* Primary */
     --hop-Button-primary-color: var(--hop-primary-text-strong);
     --hop-Button-primary-color-hover: var(--hop-primary-text-strong-hover);
-    --hop-Button-primary-color-pressed: var(--hop-primary-text-active);
+    --hop-Button-primary-color-pressed: var(--hop-primary-text-strong);
     --hop-Button-primary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-primary-background-color: var(--hop-primary-surface-strong);
     --hop-Button-primary-background-color-hover: var(--hop-primary-surface-strong-hover);

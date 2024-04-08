@@ -171,6 +171,7 @@ export const BackgroundColors = {
     "primary-strong": "primary-surface-strong",
     "primary-strong-active": "primary-surface-strong-active",
     "primary-strong-hover": "primary-surface-strong-hover",
+    "primary-strong-pressed": "primary-surface-strong-pressed",
     "primary-hover": "primary-surface-hover",
     "primary-active": "primary-surface-active",
     "decorative-option9": "decorative-option9-surface",
