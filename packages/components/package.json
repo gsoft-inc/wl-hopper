@@ -37,11 +37,11 @@
         "test": "jest"
     },
     "peerDependencies": {
-        "@hopper-ui/styled-system": "*",
-        "react": "*",
-        "react-aria": "^3.32.0",
+        "@hopper-ui/styled-system": "^1",
+        "react": "^18",
+        "react-aria": "^3.32",
         "react-aria-components": "^1.1.0",
-        "react-dom": "18.2.0"
+        "react-dom": "^18"
     },
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
