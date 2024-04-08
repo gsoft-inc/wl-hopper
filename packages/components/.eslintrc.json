@@ -1,7 +1,8 @@
 {
     "$schema": "https://json.schemastore.org/eslintrc",
     "root": true,
-    "extends": "plugin:@workleap/react-library",
+    "plugins": ["hopper-monorepo"],
+    "extends": ["plugin:@workleap/react-library", "plugin:hopper-monorepo/import-order"],
     "rules": {
         "no-console": ["warn", { "allow": ["warn", "error"] }],
         "react/destructuring-assignment": "off",
