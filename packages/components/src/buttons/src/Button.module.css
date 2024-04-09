@@ -22,15 +22,15 @@
     /* Secondary */
     --hop-Button-secondary-color: var(--hop-neutral-text);
     --hop-Button-secondary-color-hover: var(--hop-neutral-text-hover);
-    --hop-Button-secondary-color-pressed: var(--hop-neutral-text-active);
+    --hop-Button-secondary-color-pressed: var(--hop-neutral-text-pressed);
     --hop-Button-secondary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-secondary-background-color: var(--hop-neutral-surface);
     --hop-Button-secondary-background-color-hover: var(--hop-neutral-surface-hover);
-    --hop-Button-secondary-background-color-pressed: var(--hop-neutral-surface-active);
+    --hop-Button-secondary-background-color-pressed: var(--hop-neutral-surface-pressed);
     --hop-Button-secondary-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-secondary-border: 0.0625rem solid var(--hop-neutral-border-strong);
-    --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong);
-    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-border-active);
+    --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong-hover);
+    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-border-disabled: 0;
 
     /* Tertiary */
@@ -58,7 +58,7 @@
     --hop-Button-upsell-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-upsell-border: 0.0625rem solid var(--hop-upsell-surface); /* same color as the background */
     --hop-Button-upsell-border-hover: 0.0625rem solid var(--hop-upsell-surface-hover); /* same color as the background */
-    --hop-Button-upsell-border-pressed: 0.0625rem solid var(--hop-upsell-border-active);
+    --hop-Button-upsell-border-pressed: 0.0625rem solid var(--hop-upsell-border-pressed);
     --hop-Button-upsell-border-disabled: 0;
 
     /* Negative */
@@ -104,7 +104,6 @@
     color: var(--color);
     border: var(--border);
     align-items:center
-
 }
 
 .hop-Button[data-disabled] {
