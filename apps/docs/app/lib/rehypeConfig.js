@@ -43,7 +43,6 @@ export const rehypeOptions = {
     }
 };
 
-
 export const rehypePluginOptions = [
     () => tree => {
         visit(tree, node => {

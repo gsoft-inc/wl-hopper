@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Grid } from "../../src/Grid.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Grid } from "../../src/Grid.tsx";
 
 describe("Grid", () => {
     it("should render on the server", () => {

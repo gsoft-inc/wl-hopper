@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Label } from "../../src/Label.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Label } from "../../src/Label.tsx";
 
 describe("Label", () => {
     it("should render on the server", () => {

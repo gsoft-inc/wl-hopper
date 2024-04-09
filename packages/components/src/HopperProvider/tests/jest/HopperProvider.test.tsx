@@ -1,7 +1,8 @@
-import { HopperProvider } from "../../src/index.ts";
-import { createRef } from "react";
 import { render, renderHook, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
 import { useLocale } from "react-aria-components";
+
+import { HopperProvider } from "../../src/index.ts";
 
 describe("HopperProvider", () => {
     it("should render with default class", () => {

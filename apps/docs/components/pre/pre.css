@@ -5,6 +5,7 @@
 
 .hd-pre .hd-pre__code {
     margin-right: auto;
+    margin-block: 0.25rem;
     align-content: center;
     color: var(--hd-color-neutral-text-strong);
 }

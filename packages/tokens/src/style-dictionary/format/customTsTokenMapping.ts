@@ -1,4 +1,5 @@
 import type { Dictionary, TransformedToken } from "style-dictionary";
+
 import { isColorType } from "../filter/isColorType.ts";
 import { handleTypes } from "../helpers/index.ts";
 

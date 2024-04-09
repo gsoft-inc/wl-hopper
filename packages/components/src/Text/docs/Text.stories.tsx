@@ -1,9 +1,10 @@
+import { Div } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Stack } from "../../layout/index.ts";
+import { SlotProvider } from "../../utils/index.ts";
 import { Text } from "../src/Text.tsx";
 import { TextContext } from "../src/TextContext.ts";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Stack } from "../../layout/src/Stack.tsx";
-import { Div } from "@hopper-ui/styled-system";
-import { SlotProvider } from "../../utils/index.ts";
 
 /**
  * A primitive text component matching Hopper's typography type scale.
@@ -82,4 +83,17 @@ export const AdvancedCustomization: Story = {
             <Text {...props} />
         </SlotProvider>
     )
+};
+
+/**
+ * The Text component can be nested within other Text components and inherit the parent's size by default.
+ */
+export const Nested: Story = {
+    args: {
+        size: "lg",
+        children: [
+            <Text key="1" color="primary">Nested</Text>,
+            " Text"
+        ]
+    }
 };

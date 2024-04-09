@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
 import type { DOMProps as SharedDOMProps, AriaLabelingProps } from "@react-types/shared";
+import type { CSSProperties, ReactNode } from "react";
 import type { SlotProps } from "react-aria-components";
 
 /**
@@ -27,6 +27,12 @@ export interface StyleRenderProps<T> {
 export interface RenderProps<T> extends StyleRenderProps<T> {
     /** The children of the component. A function may be provided to alter the children based on component state. */
     children?: ReactNode | ((values: T) => ReactNode);
+}
+
+export interface RenderPropsHookOptions<T> extends RenderProps<T>, SharedDOMProps, AriaLabelingProps {
+    values: T;
+    defaultChildren?: ReactNode;
+    defaultClassName?: string;
 }
 
 // TODO: i added this, not sure if it will make sense

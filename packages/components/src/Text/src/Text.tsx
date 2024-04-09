@@ -1,19 +1,20 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
-import clsx from "clsx";
-import styles from "./Text.module.css";
-import { cssModule } from "../../utils/src/cssModule.ts";
+
+import { cssModule, SlotProvider, ClearContainerSlots } from "../../utils/index.ts";
+
 import { TextContext } from "./TextContext.ts";
+
+import styles from "./Text.module.css";
 
 export const GlobalTextCssSelector = "hop-Text";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultTextSlot = "text";
 
-export type RACTextPropsToOmit = "elementType";
-
-export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTextPropsToOmit>> {
+export interface TextProps extends StyledComponentProps<RACTextProps> {
     /**
      * The Typography Type Scale to use.
      * @default "md"
@@ -24,7 +25,7 @@ export interface TextProps extends StyledComponentProps<Omit<RACTextProps, RACTe
 function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultTextSlot }, ref, TextContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, size: sizeProp, children, style, ...otherProps } = ownProps;
+    const { className, size: sizeProp, children, style, elementType = "span", ...otherProps } = ownProps;
 
     const size = useResponsiveValue(sizeProp ?? "md");
 
@@ -48,11 +49,21 @@ function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
         <RACText
             {...otherProps}
             ref={ref}
-            elementType="span"
+            elementType={elementType}
             className={classNames}
             style={mergedStyles}
         >
-            {children}
+            <ClearContainerSlots>
+                <SlotProvider
+                    values={[
+                        [TextContext, {
+                            size:"inherit"
+                        }]
+                    ]}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearContainerSlots>
         </RACText>
     );
 }

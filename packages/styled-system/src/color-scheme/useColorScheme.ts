@@ -1,4 +1,5 @@
 import { useMediaQuery } from "../utils/useMediaQuery.ts";
+
 import type { ColorScheme, ColorSchemeOrSystem } from "./ColorSchemeContext.ts";
 
 export function useColorScheme(colorScheme: ColorSchemeOrSystem, defaultColorScheme: ColorScheme): ColorScheme {

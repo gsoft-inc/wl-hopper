@@ -1,4 +1,5 @@
 import path from "path";
+
 import { IconSizes, IconsDistDirectory, IconsSourceDirectory } from "./constants.ts";
 import { generateIcons } from "./generateIcons.ts";
 
