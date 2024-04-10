@@ -2,7 +2,7 @@ import { transform } from "@svgr/core";
 import fs from "fs";
 import path from "path";
 
-import { IconSuffix, PrimaryIconColor, RichIconSuffix, WarningWeakIconColor } from "./constants.ts";
+import { DecorativeOption7IconColor, DecorativeOption7SurfaceColor, IconSuffix, NeutralSurface, PrimaryIconColor, RichIconSuffix, WarningWeakIconColor } from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetchSvgs.ts";
 import svgoConfig from "./svgo-config.ts";
 
@@ -36,7 +36,10 @@ export async function generateComponents(componentDirectory: string, icons: Mult
                 ref: true,
                 replaceAttrValues: {
                     [PrimaryIconColor]: "var(--hop-primary-icon)",
-                    [WarningWeakIconColor]: "var(--hop-warning-icon-weak)"
+                    [WarningWeakIconColor]: "var(--hop-warning-icon-weak)",
+                    [DecorativeOption7IconColor]: "var(--hop-decorative-option7-icon)",
+                    [DecorativeOption7SurfaceColor]: "var(--hop-decorative-option7-surface)",
+                    [NeutralSurface]: "var(--hop-status-neutral-surface)"
                 },
                 jsxRuntime: "automatic",
                 svgoConfig: svgoConfig,

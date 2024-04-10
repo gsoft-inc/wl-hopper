@@ -1,0 +1,5 @@
+.hop-RichIcon {
+    pointer-events: none;
+    display: inline-block;
+    flex-shrink: 0;
+}
