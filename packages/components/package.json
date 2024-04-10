@@ -40,7 +40,7 @@
         "@hopper-ui/styled-system": "^1",
         "react": "^18",
         "react-aria": "^3.32",
-        "react-aria-components": "^1.1.1",
+        "react-aria-components": "^1.1.0",
         "react-dom": "^18"
     },
     "dependencies": {
