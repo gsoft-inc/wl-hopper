@@ -1,4 +1,5 @@
 .hop-RichIcon {
+    /* These tokens needs to match the ones defined in the generateComponents script */
     --surface-color: var(--hop-decorative-option7-surface);
     --icon-color: var(--hop-decorative-option7-icon);
     --icon-strong-color: var(--hop-samoyed);
