@@ -7,13 +7,13 @@ import { rehypeOptions } from "@/app/lib/rehypeConfig";
 import { getExampleComponentPath, getFileContent, getFormattedCode } from "@/app/lib/getFileContent.ts";
 
 interface CodeBlockProps {
-    filePath: string;
+    src: string;
     className?: string;
 }
 
 
-export async function CodeBlock({ filePath, className }: CodeBlockProps) {
-    const examplePath = getExampleComponentPath(filePath);
+export async function CodeBlock({ src, className }: CodeBlockProps) {
+    const examplePath = getExampleComponentPath(src);
     const codeExample = await getFileContent(`${examplePath}.tsx`);
     const formattedCode = await getFormattedCode(codeExample);
     const highlightedCode = await highlightCode(formattedCode);
