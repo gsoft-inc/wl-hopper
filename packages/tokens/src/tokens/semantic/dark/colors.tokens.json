@@ -808,7 +808,7 @@
         },
         "surface-strong-hover": {
             "$type": "color",
-            "$value": "{sapphire.200}"
+            "$value": "{sapphire.500}"
         },
         "surface-strong-pressed": {
             "$type": "color",
@@ -844,7 +844,7 @@
         },
         "text-strong-hover": {
             "$type": "color",
-            "$value": "{sapphire.300}"
+            "$value": "{samoyed}"
         },
         "text-active": {
             "$type": "color",

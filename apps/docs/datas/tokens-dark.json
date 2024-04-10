@@ -1577,7 +1577,7 @@
       },
       {
         "name": "hop-primary-surface-strong-hover",
-        "value": "#95b1ff"
+        "value": "#3b57ff"
       },
       {
         "name": "hop-primary-surface-strong-pressed",
@@ -1613,7 +1613,7 @@
       },
       {
         "name": "hop-primary-text-strong-hover",
-        "value": "#6c8ffd"
+        "value": "#ffffff"
       },
       {
         "name": "hop-primary-text-active",
