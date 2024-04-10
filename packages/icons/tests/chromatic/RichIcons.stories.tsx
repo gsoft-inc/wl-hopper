@@ -1,24 +1,35 @@
 import { LI, UL } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Stack } from "../../../components/src/layout/index.ts";
 import * as IconLibrary from "../../src/index.ts";
 
 type ListProps = IconLibrary.CreatedRichIconProps;
 
 const List = ({ ...iconProps }: ListProps) => {
-    const listItems = IconLibrary.richIconNames.map(name => {
-        const Component = IconLibrary[name];
+    const variants = ["decorative-option1", "decorative-option2", "decorative-option3", "decorative-option4", "decorative-option5", "decorative-option6", "decorative-option7", "decorative-option8", "decorative-option9"] as const;
+
+    const allVariantList = variants.map(variant => {
+        const listItems = IconLibrary.richIconNames.map(name => {
+            const Component = IconLibrary[name];
+
+            return (
+                <LI key={name} display="block">
+                    <Component variant={variant} {...iconProps} />
+                </LI>);
+        });
 
         return (
-            <LI key={name} display="block">
-                <Component {...iconProps} />
-            </LI>);
+            <UL key={variant} display="flex" flexWrap="wrap" alignItems="center" gap="inline-md" margin="core_0" padding="core_0" style={{ listStyle: "none" }}>
+                {listItems}
+            </UL>
+        );
     });
 
     return (
-        <UL display="flex" flexWrap="wrap" alignItems="center" gap="inline-md" margin="core_0" padding="core_0" style={{ listStyle: "none" }}>
-            {listItems}
-        </UL>
+        <Stack>
+            {allVariantList}
+        </Stack>
     );
 };
 
@@ -43,11 +54,3 @@ export const Default: Story = {
         </>;
     }
 };
-
-export const Styles: Story = {
-    ...Default,
-    args: {
-        fill: "danger-active"
-    }
-};
-

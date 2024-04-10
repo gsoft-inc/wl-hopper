@@ -37,9 +37,9 @@ export async function generateComponents(componentDirectory: string, icons: Mult
                 replaceAttrValues: {
                     [PrimaryIconColor]: "var(--hop-primary-icon)",
                     [WarningWeakIconColor]: "var(--hop-warning-icon-weak)",
-                    [DecorativeOption7IconColor]: "var(--hop-decorative-option7-icon)",
-                    [DecorativeOption7SurfaceColor]: "var(--hop-decorative-option7-surface)",
-                    [White]: "var(--hop-samoyed)" // TODO: should be --hop-decorative-option7-icon-strong once it exists
+                    [DecorativeOption7IconColor]: "var(--icon-color)",
+                    [DecorativeOption7SurfaceColor]: "var(--surface-color)",
+                    [White]: "var(--icon-strong-color)" // TODO: should be --hop-decorative-option7-icon-strong once it exists
                 },
                 jsxRuntime: "automatic",
                 svgoConfig: svgoConfig,

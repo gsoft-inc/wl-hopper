@@ -17,6 +17,10 @@ const DefaultRichIconSlot = "richicon";
 
 export interface RichIconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
+     * The visual style of the icon.
+     */
+    variant?: "decorative-option1" | "decorative-option2" | "decorative-option3" | "decorative-option4" | "decorative-option5" | "decorative-option6" | "decorative-option7" | "decorative-option8" | "decorative-option9";
+    /**
     * The size of the icon.
     */
     size?: ResponsiveProp<"md" | "lg" | "xl">;
@@ -40,6 +44,7 @@ export const RichIcon = forwardRef<SVGSVGElement, RichIconProps>((props, ref) =>
 
     const {
         size: sizeProp,
+        variant = "decorative-option7",
         src24,
         src32,
         src40,
@@ -64,7 +69,8 @@ export const RichIcon = forwardRef<SVGSVGElement, RichIconProps>((props, ref) =>
         GlobalRichIconCssSelector,
         cssModule(
             styles,
-            "hop-RichIcon"
+            "hop-RichIcon",
+            variant
         ),
         stylingProps.className
     );
