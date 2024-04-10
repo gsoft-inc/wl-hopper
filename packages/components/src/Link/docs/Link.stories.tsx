@@ -1,0 +1,183 @@
+import { PlusIcon } from "@hopper-ui/icons";
+import { Div } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Stack } from "../../layout/index.ts";
+import { Text } from "../../Text/index.ts";
+import { Link } from "../src/Link.tsx";
+
+/**
+ * Links allow users to navigate to a different location. They can be presented inline inside a paragraph or as standalone text.
+ *
+ * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Link/src)
+ * -
+ * [View package](https://www.npmjs.com/package/@hopper-ui/components)
+ * -
+ * View storybook TODO
+ */
+const meta = {
+    title: "Docs/Link",
+    tags: ["autodocs"],
+    parameters: {
+        // Disables Chromatic's snapshotting on documentation stories
+        chromatic: { disableSnapshot: true }
+    },
+    component: Link,
+    args: {
+        children: "Learn more",
+        href: "#"
+    }
+} satisfies Meta<typeof Link>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * A default link
+ */
+export const Default: Story = {
+};
+
+/**
+ * A link can use a different style.
+ */
+export const Variants : Story = {
+    render: args => (
+        <>
+            <Link variant="primary" {...args}>Primary</Link>
+            <Link variant="secondary" {...args}>Secondary</Link>
+        </>
+    )
+};
+
+/**
+ * All links can have a quiet style, without an underline. This style should only be used when the placement and context of the link is explicit enough that a visible underline isn’t necessary.
+ */
+export const Quiet: Story = {
+    render: args => (
+        <p>Would you like to <Link {...args}>learn more</Link> about this fine component?</p>
+    ),
+    args:{
+        isQuiet: true
+    }
+};
+
+/**
+ * A text link can contain icons
+ */
+export const Icon: Story = {
+    render: args => (
+        <>
+            <Link variant="primary" {...args} />
+            <Link variant="secondary" {...args} />
+        </>
+    ),
+    args: {
+        children: [
+            <Text key="1">Learn more</Text>,
+            <PlusIcon key="2" />
+        ]
+    }
+};
+
+/**
+ * *Non standard* start icons can be provided to handle special cases. However, think twice before adding *start* icons, *end* icons should be your go to.
+ */
+export const StartIcon: Story = {
+    ...Icon,
+    args: {
+        ...Icon.args,
+        children: [
+            <PlusIcon key="1" slot="start-icon" />,
+            <Text key="2">Learn more</Text>
+        ]
+    }
+};
+
+/**
+ * TODO
+ */
+export const IconOnly: Story = {
+    ...Icon,
+    args: {
+        ...Icon.args,
+        "aria-label": "Add",
+        children: [
+            <PlusIcon key="1" />
+        ]
+    }
+};
+
+/**
+ * A link can have *disabled* style.
+ */
+export const Disabled : Story = {
+    ...Variants,
+    args: {
+        ...Variants.args,
+        isDisabled: true
+    }
+};
+
+/**
+ * A link can vary in size.
+ */
+export const Size : Story = {
+    render: props => (
+        <Stack>
+            <Link size="xs" {...props} >Learn More</Link>
+            <Link size="sm" {...props} >Learn More</Link>
+            <Link size="md" {...props} >Learn More</Link>
+            <Link size="lg" {...props} >Learn More</Link>
+            <Link size="xl" {...props} >Learn More</Link>
+            <Link size="2xl" {...props} >Learn More</Link>
+        </Stack>
+    )
+};
+
+/**
+ * An external text link will render by default with `rel="noopener noreferrer"` and `target="_blank"` attribute.
+ */
+export const External: Story = {
+    args: {
+        isExternal: true
+    }
+};
+
+/**
+ * When the colors from the variant props are not enough, you can use the color prop to set the color of the link.
+ * This removes the hover and focus colors from the link.
+ * Use the color props when a link needs to be placed on top of a color background or visual.
+ * Make sure that the background and the link color meet the minimum color contrast ratio.
+ */
+export const StaticColor : Story = {
+    decorators: [
+        Story => (
+            <Div padding="inset-md" backgroundColor="core_moss-500">
+                <Story />
+            </Div>
+        )
+    ],
+    args:{
+        color: "core_samoyed"
+    }
+};
+
+/**
+ * When a <Link> does not have an href prop, it is rendered as a <span role="link"> instead of an <a>. Events will need to be handled in JavaScript with the onPress prop.
+ *
+ * Note: this will not behave like a native link. Browser features like context menus and open in new tab will not apply.
+ */
+export const NoHref : Story = {
+    args:{
+        href: undefined,
+        onPress: () => {window.alert("span clicked");}
+    }
+};
+
+/**
+ * TODO
+ */
+export const ReactRouter : Story = {
+};
