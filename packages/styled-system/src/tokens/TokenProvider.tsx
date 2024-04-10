@@ -1,5 +1,6 @@
 import { StyledSystemRootCssClass } from "../styledSystemRootCssClass.ts";
 import { useInsertStyleElement } from "../utils/useInsertStyleElement.ts";
+
 import { Tokens } from "./tokens.ts";
 
 /** The TokenProvider injects tokens in the document's head.

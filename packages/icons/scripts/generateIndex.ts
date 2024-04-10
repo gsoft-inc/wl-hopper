@@ -1,4 +1,5 @@
 import fs from "fs";
+
 import type { MultiSourceIconSource } from "./fetchSvgs.ts";
 
 const GENERATED_HEADER = `/*

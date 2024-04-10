@@ -1,6 +1,5 @@
 import { HopperProvider, type ColorScheme } from "@hopper-ui/components";
 import { render, renderHook, type RenderHookOptions, type RenderOptions } from "@testing-library/react";
-
 import type { ReactElement } from "react";
 
 export interface HopperProviderWrapperOptions {
