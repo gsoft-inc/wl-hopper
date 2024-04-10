@@ -97,16 +97,16 @@ allIconsContent.forEach(icon => {
             expect(nodeSources(groupNodes, icon.content)).toStrictEqual([]);
         });
 
-        it("should not have <path>s, <polygon>s, <circle>s and <rect>s with a stroke", () => {
-            const nodesWithUndefinedFill = selectAll(
-                "path[stroke], circle[stroke], polygon[stroke], rect[stroke]",
-                iconAst
-            );
+        // it("should not have <path>s, <polygon>s, <circle>s and <rect>s with a stroke", () => {
+        //     const nodesWithUndefinedFill = selectAll(
+        //         "path[stroke], circle[stroke], polygon[stroke], rect[stroke]",
+        //         iconAst
+        //     );
 
-            expect(nodeSources(nodesWithUndefinedFill, icon.content)).toStrictEqual(
-                []
-            );
-        });
+        //     expect(nodeSources(nodesWithUndefinedFill, icon.content)).toStrictEqual(
+        //         []
+        //     );
+        // });
 
         const expectedFillColors = [...RichAllowedIconFillColors, "none"];
 

@@ -6,7 +6,7 @@ export const WarningWeakIconColor = "#E57723"; // --hop-warning-icon-weak
 
 export const DecorativeOption7IconColor = "#2A2620"; // --hop-decorative-option7-icon
 export const DecorativeOption7SurfaceColor = "#E5DED6"; // --hop-decorative-option7-surface
-export const NeutralSurface = "white"; // --hop-status-neutral-surface
+export const White = "white"; // TODO: should be --hop-decorative-option7-icon-strong
 
 export const IconsSourceDirectory = "src/icons";
 export const IconsDistDirectory = "src/optimized-icons";
@@ -16,4 +16,4 @@ export const AllowedIconFillColors = [NeutralIconColor, PrimaryIconColor, Warnin
 export const RichIconsSourceDirectory = "src/rich-icons";
 export const RichIconsDistDirectory = "src/optimized-rich-icons";
 export const RichIconSizes = [24, 32, 40] as const;
-export const RichAllowedIconFillColors = [DecorativeOption7IconColor, DecorativeOption7SurfaceColor, NeutralSurface];
+export const RichAllowedIconFillColors = [DecorativeOption7IconColor, DecorativeOption7SurfaceColor, White];
