@@ -10,7 +10,7 @@ const GENERATED_HEADER = `/*
 
 export const generateIndex = (componentDirectory: string, iconsByNames: MultiSourceIconSource[], isRichIcons: boolean) => {
     const iconSuffix = isRichIcons ? RichIconSuffix : IconSuffix;
-    const iconListName = isRichIcons ? "iconNames" : "richIconNames";
+    const iconListName = isRichIcons ? "richIconNames" : "iconNames";
     const iconList = iconsByNames.map(icon => icon.name + iconSuffix);
     const indexFile = `${componentDirectory}/index.ts`;
     const indexContent = `${GENERATED_HEADER}\n

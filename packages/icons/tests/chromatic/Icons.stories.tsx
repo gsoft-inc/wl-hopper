@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import * as IconLibrary from "../../src/index.ts";
 
-type ListProps = IconLibrary.CreatedRichIconProps;
+type ListProps = IconLibrary.CreatedIconProps;
 
 const List = ({ ...iconProps }: ListProps) => {
     const listItems = IconLibrary.iconNames.map(name => {
@@ -34,12 +34,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: args => {
         return <>
+            <h1>Small</h1>
+            <List {...args} size="sm" />
             <h1>Medium</h1>
             <List {...args} size="md" />
             <h1>Large</h1>
             <List {...args} size="lg" />
-            <h1>XLarge</h1>
-            <List {...args} size="xl" />
         </>;
     }
 };
