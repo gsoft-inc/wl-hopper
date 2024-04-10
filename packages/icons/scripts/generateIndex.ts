@@ -1,5 +1,6 @@
 import fs from "fs";
 
+import { IconSuffix, RichIconSuffix } from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetchSvgs.ts";
 
 const GENERATED_HEADER = `/*
@@ -7,11 +8,12 @@ const GENERATED_HEADER = `/*
 */\n
 /* eslint-disable */`;
 
-export const generateIndex = (componentDirectory: string, iconsByNames: MultiSourceIconSource[]) => {
-    const iconList = iconsByNames.map(icon => icon.name + "Icon");
+export const generateIndex = (componentDirectory: string, iconsByNames: MultiSourceIconSource[], isRichIcons: boolean) => {
+    const iconSuffix = isRichIcons ? RichIconSuffix : IconSuffix;
+    const iconList = iconsByNames.map(icon => icon.name + iconSuffix);
     const indexFile = `${componentDirectory}/index.ts`;
     const indexContent = `${GENERATED_HEADER}\n
-${Object.values(iconsByNames).map(icon => `export * from "./${icon.name}Icon.tsx";`).join("\n")}
+${Object.values(iconsByNames).map(icon => `export * from "./${icon.name}${iconSuffix}.tsx";`).join("\n")}
 \nexport const iconNames = ${JSON.stringify(iconList)} as const;`;
 
     fs.writeFileSync(indexFile, indexContent);

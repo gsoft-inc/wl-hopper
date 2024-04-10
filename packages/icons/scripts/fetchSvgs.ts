@@ -1,11 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-import type { IconSizes } from "./constants.ts";
-
 export interface MultiSourceIconSource {
     name: string;
-    sizes: Record<typeof IconSizes[number], string>;
+    sizes: Record<number, string>;
 }
 
 const fromKebabToPascalCase = (str: string) => {
