@@ -44,7 +44,7 @@
         "react-dom": "^18"
     },
     "dependencies": {
-        "@hopper-ui/icons": "^1",
+        "@hopper-ui/icons": "*",
         "@react-aria/utils": "^3.23.2",
         "clsx": "^2.1.0"
     },
