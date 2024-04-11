@@ -1,10 +1,14 @@
 import { PlusIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
+import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-dom";
 
+import { HopperProvider } from "../../HopperProvider/index.ts";
 import { Stack } from "../../layout/index.ts";
 import { Text } from "../../Text/index.ts";
 import { Link } from "../src/Link.tsx";
+
+import { FrogImage } from "./assets/index.ts";
 
 /**
  * Links allow users to navigate to a different location. They can be presented inline inside a paragraph or as standalone text.
@@ -96,7 +100,8 @@ export const StartIcon: Story = {
 };
 
 /**
- * TODO
+ * A link content can be a single icon.
+ * When using this variant, an accessible name must be provided through aria-label prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
  */
 export const IconOnly: Story = {
     ...Icon,
@@ -165,7 +170,7 @@ export const StaticColor : Story = {
 };
 
 /**
- * When a <Link> does not have an href prop, it is rendered as a <span role="link"> instead of an <a>. Events will need to be handled in JavaScript with the onPress prop.
+ * When a `<Link>` does not have an href prop, it is rendered as a `<span role="link">` instead of an `<a>`. Events will need to be handled in JavaScript with the `onPress` prop.
  *
  * Note: this will not behave like a native link. Browser features like context menus and open in new tab will not apply.
  */
@@ -177,7 +182,49 @@ export const NoHref : Story = {
 };
 
 /**
- * TODO
+ * A button can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider
  */
-export const ReactRouter : Story = {
+export const ReactRouterLink: Story = {
+    render: props => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const navigate = useNavigate();
+
+        return (
+            <HopperProvider colorScheme="light" navigate={navigate}>
+                <Link {...props} />
+            </HopperProvider>
+        );
+    },
+    decorators: [
+        Story => {
+            const router = createMemoryRouter([{
+                path: "/123",
+                element: <>Navigated Successfully! <Story /></>
+            }, {
+                path: "*",
+                element: <Story />
+            }
+            ]);
+
+            return (
+                <RouterProvider router={router} />
+            );
+        }
+    ],
+    args: {
+        children: "Go to next router page",
+        href: "/123"
+    }
+};
+
+/**
+ * A link content can be an image element.
+ */
+export const Image: Story = {
+    args: {
+        href: "#",
+        borderRadius: "rounded-md",
+        overflow: "hidden",
+        children: <img src={FrogImage} width="242px" height="156px" alt="Frog" />
+    }
 };

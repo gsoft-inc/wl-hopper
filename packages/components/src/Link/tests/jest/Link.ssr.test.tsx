@@ -9,7 +9,7 @@ describe("Link", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <Link>Text</Link>
+                <Link href="#">Learn more</Link>
             );
 
         expect(renderOnServer).not.toThrow();

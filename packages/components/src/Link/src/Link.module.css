@@ -52,7 +52,7 @@
 }
 
 .hop-Link--secondary {
-    color: var(--hop-secondary-text);
+    color: var(--hop-neutral-text);
 }
 
 .hop-Link--secondary[data-disabled] {
