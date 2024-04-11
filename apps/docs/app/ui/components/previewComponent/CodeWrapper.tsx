@@ -2,11 +2,11 @@ import { getComponentCode } from "@/app/lib/getComponentCode.ts";
 import CodeBlock from "@/app/ui/components/codeBlock/CodeBlock.tsx";
 
 interface CodeWrapperProps {
-    filePath: string;
+    src: string;
 }
 
-async function CodeWrapper({ filePath }: CodeWrapperProps) {
-    const code = await getComponentCode(filePath);
+async function CodeWrapper({ src }: CodeWrapperProps) {
+    const code = await getComponentCode(src);
 
     return (
         <CodeBlock code={code} />
