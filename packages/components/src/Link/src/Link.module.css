@@ -1,12 +1,23 @@
 .hop-Link  {
     --hop-Link-border-radius: var(--hop-shape-rounded-sm);
-    --hop-Link-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
+    --hop-Link-focus-ring-color: var(--hop-primary-border-focus);
     --hop-Link-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Link-column-gap: var(--hop-space-inline-xs);
+
+    /** Primary */
+    --hop-Link-primary-text-color: var(--hop-primary-text);
+    --hop-Link-primary-text-disabled-color: var(--hop-primary-text-disabled);
+    --hop-Link-primary-text-hover-color: var(--hop-primary-text-hover);
+
+    /** Secondary */
+    --hop-Link-neutral-text-color: var(--hop-neutral-text);
+    --hop-Link-neutral-text-disabled-color: var(--hop-neutral-text-disabled);
+    --hop-Link-neutral-text-hover-color: var(--hop-neutral-text-hover);
 
     cursor: pointer;
 
     display: inline-flex;
-    column-gap: var(--hop-space-inline-xs);
+    column-gap: var(--hop-Link-column-gap);
     align-items: center;
 
     box-sizing: border-box;
@@ -39,36 +50,34 @@
 }
 
 .hop-Link--primary {
-    color: var(--hop-primary-text);
+    color: var(--hop-Link-primary-text-color);
 }
 
 .hop-Link--primary[data-disabled] {
-    color: var(--hop-primary-text-disabled);
+    color: var(--hop-Link-primary-text-disabled-color);
 }
 
 .hop-Link--primary:not([data-disabled])[data-focus-visible],
 .hop-Link--primary:not([data-disabled])[data-hovered] {
-    color: var(--hop-primary-text-hover);
+    color: var(--hop-Link-primary-text-hover-color);
 }
 
 .hop-Link--secondary {
-    color: var(--hop-neutral-text);
+    color: var(--hop-Link-neutral-text-color);
 }
 
 .hop-Link--secondary[data-disabled] {
-    color: var(--hop-neutral-text-disabled);
+    color: var(--hop-Link-neutral-text-disabled-color);
 }
 
 .hop-Link--secondary:not([data-disabled])[data-focus-visible],
 .hop-Link--secondary:not([data-disabled])[data-hovered] {
-    color: var(--hop-neutral-text-hover);
+    color: var(--hop-Link-neutral-text-hover-color);
 }
 
 .hop-Link__icon,
 .hop-Link__icon-list {
     order: 2
-
-    /* justify-self: end; */
 }
 
 .hop-Link__text {
@@ -78,6 +87,4 @@
 .hop-Link__start-icon,
 .hop-Link__start-icon-list {
     order: 0
-
-    /* justify-self: end; */
 }
