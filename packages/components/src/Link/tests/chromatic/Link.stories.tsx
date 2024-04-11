@@ -190,11 +190,27 @@ export const Primary: Story = {
     }
 };
 
+export const QuietPrimary: Story = {
+    ...Primary,
+    args:{
+        ...Primary.args,
+        isQuiet: true
+    }
+};
+
 export const Secondary : Story = {
     ...Primary,
     args:{
         ...Primary.args,
         variant:"secondary"
+    }
+};
+
+export const QuietSecondary: Story = {
+    ...Secondary,
+    args:{
+        ...Secondary.args,
+        isQuiet: true
     }
 };
 
