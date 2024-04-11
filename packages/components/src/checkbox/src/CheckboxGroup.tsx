@@ -1,20 +1,21 @@
-import { forwardRef, type ForwardedRef } from "react";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
+import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, CheckboxGroup as RACCheckboxGroup, type CheckboxGroupProps as RACCheckboxGroupProps, composeRenderProps } from "react-aria-components";
-import { cssModule } from "../../utils/src/cssModule.ts";
-import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
-import { LabelContext } from "../../Label/index.ts";
+
 import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../../checkbox/index.ts";
-import { HelperMessageContext } from "../../helperMessage/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
+import { HelperMessageContext } from "../../helperMessage/index.ts";
+import { LabelContext } from "../../Label/index.ts";
+import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
+
+import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
 
 import styles from "./CheckboxGroup.module.css";
 
 export const GlobalCheckboxGroupCssSelector = "hop-CheckboxGroup";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultCheckboxSlot = "checkboxGroup";
+const DefaultCheckboxGroupSlot = "checkboxGroup";
 
 export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
     /**
@@ -32,7 +33,7 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
 }
 
 function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxSlot }, ref, CheckboxGroupContext);
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxGroupSlot }, ref, CheckboxGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -46,7 +47,6 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         ...otherProps
     } = ownProps;
 
-    
     const orientation = useResponsiveValue(orientationProp) ?? "vertical";
     const size = useResponsiveValue(sizeProp) ?? "md";
 
@@ -112,7 +112,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
 }
 
 /**
- * The Checkbox component indicates the selection state of an option. It displays either one of three states: checked, unchecked, or indeterminate.
+ * The CheckboxGroup component is used to group multiple Checkbox or CheckboxField components together.
  *
  * [View Documentation](TODO)
  */

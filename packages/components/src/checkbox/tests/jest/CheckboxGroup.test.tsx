@@ -1,24 +1,25 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { createRef } from "react";
-import { userEvent } from "@testing-library/user-event";
 import { screen, render } from "@hopper-ui/test-utils";
-import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
-import { CheckboxField } from "../../src/CheckboxField.tsx";
-import { Checkbox } from "../../src/Checkbox.tsx";
+import { userEvent } from "@testing-library/user-event";
+import { createRef } from "react";
+
 import { Text } from "../../../Text/src/Text.tsx";
+import { Checkbox } from "../../src/Checkbox.tsx";
+import { CheckboxField } from "../../src/CheckboxField.tsx";
+import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
 import { CheckboxGroupContext } from "../../src/CheckboxGroupContext.ts";
 
 describe("Checkbox", () => {
     it("should render with default class", () => {
-        render(<CheckboxGroup><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options"><Checkbox>option 1</Checkbox></CheckboxGroup>);
 
         const element = screen.getByRole("group");
         expect(element).toHaveClass("hop-CheckboxGroup");
     });
 
     it("should support custom class", () => {
-        render(<CheckboxGroup className="test"><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options" className="test"><Checkbox>option 1</Checkbox></CheckboxGroup>);
 
         const element = screen.getByRole("group");
         expect(element).toHaveClass("hop-CheckboxGroup");
@@ -26,14 +27,14 @@ describe("Checkbox", () => {
     });
 
     it("should support custom style", () => {
-        render(<CheckboxGroup marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option 1</Checkbox></CheckboxGroup>);
 
         const element = screen.getByRole("group");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<CheckboxGroup data-foo="bar"><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options" data-foo="bar"><Checkbox>option 1</Checkbox></CheckboxGroup>);
 
         const element = screen.getByRole("group");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -54,7 +55,7 @@ describe("Checkbox", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<CheckboxGroup ref={ref}><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options" ref={ref}><Checkbox>option 1</Checkbox></CheckboxGroup>);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
@@ -62,7 +63,7 @@ describe("Checkbox", () => {
 
     it("should set the size class name and pass the size to the checkbox and checkbox field.", () => {
         const testId = "checkbox-field";
-        render(<CheckboxGroup size="sm">
+        render(<CheckboxGroup aria-label="options" size="sm">
             <CheckboxField data-testid={testId}>
                 <Checkbox>option 1</Checkbox>
                 <Text slot="description">description</Text>
@@ -78,7 +79,7 @@ describe("Checkbox", () => {
     });
 
     it("should be disabled and pass it to the checkbox.", () => {
-        render(<CheckboxGroup isDisabled><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options" isDisabled><Checkbox>option 1</Checkbox></CheckboxGroup>);
 
         const element = screen.getByRole("group");
         const checkbox = screen.getByRole("checkbox");
@@ -90,7 +91,7 @@ describe("Checkbox", () => {
     it("should call onChange when a single checkbox is selected.", async () => {
         const user = userEvent.setup();
         const onChange = jest.fn();
-        render(<CheckboxGroup onChange={onChange}>
+        render(<CheckboxGroup aria-label="options" onChange={onChange}>
             <Checkbox value="option 1" aria-label="option 1">option 1</Checkbox>
             <Checkbox value="option 2">option 2</Checkbox>
             <Checkbox value="option 3">option 3</Checkbox>
@@ -105,7 +106,7 @@ describe("Checkbox", () => {
     it("should call onChange when a single checkbox is unselected.", async () => {
         const user = userEvent.setup();
         const onChange = jest.fn();
-        render(<CheckboxGroup onChange={onChange}>
+        render(<CheckboxGroup aria-label="options" onChange={onChange}>
             <Checkbox value="option 1">option 1</Checkbox>
             <Checkbox value="option 2">option 2</Checkbox>
             <Checkbox value="option 3">option 3</Checkbox>

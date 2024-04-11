@@ -1,9 +1,10 @@
-import { ErrorMessage } from "../../src/ErrorMessage.tsx";
-import { ErrorMessageContext } from "../../src/ErrorMessageContext.ts";
-import { createRef } from "react";
 import { SlotProvider } from "@hopper-ui/components";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
 import { FieldErrorContext } from "react-aria-components";
+
+import { ErrorMessage } from "../../src/ErrorMessage.tsx";
+import { ErrorMessageContext } from "../../src/ErrorMessageContext.ts";
 
 describe("ErrorMessage", () => {
     it("should render with default class", () => {
@@ -149,7 +150,7 @@ describe("ErrorMessage", () => {
                 }]
             ]}
             >
-                <ErrorMessage hideWarningIcon>Test</ErrorMessage>
+                <ErrorMessage hideIcon>Test</ErrorMessage>
             </SlotProvider>
         );
 

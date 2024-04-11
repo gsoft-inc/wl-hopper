@@ -75,12 +75,14 @@
     --icon-color: var(--hop-Checkbox-icon-color);
     --description-color: var(--hop-Checkbox-description-color);
 
-    align-items: start;
-    column-gap: var(--hop-space-inline-xs);
     cursor: var(--cursor);
+
     display: flex;
-    inline-size: max-content;
-    justify-content: start; 
+    column-gap: var(--hop-space-inline-xs);
+    align-items: start;
+    justify-content: start;
+
+    inline-size: max-content; 
     max-inline-size: 100%;
 }
 
@@ -174,39 +176,48 @@
 /* Icons */
 .hop-Checkbox__icon,
 .hop-Checkbox__icon-list {
-    color: var(--icon-color);
     flex: 0 0 auto;
     order: 3;
+    color: var(--icon-color);
 }
 
 /* Box */
 .hop-Checkbox__box {
+    display: flex;
+    flex: 0 0 auto;
     align-items: center;
-    aspect-ratio: 1 / 1;
+    justify-content: center;
+    order: 1;
+
+    aspect-ratio: 1/1;
+    inline-size: var(--box-inline-size, var(--hop-Checkbox-box-md-inline-size));
+
     background-color: var(--box-background-color);
     border: var(--hop-Checkbox-box-border-size) solid var(--box-border-color);
     border-radius: var(--box-border-radius);
-    display: flex;
-    flex: 0 0 auto;
-    inline-size: var(--box-inline-size, var(--hop-Checkbox-box-md-inline-size));
-    justify-content: center;
-    order: 1;
     outline: var(--box-outline, none);
     outline-offset: 0.125rem;
+
+    transition:
+        background-color var(--hop-easing-duration-2) var(--hop-easing-productive),
+        border var(--hop-easing-duration-2) var(--hop-easing-productive);
 }
 
 /* Check */
 .hop-Checkbox__check {
-    color: var(--check-color);
     display: var(--check-display);
+    color: var(--check-color);
+    transition: color var(--hop-easing-duration-2) var(--hop-easing-productive);
 }
 
 /* Text */
 .hop-Checkbox__text {
-    color: var(--text-color);
     flex: 1 1 auto;
+    order: 2;
+
+    min-inline-size: 0;
     margin-block-start: var(--text-top-offset, var(--hop-Checkbox-text-md-top-offset));
     margin-inline-start: var(--text-margin-inline-start, var(--hop-Checkbox-text-md-margin-inline-start));
-    min-inline-size: 0;
-    order: 2;
+
+    color: var(--text-color);
 }

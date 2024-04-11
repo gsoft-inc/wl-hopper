@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { CheckboxGroup } from "../src/CheckboxGroup.tsx";
-import { CheckboxField } from "../src/CheckboxField.tsx";
-import { Checkbox } from "../src/Checkbox.tsx";
-import { Text } from "../../Text/index.ts";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Label } from "../../Label/index.ts";
+import { useState } from "react";
+
 import { ErrorMessage } from "../../errorMessage/index.ts";
-import { HelperMessage } from "../../helperMessage/src/index.ts";
-import { Inline } from "../../layout/src/Inline.tsx";
+import { HelperMessage } from "../../helperMessage/index.ts";
+import { Label } from "../../Label/index.ts";
+import { Inline } from "../../layout/index.ts";
+import { Text } from "../../Text/index.ts";
+import { Checkbox } from "../src/Checkbox.tsx";
+import { CheckboxField } from "../src/CheckboxField.tsx";
+import { CheckboxGroup } from "../src/CheckboxGroup.tsx";
 import { CheckboxList } from "../src/CheckboxList.tsx";
 
 /**
@@ -34,7 +35,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * A default checkboxGroup.
+ * A default CheckboxGroup.
  */
 export const Default = {
     render: props => (
@@ -50,7 +51,8 @@ export const Default = {
         </CheckboxGroup>
     ),
     args: {
-        defaultValue: ["developer"]
+        defaultValue: ["developer"],
+        "aria-label": "Roles"
     }
 } satisfies Story;
 
@@ -86,7 +88,7 @@ export const Description = {
                     <Text slot="description">Team Manager</Text>
                 </CheckboxField>
             </CheckboxList>
-            <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
+            <HelperMessage hideIcon>Select one to continue</HelperMessage>
         </CheckboxGroup>
     )
 } satisfies Story;
@@ -104,7 +106,7 @@ export const Size = {
                     <Checkbox value="designer">Designer</Checkbox>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
-                <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
+                <HelperMessage hideIcon>Select one to continue</HelperMessage>
             </CheckboxGroup>
             <CheckboxGroup {...props} size="md">
                 <Label>Roles</Label>
@@ -113,7 +115,7 @@ export const Size = {
                     <Checkbox value="designer">Designer</Checkbox>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
-                <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
+                <HelperMessage hideIcon>Select one to continue</HelperMessage>
             </CheckboxGroup>
         </Inline>
     )
@@ -146,8 +148,8 @@ export const Validation = {
 
         return (
             <CheckboxGroup {...args} onChange={onChange} isInvalid={isInvalid}>
-                <HelperMessage hideInfoIcon>Uncheck all to show the error message</HelperMessage>
-                <ErrorMessage hideWarningIcon>Check this box and the description will appear</ErrorMessage>
+                <HelperMessage hideIcon>Uncheck all to show the error message</HelperMessage>
+                <ErrorMessage hideIcon>Check this box and the description will appear</ErrorMessage>
                 <CheckboxList>
                     <Checkbox value="developer">Developer</Checkbox>
                     <Checkbox value="designer">Designer</Checkbox>
@@ -198,5 +200,8 @@ export const Controlled = {
                 </CheckboxList>
             </CheckboxGroup>
         );
+    },
+    args: {
+        "aria-label": "Roles"
     }
 } satisfies Story;

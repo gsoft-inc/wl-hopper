@@ -4,19 +4,20 @@
     --hop-ErrorMessage-font-size: var(--hop-body-xs-font-size);
     --hop-ErrorMessage-font-weight: var(--hop-body-xs-font-weight);
     --hop-ErrorMessage-line-height: var(--hop-body-xs-line-height);
-    --hop-ErrorMessage-gap: var(--hop-space-inline-xs);
-    
-    align-items: center;
-    color: var(--hop-ErrorMessage-color);
+    --hop-ErrorMessage-column-gap: var(--hop-space-inline-xs);
+
     display: flex;
+    column-gap: var(--hop-ErrorMessage-column-gap);
+    align-items: center;
+
     font-family: var(--hop-ErrorMessage-font-family);
     font-size: var(--hop-ErrorMessage-font-size);
     font-weight: var(--hop-ErrorMessage-font-weight);
-    gap: var(--hop-ErrorMessage-gap);
     line-height: var(--hop-ErrorMessage-line-height);
+    color: var(--hop-ErrorMessage-color);
 }
 
 .hop-ErrorMessage__icon {
-    align-self: flex-start;
-    flex: 0 0 auto
+    flex: 0 0 auto;
+    align-self: flex-start
 }

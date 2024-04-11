@@ -1,7 +1,8 @@
-import { ErrorMessage } from "../src/ErrorMessage.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import { SlotProvider } from "@hopper-ui/components";
+import type { Meta, StoryObj } from "@storybook/react";
 import { FieldErrorContext } from "react-aria-components";
+
+import { ErrorMessage } from "../src/ErrorMessage.tsx";
 
 /**
  * An ErrorMessage displays validation errors for a form field.
@@ -75,7 +76,7 @@ export const Icon: Story = {
             }]
         ]}
         >
-            <ErrorMessage hideWarningIcon>Test Error Message</ErrorMessage>
+            <ErrorMessage hideIcon>Test Error Message</ErrorMessage>
         </SlotProvider>;
     }
 };

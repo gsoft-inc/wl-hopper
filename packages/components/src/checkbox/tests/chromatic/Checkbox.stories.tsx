@@ -1,10 +1,12 @@
-import { Checkbox } from "../../src/Checkbox.tsx";
+import { EditIcon } from "@hopper-ui/icons";
+import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "../../../Text/index.ts";
+
 import { IconList } from "../../../IconList/src/IconList.tsx";
 import { Inline, Stack, Flex } from "../../../layout/index.ts";
-import { Div } from "@hopper-ui/styled-system";
-import { EditIcon } from "@hopper-ui/icons";
+import { Text } from "../../../Text/index.ts";
+import { Checkbox } from "../../src/Checkbox.tsx";
+
 
 const meta = {
     title: "Components/Checkbox/Checkbox",

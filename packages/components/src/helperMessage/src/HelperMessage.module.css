@@ -1,14 +1,14 @@
 .hop-HelperMessage  {
     --hop-HelperMessage-color: var(--hop-neutral-text-weak);
-    --hop-HelperMessage-gap: var(--hop-space-inline-xs);
+    --hop-HelperMessage-column-gap: var(--hop-space-inline-xs);
 
+    display: flex;
+    column-gap: var(--hop-HelperMessage-column-gap);
     align-items: center;
     color: var(--hop-HelperMessage-color);
-    display: flex;
-    gap: var(--hop-HelperMessage-gap);
 }
 
 .hop-HelperMessage__icon {
-    align-self: flex-start;
-    flex: 0 0 auto
+    flex: 0 0 auto;
+    align-self: flex-start
 }

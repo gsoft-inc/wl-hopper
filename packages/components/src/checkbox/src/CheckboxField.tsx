@@ -1,14 +1,14 @@
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
-import clsx from "clsx";
 import { type StyledSystemProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import clsx from "clsx";
+import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { useId } from "react-aria";
+import { useContextProps } from "react-aria-components";
+
+import { TextContext, type TextProps } from "../../Text/index.ts";
+import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
+
 import { CheckboxContext } from "./CheckboxContext.ts";
 import { CheckboxFieldContext } from "./CheckboxFieldContext.ts";
-import { useContextProps } from "react-aria-components";
-import { cssModule } from "../../utils/src/cssModule.ts";
-import type { BaseComponentProps } from "../../utils/src/types.ts";
-import { SlotProvider, type SizeAdapter } from "../../utils/index.ts";
-import { TextContext, type TextProps } from "../../Text/index.ts";
-import { useId } from "react-aria";
 
 import styles from "./CheckboxField.module.css";
 
@@ -43,7 +43,6 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
         ...otherProps
     } = ownProps;
 
-    
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = clsx(

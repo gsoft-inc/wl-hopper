@@ -42,12 +42,13 @@
     --justify-content: var(--hop-CheckboxGroup-justify-content);
     --flex-wrap: wrap;
 
-    align-items: var(--align-items);
-    gap: var(--row-gap, var(--hop-space-stack-md)) var(--column-gap, var(--hop-space-inline-md));
     display: flex;
     flex-direction: column;
-    inline-size: max-content;
+    gap: var(--row-gap, var(--hop-space-stack-md)) var(--column-gap, var(--hop-space-inline-md));
+    align-items: var(--align-items);
     justify-content: var(--justify-content);
+
+    inline-size: max-content;
     max-inline-size: 100%;
 }
 
@@ -104,44 +105,46 @@
 }
 
 .hop-CheckboxGroup__list {
-    border: var(--list-border, none);
-    border-radius: var(--list-border-radius, 0);
     display: flex;
     flex-flow: var(--flex-direction) var(--flex-wrap);
     gap: var(--list-row-gap, var(--hop-space-stack-md)) var(--list-column-gap, var(--hop-space-inline-md));
-    inline-size: max-content;
-    max-inline-size: 100%;
     order: 2;
 
+    inline-size: max-content;
+    max-inline-size: 100%;
+
+    border: var(--list-border, none);
+    border-radius: var(--list-border-radius, 0);
 }
 
 .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox {
-    align-content: start;
+    position: relative;
+
     flex: 0 1 auto;
+    align-content: start;
+
+    inline-size: auto;
     min-inline-size: 0;
     padding: var(--checkbox-padding, 0);
-    position: relative;
-    inline-size: auto;
 }
 
 /* All but first */
 .hop-CheckboxGroup--bordered .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox ~ .hop-CheckboxGroup__checkbox::before {
     content: "";
-    display: block;
     position: absolute;
-
+    display: block;
 }
 
 .hop-CheckboxGroup--bordered.hop-CheckboxGroup--vertical .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox ~ .hop-CheckboxGroup__checkbox::before {
-    border-block-start: var(--list-border, none);
     inset-block-start: 0;
     inset-inline: 0;
+    border-block-start: var(--list-border, none);
 }
 
 .hop-CheckboxGroup--bordered.hop-CheckboxGroup--horizontal .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox ~ .hop-CheckboxGroup__checkbox::before {
-    border-inline-start: var(--list-border, none);
-    inset-inline-start: 0;
     inset-block: 0;
+    inset-inline-start: 0;
+    border-inline-start: var(--list-border, none);
 }
 
 .hop-CheckboxGroup > .hop-CheckboxGroup__error-message,

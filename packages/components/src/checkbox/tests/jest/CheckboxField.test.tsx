@@ -1,11 +1,13 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { CheckboxField } from "../../src/CheckboxField.tsx";
-import { Checkbox } from "../../src/Checkbox.tsx";
-import { Text } from "../../../Text/src/Text.tsx";
-import { CheckboxFieldContext } from "../../src/CheckboxFieldContext.ts";
 import { screen, render } from "@hopper-ui/test-utils";
 import { createRef } from "react";
+
+import { Text } from "../../../Text/src/Text.tsx";
+import { Checkbox } from "../../src/Checkbox.tsx";
+import { CheckboxField } from "../../src/CheckboxField.tsx";
+import { CheckboxFieldContext } from "../../src/CheckboxFieldContext.ts";
+
 
 describe("Checkbox", () => {
     const testId = "checkbox-field";

@@ -1,7 +1,8 @@
-import { ErrorMessage } from "../../src/ErrorMessage.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import { SlotProvider } from "@hopper-ui/components";
+import type { Meta, StoryObj } from "@storybook/react";
 import { FieldErrorContext } from "react-aria-components";
+
+import { ErrorMessage } from "../../src/ErrorMessage.tsx";
 
 const meta = {
     title: "Components/ErrorMessage",
@@ -26,7 +27,7 @@ export const Default: Story = {
         ]}
         >
             <ErrorMessage />
-            <ErrorMessage hideWarningIcon {...props} />
+            <ErrorMessage hideIcon {...props} />
         </SlotProvider>
     )
 };

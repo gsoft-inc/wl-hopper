@@ -1,12 +1,13 @@
-import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
-import { Checkbox } from "../../src/Checkbox.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "../../../Text/index.ts";
-import { Inline, Stack } from "../../../layout/index.ts";
-import { CheckboxField } from "../../src/CheckboxField.tsx";
-import { Label } from "../../../Label/index.ts";
-import { HelperMessage } from "../../../helperMessage/index.ts";
+
 import { ErrorMessage } from "../../../errorMessage/index.ts";
+import { HelperMessage } from "../../../helperMessage/index.ts";
+import { Label } from "../../../Label/index.ts";
+import { Inline, Stack } from "../../../layout/index.ts";
+import { Text } from "../../../Text/index.ts";
+import { Checkbox } from "../../src/Checkbox.tsx";
+import { CheckboxField } from "../../src/CheckboxField.tsx";
+import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
 import { CheckboxList } from "../../src/CheckboxList.tsx";
 
 const meta = {
@@ -33,10 +34,11 @@ export const Vertical = {
                     </CheckboxField>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
-                <HelperMessage hideInfoIcon>Select one to continue</HelperMessage>
+                <HelperMessage hideIcon>Select one to continue</HelperMessage>
             </CheckboxGroup>
             <h1>Checked</h1>
             <CheckboxGroup {...props} defaultValue={["developer", "designer", "manager"]}>
+                <Label>Roles</Label>
                 <CheckboxList>
                     <Checkbox value="developer">Developer</Checkbox>
                     <Checkbox value="designer">Designer</Checkbox>
@@ -46,6 +48,7 @@ export const Vertical = {
             <h1>Size</h1>
             <Inline alignY="start">
                 <CheckboxGroup {...props} size="sm">
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
@@ -53,6 +56,7 @@ export const Vertical = {
                     </CheckboxList>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} size="md">
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
@@ -62,6 +66,7 @@ export const Vertical = {
             </Inline>
             <h1>Disabled</h1>
             <CheckboxGroup {...props} isDisabled>
+                <Label>Roles</Label>
                 <CheckboxList>
                     <Checkbox value="developer">Developer</Checkbox>
                     <Checkbox value="designer">Designer</Checkbox>
@@ -71,24 +76,27 @@ export const Vertical = {
             <h1>Invalid</h1>
             <Inline alignY="start">
                 <CheckboxGroup {...props} size="sm" isInvalid>
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideWarningIcon>This field is required</ErrorMessage>
+                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} size="md" isInvalid>
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideWarningIcon>This field is required</ErrorMessage>
+                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
                 </CheckboxGroup>
             </Inline>
             <h1>Invalid & Disabled</h1>
             <CheckboxGroup {...props} isDisabled isInvalid>
+                <Label>Roles</Label>
                 <CheckboxList>
                     <Checkbox value="developer">Developer</Checkbox>
                     <Checkbox value="designer">Designer</Checkbox>
@@ -98,6 +106,7 @@ export const Vertical = {
             <h1>Bordered</h1>
             <Inline alignY="start">
                 <CheckboxGroup {...props} size="sm" variant="bordered">
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
@@ -105,6 +114,7 @@ export const Vertical = {
                     </CheckboxList>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} size="md" variant="bordered">
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
@@ -115,43 +125,55 @@ export const Vertical = {
             <h1>Bordered & Invalid</h1>
             <Inline alignY="start">
                 <CheckboxGroup {...props} size="sm" variant="bordered" isInvalid>
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideWarningIcon>This field is required</ErrorMessage>
+                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} size="md" variant="bordered" isInvalid>
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideWarningIcon>This field is required</ErrorMessage>
+                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
                 </CheckboxGroup>
             </Inline>
             <h1>Styling</h1>
             <Inline>
                 <CheckboxGroup border="warning-strong">
-                    <Checkbox value="1">1</Checkbox>
-                    <Checkbox value="2">2</Checkbox>
-                    <Checkbox value="3">3</Checkbox>
+                    <Label>Numbers</Label>
+                    <CheckboxList>
+                        <Checkbox value="1">1</Checkbox>
+                        <Checkbox value="2">2</Checkbox>
+                        <Checkbox value="3">3</Checkbox>
+                    </CheckboxList>
                 </CheckboxGroup>
                 <CheckboxGroup className="bg-red">
-                    <Checkbox value="1">1</Checkbox>
-                    <Checkbox value="2">2</Checkbox>
-                    <Checkbox value="3">3</Checkbox>
+                    <Label>Numbers</Label>
+                    <CheckboxList>
+                        <Checkbox value="1">1</Checkbox>
+                        <Checkbox value="2">2</Checkbox>
+                        <Checkbox value="3">3</Checkbox>
+                    </CheckboxList>
                 </CheckboxGroup>
                 <CheckboxGroup style={{ backgroundColor: "red" }}>
-                    <Checkbox value="1">1</Checkbox>
-                    <Checkbox value="2">2</Checkbox>
-                    <Checkbox value="3">3</Checkbox>
+                    <Label>Numbers</Label>
+                    <CheckboxList>
+                        <Checkbox value="1">1</Checkbox>
+                        <Checkbox value="2">2</Checkbox>
+                        <Checkbox value="3">3</Checkbox>
+                    </CheckboxList>
                 </CheckboxGroup>
             </Inline>
             <h1>Zoom</h1>
             <Inline alignY="start">
                 <CheckboxGroup {...props} className="zoom-in">
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>
@@ -159,6 +181,7 @@ export const Vertical = {
                     </CheckboxList>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} className="zoom-out">
+                    <Label>Roles</Label>
                     <CheckboxList>
                         <Checkbox value="developer">Developer</Checkbox>
                         <Checkbox value="designer">Designer</Checkbox>

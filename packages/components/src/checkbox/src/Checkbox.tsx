@@ -1,13 +1,13 @@
-import { forwardRef, type ForwardedRef } from "react";
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { CheckboxContext } from "./CheckboxContext.ts";
-import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps, TextContext as RACTextContext } from "react-aria-components";
-import { cssModule } from "../../utils/src/cssModule.ts";
-import { composeClassnameRenderProps, SlotProvider } from "../../utils/index.ts";
-import { Text, TextContext } from "../../Text/index.ts";
-import { isTextOnlyChildren } from "../../utils/src/isTextOnlyChildren.ts";
 import { IconContext, CheckmarkIcon, MinusIcon } from "@hopper-ui/icons";
+import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import { forwardRef, type ForwardedRef } from "react";
+import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps, TextContext as RACTextContext } from "react-aria-components";
+
 import { IconListContext } from "../../IconList/index.ts";
+import { Text, TextContext } from "../../Text/index.ts";
+import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren } from "../../utils/index.ts";
+
+import { CheckboxContext } from "./CheckboxContext.ts";
 
 import styles from "./Checkbox.module.css";
 
@@ -34,7 +34,6 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
         ...otherProps
     } = ownProps;
 
-    
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = composeClassnameRenderProps(
@@ -64,7 +63,6 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     });
 
     return (
-        
         <RACCheckbox
             ref={ref}
             className={classNames}

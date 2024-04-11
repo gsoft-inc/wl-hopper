@@ -1,5 +1,6 @@
-import { HelperMessage } from "../src/HelperMessage.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { HelperMessage } from "../src/HelperMessage.tsx";
 
 /**
  * The HelperMessage component is used to display auxiliary text to guide users in the interface. It can provide additional information or feedback about user interactions.
@@ -40,6 +41,6 @@ export const Default: Story = {
  */
 export const Icon: Story = {
     args: {
-        hideInfoIcon: true
+        hideIcon: true
     }
 };

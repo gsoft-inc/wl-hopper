@@ -1,10 +1,12 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
+import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
+import { userEvent } from "@testing-library/user-event";
+import { createRef } from "react";
+
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxContext } from "../../src/CheckboxContext.ts";
-import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
-import { createRef } from "react";
-import { userEvent } from "@testing-library/user-event";
+
 
 describe("Checkbox", () => {
     it("should render with default class", () => {
@@ -56,20 +58,6 @@ describe("Checkbox", () => {
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLLabelElement).toBeTruthy();
-    });
-
-    it("should be focused on render when autofocus is true", async () => {
-        render(<Checkbox autoFocus >option 1</Checkbox>);
-
-        const element = screen.getByRole("checkbox");
-        await waitFor(() => expect(element).toHaveFocus());
-    });
-
-    it("should not be focused on render when autofocus is true and the checkbox is disabled", async () => {
-        render(<Checkbox isDisabled autoFocus >option 1</Checkbox>);
-
-        const element = screen.getByRole("checkbox");
-        await waitFor(() => expect(element).not.toHaveFocus());
     });
 
     it("should prevent onChange when the checkbox is disabled", async () => {

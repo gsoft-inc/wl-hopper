@@ -1,11 +1,13 @@
-import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
-import clsx from "clsx";
-import { HelperMessageContext } from "./HelperMessageContext.ts";
-import { useContextProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
 import { InfoIcon } from "@hopper-ui/icons";
+import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import clsx from "clsx";
+import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
+import { useContextProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
+
 import { type TextProps, Text } from "../../Text/index.ts";
-import { cssModule } from "../../utils/src/cssModule.ts";
+import { cssModule } from "../../utils/index.ts";
+
+import { HelperMessageContext } from "./HelperMessageContext.ts";
 
 import styles from "./HelperMessage.module.css";
 
@@ -15,7 +17,7 @@ export interface HelperMessageProps extends StyledComponentProps<Omit<TextProps,
      * Whether or not to hide the helper message icon.
      * @default true
      */
-    hideInfoIcon?: boolean;
+    hideIcon?: boolean;
 }
 
 function HelperMessage(props: HelperMessageProps, ref: ForwardedRef<HTMLSpanElement>) {
@@ -40,7 +42,7 @@ export { _HelperMessage as HelperMessage };
 const HelperMessageInner = forwardRef((props: HelperMessageProps, ref: ForwardedRef<HTMLSpanElement>) => {
     [props, ref] = useContextProps(props, ref, HelperMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, hideInfoIcon = false, style, slot = "description", ...otherProps } = ownProps;
+    const { className, children, hideIcon = false, style, slot = "description", ...otherProps } = ownProps;
 
     const classNames = clsx(
         GlobalHelperMessageCssSelector,
@@ -66,7 +68,7 @@ const HelperMessageInner = forwardRef((props: HelperMessageProps, ref: Forwarded
             size="xs"
             slot={slot}
         >
-            {!hideInfoIcon && <InfoIcon size="sm" className={styles["hop-HelperMessage__icon"]} />}
+            {!hideIcon && <InfoIcon size="sm" className={styles["hop-HelperMessage__icon"]} />}
             {children}
         </Text>
     );

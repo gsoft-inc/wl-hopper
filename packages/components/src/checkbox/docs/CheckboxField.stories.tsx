@@ -1,8 +1,9 @@
-import { CheckboxField } from "../src/CheckboxField.tsx";
-import { Checkbox } from "../src/Checkbox.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "../../Text/index.ts";
+
 import { Stack } from "../../layout/index.ts";
+import { Text } from "../../Text/index.ts";
+import { Checkbox } from "../src/Checkbox.tsx";
+import { CheckboxField } from "../src/CheckboxField.tsx";
 
 /**
  * The CheckboxField component is used to group a checkbox with a description.
@@ -28,7 +29,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * A default checkboxField.
+ * A default CheckboxField.
  */
 export const Default: Story = {
     render: props => (
@@ -41,7 +42,7 @@ export const Default: Story = {
 };
 
 /**
- * A checkboxField with a description.
+ * A CheckboxField with a description.
  */
 export const Description: Story = {
     render: props => (
@@ -55,7 +56,7 @@ export const Description: Story = {
 };
 
 /**
- * A checkboxField can be rendered in a disabled state.
+ * A CheckboxField can be rendered in a disabled state.
  */
 export const Disabled: Story = {
     ...Description,
@@ -65,7 +66,7 @@ export const Disabled: Story = {
 };
 
 /**
- * A checkboxField can be rendered in two different sizes.
+ * A CheckboxField can be rendered in two different sizes.
  */
 export const Sizes: Story = {
     render: props => (

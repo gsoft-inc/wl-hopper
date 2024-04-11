@@ -1,7 +1,8 @@
+import { render, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
+
 import { HelperMessage } from "../../src/HelperMessage.tsx";
 import { HelperMessageContext } from "../../src/HelperMessageContext.ts";
-import { createRef } from "react";
-import { render, screen } from "@hopper-ui/test-utils";
 
 describe("HelperMessage", () => {
     it("should render with default class", () => {
@@ -63,7 +64,7 @@ describe("HelperMessage", () => {
     });
 
     it("should support hiding an icon", () => {
-        render(<HelperMessage hideInfoIcon>Test</HelperMessage>);
+        render(<HelperMessage hideIcon>Test</HelperMessage>);
 
         const element = screen.getByText("Test");
         const svgElement = element.querySelector(".hop-Icon");

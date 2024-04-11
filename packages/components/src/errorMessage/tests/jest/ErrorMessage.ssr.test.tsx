@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { ErrorMessage } from "../../src/ErrorMessage.tsx";
 import { renderToString } from "react-dom/server";
+
+import { ErrorMessage } from "../../src/ErrorMessage.tsx";
 
 describe("ErrorMessage", () => {
     it("should render on the server", () => {

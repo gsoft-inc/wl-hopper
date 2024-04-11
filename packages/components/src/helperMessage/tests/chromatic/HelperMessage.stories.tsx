@@ -1,5 +1,6 @@
-import { HelperMessage } from "../../src/HelperMessage.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { HelperMessage } from "../../src/HelperMessage.tsx";
 
 const meta = {
     title: "Components/HelperMessage",
@@ -17,7 +18,7 @@ export const Default: Story = {
     render: props => (
         <>
             <HelperMessage {...props} />
-            <HelperMessage hideInfoIcon {...props} />
+            <HelperMessage hideIcon {...props} />
         </>
     )
 };

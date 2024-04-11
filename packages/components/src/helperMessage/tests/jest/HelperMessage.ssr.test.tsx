@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { HelperMessage } from "../../src/HelperMessage.tsx";
 import { renderToString } from "react-dom/server";
+
+import { HelperMessage } from "../../src/HelperMessage.tsx";
 
 describe("HelperMessage", () => {
     it("should render on the server", () => {

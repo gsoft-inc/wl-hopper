@@ -1,8 +1,9 @@
-import { CheckboxField } from "../../src/CheckboxField.tsx";
-import { Checkbox } from "../../src/Checkbox.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "../../../Text/index.ts";
+
 import { Inline, Stack } from "../../../layout/index.ts";
+import { Text } from "../../../Text/index.ts";
+import { Checkbox } from "../../src/Checkbox.tsx";
+import { CheckboxField } from "../../src/CheckboxField.tsx";
 
 const meta = {
     title: "Components/Checkbox/CheckboxField",

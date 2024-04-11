@@ -1,9 +1,10 @@
-import { Checkbox } from "../src/Checkbox.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "../../Text/index.ts";
-import { Stack } from "../../layout/index.ts";
 import { PlusIcon } from "@hopper-ui/icons";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { IconList } from "../../IconList/index.ts";
+import { Stack } from "../../layout/index.ts";
+import { Text } from "../../Text/index.ts";
+import { Checkbox } from "../src/Checkbox.tsx";
 
 /**
  * The Checkbox component is used to select or deselect an option. Indeterminate state is also supported.
@@ -62,7 +63,8 @@ export const Checked: Story = {
 export const Indeterminate: Story = {
     args: {
         ...Default.args,
-        isIndeterminate: true
+        isIndeterminate: true,
+        defaultSelected: true
     }
 };
 

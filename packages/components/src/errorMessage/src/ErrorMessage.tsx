@@ -1,12 +1,14 @@
-import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
-import clsx from "clsx";
-import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
-import { ErrorMessageContext } from "./ErrorMessageContext.ts";
-import { useContextProps, type FieldErrorProps as RACFieldErrorProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
 import { WarningIcon } from "@hopper-ui/icons";
-import { cssModule } from "../../utils/src/cssModule.ts";
-import { useRenderProps } from "../../utils/src/useRenderProps.ts";
+import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import clsx from "clsx";
+import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
+import { useContextProps, type FieldErrorProps as RACFieldErrorProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
+
 import { type TextProps, Text } from "../../Text/index.ts";
+import { cssModule, useRenderProps } from "../../utils/index.ts";
+
+import { ErrorMessageContext } from "./ErrorMessageContext.ts";
+
 
 import styles from "./ErrorMessage.module.css";
 
@@ -17,7 +19,7 @@ export interface ErrorMessageProps extends StyledComponentProps<RACFieldErrorPro
      * Whether or not to hide the error message icon.
      * @default true
      */
-    hideWarningIcon?: boolean;
+    hideIcon?: boolean;
 }
 
 function ErrorMessage(props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElement>) {
@@ -43,7 +45,7 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
     const validation = useContext(RACFieldErrorContext)!;
     [props, ref] = useContextProps(props, ref, ErrorMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, hideWarningIcon = false, style, slot = "errorMessage", ...otherProps } = ownProps;
+    const { className, children, hideIcon = false, style, slot = "errorMessage", ...otherProps } = ownProps;
 
     const classNames = clsx(
         GlobalErrorMessageCssSelector,
@@ -60,7 +62,7 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
         ...style
     };
 
-    const warningIcon = !hideWarningIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
+    const warningIcon = !hideIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
 
     const renderProps = useRenderProps({
         className: classNames,
@@ -69,7 +71,6 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
         values: validation
     });
 
-  
     return (
         <Text
             {...otherProps}

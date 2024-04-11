@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Checkbox } from "../../src/Checkbox.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Checkbox } from "../../src/Checkbox.tsx";
 
 describe("Checkbox", () => {
     it("should render on the server", () => {
