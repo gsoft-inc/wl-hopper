@@ -1,4 +1,4 @@
-import { AddIcon, PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Stack } from "../../layout/index.ts";
@@ -25,8 +25,8 @@ const meta = {
     component: IconList,
     args: {
         children: [
-            <AddIcon key="1" />,
-            <PlusIcon key="2" />
+            <SparklesIcon key="1" />,
+            <SparklesIcon key="2" />
         ]
     }
 } satisfies Meta<typeof IconList>;
