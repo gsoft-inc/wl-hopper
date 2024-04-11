@@ -207,7 +207,6 @@
 .hop-Checkbox__check {
     display: var(--check-display);
     color: var(--check-color);
-    transition: color var(--hop-easing-duration-2) var(--hop-easing-productive);
 }
 
 /* Text */
