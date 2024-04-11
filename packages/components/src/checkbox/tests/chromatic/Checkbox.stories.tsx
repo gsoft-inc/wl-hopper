@@ -1,4 +1,4 @@
-import { EditIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -55,21 +55,21 @@ export const Unchecked: Story = {
             <Inline alignY="end">
                 <Checkbox {...props} size="sm">
                     <Text>Option 1</Text>
-                    <EditIcon />
+                    <SparklesIcon />
                 </Checkbox>
                 <Checkbox {...props} size="md">
                     <Text>Option 2</Text>
-                    <EditIcon />
+                    <SparklesIcon />
                 </Checkbox>
             </Inline>
             <Inline alignY="end">
                 <Checkbox {...props} size="sm">
                     <Text>Option 1</Text>
-                    <IconList><EditIcon /><EditIcon /><EditIcon /></IconList>
+                    <IconList><SparklesIcon /><SparklesIcon /><SparklesIcon /></IconList>
                 </Checkbox>
                 <Checkbox {...props} size="md">
                     <Text>Option 2</Text>
-                    <IconList><EditIcon /><EditIcon /><EditIcon /></IconList>
+                    <IconList><SparklesIcon /><SparklesIcon /><SparklesIcon /></IconList>
                 </Checkbox>
             </Inline>
             <h1>Unlabeled</h1>
@@ -79,18 +79,18 @@ export const Unchecked: Story = {
             </Inline>
             <Inline alignY="end">
                 <Checkbox size="sm" aria-label="Option 1">
-                    <EditIcon />
+                    <SparklesIcon />
                 </Checkbox>
                 <Checkbox aria-label="Option 2">
-                    <EditIcon />
+                    <SparklesIcon />
                 </Checkbox>
             </Inline>
             <Inline alignY="end">
                 <Checkbox {...props} size="sm" aria-label="Option 1">
-                    <IconList><EditIcon /><EditIcon /><EditIcon /></IconList>
+                    <IconList><SparklesIcon /><SparklesIcon /><SparklesIcon /></IconList>
                 </Checkbox>
                 <Checkbox {...props} size="md" aria-label="Option 2">
-                    <IconList><EditIcon /><EditIcon /><EditIcon /></IconList>
+                    <IconList><SparklesIcon /><SparklesIcon /><SparklesIcon /></IconList>
                 </Checkbox>
             </Inline>
             <h1>Validation</h1>
@@ -105,11 +105,11 @@ export const Unchecked: Story = {
             <Inline alignY="end">
                 <Checkbox {...props} size="sm" isInvalid>
                     <Text>Option 1</Text>
-                    <EditIcon />
+                    <SparklesIcon />
                 </Checkbox>
                 <Checkbox {...props} size="md" isInvalid>
                     <Text>Option 2</Text>
-                    <EditIcon />
+                    <SparklesIcon />
                 </Checkbox>
             </Inline>
             <h1>States</h1>
@@ -181,7 +181,7 @@ export const Unchecked: Story = {
                 <Checkbox {...props}>
                     <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                     <IconList>
-                        <EditIcon /><EditIcon />
+                        <SparklesIcon /><SparklesIcon />
                     </IconList>
                 </Checkbox>
             </Flex>

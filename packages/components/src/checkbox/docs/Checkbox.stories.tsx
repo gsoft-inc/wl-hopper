@@ -1,4 +1,4 @@
-import { PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconList } from "../../IconList/index.ts";
@@ -76,7 +76,7 @@ export const Disabled: Story = {
         ...Default.args,
         isDisabled: true,
         children: [
-            <PlusIcon key="1" />,
+            <SparklesIcon key="1" />,
             <Text key="2">Option 1</Text>
         ]
     }
@@ -90,7 +90,7 @@ export const Invalid: Story = {
         ...Default.args,
         isInvalid: true,
         children: [
-            <PlusIcon key="1" />,
+            <SparklesIcon key="1" />,
             <Text key="2">Option 1</Text>
         ]
     }
@@ -116,7 +116,7 @@ export const Icons: Story = {
     ...Size,
     args: {
         children: [
-            <PlusIcon key="1" />,
+            <SparklesIcon key="1" />,
             <Text key="2">Option 1</Text>
         ]
     }
@@ -131,7 +131,7 @@ export const IconListStory: Story = {
     args: {
         children: [
             <IconList key="1">
-                <PlusIcon /><PlusIcon /><PlusIcon />
+                <SparklesIcon /><SparklesIcon /><SparklesIcon />
             </IconList>,
             <Text key="2">Option 1</Text>
         ]
