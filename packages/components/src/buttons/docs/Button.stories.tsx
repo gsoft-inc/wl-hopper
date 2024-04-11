@@ -1,4 +1,4 @@
-import { PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
@@ -115,21 +115,21 @@ export const Disabled: Story = {
 export const Fluid: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem", flexDirection: "column" }}>
-            <Button {...props} >
+            <Button {...props}>
                 Save
             </Button>
-            <Button {...props} >
-                <PlusIcon />
+            <Button {...props}>
+                <SparklesIcon />
                 <Text>Save</Text>
             </Button>
-            <Button {...props} >
+            <Button {...props}>
                 <Text>Save</Text>
-                <PlusIcon slot="end-icon" />
+                <SparklesIcon slot="end-icon" />
             </Button>
-            <Button {...props} >
-                <PlusIcon />
+            <Button {...props}>
+                <SparklesIcon />
                 <Text>Save</Text>
-                <PlusIcon slot="end-icon" />
+                <SparklesIcon slot="end-icon" />
             </Button>
         </div>
     ),
@@ -144,9 +144,9 @@ export const Fluid: Story = {
 export const IconOnly: Story = {
     ...Size,
     args: {
-        "aria-label": "Add",
+        "aria-label": "Clean",
         children: [
-            <PlusIcon key="1" />
+            <SparklesIcon key="1" />
         ]
     }
 };
@@ -158,7 +158,7 @@ export const Icon: Story = {
     ...Size,
     args: {
         children: [
-            <PlusIcon key="1" />,
+            <SparklesIcon key="1" />,
             <Text key="2">Save</Text>
         ]
     }
@@ -171,7 +171,7 @@ export const EndIcon: Story = {
     ...Size,
     args: {
         children: [
-            <PlusIcon key="1" slot="end-icon" />,
+            <SparklesIcon key="1" slot="end-icon" />,
             <Text key="2">Save</Text>
         ]
     }
@@ -184,9 +184,9 @@ export const BothIcon: Story = {
     ...Size,
     args: {
         children: [
-            <PlusIcon key="1" />,
+            <SparklesIcon key="1" />,
             <Text key="2">Save</Text>,
-            <PlusIcon key="3" slot="end-icon" />
+            <SparklesIcon key="3" slot="end-icon" />
         ]
     }
 };

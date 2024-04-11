@@ -1,19 +1,15 @@
 /**
  * @jest-environment node
  */
-import { SparklesIcon } from "@hopper-ui/icons";
 import { renderToString } from "react-dom/server";
 
-import { IconList } from "../../src/IconList.tsx";
+import { Link } from "../../src/Link.tsx";
 
-describe("IconList", () => {
+describe("Link", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <IconList>
-                    <SparklesIcon />
-                    <SparklesIcon />
-                </IconList>
+                <Link href="#">Learn more</Link>
             );
 
         expect(renderOnServer).not.toThrow();

@@ -1,4 +1,4 @@
-import { AddIcon, PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
@@ -9,8 +9,8 @@ describe("IconList", () => {
     it("should render with default class", () => {
         render(
             <IconList data-testid="icon-list">
-                <AddIcon />
-                <PlusIcon />
+                <SparklesIcon />
+                <SparklesIcon />
             </IconList>
         );
 
@@ -21,8 +21,8 @@ describe("IconList", () => {
     it("should support custom class", () => {
         render(
             <IconList data-testid="icon-list" className="test">
-                <AddIcon />
-                <PlusIcon />
+                <SparklesIcon />
+                <SparklesIcon />
             </IconList>
         );
 
@@ -34,8 +34,8 @@ describe("IconList", () => {
     it("should support custom style", () => {
         render(
             <IconList data-testid="icon-list" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <AddIcon />
-                <PlusIcon />
+                <SparklesIcon />
+                <SparklesIcon />
             </IconList>
         );
 
@@ -46,8 +46,8 @@ describe("IconList", () => {
     it("should support DOM props", () => {
         render(
             <IconList data-testid="icon-list" data-foo="bar">
-                <AddIcon />
-                <PlusIcon />
+                <SparklesIcon />
+                <SparklesIcon />
             </IconList>
         );
 
@@ -59,8 +59,8 @@ describe("IconList", () => {
         render(
             <IconListContext.Provider value={{ slots: { test: { "aria-label": "test label" } } }}>
                 <IconList data-testid="icon-list" slot="test">
-                    <AddIcon />
-                    <PlusIcon />
+                    <SparklesIcon />
+                    <SparklesIcon />
                 </IconList>
             </IconListContext.Provider>
         );
@@ -74,8 +74,8 @@ describe("IconList", () => {
         const ref = createRef<HTMLSpanElement>();
         render(
             <IconList data-testid="icon-list" ref={ref}>
-                <AddIcon />
-                <PlusIcon />
+                <SparklesIcon />
+                <SparklesIcon />
             </IconList>
         );
 

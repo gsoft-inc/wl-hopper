@@ -1,4 +1,4 @@
-import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
@@ -49,47 +49,47 @@ export const Primary: Story = {
                     <h1>Icons</h1>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
-                            <PlusIcon />
+                            <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
                         <Button {...args}>
-                            <PlusIcon />
+                            <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <IconList>
-                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
                             <Text>Save</Text>
                         </Button>
                         <Button {...args}>
                             <IconList>
-                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
                             <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
-                            <PlusIcon />
+                            <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
                         <Button isLoading {...args}>
-                            <PlusIcon />
+                            <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Div>
                         <Button isDisabled {...args}>
-                            <PlusIcon />
+                            <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
                     </Div>
                     <Stack>
                         <Button fluid {...args}>
-                            <PlusIcon />
+                            <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
                         <Button fluid {...args}>
@@ -102,47 +102,47 @@ export const Primary: Story = {
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <Text>Save</Text>
-                            <PlusIcon slot="end-icon" />
+                            <SparklesIcon slot="end-icon" />
                         </Button>
                         <Button {...args}>
                             <Text>Save</Text>
-                            <PlusIcon slot="end-icon" />
+                            <SparklesIcon slot="end-icon" />
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <Text>Save</Text>
                             <IconList slot="end-icon">
-                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
                         </Button>
                         <Button {...args}>
                             <Text>Save</Text>
                             <IconList slot="end-icon">
-                                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <Text>Save</Text>
-                            <PlusIcon slot="end-icon" />
+                            <SparklesIcon slot="end-icon" />
                         </Button>
                         <Button isLoading {...args}>
                             <Text>Save</Text>
-                            <PlusIcon slot="end-icon" />
+                            <SparklesIcon slot="end-icon" />
                         </Button>
                     </Inline>
                     <Div>
                         <Button isDisabled {...args}>
                             <Text>Save</Text>
-                            <PlusIcon slot="end-icon" />
+                            <SparklesIcon slot="end-icon" />
                         </Button>
                     </Div>
                     <Stack>
                         <Button fluid {...args}>
                             <Text>Save</Text>
-                            <PlusIcon slot="end-icon" />
+                            <SparklesIcon slot="end-icon" />
                         </Button>
                         <Button fluid {...args}>
                             <Text>Save</Text>
@@ -213,23 +213,23 @@ const StateTemplate = (args: Partial<ButtonProps>) => (
         <Button isLoading size="sm" {...args}>Save</Button>
         <Button isLoading {...args}>Save</Button>
         <Button {...args}>
-            <PlusIcon />
+            <SparklesIcon />
             <Text>Save</Text>
         </Button>
         <Button {...args}>
             <Text>Save</Text>
-            <PlusIcon slot="end-icon" />
+            <SparklesIcon slot="end-icon" />
         </Button>
         <Button {...args}>
             <Text>Save</Text>
             <IconList>
-                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                <SparklesIcon /><SparklesIcon /><SparklesIcon />
             </IconList>
         </Button>
         <Button {...args}>
             <Text>Save</Text>
             <IconList slot="end-icon">
-                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+                <SparklesIcon /><SparklesIcon /><SparklesIcon />
             </IconList>
         </Button>
     </Inline>
