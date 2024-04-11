@@ -1,7 +1,8 @@
 import { Div } from "@hopper-ui/styled-system";
-import { Inline } from "../src/Inline.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import type { DivProps } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Inline } from "../src/Inline.tsx";
 
 /**
  * The Inline pattern is a layout primitive that can be used to stack elements in the horizontal direction and apply a space between them.

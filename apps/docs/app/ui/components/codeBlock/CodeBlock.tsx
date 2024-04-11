@@ -1,40 +1,32 @@
-import { unified, type Plugin } from "unified";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import rehypePrettyCode from "rehype-pretty-code";
-import { rehypeOptions } from "@/app/lib/rehypeConfig";
-import { getExampleComponentPath, getFileContent, getFormattedCode } from "@/app/lib/getFileContent.ts";
+"use client";
 
-interface CodeBlockProps {
-    filePath: string;
-    className?: string;
+import { useEffect, useState } from "react";
+import * as prod from "react/jsx-runtime";
+import { unified } from "unified";
+import rehypeReact from "rehype-react";
+import rehypeParse from "rehype-parse";
+
+import Pre from "@/components/pre/Pre.tsx";
+
+const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs, components: { pre: Pre } };
+
+function useProcessor(text: string) {
+    const [Content, setContent] = useState(<></>);
+
+    useEffect(() => {
+        unified()
+            .use(rehypeParse, { fragment: true })
+            // @ts-expect-error: rehype-react types error
+            .use(rehypeReact, production)
+            .process(text)
+            .then(file => {
+                setContent(file.result);
+            });
+    }, [text]);
+
+    return Content;
 }
 
-
-export async function CodeBlock({ filePath, className }: CodeBlockProps) {
-    const examplePath = getExampleComponentPath(filePath);
-    const codeExample = await getFileContent(`${examplePath}.tsx`);
-    const formattedCode = await getFormattedCode(codeExample);
-    const highlightedCode = await highlightCode(formattedCode);
-
-    return (
-        <section
-            className={className}
-            dangerouslySetInnerHTML={{
-                __html: highlightedCode
-            }}
-        />
-    );
-}
-
-async function highlightCode(code: string) {
-    const file = await unified()
-        .use(remarkParse as unknown as Plugin)
-        .use(remarkRehype as unknown as Plugin)
-        .use(rehypePrettyCode, rehypeOptions)
-        .use(rehypeStringify as unknown as Plugin)
-        .process(code);
-
-    return String(file);
+export default function CodeBlock({ code }: { code: string }) {
+    return useProcessor(code);
 }

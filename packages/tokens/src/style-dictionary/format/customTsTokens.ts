@@ -1,4 +1,5 @@
 import type { Dictionary, TransformedToken } from "style-dictionary";
+
 import { handleTypes } from "../helpers/index.ts";
 
 export const customTsTokens = function ({ dictionary }: { dictionary: Dictionary }) {

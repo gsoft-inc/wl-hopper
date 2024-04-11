@@ -1,9 +1,11 @@
 import { Div } from "@hopper-ui/styled-system";
+import type { DivProps } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { Grid, fitContent, minmax, repeat } from "../../src/Grid.tsx";
 import { Inline } from "../../src/Inline.tsx";
 import { Stack } from "../../src/Stack.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
-import type { DivProps } from "@hopper-ui/styled-system";
+
 
 const viewports = [640, 768, 1024, 1280, 1440];
 

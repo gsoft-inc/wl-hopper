@@ -1,8 +1,9 @@
-import { HopperProvider } from "../../src/HopperProvider.tsx";
+import { hopperParameters, a11yParameters } from "@hopper-ui/storybook-addon";
 import { Div, useColorSchemeContext } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect } from "react";
-import { hopperParameters, a11yParameters } from "@hopper-ui/storybook-addon";
+
+import { HopperProvider } from "../../src/HopperProvider.tsx";
 
 const ColoredDiv = () => {
     return (

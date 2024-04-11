@@ -1,7 +1,8 @@
-import { SpinnerContext } from "../../src/SpinnerContext.ts";
-import { Spinner } from "../../src/Spinner.tsx";
-import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
+
+import { Spinner } from "../../src/Spinner.tsx";
+import { SpinnerContext } from "../../src/SpinnerContext.ts";
 
 describe("Spinner", () => {
     it("should render with default class", () => {

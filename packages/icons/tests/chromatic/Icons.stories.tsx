@@ -1,6 +1,7 @@
-import * as IconLibrary from "../../src/index.ts";
 import { LI, UL } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import * as IconLibrary from "../../src/index.ts";
 
 type ListProps = IconLibrary.CreatedIconProps;
 
@@ -33,11 +34,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: args => {
         return <>
-            <h2>Small</h2>
+            <h1>Small</h1>
             <List {...args} size="sm" />
-            <h2>Medium</h2>
+            <h1>Medium</h1>
             <List {...args} size="md" />
-            <h2>Large</h2>
+            <h1>Large</h1>
             <List {...args} size="lg" />
         </>;
     }

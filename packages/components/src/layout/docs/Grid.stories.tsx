@@ -1,7 +1,8 @@
 import { Div } from "@hopper-ui/styled-system";
-import { Grid, fitContent, minmax, repeat } from "../src/Grid.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import type { DivProps } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Grid, fitContent, minmax, repeat } from "../src/Grid.tsx";
 
 /**
  * The Grid component is used to create a grid container and provides some shortcuts for the grid properties.
@@ -194,5 +195,3 @@ export const FitContent: Story = {
         ]
     }
 };
-
-

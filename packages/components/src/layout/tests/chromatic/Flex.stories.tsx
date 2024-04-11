@@ -1,6 +1,7 @@
 import { Div, type DivProps } from "@hopper-ui/styled-system";
-import { Flex } from "../../src/Flex.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Flex } from "../../src/Flex.tsx";
 
 function Square(props: DivProps) {
     return <Div backgroundColor="decorative-option1" height="core_640" width="core_640" {...props} />;

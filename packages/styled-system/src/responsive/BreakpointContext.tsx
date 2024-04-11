@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+
 import type { Breakpoint } from "./Breakpoints.ts";
 
 export interface BreakpointContextType {

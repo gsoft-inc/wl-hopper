@@ -1,12 +1,13 @@
-import { Div } from "@hopper-ui/styled-system";
-import { Button } from "../../src/Button.tsx";
-import { IconList } from "../../../IconList/src/IconList.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Text } from "../../../Text/src/Text.tsx";
 import { RefreshIcon, PlusIcon } from "@hopper-ui/icons";
+import { Div } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
-import { Inline, Stack } from "../../../layout/index.ts";
 
+import { IconList } from "../../../IconList/src/IconList.tsx";
+import { Inline, Stack } from "../../../layout/index.ts";
+import { Text } from "../../../Text/src/Text.tsx";
+import { ButtonContext } from "../../index.ts";
+import { Button, type ButtonProps } from "../../src/Button.tsx";
 
 const meta = {
     title: "Components/Buttons/Button",
@@ -25,35 +26,35 @@ export const Primary: Story = {
         return (
             <Stack>
                 <Stack>
-                    <h2>Default</h2>
+                    <h1>Default</h1>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>Button</Button>
-                        <Button {...args}>Button</Button>
+                        <Button size="sm" {...args}>Save</Button>
+                        <Button {...args}>Save</Button>
                     </Inline>
                     <Inline alignY="end">
-                        <Button isLoading size="sm" {...args}>Button</Button>
-                        <Button isLoading {...args}>Button</Button>
+                        <Button isLoading size="sm" {...args}>Save</Button>
+                        <Button isLoading {...args}>Save</Button>
                     </Inline>
                     <Div>
-                        <Button fluid {...args}>Button</Button>
+                        <Button fluid {...args}>Save</Button>
                     </Div>
                     <Div width="10%">
-                        <Button fluid {...args}>Button</Button>
+                        <Button fluid {...args}>Save</Button>
                     </Div>
                     <Div>
-                        <Button isLoading fluid {...args}>Button</Button>
+                        <Button isLoading fluid {...args}>Save</Button>
                     </Div>
                 </Stack>
                 <Stack>
-                    <h2>Icons</h2>
+                    <h1>Icons</h1>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
@@ -61,38 +62,38 @@ export const Primary: Story = {
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button {...args}>
                             <IconList>
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button isLoading {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Inline>
                     <Div>
                         <Button isDisabled {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Div>
                     <Stack>
                         <Button fluid {...args}>
                             <PlusIcon />
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                         <Button fluid {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Stack>
                 </Stack>
@@ -100,23 +101,23 @@ export const Primary: Story = {
                     <h1>End icons</h1>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                         <Button {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
                     <Inline alignY="end">
                         <Button size="sm" {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <IconList slot="end-icon">
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
                         </Button>
                         <Button {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <IconList slot="end-icon">
                                 <RefreshIcon /><RefreshIcon /><RefreshIcon />
                             </IconList>
@@ -124,27 +125,27 @@ export const Primary: Story = {
                     </Inline>
                     <Inline alignY="end">
                         <Button isLoading size="sm" {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                         <Button isLoading {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Inline>
                     <Div>
                         <Button isDisabled {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                     </Div>
                     <Stack>
                         <Button fluid {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                             <PlusIcon slot="end-icon" />
                         </Button>
                         <Button fluid {...args}>
-                            <Text>Button</Text>
+                            <Text>Save</Text>
                         </Button>
                     </Stack>
                 </Stack>
@@ -152,10 +153,10 @@ export const Primary: Story = {
                     <h1>Zoom</h1>
                     <Inline alignY="end">
                         <Div className="zoom-in">
-                            <Button {...args}>Button</Button>
+                            <Button {...args}>Save</Button>
                         </Div>
                         <Div className="zoom-out'">
-                            <Button {...args}>Button</Button>
+                            <Button {...args}>Save</Button>
                         </Div>
                     </Inline>
                 </Stack>
@@ -170,13 +171,6 @@ export const Secondary: Story = {
     }
 };
 
-export const Tertiary: Story = {
-    ...Primary,
-    args: {
-        variant: "tertiary"
-    }
-};
-
 export const Upsell: Story = {
     ...Primary,
     args: {
@@ -184,12 +178,62 @@ export const Upsell: Story = {
     }
 };
 
-export const Negative: Story = {
+export const Danger: Story = {
     ...Primary,
     args: {
-        variant: "negative"
+        variant: "danger"
     }
 };
+
+export const GhostPrimary: Story = {
+    ...Primary,
+    args: {
+        variant: "ghost-primary"
+    }
+};
+
+export const GhostSecondary: Story = {
+    ...Primary,
+    args: {
+        variant: "ghost-secondary"
+    }
+};
+
+export const GhostDanger: Story = {
+    ...Primary,
+    args: {
+        variant: "ghost-danger"
+    }
+};
+
+const StateTemplate = (args: Partial<ButtonProps>) => (
+    <Inline alignY="end">
+        <Button size="sm" {...args}>Save</Button>
+        <Button {...args}>Save</Button>
+        <Button isLoading size="sm" {...args}>Save</Button>
+        <Button isLoading {...args}>Save</Button>
+        <Button {...args}>
+            <PlusIcon />
+            <Text>Save</Text>
+        </Button>
+        <Button {...args}>
+            <Text>Save</Text>
+            <PlusIcon slot="end-icon" />
+        </Button>
+        <Button {...args}>
+            <Text>Save</Text>
+            <IconList>
+                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+            </IconList>
+        </Button>
+        <Button {...args}>
+            <Text>Save</Text>
+            <IconList slot="end-icon">
+                <RefreshIcon /><RefreshIcon /><RefreshIcon />
+            </IconList>
+        </Button>
+    </Inline>
+);
 
 export const PrimaryStates: Story = {
     play: async ({ canvasElement }) => {
@@ -198,11 +242,6 @@ export const PrimaryStates: Story = {
 
         buttons.forEach(button => {
             if (button.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
-                if (button.getAttribute("data-chromatic-force-press")) {
-                    button.setAttribute("data-pressed", "true");
-                    button.removeAttribute("data-chromatic-force-press");
-                }
-
                 if (button.getAttribute("data-chromatic-force-focus")) {
                     button.setAttribute("data-focus-visible", "true");
                     button.removeAttribute("data-chromatic-force-focus");
@@ -219,155 +258,19 @@ export const PrimaryStates: Story = {
         return (
             <Stack>
                 <h1>Default</h1>
-                <Inline alignX="end">
-                    <Button size="sm" {...args}>Button</Button>
-                    <Button {...args}>Button</Button>
-                    <Button {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} />
                 <h1>Disabled</h1>
-                <Inline alignX="end">
-                    <Button isDisabled size="sm" {...args}>Button</Button>
-                    <Button isDisabled {...args}>Button</Button>
-                    <Button isDisabled {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button isDisabled {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} isDisabled />
                 <h1>Pressed</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-press size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-press {...args}>Button</Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-press {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <ButtonContext.Provider value={{ isPressed: true }}>
+                    <StateTemplate {...args} />
+                </ButtonContext.Provider>
                 <h1>Focus Visible</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-focus size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-focus {...args}>Button</Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-focus {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-focus />
                 <h1>Hovered</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-hover size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-hover {...args}>Button</Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-hover />
                 <h1>Focus Visible and Hovered</h1>
-                <Inline alignX="end">
-                    <Button data-chromatic-force-focus data-chromatic-force-hover size="sm" {...args}>Button</Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>Button</Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <PlusIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <PlusIcon slot="end-icon" />
-                    </Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList>
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                    <Button data-chromatic-force-focus data-chromatic-force-hover {...args}>
-                        <Text>Button</Text>
-                        <IconList slot="end-icon">
-                            <RefreshIcon /><RefreshIcon /><RefreshIcon />
-                        </IconList>
-                    </Button>
-                </Inline>
+                <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
             </Stack>
         );
     }
@@ -379,13 +282,6 @@ export const SecondaryStates: Story = {
     }
 };
 
-export const TertiaryStates: Story = {
-    ...PrimaryStates,
-    args: {
-        variant: "tertiary"
-    }
-};
-
 export const UpsellStates: Story = {
     ...PrimaryStates,
     args: {
@@ -393,9 +289,30 @@ export const UpsellStates: Story = {
     }
 };
 
-export const NegativeStates: Story = {
+export const DangerStates: Story = {
     ...PrimaryStates,
     args: {
-        variant: "negative"
+        variant: "danger"
+    }
+};
+
+export const GhostPrimaryStates: Story = {
+    ...PrimaryStates,
+    args: {
+        variant: "ghost-primary"
+    }
+};
+
+export const GhostSecondaryStates: Story = {
+    ...PrimaryStates,
+    args: {
+        variant: "ghost-secondary"
+    }
+};
+
+export const GhostDangerStates: Story = {
+    ...PrimaryStates,
+    args: {
+        variant: "ghost-danger"
     }
 };

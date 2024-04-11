@@ -1,0 +1,49 @@
+import type { Context, PropsWithChildren, ReactNode } from "react";
+import { TextContext as RACTextContext, TextContext, type ContextValue } from "react-aria-components";
+
+export interface ClearProvidersProps<T extends Element> {
+    /**
+     * The list of providers to clear.
+     */
+    values: Context<ContextValue<unknown, T>>[];
+
+    children: ReactNode;
+}
+
+/**
+ * Writing slots in a component can be a bit tricky. This component is a utility that allows you to clear the slots of a component.
+ *
+ * For instance: In a dialog, slots could apply specific styles to a Divider divider between the heading and the content.
+ * If someone wanted to make a two column layout in their content and use a Divider, they'd need to do some work to get rid of the class name the dialog applies.
+ *
+ * There are a few reasons why you might want to clear slots:
+ * - You're trying to make a component that is a container for other components, and you don't want anything set above to affect your content.
+ * - You're trying to specify a different slot provider inside
+ */
+export function ClearProviders<T extends Element>({
+    values,
+    children
+}: ClearProvidersProps<T>) {
+    // Similar implementation to SlotProvider
+    for (const Context of values) {
+        children = <Context.Provider value={null}>{children}</Context.Provider>;
+    }
+
+    return children;
+}
+
+/**
+ *  Most of the time, you won't need to use this component. It's mostly useful for when you're trying to make a component that is a container for other components, and you don't want anything set above to affect your content.
+ */
+export function ClearContainerSlots({ children }: PropsWithChildren) {
+    return (
+        <ClearProviders
+            values={[
+                RACTextContext,
+                TextContext
+            ]}
+        >
+            {children}
+        </ClearProviders>
+    );
+}

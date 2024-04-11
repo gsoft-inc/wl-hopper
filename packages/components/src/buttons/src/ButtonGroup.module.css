@@ -1,0 +1,47 @@
+.hop-ButtonGroup {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--hop-space-inline-md);
+}
+
+.hop-ButtonGroup--horizontal {
+    justify-content: center;
+}
+
+.hop-ButtonGroup--vertical {
+    flex-direction: column;
+    gap: var(--hop-space-stack-md);
+    align-items: center;
+}
+
+.hop-ButtonGroup--start.hop-ButtonGroup--vertical {
+    align-items: flex-start;
+}
+
+.hop-ButtonGroup--center.hop-ButtonGroup--vertical {
+    align-items: center;
+}
+
+.hop-ButtonGroup--end.hop-ButtonGroup--vertical {
+    align-items: flex-end;
+}
+
+.hop-ButtonGroup--start.hop-ButtonGroup--horizontal {
+    justify-content: flex-start;
+}
+
+.hop-ButtonGroup--center.hop-ButtonGroup--horizontal {
+    justify-content: center;
+}
+
+.hop-ButtonGroup--end.hop-ButtonGroup--horizontal {
+    justify-content: flex-end;
+}
+
+.hop-ButtonGroup--wrap {
+    flex-wrap: wrap;
+}
+
+.hop-ButtonGroup--fluid {
+    inline-size: 100%;
+}

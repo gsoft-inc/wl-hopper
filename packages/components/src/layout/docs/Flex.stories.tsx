@@ -1,7 +1,9 @@
 import { Div } from "@hopper-ui/styled-system";
-import { Flex } from "../src/Flex.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import type { DivProps } from "@hopper-ui/styled-system";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Flex } from "../src/Flex.tsx";
+
 
 /**
  * The Flex component is used to create a flex container and provides some shortcuts for the flex properties.

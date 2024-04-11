@@ -1,4 +1,5 @@
 import { forwardRef, type ComponentProps, type ElementType, type RefAttributes, type SVGProps } from "react";
+
 import { Icon, type IconProps } from "./Icon.tsx";
 
 export function createIcon(
