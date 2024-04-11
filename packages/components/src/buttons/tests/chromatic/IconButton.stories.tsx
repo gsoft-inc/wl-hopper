@@ -1,4 +1,4 @@
-import { AddIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 
@@ -10,8 +10,8 @@ const meta = {
     title: "Components/Buttons/Button/Icon Only",
     component: Button,
     args: {
-        children: <AddIcon />,
-        "aria-label": "Add"
+        children: <SparklesIcon />,
+        "aria-label": "Clean"
     }
 } satisfies Meta<typeof Button>;
 

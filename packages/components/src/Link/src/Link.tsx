@@ -12,7 +12,6 @@ import { LinkContext } from "./LinkContext.ts";
 
 import styles from "./Link.module.css";
 
-
 export const GlobalLinkCssSelector = "hop-Link";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850

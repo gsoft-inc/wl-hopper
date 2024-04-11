@@ -1,4 +1,4 @@
-import { PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-dom";
@@ -80,20 +80,20 @@ export const Icon: Story = {
     args: {
         children: [
             <Text key="1">Learn more</Text>,
-            <PlusIcon key="2" />
+            <SparklesIcon key="2" />
         ]
     }
 };
 
 /**
- * *Non standard* start icons can be provided to handle special cases. However, think twice before adding *start* icons, *end* icons should be your go to.
+ * **Non standard** start icons can be provided to handle special cases. However, think twice before adding *start* icons, *end* icons should be your go to.
  */
 export const StartIcon: Story = {
     ...Icon,
     args: {
         ...Icon.args,
         children: [
-            <PlusIcon key="1" slot="start-icon" />,
+            <SparklesIcon key="1" slot="start-icon" />,
             <Text key="2">Learn more</Text>
         ]
     }
@@ -107,9 +107,9 @@ export const IconOnly: Story = {
     ...Icon,
     args: {
         ...Icon.args,
-        "aria-label": "Add",
+        "aria-label": "Clean",
         children: [
-            <PlusIcon key="1" />
+            <SparklesIcon key="1" />
         ]
     }
 };
@@ -159,13 +159,15 @@ export const External: Story = {
 export const StaticColor : Story = {
     decorators: [
         Story => (
-            <Div padding="inset-md" backgroundColor="core_moss-500">
+            <Div padding="inset-md" backgroundColor="decorative-option3">
                 <Story />
             </Div>
         )
     ],
     args:{
-        color: "core_samoyed"
+        color: "decorative-option3",
+        colorHover: "decorative-option3-weak",
+        colorFocus: "decorative-option3-weak"
     }
 };
 
