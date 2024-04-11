@@ -131,15 +131,15 @@ export const Disabled : Story = {
 export const Size : Story = {
     render: args => (
         <Stack>
+            <Text size="xs">
+                Would you like to <Link size="inherit" {...args}>learn more</Link> about this fine component?
+            </Text>
             <Link size="xs" {...args}>Learn More</Link>
             <Link size="sm" {...args}>Learn More</Link>
             <Link size="md" {...args}>Learn More</Link>
             <Link size="lg" {...args}>Learn More</Link>
             <Link size="xl" {...args}>Learn More</Link>
             <Link size="2xl" {...args}>Learn More</Link>
-            <Text size="2xl">
-                Would you like to <Link size="inherit" {...args}>learn more</Link> about this fine component?
-            </Text>
         </Stack>
     )
 };
