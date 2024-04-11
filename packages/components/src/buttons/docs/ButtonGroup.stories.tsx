@@ -1,7 +1,8 @@
-import { Button } from "../src/Button.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Stack } from "../../layout/index.ts";
+import { Button } from "../src/Button.tsx";
 import { ButtonGroup } from "../src/ButtonGroup.tsx";
-import { Stack } from "../../layout/src/Stack.tsx";
 
 /**
  * ButtonGroup handles the spacing and orientation for a grouping of buttons whose actions are related to each other.

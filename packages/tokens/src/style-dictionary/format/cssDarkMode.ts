@@ -1,4 +1,5 @@
 import type { Dictionary } from "style-dictionary";
+
 import { isDarkTokens } from "../filter/isDarkTokens.ts";
 
 export const cssDarkMode = function ({ dictionary }: { dictionary: Dictionary }) {

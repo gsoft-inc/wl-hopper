@@ -1,4 +1,3 @@
-// import type { NodePlopAPI } from "plop";
 // @ts-check
 
 /**

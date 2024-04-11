@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+
 import { htmlElement } from "./htmlElement.tsx";
 
 // Sectioning & Content sectioning

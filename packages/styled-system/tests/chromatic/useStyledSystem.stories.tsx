@@ -1,7 +1,8 @@
+import { a11yParameters } from "@hopper-ui/storybook-addon";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { Div, type DivProps } from "../../src/html-wrappers/html.ts";
 import { Breakpoints } from "../../src/responsive/Breakpoints.ts";
-import type { Meta, StoryObj } from "@storybook/react";
-import { a11yParameters } from "@hopper-ui/storybook-addon";
 
 const viewports = Object.values(Breakpoints);
 

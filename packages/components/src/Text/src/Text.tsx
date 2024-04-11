@@ -1,18 +1,18 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
-import clsx from "clsx";
-import styles from "./Text.module.css";
-import { cssModule } from "../../utils/src/cssModule.ts";
+
+import { cssModule, SlotProvider, ClearContainerSlots } from "../../utils/index.ts";
+
 import { TextContext } from "./TextContext.ts";
-import { ClearContainerSlots } from "../../utils/src/ClearSlots.tsx";
-import { SlotProvider } from "../../index.ts";
+
+import styles from "./Text.module.css";
 
 export const GlobalTextCssSelector = "hop-Text";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultTextSlot = "text";
-
 
 export interface TextProps extends StyledComponentProps<RACTextProps> {
     /**

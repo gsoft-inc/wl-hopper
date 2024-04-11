@@ -1,8 +1,9 @@
 import { AddIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ButtonGroup } from "../../src/ButtonGroup.tsx";
-import { Button } from "../../src/Button.tsx";
+
 import { Stack } from "../../../layout/index.ts";
+import { Button } from "../../src/Button.tsx";
+import { ButtonGroup } from "../../src/ButtonGroup.tsx";
 
 const meta = {
     title: "Components/Buttons/ButtonGroup",

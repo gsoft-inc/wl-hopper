@@ -1,6 +1,7 @@
 import { AddIcon, PlusIcon } from "@hopper-ui/icons";
-import { IconList } from "../../src/IconList.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { IconList } from "../../src/IconList.tsx";
 
 const meta = {
     title: "Components/IconList",

@@ -1,6 +1,7 @@
-import { Text } from "../../src/Text.tsx";
-import type { Meta, StoryObj } from "@storybook/react";
 import { a11yParameters } from "@hopper-ui/storybook-addon";
+import type { Meta, StoryObj } from "@storybook/react";
+
+import { Text } from "../../src/Text.tsx";
 
 const meta = {
     title: "Components/Typography/Text",

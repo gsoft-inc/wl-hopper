@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { Text } from "../../src/Text.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Text } from "../../src/Text.tsx";
 
 describe("Text", () => {
     it("should render on the server", () => {

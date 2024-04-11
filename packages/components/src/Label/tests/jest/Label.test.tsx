@@ -1,7 +1,8 @@
+import { render, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
+
 import { Label } from "../../src/Label.tsx";
 import { LabelContext } from "../../src/LabelContext.ts";
-import { createRef } from "react";
-import { render, screen } from "@hopper-ui/test-utils";
 
 describe("Label", () => {
     it("should render with default class", () => {

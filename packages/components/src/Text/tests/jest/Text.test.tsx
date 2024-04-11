@@ -1,8 +1,9 @@
-import { TextContext } from "../../src/TextContext.ts";
-import { Text } from "../../src/Text.tsx";
-import { createRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
+
 import { ButtonGroupContext } from "../../../buttons/src/ButtonGroupContext.ts";
+import { Text } from "../../src/Text.tsx";
+import { TextContext } from "../../src/TextContext.ts";
 
 describe("Text", () => {
     it("should render with default class", () => {

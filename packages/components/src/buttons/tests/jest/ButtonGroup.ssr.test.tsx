@@ -1,9 +1,10 @@
 /**
  * @jest-environment node
  */
-import { ButtonGroup } from "../../src/ButtonGroup.tsx";
-import { Button } from "../../src/Button.tsx";
 import { renderToString } from "react-dom/server";
+
+import { Button } from "../../src/Button.tsx";
+import { ButtonGroup } from "../../src/ButtonGroup.tsx";
 
 describe("ButtonGroup", () => {
     it("should render on the server", () => {

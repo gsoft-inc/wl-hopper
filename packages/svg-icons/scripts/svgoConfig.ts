@@ -1,4 +1,5 @@
 import type { Config } from "svgo";
+
 import { NeutralIconColor } from "./constants.ts";
 
 const config: Config = {

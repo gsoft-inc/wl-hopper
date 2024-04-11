@@ -1,8 +1,9 @@
-import { IconList } from "../../src/IconList.tsx";
-import { IconListContext } from "../../src/IconListContext.ts";
-import { createRef } from "react";
 import { AddIcon, PlusIcon } from "@hopper-ui/icons";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef } from "react";
+
+import { IconList } from "../../src/IconList.tsx";
+import { IconListContext } from "../../src/IconListContext.ts";
 
 describe("IconList", () => {
     it("should render with default class", () => {

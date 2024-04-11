@@ -1,6 +1,7 @@
-import { Inline, type InlineProps } from "../../src/Inline.tsx";
-import { createRef, forwardRef } from "react";
 import { render, screen } from "@hopper-ui/test-utils";
+import { createRef, forwardRef } from "react";
+
+import { Inline, type InlineProps } from "../../src/Inline.tsx";
 
 const TestId = "TestId";
 
