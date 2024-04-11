@@ -33,6 +33,14 @@ export const Default: Story = {
                         The bulging eyes of most frogs allow them to see in front, to the sides, and partially behind them. When a frog swallows food, it pulls its eyes down into the roof of its mouth, to help push the food down its throat.
                     </Link>
                 </Div>
+                <Stack>
+                    <Link size="xs" {...args}>Learn more</Link>
+                    <Link size="sm" {...args}>Learn more</Link>
+                    <Link size="md" {...args}>Learn more</Link>
+                    <Link size="lg" {...args}>Learn more</Link>
+                    <Link size="xl" {...args}>Learn more</Link>
+                    <Link size="2xl" {...args}>Learn more</Link>
+                </Stack>
             </Stack>
         );
     },
@@ -70,6 +78,32 @@ export const StartIcon: Story = {
                         </Text>
                     </Link>
                 </Div>
+                <Stack>
+                    <Link size="xs" {...args}>
+                        <SparklesIcon slot="start-icon" />
+                        <Text>Learn more</Text>
+                    </Link>
+                    <Link size="sm" {...args}>
+                        <SparklesIcon slot="start-icon" />
+                        <Text>Learn more</Text>
+                    </Link>
+                    <Link size="md" {...args}>
+                        <SparklesIcon slot="start-icon" />
+                        <Text>Learn more</Text>
+                    </Link>
+                    <Link size="lg" {...args}>
+                        <SparklesIcon slot="start-icon" />
+                        <Text>Learn more</Text>
+                    </Link>
+                    <Link size="xl" {...args}>
+                        <SparklesIcon slot="start-icon" />
+                        <Text>Learn more</Text>
+                    </Link>
+                    <Link size="2xl" {...args}>
+                        <SparklesIcon slot="start-icon" />
+                        <Text>Learn more</Text>
+                    </Link>
+                </Stack>
             </Stack>
         );
     },
@@ -108,6 +142,32 @@ export const EndIcon: Story = {
                         <SparklesIcon />
                     </Link>
                 </Div>
+                <Stack>
+                    <Link size="xs" {...args}>
+                        <Text>Learn more</Text>
+                        <SparklesIcon />
+                    </Link>
+                    <Link size="sm" {...args}>
+                        <Text>Learn more</Text>
+                        <SparklesIcon />
+                    </Link>
+                    <Link size="md" {...args}>
+                        <Text>Learn more</Text>
+                        <SparklesIcon />
+                    </Link>
+                    <Link size="lg" {...args}>
+                        <Text>Learn more</Text>
+                        <SparklesIcon />
+                    </Link>
+                    <Link size="xl" {...args}>
+                        <Text>Learn more</Text>
+                        <SparklesIcon />
+                    </Link>
+                    <Link size="2xl" {...args}>
+                        <Text>Learn more</Text>
+                        <SparklesIcon />
+                    </Link>
+                </Stack>
             </Stack>
         );
     },

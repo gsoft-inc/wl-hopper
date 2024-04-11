@@ -115,18 +115,18 @@ export const Disabled: Story = {
 export const Fluid: Story = {
     render: props => (
         <div style={{ display: "flex", gap: "1.25rem", flexDirection: "column" }}>
-            <Button {...props} >
+            <Button {...props}>
                 Save
             </Button>
-            <Button {...props} >
+            <Button {...props}>
                 <SparklesIcon />
                 <Text>Save</Text>
             </Button>
-            <Button {...props} >
+            <Button {...props}>
                 <Text>Save</Text>
                 <SparklesIcon slot="end-icon" />
             </Button>
-            <Button {...props} >
+            <Button {...props}>
                 <SparklesIcon />
                 <Text>Save</Text>
                 <SparklesIcon slot="end-icon" />

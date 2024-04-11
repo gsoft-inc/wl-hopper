@@ -129,15 +129,29 @@ export const Disabled : Story = {
  * A link can vary in size.
  */
 export const Size : Story = {
-    render: props => (
+    render: args => (
         <Stack>
-            <Link size="xs" {...props} >Learn More</Link>
-            <Link size="sm" {...props} >Learn More</Link>
-            <Link size="md" {...props} >Learn More</Link>
-            <Link size="lg" {...props} >Learn More</Link>
-            <Link size="xl" {...props} >Learn More</Link>
-            <Link size="2xl" {...props} >Learn More</Link>
+            <Link size="xs" {...args}>Learn More</Link>
+            <Link size="sm" {...args}>Learn More</Link>
+            <Link size="md" {...args}>Learn More</Link>
+            <Link size="lg" {...args}>Learn More</Link>
+            <Link size="xl" {...args}>Learn More</Link>
+            <Link size="2xl" {...args}>Learn More</Link>
+            <Text size="2xl">
+                Would you like to <Link size="inherit" {...args}>learn more</Link> about this fine component?
+            </Text>
         </Stack>
+    )
+};
+
+/**
+ * The size can also be inherited
+ */
+export const InheritSize : Story = {
+    render: args => (
+        <Text size="lg">
+            Would you like to <Link {...args}>learn more</Link> about this fine component?
+        </Text>
     )
 };
 
