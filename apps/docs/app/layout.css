@@ -51,6 +51,10 @@ p {
     line-height: 1.5;
 }
 
+.hd-content ul {
+    list-style-position: inside;
+}
+
 .hd-content p:not(:last-child) {
     margin-block-end: 1.25rem;
 }
