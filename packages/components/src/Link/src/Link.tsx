@@ -148,7 +148,7 @@ function Link(props:LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
 }
 
 /**
- * Links allow users to navigate to a different location. They can be presented inline inside a paragraph or as standalone text.
+ * Links allow users to navigate to a different location. They can be presented inline inside a paragraph, as standalone text or as an image.
  *
  * [View Documentation](TODO)
  */

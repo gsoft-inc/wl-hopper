@@ -11,7 +11,7 @@ import { Link } from "../src/Link.tsx";
 import { FrogImage } from "./assets/index.ts";
 
 /**
- * Links allow users to navigate to a different location. They can be presented inline inside a paragraph or as standalone text.
+ * Links allow users to navigate to a different location. They can be presented inline inside a paragraph, as standalone text or as an image.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Link/src)
  * -
@@ -100,7 +100,7 @@ export const StartIcon: Story = {
 };
 
 /**
- * A link content can be a single icon.
+ * A link's content can be a single icon.
  * When using this variant, an accessible name must be provided through aria-label prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
  */
 export const IconOnly: Story = {
@@ -115,7 +115,7 @@ export const IconOnly: Story = {
 };
 
 /**
- * A link can have *disabled* style.
+ * A link can have a **disabled** style.
  */
 export const Disabled : Story = {
     ...Variants,
@@ -234,7 +234,7 @@ export const ReactRouterLink: Story = {
 };
 
 /**
- * A link content can be an image element.
+ * A link's content can be an image element.
  */
 export const Image: Story = {
     args: {
