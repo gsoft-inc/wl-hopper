@@ -1,11 +1,11 @@
 import { IconContext, CheckmarkIcon, MinusIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps, TextContext as RACTextContext } from "react-aria-components";
+import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
 import { Text, TextContext } from "../../Text/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren } from "../../utils/index.ts";
+import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
 
@@ -71,34 +71,33 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
         >
             {checkboxProps => {
                 const checkboxIconClassName = styles["hop-Checkbox__check"];
-                const icon = checkboxProps.isIndeterminate ? 
-                    <MinusIcon size="sm" className={checkboxIconClassName} /> : 
+                const icon = checkboxProps.isIndeterminate ?
+                    <MinusIcon size="sm" className={checkboxIconClassName} /> :
                     <CheckmarkIcon size="sm" className={checkboxIconClassName} />;
 
                 return (
                     <>
                         <div className={styles["hop-Checkbox__box"]}>{icon}</div>
-                        <SlotProvider
-                            values={[
-                                [TextContext, {
-                                    className: styles["hop-Checkbox__text"],
-                                    size: size
-                                }],
-                                [RACTextContext, {
-                                    slots: undefined
-                                }],
-                                [IconListContext, {
-                                    className: styles["hop-Checkbox__icon-list"],
-                                    size: size
-                                }],
-                                [IconContext, {
-                                    className: styles["hop-Checkbox__icon"],
-                                    size: size
-                                }]
-                            ]}
-                        >
-                            {children(checkboxProps)}
-                        </SlotProvider>
+                        <ClearContainerSlots>
+                            <SlotProvider
+                                values={[
+                                    [TextContext, {
+                                        className: styles["hop-Checkbox__text"],
+                                        size: size
+                                    }],
+                                    [IconListContext, {
+                                        className: styles["hop-Checkbox__icon-list"],
+                                        size: size
+                                    }],
+                                    [IconContext, {
+                                        className: styles["hop-Checkbox__icon"],
+                                        size: size
+                                    }]
+                                ]}
+                            >
+                                {children(checkboxProps)}
+                            </SlotProvider>
+                        </ClearContainerSlots>
                     </>
                 );
             }}
