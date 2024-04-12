@@ -16,10 +16,12 @@ import Title from "@/components/title/Title.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
 import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
+import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const PreviewComponent = dynamic(() => import("@/app/ui/components/previewComponent/PreviewComponent.tsx"));
+const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 
 export const components = {
     Card,
@@ -37,6 +39,9 @@ export const components = {
     Switcher: Switcher,
     PreviewComponent: (props: PreviewComponentProps) => {
         return <PreviewComponent {...props} />;
+    },
+    MigrateGuide: (props: MigrateGuideProps) => {
+        return <MigrateGuide {...props} />;
     },
     h1: (props: HeadingProps) => {
         return <Title {...props} as="h1" />;

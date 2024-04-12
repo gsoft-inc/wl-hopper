@@ -17,4 +17,4 @@ type SafeExtract<T> = ExtractPossibleSizes<T> extends Size ? ExtractPossibleSize
  *      lg: "md"
  *  };
  */
-export type SizeAdapter<A, B> = Record<SafeExtract<A>, SafeExtract<B>>;
+export type SizeAdapter<A, B> = Record<SafeExtract<A>, SafeExtract<B> | undefined>;
