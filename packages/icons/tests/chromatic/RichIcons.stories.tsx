@@ -7,7 +7,7 @@ import * as IconLibrary from "../../src/index.ts";
 type ListProps = IconLibrary.CreatedRichIconProps;
 
 const List = ({ ...iconProps }: ListProps) => {
-    const variants = ["decorative-option1", "decorative-option2", "decorative-option3", "decorative-option4", "decorative-option5", "decorative-option6", "decorative-option7", "decorative-option8", "decorative-option9"] as const;
+    const variants = ["option1", "option2", "option3", "option4", "option5", "option6", "option7", "option8"] as const;
 
     const allVariantList = variants.map(variant => {
         const listItems = IconLibrary.richIconNames.map(name => {

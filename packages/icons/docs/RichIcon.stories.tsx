@@ -1,27 +1,27 @@
 import { Stack, SlotProvider } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SparklesIcon } from "../src/generated-icon-components/SparklesIcon.tsx";
-import { IconContext } from "../src/IconContext.ts";
+import { SparklesRichIcon } from "../src/generated-rich-icon-components/index.ts";
+import { RichIconContext } from "../src/RichIconContext.ts";
 
 /**
- * An icon component allow you to render a custom icon.
+ * A rich icon component allow you to render a custom rich icon.
  *
- * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/icons/src/Icon.tsx)
+ * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/icons/src/RichIcon.tsx)
  * -
  * [View package](https://www.npmjs.com/package/@hopper-ui/icons)
  * -
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Icon",
+    title: "Docs/RichIcon",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: SparklesIcon
-} satisfies Meta<typeof SparklesIcon>;
+    component: SparklesRichIcon
+} satisfies Meta<typeof SparklesRichIcon>;
 
 export default meta;
 
@@ -36,21 +36,29 @@ export const Default: Story = {
 export const Sizing: Story = {
     render: props => (
         <Stack>
-            <SparklesIcon size="sm" {...props} />
-            <SparklesIcon size="md" {...props} />
-            <SparklesIcon size="lg" {...props} />
+            <SparklesRichIcon size="md" {...props} />
+            <SparklesRichIcon size="lg" {...props} />
+            <SparklesRichIcon size="xl" {...props} />
         </Stack>
     )
 };
 
 /**
- * The color of the icon can be change using the `fill` prop.
- * All the styled system props are also available.
+ * A rich icon can use different variants.
  */
-export const Styling: Story = {
-    args: {
-        fill:"primary"
-    }
+export const Variants: Story = {
+    render: props => (
+        <Stack>
+            <SparklesRichIcon variant="option1" {...props} />
+            <SparklesRichIcon variant="option2" {...props} />
+            <SparklesRichIcon variant="option3" {...props} />
+            <SparklesRichIcon variant="option4" {...props} />
+            <SparklesRichIcon variant="option5" {...props} />
+            <SparklesRichIcon variant="option6" {...props} />
+            <SparklesRichIcon variant="option7" {...props} />
+            <SparklesRichIcon variant="option8" {...props} />
+        </Stack>
+    )
 };
 
 /**
@@ -59,13 +67,12 @@ export const Styling: Story = {
  * The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
  */
 export const AdvancedCustomization: Story = {
-
     render: props => (
         <SlotProvider values={[
-            [IconContext, { fill: "primary" }]
+            [RichIconContext, { variant: "option5" }]
         ]}
         >
-            <SparklesIcon {...props} />
+            <SparklesRichIcon {...props} />
         </SlotProvider>
     )
 };

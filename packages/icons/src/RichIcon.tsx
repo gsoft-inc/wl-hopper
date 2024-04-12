@@ -19,7 +19,7 @@ export interface RichIconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
      * The visual style of the icon.
      */
-    variant?: "decorative-option1" | "decorative-option2" | "decorative-option3" | "decorative-option4" | "decorative-option5" | "decorative-option6" | "decorative-option7" | "decorative-option8" | "decorative-option9";
+    variant?: "option1" | "option2" | "option3" | "option4" | "option5" | "option6" | "option7" | "option8";
     /**
     * The size of the icon.
     */

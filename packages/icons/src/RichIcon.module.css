@@ -9,56 +9,50 @@
     flex-shrink: 0;
 }
 
-.hop-RichIcon--decorative-option1 {
+.hop-RichIcon--option1 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option1-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option1-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option2 {
+.hop-RichIcon--option2 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option2-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option2-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option3 {
+.hop-RichIcon--option3 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option3-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option3-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option4 {
+.hop-RichIcon--option4 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option4-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option4-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option5 {
+.hop-RichIcon--option5 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option5-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option5-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option6 {
+.hop-RichIcon--option6 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option6-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option6-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option7 {
+.hop-RichIcon--option7 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option7-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option7-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
 
-.hop-RichIcon--decorative-option8 {
+.hop-RichIcon--option8 {
     --hop-richicon-placeholder-surface-color: var(--hop-decorative-option8-surface);
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option8-icon);
-    --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
-}
-
-.hop-RichIcon--decorative-option9 {
-    --hop-richicon-placeholder-surface-color: var(--hop-decorative-option9-surface);
-    --hop-richicon-placeholder-icon-color: var(--hop-decorative-option9-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 }
