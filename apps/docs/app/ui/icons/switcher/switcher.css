@@ -1,8 +1,5 @@
 .hd-switcher-picker {
     margin-bottom: var(--hd-space-3);
-}
-
-.hd-switcher-choices {
     display: flex;
     gap: var(--hd-space-2);
 }
@@ -55,21 +52,6 @@
     color: var(--hd-color-neutral-icon);
     display: flex;
     flex-shrink: 0;
-}
-
-.hd-switcher-choice-preview--small {
-    height: var(--hd-space-2);
-    width: var(--hd-space-2);
-}
-
-.hd-switcher-choice-preview--medium {
-    height: var(--hd-space-3);
-    width: var(--hd-space-3);
-}
-
-.hd-switcher-choice-preview--large {
-    height: var(--hd-space-4);
-    width: var(--hd-space-4);
 }
 
 .hd-switcher-choice:has(input:focus-visible) {
