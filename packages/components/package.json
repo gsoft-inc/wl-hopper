@@ -44,11 +44,12 @@
         "react-dom": "^18"
     },
     "dependencies": {
-        "@hopper-ui/icons": "workspace:*",
+        "@hopper-ui/icons": "*",
         "@react-aria/utils": "^3.23.2",
         "clsx": "^2.1.0"
     },
     "devDependencies": {
+        "@hopper-ui/icons": "workspace:*",
         "@hopper-ui/styled-system": "workspace:*",
         "@swc/core": "1.4.8",
         "@swc/helpers": "0.5.7",

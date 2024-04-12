@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { AddIcon, PlusIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import { renderToString } from "react-dom/server";
 
 import { IconList } from "../../src/IconList.tsx";
@@ -11,8 +11,8 @@ describe("IconList", () => {
         const renderOnServer = () =>
             renderToString(
                 <IconList>
-                    <AddIcon />
-                    <PlusIcon />
+                    <SparklesIcon />
+                    <SparklesIcon />
                 </IconList>
             );
 

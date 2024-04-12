@@ -1,0 +1,90 @@
+.hop-Link  {
+    --hop-Link-border-radius: var(--hop-shape-rounded-sm);
+    --hop-Link-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-Link-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Link-column-gap: var(--hop-space-inline-xs);
+
+    /** Primary */
+    --hop-Link-primary-text-color: var(--hop-primary-text);
+    --hop-Link-primary-text-disabled-color: var(--hop-primary-text-disabled);
+    --hop-Link-primary-text-hover-color: var(--hop-primary-text-hover);
+
+    /** Secondary */
+    --hop-Link-neutral-text-color: var(--hop-neutral-text);
+    --hop-Link-neutral-text-disabled-color: var(--hop-neutral-text-disabled);
+    --hop-Link-neutral-text-hover-color: var(--hop-neutral-text-hover);
+
+    cursor: pointer;
+
+    display: inline-flex;
+    column-gap: var(--hop-Link-column-gap);
+    align-items: center;
+
+    box-sizing: border-box;
+    inline-size: fit-content;
+
+    text-decoration: none;
+    text-underline-offset: 0.125rem;
+
+    border-radius: var(--hop-Link-border-radius);
+    outline: none;
+    outline-offset: 0.125rem;
+}
+
+/** Focus Ring */
+.hop-Link[data-focus-visible] {
+    outline: 0.125rem solid var(--hop-Link-focus-ring-color);
+}
+
+.hop-Link[data-disabled] {
+    cursor: default;
+}
+
+.hop-Link--quiet[data-focus-visible],
+.hop-Link--quiet[data-hovered] {
+    text-decoration: underline;
+}
+
+.hop-Link:not(.hop-Link--quiet) {
+    text-decoration: underline;
+}
+
+.hop-Link--primary {
+    color: var(--hop-Link-primary-text-color);
+}
+
+.hop-Link--primary[data-disabled] {
+    color: var(--hop-Link-primary-text-disabled-color);
+}
+
+.hop-Link--primary:not([data-disabled])[data-focus-visible],
+.hop-Link--primary:not([data-disabled])[data-hovered] {
+    color: var(--hop-Link-primary-text-hover-color);
+}
+
+.hop-Link--secondary {
+    color: var(--hop-Link-neutral-text-color);
+}
+
+.hop-Link--secondary[data-disabled] {
+    color: var(--hop-Link-neutral-text-disabled-color);
+}
+
+.hop-Link--secondary:not([data-disabled])[data-focus-visible],
+.hop-Link--secondary:not([data-disabled])[data-hovered] {
+    color: var(--hop-Link-neutral-text-hover-color);
+}
+
+.hop-Link__icon,
+.hop-Link__icon-list {
+    order: 2
+}
+
+.hop-Link__text {
+    order: 1
+}
+
+.hop-Link__start-icon,
+.hop-Link__start-icon-list {
+    order: 0
+}

@@ -1,0 +1,150 @@
+.hop-CheckboxGroup  {
+    /* Default */
+    --hop-CheckboxGroup-align-items: flex-start;
+    --hop-CheckboxGroup-justify-content: flex-start;
+
+    /* Bordered */
+    --hop-CheckboxGroup-bordered-border-color: var(--hop-neutral-border-weak);
+
+    /* Small */
+    --hop-CheckboxGroup-sm-column-gap: var(--hop-space-inline-sm);
+    --hop-CheckboxGroup-sm-row-gap: var(--hop-space-stack-sm);
+    --hop-CheckboxGroup-list-sm-column-gap: var(--hop-space-inline-sm);
+    --hop-CheckboxGroup-list-sm-row-gap: var(--hop-space-stack-sm);
+    --hop-CheckboxGroup-bordered-sm-padding: var(--hop-space-inset-sm);
+    --hop-CheckboxGroup-bordered-sm-column-gap: var(--hop-space-inline-sm);
+    --hop-CheckboxGroup-bordered-sm-row-gap: var(--hop-space-stack-sm);
+    --hop-CheckboxGroup-list-bordered-sm-column-gap: 0;
+    --hop-CheckboxGroup-list-bordered-sm-row-gap: 0;
+
+    /* Medium */
+    --hop-CheckboxGroup-md-column-gap: var(--hop-space-inline-md);
+    --hop-CheckboxGroup-md-row-gap: var(--hop-space-stack-md);
+    --hop-CheckboxGroup-list-md-column-gap: var(--hop-space-inline-md);
+    --hop-CheckboxGroup-list-md-row-gap: var(--hop-space-stack-md);
+    --hop-CheckboxGroup-bordered-md-padding: var(--hop-space-inset-md);
+    --hop-CheckboxGroup-bordered-md-column-gap: var(--hop-space-inline-sm);
+    --hop-CheckboxGroup-bordered-md-row-gap: var(--hop-space-stack-sm);
+    --hop-CheckboxGroup-list-bordered-md-column-gap: 0;
+    --hop-CheckboxGroup-list-bordered-md-row-gap: 0;
+
+    /* Vertical */
+    --hop-CheckboxGroup-vertical-flex-direction: column;
+
+    /* Horizontal */
+    --hop-CheckboxGroup-horizontal-flex-direction: row;
+
+    /* Internal variable */
+    --checkbox-border-size: 0.0625rem;
+    --checkbox-border-color: var(--hop-neutral-border-weak);
+    --flex-direction: var(--hop-CheckboxGroup-vertical-flex-direction);
+    --align-items: var(--hop-CheckboxGroup-align-items);
+    --justify-content: var(--hop-CheckboxGroup-justify-content);
+    --flex-wrap: wrap;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--row-gap, var(--hop-space-stack-md)) var(--column-gap, var(--hop-space-inline-md));
+    align-items: var(--align-items);
+    justify-content: var(--justify-content);
+
+    box-sizing: border-box;
+    inline-size: max-content;
+    max-inline-size: 100%;
+}
+
+.hop-CheckboxGroup--bordered {
+    --list-border: var(--checkbox-border-size) solid var(--checkbox-border-color);
+    --list-border-radius: var(--hop-shape-rounded-md);
+}
+
+.hop-CheckboxGroup--sm {
+    --column-gap: var(--hop-CheckboxGroup-sm-column-gap);
+    --row-gap: var(--hop-CheckboxGroup-sm-row-gap);
+    --list-column-gap: var(--hop-CheckboxGroup-list-sm-column-gap);
+    --list-row-gap: var(--hop-CheckboxGroup-list-sm-row-gap);
+}
+
+.hop-CheckboxGroup--md {
+    --column-gap: var(--hop-CheckboxGroup-md-column-gap);
+    --row-gap: var(--hop-CheckboxGroup-md-row-gap);
+    --list-column-gap: var(--hop-CheckboxGroup-list-md-column-gap);
+    --list-row-gap: var(--hop-CheckboxGroup-list-md-row-gap);
+}
+
+.hop-CheckboxGroup--bordered.hop-CheckboxGroup--sm {
+    --checkbox-padding: var(--hop-CheckboxGroup-bordered-sm-padding);
+    --column-gap: var(--hop-CheckboxGroup-bordered-sm-column-gap);
+    --row-gap: var(--hop-CheckboxGroup-bordered-sm-row-gap);
+    --list-column-gap: var(--hop-CheckboxGroup-list-bordered-sm-column-gap);
+    --list-row-gap: var(--hop-CheckboxGroup-list-bordered-sm-row-gap);
+}
+
+.hop-CheckboxGroup--bordered.hop-CheckboxGroup--md {
+    --checkbox-padding: var(--hop-CheckboxGroup-bordered-md-padding);
+    --column-gap: var(--hop-CheckboxGroup-bordered-md-column-gap);
+    --row-gap: var(--hop-CheckboxGroup-bordered-md-row-gap);
+    --list-column-gap: var(--hop-CheckboxGroup-list-bordered-md-column-gap);
+    --list-row-gap: var(--hop-CheckboxGroup-list-bordered-md-row-gap);
+}
+
+.hop-CheckboxGroup--horizontal {
+    --flex-direction: var(--hop-CheckboxGroup-horizontal-flex-direction);
+}
+
+.hop-CheckboxGroup--bordered.hop-CheckboxGroup--horizontal {
+    --flex-wrap: nowrap;
+}
+
+.hop-CheckboxGroup > .hop-CheckboxGroup__label {
+    order: 1;
+}
+
+.hop-CheckboxGroup__list {
+    display: flex;
+    flex-flow: var(--flex-direction) var(--flex-wrap);
+    gap: var(--list-row-gap, var(--hop-space-stack-md)) var(--list-column-gap, var(--hop-space-inline-md));
+    order: 2;
+
+    box-sizing: border-box;
+    inline-size: max-content;
+    max-inline-size: 100%;
+
+    border: var(--list-border, none);
+    border-radius: var(--list-border-radius, 0);
+}
+
+.hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox {
+    position: relative;
+
+    flex: 0 1 auto;
+    align-content: start;
+
+    inline-size: auto;
+    min-inline-size: 0;
+    padding: var(--checkbox-padding, 0);
+}
+
+/* All but first */
+.hop-CheckboxGroup--bordered .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox ~ .hop-CheckboxGroup__checkbox::before {
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+.hop-CheckboxGroup--bordered.hop-CheckboxGroup--vertical .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox ~ .hop-CheckboxGroup__checkbox::before {
+    inset-block-start: 0;
+    inset-inline: 0;
+    border-block-start: var(--list-border, none);
+}
+
+.hop-CheckboxGroup--bordered.hop-CheckboxGroup--horizontal .hop-CheckboxGroup__list > .hop-CheckboxGroup__checkbox ~ .hop-CheckboxGroup__checkbox::before {
+    inset-block: 0;
+    inset-inline-start: 0;
+    border-inline-start: var(--list-border, none);
+}
+
+.hop-CheckboxGroup > .hop-CheckboxGroup__error-message,
+.hop-CheckboxGroup > .hop-CheckboxGroup__helper-message {
+    order: 3;
+}

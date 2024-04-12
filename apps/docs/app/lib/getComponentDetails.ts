@@ -31,7 +31,7 @@ async function readMDXFile(filePath: string) {
 }
 
 function getMDXFiles(dir: string) {
-    return fs.readdirSync(dir).filter(file => path.extname(file) === ".mdx");
+    return fs.readdirSync(dir).filter(file => [".mdx"].includes(path.extname(file)));
 }
 
 function getMDXData(dir: string) {

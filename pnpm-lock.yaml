@@ -241,7 +241,7 @@ importers:
   packages/components:
     dependencies:
       '@hopper-ui/icons':
-        specifier: workspace:*
+        specifier: '*'
         version: link:../icons
       '@react-aria/utils':
         specifier: ^3.23.2
