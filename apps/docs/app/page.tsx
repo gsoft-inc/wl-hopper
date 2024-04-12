@@ -16,7 +16,8 @@ import { useContext } from "react";
 import Button from "../components/button/Button";
 import { ExternalLinkIcon, Icon } from "@/components/icon";
 
-import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, ProfileIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, ThumbsUpIcon, WarningIcon } from "@hopper-ui/icons";
+// eslint-disable-next-line max-len
+import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, FocusIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, NotebookIcon, PinIcon, ProfileIcon, ReactionIcon, RecurringIcon, RewindIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, SyncIcon, TeamIcon, ThumbsUpIcon, UnarchiveIcon, WarningIcon } from "@hopper-ui/icons";
 
 import "@hopper-ui/tokens/fonts.css";
 import "./home/home.css";
@@ -64,7 +65,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="hd-home-samples">
-                    <div className="hd-home-samples__col">
+                    <div className="hd-home-samples__col hd-home-samples__main-wrapper">
                         <div className="hd-home-samples__row">
                             <div className="hd-home-samples__col">
                                 <a className="hd-home-sample__item hd-home-sample__item-colors" href="/tokens/semantic/color">
@@ -137,31 +138,40 @@ export default function Home() {
                         </div>
                         <a className="hd-home-sample__item hd-home-sample__item-icons" href="/icons/getting-started/introduction">
                             <h3 className="hd-home-sample__title">Icons <ArrowIcon className="hd-home-sample__title-icon"/></h3>
-                            <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                            <HopperProvider colorScheme="light">
-                                <div className="hd-home-sample__icons">
-                                    <div className="hd-home-sample__icons-row">
-                                        <CalendarIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <ChartBarIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <CheckmarkIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <FilterIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
-                                        <LightbulbIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <MailIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <SearchIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
-                                        <ShareIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <WarningIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    </div>
-                                    <div className="hd-home-sample__icons-row">
-                                        <ThumbsUpIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <LockIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--active" size="sm" />
-                                        <ItalicIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <EyeVisibleIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <LockIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
-                                        <DeleteIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <StarIcon className="hd-home-sample__icons-icon" size="sm" />
-                                        <StickyIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
-                                        <ProfileIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    </div>
+                            <p className="hd-home-sample__copy">A set of commonly used interface icons.</p>
+                            <HopperProvider colorScheme={theme} className="hd-home-sample__icons">
+                                <div className="hd-home-sample__icons-row">
+                                    <CalendarIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <ChartBarIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <CheckmarkIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <FilterIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                    <LightbulbIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <MailIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <SearchIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                    <ShareIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <WarningIcon className="hd-home-sample__icons-icon" size="sm" />
+                                </div>
+                                <div className="hd-home-sample__icons-row">
+                                    <ThumbsUpIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <LockIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--active" size="sm" />
+                                    <ItalicIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <EyeVisibleIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <NotebookIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                    <DeleteIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <StarIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <StickyIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                    <ProfileIcon className="hd-home-sample__icons-icon" size="sm" />
+                                </div>
+                                <div className="hd-home-sample__icons-row hd-home-sample__icons-extra-row">
+                                    <FocusIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                    <ReactionIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <PinIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong" size="sm" />
+                                    <SyncIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <UnarchiveIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <TeamIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <ShareIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <RewindIcon className="hd-home-sample__icons-icon" size="sm" />
+                                    <RecurringIcon className="hd-home-sample__icons-icon" size="sm" />
                                 </div>
                             </HopperProvider>
                         </a>
@@ -183,8 +193,8 @@ export default function Home() {
                             <div className="hd-home-sample-components__item">
                                 <HopperProvider colorScheme={theme}>
                                     <div className="hd-home-sample-components__buttons">
-                                        <HopperButton>Confirm</HopperButton>
-                                        <HopperButton variant="secondary">I need help</HopperButton>
+                                        <HopperButton excludeFromTabOrder>Confirm</HopperButton>
+                                        <HopperButton excludeFromTabOrder variant="secondary">I need help</HopperButton>
                                     </div>
                                 </HopperProvider>
                             </div>

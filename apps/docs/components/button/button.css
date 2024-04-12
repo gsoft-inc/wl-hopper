@@ -32,7 +32,8 @@
     flex-direction: row-reverse;
 }
 
-.hd-btn[data-focus-visible="true"] {
+.hd-btn[data-focus-visible="true"],
+a.hd-btn:focus-visible {
     box-shadow: var(--hd-focus-ring);
 }
 
