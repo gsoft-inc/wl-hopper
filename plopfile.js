@@ -8,13 +8,18 @@ export default function (plop) {
         description: "a new component in @hopper-ui/components",
         prompts: [{
             type: "input",
+            name: "folderName",
+            message: "folder name"
+        },
+        {
+            type: "input",
             name: "name",
             message: "component name"
         }],
         actions: [{
             type: "addMany",
             skipIfExists: true,
-            destination: "./packages/components/src/{{name}}",
+            destination: "./packages/components/src/{{folderName}}",
             base: "plop-templates/components",
             templateFiles: "plop-templates/components/"
         }]
