@@ -69,7 +69,7 @@ export default function Home() {
                         <div className="hd-home-samples__row">
                             <div className="hd-home-samples__col">
                                 <a className="hd-home-sample__item hd-home-sample__item-colors" href="/tokens/semantic/color">
-                                    <h3 className="hd-home-sample__title">Colors <ArrowIcon className="hd-home-sample__title-icon"/></h3>
+                                    <h3 className="hd-home-sample__title">Colors <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                                     <div className="hd-home-sample__colors">
                                         <div className="hd-home-sample__colors-row">
                                             <span className="hd-home-sample__color hd-home-sample__color-rock-200"></span>
@@ -86,7 +86,7 @@ export default function Home() {
                                     </div>
                                 </a>
                                 <a className="hd-home-sample__item hd-home-sample__item-sizes" href="/tokens/semantic/space">
-                                    <h3 className="hd-home-sample__title">Sizes <ArrowIcon className="hd-home-sample__title-icon"/></h3>
+                                    <h3 className="hd-home-sample__title">Sizes <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                                     <div className="hd-home-sample__sizes">
                                         <div className="hd-home-sample__size hd-home-sample__size-16">
                                             <span className="hd-home-sample__size-text">16</span>
@@ -109,7 +109,7 @@ export default function Home() {
                             </div>
                             <div className="hd-home-samples__col">
                                 <a className="hd-home-sample__item hd-home-sample__item-text-styles" href="/tokens/semantic/typography">
-                                    <h3 className="hd-home-sample__title">Text Styles <ArrowIcon className="hd-home-sample__title-icon"/></h3>
+                                    <h3 className="hd-home-sample__title">Text Styles <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                                     <div className="hd-home-sample__text-styles">
                                         <div className="hd-home-sample__text-styles-col">
                                             <span className="hd-home-sample__text">A<span className="hd-home-sample__text-lowercase">a</span></span>
@@ -137,7 +137,7 @@ export default function Home() {
                             </div>
                         </div>
                         <a className="hd-home-sample__item hd-home-sample__item-icons" href="/icons/getting-started/introduction">
-                            <h3 className="hd-home-sample__title">Icons <ArrowIcon className="hd-home-sample__title-icon"/></h3>
+                            <h3 className="hd-home-sample__title">Icons <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                             <p className="hd-home-sample__copy">A set of commonly used interface icons.</p>
                             <HopperProvider colorScheme={theme} className="hd-home-sample__icons">
                                 <div className="hd-home-sample__icons-row">
@@ -184,22 +184,30 @@ export default function Home() {
                         </div>
                         <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                         <div className="hd-home-sample-components">
-                            <div className="hd-home-sample-components__item">
-                                <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-avatar-group-${theme}.png`} width="137" height="32" alt="Avatar Group component preview" />
+                            <div className="hd-home-sample-components__item-wrapper">
+                                <div className="hd-home-sample-components__item">
+                                    <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-avatar-group-${theme}.png`} width="137" height="32" alt="Avatar Group component preview" />
+                                </div>
                             </div>
-                            <div className="hd-home-sample-components__item">
-                                <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-select-field-${theme}.png`} width="220" height="40" alt="Select Fielg component preview" />
+                            <div className="hd-home-sample-components__item-wrapper">
+                                <div className="hd-home-sample-components__item">
+                                    <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-select-field-${theme}.png`} width="220" height="40" alt="Select Fielg component preview" />
+                                </div>
                             </div>
-                            <div className="hd-home-sample-components__item">
-                                <HopperProvider colorScheme={theme}>
-                                    <div className="hd-home-sample-components__buttons">
-                                        <HopperButton excludeFromTabOrder>Confirm</HopperButton>
-                                        <HopperButton excludeFromTabOrder variant="secondary">I need help</HopperButton>
-                                    </div>
-                                </HopperProvider>
+                            <div className="hd-home-sample-components__item-wrapper">
+                                <div className="hd-home-sample-components__item">
+                                    <HopperProvider colorScheme={theme}>
+                                        <div className="hd-home-sample-components__buttons">
+                                            <HopperButton excludeFromTabOrder>Confirm</HopperButton>
+                                            <HopperButton excludeFromTabOrder variant="secondary">I need help</HopperButton>
+                                        </div>
+                                    </HopperProvider>
+                                </div>
                             </div>
-                            <div className="hd-home-sample-components__item">
-                                <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-radio-group-${theme}.png`} width="99" height="48" alt="Radio Group Component preview" />
+                            <div className="hd-home-sample-components__item-wrapper">
+                                <div className="hd-home-sample-components__item">
+                                    <Image src={`https://cdn.platform.workleap.com/hopper/webdoc/component-radio-group-${theme}.png`} width="99" height="48" alt="Radio Group Component preview" />
+                                </div>
                             </div>
                         </div>
                     </div>
