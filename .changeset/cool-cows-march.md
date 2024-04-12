@@ -2,7 +2,7 @@
 "@hopper-ui/svg-icons": minor
 ---
 
-Modified the following SVG icons:
+Modified the following SVG rich icons:
 
 **Added**
 
