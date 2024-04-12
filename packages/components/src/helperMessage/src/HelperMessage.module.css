@@ -5,6 +5,9 @@
     display: flex;
     column-gap: var(--hop-HelperMessage-column-gap);
     align-items: center;
+
+    box-sizing: border-box;
+
     color: var(--hop-HelperMessage-color);
 }
 

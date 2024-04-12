@@ -24,13 +24,9 @@
     align-items: flex-start;
     justify-content: flex-start;
 
+    box-sizing: border-box;
     inline-size: max-content; 
     max-inline-size: 100%;
-}
-
-.hop-CheckboxField,
-.hop-CheckboxField * {
-    box-sizing: border-box;
 }
 
 .hop-CheckboxField[data-disabled] {

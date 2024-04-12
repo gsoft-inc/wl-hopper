@@ -82,13 +82,9 @@
     align-items: start;
     justify-content: start;
 
+    box-sizing: border-box;
     inline-size: max-content; 
     max-inline-size: 100%;
-}
-
-.hop-Checkbox,
-.hop-Checkbox * {
-    box-sizing: border-box;
 }
 
 .hop-Checkbox[data-hovered] {
@@ -189,6 +185,7 @@
     justify-content: center;
     order: 1;
 
+    box-sizing: border-box;
     aspect-ratio: 1/1;
     inline-size: var(--box-inline-size, var(--hop-Checkbox-box-md-inline-size));
 

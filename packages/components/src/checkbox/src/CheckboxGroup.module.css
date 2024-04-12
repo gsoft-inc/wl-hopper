@@ -48,13 +48,9 @@
     align-items: var(--align-items);
     justify-content: var(--justify-content);
 
+    box-sizing: border-box;
     inline-size: max-content;
     max-inline-size: 100%;
-}
-
-.hop-CheckboxGroup,
-.hop-CheckboxGroup * {
-    box-sizing: border-box;
 }
 
 .hop-CheckboxGroup--bordered {
@@ -110,6 +106,7 @@
     gap: var(--list-row-gap, var(--hop-space-stack-md)) var(--list-column-gap, var(--hop-space-inline-md));
     order: 2;
 
+    box-sizing: border-box;
     inline-size: max-content;
     max-inline-size: 100%;
 

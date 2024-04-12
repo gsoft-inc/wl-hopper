@@ -10,6 +10,8 @@
     column-gap: var(--hop-ErrorMessage-column-gap);
     align-items: center;
 
+    box-sizing: border-box;
+
     font-family: var(--hop-ErrorMessage-font-family);
     font-size: var(--hop-ErrorMessage-font-size);
     font-weight: var(--hop-ErrorMessage-font-weight);
