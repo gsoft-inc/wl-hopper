@@ -88,7 +88,7 @@ export const Description = {
                     <Text slot="description">Team Manager</Text>
                 </CheckboxField>
             </CheckboxList>
-            <HelperMessage hideIcon>Select one to continue</HelperMessage>
+            <HelperMessage>Select one to continue</HelperMessage>
         </CheckboxGroup>
     )
 } satisfies Story;
@@ -106,7 +106,7 @@ export const Size = {
                     <Checkbox value="designer">Designer</Checkbox>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
-                <HelperMessage hideIcon>Select one to continue</HelperMessage>
+                <HelperMessage>Select one to continue</HelperMessage>
             </CheckboxGroup>
             <CheckboxGroup {...props} size="md">
                 <Label>Roles</Label>
@@ -115,7 +115,7 @@ export const Size = {
                     <Checkbox value="designer">Designer</Checkbox>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
-                <HelperMessage hideIcon>Select one to continue</HelperMessage>
+                <HelperMessage>Select one to continue</HelperMessage>
             </CheckboxGroup>
         </Inline>
     )
@@ -148,8 +148,8 @@ export const Validation = {
 
         return (
             <CheckboxGroup {...args} onChange={onChange} isInvalid={isInvalid}>
-                <HelperMessage hideIcon>Uncheck all to show the error message</HelperMessage>
-                <ErrorMessage hideIcon>Check this box and the description will appear</ErrorMessage>
+                <HelperMessage>Uncheck all to show the error message</HelperMessage>
+                <ErrorMessage>Check this box and the description will appear</ErrorMessage>
                 <CheckboxList>
                     <Checkbox value="developer">Developer</Checkbox>
                     <Checkbox value="designer">Designer</Checkbox>

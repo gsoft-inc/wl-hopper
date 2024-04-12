@@ -34,7 +34,7 @@ export const Vertical = {
                     </CheckboxField>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
-                <HelperMessage hideIcon>Select one to continue</HelperMessage>
+                <HelperMessage>Select one to continue</HelperMessage>
             </CheckboxGroup>
             <h1>Checked</h1>
             <CheckboxGroup {...props} defaultValue={["developer", "designer", "manager"]}>
@@ -82,7 +82,7 @@ export const Vertical = {
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
+                    <ErrorMessage>This field is required</ErrorMessage>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} size="md" isInvalid>
                     <Label>Roles</Label>
@@ -91,7 +91,7 @@ export const Vertical = {
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
+                    <ErrorMessage>This field is required</ErrorMessage>
                 </CheckboxGroup>
             </Inline>
             <h1>Invalid & Disabled</h1>
@@ -122,6 +122,39 @@ export const Vertical = {
                     </CheckboxList>
                 </CheckboxGroup>
             </Inline>
+            <h1>Bordered with Description</h1>
+            <Inline alignY="start">
+                <CheckboxGroup {...props} size="sm" variant="bordered">
+                    <Label>Roles</Label>
+                    <CheckboxList>
+                        <CheckboxField>
+                            <Checkbox value="developer">Developer</Checkbox>
+                            <Text slot="description">Team Lead</Text>
+                        </CheckboxField>
+                        <Checkbox value="designer">Designer</Checkbox>
+                        <CheckboxField>
+                            <Checkbox value="manager">Manager</Checkbox>
+                            <Text slot="description">Team Manager</Text>
+                        </CheckboxField>
+                    </CheckboxList>
+                    <HelperMessage>Select one to continue</HelperMessage>
+                </CheckboxGroup>
+                <CheckboxGroup {...props} size="md" variant="bordered">
+                    <Label>Roles</Label>
+                    <CheckboxList>
+                        <CheckboxField>
+                            <Checkbox value="developer">Developer</Checkbox>
+                            <Text slot="description">Team Lead</Text>
+                        </CheckboxField>
+                        <Checkbox value="designer">Designer</Checkbox>
+                        <CheckboxField>
+                            <Checkbox value="manager">Manager</Checkbox>
+                            <Text slot="description">Team Manager</Text>
+                        </CheckboxField>
+                    </CheckboxList>
+                    <HelperMessage>Select one to continue</HelperMessage>
+                </CheckboxGroup>
+            </Inline>
             <h1>Bordered & Invalid</h1>
             <Inline alignY="start">
                 <CheckboxGroup {...props} size="sm" variant="bordered" isInvalid>
@@ -131,7 +164,7 @@ export const Vertical = {
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
+                    <ErrorMessage>This field is required</ErrorMessage>
                 </CheckboxGroup>
                 <CheckboxGroup {...props} size="md" variant="bordered" isInvalid>
                     <Label>Roles</Label>
@@ -140,7 +173,7 @@ export const Vertical = {
                         <Checkbox value="designer">Designer</Checkbox>
                         <Checkbox value="manager">Manager</Checkbox>
                     </CheckboxList>
-                    <ErrorMessage hideIcon>This field is required</ErrorMessage>
+                    <ErrorMessage>This field is required</ErrorMessage>
                 </CheckboxGroup>
             </Inline>
             <h1>Styling</h1>

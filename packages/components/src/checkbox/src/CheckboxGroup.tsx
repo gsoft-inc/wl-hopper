@@ -90,10 +90,12 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                     className: styles["hop-CheckboxGroup__list"]
                 }],
                 [ErrorMessageContext, {
-                    className: styles["hop-CheckboxGroup__error-message"]
+                    className: styles["hop-CheckboxGroup__error-message"],
+                    hideIcon: true
                 }],
                 [HelperMessageContext, {
-                    className: styles["hop-CheckboxGroup__helper-message"]
+                    className: styles["hop-CheckboxGroup__helper-message"],
+                    hideIcon: true
                 }]
             ]}
         >

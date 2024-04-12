@@ -39,7 +39,7 @@ export const Default: Story = {
 /**
  * You can hide the icon in the HelperMessage.
  */
-export const Icon: Story = {
+export const HideIcon: Story = {
     args: {
         hideIcon: true
     }

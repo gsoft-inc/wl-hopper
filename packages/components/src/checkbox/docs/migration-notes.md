@@ -9,3 +9,4 @@
 - indeterminate renamed to isIndeterminate
 - checked renamed to isSelected
 - disabled renamed to isDisabled
+- Checkbox group's default orientation is now vertical instead of horizontal

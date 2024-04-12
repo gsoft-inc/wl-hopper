@@ -66,7 +66,7 @@ export const FormErrors: Story = {
 /**
  * An ErrorMessage can hide its icon
  */
-export const Icon: Story = {
+export const HideIcon: Story = {
     render: () => {
         return <SlotProvider values={[
             [FieldErrorContext, {
