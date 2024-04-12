@@ -44,7 +44,7 @@ export const RichIcon = forwardRef<SVGSVGElement, RichIconProps>((props, ref) =>
 
     const {
         size: sizeProp,
-        variant = "decorative-option7",
+        variant = "option7",
         src24,
         src32,
         src40,
@@ -55,7 +55,7 @@ export const RichIcon = forwardRef<SVGSVGElement, RichIconProps>((props, ref) =>
         ...otherProps
     } = ownProps;
 
-    const size = useResponsiveValue(sizeProp) ?? "md";
+    const size = useResponsiveValue(sizeProp) ?? "lg";
     const sizeMappings = {
         md: src24,
         lg: src32,
