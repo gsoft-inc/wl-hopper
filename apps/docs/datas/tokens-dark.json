@@ -800,11 +800,11 @@
         "value": "#cb2e31"
       },
       {
-        "name": "hop-danger-border-active",
+        "name": "hop-danger-border-selected",
         "value": "#df3236"
       },
       {
-        "name": "hop-danger-border-pressed",
+        "name": "hop-danger-border-press",
         "value": "#fa4d59"
       },
       {
@@ -816,7 +816,7 @@
         "value": "#431a17"
       },
       {
-        "name": "hop-danger-icon-active",
+        "name": "hop-danger-icon-selected",
         "value": "#fa4d59"
       },
       {
@@ -828,7 +828,7 @@
         "value": "#ff8e8e"
       },
       {
-        "name": "hop-danger-icon-pressed",
+        "name": "hop-danger-icon-press",
         "value": "#fde6e5"
       },
       {
@@ -848,7 +848,7 @@
         "value": "#ff8e8e"
       },
       {
-        "name": "hop-danger-icon-weak-pressed",
+        "name": "hop-danger-icon-weak-press",
         "value": "#fa4d59"
       },
       {
@@ -856,7 +856,7 @@
         "value": "#ff8e8e"
       },
       {
-        "name": "hop-danger-surface-active",
+        "name": "hop-danger-surface-selected",
         "value": "#6c2320"
       },
       {
@@ -868,7 +868,7 @@
         "value": "#ff8e8e"
       },
       {
-        "name": "hop-danger-surface-pressed",
+        "name": "hop-danger-surface-press",
         "value": "#fa4d59"
       },
       {
@@ -888,7 +888,7 @@
         "value": "#952927"
       },
       {
-        "name": "hop-danger-surface-weak-pressed",
+        "name": "hop-danger-surface-weak-press",
         "value": "#ba2d2d"
       },
       {
@@ -896,7 +896,7 @@
         "value": "#431a17"
       },
       {
-        "name": "hop-danger-text-active",
+        "name": "hop-danger-text-selected",
         "value": "#fa4d59"
       },
       {
@@ -908,7 +908,7 @@
         "value": "#ff8e8e"
       },
       {
-        "name": "hop-danger-text-pressed",
+        "name": "hop-danger-text-press",
         "value": "#fde6e5"
       },
       {
@@ -928,7 +928,7 @@
         "value": "#ff8e8e"
       },
       {
-        "name": "hop-danger-text-weak-pressed",
+        "name": "hop-danger-text-weak-press",
         "value": "#fa4d59"
       },
       {
@@ -1332,7 +1332,7 @@
         "value": "#6c6c6b"
       },
       {
-        "name": "hop-neutral-border-active",
+        "name": "hop-neutral-border-selected",
         "value": "#fef6ef"
       },
       {
@@ -1344,7 +1344,7 @@
         "value": "#959593"
       },
       {
-        "name": "hop-neutral-border-pressed",
+        "name": "hop-neutral-border-press",
         "value": "#505050"
       },
       {
@@ -1368,7 +1368,7 @@
         "value": "#f8f6f3"
       },
       {
-        "name": "hop-neutral-icon-active",
+        "name": "hop-neutral-icon-selected",
         "value": "#292929"
       },
       {
@@ -1380,7 +1380,7 @@
         "value": "#ecebe8"
       },
       {
-        "name": "hop-neutral-icon-pressed",
+        "name": "hop-neutral-icon-press",
         "value": "#fef6ef"
       },
       {
@@ -1400,7 +1400,7 @@
         "value": "#e0dfdd"
       },
       {
-        "name": "hop-neutral-icon-weak-pressed",
+        "name": "hop-neutral-icon-weak-press",
         "value": "#ecebe8"
       },
       {
@@ -1412,7 +1412,7 @@
         "value": "#1d1d1c"
       },
       {
-        "name": "hop-neutral-surface-active",
+        "name": "hop-neutral-surface-selected",
         "value": "#fef6ef"
       },
       {
@@ -1424,7 +1424,7 @@
         "value": "#3c3c3c"
       },
       {
-        "name": "hop-neutral-surface-pressed",
+        "name": "hop-neutral-surface-press",
         "value": "#505050"
       },
       {
@@ -1440,7 +1440,7 @@
         "value": "#3c3c3c"
       },
       {
-        "name": "hop-neutral-surface-weak-active",
+        "name": "hop-neutral-surface-weak-selected",
         "value": "#3c3c3c"
       },
       {
@@ -1448,11 +1448,11 @@
         "value": "#505050"
       },
       {
-        "name": "hop-neutral-surface-weak-pressed",
+        "name": "hop-neutral-surface-weak-press",
         "value": "#636362"
       },
       {
-        "name": "hop-neutral-surface-weakest-active",
+        "name": "hop-neutral-surface-weakest-selected",
         "value": "#3c3c3c"
       },
       {
@@ -1464,7 +1464,7 @@
         "value": "#f8f6f3"
       },
       {
-        "name": "hop-neutral-text-active",
+        "name": "hop-neutral-text-selected",
         "value": "#292929"
       },
       {
@@ -1476,7 +1476,7 @@
         "value": "#ecebe8"
       },
       {
-        "name": "hop-neutral-text-pressed",
+        "name": "hop-neutral-text-press",
         "value": "#fef6ef"
       },
       {
@@ -1492,7 +1492,7 @@
         "value": "#e0dfdd"
       },
       {
-        "name": "hop-neutral-text-weak-pressed",
+        "name": "hop-neutral-text-weak-press",
         "value": "#ecebe8"
       },
       {
@@ -1504,7 +1504,7 @@
         "value": "#6c8ffd"
       },
       {
-        "name": "hop-primary-border-active",
+        "name": "hop-primary-border-selected",
         "value": "#6c8ffd"
       },
       {
@@ -1512,7 +1512,7 @@
         "value": "#95b1ff"
       },
       {
-        "name": "hop-primary-border-pressed",
+        "name": "hop-primary-border-press",
         "value": "#3b57ff"
       },
       {
@@ -1520,7 +1520,7 @@
         "value": "#95b1ff"
       },
       {
-        "name": "hop-primary-icon-active",
+        "name": "hop-primary-icon-selected",
         "value": "#95b1ff"
       },
       {
@@ -1532,7 +1532,7 @@
         "value": "#6c8ffd"
       },
       {
-        "name": "hop-primary-icon-pressed",
+        "name": "hop-primary-icon-press",
         "value": "#4767fe"
       },
       {
@@ -1548,7 +1548,7 @@
         "value": "#95b1ff"
       },
       {
-        "name": "hop-primary-surface-active",
+        "name": "hop-primary-surface-selected",
         "value": "#1b3587"
       },
       {
@@ -1564,7 +1564,7 @@
         "value": "#4767fe"
       },
       {
-        "name": "hop-primary-surface-pressed",
+        "name": "hop-primary-surface-press",
         "value": "#3b57ff"
       },
       {
@@ -1572,7 +1572,7 @@
         "value": "#4767fe"
       },
       {
-        "name": "hop-primary-surface-strong-active",
+        "name": "hop-primary-surface-strong-selected",
         "value": "#1b3587"
       },
       {
@@ -1580,7 +1580,7 @@
         "value": "#3b57ff"
       },
       {
-        "name": "hop-primary-surface-strong-pressed",
+        "name": "hop-primary-surface-strong-press",
         "value": "#2a43e8"
       },
       {
@@ -1592,7 +1592,7 @@
         "value": "#2040c7"
       },
       {
-        "name": "hop-primary-surface-weak-pressed",
+        "name": "hop-primary-surface-weak-press",
         "value": "#2a43e8"
       },
       {
@@ -1604,7 +1604,7 @@
         "value": "#6c8ffd"
       },
       {
-        "name": "hop-primary-text-pressed",
+        "name": "hop-primary-text-press",
         "value": "#4767fe"
       },
       {
@@ -1616,7 +1616,7 @@
         "value": "#ffffff"
       },
       {
-        "name": "hop-primary-text-active",
+        "name": "hop-primary-text-selected",
         "value": "#95b1ff"
       },
       {
@@ -1640,19 +1640,19 @@
         "value": "#451a02"
       },
       {
-        "name": "hop-status-inactive-icon",
+        "name": "hop-status-inselected-icon",
         "value": "#3c3c3c"
       },
       {
-        "name": "hop-status-inactive-surface",
+        "name": "hop-status-inselected-surface",
         "value": "#e0dfdd"
       },
       {
-        "name": "hop-status-inactive-surface-strong",
+        "name": "hop-status-inselected-surface-strong",
         "value": "#ccccca"
       },
       {
-        "name": "hop-status-inactive-text",
+        "name": "hop-status-inselected-text",
         "value": "#292929"
       },
       {
@@ -1860,7 +1860,7 @@
         "value": "#e2a934"
       },
       {
-        "name": "hop-upsell-border-active",
+        "name": "hop-upsell-border-selected",
         "value": "#8b6609"
       },
       {
@@ -1868,7 +1868,7 @@
         "value": "#654c0d"
       },
       {
-        "name": "hop-upsell-border-pressed",
+        "name": "hop-upsell-border-press",
         "value": "#996f08"
       },
       {
@@ -1876,7 +1876,7 @@
         "value": "#2f250d"
       },
       {
-        "name": "hop-upsell-icon-active",
+        "name": "hop-upsell-icon-selected",
         "value": "#c28b12"
       },
       {
@@ -1884,7 +1884,7 @@
         "value": "#654c0d"
       },
       {
-        "name": "hop-upsell-icon-pressed",
+        "name": "hop-upsell-icon-press",
         "value": "#4b390f"
       },
       {
@@ -1900,7 +1900,7 @@
         "value": "#e2a934"
       },
       {
-        "name": "hop-upsell-icon-weak-pressed",
+        "name": "hop-upsell-icon-weak-press",
         "value": "#c28b12"
       },
       {
@@ -1908,7 +1908,7 @@
         "value": "#fff2b8"
       },
       {
-        "name": "hop-upsell-surface-active",
+        "name": "hop-upsell-surface-selected",
         "value": "#4b390f"
       },
       {
@@ -1920,7 +1920,7 @@
         "value": "#c28b12"
       },
       {
-        "name": "hop-upsell-surface-pressed",
+        "name": "hop-upsell-surface-press",
         "value": "#996f08"
       },
       {
@@ -1932,7 +1932,7 @@
         "value": "#654c0d"
       },
       {
-        "name": "hop-upsell-surface-weak-pressed",
+        "name": "hop-upsell-surface-weak-press",
         "value": "#7e5e0a"
       },
       {
@@ -1940,7 +1940,7 @@
         "value": "#7e5e0a"
       },
       {
-        "name": "hop-upsell-text-active",
+        "name": "hop-upsell-text-selected",
         "value": "#c28b12"
       },
       {
@@ -1952,7 +1952,7 @@
         "value": "#654c0d"
       },
       {
-        "name": "hop-upsell-text-pressed",
+        "name": "hop-upsell-text-press",
         "value": "#4b390f"
       },
       {
@@ -1964,7 +1964,7 @@
         "value": "#e2a934"
       },
       {
-        "name": "hop-upsell-text-weak-pressed",
+        "name": "hop-upsell-text-weak-press",
         "value": "#c28b12"
       },
       {

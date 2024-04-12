@@ -4,7 +4,7 @@
             "$type": "color",
             "$value": "{amanita.100}"
         },
-        "border-active": {
+        "border-selected": {
             "$type": "color",
             "$value": "{amanita.300}"
         },
@@ -12,7 +12,7 @@
             "$type": "color",
             "$value": "{amanita.300}"
         },
-        "border-pressed": {
+        "border-press": {
             "$type": "color",
             "$value": "{amanita.600}"
         },
@@ -20,7 +20,7 @@
             "$type": "color",
             "$value": "{amanita.700}"
         },
-        "icon-active": {
+        "icon-selected": {
             "$type": "color",
             "$value": "{amanita.400}"
         },
@@ -32,7 +32,7 @@
             "$type": "color",
             "$value": "{amanita.500}"
         },
-        "icon-pressed": {
+        "icon-press": {
             "$type": "color",
             "$value": "{amanita.800}"
         },
@@ -52,7 +52,7 @@
             "$type": "color",
             "$value": "{amanita.500}"
         },
-        "icon-weak-pressed": {
+        "icon-weak-press": {
             "$type": "color",
             "$value": "{amanita.600}"
         },
@@ -60,7 +60,7 @@
             "$type": "color",
             "$value": "{amanita.25}"
         },
-        "surface-active": {
+        "surface-selected": {
             "$type": "color",
             "$value": "{amanita.50}"
         },
@@ -72,7 +72,7 @@
             "$type": "color",
             "$value": "{amanita.500}"
         },
-        "surface-pressed": {
+        "surface-press": {
             "$type": "color",
             "$value": "{amanita.600}"
         },
@@ -92,7 +92,7 @@
             "$type": "color",
             "$value": "{amanita.75}"
         },
-        "surface-weak-pressed": {
+        "surface-weak-press": {
             "$type": "color",
             "$value": "{amanita.100}"
         },
@@ -100,7 +100,7 @@
             "$type": "color",
             "$value": "{amanita.700}"
         },
-        "text-active": {
+        "text-selected": {
             "$type": "color",
             "$value": "{amanita.400}"
         },
@@ -112,7 +112,7 @@
             "$type": "color",
             "$value": "{amanita.500}"
         },
-        "text-pressed": {
+        "text-press": {
             "$type": "color",
             "$value": "{amanita.800}"
         },
@@ -132,7 +132,7 @@
             "$type": "color",
             "$value": "{amanita.500}"
         },
-        "text-weak-pressed": {
+        "text-weak-press": {
             "$type": "color",
             "$value": "{amanita.600}"
         }
@@ -560,7 +560,7 @@
             "$type": "color",
             "$value": "{rock.200}"
         },
-        "border-active": {
+        "border-selected": {
             "$type": "color",
             "$value": "{rock.800}"
         },
@@ -572,7 +572,7 @@
             "$type": "color",
             "$value": "{rock.300}"
         },
-        "border-pressed": {
+        "border-press": {
             "$type": "color",
             "$value": "{rock.50}"
         },
@@ -596,7 +596,7 @@
             "$type": "color",
             "$value": "{rock.800}"
         },
-        "icon-active": {
+        "icon-selected": {
             "$type": "color",
             "$value": "{samoyed}"
         },
@@ -608,7 +608,7 @@
             "$type": "color",
             "$value": "{rock.700}"
         },
-        "icon-pressed": {
+        "icon-press": {
             "$type": "color",
             "$value": "{rock.900}"
         },
@@ -628,7 +628,7 @@
             "$type": "color",
             "$value": "{rock.600}"
         },
-        "icon-weak-pressed": {
+        "icon-weak-press": {
             "$type": "color",
             "$value": "{rock.700}"
         },
@@ -640,7 +640,7 @@
             "$type": "color",
             "$value": "{samoyed}"
         },
-        "surface-active": {
+        "surface-selected": {
             "$type": "color",
             "$value": "{rock.800}"
         },
@@ -652,7 +652,7 @@
             "$type": "color",
             "$value": "{rock.25}"
         },
-        "surface-pressed": {
+        "surface-press": {
             "$type": "color",
             "$value": "{rock.50}"
         },
@@ -664,7 +664,7 @@
             "$type": "color",
             "$value": "{rock.50}"
         },
-        "surface-weak-active": {
+        "surface-weak-selected": {
             "$type": "color",
             "$value": "{rock.50}"
         },
@@ -672,7 +672,7 @@
             "$type": "color",
             "$value": "{rock.75}"
         },
-        "surface-weak-pressed": {
+        "surface-weak-press": {
             "$type": "color",
             "$value": "{rock.100}"
         },
@@ -680,7 +680,7 @@
             "$type": "color",
             "$value": "{rock.25}"
         },
-        "surface-weakest-active": {
+        "surface-weakest-selected": {
             "$type": "color",
             "$value": "{rock.50}"
         },
@@ -692,7 +692,7 @@
             "$type": "color",
             "$value": "{rock.800}"
         },
-        "text-active": {
+        "text-selected": {
             "$type": "color",
             "$value": "{samoyed}"
         },
@@ -704,7 +704,7 @@
             "$type": "color",
             "$value": "{rock.700}"
         },
-        "text-pressed": {
+        "text-press": {
             "$type": "color",
             "$value": "{rock.700}"
         },
@@ -720,7 +720,7 @@
             "$type": "color",
             "$value": "{rock.600}"
         },
-        "text-weak-pressed": {
+        "text-weak-press": {
             "$type": "color",
             "$value": "{rock.700}"
         },
@@ -734,7 +734,7 @@
             "$type": "color",
             "$value": "{sapphire.400}"
         },
-        "border-active": {
+        "border-selected": {
             "$type": "color",
             "$value": "{sapphire.400}"
         },
@@ -742,7 +742,7 @@
             "$type": "color",
             "$value": "{sapphire.500}"
         },
-        "border-pressed": {
+        "border-press": {
             "$type": "color",
             "$value": "{sapphire.300}"
         },
@@ -750,7 +750,7 @@
             "$type": "color",
             "$value": "{sapphire.500}"
         },
-        "icon-active": {
+        "icon-selected": {
             "$type": "color",
             "$value": "{sapphire.500}"
         },
@@ -762,7 +762,7 @@
             "$type": "color",
             "$value": "{sapphire.600}"
         },
-        "icon-pressed": {
+        "icon-press": {
             "$type": "color",
             "$value": "{sapphire.700}"
         },
@@ -778,7 +778,7 @@
             "$type": "color",
             "$value": "{sapphire.50}"
         },
-        "surface-active": {
+        "surface-selected": {
             "$type": "color",
             "$value": "{sapphire.50}"
         },
@@ -794,7 +794,7 @@
             "$type": "color",
             "$value": "{sapphire.200}"
         },
-        "surface-pressed": {
+        "surface-press": {
             "$type": "color",
             "$value": "{sapphire.300}"
         },
@@ -802,7 +802,7 @@
             "$type": "color",
             "$value": "{sapphire.400}"
         },
-        "surface-strong-active": {
+        "surface-strong-selected": {
             "$type": "color",
             "$value": "{sapphire.50}"
         },
@@ -810,7 +810,7 @@
             "$type": "color",
             "$value": "{sapphire.600}"
         },
-        "surface-strong-pressed": {
+        "surface-strong-press": {
             "$type": "color",
             "$value": "{sapphire.700}"
         },
@@ -822,7 +822,7 @@
             "$type": "color",
             "$value": "{sapphire.50}"
         },
-        "surface-weak-pressed": {
+        "surface-weak-press": {
             "$type": "color",
             "$value": "{sapphire.75}"
         },
@@ -830,7 +830,7 @@
             "$type": "color",
             "$value": "{sapphire.500}"
         },
-        "text-active": {
+        "text-selected": {
             "$type": "color",
             "$value": "{sapphire.500}"
         },
@@ -842,7 +842,7 @@
             "$type": "color",
             "$value": "{sapphire.600}"
         },
-        "text-pressed": {
+        "text-press": {
             "$type": "color",
             "$value": "{sapphire.700}"
         },
@@ -1120,7 +1120,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.100}"
         },
-        "border-active": {
+        "border-selected": {
             "$type": "color",
             "$value": "{sunken-treasure.200}"
         },
@@ -1128,7 +1128,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.75}"
         },
-        "border-pressed": {
+        "border-press": {
             "$type": "color",
             "$value": "{sunken-treasure.200}"
         },
@@ -1136,7 +1136,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.700}"
         },
-        "icon-active": {
+        "icon-selected": {
             "$type": "color",
             "$value": "{sunken-treasure.400}"
         },
@@ -1144,7 +1144,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.800}"
         },
-        "icon-pressed": {
+        "icon-press": {
             "$type": "color",
             "$value": "{sunken-treasure.900}"
         },
@@ -1160,7 +1160,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.500}"
         },
-        "icon-weak-pressed": {
+        "icon-weak-press": {
             "$type": "color",
             "$value": "{sunken-treasure.600}"
         },
@@ -1168,7 +1168,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.75}"
         },
-        "surface-active": {
+        "surface-selected": {
             "$type": "color",
             "$value": "{sunken-treasure.50}"
         },
@@ -1180,7 +1180,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.100}"
         },
-        "surface-pressed": {
+        "surface-press": {
             "$type": "color",
             "$value": "{sunken-treasure.200}"
         },
@@ -1192,7 +1192,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.50}"
         },
-        "surface-weak-pressed": {
+        "surface-weak-press": {
             "$type": "color",
             "$value": "{sunken-treasure.75}"
         },
@@ -1200,7 +1200,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.700}"
         },
-        "text-active": {
+        "text-selected": {
             "$type": "color",
             "$value": "{sunken-treasure.400}"
         },
@@ -1212,7 +1212,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.800}"
         },
-        "text-pressed": {
+        "text-press": {
             "$type": "color",
             "$value": "{sunken-treasure.900}"
         },
@@ -1224,7 +1224,7 @@
             "$type": "color",
             "$value": "{sunken-treasure.500}"
         },
-        "text-weak-pressed": {
+        "text-weak-press": {
             "$type": "color",
             "$value": "{sunken-treasure.600}"
         }
