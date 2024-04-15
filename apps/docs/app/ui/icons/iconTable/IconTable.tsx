@@ -39,7 +39,6 @@ export const IconTable = ({ size, type, items }: IconTableProps) => {
 
         return (
             <IconItem copyString={copyString} name={formattedName} key={name} >
-                {/* @ts-expect-error generic stuff */}
                 <Component size={size} />
             </IconItem>
         );
