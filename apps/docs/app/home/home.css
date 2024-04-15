@@ -559,7 +559,7 @@ a.hd-home-sample__item:hover::after {
 
     .hd-home-sample-components__item-wrapper:nth-child(4) .hd-home-sample-components__item {
         border-bottom: 0;
-        border-image: linear-gradient(0deg,rgba(0 0 0 / 0%) 0%, rgba(0 0 0 / 0%) 45%, rgb(186 188 192)) 1;
+        border-image: linear-gradient(0deg,rgba(0 0 0 / 0%) 0%, rgba(0 0 0 / 0%) 25%, rgb(186 188 192)) 1;
         border-style: solid;
         border-right: 0;
         border-left-width: var(--hd-border-size);
