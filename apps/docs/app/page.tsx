@@ -31,8 +31,8 @@ export default function Home() {
         <div className="hd-wrapper">
             <main className="hd-home">
                 <div className="hd-home__heading">
-                    <h1 className="hd-home__header">Fusce semper facilisis finibus.</h1>
-                    <p className="hd-home__copy">Sed condimentum, arcu sit amet tempus posuere, sapien ex vulputate risus, placerat convallis lectus ex.</p>
+                    <h1 className="hd-home__header">Leap into creativity</h1>
+                    <p className="hd-home__copy">Explore our Design System, where icons, tokens, and components are handpicked for ultimate simplicity and accessibility.</p>
                 </div>
                 <div className="hd-home__ctas">
                     <Button as="a" href="/components">Get Started</Button>
@@ -182,7 +182,7 @@ export default function Home() {
                             <h3 className="hd-home-sample__title">Components</h3>
                             <span className="hd-tag-accent">upcoming</span>
                         </div>
-                        <p className="hd-home-sample__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                        <p className="hd-home-sample__copy">An accessible suite of components powered by react-aria.</p>
                         <div className="hd-home-sample-components">
                             <div className="hd-home-sample-components__item-wrapper">
                                 <div className="hd-home-sample-components__item">
