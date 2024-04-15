@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, type ReactNode } from "react";
-import { RadioGroup, Radio, type RadioGroupProps, type RadioProps } from "react-aria-components";
+import { RadioGroup, Radio, type RadioProps } from "react-aria-components";
 import { IconTable } from "@/app/ui/icons/iconTable/IconTable.tsx";
 import { SparklesIcon, SparklesRichIcon, iconNames, richIconNames } from "@hopper-ui/icons";
 
