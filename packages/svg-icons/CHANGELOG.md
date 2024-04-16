@@ -1,5 +1,11 @@
 # @hopper-ui/svg-icons
 
+## 2.7.1
+
+### Patch Changes
+
+- c54c967: Fix small typo in the newly added RichIcons. GoalIndividiualRichIcon should be GoalIndividualRichIcon
+
 ## 2.7.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 1.8.1
+
+### Patch Changes
+
+- c54c967: Fix small typo in the newly added RichIcons. GoalIndividiualRichIcon should be GoalIndividualRichIcon
+
 ## 1.8.0
 
 ### Minor Changes
