@@ -12,7 +12,7 @@ export * from "./CustomRichIcon.tsx";
 export * from "./DecreasingScoreRichIcon.tsx";
 export * from "./EmailRichIcon.tsx";
 export * from "./FeedbackRichIcon.tsx";
-export * from "./GoalIndividiualRichIcon.tsx";
+export * from "./GoalIndividualRichIcon.tsx";
 export * from "./GoalTeamRichIcon.tsx";
 export * from "./GrowthRichIcon.tsx";
 export * from "./IdeaRichIcon.tsx";
@@ -38,4 +38,4 @@ export * from "./TemplateRichIcon.tsx";
 export * from "./TextAnswerRichIcon.tsx";
 export * from "./UpsellRichIcon.tsx";
 
-export const richIconNames = ["ActionListRichIcon","AnonymousRichIcon","CautionRichIcon","ConversationRichIcon","CustomRichIcon","DecreasingScoreRichIcon","EmailRichIcon","FeedbackRichIcon","GoalIndividiualRichIcon","GoalTeamRichIcon","GrowthRichIcon","IdeaRichIcon","InfoRichIcon","LikertScaleRichIcon","MultipleChoiceRichIcon","OneOnOneRichIcon","OpinionScaleRichIcon","OrganizationRichIcon","PeopleRichIcon","QuestionRichIcon","ReminderRichIcon","ReviewRichIcon","RisingScoreRichIcon","RocketRichIcon","ScriptRichIcon","SettingsRichIcon","SparklesRichIcon","StarRichIcon","SuccessRichIcon","SupportRichIcon","TemplateRichIcon","TextAnswerRichIcon","UpsellRichIcon"] as const;
+export const richIconNames = ["ActionListRichIcon","AnonymousRichIcon","CautionRichIcon","ConversationRichIcon","CustomRichIcon","DecreasingScoreRichIcon","EmailRichIcon","FeedbackRichIcon","GoalIndividualRichIcon","GoalTeamRichIcon","GrowthRichIcon","IdeaRichIcon","InfoRichIcon","LikertScaleRichIcon","MultipleChoiceRichIcon","OneOnOneRichIcon","OpinionScaleRichIcon","OrganizationRichIcon","PeopleRichIcon","QuestionRichIcon","ReminderRichIcon","ReviewRichIcon","RisingScoreRichIcon","RocketRichIcon","ScriptRichIcon","SettingsRichIcon","SparklesRichIcon","StarRichIcon","SuccessRichIcon","SupportRichIcon","TemplateRichIcon","TextAnswerRichIcon","UpsellRichIcon"] as const;
