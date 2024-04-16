@@ -8,7 +8,7 @@
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
     border-radius: var(--hd-space-1);
     cursor: pointer;
-    max-width: 10rem;
+    max-width: 11rem;
     padding: calc(var(--hd-space-2) - var(--hd-border-size));
     transition: border-color 0.2s ease-in-out;
     width: 100%;
