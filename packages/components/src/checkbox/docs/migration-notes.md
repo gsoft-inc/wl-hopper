@@ -10,3 +10,4 @@
 - checked renamed to isSelected
 - disabled renamed to isDisabled
 - Checkbox group's default orientation is now vertical instead of horizontal
+- validationState is removed. use isInvalid instead. There is no isValid.

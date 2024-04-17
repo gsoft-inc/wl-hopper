@@ -1,0 +1,18 @@
+
+- The `counter` component is no longer allowed as a specialized slot for Radio.
+- `reverse` is not currently supported.
+- RadioGroup does not support `autofocus`. You must put `autofocus` on the actual Radio.
+- No auto-generating values that are missed on a Radio in a RadioGroup.
+- onChange signature changed (no event passed)
+- onChange is only on RadioGroup, not Radio
+- onValueChange deleted, use onChange instead
+- checked renamed to isSelected
+- disabled renamed to isDisabled
+- required renamed to isRequired
+- Radio group's default orientation is now vertical instead of horizontal
+- validationState is removed. use isInvalid instead. There is no isValid.
+- value is required for a radio
+- wrap is removed. If horizontal, radios will wrap.
+- align prop not added to RadioGroup. If needed, the style system can be used.
+- fluid is not available. If needed, it can be accomplished with styled system.
+- inline prop not available
