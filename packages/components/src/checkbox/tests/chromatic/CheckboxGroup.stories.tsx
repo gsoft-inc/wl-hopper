@@ -186,7 +186,7 @@ export const Vertical = {
                         <Checkbox value="3">3</Checkbox>
                     </CheckboxList>
                 </CheckboxGroup>
-                <CheckboxGroup className="bg-red">
+                <CheckboxGroup className="border-blue">
                     <Label>Numbers</Label>
                     <CheckboxList>
                         <Checkbox value="1">1</Checkbox>
@@ -194,7 +194,7 @@ export const Vertical = {
                         <Checkbox value="3">3</Checkbox>
                     </CheckboxList>
                 </CheckboxGroup>
-                <CheckboxGroup style={{ backgroundColor: "red" }}>
+                <CheckboxGroup style={{ border: "1px solid red" }}>
                     <Label>Numbers</Label>
                     <CheckboxList>
                         <Checkbox value="1">1</Checkbox>

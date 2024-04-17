@@ -1,7 +1,9 @@
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ErrorMessage } from "../../../errorMessage/index.ts";
 import { HelperMessage } from "../../../helperMessage/index.ts";
+import { IconList } from "../../../IconList/index.ts";
 import { Label } from "../../../Label/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Text } from "../../../Text/index.ts";
@@ -29,7 +31,7 @@ export const Vertical = {
                     <Radio value="developer">Developer</Radio>
                     <Radio value="designer">Designer</Radio>
                     <RadioField>
-                        <Radio value="manager">PO</Radio>
+                        <Radio value="po">PO</Radio>
                         <Text slot="description">Product Owner</Text>
                     </RadioField>
                     <Radio value="manager">Manager</Radio>
@@ -64,6 +66,28 @@ export const Vertical = {
                     </RadioList>
                 </RadioGroup>
             </Inline>
+            <h1>Icons</h1>
+            <RadioGroup {...props}>
+                <Label>Roles</Label>
+                <RadioList>
+                    <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
+                    <Radio value="designer">
+                        <Text>Designer</Text>
+                        <IconList>
+                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                        </IconList>
+                    </Radio>
+                    <RadioField>
+                        <Radio value="manager">
+                            <Text>Manager</Text>
+                            <IconList>
+                                <SparklesIcon /><SparklesIcon />
+                            </IconList></Radio>
+                        <Text slot="description">Team Manager</Text>
+                    </RadioField>
+                </RadioList>
+                <HelperMessage>Select one to continue</HelperMessage>
+            </RadioGroup>
             <h1>Disabled</h1>
             <RadioGroup {...props} isDisabled>
                 <Label>Roles</Label>
@@ -186,7 +210,7 @@ export const Vertical = {
                         <Radio value="3">3</Radio>
                     </RadioList>
                 </RadioGroup>
-                <RadioGroup className="bg-red">
+                <RadioGroup className="border-blue">
                     <Label>Numbers</Label>
                     <RadioList>
                         <Radio value="1">1</Radio>
@@ -194,7 +218,7 @@ export const Vertical = {
                         <Radio value="3">3</Radio>
                     </RadioList>
                 </RadioGroup>
-                <RadioGroup style={{ backgroundColor: "red" }}>
+                <RadioGroup style={{ border: "1px solid red" }}>
                     <Label>Numbers</Label>
                     <RadioList>
                         <Radio value="1">1</Radio>
