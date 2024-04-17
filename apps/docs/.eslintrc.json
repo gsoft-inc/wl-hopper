@@ -21,13 +21,24 @@
         "TableSection": true,
         "Switcher": true,
         "IconSpecTable": true,
-        "PreviewComponent": true
+        "PreviewComponent": true,
+        "MigrateGuide": true
     },
     "overrides": [
         {
-            "files": ["*.{js,jsx,ts,tsx}"],
+            "files": [
+                "*.{js,jsx,ts,tsx}"
+            ],
             "rules": {
-                "no-console": ["warn", { "allow": ["warn", "error"] }],
+                "no-console": [
+                    "warn",
+                    {
+                        "allow": [
+                            "warn",
+                            "error"
+                        ]
+                    }
+                ],
                 "react/destructuring-assignment": "off",
                 "no-param-reassign": "off"
             }

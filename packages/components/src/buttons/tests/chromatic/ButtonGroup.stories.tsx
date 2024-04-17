@@ -1,4 +1,4 @@
-import { AddIcon } from "@hopper-ui/icons";
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Stack } from "../../../layout/index.ts";
@@ -35,9 +35,9 @@ export const ButtonGroupIconButton: Story = {
     args:{
         ...Default.args,
         children: [
-            <Button key="1" variant="secondary" aria-label="Add"><AddIcon /></Button>,
-            <Button key="2" variant="secondary" aria-label="Add"><AddIcon /></Button>,
-            <Button key="3" variant="secondary" aria-label="Add"><AddIcon /></Button>
+            <Button key="1" variant="secondary" aria-label="Clean"><SparklesIcon /></Button>,
+            <Button key="2" variant="secondary" aria-label="Clean"><SparklesIcon /></Button>,
+            <Button key="3" variant="secondary" aria-label="Clean"><SparklesIcon /></Button>
         ]
     }
 };

@@ -11,14 +11,14 @@ import type { ColorScheme } from "@/context/theme/ThemeProvider.tsx";
 
 interface ComponentWrapperProps {
     className?: string;
-    filePath: string;
+    src: string;
 }
 
-const ComponentWrapper = ({ className, filePath }: ComponentWrapperProps) => {
-    const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${filePath}.tsx`), {
+const ComponentWrapper = ({ className, src }: ComponentWrapperProps) => {
+    const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${src}.tsx`), {
         ssr: false,
         loading: () => <PreviewSkeleton overlay />
-    }), [filePath]);
+    }), [src]);
 
     const [colorScheme, setColorScheme] = useState<"light" | "dark">("light");
 
