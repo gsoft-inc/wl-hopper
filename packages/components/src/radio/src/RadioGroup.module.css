@@ -88,11 +88,11 @@
     --list-row-gap: var(--hop-RadioGroup-list-bordered-md-row-gap);
 }
 
-.hop-RadioGroup[data-orientation='horizontal'] {
+.hop-RadioGroup[data-orientation="horizontal"] {
     --flex-direction: var(--hop-RadioGroup-horizontal-flex-direction);
 }
 
-.hop-RadioGroup--bordered[data-orientation='horizontal'] {
+.hop-RadioGroup--bordered[data-orientation="horizontal"] {
     --flex-wrap: nowrap;
 }
 
@@ -132,13 +132,13 @@
     display: block;
 }
 
-.hop-RadioGroup--bordered[data-orientation='vertical'] .hop-RadioGroup__list > .hop-RadioGroup__radio ~ .hop-RadioGroup__radio::before {
+.hop-RadioGroup--bordered[data-orientation="vertical"] .hop-RadioGroup__list > .hop-RadioGroup__radio ~ .hop-RadioGroup__radio::before {
     inset-block-start: 0;
     inset-inline: 0;
     border-block-start: var(--list-border, none);
 }
 
-.hop-RadioGroup--bordered[data-orientation='horizontal'] .hop-RadioGroup__list > .hop-RadioGroup__radio ~ .hop-RadioGroup__radio::before {
+.hop-RadioGroup--bordered[data-orientation="horizontal"] .hop-RadioGroup__list > .hop-RadioGroup__radio ~ .hop-RadioGroup__radio::before {
     inset-block: 0;
     inset-inline-start: 0;
     border-inline-start: var(--list-border, none);
