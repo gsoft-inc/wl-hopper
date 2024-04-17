@@ -13,7 +13,8 @@ import ArrowIcon from "./home/assets/arrow.svg";
 import SelectArrowIcon from "./home/assets/select-arrow.svg";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import { useContext } from "react";
-import Button from "../components/button/Button";
+import Button from "@/components/button/Button";
+import Tag from "@/components/tag/Tag";
 import { ExternalLinkIcon, Icon } from "@/components/icon";
 
 // eslint-disable-next-line max-len
@@ -32,7 +33,7 @@ export default function Home() {
             <main className="hd-home">
                 <div className="hd-home__heading">
                     <h1 className="hd-home__header">Leap into creativity</h1>
-                    <p className="hd-home__copy">Explore our Design System, where icons, tokens, and components are handpicked for ultimate simplicity and accessibility.</p>
+                    <p className="hd-home__tagline">Explore our Design System, where icons, tokens, and components are handpicked for ultimate simplicity and accessibility.</p>
                 </div>
                 <div className="hd-home__ctas">
                     <Button as="a" href="/components">Get Started</Button>
@@ -138,7 +139,7 @@ export default function Home() {
                         </div>
                         <a className="hd-home-sample__item hd-home-sample__item-icons" href="/icons/getting-started/introduction">
                             <h3 className="hd-home-sample__title">Icons <ArrowIcon className="hd-home-sample__title-icon" /></h3>
-                            <p className="hd-home-sample__copy">A set of commonly used interface icons.</p>
+                            <p className="hd-home-sample__tagline">A set of commonly used interface icons.</p>
                             <HopperProvider colorScheme={theme} className="hd-home-sample__icons">
                                 <div className="hd-home-sample__icons-row">
                                     <CalendarIcon className="hd-home-sample__icons-icon" size="sm" />
@@ -180,9 +181,9 @@ export default function Home() {
                         <div className="hd-home-sample__item-upcoming"></div>
                         <div className="hd-home-sample__title-wrap">
                             <h3 className="hd-home-sample__title">Components</h3>
-                            <span className="hd-tag-accent">upcoming</span>
+                            <Tag>upcoming</Tag>
                         </div>
-                        <p className="hd-home-sample__copy">An accessible suite of components powered by react-aria.</p>
+                        <p className="hd-home-sample__tagline">An accessible suite of components powered by react-aria.</p>
                         <div className="hd-home-sample-components">
                             <div className="hd-home-sample-components__item-wrapper">
                                 <div className="hd-home-sample-components__item">
