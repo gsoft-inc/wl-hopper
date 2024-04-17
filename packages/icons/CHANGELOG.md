@@ -1,5 +1,21 @@
 # @hopper-ui/icons
 
+## 1.9.0
+
+### Minor Changes
+
+- 1b22f66: Added the following icons:
+
+  **Added**
+
+  | Icon Name            |
+  | -------------------- |
+  | EverythingReportIcon |
+  | OpenRoleIcon         |
+  | PhoneIcon            |
+  | PrintIcon            |
+  | UploadIcon           |
+
 ## 1.8.1
 
 ### Patch Changes
