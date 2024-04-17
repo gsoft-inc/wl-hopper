@@ -1,5 +1,31 @@
 # @hopper-ui/svg-icons
 
+## 2.8.0
+
+### Minor Changes
+
+- 76cda42: Added Pingboard Icons
+
+  **Added**
+
+  | SVG Name                 |
+  | ------------------------ |
+  | everything-report-16.svg |
+  | everything-report-24.svg |
+  | everything-report-32.svg |
+  | open-role-16.svg         |
+  | open-role-24.svg         |
+  | open-role-32.svg         |
+  | phone-16.svg             |
+  | phone-24.svg             |
+  | phone-32.svg             |
+  | print-16.svg             |
+  | print-24.svg             |
+  | print-32.svg             |
+  | upload-16.svg            |
+  | upload-24.svg            |
+  | upload-32.svg            |
+
 ## 2.7.1
 
 ### Patch Changes
