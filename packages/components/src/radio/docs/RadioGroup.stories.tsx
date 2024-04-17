@@ -1,8 +1,10 @@
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
+import { IconList } from "../../IconList/index.ts";
 import { Label } from "../../Label/index.ts";
 import { Inline } from "../../layout/index.ts";
 import { Text } from "../../Text/index.ts";
@@ -10,8 +12,6 @@ import { Radio } from "../src/Radio.tsx";
 import { RadioField } from "../src/RadioField.tsx";
 import { RadioGroup } from "../src/RadioGroup.tsx";
 import { RadioList } from "../src/RadioList.tsx";
-import { SparklesIcon } from "@hopper-ui/icons";
-import { IconList } from "../../IconList/index.ts";
 
 /**
  * The RadioGroup is used to group related options together and to provide a label for the group. It can also provide validation and helper messages.
