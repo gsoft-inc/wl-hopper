@@ -2,15 +2,7 @@
 
 import { Button as HopperButton, HopperProvider } from "@hopper-ui/components";
 import Image from "next/image";
-import AccessibleIcon from "./home/assets/accessible.svg";
-import InternationalIcon from "./home/assets/international.svg";
-import TypescriptIcon from "./home/assets/typescript.svg";
-import DarkModeIcon from "./home/assets/dark-mode.svg";
-import FontSizeIcon from "./home/assets/font-size.svg";
-import LineHeightIcon from "./home/assets/line-height.svg";
-import MarginIcon from "./home/assets/margin.svg";
-import ArrowIcon from "./home/assets/arrow.svg";
-import SelectArrowIcon from "./home/assets/select-arrow.svg";
+import { AccessibleIcon, ArrowIcon, DarkModeIcon, FontSizeIcon, InternationalIcon, LineHeightIcon, MarginIcon, SelectArrowIcon, TypescriptIcon } from "../components/icon/index";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import { useContext } from "react";
 import Button from "@/components/button/Button";
@@ -21,7 +13,7 @@ import { ExternalLinkIcon, Icon } from "@/components/icon";
 import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, FocusIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, NotebookIcon, PinIcon, ProfileIcon, ReactionIcon, RecurringIcon, RewindIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, SyncIcon, TeamIcon, ThumbsUpIcon, UnarchiveIcon, WarningIcon } from "@hopper-ui/icons";
 
 import "@hopper-ui/tokens/fonts.css";
-import "./home/home.css";
+import "./home.css";
 
 export default function Home() {
     const { colorMode } = useContext(ThemeContext);
