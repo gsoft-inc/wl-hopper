@@ -88,7 +88,7 @@
     --list-row-gap: var(--hop-CheckboxGroup-list-bordered-md-row-gap);
 }
 
-[data-orientation='horizontal'] {
+.hop-CheckboxGroup[data-orientation='horizontal'] {
     --flex-direction: var(--hop-CheckboxGroup-horizontal-flex-direction);
 }
 

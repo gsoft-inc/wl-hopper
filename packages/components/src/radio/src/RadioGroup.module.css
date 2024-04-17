@@ -88,7 +88,7 @@
     --list-row-gap: var(--hop-RadioGroup-list-bordered-md-row-gap);
 }
 
-[data-orientation='horizontal'] {
+.hop-RadioGroup[data-orientation='horizontal'] {
     --flex-direction: var(--hop-RadioGroup-horizontal-flex-direction);
 }
 
