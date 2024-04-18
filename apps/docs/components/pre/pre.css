@@ -33,6 +33,10 @@
     margin-block-start: 0;
 }
 
+.hd-pre__code code {
+    background-color: transparent;
+}
+
 /* !* pre HEADER *! */
 .hd-pre-header {
     display: flex;

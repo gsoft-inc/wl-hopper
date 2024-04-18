@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Card from "@/components/card/Card.tsx";
 import NextImage from "@/components/image/Image.tsx";
 import Pre from "@/components/pre/Pre.tsx";
+import InlineCode from "@/components/code/InlineCode.tsx";
 import Table from "@/app/ui/tokens/table/Table.tsx";
 import TypographyTable from "@/app/ui/tokens/table/TypographyTable.tsx";
 import TypographyVariantTable from "@/app/ui/tokens/table/TypographyVariantTable.tsx";
@@ -25,6 +26,7 @@ const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/Migr
 
 export const components = {
     Card,
+    code: InlineCode,
     Image: NextImage,
     pre: Pre,
     MotionPreview: MotionPreview,

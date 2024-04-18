@@ -59,9 +59,9 @@ p {
     margin-block-start: var(--hd-space-3);
 }
 
-.hd-content ul li {
+.hd-content ul li:not([class]) {
     list-style-position: inside;
-    margin-block-end: var(--hd-space-05);
+    margin-block-end: var(--hd-space-1);
 }
 
 .hd-content p a,
