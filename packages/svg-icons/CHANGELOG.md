@@ -1,5 +1,19 @@
 # @hopper-ui/svg-icons
 
+## 2.9.0
+
+### Minor Changes
+
+- e82c234: Added MobileIcon
+
+  **Added**
+
+  | SVG Name      |
+  | ------------- |
+  | mobile-16.svg |
+  | mobile-24.svg |
+  | mobile-32.svg |
+
 ## 2.8.0
 
 ### Minor Changes
