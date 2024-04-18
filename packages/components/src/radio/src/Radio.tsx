@@ -74,7 +74,9 @@ function Radio(props:RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
 
                 return (
                     <>
-                        <div className={styles["hop-Radio__box"]}><BulletIcon size={size} className={radioIconClassName} /></div>
+                        <div className={styles["hop-Radio__box"]}>
+                            <BulletIcon size={size} className={radioIconClassName} />
+                        </div>
                         <ClearContainerSlots>
                             <SlotProvider
                                 values={[

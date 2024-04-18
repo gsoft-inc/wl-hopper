@@ -76,6 +76,7 @@
     --text-color: var(--hop-Radio-text-color);
     --icon-color: var(--hop-Radio-icon-color);
     --description-color: var(--hop-Radio-description-color);
+    --transition-duration: var(--hop-easing-duration-2);
 
     cursor: var(--cursor);
 
@@ -200,8 +201,8 @@
     outline-offset: 0.125rem;
 
     transition:
-        background-color var(--hop-easing-duration-2) var(--hop-easing-productive),
-        border var(--hop-easing-duration-2) var(--hop-easing-productive);
+        background-color var(--transition-duration) var(--hop-easing-productive),
+        border var(--transition-duration) var(--hop-easing-productive);
 }
 
 /* Check */
