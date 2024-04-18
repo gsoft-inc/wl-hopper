@@ -1,5 +1,17 @@
 # @hopper-ui/icons
 
+## 1.10.0
+
+### Minor Changes
+
+- dc09428: Added MobileIcon
+
+  **Added**
+
+  | Icon Name  |
+  | ---------- |
+  | MobileIcon |
+
 ## 1.9.0
 
 ### Minor Changes
