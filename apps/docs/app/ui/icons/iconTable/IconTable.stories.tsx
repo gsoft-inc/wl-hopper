@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconTable } from "./IconTable";
+import { iconNames, richIconNames } from "@hopper-ui/icons";
 
 const meta = {
     title: "app/icons/IconTable",
@@ -13,6 +14,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         size: "lg",
+        items: iconNames,
+        type: "react"
+    }
+};
+
+export const Rich: Story = {
+    args: {
+        size: "lg",
+        items: richIconNames,
         type: "react"
     }
 };

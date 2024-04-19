@@ -38,6 +38,7 @@
 
 .hd-icon-item__title {
     color: var(--hd-color-neutral-text-weak);
+    font-size: 0.875rem;
     margin-top: var(--hd-space-1);
     padding-bottom: var(--hd-space-2);
 }

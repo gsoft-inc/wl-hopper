@@ -5,11 +5,11 @@ import parse from "rehype-parse";
 import { unified } from "unified";
 import { fileURLToPath } from "url";
 
-import { IconSizes, IconsSourceDirectory, NeutralIconColor, PrimaryIconColor, WarningWeakIconColor } from "../../scripts/constants.ts";
+import { RichIconSizes, RichIconsSourceDirectory, RichAllowedIconFillColors } from "../../scripts/constants.ts";
 
-const iconsSrcPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), `../../${IconsSourceDirectory}`);
+const iconsSrcPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), `../../${RichIconsSourceDirectory}`);
 
-const allIconsContent = IconSizes.flatMap(size => {
+const allIconsContent = RichIconSizes.flatMap(size => {
     return readdirSync(`${iconsSrcPath}/${size}px`, { recursive: true, withFileTypes: true })
         .filter(file => file.isFile() && file.name.endsWith(".svg"))
         .map(file => {
@@ -29,7 +29,7 @@ const dataGroupedBySize = allIconsContent.reduce((acc, icon) => {
     }
 
     return acc;
-}, {} as Record<typeof IconSizes[number], string[]>);
+}, {} as Record<typeof RichIconSizes[number], string[]>);
 
 describe("SVGs", () => {
     it("should not have the word icon in it's name", () => {
@@ -108,7 +108,7 @@ allIconsContent.forEach(icon => {
             );
         });
 
-        const expectedFillColors = [NeutralIconColor, PrimaryIconColor, WarningWeakIconColor, "none"];
+        const expectedFillColors = [...RichAllowedIconFillColors, "none"];
 
         const expectedFillsString = expectedFillColors.join(",");
 

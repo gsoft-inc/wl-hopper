@@ -2,6 +2,6 @@
     border: 0.0625rem solid var(--hd-color-neutral-border);
     border-radius: var(--hd-space-1);
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(8rem,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(10rem,1fr));
     padding: var(--hd-space-2);
 }

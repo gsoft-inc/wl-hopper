@@ -32,6 +32,7 @@ export default function IconPage({ params }: PageProps) {
             <Aside title="On this page" links={sectionLinks} />
             <main>
                 <article className="hd-content" key={icons._id}>
+                    <h1 className="hd-title hd-title--level1">{icons.title}</h1>
                     <Mdx code={icons.body.code} />
                 </article>
             </main>

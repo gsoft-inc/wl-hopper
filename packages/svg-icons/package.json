@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/svg-icons",
     "author": "Workleap",
-    "version": "2.6.0",
+    "version": "2.9.0",
     "description": "A set of icons handcrafted by Workleap",
     "license": "Apache-2.0",
     "repository": {
@@ -21,10 +21,13 @@
         "README.md"
     ],
     "exports": {
-        "./icons/*.svg": "./dist/icons/*.svg"
+        "./icons/*.svg": "./dist/icons/*.svg",
+        "./rich-icons/*.svg": "./dist/rich-icons/*.svg"
     },
     "scripts": {
-        "build": "copyfiles --flat src/optimized-icons/* dist/icons",
+        "build": "pnpm run \"/^build:.*/\"",
+        "build:icons": "copyfiles --flat src/optimized-icons/* dist/icons",
+        "build:rich-icons": "copyfiles --flat src/optimized-rich-icons/* dist/rich-icons",
         "generate-icons": "tsx scripts/build.ts"
     },
     "devDependencies": {
