@@ -32,6 +32,7 @@ export default function TokenPage({ params }: PageProps) {
             <Aside title="On this page" links={sectionLinks} />
             <main>
                 <article className="hd-content" key={designToken._id}>
+                    <h1 className="hd-title hd-title--level1">{designToken.title}</h1>
                     <Mdx code={designToken.body.code} />
                 </article>
             </main>
