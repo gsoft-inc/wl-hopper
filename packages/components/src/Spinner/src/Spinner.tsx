@@ -15,6 +15,7 @@ export const GlobalSpinnerCssSelector = "hop-Spinner";
 export interface SpinnerProps extends StyledSystemProps, BaseComponentProps {
     /**
      * What the Spinner's diameter should be.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
 }

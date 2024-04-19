@@ -9,7 +9,12 @@ import { Breakpoints, type Breakpoint } from "./Breakpoints.ts";
 export const DefaultUnsupportedMatchMediaBreakpoint: Breakpoint = "lg";
 
 export interface BreakpointProviderProps {
+    /** The children of the component */
     children: ReactNode;
+    /**
+     * The breakpoint to use when the browser does not support matchMedia.
+     * @default "lg"
+     */
     unsupportedMatchMediaBreakpoint?: Breakpoint;
 }
 
