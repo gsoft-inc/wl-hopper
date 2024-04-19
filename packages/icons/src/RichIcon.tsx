@@ -18,10 +18,12 @@ const DefaultRichIconSlot = "richicon";
 export interface RichIconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
      * The visual style of the icon.
+     * @default "option7"
      */
     variant?: "option1" | "option2" | "option3" | "option4" | "option5" | "option6" | "option7" | "option8";
     /**
     * The size of the icon.
+    * @default "lg"
     */
     size?: ResponsiveProp<"md" | "lg" | "xl">;
     /**

@@ -29,6 +29,14 @@
     border-bottom-right-radius: var(--hd-codeblock-border-radius);
 }
 
+.hd-pre-header + .hd-pre__code {
+    margin-block-start: 0;
+}
+
+.hd-pre__code code {
+    background-color: transparent;
+}
+
 /* !* pre HEADER *! */
 .hd-pre-header {
     display: flex;
