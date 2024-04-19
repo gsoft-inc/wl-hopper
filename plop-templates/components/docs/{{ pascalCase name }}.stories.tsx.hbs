@@ -1,5 +1,6 @@
-import { {{ pascalCase name }} } from "../src/{{ pascalCase name }}.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { {{ pascalCase name }} } from "../src/{{ pascalCase name }}.tsx";
 
 /**
  * TODO: Add description
@@ -27,5 +28,5 @@ type Story = StoryObj<typeof meta>;
 /**
  * TODO: Add description
  */
-export const Default: Story = {
-};
+export const Default = {
+} satisfies Story;
