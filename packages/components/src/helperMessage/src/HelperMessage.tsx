@@ -15,7 +15,6 @@ export const GlobalHelperMessageCssSelector = "hop-HelperMessage";
 export interface HelperMessageProps extends StyledComponentProps<Omit<TextProps, "size">> {
     /**
      * Whether or not to hide the helper message icon.
-     * @default true
      */
     hideIcon?: boolean;
 }

@@ -23,11 +23,13 @@ const DefaultButtonSlot = "button";
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
+     * * @default "primary"
      */
     variant?: "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
 
     /**
      * A button can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 
@@ -37,7 +39,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     fluid?: ResponsiveProp<boolean>;
 
     // A button can show a loading indicator.
-    isLoading?:boolean;
+    isLoading?: boolean;
 
     /** A URL to link to. Setting this makes the component render an `a` tag instead of a `button` */
     href?: string;
