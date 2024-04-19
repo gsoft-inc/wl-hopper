@@ -19,6 +19,7 @@ const DefaultRadioSlot = "radio";
 export interface RadioProps extends StyledComponentProps<RACRadioProps> {
     /**
      * A radio can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 }
