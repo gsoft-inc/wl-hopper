@@ -41,7 +41,7 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     const {
         className,
         children,
-        isDisabled = false,
+        isDisabled,
         isInvalid,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",

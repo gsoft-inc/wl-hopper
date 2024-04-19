@@ -41,7 +41,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
     const {
         className,
         children,
-        isDisabled = false,
+        isDisabled,
         isInvalid,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",

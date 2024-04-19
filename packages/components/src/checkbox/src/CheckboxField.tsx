@@ -22,7 +22,6 @@ const CheckboxToDescriptionSizeAdapter: SizeAdapter<CheckboxFieldProps["size"], 
 export interface CheckboxFieldProps extends StyledSystemProps, BaseComponentProps {
     /**
      * Whether the checkbox field is disabled.
-     * @default false
      */
     isDisabled?: boolean;
     /**
@@ -38,7 +37,7 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
     const {
         className,
         children,
-        isDisabled = false,
+        isDisabled,
         size: sizeProp = "md",
         style,
         slot = "checkboxField",

@@ -22,7 +22,6 @@ const RadioToDescriptionSizeAdapter: SizeAdapter<RadioFieldProps["size"], TextPr
 export interface RadioFieldProps extends StyledSystemProps, BaseComponentProps {
     /**
      * Whether the radio field is disabled.
-     * @default false
      */
     isDisabled?: boolean;
     /**
@@ -38,7 +37,7 @@ function RadioField(props:RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     const {
         className,
         children,
-        isDisabled = false,
+        isDisabled,
         size: sizeProp = "md",
         style,
         slot = "radioField",
