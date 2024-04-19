@@ -1,14 +1,14 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 
 import "./code.css";
 
-interface CodeProps {
-    children: React.ReactNode;
-}
+export type InlineCodeProps = React.DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
+    children?: React.ReactNode;
+};
 
-const InlineCode: React.FC<CodeProps> = ({ children }) => {
+const InlineCode = ({ children, ...props }: InlineCodeProps) => {
     return (
-        <code className="hd-code">{children}</code>
+        <code {...props} className="hd-code">{children}</code>
     );
 };
 
