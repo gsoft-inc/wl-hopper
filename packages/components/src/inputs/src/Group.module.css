@@ -1,0 +1,53 @@
+.hop-Group  {
+    --group-background: var(--hop-neutral-surface);
+    --group-border: var(--hop-neutral-border);
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    inline-size: fit-content;
+
+    font-family: var(--hop-body-md-font-family);
+    font-size: var(--hop-body-md-font-size);
+    color: var(--hop-neutral-text);
+
+    background: var(--group-background);
+    border: 1px solid var(--group-border);
+    border-radius: var(--hop-shape-rounded-md);
+}
+
+.hop-Group[data-hovered]  {
+    --group-background: var(--hop-neutral-surface-hover);
+    --group-border: var(--hop-neutral-border-hover)
+}
+
+.hop-Group[data-focus-within]:has(.hop-Group__input[data-focus-visible])  {
+    outline: 0.125rem solid var(--hop-primary-border-focus);
+    outline-offset: 0.125rem;
+}
+
+
+.hop-Group__input {
+    min-block-size: 2.5rem;
+    padding: 0 1rem;
+
+    font-family: var(--hop-body-md-font-family);
+    font-size: var(--hop-body-md-font-size);
+    font-weight: var(--hop-body-md-font-weight);
+    line-height: var(--hop-body-md-line-height);
+
+    background: transparent;
+    border: none;
+    outline: none
+}
+
+.hop-Group--sm .hop-Group__input {
+    min-block-size: 2rem;
+
+    font-family: var(--hop-body-sm-font-family);
+    font-size: var(--hop-body-sm-font-size);
+    font-weight: var(--hop-body-sm-font-weight);
+    line-height: var(--hop-body-sm-line-height);
+}
