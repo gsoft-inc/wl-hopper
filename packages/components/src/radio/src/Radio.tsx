@@ -1,31 +1,31 @@
-import { IconContext, CheckmarkIcon, MinusIcon } from "@hopper-ui/icons";
+import { IconContext, BulletIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, Checkbox as RACCheckbox, type CheckboxProps as RACCheckboxProps, composeRenderProps } from "react-aria-components";
+import { useContextProps, Radio as RACRadio, type RadioProps as RACRadioProps, composeRenderProps } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
 import { Text, TextContext } from "../../Text/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots } from "../../utils/index.ts";
 
-import { CheckboxContext } from "./CheckboxContext.ts";
+import { RadioContext } from "./RadioContext.ts";
 
-import styles from "./Checkbox.module.css";
+import styles from "./Radio.module.css";
 
-export const GlobalCheckboxCssSelector = "hop-Checkbox";
+export const GlobalRadioCssSelector = "hop-Radio";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultCheckboxSlot = "checkbox";
+const DefaultRadioSlot = "radio";
 
-export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
+export interface RadioProps extends StyledComponentProps<RACRadioProps> {
     /**
-     * A checkbox can vary in size.
+     * A radio can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 }
 
-function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxSlot }, ref, CheckboxContext);
+function Radio(props:RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultRadioSlot }, ref, RadioContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -39,10 +39,10 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
 
     const classNames = composeClassnameRenderProps(
         className,
-        GlobalCheckboxCssSelector,
+        GlobalRadioCssSelector,
         cssModule(
             styles,
-            "hop-Checkbox",
+            "hop-Radio",
             size
         ),
         stylingProps.className
@@ -64,54 +64,53 @@ function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     });
 
     return (
-        <RACCheckbox
+        <RACRadio
             ref={ref}
             className={classNames}
             style={style}
             {...otherProps}
         >
-            {checkboxProps => {
-                const checkboxIconClassName = styles["hop-Checkbox__check"];
-                const icon = checkboxProps.isIndeterminate ?
-                    <MinusIcon size="sm" className={checkboxIconClassName} /> :
-                    <CheckmarkIcon size="sm" className={checkboxIconClassName} />;
+            {radioProps => {
+                const radioIconClassName = styles["hop-Radio__bullet"];
 
                 return (
                     <>
-                        <div className={styles["hop-Checkbox__box"]}>{icon}</div>
+                        <div className={styles["hop-Radio__box"]}>
+                            <BulletIcon size={size} className={radioIconClassName} />
+                        </div>
                         <ClearContainerSlots>
                             <SlotProvider
                                 values={[
                                     [TextContext, {
-                                        className: styles["hop-Checkbox__text"],
+                                        className: styles["hop-Radio__text"],
                                         size: size
                                     }],
                                     [IconListContext, {
-                                        className: styles["hop-Checkbox__icon-list"],
+                                        className: styles["hop-Radio__icon-list"],
                                         size: size
                                     }],
                                     [IconContext, {
-                                        className: styles["hop-Checkbox__icon"],
+                                        className: styles["hop-Radio__icon"],
                                         size: size
                                     }]
                                 ]}
                             >
-                                {children(checkboxProps)}
+                                {children(radioProps)}
                             </SlotProvider>
                         </ClearContainerSlots>
                     </>
                 );
             }}
-        </RACCheckbox>
+        </RACRadio>
     );
 }
 
 /**
- * The Checkbox component indicates the selection state of an option. It displays either one of three states: checked, unchecked, or indeterminate.
+ * The Radio component indicates the selection state of an option. It displays either one of three states: checked, unchecked, or indeterminate.
  *
  * [View Documentation](TODO)
  */
-const _Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(Checkbox);
-_Checkbox.displayName = "Checkbox";
+const _Radio = forwardRef<HTMLLabelElement, RadioProps>(Radio);
+_Radio.displayName = "Radio";
 
-export { _Checkbox as Checkbox };
+export { _Radio as Radio };

@@ -1,42 +1,42 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, CheckboxGroup as RACCheckboxGroup, type CheckboxGroupProps as RACCheckboxGroupProps, composeRenderProps } from "react-aria-components";
+import { useContextProps, RadioGroup as RACRadioGroup, type RadioGroupProps as RACRadioGroupProps, composeRenderProps } from "react-aria-components";
 
-import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../../checkbox/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
 import { LabelContext } from "../../Label/index.ts";
+import { RadioContext, RadioFieldContext, RadioListContext } from "../../radio/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
 
-import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
+import { RadioGroupContext } from "./RadioGroupContext.ts";
 
-import styles from "./CheckboxGroup.module.css";
+import styles from "./RadioGroup.module.css";
 
-export const GlobalCheckboxGroupCssSelector = "hop-CheckboxGroup";
+export const GlobalRadioGroupCssSelector = "hop-RadioGroup";
 
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultCheckboxGroupSlot = "checkboxGroup";
+const DefaultRadioGroupSlot = "radioGroup";
 
-export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
+export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroupProps, "orientation">> {
     /**
-     * A CheckboxGroup can be displayed horizontally or vertically.
+     * A RadioGroup can be displayed horizontally or vertically.
      * @default "vertical"
      */
     orientation?: ResponsiveProp<"horizontal" | "vertical">;
     /**
-     * A CheckboxGroup can vary in size.
+     * A RadioGroup can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
     /**
-     * A CheckboxGroup has two variants: borderless and bordered.
+     * A RadioGroup has two variants: borderless and bordered.
      * @default "borderless"
      */
     variant?: "borderless" | "bordered";
 }
 
-function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxGroupSlot }, ref, CheckboxGroupContext);
+function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
+    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultRadioGroupSlot }, ref, RadioGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -55,10 +55,10 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
 
     const classNames = composeClassnameRenderProps(
         className,
-        GlobalCheckboxGroupCssSelector,
+        GlobalRadioGroupCssSelector,
         cssModule(
             styles,
-            "hop-CheckboxGroup",
+            "hop-RadioGroup",
             size,
             variant
         ),
@@ -76,52 +76,52 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-CheckboxGroup__label"],
+                    className: styles["hop-RadioGroup__label"],
                     size: size
                 }],
-                [CheckboxContext, {
-                    className: styles["hop-CheckboxGroup__checkbox"],
+                [RadioContext, {
+                    className: styles["hop-RadioGroup__radio"],
                     size: size
                 }],
-                [CheckboxFieldContext, {
-                    className: styles["hop-CheckboxGroup__checkbox"],
+                [RadioFieldContext, {
+                    className: styles["hop-RadioGroup__radio"],
                     size: size,
                     isDisabled: isDisabled
                 }],
-                [CheckboxListContext, {
-                    className: styles["hop-CheckboxGroup__list"]
+                [RadioListContext, {
+                    className: styles["hop-RadioGroup__list"]
                 }],
                 [ErrorMessageContext, {
-                    className: styles["hop-CheckboxGroup__error-message"],
+                    className: styles["hop-RadioGroup__error-message"],
                     hideIcon: true
                 }],
                 [HelperMessageContext, {
-                    className: styles["hop-CheckboxGroup__helper-message"],
+                    className: styles["hop-RadioGroup__helper-message"],
                     hideIcon: true
                 }]
             ]}
         >
-            <RACCheckboxGroup
+            <RACRadioGroup
                 ref={ref}
                 className={classNames}
                 style={style}
                 isInvalid={isInvalid}
                 isDisabled={isDisabled}
-                data-orientation={orientation}
+                orientation={orientation}
                 {...otherProps}
             >
                 {children}
-            </RACCheckboxGroup>
+            </RACRadioGroup>
         </SlotProvider>
     );
 }
 
 /**
- * The CheckboxGroup component is used to group multiple Checkbox or CheckboxField components together.
+ * The RadioGroup component is used to group multiple Radio or RadioField components together.
  *
  * [View Documentation](TODO)
  */
-const _CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(CheckboxGroup);
-_CheckboxGroup.displayName = "CheckboxGroup";
+const _RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(RadioGroup);
+_RadioGroup.displayName = "RadioGroup";
 
-export { _CheckboxGroup as CheckboxGroup };
+export { _RadioGroup as RadioGroup };

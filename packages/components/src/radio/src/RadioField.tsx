@@ -7,32 +7,32 @@ import { useContextProps } from "react-aria-components";
 import { TextContext, type TextProps } from "../../Text/index.ts";
 import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
-import { CheckboxContext } from "./CheckboxContext.ts";
-import { CheckboxFieldContext } from "./CheckboxFieldContext.ts";
+import { RadioContext } from "./RadioContext.ts";
+import { RadioFieldContext } from "./RadioFieldContext.ts";
 
-import styles from "./CheckboxField.module.css";
+import styles from "./RadioField.module.css";
 
-export const GlobalCheckboxFieldCssSelector = "hop-CheckboxField";
+export const GlobalRadioFieldCssSelector = "hop-RadioField";
 
-const CheckboxToDescriptionSizeAdapter: SizeAdapter<CheckboxFieldProps["size"], TextProps["size"]> = {
+const RadioToDescriptionSizeAdapter: SizeAdapter<RadioFieldProps["size"], TextProps["size"]> = {
     sm: "xs",
     md: "sm"
 };
 
-export interface CheckboxFieldProps extends StyledSystemProps, BaseComponentProps {
+export interface RadioFieldProps extends StyledSystemProps, BaseComponentProps {
     /**
-     * Whether the checkbox field is disabled.
+     * Whether the radio field is disabled.
      */
     isDisabled?: boolean;
     /**
-     * A checkbox field can vary in size.
+     * A radio can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 }
 
-function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps(props, ref, CheckboxFieldContext);
+function RadioField(props:RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
+    [props, ref] = useContextProps(props, ref, RadioFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -40,7 +40,7 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
         isDisabled,
         size: sizeProp = "md",
         style,
-        slot = "checkboxField",
+        slot = "radioField",
         ...otherProps
     } = ownProps;
 
@@ -48,10 +48,10 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
 
     const classNames = clsx(
         className,
-        GlobalCheckboxFieldCssSelector,
+        GlobalRadioFieldCssSelector,
         cssModule(
             styles,
-            "hop-CheckboxField",
+            "hop-RadioField",
             size
         ),
         stylingProps.className
@@ -69,14 +69,14 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
             values={[
                 [TextContext, {
                     id: descriptionId,
-                    className: styles["hop-CheckboxField__description"],
-                    size: CheckboxToDescriptionSizeAdapter[size]
+                    className: styles["hop-RadioField__description"],
+                    size: RadioToDescriptionSizeAdapter[size]
                 }],
-                [CheckboxContext, {
-                    className: styles["hop-CheckboxField__checkbox"],
+                [RadioContext, {
+                    className: styles["hop-RadioField__radio"],
                     size: size,
                     isDisabled: isDisabled,
-                    "aria-describedby": descriptionId 
+                    "aria-describedby": descriptionId
                 }]
             ]}
         >
@@ -95,11 +95,11 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
 }
 
 /**
- * The Checkbox Field component is a container for a checkbox and a description.
+ * The Radio Field component is a container for a radio and a description.
  *
  * [View Documentation](TODO)
  */
-const _CheckboxField = forwardRef<HTMLDivElement, CheckboxFieldProps>(CheckboxField);
-_CheckboxField.displayName = "CheckboxField";
+const _RadioField = forwardRef<HTMLDivElement, RadioFieldProps>(RadioField);
+_RadioField.displayName = "RadioField";
 
-export { _CheckboxField as CheckboxField };
+export { _RadioField as RadioField };

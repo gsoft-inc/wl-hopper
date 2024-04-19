@@ -1,4 +1,5 @@
-# Checkbox
+
+# Radio
 - The `counter` component is no longer allowed as a specialized slot.
 - `reverse` is not currently supported.
 - Values are not auto-generated when missed.
@@ -9,10 +10,8 @@
 - `required` renamed to `isRequired`.
 - `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
 - `value` is required.
-- `defaultIndeterminate` prop removed.
-- `indeterminate` renamed to `isIndeterminate`.
 
-# CheckboxGroup
+# RadioGroup
 - `reverse` is not currently supported.
 - `autofocus` is not supported. You must put `autofocus` on the actual Radio.
 - `onChange` signature changed (no event passed).
