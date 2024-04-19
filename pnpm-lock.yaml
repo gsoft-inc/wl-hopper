@@ -242,7 +242,7 @@ importers:
     dependencies:
       '@hopper-ui/icons':
         specifier: '*'
-        version: link:../icons
+        version: 1.10.0(@hopper-ui/styled-system@packages+styled-system)(react-aria-components@1.1.1)(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
@@ -304,6 +304,9 @@ importers:
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
+      jest-fail-on-console:
+        specifier: 3.2.0
+        version: 3.2.0
       jest-fetch-mock:
         specifier: 3.0.3
         version: 3.0.3
@@ -407,6 +410,9 @@ importers:
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
+      jest-fail-on-console:
+        specifier: 3.2.0
+        version: 3.2.0
       react-aria-components:
         specifier: 1.1.1
         version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
@@ -489,6 +495,9 @@ importers:
       jest-environment-jsdom:
         specifier: 29.7.0
         version: 29.7.0
+      jest-fail-on-console:
+        specifier: 3.2.0
+        version: 3.2.0
       postcss:
         specifier: 8.4.37
         version: 8.4.37
@@ -3065,6 +3074,22 @@ packages:
     dependencies:
       '@hapi/hoek': 9.3.0
     dev: true
+
+  /@hopper-ui/icons@1.10.0(@hopper-ui/styled-system@packages+styled-system)(react-aria-components@1.1.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-B4XCmADS1Wc4DiZTTs2PzD4tXl5kgyCwc4Urw9dcOcxO48Twf97whVlj0VGprQ90uKXEC1pCk0Kcgi1jA0ekkA==}
+    peerDependencies:
+      '@hopper-ui/styled-system': ^1
+      react: ^18
+      react-aria-components: ^1.1.0
+      react-dom: ^18
+    dependencies:
+      '@hopper-ui/styled-system': link:packages/styled-system
+      '@react-aria/utils': 3.23.2(react@18.2.0)
+      clsx: 2.1.0
+      react: 18.2.0
+      react-aria-components: 1.1.1(react-dom@18.2.0)(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -13986,6 +14011,10 @@ packages:
       '@types/node': 20.11.30
       jest-mock: 29.7.0
       jest-util: 29.7.0
+    dev: true
+
+  /jest-fail-on-console@3.2.0:
+    resolution: {integrity: sha512-GSqvjURdT/U+yu9JEr3EUTEB4kZi9feXMWS/jXGXB/lsnXXHcdU9Xsm2tEupSdqSEtrhTjOCqEJseFMrQ1ryvg==}
     dev: true
 
   /jest-fetch-mock@3.0.3:
