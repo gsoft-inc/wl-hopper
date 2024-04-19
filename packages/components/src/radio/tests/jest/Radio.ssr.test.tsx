@@ -3,10 +3,10 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Radio } from "../../src/Radio.tsx";
-import { RadioGroup } from "../../src/RadioGroup.tsx";
-import { RadioField } from "../../src/RadioField.tsx";
 import { Text } from "../../../Text/index.ts";
+import { Radio } from "../../src/Radio.tsx";
+import { RadioField } from "../../src/RadioField.tsx";
+import { RadioGroup } from "../../src/RadioGroup.tsx";
 
 describe("Radio", () => {
     it("should render on the server", () => {

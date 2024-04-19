@@ -3,10 +3,10 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Checkbox } from "../../src/Checkbox.tsx";
-import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
-import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { Text } from "../../../Text/index.ts";
+import { Checkbox } from "../../src/Checkbox.tsx";
+import { CheckboxField } from "../../src/CheckboxField.tsx";
+import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
 
 describe("Checkbox", () => {
     it("should render on the server", () => {
