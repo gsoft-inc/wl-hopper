@@ -19,15 +19,18 @@ const DefaultRadioGroupSlot = "radioGroup";
 
 export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroupProps, "orientation">> {
     /**
-     * A radio can be displayed horizontally or vertically.
+     * A RadioGroup can be displayed horizontally or vertically.
+     * @default "vertical"
      */
     orientation?: ResponsiveProp<"horizontal" | "vertical">;
     /**
-     * A radio can vary in size.
+     * A RadioGroup can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
     /**
      * A RadioGroup has two variants: borderless and bordered.
+     * @default "borderless"
      */
     variant?: "borderless" | "bordered";
 }
@@ -38,12 +41,12 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     const {
         className,
         children,
-        isDisabled,
+        isDisabled = false,
         isInvalid,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
-        variant,
+        variant = "borderless",
         ...otherProps
     } = ownProps;
 
