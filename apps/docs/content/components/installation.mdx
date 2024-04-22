@@ -3,4 +3,26 @@ title: Installation
 description: The installation proccess
 ---
 
+import { installMethods } from "./data";
+
 # Installation
+
+## Install packages
+
+<Tabs tabs={installMethods}>
+    <div>
+        ```shell
+        pnpm add @hopper-ui/components
+        ```
+    </div>
+    <div>
+        ```shell
+        yarn add -D @hopper-ui/components
+        ```
+    </div>
+    <div>
+        ```shell
+        npm add -D @hopper-ui/components
+        ```
+    </div>
+</Tabs>
