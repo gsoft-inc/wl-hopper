@@ -32,6 +32,7 @@ export default function GuidePage({ params }: PageProps) {
             <Aside title="On this page" links={sectionLinks} />
             <main>
                 <article className="hd-content" key={guides._id}>
+                    <h1 className="hd-title hd-title--level1">{guides.title}</h1>
                     <Mdx code={guides.body.code} />
                 </article>
             </main>

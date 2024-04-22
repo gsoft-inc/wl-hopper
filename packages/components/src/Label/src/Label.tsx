@@ -31,7 +31,7 @@ function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, style, ...otherProps } = ownProps;
 
-    const size = useResponsiveValue(sizeProp ?? "md");
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = clsx(
         className,

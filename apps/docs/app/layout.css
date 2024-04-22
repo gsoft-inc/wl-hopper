@@ -56,9 +56,14 @@ p {
     margin-block-start: var(--hd-space-3);
 }
 
+.hd-content ul li:not([class]) {
+    list-style-position: inside;
+    margin-block-end: var(--hd-space-1);
+}
+
 .hd-content p a,
 .hd-content li a {
-    color: var(--hd-color-accent-text);
+    text-decoration: underline;
 }
 
 .hd-content [data-rehype-pretty-code-figure] {

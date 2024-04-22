@@ -18,6 +18,7 @@ const DefaultIconSlot = "icon";
 export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
     * The size of the icon.
+    * @default "md"
     */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
     /**

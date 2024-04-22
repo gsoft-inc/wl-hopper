@@ -19,6 +19,7 @@ const DefaultCheckboxSlot = "checkbox";
 export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
     /**
      * A checkbox can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 }
