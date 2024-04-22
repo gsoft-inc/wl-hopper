@@ -22,7 +22,8 @@
         "Switcher": true,
         "IconSpecTable": true,
         "PreviewComponent": true,
-        "MigrateGuide": true
+        "MigrateGuide": true,
+        "PropTable": true
     },
     "overrides": [
         {

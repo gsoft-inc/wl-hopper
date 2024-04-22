@@ -3,6 +3,7 @@ import GithubIcon from "./assets/github.svg";
 import ExternalLinkIcon from "./assets/external-link.svg";
 import ComponentIcon from "./assets/component.svg";
 import TokenIcon from "./assets/tokens.svg";
+import CollapseIcon from "./assets/collapse.svg";
 import Icon, { type IconProps } from "./Icon.tsx";
 
 export {
@@ -12,5 +13,6 @@ export {
     ExternalLinkIcon,
     ComponentIcon,
     TokenIcon,
+    CollapseIcon,
     IconProps
 };

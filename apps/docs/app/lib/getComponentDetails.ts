@@ -41,6 +41,7 @@ function getMDXData(dir: string) {
         const { frontmatter, content } = await readMDXFile(path.join(dir, file));
         const slug = path.basename(file, path.extname(file));
 
+
         return {
             slug,
             frontmatter,
