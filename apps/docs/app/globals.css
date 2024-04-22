@@ -5,7 +5,7 @@
 	font-family: "ABC Favorit Mono";
 	font-style: normal;
 	font-weight: 400;
-	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/mono/ABCFavoritMono-Regular.woff2") format("woff2-variations");
+	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/mono/alternative/ABCFavoritMono-Regular.woff2") format("woff2-variations");
 	font-display: fallback;
 }
 
@@ -13,7 +13,7 @@
 	font-family: "ABC Favorit";
 	font-style: normal;
 	font-weight: 100 900;
-	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/ABCFavoritVariable.woff2") format("woff2-variations");
+	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/alternative/ABCFavoritVariable.woff2") format("woff2-variations");
 	font-display: fallback;
 }
 
