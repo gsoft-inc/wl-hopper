@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 3.5.1
+
+### Patch Changes
+
+- f769b65: Swapped the ABC Favorit font for an alternate version
+
 ## 3.5.0
 
 ### Minor Changes
