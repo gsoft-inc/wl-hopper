@@ -8,11 +8,9 @@ export interface PackageInstallationProps {
     mode: "dev" | "prod";
 }
 
-interface MethodIcons {
-    [key: string]: ReactElement;
-}
+type MethodIcons = Record<typeof methods[number], ReactElement>;
 
-const methods = ["pnpm", "yarn", "npm"];
+const methods = ["pnpm", "yarn", "npm"] as const;
 
 const methodsIcons: MethodIcons = {
     pnpm: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 156 156">
@@ -43,7 +41,7 @@ const methodsIcons: MethodIcons = {
 const installMethods = methods.map(method => ({
     category: method,
     title: method,
-    titleIcon: methodsIcons[method] as ReactElement
+    titleIcon: methodsIcons[method]
 }));
 
 const formatCode = async (method: string, library: string, mode: string) => {
