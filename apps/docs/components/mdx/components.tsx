@@ -16,6 +16,7 @@ import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
 import Title from "@/components/title/Title.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
+import PackageInstallation, { type PackageInstallationProps } from "@/components/packageInstallation/PackageInstallation.tsx";
 import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 
@@ -39,6 +40,9 @@ export const components = {
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
+    PackageInstallation: (props: PackageInstallationProps) => {
+        return <PackageInstallation {...props} />;
+    },
     PreviewComponent: (props: PreviewComponentProps) => {
         return <PreviewComponent {...props} />;
     },
