@@ -58,6 +58,24 @@ const storybookConfig: StorybookConfig = {
             })
         ].filter(Boolean);
 
+        // We find the CSS Loader and set the localIdentName to a more readable format
+        config.module?.rules?.forEach(rule => {
+            if (typeof rule === "object" && rule?.test?.toString() === "/\\.css$/" && Array.isArray(rule.use)) {
+                rule.use.forEach(loader => {
+                    if (typeof loader === "object" && loader?.loader?.includes("css-loader")) {
+                        const cssLoaderOptions = typeof loader.options === "string" ? { } : loader.options;
+                        loader.options = {
+                            ...cssLoaderOptions,
+                            modules: {
+                                ...((typeof cssLoaderOptions?.modules === "string" ? { mode: cssLoaderOptions?.modules } : cssLoaderOptions?.modules)),
+                                localIdentName: "[local]___[hash:base64:5]"
+                            }
+                        };
+                    }
+                });
+            }
+        });
+
         return config;
     }
 };

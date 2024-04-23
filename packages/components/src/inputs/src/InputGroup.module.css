@@ -1,0 +1,83 @@
+.hop-InputGroup  {
+    --input-group-background: var(--hop-neutral-surface);
+    --input-group-border: var(--hop-neutral-border);
+
+    position: relative;
+
+    display: inline-flex;
+    gap: var(--hop-space-inline-sm);
+    align-items: center;
+
+    box-sizing: border-box;
+    inline-size: fit-content;
+    block-size: 2.5rem;
+    padding-inline: var(--hop-space-inset-md) var(--hop-space-inset-md);
+
+    background: var(--input-group-background);
+    border: 1px solid var(--input-group-border);
+    border-radius: var(--hop-shape-rounded-md)
+}
+
+.hop-InputGroup[data-focus-within],
+.hop-InputGroup[data-hovered]  {
+    --input-group-background: var(--hop-neutral-surface-hover);
+    --input-group-border: var(--hop-neutral-border-hover)
+}
+
+.hop-InputGroup[data-focus-within]:has(.hop-InputGroup__input[data-focus-visible])  {
+    outline: 0.125rem solid var(--hop-primary-border-focus);
+    outline-offset: 0.125rem;
+}
+
+.hop-InputGroup:has(.hop-InputGroup__input[data-invalid])  {
+    --input-group-border: var(--hop-danger-border-strong)
+}
+
+.hop-InputGroup--sm {
+    block-size: 2rem;
+}
+
+.hop-InputGroup__input {
+    flex-grow: 1;
+
+    block-size: 2rem;
+    padding: 0;
+
+    font-family: var(--hop-body-md-font-family);
+    font-size: var(--hop-body-md-font-size);
+    font-weight: var(--hop-body-md-font-weight);
+    line-height: var(--hop-body-md-line-height);
+    color: var(--hop-neutral-text);
+
+    background: transparent;
+    border: none;
+    outline: none
+}
+
+.hop-InputGroup--sm .hop-InputGroup__input {
+    block-size: 1.5rem;
+
+    font-family: var(--hop-body-sm-font-family);
+    font-size: var(--hop-body-sm-font-size);
+    font-weight: var(--hop-body-sm-font-weight);
+    line-height: var(--hop-body-sm-line-height);
+}
+
+.hop-InputGroup .hop-InputGroup__input::placeholder {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: var(--hop-neutral-text-weakest);
+
+    opacity: 1
+}
+
+.hop-InputGroup:has(.hop-InputGroup__input[data-disabled]) {
+    --input-group-background: var(--hop-neutral-surface-disabled);
+    --input-group-border: var(--hop-neutral-border-disabled)
+}
+
+.hop-InputGroup__input[data-disabled]::placeholder {
+    color: var(--hop-neutral-text-disabled);
+}

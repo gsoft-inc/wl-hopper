@@ -1,11 +1,12 @@
-import { AngleDownIcon, EyeHiddenIcon, SearchIcon } from "@hopper-ui/icons";
+import { AngleDownIcon, DismissIcon, EyeHiddenIcon, EyeVisibleIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
 import { Input } from "react-aria-components";
 
 import { Button } from "../../buttons/index.ts";
 import { Stack } from "../../layout/index.ts";
 import { Text } from "../../Text/index.ts";
-import { Group } from "../src/Group.tsx";
+import { InputGroup } from "../src/InputGroup.tsx";
 
 
 /**
@@ -18,14 +19,14 @@ import { Group } from "../src/Group.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Group",
+    title: "Docs/InputGroup",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: Group
-} satisfies Meta<typeof Group>;
+    component: InputGroup
+} satisfies Meta<typeof InputGroup>;
 
 export default meta;
 
@@ -34,13 +35,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: args => (
         <Stack>
-            <Group size="sm" {...args} />
-            <Group {...args} />
+            <InputGroup size="sm" {...args} />
+            <InputGroup {...args} />
         </Stack>
     ),
     args: {
         children: [
-            <Input key="1" />
+            <Input type="text" placeholder="Placeholder" key="1" />
         ]
     }
 };
@@ -62,7 +63,7 @@ export const PrefixIcon: Story = {
         ...Default.args,
         children: [
             <SearchIcon key="1" />,
-            <Input key="2" />
+            <Input type="text" placeholder="Placeholder" key="2" />
         ]
     }
 };
@@ -72,8 +73,8 @@ export const PrefixText: Story = {
     args: {
         ...Default.args,
         children: [
-            <Input key="1" />,
-            <Text key="2" paddingRight="core_160" color="neutral-weakest">$</Text>
+            <Text key="1">$</Text>,
+            <Input type="text" placeholder="Placeholder" key="2" />
         ]
     }
 };
@@ -84,8 +85,20 @@ export const SuffixIcon: Story = {
     args: {
         ...Default.args,
         children: [
-            <Input key="1" />,
+            <Input type="text" placeholder="Placeholder" key="1" />,
             <AngleDownIcon key="2" />
+        ]
+    }
+};
+
+export const SuffixIconFixedSize: Story = {
+    name: "Suffix, Icon with fixed size",
+    ...Default,
+    args: {
+        ...Default.args,
+        children: [
+            <Input type="text" placeholder="Placeholder" key="1" />,
+            <AngleDownIcon size="sm" key="2" />
         ]
     }
 };
@@ -96,8 +109,8 @@ export const TextAddon: Story = {
     args: {
         ...Default.args,
         children: [
-            <Input key="1" />,
-            <Text key="2" paddingRight="core_160" color="neutral-weakest">$</Text>
+            <Input type="text" placeholder="Placeholder" key="1" />,
+            <Text color="neutral-weakest" key="2">XX</Text>
         ]
     }
 };
@@ -108,8 +121,25 @@ export const ButtonStory: Story = {
     args: {
         ...Default.args,
         children: [
-            <Input key="1" />,
-            <Button key="2" aria-label="Add email" size="sm"><EyeHiddenIcon /></Button>
+            <Input type="text" placeholder="Placeholder" key="1" />,
+            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
         ]
     }
+};
+
+const PasswordStory = () => {
+    const [showPassword, setShowPassword] = useState(false);
+
+    return (
+        <InputGroup>
+            <Input placeholder="Placeholder" type={showPassword ? "text" : "password"} />
+            <Button onPress={() => setShowPassword(!showPassword)} aria-label="Toggle password visibility">
+                {showPassword ? <EyeHiddenIcon /> : <EyeVisibleIcon />}
+            </Button>
+        </InputGroup>
+    );
+};
+
+export const Password: Story = {
+    render: () => <PasswordStory />
 };

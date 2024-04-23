@@ -15,10 +15,8 @@ export const GlobalLabelCssSelector = "hop-Label";
 // Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
 const DefaultLabelSlot = "label";
 
-export type RACLabelPropsToOmit = "elementType";
-
 // TODO: Add necessityIndicator and required Props
-export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RACLabelPropsToOmit>> {
+export interface LabelProps extends StyledComponentProps<RACLabelProps> {
     /**
      * The Typography Type Scale to use.
      * @default "md"
