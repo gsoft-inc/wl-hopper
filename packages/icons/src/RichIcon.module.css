@@ -4,7 +4,6 @@
     --hop-richicon-placeholder-icon-color: var(--hop-decorative-option7-icon);
     --hop-richicon-placeholder-icon-strong-color: var(--hop-samoyed);
 
-    pointer-events: none;
     display: inline-block;
     flex-shrink: 0;
 }
