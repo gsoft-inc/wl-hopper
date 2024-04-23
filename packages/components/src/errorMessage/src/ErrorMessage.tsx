@@ -17,7 +17,6 @@ export const GlobalErrorMessageCssSelector = "hop-ErrorMessage";
 export interface ErrorMessageProps extends StyledComponentProps<RACFieldErrorProps>, Omit<TextProps, "style" | "className" | "children" | "color" | "content"> {
     /**
      * Whether or not to hide the error message icon.
-     * @default true
      */
     hideIcon?: boolean;
 }
@@ -27,7 +26,7 @@ function ErrorMessage(props: ErrorMessageProps, ref: ForwardedRef<HTMLSpanElemen
     if (!validation?.isInvalid) {
         return null;
     }
-    
+
     return <ErrorMessageInner {...props} ref={ref} />;
 }
 

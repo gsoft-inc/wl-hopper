@@ -19,15 +19,18 @@ const DefaultCheckboxGroupSlot = "checkboxGroup";
 
 export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
     /**
-     * A checkbox can be displayed horizontally or vertically.
+     * A CheckboxGroup can be displayed horizontally or vertically.
+     * @default "vertical"
      */
     orientation?: ResponsiveProp<"horizontal" | "vertical">;
     /**
-     * A checkbox can vary in size.
+     * A CheckboxGroup can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
     /**
      * A CheckboxGroup has two variants: borderless and bordered.
+     * @default "borderless"
      */
     variant?: "borderless" | "bordered";
 }
@@ -43,7 +46,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
-        variant,
+        variant = "borderless",
         ...otherProps
     } = ownProps;
 
@@ -57,7 +60,6 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
             styles,
             "hop-CheckboxGroup",
             size,
-            orientation,
             variant
         ),
         stylingProps.className
@@ -105,6 +107,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                 style={style}
                 isInvalid={isInvalid}
                 isDisabled={isDisabled}
+                data-orientation={orientation}
                 {...otherProps}
             >
                 {children}

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Card from "@/components/card/Card.tsx";
 import NextImage from "@/components/image/Image.tsx";
 import Pre from "@/components/pre/Pre.tsx";
+import InlineCode from "@/components/code/InlineCode.tsx";
 import Table from "@/app/ui/tokens/table/Table.tsx";
 import TypographyTable from "@/app/ui/tokens/table/TypographyTable.tsx";
 import TypographyVariantTable from "@/app/ui/tokens/table/TypographyVariantTable.tsx";
@@ -15,6 +16,7 @@ import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
 import Title from "@/components/title/Title.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
+import PackageInstallation, { type PackageInstallationProps } from "@/components/packageInstallation/PackageInstallation.tsx";
 import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
@@ -27,6 +29,7 @@ const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.
 
 export const components = {
     Card,
+    code: InlineCode,
     Image: NextImage,
     pre: Pre,
     MotionPreview: MotionPreview,
@@ -39,6 +42,9 @@ export const components = {
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
+    PackageInstallation: (props: PackageInstallationProps) => {
+        return <PackageInstallation {...props} />;
+    },
     PreviewComponent: (props: PreviewComponentProps) => {
         return <PreviewComponent {...props} />;
     },

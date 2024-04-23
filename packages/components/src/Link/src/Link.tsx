@@ -20,11 +20,13 @@ const DefaultLinkSlot = "link";
 export interface LinkProps extends StyledComponentProps<RACLinkProps>{
     /**
      * The visual style of the link.
+     * @default "primary"
      */
     variant?: "primary" | "secondary";
 
     /**
      * Size of the link.
+     * @default "inherit"
      */
     size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
 
@@ -54,7 +56,7 @@ function Link(props:LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
     const {
         className,
         children: childrenProp,
-        size: sizeProp = "inherit",
+        size: sizeProp,
         style: styleProp,
         isQuiet,
         isExternal,

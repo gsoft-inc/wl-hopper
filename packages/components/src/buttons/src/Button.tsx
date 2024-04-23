@@ -41,6 +41,7 @@ const DefaultButtonSlot = "button";
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
+     * * @default "primary"
      */
     variant?: "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
 

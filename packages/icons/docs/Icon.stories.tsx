@@ -1,11 +1,11 @@
 import { Stack, SlotProvider } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AddIcon } from "../src/generated-icon-components/AddIcon.tsx";
+import { SparklesIcon } from "../src/generated-icon-components/SparklesIcon.tsx";
 import { IconContext } from "../src/IconContext.ts";
 
 /**
-An icon component allow you to render a custom icon.
+ * An icon component allow you to render a custom icon.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/icons/src/Icon.tsx)
  * -
@@ -20,8 +20,8 @@ const meta = {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: AddIcon
-} satisfies Meta<typeof AddIcon>;
+    component: SparklesIcon
+} satisfies Meta<typeof SparklesIcon>;
 
 export default meta;
 
@@ -36,9 +36,9 @@ export const Default: Story = {
 export const Sizing: Story = {
     render: props => (
         <Stack>
-            <AddIcon size="sm" {...props} />
-            <AddIcon size="md" {...props} />
-            <AddIcon size="lg" {...props} />
+            <SparklesIcon size="sm" {...props} />
+            <SparklesIcon size="md" {...props} />
+            <SparklesIcon size="lg" {...props} />
         </Stack>
     )
 };
@@ -65,7 +65,7 @@ export const AdvancedCustomization: Story = {
             [IconContext, { fill: "primary" }]
         ]}
         >
-            <AddIcon {...props} />
+            <SparklesIcon {...props} />
         </SlotProvider>
     )
 };

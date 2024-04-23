@@ -1,5 +1,5 @@
 import { getComponentCode } from "@/app/lib/getComponentCode.ts";
-import CodeBlock from "@/app/ui/components/codeBlock/CodeBlock.tsx";
+import HighlightCode from "@/components/highlightCode/HighlightCode.tsx";
 
 interface CodeWrapperProps {
     src: string;
@@ -9,7 +9,7 @@ async function CodeWrapper({ src }: CodeWrapperProps) {
     const code = await getComponentCode(src);
 
     return (
-        <CodeBlock code={code} />
+        <HighlightCode code={code} />
     );
 }
 
