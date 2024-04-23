@@ -32,6 +32,7 @@
     "devDependencies": {
         "@codesandbox/sandpack-react": "^2.13.5",
         "@hopper-ui/components": "workspace:*",
+        "@hopper-ui/icons": "workspace:*",
         "@hopper-ui/tokens": "workspace:*",
         "@storybook/addon-essentials": "8.0.2",
         "@storybook/addon-interactions": "8.0.2",

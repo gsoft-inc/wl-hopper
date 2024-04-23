@@ -183,6 +183,9 @@ importers:
       '@hopper-ui/components':
         specifier: workspace:*
         version: link:../../packages/components
+      '@hopper-ui/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
       '@hopper-ui/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens

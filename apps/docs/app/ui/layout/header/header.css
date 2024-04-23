@@ -3,10 +3,22 @@
     --hd-header-background-color: rgb(252 251 251 / 50%);
     --hd-header-border-color: var(--hd-color-neutral-border-weak);
     --hd-header-height: var(--hd-space-8);
+    --hd-header-shadow-1-block-color: rgba(175 182 225 / 80%);
+    --hd-header-shadow-2-block-color: #FECD94;
+    --hd-header-shadow-3-block-color: #A9F1D6;
+    --hd-header-shadow-1-top-position: -2.75rem;
+    --hd-header-shadow-2-top-position: -21.25rem;
+    --hd-header-shadow-3-top-position: -10.5rem;
 }
 
 [data-theme="dark"] {
     --hd-header-background-color: rgb(41 40 41 / 80%);
+    --hd-header-shadow-1-block-color: rgba(175 182 225 / 70%);
+    --hd-header-shadow-2-block-color: #FECD94;
+    --hd-header-shadow-3-block-color: #A9F1D6;
+    --hd-header-shadow-1-top-position: -18.75rem;
+    --hd-header-shadow-2-top-position: -31.25rem;
+    --hd-header-shadow-3-top-position: -19.5rem;
 }
 
 .hd-header {
@@ -17,7 +29,16 @@
     background-color: var(--hd-header-background-color);
     backdrop-filter: blur(1rem);
     border-block-end: var(--hd-border-size) solid var(--hd-header-border-color);
+    border-radius: 0 0 0.5rem 0.5rem;
     z-index: 999;
+}
+
+@media screen and (width >= 37.5rem) {
+    .hd-header {
+        border-radius: 0.5rem;
+        margin: 1.5rem auto 0;
+        width: min(100% - 3rem, 75rem);
+    }
 }
 
 @media screen and (width >= 48rem) {
@@ -85,25 +106,25 @@
 }
 
 .hd-header-shadow-block-1 {
-    background-color: #AFB6E1;
+    background-color: var(--hd-header-shadow-1-block-color);
     width: 32rem;
     height: 32rem;
-    top: -18.75rem;
+    top: var(--hd-header-shadow-1-top-position);
     right: 6rem;
 }
 
 .hd-header-shadow-block-2 {
     width: 40rem;
     height: 40rem;
-    background-color: #FECD94;
+    background-color: var(--hd-header-shadow-2-block-color);
     filter: blur(12.5rem);
-    top: -31.25rem;
+    top: var(--hd-header-shadow-2-top-position);
 }
 
 .hd-header-shadow-block-3 {
-    background-color: #A9F1D6;
+    background-color: var(--hd-header-shadow-3-block-color);
     width: 32rem;
     height: 32rem;
-    top: -24rem;
+    top: var(--hd-header-shadow-3-top-position);
     left: -10.5rem;
 }

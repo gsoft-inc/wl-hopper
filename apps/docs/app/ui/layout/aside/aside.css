@@ -11,6 +11,10 @@
         display: flex;
         padding-block-start: var(--hd-space-8);
     }
+
+    .hd-aside + main {
+        padding-block-start: 0;
+    }
 }
 
 @media screen and (width >= 62rem) {
@@ -22,6 +26,10 @@
         position: sticky;
         top: var(--hd-space-8);
         height: calc(100vh - var(--hd-space-8));
+    }
+
+    .hd-aside + main {
+        padding-block-start: var(--hd-space-8);
     }
 }
 
