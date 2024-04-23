@@ -8,6 +8,7 @@
     margin-block: 0.25rem;
     align-content: center;
     color: var(--hd-color-neutral-text-strong);
+    overflow-x: auto;
 }
 
 .hd-pre--title,
