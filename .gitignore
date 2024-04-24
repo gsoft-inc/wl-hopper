@@ -54,6 +54,3 @@ build-storybook.log
 
 # contains our project's chromatic ID
 chromatic.config.json
-
-# Datas are temporarily excluded from git while the page is being developed
-/apps/docs/datas/components/
