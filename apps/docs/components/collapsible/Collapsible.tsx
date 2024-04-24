@@ -12,9 +12,10 @@ export interface CollapsibleProps {
     title: ReactNode;
     label?: string;
     isOpen?: boolean;
+    className?: string;
 }
 
-const Collapsible = ({ children, title, label, isOpen = false }: CollapsibleProps) => {
+const Collapsible = ({ children, title, label, isOpen = false, className }: CollapsibleProps) => {
     const [open, setOpen] = useState(isOpen);
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +30,7 @@ const Collapsible = ({ children, title, label, isOpen = false }: CollapsibleProp
     };
 
     return (
-        <div className={clsx("hd-collapsible", { "hd-collapsible--open": open })}>
+        <div className={clsx("hd-collapsible", { "hd-collapsible--open": open }, className)}>
             <ToggleButton className="hd-collapsible__trigger"
                 onChange={toggle}
                 isSelected={open}

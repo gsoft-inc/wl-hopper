@@ -17,12 +17,3 @@ export const Default: Story = {
         children: "conent of the collapsible"
     }
 };
-
-export const Multiple: Story = {
-    render: () => (
-        <div>
-            <Collasible title="Label 1">content of the collapsible 1</Collasible>
-            <Collasible title="Label 2">content of the collapsible 2</Collasible>
-        </div>
-    )
-};

@@ -1,5 +1,7 @@
 /* Collapse */
 .hd-collapsible__trigger {
+    --collapsible-trigger-background: transparent;
+
     font-family: var(--hd-default-font-family);
     font-size: var(--hd-default-font-size);
     line-height: 1.35;
@@ -8,15 +10,19 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: var(--hd-space-1);
+    padding-block: var(--hd-space-2);
+    padding-inline: var(--hd-space-2);
     border: none;
-    border-radius: 0.25rem;
-    background: var(--hd-color-neutral-surface);
+    border-radius: 0.5rem;
+    background: var(--collapsible-trigger-background);
     box-shadow: none;
     transition: box-shadow 0.15s ease-in-out;
+    margin-inline: calc(var(--hd-space-2) * -1);
 }
 
 .hd-collapsible__trigger[data-hovered="true"] {
+    --collapsible-trigger-background: var(--hd-color-neutral-surface);
+
     cursor: pointer;
     box-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
 }
@@ -36,7 +42,7 @@
 }
 
 .hd-collapsible__content {
-    padding: var(--hd-space-1);
+    padding-block: var(--hd-space-1);
 }
 
 .hd-collapsible__content-parent {
