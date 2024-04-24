@@ -1,1 +1,0 @@
-[{"tags":{},"filePath":"/Users/franck.gaudin/Devel/DS/wl-hopper/packages/components/src/utils/src/composeClassnameRenderProps.ts","description":"Composes classnames for render props in React components using cslx.\nAllows combining a base classname, render prop function, and additional classes.","displayName":"composeClassnameRenderProps","methods":[],"props":{}}]
