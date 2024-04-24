@@ -1,4 +1,3 @@
-"use client";
 import { notFound } from "next/navigation";
 import Heading from "@/app/ui/components/heading/Heading.tsx";
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";

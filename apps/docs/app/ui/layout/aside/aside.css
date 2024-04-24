@@ -58,7 +58,7 @@
         /* making sure that if a user toggles the list and resize his browser the list is still visible */
 
         /* We could do this in JS but I think that fixes the issue */
-        display: flex!important;
+        display: flex !important;
     }
 
     .hd-aside__list--closed {
@@ -117,7 +117,7 @@
     left: 0;
     z-index: 1;
     border-radius: var(--hd-space-1);
-    transition: top .25s cubic-bezier(0,1,.5,1);
+    transition: top .25s cubic-bezier(0, 1, .5, 1);
     display: none;
 }
 
