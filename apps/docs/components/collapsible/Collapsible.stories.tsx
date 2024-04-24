@@ -14,6 +14,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         title: "Label",
-        children: "conent of the collapsible"
+        children: "Conent of the collapsible"
     }
 };
