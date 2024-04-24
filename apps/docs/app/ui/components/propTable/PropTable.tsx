@@ -5,6 +5,8 @@ import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.mjs
 import Collapsible from "@/components/collapsible/Collapsible.tsx";
 import Title from "@/components/title/Title.tsx";
 
+import "./propTable.css";
+
 export interface PropTableProps {
     component: string;
 }
@@ -59,32 +61,30 @@ export default async function PropTable({ component }: PropTableProps) {
                 <p>{description}</p>
                 {Object.keys(groups).map(group => {
                     return (
-                        <>
-                            <Collapsible
-                                title={
-                                    <Title as="h3" level={3}>
-                                        {group}
-                                    </Title>
-                                }
-                                key={group}
-                            >
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Property</th>
-                                            <th>Type</th>
-                                            <th>Default</th>
-                                            <th>Required</th>
-                                            <th>Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {Object.keys(groups[group]).map(key => renderRow(key, groups[group][key]))}
-                                    </tbody>
-                                </table>
-                            </Collapsible>
-
-                        </>
+                        <Collapsible
+                            key={group}
+                            title={
+                                <Title as="h3" level={3}>
+                                    {group}
+                                </Title>
+                            }
+                            className="props__section"
+                        >
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Type</th>
+                                        <th>Default</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {Object.keys(groups[group]).map(key => renderRow(key, groups[group][key]))}
+                                </tbody>
+                            </table>
+                        </Collapsible>
                     );
                 })}
             </>

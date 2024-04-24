@@ -1,11 +1,15 @@
-"use client";
-
-import React from "react";
 import clsx from "clsx";
-import { groupItemsByProperties, groupItemsByPropertiesAndSizes, type Size, type TokenData } from "@/app/lib/getTypographyTokens";
-import { TypographyTableRow } from "./TypographyTableRow";
+import Table from "@/components/table/Table";
 
-import "./table.css";
+import {
+    groupItemsByProperties,
+    groupItemsByPropertiesAndSizes,
+    type Size,
+    type TokenData
+} from "@/app/lib/getTypographyTokens";
+import { typographyTableRow } from "./TypographyTableRow";
+
+import "./tokenTable.css";
 
 // maps the raw token list of a list filtered by property
 function transformDataToTokenData(inputData: Record<string, { name: string; value: string }[]>): TokenData {
@@ -31,36 +35,36 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
     const hasNoSizes = type === "overline";
 
     const tokenData = transformDataToTokenData(data);
-    const listItems = hasNoSizes ? generateSizelessRows(tokenData, type) : generateSizeRows(tokenData, type);
+    const listItems = hasNoSizes ? [generateSizelessRows(tokenData, type)] : generateSizeRows(tokenData, type);
 
-    return (
-        <table className={clsx("hd-table hd-typo-table", hasNoSizes && "hd-typo-table--has-no-sizes")} aria-label="Tokens">
-            <thead>
-                <tr>
-                    {!hasNoSizes && <th className="hd-table__column hd-table__column--size">Size</th>}
-                    <th className="hd-table__column">Values</th>
-                    <th className="hd-table__column">Preview</th>
-                </tr>
-            </thead>
-            <tbody>
-                {listItems}
-            </tbody>
-        </table>
-    );
+    return (<Table
+        head={[
+            !hasNoSizes && "Size",
+            "Values",
+            "Preview"
+        ]}
+        data={listItems}
+        className={clsx("hd-typo-table", { "hd-typo-table--has-no-sizes": hasNoSizes })}
+        ariaLabel="Typography tokens"
+    />);
 };
 
 function generateSizeRows(tokenData: TokenData, type: string) {
     const filteredData = groupItemsByPropertiesAndSizes(tokenData, type);
 
     return Object.keys(filteredData).map(size => {
-        return <TypographyTableRow key={size} type={type} properties={filteredData[size as keyof typeof filteredData]!} size={size as Size} />;
+        return typographyTableRow(
+            type,
+            filteredData[size as keyof typeof filteredData]!,
+            size as Size
+        );
     });
 }
 
 function generateSizelessRows(tokenData: TokenData, type: string) {
     const properties = groupItemsByProperties(tokenData, type);
 
-    return <TypographyTableRow type={type} properties={properties!} /> ;
+    return typographyTableRow(type, properties!);
 }
 
 export default TypographyTable;
