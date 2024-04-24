@@ -72,6 +72,7 @@ const storybookConfig: StorybookConfig = {
                                 ...previousOptions,
                                 modules: {
                                     ...((typeof previousOptions?.modules === "string" ? { mode: previousOptions?.modules } : previousOptions?.modules)),
+                                    auto: true,
                                     localIdentName: "[local]___[hash:base64:5]"
                                 }
                             };
