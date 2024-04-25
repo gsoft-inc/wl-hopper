@@ -49,7 +49,6 @@ export const AsLink: Story = {
         as: "a",
         href: "https://www.npmjs.com/package/@hopper-ui/components",
         target: "_blank"
-
     },
     render: args => (
         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>

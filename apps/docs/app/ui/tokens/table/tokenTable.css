@@ -1,44 +1,3 @@
-.hd-table {
-    width: 100%;
-    outline: none;
-    border-spacing: 0;
-    align-self: start;
-}
-
-.hd-table__column {
-    padding: var(--hd-space-2) var(--hd-space-1);
-    text-align: left;
-    color: var(--hd-color-neutral-text-weakest);
-    font-size: 0.8125rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 0.8125rem;
-}
-
-.hd-table__column:first-child {
-    padding-left: 0;
-}
-
-.hd-table__column:last-child,
-.hd-table__cell:last-child {
-    text-align: right;
-}
-
-.hd-table__column--size {
-    min-width: 3rem;
-}
-
-.hd-table__cell {
-    font-family: var(--hd-mono-font-family);
-    font-size: 0.8125rem;
-    padding: var(--hd-space-1);
-    border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
-}
-
-.hd-table__row > .hd-table__cell:first-child {
-    padding-left: 0;
-}
-
 /* TypoTable */
 .hd-table__cell.hd-typo__cell {
     text-align: left;
@@ -72,7 +31,7 @@
 }
 
 /* Has No Sizes */
-.hd-typo-table--has-no-sizes .hd-typo__cell{
+.hd-typo-table--has-no-sizes .hd-typo__cell {
     padding: 0;
 }
 

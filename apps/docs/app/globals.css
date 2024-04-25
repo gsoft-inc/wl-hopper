@@ -58,14 +58,6 @@ a {
     display: flex;
 }
 
-.hd-home {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    min-height: 40vh;
-    justify-content: center;
-}
-
 .hd-display {
     font-size: var(--hd-step-5);
     font-weight: 500;

@@ -8,6 +8,10 @@ import rehypeParse from "rehype-parse";
 
 import Pre from "@/components/pre/Pre.tsx";
 
+export interface HighlightCodeProps {
+    code: string;
+}
+
 const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs, components: { pre: Pre } };
 
 function useProcessor(text: string) {
@@ -27,6 +31,6 @@ function useProcessor(text: string) {
     return Content;
 }
 
-export default function CodeBlock({ code }: { code: string }) {
+export default function HighlightCode({ code }: HighlightCodeProps) {
     return useProcessor(code);
 }

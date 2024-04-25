@@ -23,16 +23,10 @@ html {
 }
 
 main {
-    padding-block: var(--hd-space-4) var(--hd-space-8);
+    padding-block: var(--hd-space-8);
     flex: 1 1 auto;
     min-width: 0;
     order: 1;
-}
-
-@media screen and (width >= 48rem) {
-    main {
-        padding-block-start: 0;
-    }
 }
 
 @media screen and (width >= 62rem) {
@@ -42,13 +36,16 @@ main {
 
     main {
         order: 1;
-        padding-block-start: var(--hd-space-8);
     }
 }
 
 p {
     font-size: 1rem;
     line-height: 1.5;
+}
+
+.hd-content ul {
+    list-style-position: inside;
 }
 
 .hd-content p:not(:last-child) {
