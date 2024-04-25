@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Table from "@/app/ui/tokens/table/Table";
+import TokenTable from "@/app/ui/tokens/table/TokenTable.tsx";
 
 import "@hopper-ui/tokens/fonts.css";
 
@@ -25,7 +25,7 @@ const TableSection = ({ tokens, categories, excludedCategories, categoryKey }: T
     });
 
     return <div className="hd-table-section">
-        <Table category={categoryKey} data={categoryTokens} />
+        <TokenTable category={categoryKey} data={categoryTokens} />
     </div>;
 };
 

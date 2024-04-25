@@ -1,10 +1,8 @@
-"use client";
-
-import React from "react";
 import TypographyPreview from "@/app/ui/tokens/preview/TypographyPreview";
 import Code from "@/components/code/Code";
+import Table from "@/components/table/Table";
 
-import "./table.css";
+import "./tokenTable.css";
 
 interface TypographyVariantTableProps {
     data: Record<string, { name: string; value: string }[]>;
@@ -27,37 +25,20 @@ const TypographyVariantTable = ({ type, data }: TypographyVariantTableProps) => 
     const listItems = filteredDataByWeightVariation.map(item => {
         const fontWeight = item.value;
 
-        return (
-            <React.Fragment key={`${item.name}`}>
-                <tr className="hd-typo__row hd-top__row">
-                    <td className="hd-table__cell hd-typo__cell">{item.name}</td>
-                    <td className="hd-table__cell hd-typo__cell rowSpan={2}">
-                        <Code value={`--${item.name}`}>{`--${item.name}`}</Code>
-                    </td>
-                    <td className="hd-table__cell hd-typo__cell">
-                        {item.value}
-                    </td>
-                    <td className="hd-table__cell hd-typo__cell">
-                        <TypographyPreview values={{ fontWeight }} />
-                    </td>
-                </tr>
-            </React.Fragment>
-        );
+        return {
+            name: <Code value={`--${item.name}`}>{`--${item.name}`}</Code>,
+            value: fontWeight,
+            preview: <TypographyPreview values={{ fontWeight }} />
+        };
     });
 
     return (
-        <table className="hd-table hd-typo-table" aria-label="Tokens">
-            <thead>
-                <tr>
-                    <th className="hd-table__column">Name</th>
-                    <th className="hd-table__column" colSpan={2}>Value</th>
-                    <th className="hd-table__column">Preview</th>
-                </tr>
-            </thead>
-            <tbody>
-                {listItems}
-            </tbody>
-        </table>
+        <Table head={["Name", "Value", "Preview"]}
+            className="hd-typo-table"
+            data={listItems}
+            ariaLabel="Typography"
+            lastColumnAlignment="right"
+        />
     );
 };
 
