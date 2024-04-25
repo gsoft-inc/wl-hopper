@@ -3,6 +3,7 @@ import fs from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { components } from "@/components/mdx/components.tsx";
 import { rehypePluginOptions } from "@/app/lib/rehypeConfig";
+import { data } from "@/app/lib/contentConfig.ts";
 
 export const COMPONENT_PATH = path.join(process.cwd(), "content", "components");
 
@@ -15,6 +16,7 @@ async function parseFrontMatter(fileContent: string) {
     }>({
         source: fileContent,
         options: {
+            scope: data,
             parseFrontmatter: true,
             mdxOptions: { remarkPlugins: [], rehypePlugins: rehypePluginOptions as unknown as [] }
         },
@@ -40,6 +42,7 @@ function getMDXData(dir: string) {
     return mdxFiles.map(async file => {
         const { frontmatter, content } = await readMDXFile(path.join(dir, file));
         const slug = path.basename(file, path.extname(file));
+
 
         return {
             slug,

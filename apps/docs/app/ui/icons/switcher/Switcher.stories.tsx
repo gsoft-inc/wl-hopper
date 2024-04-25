@@ -12,12 +12,28 @@ type Story = StoryObj<typeof meta>;
 
 export const React: Story = {
     args: {
-        type: "react"
+        type: "react",
+        iconType: "icon"
     }
 };
 
 export const Svg: Story = {
     args: {
-        type: "svg"
+        type: "svg",
+        iconType: "icon"
+    }
+};
+
+export const RichReact: Story = {
+    args: {
+        type: "react",
+        iconType: "richIcon"
+    }
+};
+
+export const RichSvg: Story = {
+    args: {
+        type: "svg",
+        iconType: "richIcon"
     }
 };

@@ -1,15 +1,33 @@
 import { IconContext } from "@hopper-ui/icons";
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
 import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject } from "react";
 import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
-import { useContextProps, composeRenderProps, type ButtonProps as RACButtonProps, type ButtonRenderProps, ButtonContext as RACButtonContext } from "react-aria-components";
+import {
+    useContextProps,
+    composeRenderProps,
+    type ButtonProps as RACButtonProps,
+    type ButtonRenderProps,
+    ButtonContext as RACButtonContext
+} from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
 import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 import { TextContext, Text } from "../../Text/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, useSlot, isTextOnlyChildren, useRenderProps } from "../../utils/index.ts";
+import {
+    composeClassnameRenderProps,
+    SlotProvider,
+    cssModule,
+    useSlot,
+    isTextOnlyChildren,
+    useRenderProps
+} from "../../utils/index.ts";
 
 import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
 
@@ -23,11 +41,13 @@ const DefaultButtonSlot = "button";
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
+     * * @default "primary"
      */
     variant?: "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
 
     /**
      * A button can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 
@@ -37,7 +57,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     fluid?: ResponsiveProp<boolean>;
 
     // A button can show a loading indicator.
-    isLoading?:boolean;
+    isLoading?: boolean;
 
     /** A URL to link to. Setting this makes the component render an `a` tag instead of a `button` */
     href?: string;
@@ -70,7 +90,13 @@ function useSimulatedRACButton(props: ButtonProps, ref: MutableRefObject<HTMLEle
         isDisabled: props.isDisabled || props.isLoading
     }, ref);
 
-    const state: ButtonRenderProps = { isFocused, isFocusVisible, isHovered, isPressed, isDisabled: props.isDisabled || false };
+    const state: ButtonRenderProps = {
+        isFocused,
+        isFocusVisible,
+        isHovered,
+        isPressed,
+        isDisabled: props.isDisabled || false
+    };
 
     const mergedProps = {
         ...mergeProps(buttonProps, focusProps, hoverProps),

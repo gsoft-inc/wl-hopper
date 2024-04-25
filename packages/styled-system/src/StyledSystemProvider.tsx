@@ -23,17 +23,20 @@ export interface StyledSystemProviderProps extends BreakpointProviderProps, DivP
 
     /**
      * The color scheme to use.
+     * @default "light"
      */
     colorScheme: ColorSchemeOrSystem;
 
     /**
      * Default color scheme to use when a user preferred color scheme (system) is not available.
+     * @default "light"
      */
     defaultColorScheme?: ColorScheme;
 
     /**
      * Determines whether token CSS variables should be added to the document's head
      * By default, it is set to `true`, you should not change it unless you want to manage CSS variables via `.css` files
+     * @default true
     */
     withCssVariables?: boolean;
 }

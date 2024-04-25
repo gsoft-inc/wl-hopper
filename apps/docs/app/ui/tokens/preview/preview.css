@@ -3,7 +3,9 @@
     width: var(--hd-space-5);
     height: var(--hd-space-3);
     border-radius: 0;
-    float: right;
+
+    /* float: right; */
+    display: inline-block;
     background-color: var(--hd-color-primary-surface);
 }
 
@@ -18,7 +20,7 @@
 .hd-preview--font {
     align-items: center;
     background-color: transparent;
-    display: flex;
+    display: inline-flex;
     font-size: 1.5rem;
     height: auto;
     justify-content: flex-end;

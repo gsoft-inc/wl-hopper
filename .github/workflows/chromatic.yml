@@ -14,67 +14,67 @@ on:
       - changeset-release/*
 
 concurrency:
-    group: chromatic-${{ github.head_ref || github.ref }}
-    cancel-in-progress: true
+  group: chromatic-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-    chromatic:
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
-            pull-requests: write
-        steps:
-            - name: Checkout Commit
-              uses: actions/checkout@v3
-              with:
-                  fetch-depth: 0
+  chromatic:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-            - name: Install Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version-file: ".nvmrc"
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
 
-            - uses: pnpm/action-setup@v2
-              name: Install pnpm
-              id: pnpm-install
-              with:
-                version: 8
-                run_install: false
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 9
+          run_install: false
 
-            - name: Get pnpm store directory
-              id: pnpm-cache
-              shell: bash
-              run: |
-                echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-            - name: Setup pnpm cache
-              uses: actions/cache@v3
-              with:
-                path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-                key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                restore-keys: |
-                  ${{ runner.os }}-pnpm-store-
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-            - name: Install dependencies
-              run: pnpm i --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
 
-            - name: Build Packages
-              run: pnpm build:pkg
+      - name: Build Packages
+        run: pnpm build:pkg
 
-            - name: Publish to Chromatic
-              uses: chromaui/action@v1
-              id: chromatic
-              with:
-                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  traceChanged: true
-                  onlyChanged: true # TurboSnap
-                  exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
-                  skip: ${{ github.event.pull_request.draft == true }}
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        id: chromatic
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          traceChanged: true
+          onlyChanged: true # TurboSnap
+          exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
+          skip: ${{ github.event.pull_request.draft == true }}
 
-            - name: Write to Github comment
-              uses: thollander/actions-comment-pull-request@v2
-              with:
-                message: |
-                    [View Storybook](${{ steps.chromatic.outputs.storybookUrl }})
-                comment_tag: storybook_url
-              if: github.event_name == 'pull_request'
+      - name: Write to Github comment
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            [View Storybook](${{ steps.chromatic.outputs.storybookUrl }})
+          comment_tag: storybook_url
+        if: github.event_name == 'pull_request'

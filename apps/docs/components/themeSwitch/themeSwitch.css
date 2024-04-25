@@ -10,7 +10,7 @@
     font-size: 1rem;
 }
 
-@media screen and (width >= 48rem) {
+@media screen and (width >= 37.5rem) {
     .hd-theme-switch__button {
         width: var(--hd-space-4);
         aspect-ratio: 1/1;

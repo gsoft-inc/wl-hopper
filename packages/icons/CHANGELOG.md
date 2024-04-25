@@ -1,5 +1,89 @@
 # @hopper-ui/icons
 
+## 1.10.1
+
+### Patch Changes
+
+- d78aefb: Fix an issue preventing pointer events on icons
+
+## 1.10.0
+
+### Minor Changes
+
+- dc09428: Added MobileIcon
+
+  **Added**
+
+  | Icon Name  |
+  | ---------- |
+  | MobileIcon |
+
+## 1.9.0
+
+### Minor Changes
+
+- 1b22f66: Added the following icons:
+
+  **Added**
+
+  | Icon Name            |
+  | -------------------- |
+  | EverythingReportIcon |
+  | OpenRoleIcon         |
+  | PhoneIcon            |
+  | PrintIcon            |
+  | UploadIcon           |
+
+## 1.8.1
+
+### Patch Changes
+
+- c54c967: Fix small typo in the newly added RichIcons. GoalIndividiualRichIcon should be GoalIndividualRichIcon
+
+## 1.8.0
+
+### Minor Changes
+
+- 6bb38e1: Modified the following icons:
+
+  **Added**
+
+  | Icon Name               |
+  | ----------------------- |
+  | ActionListRichIcon      |
+  | AnonymousRichIcon       |
+  | CautionRichIcon         |
+  | ConversationRichIcon    |
+  | CustomRichIcon          |
+  | DecreasingScoreRichIcon |
+  | EmailRichIcon           |
+  | FeedbackRichIcon        |
+  | GoalIndividiualRichIcon |
+  | GoalTeamRichIcon        |
+  | GrowthRichIcon          |
+  | IdeaRichIcon            |
+  | InfoRichIcon            |
+  | LikertScaleRichIcon     |
+  | MultipleChoiceRichIcon  |
+  | OneOnOneRichIcon        |
+  | OpinionScaleRichIcon    |
+  | OrganizationRichIcon    |
+  | PeopleRichIcon          |
+  | QuestionRichIcon        |
+  | ReminderRichIcon        |
+  | ReviewRichIcon          |
+  | RisingScoreRichIcon     |
+  | RocketRichIcon          |
+  | ScriptRichIcon          |
+  | SettingsRichIcon        |
+  | SparklesRichIcon        |
+  | StarRichIcon            |
+  | SuccessRichIcon         |
+  | SupportRichIcon         |
+  | TemplateRichIcon        |
+  | TextAnswerRichIcon      |
+  | UpsellRichIcon          |
+
 ## 1.7.0
 
 ### Minor Changes

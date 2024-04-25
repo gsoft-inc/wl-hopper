@@ -25,7 +25,8 @@ export interface CheckboxFieldProps extends StyledSystemProps, BaseComponentProp
      */
     isDisabled?: boolean;
     /**
-     * A checkbox can vary in size.
+     * A checkbox field can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 }
