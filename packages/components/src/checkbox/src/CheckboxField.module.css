@@ -11,7 +11,7 @@
     --hop-CheckboxField-description-sm-margin-inline-start: calc(var(--hop-CheckboxField-checkbox-sm-inline-size) + var(--hop-space-inline-sm));
 
     /* Medium */
-    --hop-CheckboxField-md-row-gap: var(--hop-space-stack-sm);
+    --hop-CheckboxField-md-row-gap: var(--hop-space-stack-xs);
     --hop-CheckboxField-checkbox-md-inline-size: 1.5rem;
     --hop-CheckboxField-description-md-margin-inline-start: calc(var(--hop-CheckboxField-checkbox-md-inline-size) + var(--hop-space-inline-md));
 
