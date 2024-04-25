@@ -1198,7 +1198,7 @@
         },
         "text": {
             "$type": "color",
-            "$value": "{sunken-treasure.600}"
+            "$value": "{sunken-treasure.700}"
         },
         "text-selected": {
             "$type": "color",

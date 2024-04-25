@@ -78,7 +78,7 @@
         },
         "surface-strong": {
             "$type": "color",
-            "$value": "{amanita.300}"
+            "$value": "{amanita.400}"
         },
         "surface-strong-hover": {
             "$type": "color",
@@ -714,7 +714,7 @@
         },
         "text-weak": {
             "$type": "color",
-            "$value": "{rock.400}"
+            "$value": "{rock.500}"
         },
         "text-weak-hover": {
             "$type": "color",
