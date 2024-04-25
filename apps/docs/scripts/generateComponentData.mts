@@ -14,7 +14,7 @@ interface Group {
 type Groups = { [key: string]: Group }
 
 type GroupsConfig = {
-    [key: string]: string;
+    [key: string]: string | string[]
 }
 
 export interface ComponentDocWithGroups extends ComponentDoc {
@@ -54,23 +54,34 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     const groupsConfig: GroupsConfig = {
         events: "Events",
-        a11y: 'Aria',
+        a11y: ["Aria", "Focusable"],
+        layout: "Slot",
         // Add more groups here as needed
     };
 
     return data.map(component => {
+        // Destructure and ignore id and ref from component.props
+        const {key, ref, ...props} = component.props;
+
         // Initialize the groups
         const groups: Groups = {
             default: {},
             ...Object.keys(groupsConfig).reduce((acc, group) => ({...acc, [group]: {}}), {}),
         };
 
-        Object.entries(component.props).forEach(([key, prop]) => {
+        Object.entries(props).forEach(([key, prop]) => {
             let added = false;
 
             // Check each group to see if the prop should be added to it
             Object.entries(groupsConfig).forEach(([group, term]) => {
-                if (prop.parent?.name.includes(term)) {
+                if (Array.isArray(term)) {
+                    term.forEach(t => {
+                        if (prop.parent?.name.includes(t)) {
+                            groups[group][key] = prop;
+                            added = true;
+                        }
+                    });
+                } else if (prop.parent?.name.includes(term)) {
                     groups[group][key] = prop;
                     added = true;
                 }
