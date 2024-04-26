@@ -13,13 +13,6 @@
     --hop-Switch-thumb-color-hover: var(--hop-neutral-icon-hover);
     --hop-Switch-text-color-hover: var(--hop-neutral-text-hover);
 
-    /* Active */
-
-    /* --hop-Switch-border-color-active: var(--hop-neutral-border-press);
-    --hop-Switch-background-color-active: var(--hop-neutral-surface-press);
-    --hop-Switch-thumb-color-active: var(--hop-neutral-icon-press);
-    --hop-Switch-text-color-active: var(--hop-neutral-text-press); */
-
     /* Focus Visible */
     --hop-Switch-border-color-focus: var(--hop-neutral-border-hover);
     --hop-Switch-background-color-focus: var(--hop-neutral-surface-hover);
@@ -100,14 +93,6 @@
     --thumb-color: var(--hop-Switch-thumb-color-hover);
     --text-color: var(--hop-Switch-text-color-hover);
 }
-
-/* 
-.hop-Switch[data-pressed] {
-    --border-color: var(--hop-Switch-border-color-active);
-    --background-color: var(--hop-Switch-background-color-active);
-    --thumb-color: var(--hop-Switch-thumb-color-active);
-    --text-color: var(--hop-Switch-text-color-active);
-} */
 
 .hop-Switch[data-focus-visible] {
     --border-color: var(--hop-Switch-border-color-focus);
