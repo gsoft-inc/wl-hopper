@@ -11,7 +11,7 @@
     --hop-RadioField-description-sm-margin-inline-start: calc(var(--hop-RadioField-radio-sm-inline-size) + var(--hop-space-inline-sm));
 
     /* Medium */
-    --hop-RadioField-md-row-gap: var(--hop-space-stack-sm);
+    --hop-RadioField-md-row-gap: var(--hop-space-stack-xs);
     --hop-RadioField-radio-md-inline-size: 1.5rem;
     --hop-RadioField-description-md-margin-inline-start: calc(var(--hop-RadioField-radio-md-inline-size) + var(--hop-space-inline-md));
 
