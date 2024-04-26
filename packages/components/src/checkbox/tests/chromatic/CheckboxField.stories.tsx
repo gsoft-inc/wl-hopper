@@ -52,25 +52,22 @@ export const Validation: Story = {
     )
 };
 
-export const States: Story = {
+export const Disabled: Story = {
     render: props => (
-        <Stack>
-            <h1>Disabled</h1>
-            <Inline alignY="end">
-                <CheckboxField {...props} size="sm" isDisabled>
-                    <Checkbox>
-                        <Text>Option 1</Text>
-                    </Checkbox>
-                    <Text slot="description">Description</Text>
-                </CheckboxField>
-                <CheckboxField {...props} size="md" isDisabled>
-                    <Checkbox>
-                        <Text>Option 1</Text>
-                    </Checkbox>
-                    <Text slot="description">Description</Text>
-                </CheckboxField>
-            </Inline>
-        </Stack>
+        <Inline alignY="end">
+            <CheckboxField {...props} size="sm" isDisabled>
+                <Checkbox>
+                    <Text>Option 1</Text>
+                </Checkbox>
+                <Text slot="description">Description</Text>
+            </CheckboxField>
+            <CheckboxField {...props} size="md" isDisabled>
+                <Checkbox>
+                    <Text>Option 1</Text>
+                </Checkbox>
+                <Text slot="description">Description</Text>
+            </CheckboxField>
+        </Inline>
     )
 };
 

@@ -12,7 +12,7 @@ import NpmIcon from "./assets/npm.svg";
 import SelectArrowIcon from "./assets/select-arrow.svg";
 import TokenIcon from "./assets/tokens.svg";
 import TypescriptIcon from "./assets/typescript.svg";
-
+import CollapseIcon from "./assets/collapse.svg";
 import Icon, { type IconProps } from "./Icon.tsx";
 
 export {
@@ -29,6 +29,7 @@ export {
     NpmIcon,
     SelectArrowIcon,
     TokenIcon,
+    CollapseIcon,
     TypescriptIcon,
     Icon,
     IconProps

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Table from "./Table";
+import TokenTable from "./TokenTable.tsx";
 
 const meta = {
-    title: "app/tokens/Table",
-    component: Table
-} satisfies Meta<typeof Table>;
+    title: "app/tokens/TokenTable",
+    component: TokenTable
+} satisfies Meta<typeof TokenTable>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

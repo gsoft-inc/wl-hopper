@@ -1,0 +1,7 @@
+.props__section {
+    margin-top: var(--hd-space-1);
+}
+
+.props__section .hd-collapsible__content {
+    margin-top: var(--hd-space-1);
+}

@@ -9,6 +9,7 @@ export * from "./Label/index.ts";
 export * from "./Link/index.ts";
 export * from "./radio/index.ts";
 export * from "./Spinner/index.ts";
+export * from "./switch/index.ts";
 export * from "./Text/index.ts";
 export * from "./utils/index.ts";
 

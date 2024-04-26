@@ -23,7 +23,8 @@
         "IconSpecTable": true,
         "PreviewComponent": true,
         "MigrateGuide": true,
-        "PackageInstallation": true
+        "PackageInstallation": true,
+        "PropTable": true
     },
     "overrides": [
         {
