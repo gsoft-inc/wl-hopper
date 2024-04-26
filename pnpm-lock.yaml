@@ -245,7 +245,7 @@ importers:
     dependencies:
       '@hopper-ui/icons':
         specifier: '*'
-        version: 1.10.0(@hopper-ui/styled-system@packages+styled-system)(react-aria-components@1.1.1)(react-dom@18.2.0)(react@18.2.0)
+        version: link:../icons
       '@react-aria/utils':
         specifier: ^3.23.2
         version: 3.23.2(react@18.2.0)
@@ -256,6 +256,9 @@ importers:
       '@hopper-ui/styled-system':
         specifier: workspace:*
         version: link:../styled-system
+      '@internationalized/string-compiler':
+        specifier: 3.2.2
+        version: 3.2.2
       '@swc/core':
         specifier: 1.4.8
         version: 1.4.8(@swc/helpers@0.5.7)
@@ -3078,22 +3081,6 @@ packages:
       '@hapi/hoek': 9.3.0
     dev: true
 
-  /@hopper-ui/icons@1.10.0(@hopper-ui/styled-system@packages+styled-system)(react-aria-components@1.1.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-B4XCmADS1Wc4DiZTTs2PzD4tXl5kgyCwc4Urw9dcOcxO48Twf97whVlj0VGprQ90uKXEC1pCk0Kcgi1jA0ekkA==}
-    peerDependencies:
-      '@hopper-ui/styled-system': ^1
-      react: ^18
-      react-aria-components: ^1.1.0
-      react-dom: ^18
-    dependencies:
-      '@hopper-ui/styled-system': link:packages/styled-system
-      '@react-aria/utils': 3.23.2(react@18.2.0)
-      clsx: 2.1.0
-      react: 18.2.0
-      react-aria-components: 1.1.1(react-dom@18.2.0)(react@18.2.0)
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
@@ -3134,6 +3121,12 @@ packages:
     resolution: {integrity: sha512-N0fPU/nz15SwR9IbfJ5xaS9Ss/O5h1sVXMZf43vc9mxEG48ovglvvzBjF53aHlq20uoR6c+88CrIXipU/LSzwg==}
     dependencies:
       '@swc/helpers': 0.5.7
+
+  /@internationalized/string-compiler@3.2.2:
+    resolution: {integrity: sha512-cxldZcD/IBVE1za1G3il0XO8mZDy1ZYRIaaMe9xWOBz2FKxcDezbC63fgl5quAAL86xCjC3EDwpdkbxeZ2lGoA==}
+    dependencies:
+      '@formatjs/icu-messageformat-parser': 2.7.6
+    dev: true
 
   /@internationalized/string@3.2.1:
     resolution: {integrity: sha512-vWQOvRIauvFMzOO+h7QrdsJmtN1AXAFVcaLWP9AseRN2o7iHceZ6bIXhBD4teZl8i91A3gxKnWBlGgjCwU6MFQ==}

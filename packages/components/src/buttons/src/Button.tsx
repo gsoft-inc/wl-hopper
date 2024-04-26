@@ -5,8 +5,8 @@ import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject }
 import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
 import { useContextProps, composeRenderProps, type ButtonProps as RACButtonProps, type ButtonRenderProps, ButtonContext as RACButtonContext } from "react-aria-components";
 
+import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 import { TextContext, Text } from "../../Text/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule, useSlot, isTextOnlyChildren, useRenderProps } from "../../utils/index.ts";
