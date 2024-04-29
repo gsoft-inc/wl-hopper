@@ -24,13 +24,6 @@ const ChipToTextSizeAdapter: SizeAdapter<ChipProps["size"], TextProps["size"]> =
     lg: "sm"
 };
 
-const ChipToIconSizeAdapter: SizeAdapter<ChipProps["size"], IconProps["size"]> = {
-    xs: "sm",
-    sm: "sm",
-    md: "sm",
-    lg: "sm"
-};
-
 export interface ChipProps extends StyledSystemProps, BaseComponentProps {
     /**
      * A Chip can vary in size.
@@ -88,11 +81,11 @@ function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
                 [IconListContext, {
                     slots: {
                         icon: {
-                            size: ChipToIconSizeAdapter[size],
+                            size: "sm",
                             className: styles["hop-Chip__icon-list"]
                         },
                         "end-icon": {
-                            size: ChipToIconSizeAdapter[size],
+                            size: "sm",
                             className: styles["hop-Chip__end-icon-list"]
                         }
                     }
@@ -100,11 +93,11 @@ function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
                 [IconContext, {
                     slots: {
                         icon: {
-                            size: ChipToIconSizeAdapter[size],
+                            size: "sm",
                             className: styles["hop-Chip__icon"]
                         },
                         "end-icon": {
-                            size: ChipToIconSizeAdapter[size],
+                            size: "sm",
                             className: styles["hop-Chip__end-icon"]
                         }
                     }

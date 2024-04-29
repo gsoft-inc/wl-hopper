@@ -222,7 +222,7 @@
 
     min-inline-size: 0;
 
-    text-align:center;
+    text-align: center;
     text-overflow: ellipsis;
 }
 
@@ -232,7 +232,3 @@
     flex-wrap: nowrap;
     order: 3;
 }
-
-
-
-
