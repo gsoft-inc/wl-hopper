@@ -1,8 +1,10 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import type { ReactNode } from "react";
 import type { PropItem } from "react-docgen-typescript/lib/parser";
 import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.mjs";
+
 import { getType } from "@/app/lib/gePropsType.ts";
 import { generateUniqueKey } from "@/app/lib/generateUniqueKey.ts";
 import { formatCode } from "@/app/lib/formatingCode.ts";
@@ -16,6 +18,16 @@ import { PropTableRender } from "@/app/ui/components/propTable/PropTableRender.t
 export interface PropTableProps {
     component: string;
 }
+
+export interface RenderRowReturn {
+    id: string;
+    name: ReactNode;
+    type: ReactNode;
+    defaultValue: { value: string };
+    description: ReactNode;
+}
+
+export type FormatedGroupsData = Array<{ [group: string]: RenderRowReturn[] }>;
 
 const filePath = path.join(process.cwd(), "datas", "components");
 
@@ -35,9 +47,7 @@ export const renderRow = async (prop: PropItem) => {
     });
 };
 
-const formatPropTable = async (data: ComponentDocWithGroups[]): Promise<Array<{
-    [group: string]: ReturnType<typeof renderRow>[];
-}>> => {
+const formatPropTable = async (data: ComponentDocWithGroups[]) => {
     const result = [];
     for (const item of data) {
         const { groups } = item;

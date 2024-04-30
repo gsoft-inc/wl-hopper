@@ -1,28 +1,26 @@
 import Collapsible from "@/components/collapsible/Collapsible.tsx";
 import Title from "@/components/title/Title.tsx";
 import type { ReactNode } from "react";
-import type { renderRow } from "@/app/ui/components/propTable/PropTable.tsx";
-
-interface PropItem {
-    [group: string]: typeof renderRow;
-}
+import type { RenderRowReturn, FormatedGroupsData } from "@/app/ui/components/propTable/PropTable.tsx";
 
 interface PropTableRenderProps {
-    groupsData: PropItem[];
+    groupsData: FormatedGroupsData;
 }
+
+type Item = RenderRowReturn;
 
 interface TableRowProps {
-    items: any;
+    items: { [group: string]: Item[] };
 }
 
-const TableRow = ({ items }: { items: TableRowProps }) => {
+const TableRow = ({ items }: TableRowProps) => {
     if (!items) {
         return null;
     }
 
     const [name] = Object.keys(items);
 
-    return items[name].map((item: any) => {
+    return items[name].map(item => {
         return (
             <tr key={item.id}>
                 <th>{item.name}</th>
@@ -52,7 +50,7 @@ const TableTemplate = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export function PropTableRender({ groupsData }: { groupsData: PropTableRenderProps[] }) {
+export function PropTableRender({ groupsData }: PropTableRenderProps) {
     return (
         <>
             {groupsData.map(group => {
