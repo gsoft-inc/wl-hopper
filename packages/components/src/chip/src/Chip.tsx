@@ -1,4 +1,4 @@
-import { IconContext, type IconProps } from "@hopper-ui/icons";
+import { IconContext } from "@hopper-ui/icons";
 import { type StyledSystemProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
