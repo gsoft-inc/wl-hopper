@@ -70,7 +70,7 @@
     --hop-Button-danger-color-pressed: var(--hop-danger-text-strong-hover);
     --hop-Button-danger-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-danger-background-color: var(--hop-danger-surface-strong);
-    --hop-Button-danger-background-color-hover: var(--hop-danger-surface-hover);
+    --hop-Button-danger-background-color-hover: var(--hop-danger-surface-strong-hover);
     --hop-Button-danger-background-color-pressed: var(--hop-danger-surface-press);
     --hop-Button-danger-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-danger-border: 0.0625rem solid var(--hop-Button-danger-background-color); /* same color as the background */

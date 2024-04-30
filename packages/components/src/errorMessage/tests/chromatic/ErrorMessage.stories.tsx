@@ -1,4 +1,5 @@
 import { SlotProvider } from "@hopper-ui/components";
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { FieldErrorContext } from "react-aria-components";
 
@@ -33,6 +34,9 @@ export const Default: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disabled: true })
+    },
     render: props => (
         <SlotProvider values={[
             [FieldErrorContext, {

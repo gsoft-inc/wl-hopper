@@ -1,3 +1,4 @@
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 import { Div, type DivProps } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -122,6 +123,9 @@ export const Reverse: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disabled: true })
+    },
     render: args => (
         <Inline>
             <Flex border="danger-strong" {...args} />

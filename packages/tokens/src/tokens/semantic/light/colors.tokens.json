@@ -126,7 +126,7 @@
         },
         "text-weak": {
             "$type": "color",
-            "$value": "{amanita.300}"
+            "$value": "{amanita.400}"
         },
         "text-weak-hover": {
             "$type": "color",

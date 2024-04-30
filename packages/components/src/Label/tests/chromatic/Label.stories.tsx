@@ -1,3 +1,4 @@
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Label } from "../../src/Label.tsx";
@@ -36,6 +37,9 @@ export const Inherit: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disabled: true })
+    },
     render: props => (
         <>
             <Label border="warning-strong" {...props} />

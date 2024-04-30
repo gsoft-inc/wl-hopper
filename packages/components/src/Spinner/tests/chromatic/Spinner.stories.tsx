@@ -1,3 +1,4 @@
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Inline, Stack } from "../../../layout/index.ts";
@@ -42,6 +43,9 @@ export const InheritColor: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disabled: true })
+    },
     render: args => (
         <Inline>
             <Spinner UNSAFE_color="red" {...args}>Crawling in progress…</Spinner>

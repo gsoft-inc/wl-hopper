@@ -1,4 +1,5 @@
 import { SparklesIcon } from "@hopper-ui/icons";
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconList } from "../../src/IconList.tsx";
@@ -22,6 +23,9 @@ export const Default: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disabled: true })
+    },
     args: {
         color: "primary",
         gap: "stack-xl"

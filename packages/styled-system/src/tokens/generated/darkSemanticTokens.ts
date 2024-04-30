@@ -288,7 +288,7 @@ export const DarkSemanticTokens = {
     "--hop-upsell-surface-weak": "var(--hop-sunken-treasure-900)",
     "--hop-upsell-surface-weak-hover": "var(--hop-sunken-treasure-700)",
     "--hop-upsell-surface-weak-press": "var(--hop-sunken-treasure-600)",
-    "--hop-upsell-text": "var(--hop-sunken-treasure-600)",
+    "--hop-upsell-text": "var(--hop-sunken-treasure-700)",
     "--hop-upsell-text-selected": "var(--hop-sunken-treasure-300)",
     "--hop-upsell-text-disabled": "var(--hop-sunken-treasure-300)",
     "--hop-upsell-text-hover": "var(--hop-sunken-treasure-700)",
