@@ -1,93 +1,68 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import type { PropItem } from "react-docgen-typescript/lib/parser";
 import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.mjs";
-import Collapsible from "@/components/collapsible/Collapsible.tsx";
-import Title from "@/components/title/Title.tsx";
+import { getType } from "@/app/lib/gePropsType.ts";
+import { generateUniqueKey } from "@/app/lib/generateUniqueKey.ts";
+import { formatCode } from "@/app/lib/formatingCode.ts";
+
+import Code from "@/components/code/Code.tsx";
+import { HighlightCode } from "@/components/highlightCode";
 
 import "./propTable.css";
+import { PropTableRender } from "@/app/ui/components/propTable/PropTableRender.tsx";
 
 export interface PropTableProps {
     component: string;
 }
 
-interface PropItemTypeValue {
-    name: string;
-    value?: Array<{ value: string; name: string }>;
-    raw?: string;
-}
-
 const filePath = path.join(process.cwd(), "datas", "components");
 
-const getType = (type: PropItemTypeValue) => {
-    const handler: {
-        [key: string]: (type: PropItemTypeValue) => string;
-    } = {
-        enum: t =>
-            t.value ? t.value.map(item => item.value.replace(/'/g, "")).join(" \\| ") : "",
-        union: t => t.value ? t.value.map(item => item.name).join(" \\| ") : ""
-    };
-    if (typeof handler[type.name] === "function") {
-        return handler[type.name](type).replace(/\|/g, "");
+export const renderRow = async (prop: PropItem) => {
+    const { name, type, defaultValue, description } = prop;
+    const formatType = getType(type);
+    const code = await formatCode(formatType, "tsx");
+    const hilighCode = <HighlightCode code={code} variant="tiny" />;
+    const formatedDescription = description.replace(/<form>/g, "");
+
+    return ({
+        id: generateUniqueKey(),
+        name: <Code value={name}>{name}</Code>,
+        type: hilighCode,
+        defaultValue: defaultValue ? defaultValue.value : "",
+        description: <MDXRemote source={formatedDescription} />
+    });
+};
+
+const formatPropTable = async (data: ComponentDocWithGroups[]): Promise<Array<{
+    [group: string]: ReturnType<typeof renderRow>[];
+}>> => {
+    const result = [];
+    for (const item of data) {
+        const { groups } = item;
+        for (const group of Object.keys(groups)) {
+            const groupItems = await Promise.all(Object.keys(groups[group]).map(key => renderRow(groups[group][key])));
+            result.push({ [group]: groupItems });
+        }
     }
 
-    return type.name;
+    return result;
 };
 
-const renderRow = (key: string, prop: PropItem) => {
-    const { name, type, defaultValue, required, description } = prop;
-
-    return (
-        <tr key={key}>
-            <td>{name}</td>
-            <td>{getType(type)}</td>
-            <td>{defaultValue?.value}</td>
-            <td>{required ? "✓" : "✗"}</td>
-            <td>{description}</td>
-        </tr>
-    );
-};
+const getDescripton = (data: ComponentDocWithGroups[]) => data.map((item: ComponentDocWithGroups) => item.description);
 
 export default async function PropTable({ component }: PropTableProps) {
     const file = await fs.readFile(filePath + `/${component}.json`, "utf8");
     const data = JSON.parse(file);
 
-    return data.map((item: ComponentDocWithGroups) => {
-        const { description, displayName, groups } = item;
+    const formatedGroupsData = await formatPropTable(data);
+    const description = getDescripton(data);
 
-        return (
-            <>
-                <p>{displayName}</p>
-                <p>{description}</p>
-                {Object.keys(groups).map(group => {
-                    return (
-                        <Collapsible
-                            key={group}
-                            title={
-                                <Title as="h3" level={3}>
-                                    {group}
-                                </Title>
-                            }
-                            className="props__section"
-                        >
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Property</th>
-                                        <th>Type</th>
-                                        <th>Default</th>
-                                        <th>Required</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {Object.keys(groups[group]).map(key => renderRow(key, groups[group][key]))}
-                                </tbody>
-                            </table>
-                        </Collapsible>
-                    );
-                })}
-            </>
-        );
-    });
+    return (
+        <>
+            <p>{description}</p>
+            <PropTableRender groupsData={formatedGroupsData} />
+        </>
+    );
 }
