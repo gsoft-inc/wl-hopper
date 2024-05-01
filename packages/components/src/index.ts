@@ -1,5 +1,6 @@
 export * from "./buttons/index.ts";
 export * from "./checkbox/index.ts";
+export * from "./chip/index.ts";
 export * from "./errorMessage/index.ts";
 export * from "./helperMessage/index.ts";
 export * from "./HopperProvider/index.ts";
