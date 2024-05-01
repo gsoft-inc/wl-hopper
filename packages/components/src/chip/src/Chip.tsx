@@ -43,7 +43,7 @@ function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
     const {
         className,
         children,
-        size: sizeProp = "md",
+        size: sizeProp,
         style,
         slot,
         variant = "neutral",
