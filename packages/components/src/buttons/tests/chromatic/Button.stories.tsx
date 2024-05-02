@@ -3,7 +3,7 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 
-import { IconList } from "../../../IconList/src/IconList.tsx";
+import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Text } from "../../../Text/src/Text.tsx";
 import { ButtonContext } from "../../index.ts";
