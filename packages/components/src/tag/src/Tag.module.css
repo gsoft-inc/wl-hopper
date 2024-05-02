@@ -1,0 +1,77 @@
+.hop-Tag  {
+    /* Default */
+    --hop-Tag-border-size: 0.0625rem;
+    --hop-Tag-border-radius: var(--hop-shape-pill);
+    --hop-Tag-column-gap: var(--hop-space-inline-xs);
+    --hop-Tag-border-color: var(--hop-neutral-border);
+    --hop-Tag-background-color: var(--hop-neutral-surface-weakest);
+    --hop-Tag-text-color: var(--hop-neutral-text);
+
+    /* Medium */
+    --hop-Tag-md-block-size: 1.5rem;
+    --hop-Tag-md-padding-inline: var(--hop-space-inset-sm);
+
+    /* Large */
+    --hop-Tag-lg-block-size: 2rem;
+    --hop-Tag-lg-padding-inline: var(--hop-space-inset-md);
+
+    /* Internal Variables */
+    --border-radius: var(--hop-Tag-border-radius);
+    --border-size: var(--hop-Tag-border-size);
+    --column-gap: var(--hop-Tag-column-gap);
+    --border-color: var(--hop-Tag-border-color);
+    --background-color: var(--hop-Tag-background-color);
+    --text-color: var(--hop-Tag-text-color);
+
+    overflow: hidden;
+    display: inline-flex;
+    column-gap: var(--column-gap);
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    inline-size: max-content;
+    max-inline-size: 100%;
+    block-size: var(--block-size);
+    padding-inline: var(--padding-inline);
+
+    color: var(--text-color);
+    white-space: nowrap;
+
+    background-color: var(--background-color);
+    border: var(--border-size) solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.hop-Tag--md {
+    --block-size: var(--hop-Tag-md-block-size);
+    --padding-inline: var(--hop-Tag-md-padding-inline);
+}
+
+.hop-Tag--lg {
+    --block-size: var(--hop-Tag-lg-block-size);
+    --padding-inline: var(--hop-Tag-lg-padding-inline);
+}
+
+.hop-Tag__icon,
+.hop-Tag__icon-list {
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    order: 1;
+}
+
+.hop-Tag__text {
+    overflow: hidden;
+    flex: 1 1 auto;
+    order: 2;
+
+    min-inline-size: 0;
+
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.hop-Tag__remove-btn {
+    flex: 0 0 auto;
+    order: 3;
+}
