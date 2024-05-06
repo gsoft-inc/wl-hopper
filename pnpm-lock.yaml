@@ -17,6 +17,9 @@ importers:
       '@hopper-ui/tokens':
         specifier: workspace:*
         version: link:packages/tokens
+      '@internationalized/string-compiler':
+        specifier: 3.2.2
+        version: 3.2.2
       '@netlify/plugin-nextjs':
         specifier: 4.41.3
         version: 4.41.3
@@ -1883,6 +1886,9 @@ packages:
 
   '@internationalized/number@3.5.1':
     resolution: {integrity: sha512-N0fPU/nz15SwR9IbfJ5xaS9Ss/O5h1sVXMZf43vc9mxEG48ovglvvzBjF53aHlq20uoR6c+88CrIXipU/LSzwg==}
+
+  '@internationalized/string-compiler@3.2.2':
+    resolution: {integrity: sha512-cxldZcD/IBVE1za1G3il0XO8mZDy1ZYRIaaMe9xWOBz2FKxcDezbC63fgl5quAAL86xCjC3EDwpdkbxeZ2lGoA==}
 
   '@internationalized/string@3.2.1':
     resolution: {integrity: sha512-vWQOvRIauvFMzOO+h7QrdsJmtN1AXAFVcaLWP9AseRN2o7iHceZ6bIXhBD4teZl8i91A3gxKnWBlGgjCwU6MFQ==}
@@ -12082,6 +12088,10 @@ snapshots:
   '@internationalized/number@3.5.1':
     dependencies:
       '@swc/helpers': 0.5.7
+
+  '@internationalized/string-compiler@3.2.2':
+    dependencies:
+      '@formatjs/icu-messageformat-parser': 2.7.6
 
   '@internationalized/string@3.2.1':
     dependencies:

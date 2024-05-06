@@ -1,4 +1,4 @@
-import { useLocalizedStringFormatter } from "react-aria";
+import { useLocalizedStringFormatter, type LocalizedStrings } from "react-aria";
 
 import resourcesEnUS from "../intl/en-US.json";
 import resourcesFrCa from "../intl/fr-CA.json";
@@ -6,14 +6,11 @@ import resourcesFrCa from "../intl/fr-CA.json";
 const Resources = {
     "en-US": resourcesEnUS,
     "fr-CA": resourcesFrCa
-};
+} satisfies LocalizedStrings;
 
 /**
  * This hook is used to get the localized string formatter.
  * It uses the resources from the component package.
- *
- * This does not support complex string formatting at the moment. We would need to make sur @internationalized/string-formatter
- * is running in our build to support that.
  */
 export function useLocalizedString(): LocalizedStringFormatter {
     return useLocalizedStringFormatter(Resources, "@hopper-ui/components");

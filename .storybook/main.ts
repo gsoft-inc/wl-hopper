@@ -2,6 +2,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import type { Options } from "@storybook/types";
 import type { Options as SwcOptions } from "@swc/core";
+import path from "path";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 
 import { swcConfig as SwcBuildConfig } from "./swc.build.ts";
@@ -81,6 +82,14 @@ const storybookConfig: StorybookConfig = {
                 }
             }
         }
+
+        // This is a custom loader that will be used to load the intl json files and convert them to a format that can
+        // be used by the react-aria useLocalizedStringFormatter hook for formatting.
+        config.module?.rules?.push({
+            loader: path.resolve(".storybook/intl-loader.js"),
+            test: /(intl).*\.json$/,
+            type: "javascript/auto"
+        });
 
         return config;
     }
