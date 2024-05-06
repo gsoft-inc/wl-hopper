@@ -44,6 +44,7 @@
         "@changesets/cli": "2.27.1",
         "@chromatic-com/storybook": "1.2.24",
         "@hopper-ui/tokens": "workspace:*",
+        "@internationalized/string-compiler": "3.2.2",
         "@netlify/plugin-nextjs": "4.41.3",
         "@pmmmwh/react-refresh-webpack-plugin": "0.5.11",
         "@storybook/addon-a11y": "8.0.2",
