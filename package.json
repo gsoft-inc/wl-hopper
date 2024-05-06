@@ -12,7 +12,7 @@
         "type": "git",
         "url": "git+https://github.com/gsoft-inc/wl-hopper.git"
     },
-    "packageManager": "pnpm@9.0.6",
+    "packageManager": "pnpm@9.1.0",
     "scripts": {
         "doc:start": "pnpm --filter=docs dev",
         "doc:storybook": "pnpm --filter=docs storybook",
