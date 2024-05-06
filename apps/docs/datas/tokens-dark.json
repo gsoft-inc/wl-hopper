@@ -801,7 +801,7 @@
       },
       {
         "name": "hop-danger-border-selected",
-        "value": "#df3236"
+        "value": "#ffbcb7"
       },
       {
         "name": "hop-danger-border-press",
@@ -865,19 +865,19 @@
       },
       {
         "name": "hop-danger-surface-hover",
-        "value": "#ff8e8e"
+        "value": "#fa4d59"
       },
       {
         "name": "hop-danger-surface-press",
-        "value": "#fa4d59"
+        "value": "#ba2d2d"
       },
       {
         "name": "hop-danger-surface-strong",
-        "value": "#fa4d59"
+        "value": "#df3236"
       },
       {
         "name": "hop-danger-surface-strong-hover",
-        "value": "#ff8e8e"
+        "value": "#cb2e31"
       },
       {
         "name": "hop-danger-surface-weak",
@@ -897,7 +897,7 @@
       },
       {
         "name": "hop-danger-text-selected",
-        "value": "#fa4d59"
+        "value": "#ffbcb7"
       },
       {
         "name": "hop-danger-text-disabled",
@@ -1861,7 +1861,7 @@
       },
       {
         "name": "hop-upsell-border-selected",
-        "value": "#8b6609"
+        "value": "#eac96d"
       },
       {
         "name": "hop-upsell-border-disabled",
@@ -1873,19 +1873,19 @@
       },
       {
         "name": "hop-upsell-icon",
-        "value": "#2f250d"
-      },
-      {
-        "name": "hop-upsell-icon-selected",
-        "value": "#c28b12"
-      },
-      {
-        "name": "hop-upsell-icon-hover",
         "value": "#654c0d"
       },
       {
-        "name": "hop-upsell-icon-press",
+        "name": "hop-upsell-icon-selected",
+        "value": "#eac96d"
+      },
+      {
+        "name": "hop-upsell-icon-hover",
         "value": "#4b390f"
+      },
+      {
+        "name": "hop-upsell-icon-press",
+        "value": "#2f250d"
       },
       {
         "name": "hop-upsell-icon-weakest",
@@ -1917,11 +1917,11 @@
       },
       {
         "name": "hop-upsell-surface-hover",
-        "value": "#c28b12"
+        "value": "#e2a934"
       },
       {
         "name": "hop-upsell-surface-press",
-        "value": "#996f08"
+        "value": "#c28b12"
       },
       {
         "name": "hop-upsell-surface-weak",
@@ -1941,7 +1941,7 @@
       },
       {
         "name": "hop-upsell-text-selected",
-        "value": "#c28b12"
+        "value": "#eac96d"
       },
       {
         "name": "hop-upsell-text-disabled",
@@ -1949,11 +1949,11 @@
       },
       {
         "name": "hop-upsell-text-hover",
-        "value": "#654c0d"
+        "value": "#4b390f"
       },
       {
         "name": "hop-upsell-text-press",
-        "value": "#4b390f"
+        "value": "#2f250d"
       },
       {
         "name": "hop-upsell-text-weak",
