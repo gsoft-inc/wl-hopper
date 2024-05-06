@@ -18,7 +18,7 @@
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
         "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-        "build": "pnpm -r build",
+        "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r build",
         "test-storybook": "test-storybook",
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "build:pkg": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r --filter \"{packages/**}\" build ",

@@ -11,6 +11,7 @@
             "@hopper-ui/test-utils": ["../../tooling/test-utils/index.ts"],
             "@hopper-ui/tsup-css-module-plugin": ["../../tooling/tsup-css-module-plugin/index.ts"],
             "@hopper-ui/tsup-intl-plugin": ["../../tooling/tsup-intl-plugin/index.ts"]
-        }
+        },
+        "typeRoots": []
     }
 }

@@ -86,7 +86,7 @@
     /* Ghost Primary */
     --hop-Button-ghost-primary-color: var(--hop-primary-text);
     --hop-Button-ghost-primary-color-hover: var(--hop-primary-text-hover);
-    --hop-Button-ghost-primary-color-pressed: var(--hop-primary-text-press);
+    --hop-Button-ghost-primary-color-pressed: var(--hop-primary-text-strong);
     --hop-Button-ghost-primary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-ghost-primary-background-color: var(--hop-neutral-surface);
     --hop-Button-ghost-primary-background-color-hover: var(--hop-neutral-surface-hover);
