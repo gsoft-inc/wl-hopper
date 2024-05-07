@@ -45,10 +45,9 @@ export interface ButtonGroupProps extends StyledComponentProps<HTMLAttributes<HT
 }
 
 export const GlobalButtonGroupCssSelector = "hop-ButtonGroup";
-export const DefaultButtonGroupSlot = "ButtonGroup";
 
 function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonGroupSlot }, ref, ButtonGroupContext);
+    [props, ref] = useContextProps(props, ref, ButtonGroupContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 

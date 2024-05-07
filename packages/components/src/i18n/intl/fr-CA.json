@@ -1,0 +1,4 @@
+{
+    "Button.spinnerAriaLabel": "Chargement en cours",
+    "Input.charactersLeft": "{charLeft, plural, =0 {Aucun caractère restant} one {# caractère restant} other {# caractères restants}}."
+}

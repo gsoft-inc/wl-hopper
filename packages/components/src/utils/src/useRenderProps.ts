@@ -5,14 +5,14 @@ import type { RenderPropsHookOptions } from "./types.ts";
 /**
 * Taken from https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/src/utils.tsx
 */
-
 export function useRenderProps<T>(props: RenderPropsHookOptions<T>) {
     const {
         className,
         style,
         children,
-        defaultClassName,
-        defaultChildren,
+        defaultClassName = undefined,
+        defaultChildren = undefined,
+        defaultStyle,
         values
     } = props;
 
@@ -22,19 +22,19 @@ export function useRenderProps<T>(props: RenderPropsHookOptions<T>) {
         let computedChildren: ReactNode | undefined;
 
         if (typeof className === "function") {
-            computedClassName = className(values);
+            computedClassName = className({ ...values, defaultClassName });
         } else {
             computedClassName = className;
         }
 
         if (typeof style === "function") {
-            computedStyle = style(values);
+            computedStyle = style({ ...values, defaultStyle: defaultStyle || {} });
         } else {
             computedStyle = style;
         }
 
         if (typeof children === "function") {
-            computedChildren = children(values);
+            computedChildren = children({ ...values, defaultChildren });
         } else if (children == null) {
             computedChildren = defaultChildren;
         } else {
@@ -43,8 +43,9 @@ export function useRenderProps<T>(props: RenderPropsHookOptions<T>) {
 
         return {
             className: computedClassName ?? defaultClassName,
-            style: computedStyle,
-            children: computedChildren
+            style: (computedStyle || defaultStyle) ? { ...defaultStyle, ...computedStyle } : undefined,
+            children: computedChildren ?? defaultChildren
         };
-    }, [className, style, children, defaultClassName, defaultChildren, values]);
+    }, [className, style, children, defaultClassName, defaultChildren, defaultStyle, values]);
 }
+

@@ -12,9 +12,6 @@ import styles from "./RichIcon.module.css";
 
 export const GlobalRichIconCssSelector = "hop-RichIcon";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultRichIconSlot = "richicon";
-
 export interface RichIconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
      * The visual style of the icon.
@@ -41,7 +38,7 @@ export interface RichIconProps extends SlotProps, StyledComponentProps<"svg"> {
 }
 
 export const RichIcon = forwardRef<SVGSVGElement, RichIconProps>((props, ref) => {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultRichIconSlot }, ref, RichIconContext);
+    [props, ref] = useContextProps(props, ref, RichIconContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const {

@@ -13,9 +13,6 @@ import styles from "./Radio.module.css";
 
 export const GlobalRadioCssSelector = "hop-Radio";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultRadioSlot = "radio";
-
 export interface RadioProps extends StyledComponentProps<RACRadioProps> {
     /**
      * A radio can vary in size.
@@ -25,7 +22,7 @@ export interface RadioProps extends StyledComponentProps<RACRadioProps> {
 }
 
 function Radio(props:RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultRadioSlot }, ref, RadioContext);
+    [props, ref] = useContextProps(props, ref, RadioContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
