@@ -6,6 +6,7 @@ import {
     useResponsiveValue
 } from "@hopper-ui/styled-system";
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
+import type { RouterOptions } from "@react-types/shared";
 import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject } from "react";
 import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
 import {
@@ -67,6 +68,9 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 
     /** The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). */
     rel?: string;
+
+    /** Options for the configured client side router. */
+    routerOptions?: RouterOptions;
 }
 
 /**
@@ -111,7 +115,7 @@ function useSimulatedRACButton(props: ButtonProps, ref: MutableRefObject<HTMLEle
 }
 
 // This logic is usually located in the useLink hook.
-function useCreateRouterLinkClickEventHandler() {
+function useCreateRouterLinkClickEventHandler(props: ButtonProps) {
     const router = useRouter();
 
     return (e: MouseEvent<HTMLElement>) => {
@@ -122,10 +126,12 @@ function useCreateRouterLinkClickEventHandler() {
             e.currentTarget.href &&
             // If props are applied to a router Link component, it may have already prevented default.
             !e.isDefaultPrevented() &&
-            shouldClientNavigate(e.currentTarget, e)
+            shouldClientNavigate(e.currentTarget, e) &&
+            props.href
         ) {
             e.preventDefault();
-            router.open(e.currentTarget, e);
+            // router.open(e.currentTarget, e);
+            router.open(e.currentTarget, e, props.href, props.routerOptions);
         }
     };
 }
@@ -186,7 +192,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
         return prev;
     });
 
-    const renderProps = useRenderProps({
+    const renderProps = useRenderProps<ButtonRenderProps>({
         className: classNames,
         style,
         children,
@@ -201,7 +207,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
 
     const handleClick = chain(
         onClick,
-        useCreateRouterLinkClickEventHandler()
+        useCreateRouterLinkClickEventHandler(props)
     );
 
     const As = props.href ? "a" : "button";
