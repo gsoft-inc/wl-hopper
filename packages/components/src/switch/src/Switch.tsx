@@ -13,9 +13,6 @@ import styles from "./Switch.module.css";
 
 export const GlobalSwitchCssSelector = "hop-Switch";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultSwitchSlot = "switch";
-
 export interface SwitchProps extends StyledComponentProps<RACSwitchProps> {
     /**
      * A Switch can vary in size.
@@ -25,7 +22,7 @@ export interface SwitchProps extends StyledComponentProps<RACSwitchProps> {
 }
 
 function Switch(props:SwitchProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultSwitchSlot }, ref, SwitchContext);
+    [props, ref] = useContextProps(props, ref, SwitchContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

@@ -11,11 +11,8 @@ import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps, isT
 import { ChipContext } from "./ChipContext.ts";
 
 import styles from "./Chip.module.css";
- 
-export const GlobalChipCssSelector = "hop-Chip";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultChipSlot = "chip";
+export const GlobalChipCssSelector = "hop-Chip";
 
 const ChipToTextSizeAdapter: SizeAdapter<ChipProps["size"], TextProps["size"]> = {
     xs: "xs",
@@ -38,7 +35,7 @@ export interface ChipProps extends StyledSystemProps, BaseComponentProps {
 }
 
 function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultChipSlot }, ref, ChipContext);
+    [props, ref] = useContextProps(props, ref, ChipContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -80,7 +77,7 @@ function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
                 }],
                 [IconListContext, {
                     slots: {
-                        icon: {
+                        [DEFAULT_SLOT]: {
                             size: "sm",
                             className: styles["hop-Chip__icon-list"]
                         },
@@ -92,7 +89,7 @@ function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
                 }],
                 [IconContext, {
                     slots: {
-                        icon: {
+                        [DEFAULT_SLOT]: {
                             size: "sm",
                             className: styles["hop-Chip__icon"]
                         },
