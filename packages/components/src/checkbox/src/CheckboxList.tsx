@@ -18,7 +18,7 @@ function CheckboxList(props:CheckboxListProps, ref: ForwardedRef<HTMLDivElement>
         className,
         children,
         style,
-        slot = "checkboxList",
+        slot,
         ...otherProps
     } = ownProps;
 

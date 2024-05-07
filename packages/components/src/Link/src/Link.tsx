@@ -2,7 +2,7 @@ import { IconContext, type IconProps } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import type { StyledComponentProps, ResponsiveProp } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, type LinkProps as RACLinkProps, composeRenderProps, Link as RACLink } from "react-aria-components";
+import { useContextProps, type LinkProps as RACLinkProps, composeRenderProps, Link as RACLink, DEFAULT_SLOT } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
 import { Text, TextContext } from "../../Text/index.ts";
@@ -13,9 +13,6 @@ import { LinkContext } from "./LinkContext.ts";
 import styles from "./Link.module.css";
 
 export const GlobalLinkCssSelector = "hop-Link";
-
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultLinkSlot = "link";
 
 export interface LinkProps extends StyledComponentProps<RACLinkProps>{
     /**
@@ -51,7 +48,7 @@ const LinkToIconSizeAdapter = {
 } as const satisfies SizeAdapter<LinkProps["size"], IconProps["size"]>;
 
 function Link(props:LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot ?? DefaultLinkSlot }, ref, LinkContext);
+    [props, ref] = useContextProps(props, ref, LinkContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -103,7 +100,7 @@ function Link(props:LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
             values={[
                 [IconListContext, {
                     slots: {
-                        icon: {
+                        [DEFAULT_SLOT]: {
                             color: "inherit",
                             size: iconSize,
                             className: styles["hop-Link__icon-list"]
@@ -117,7 +114,7 @@ function Link(props:LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
                 }],
                 [IconContext, {
                     slots: {
-                        icon: {
+                        [DEFAULT_SLOT]: {
                             color: "inherit",
                             size: iconSize,
                             className: styles["hop-Link__icon"]

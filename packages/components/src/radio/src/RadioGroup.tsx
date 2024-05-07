@@ -14,9 +14,6 @@ import styles from "./RadioGroup.module.css";
 
 export const GlobalRadioGroupCssSelector = "hop-RadioGroup";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultRadioGroupSlot = "radioGroup";
-
 export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroupProps, "orientation">> {
     /**
      * A RadioGroup can be displayed horizontally or vertically.
@@ -36,7 +33,7 @@ export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroup
 }
 
 function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultRadioGroupSlot }, ref, RadioGroupContext);
+    [props, ref] = useContextProps(props, ref, RadioGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

@@ -40,7 +40,7 @@ function RadioField(props:RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isDisabled,
         size: sizeProp = "md",
         style,
-        slot = "radioField",
+        slot,
         ...otherProps
     } = ownProps;
 

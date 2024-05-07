@@ -14,9 +14,6 @@ import styles from "./CheckboxGroup.module.css";
 
 export const GlobalCheckboxGroupCssSelector = "hop-CheckboxGroup";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultCheckboxGroupSlot = "checkboxGroup";
-
 export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
     /**
      * A CheckboxGroup can be displayed horizontally or vertically.
@@ -36,7 +33,7 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
 }
 
 function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxGroupSlot }, ref, CheckboxGroupContext);
+    [props, ref] = useContextProps(props, ref, CheckboxGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
