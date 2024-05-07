@@ -15,6 +15,7 @@ const config: Config = {
             prefix: "<rootDir>"
         })
     },
+    resolver: "<rootDir>/../../tooling/intl-jest-resolver/jestResolver.cjs",
     setupFilesAfterEnv: ["<rootDir>/setupTests.ts"]
 };
 

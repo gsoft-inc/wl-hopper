@@ -18,7 +18,7 @@ function RadioList(props:RadioListProps, ref: ForwardedRef<HTMLDivElement>) {
         className,
         children,
         style,
-        slot = "radioList",
+        slot,
         ...otherProps
     } = ownProps;
 

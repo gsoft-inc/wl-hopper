@@ -1,6 +1,7 @@
 [build]
   command = "pnpm build && pnpm doc:build"
   publish = "apps/docs/.next"
+  environment = { NODE_OPTIONS = "--max-old-space-size=8192" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
