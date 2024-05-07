@@ -6,6 +6,7 @@ import {
     useResponsiveValue
 } from "@hopper-ui/styled-system";
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
+import type { RouterOptions } from "@react-types/shared";
 import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject } from "react";
 import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
 import {
@@ -13,7 +14,8 @@ import {
     composeRenderProps,
     type ButtonProps as RACButtonProps,
     type ButtonRenderProps,
-    ButtonContext as RACButtonContext
+    ButtonContext as RACButtonContext,
+    DEFAULT_SLOT
 } from "react-aria-components";
 
 import { useLocalizedString } from "../../i18n/index.ts";
@@ -35,9 +37,6 @@ import styles from "./Button.module.css";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultButtonSlot = "button";
-
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
@@ -56,7 +55,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
      */
     fluid?: ResponsiveProp<boolean>;
 
-    // A button can show a loading indicator.
+    /** A button can show a loading indicator.*/
     isLoading?: boolean;
 
     /** A URL to link to. Setting this makes the component render an `a` tag instead of a `button` */
@@ -67,6 +66,9 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 
     /** The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). */
     rel?: string;
+
+    /** Options for the configured client side router. */
+    routerOptions?: RouterOptions;
 }
 
 /**
@@ -111,7 +113,7 @@ function useSimulatedRACButton(props: ButtonProps, ref: MutableRefObject<HTMLEle
 }
 
 // This logic is usually located in the useLink hook.
-function useCreateRouterLinkClickEventHandler() {
+function useCreateRouterLinkClickEventHandler(props: ButtonProps) {
     const router = useRouter();
 
     return (e: MouseEvent<HTMLElement>) => {
@@ -122,16 +124,18 @@ function useCreateRouterLinkClickEventHandler() {
             e.currentTarget.href &&
             // If props are applied to a router Link component, it may have already prevented default.
             !e.isDefaultPrevented() &&
-            shouldClientNavigate(e.currentTarget, e)
+            shouldClientNavigate(e.currentTarget, e) &&
+            props.href
         ) {
             e.preventDefault();
-            router.open(e.currentTarget, e);
+            // router.open(e.currentTarget, e);
+            router.open(e.currentTarget, e, props.href, props.routerOptions);
         }
     };
 }
 
 function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultButtonSlot }, ref, ButtonContext);
+    [props, ref] = useContextProps(props, ref, ButtonContext);
     // since we can't use the Button from react-aria-components, we need to make sure we still get the context value
     // from react-aria-components.  However, since our  Button might be something else than a button, we need to cast the ref
     [props, ref] = useContextProps(props, ref as ForwardedRef<HTMLButtonElement>, RACButtonContext);
@@ -186,7 +190,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
         return prev;
     });
 
-    const renderProps = useRenderProps({
+    const renderProps = useRenderProps<ButtonRenderProps>({
         className: classNames,
         style,
         children,
@@ -201,7 +205,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
 
     const handleClick = chain(
         onClick,
-        useCreateRouterLinkClickEventHandler()
+        useCreateRouterLinkClickEventHandler(props)
     );
 
     const As = props.href ? "a" : "button";
@@ -211,7 +215,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
             values={[
                 [IconListContext, {
                     slots: {
-                        icon: {
+                        [DEFAULT_SLOT]: {
                             size: size,
                             className: styles["hop-Button__icon-list"]
                         },
@@ -223,7 +227,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                 }],
                 [IconContext, {
                     slots: {
-                        icon: {
+                        [DEFAULT_SLOT]: {
                             size: size,
                             className: styles["hop-Button__icon"]
                         },
