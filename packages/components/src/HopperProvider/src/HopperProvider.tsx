@@ -30,7 +30,7 @@ export interface HopperProviderProps extends StyledSystemProviderProps {
      *   );
      * }
      */
-    navigate: (path: Href, routerOptions: RouterOptions | undefined) => void;
+    navigate?: (path: Href, routerOptions: RouterOptions | undefined) => void;
     /**
      * useHref is an optional prop that converts a router-specific href to a native HTML href, e.g. prepending a base path.
      * @example
@@ -59,6 +59,7 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
         withCssVariables = true,
         className,
         navigate,
+        useHref,
         ...rest
     } = props;
 
@@ -69,7 +70,7 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
 
     let content = children;
     if (navigate) {
-        content = <RouterProvider navigate={navigate}>{children}</RouterProvider>;
+        content = <RouterProvider navigate={navigate} useHref={useHref}>{children}</RouterProvider>;
     }
 
     return (
