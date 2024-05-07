@@ -21,6 +21,7 @@
         "next-contentlayer": "0.3.4",
         "next-mdx-remote": "^4.4.1",
         "react": "18.2.0",
+        "react-aria": "3.32",
         "react-aria-components": "1.1.1",
         "react-dom": "18.2.0",
         "react-toggle": "4.1.3",
