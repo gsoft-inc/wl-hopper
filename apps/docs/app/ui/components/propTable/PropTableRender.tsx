@@ -64,7 +64,7 @@ export const PropTableRender = ({ items }: { items: Item[] }) => {
 
     return (
         <table className="hd-table hd-props-table">
-            <thead>
+            <thead className="hd-props-table__thead">
                 {table.getHeaderGroups().map(headerGroup => (
                     <tr className="hd-table__column" key={headerGroup.id}>
                         {headerGroup.headers.map(header => (
@@ -80,16 +80,29 @@ export const PropTableRender = ({ items }: { items: Item[] }) => {
                     </tr>
                 ))}
             </thead>
-            <tbody>
+            <tbody className="hd-props-table__tbody">
                 {table.getRowModel().rows.map(row => (
-                    <tr key={row.id} className="hd-table__row">
-                        {row.getVisibleCells().map(cell => (
-                            <td key={cell.id}
-                                className={clsx("hd-table__cell", `hd-props-table__col-${cell.column.id}`)}
-                            >
-                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                            </td>
-                        )
+                    <tr key={row.id} className="hd-table__row hd-props-table__row">
+                        {row.getVisibleCells().map(cell => {
+                            let headerValue = "";
+                            if (typeof cell.column.columnDef.header === "function") {
+                                // TODO find a correct way to get the header value
+                                // @ts-expect-error header needs an argument
+                                headerValue = cell.column.columnDef.header();
+                            }
+
+                            const lastCell = row.getVisibleCells().indexOf(cell) === row.getVisibleCells().length - 1;
+                            const emptyCell = cell.getValue() === "" || cell.getValue() === null || cell.getValue() === undefined;
+
+                            return (
+                                <td key={cell.id}
+                                    data-column={lastCell ? null : headerValue}
+                                    className={clsx("hd-table__cell", "hd-props-table__cell", `hd-props-table__col-${cell.column.id}`)}
+                                >
+                                    {emptyCell ? "-" : flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                </td>
+                            );
+                        }
                         )}
                     </tr>
                 ))}

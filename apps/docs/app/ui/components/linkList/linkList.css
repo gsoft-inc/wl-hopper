@@ -1,0 +1,13 @@
+.hd-link-list {
+    --hd-link-list-direction: column;
+
+    display: flex;
+    flex-direction: var(--hd-link-list-direction);
+    align-items: flex-start;
+    gap: var(--hd-space-1);
+
+    @media screen and (width >= 37.5rem) {
+        --hd-link-list-direction: row;
+    }
+}
+

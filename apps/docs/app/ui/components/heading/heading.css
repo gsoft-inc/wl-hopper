@@ -9,6 +9,5 @@
 }
 
 .hd-heading__links {
-    display: flex;
-    gap: var(--hd-space-1);
+    margin-inline: calc(var(--hd-space-1) * -1);
 }
