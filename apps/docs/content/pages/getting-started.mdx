@@ -3,7 +3,7 @@ title: Getting started
 description: Getting started with Workleap Design Tokens
 ---
 
-Add intro here.
+This guide will help you get started with Hopper UI. Hopper UI is a design system that provides a collection of components, tokens, and icons to help you build applications.
 
 ## Quick Install
 
@@ -21,7 +21,7 @@ import { HopperProvider } from "@hopper-ui/components";
 </HopperProvider>
 ```
 
-CALLOUT Hopper is compatible with React X and up. CALLOUT validate that we don't have one in progress
+<Callout>Hopper is compatible with React X and up. Not using React? You can still benefit from Hopper, read on to discover how.</Callout>
 
 ## Detailed Installation
 
@@ -31,13 +31,13 @@ Hopper Components are only compatible with React. If you are using another frame
 
 #### Installation
 
-Run the one of the following commands in your terminal to install the Hopper Components package.
+Run one of the following commands in your terminal to install the Hopper Components package.
 
 <PackageInstallation library="components" mod="prod" />
 
 #### Usage
 
-Hopper Provider is required to use Hopper Components. You can wrap your application with the HopperProvider component to use the components.
+A Provider is required to use Hopper Components. Wrap your application with the HopperProvider component to use our components.
 
 ```jsx
 import { Button } from "@hopper-ui/components";
@@ -49,7 +49,7 @@ import { Button } from "@hopper-ui/components";
 
 ### Tokens
 
-Hopper Tokens are a collection of design tokens that can be used to style your application. [Semantic tokens](#) are available for everyone, where [components tokens](#) are designed with non React users in mind.
+Hopper Tokens are a collection of design tokens that should be used to style your application. [Semantic tokens](#) are available for everyone, where [components tokens](#) are designed with non React users in mind.
 
 #### Installation
 
@@ -87,7 +87,7 @@ In order to use Hopper fonts in your project, import the following:
 @import "@hopper-ui/tokens/fonts.css";
 ```
 
-Font-face declarations are now imported in your project.
+All necessary font-face declarations are now imported in your project.
 
 ### Icons
 
@@ -97,7 +97,7 @@ Font-face declarations are now imported in your project.
 
 #### Usage
 
-You can now use [icons](/icons) and [rich icons](/icons) in your project by using the following syntax:
+You can now use [icons](/icons/react-icons/icon-library) and [rich icons](/icons/react-icons/rich-icon-library) in your project by using the following syntax:
 
 ```tsx
 import { AddIcon } from "@hopper-ui/icons";
@@ -168,11 +168,11 @@ import { AddIcon } from "@hopper-ui/icons";
 
 ##### React 16 Installation
 
-If your'e still using React 16, you should use the following package to install the icons:
+If your'e still using React 16, you need to use the `@hopper-ui/icons-react16` package.
 
 <PackageInstallation library="icons-react16" mod="prod" />
 
-The usage is the same as the default package, only the import differs.
+The usage is the same as the default package, you only need to import the icons from a different package.
 
 ```tsx
 import { AddIcon } from "@hopper-ui/icons-react16";
@@ -184,4 +184,4 @@ import { ConversationRichIcon } from "@hopper-ui/icons-react16";
 
 ## Contribute
 
-Pull requests are welcome. For major changes, please open a [discussion](https://github.com/gsoft-inc/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested, definitely check out our [Contributing Guide](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md)!
+Pull requests are welcome. For major changes, please open a [discussion](https://github.com/gsoft-inc/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested in contributing, check out our [Contributing Guide](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md)!

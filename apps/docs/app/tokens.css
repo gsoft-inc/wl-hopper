@@ -77,6 +77,7 @@
     --hd-color-neutral-border: var(--hd-neutral-75);
     --hd-color-neutral-border-weak: var(--hd-neutral-20);
     --hd-color-accent-text: var(--hd-accent-700);
+    --hd-color-accent-border: var(--hd-accent-700);
     --hd-color-accent-surface: var(--hd-accent-100);
     --hd-color-surface-neutral-gradient: linear-gradient(0deg, #151515 0%, #353434 100%);
     --hd-color-surface-neutral-gradient-hover: linear-gradient(0deg, #353434 0%, #151515 100%);
@@ -110,6 +111,7 @@
     --hd-color-neutral-icon-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-border: var(--hd-neutral-700);
     --hd-color-accent-text: var(--hd-accent-300);
+    --hd-color-accent-border: var(--hd-accent-700);
     --hd-color-accent-surface: var(--hd-accent-900);
     --hd-color-surface-neutral-gradient: linear-gradient(0deg, #F4F3EE 0%, var(--hd-neutral-0) 100%);
     --hd-color-surface-neutral-gradient-hover: linear-gradient(0deg, var(--hd-neutral-0) 0%, #F4F3EE 100%);
