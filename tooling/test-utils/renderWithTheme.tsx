@@ -4,12 +4,13 @@ import type { ReactElement } from "react";
 
 export interface HopperProviderWrapperOptions {
     colorScheme?: ColorScheme;
+    locale?: string;
 }
 
-function createHopperProviderWrapper({ colorScheme = "light" }: HopperProviderWrapperOptions = {}): RenderOptions["wrapper"] {
+function createHopperProviderWrapper({ colorScheme = "light", locale }: HopperProviderWrapperOptions = {}): RenderOptions["wrapper"] {
     return ({ children }) => {
         return (
-            <HopperProvider colorScheme={colorScheme}>
+            <HopperProvider colorScheme={colorScheme} locale={locale}>
                 {children}
             </HopperProvider>
         );

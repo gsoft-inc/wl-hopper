@@ -16,8 +16,8 @@ import {
     ButtonContext as RACButtonContext
 } from "react-aria-components";
 
+import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { useLocalizedString } from "../../intl/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 import { TextContext, Text } from "../../Text/index.ts";
 import {
