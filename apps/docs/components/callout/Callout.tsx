@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
-import clsx from "clsx";
 
 import "./callout.css";
 
 export interface CalloutProps {
     children: ReactNode;
-    className?: string;
 }
 
 const Callout = ({ children }: CalloutProps) => {
