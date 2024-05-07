@@ -12,6 +12,7 @@
     },
     "globals": {
         "Card": true,
+        "Callout": true,
         "Collapsible": true,
         "Table": true,
         "MotionPreview": true,
