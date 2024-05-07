@@ -70,7 +70,7 @@ code[data-theme*=' '] span {
     border-left-color: var(--hd-codeblock-line-highlighted-border-color);
 }
 
-/*!* LINE NUMBERS *!*/
+/* !* LINE NUMBERS *! */
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
     counter-reset: line;
 }
@@ -84,12 +84,12 @@ code[data-theme*=' '] span {
     color: var(--hd-codeblock-line-line-number-color);
 }
 
-/*!* Block Title *!*/
+/* !* Block Title *! */
 [data-rehype-pretty-code-title] {
     display: none;
 }
 
-/*!* Block Caption *!*/
+/* !* Block Caption *! */
 [data-rehype-pretty-code-caption] {
     margin-top: var(--hd-space-1);
     color: var(--hd-color-primary-text);

@@ -1,7 +1,49 @@
-.props__section {
-    margin-top: var(--hd-space-1);
+.hd-props-table {
+    --hd-table-col-min-size: 5rem;
+    --hd-table-col-name-size: 20%;
+    --hd-table-col-type-size: 30%;
+    --hd-table-col-default-size: auto;
+    --hd-table-col-description-size: 30%;
+
+    box-sizing: border-box;
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
 }
 
-.props__section .hd-collapsible__content {
-    margin-top: var(--hd-space-1);
+.hd-props-table__section {
+    margin-block: var(--hd-space-05);
+}
+
+.hd-props-table + .hd-props-table__section {
+    margin-block-start: var(--hd-space-1);
+}
+
+.hd-props-table [data-rehype-pretty-code-figure] {
+    margin: 0;
+}
+
+[class*="hd-props-table__col-"] {
+    min-width: var(--hd-table-col-min-size);
+    width: auto;
+}
+
+.hd-props-table__col-name {
+    max-width: var(--hd-table-col-name-size);
+}
+
+.hd-props-table__col-type {
+    max-width: var(--hd-table-col-type-size);
+}
+
+.hd-props-table__col-default {
+    max-width: var(--hd-table-col-default-size);
+}
+
+.hd-props-table__col-description {
+    max-width: var(--hd-table-col-description-size);
+}
+
+.hd-props-table__col-description * {
+    font-size: 0.75rem;
 }

@@ -1,80 +1,99 @@
-import Collapsible from "@/components/collapsible/Collapsible.tsx";
-import Title from "@/components/title/Title.tsx";
+"use client";
+
+import {
+    flexRender,
+    getCoreRowModel,
+    useReactTable,
+    type ColumnDef
+} from "@tanstack/react-table";
+import clsx from "clsx";
+
 import type { ReactNode } from "react";
-import type { RenderRowReturn, FormatedGroupsData } from "@/app/ui/components/propTable/PropTable.tsx";
 
-interface PropTableRenderProps {
-    groupsData: FormatedGroupsData;
+export interface Item {
+    id: string;
+    name: ReactNode;
+    type: ReactNode;
+    defaultValue: string;
+    description: ReactNode;
 }
 
-type Item = RenderRowReturn;
+const columns: ColumnDef<Item>[] = [
+    {
+        id: "name",
+        accessorKey: "name",
+        header: () => "Prop",
+        cell: info => info.getValue()
+    },
+    {
+        id: "type",
+        accessorKey: "type",
+        header: () => "Type",
+        cell: info => info.getValue()
+    },
+    {
+        id: "default",
+        accessorKey: "defaultValue",
+        header: () => "Default"
 
-interface TableRowProps {
-    items: { [group: string]: Item[] };
-}
-
-const TableRow = ({ items }: TableRowProps) => {
-    if (!items) {
-        return null;
+    },
+    {
+        id: "description",
+        accessorKey: "description",
+        header: () => "Description",
+        cell: info => info.getValue()
     }
+];
 
-    const [name] = Object.keys(items);
-
-    return items[name].map(item => {
-        return (
-            <tr key={item.id}>
-                <th>{item.name}</th>
-                <td>{item.type}</td>
-                <td>{item.defaultValue.value}</td>
-                <td>{item.description}</td>
-            </tr>
-        );
-    });
+const isColumnAvailable = (columnName: string, items: Item[]) => {
+    return items.some(item => item[columnName as keyof Item] !== "");
 };
 
-const TableTemplate = ({ children }: { children: ReactNode }) => {
+export const PropTableRender = ({ items }: { items: Item[] }) => {
+    const table = useReactTable({
+        columns,
+        state: {
+            columnVisibility: {
+                "default": isColumnAvailable("defaultValue", items)
+            }
+        },
+        data: items,
+        getCoreRowModel: getCoreRowModel()
+    });
+
+
     return (
-        <table>
+        <table className="hd-table hd-props-table">
             <thead>
-                <tr>
-                    <th>Prop</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                    <th>Description</th>
-                </tr>
+                {table.getHeaderGroups().map(headerGroup => (
+                    <tr className="hd-table__column" key={headerGroup.id}>
+                        {headerGroup.headers.map(header => (
+                            <th key={header.id} className="hd-table__th">
+                                {header.isPlaceholder
+                                    ? null
+                                    : flexRender(
+                                        header.column.columnDef.header,
+                                        header.getContext()
+                                    )}
+                            </th>
+                        ))}
+                    </tr>
+                ))}
             </thead>
             <tbody>
-                {children}
+                {table.getRowModel().rows.map(row => (
+                    <tr key={row.id} className="hd-table__row">
+                        {row.getVisibleCells().map(cell => (
+                            <td key={cell.id}
+                                className={clsx("hd-table__cell", `hd-props-table__col-${cell.column.id}`)}
+                            >
+                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                            </td>
+                        )
+                        )}
+                    </tr>
+                ))}
             </tbody>
         </table>
     );
 };
-
-export function PropTableRender({ groupsData }: PropTableRenderProps) {
-    return (
-        <>
-            {groupsData.map(group => {
-                const [title] = Object.keys(group);
-
-                return (
-                    <>
-                        {title === "default" ?
-                            <TableTemplate>
-                                <TableRow items={group} />
-                            </TableTemplate> :
-                            <Collapsible key={title}
-                                title={<Title as="h3" level={3}>
-                                    {title}
-                                </Title>}
-                            >
-                                <TableTemplate>
-                                    <TableRow items={group} />
-                                </TableTemplate>
-                            </Collapsible>
-                        }
-                    </>
-                );
-            })}
-        </>
-    );
-}

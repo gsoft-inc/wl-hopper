@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import * as prod from "react/jsx-runtime";
 import { unified } from "unified";
 import rehypeReact from "rehype-react";
@@ -43,5 +43,7 @@ function useProcessor(text: string, variant?: Variant) {
 }
 
 export default function HighlightCode({ code, variant = "default" }: HighlightCodeProps) {
-    return useProcessor(code, variant);
+    const processor = useProcessor(code, variant);
+
+    return useMemo(() => processor, [processor]);
 }
