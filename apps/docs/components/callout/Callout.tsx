@@ -8,7 +8,7 @@ export interface CalloutProps {
     className?: string;
 }
 
-const Callout = ({ children, className }: CalloutProps) => {
+const Callout = ({ children }: CalloutProps) => {
     return (
         <div className="hd-callout">
             {children}
