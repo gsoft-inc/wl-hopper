@@ -1,19 +1,19 @@
 "use client";
 
 import { allPages } from "contentlayer/generated";
-import Aside from "@/app/ui/layout/aside/Aside.tsx";
-import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 import Mdx from "@/components/mdx/Mdx";
 import { notFound } from "next/navigation";
+import Aside from "@/app/ui/layout/aside/Aside.tsx";
+import getSectionLinks from "@/app/lib/getSectionLinks";
 
 export default function GettingStartedPage() {
     const page = allPages.find(gettingStartedPage => gettingStartedPage._id === "pages/getting-started.mdx");
 
-    const sectionLinks = getSectionLinks(page);
-
     if (!page) {
         notFound();
     }
+
+    const sectionLinks = getSectionLinks(page);
 
     return (
         <div className="hd-wrapper hd-flex">
