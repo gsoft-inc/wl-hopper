@@ -70,7 +70,7 @@ code[data-theme*=' '] span {
     border-left-color: var(--hd-codeblock-line-highlighted-border-color);
 }
 
-/* !* LINE NUMBERS *! */
+/* LINE NUMBERS */
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
     counter-reset: line;
 }

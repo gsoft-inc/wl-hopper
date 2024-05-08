@@ -32,13 +32,12 @@ const formatGroup = (groups: Groups[]) => {
         return {
             [key]: group[key].map(item => {
                 const description = item.description;
-                const formatedDescription = description.replace(/<form>/g, "");
 
                 return {
                     ...item,
                     name: <Code value={item.name}>{item.name}</Code>,
                     type: <HighlightCode code={item.type} variant="tiny" />,
-                    description: <MDXRemote source={formatedDescription} />
+                    description: <MDXRemote source={description} />
                 };
             })
         };

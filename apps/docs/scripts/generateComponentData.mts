@@ -59,9 +59,14 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
         // Add more groups here as needed
     };
 
+    // Define the exceptions that should be added to a specific group
+    // The first element is the prop name and the second is the group key
+    const groupsExceptions = [["type", "default"], ["autoFocus", "default"]];
+
     return data.map(component => {
         // Destructure and ignore id and ref from component.props
         const {key, ref, ...props} = component.props;
+        console.log("autoFocus", props.type);
 
         // Initialize the groups
         const groups: Groups = {
@@ -84,6 +89,19 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
                 } else if (prop.parent?.name.includes(term)) {
                     groups[group][key] = prop;
                     added = true;
+                }
+            });
+
+            // Validates if the props that are in the groupsExceptions array then adds them to the corresponding group
+            groupsExceptions.forEach(([propName, groupKey]) => {
+                if (prop.name === propName && groups.hasOwnProperty(groupKey)) {
+                    Object.entries(groups).forEach(([groupName, groupProps]) => {
+                        if (groupProps.hasOwnProperty(propName)) {
+                            groups[groupKey][propName] = groupProps[propName];
+                            delete groups[groupName][propName];
+                            added = true;
+                        }
+                    });
                 }
             });
 
