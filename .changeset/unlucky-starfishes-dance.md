@@ -3,4 +3,4 @@
 "@hopper-ui/tokens": major
 ---
 
-Added new tokens - updaded some existing values
+Added new tokens - updated some existing values

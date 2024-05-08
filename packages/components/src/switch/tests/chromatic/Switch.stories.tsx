@@ -119,20 +119,21 @@ export const UncheckedStates: Story = {
 
         switchLabels.forEach(switchLabel => {
             const switchElem = switchLabel.querySelector("input[type='checkbox']");
+
             if (switchElem && switchElem.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
-                if (switchElem.getAttribute("data-chromatic-force-press")) {
+                if (switchLabel.getAttribute("data-chromatic-force-press")) {
                     switchLabel.setAttribute("data-pressed", "true");
-                    switchElem.removeAttribute("data-chromatic-force-press");
+                    switchLabel.removeAttribute("data-chromatic-force-press");
                 }
 
-                if (switchElem.getAttribute("data-chromatic-force-focus")) {
+                if (switchLabel.getAttribute("data-chromatic-force-focus")) {
                     switchLabel.setAttribute("data-focus-visible", "true");
-                    switchElem.removeAttribute("data-chromatic-force-focus");
+                    switchLabel.removeAttribute("data-chromatic-force-focus");
                 }
 
-                if (switchElem.getAttribute("data-chromatic-force-hover")) {
+                if (switchLabel.getAttribute("data-chromatic-force-hover")) {
                     switchLabel.setAttribute("data-hovered", "true");
-                    switchElem.removeAttribute("data-chromatic-force-hover");
+                    switchLabel.removeAttribute("data-chromatic-force-hover");
                 }
             }
         });
@@ -154,6 +155,15 @@ export const UncheckedStates: Story = {
                     Option 1
                 </Switch>
                 <Switch {...props} size="md" data-chromatic-force-hover>
+                    Option 2
+                </Switch>
+            </Inline>
+            <h1>Pressed</h1>
+            <Inline alignY="end">
+                <Switch {...props} size="sm" data-chromatic-force-press>
+                    Option 1
+                </Switch>
+                <Switch {...props} size="md" data-chromatic-force-press>
                     Option 2
                 </Switch>
             </Inline>
