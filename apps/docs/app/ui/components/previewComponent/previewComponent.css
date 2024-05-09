@@ -35,6 +35,7 @@
     --hd-color-neutral-icon: var(--hd-neutral-900);
 }
 
+
 [data-theme="dark"] .hd-component-wrapper--light .hd-component-wrapper__action:hover {
     --hd-color-neutral-icon: var(--hd-neutral-0);
 }
@@ -47,6 +48,7 @@
     --hd-color-neutral-icon: var(--hd-neutral-0);
 }
 
+[data-theme="dark"] .hd-component-wrapper--light .hd-preview-component__content,
 .hd-component-wrapper--light .hd-preview-component__content {
     --background: var(--hd-white);
     --color: var(--hd-neutral-50);

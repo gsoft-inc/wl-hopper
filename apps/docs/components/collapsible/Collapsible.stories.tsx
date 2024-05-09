@@ -17,3 +17,10 @@ export const Default: Story = {
         children: "Conent of the collapsible"
     }
 };
+
+export const Open: Story = {
+    args: {
+        ...Default.args,
+        isOpen: true
+    }
+};
