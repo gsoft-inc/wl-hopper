@@ -20,7 +20,7 @@ const ComponentWrapper = ({ className, src }: ComponentWrapperProps) => {
         loading: () => <PreviewSkeleton overlay />
     }), [src]);
 
-    const [colorScheme, setColorScheme] = useState<"light" | "dark">("light");
+    const [colorScheme, setColorScheme] = useState<"light" | "dark">("dark");
 
     const toggleTheme = () => {
         const theme: ColorScheme = colorScheme === "dark"
