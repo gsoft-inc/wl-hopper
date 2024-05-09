@@ -54,7 +54,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     const groupsConfig: GroupsConfig = {
         events: "Events",
-        a11y: ["Aria", "Focusable"],
+        accessibility: ["Aria", "Focusable"],
         layout: "Slot",
         // Add more groups here as needed
     };
