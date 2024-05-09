@@ -828,15 +828,15 @@
         },
         "text": {
             "$type": "color",
-            "$value": "{sapphire.200}"
+            "$value": "{sapphire.100}"
         },
         "text-hover": {
             "$type": "color",
-            "$value": "{sapphire.300}"
+            "$value": "{sapphire.200}"
         },
         "text-press": {
             "$type": "color",
-            "$value": "{sapphire.400}"
+            "$value": "{sapphire.75}"
         },
         "text-strong": {
             "$type": "color",

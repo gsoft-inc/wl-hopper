@@ -1597,15 +1597,15 @@
       },
       {
         "name": "hop-primary-text",
-        "value": "#95b1ff"
+        "value": "#b9cbff"
       },
       {
         "name": "hop-primary-text-hover",
-        "value": "#6c8ffd"
+        "value": "#95b1ff"
       },
       {
         "name": "hop-primary-text-press",
-        "value": "#4767fe"
+        "value": "#d6e0ff"
       },
       {
         "name": "hop-primary-text-strong",

@@ -100,7 +100,8 @@
     --text-color: var(--hop-Switch-text-color-hover);
 }
 
-.hop-Switch[data-pressed] {
+.hop-Switch[data-pressed],
+.hop-Switch[data-pressed][data-focus-visible] {
     --border-color: var(--hop-Switch-border-color-pressed);
     --background-color: var(--hop-Switch-background-color-pressed);
     --thumb-color: var(--hop-Switch-thumb-color-pressed);
@@ -115,7 +116,8 @@
     --text-color: var(--hop-Switch-text-color-focus);
 }
 
-.hop-Switch[data-selected] {
+.hop-Switch[data-selected],
+.hop-Switch[data-selected][data-pressed] {
     --border-color: var(--hop-Switch-border-color-selected);
     --background-color: var(--hop-Switch-background-color-selected);
     --thumb-color: var(--hop-Switch-thumb-color-selected);

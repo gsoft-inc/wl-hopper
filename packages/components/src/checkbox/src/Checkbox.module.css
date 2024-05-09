@@ -111,18 +111,16 @@
 }
 
 .hop-Checkbox[data-pressed],
-.hop-Checkbox[data-pressed][data-hovered] {
+.hop-Checkbox[data-pressed][data-hovered],
+.hop-Checkbox[data-pressed][data-focus-visible] {
     --box-background-color: var(--hop-Checkbox-box-background-color-pressed);
     --box-border-color: var(--hop-Checkbox-box-border-color-pressed);
     --text-color: var(--hop-Checkbox-text-color-pressed);
     --icon-color: var(--hop-Checkbox-icon-color-pressed);
 }
 
-.hop-Checkbox[data-pressed][data-selected] {
-    --check-color: transparent;
-}
-
-.hop-Checkbox[data-selected] {
+.hop-Checkbox[data-selected],
+.hop-Checkbox[data-selected][data-pressed] {
     --box-background-color: var(--hop-Checkbox-box-background-color-checked-hover);
     --box-border-color: var(--hop-Checkbox-box-border-color-checked-hover);
     --check-display: var(--hop-Checkbox-check-display-checked);
