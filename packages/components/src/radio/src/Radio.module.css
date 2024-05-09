@@ -54,6 +54,8 @@
     --hop-Radio-box-background-color-invalid: var(--hop-neutral-surface);
     --hop-Radio-box-border-color-hover-invalid: var(--hop-danger-border-strong);
     --hop-Radio-box-background-color-hover-invalid: var(--hop-danger-surface);
+    --hop-Radio-box-border-color-pressed-invalid: var(--hop-danger-border-press);
+    --hop-Radio-box-background-color-pressed-invalid: var(--hop-danger-surface-weak);
     --hop-Radio-box-border-color-focus-invalid: var(--hop-danger-border-strong);
     --hop-Radio-box-background-color-focus-invalid: var(--hop-danger-surface);
     --hop-Radio-box-border-color-selected-invalid: var(--hop-danger-border-strong);
@@ -61,6 +63,9 @@
     --hop-Radio-bullet-color-invalid: var(--hop-danger-icon-strong);
     --hop-Radio-text-color-invalid: var(--hop-danger-text-weak);
     --hop-Radio-icon-color-invalid: var(--hop-danger-icon-weak);
+    --hop-Radio-text-color-hover-invalid: var(--hop-danger-text-weak-hover);
+    --hop-Radio-icon-color-hover-invalid: var(--hop-danger-icon-weak-hover);
+    --hop-Radio-text-color-pressed-invalid: var(--hop-danger-text-weak-press);
 
     /* Small */
     --hop-Radio-box-sm-inline-size: 1rem;
@@ -149,6 +154,15 @@
 .hop-Radio[data-invalid][data-hovered] {
     --box-background-color: var(--hop-Radio-box-background-color-hover-invalid);
     --box-border-color: var(--hop-Radio-box-border-color-hover-invalid);
+    --text-color: var(--hop-Radio-text-color-hover-invalid);
+    --icon-color: var(--hop-Radio-text-color-hover-invalid);
+}
+
+.hop-Radio[data-invalid][data-pressed] {
+    --box-background-color: var(--hop-Radio-box-background-color-pressed-invalid);
+    --box-border-color: var(--hop-Radio-box-border-color-pressed-invalid);
+    --text-color: var(--hop-Radio-text-color-pressed-invalid);
+    --icon-color: var(--hop-Radio-icon-color-pressed-invalid);
 }
 
 .hop-Radio[data-invalid][data-focus-visible] {

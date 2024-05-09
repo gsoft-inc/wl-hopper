@@ -492,6 +492,9 @@
 .hop-Button--ghost-primary[data-hovered]:not([data-loading]) .hop-Button__text,
 .hop-Button--ghost-secondary[data-hovered]:not([data-loading]) .hop-Button__text,
 .hop-Button--ghost-danger[data-hovered]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-primary[data-pressed]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-secondary[data-pressed]:not([data-loading]) .hop-Button__text,
+.hop-Button--ghost-danger[data-pressed]:not([data-loading]) .hop-Button__text,
 .hop-Button--ghost-primary[data-focus-visible]:not([data-loading]) .hop-Button__text,
 .hop-Button--ghost-secondary[data-focus-visible]:not([data-loading]) .hop-Button__text,
 .hop-Button--ghost-danger[data-focus-visible]:not([data-loading]) .hop-Button__text {
