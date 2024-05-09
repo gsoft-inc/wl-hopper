@@ -12,9 +12,10 @@ export type PreProps = React.DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, H
     "data-language"?: string;
     raw?: string;
     className?: string;
+    theme?: "light" | "dark";
 };
 
-const Pre = ({ children, className, title, "data-language": dataLanguage, raw, ...props }: PreProps) => {
+const Pre = ({ children, className, title, "data-language": dataLanguage, raw, theme = "dark", ...props }: PreProps) => {
     const classes = clsx("hd-pre", {
         "hd-pre--title": title
     }, className);
@@ -31,7 +32,7 @@ const Pre = ({ children, className, title, "data-language": dataLanguage, raw, .
     const copyButton = raw && <CopyButton onDark={isOnDark} text={raw} />;
 
     return (
-        <pre {...props} className={classes}>
+        <pre {...props} data-theme={theme} className={classes}>
             {title &&
                 <div className="hd-pre-header">
                     <div className="hd-pre-header__info">
