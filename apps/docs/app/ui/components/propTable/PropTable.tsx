@@ -1,5 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getComponentProps } from "@/app/lib/getComponentProps.ts";
+import { capitalize } from "@/app/lib/capitalize.ts";
 
 import Collapsible from "@/components/collapsible/Collapsible.tsx";
 import Title from "@/components/title/Title.tsx";
@@ -10,6 +11,7 @@ import { PropTableRender } from "./PropTableRender.tsx";
 import type { Item } from "./PropTableRender.tsx";
 
 import "./propTable.css";
+
 
 export interface PropTableProps {
     component: string;
@@ -61,7 +63,7 @@ export default async function PropTable({ component }: PropTableProps) {
                             <Collapsible className="hd-props-table__section"
                                 key={key}
                                 title={<Title as="h3" level={3}>
-                                    {key}
+                                    {capitalize(key)}
                                 </Title>}
                             >
                                 <PropTableRender items={group[key]} />
