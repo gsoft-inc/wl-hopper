@@ -66,7 +66,6 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     return data.map(component => {
         // Destructure and ignore id and ref from component.props
         const {key, ref, ...props} = component.props;
-        console.log("autoFocus", props.type);
 
         // Initialize the groups
         const groups: Groups = {
