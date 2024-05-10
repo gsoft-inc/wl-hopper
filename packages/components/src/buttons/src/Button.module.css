@@ -37,7 +37,7 @@
     --hop-Button-secondary-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Button-secondary-border: 0.0625rem solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong-hover);
-    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-text-border-strong);
+    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-border-disabled: 0.0625rem solid var(--hop-Button-secondary-background-color-disabled); /* same color as the background */
     --hop-Button-secondary-spinner-color: var(--hop-neutral-icon);
     --hop-Button-secondary-sm-padding-x: var(--hop-space-inset-sm);
