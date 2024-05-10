@@ -2,7 +2,7 @@
 /* Using closest to get the label is the best way, even react-aria does this. */
 import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
-import { createRef } from "react";
+import { createRef, type MutableRefObject } from "react";
 
 import { Switch } from "../../src/Switch.tsx";
 import { SwitchContext } from "../../src/SwitchContext.ts";
@@ -47,7 +47,7 @@ describe("Switch", () => {
 
         const switchElem = screen.getByRole("switch");
         const element = switchElem.closest("label");
-        
+
         expect(element).toHaveAttribute("slot", "test");
         expect(switchElem).toHaveAttribute("aria-label", "test");
     });
@@ -82,10 +82,11 @@ describe("Switch", () => {
     // ***** Api *****
 
     it("should be focused on render when the focus api is called", async () => {
-        const ref = createRef<HTMLLabelElement>();
+        const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
 
-        render(<Switch ref={ref}>option 1</Switch>);
-        const switchElement = ref.current?.querySelector("input[type='checkbox']") as HTMLInputElement;
+        render(<Switch inputRef={ref} >option 1</Switch>);
+
+        const switchElement = ref.current;
 
         act(() => {
             switchElement?.focus();
