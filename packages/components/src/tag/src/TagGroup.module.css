@@ -1,0 +1,38 @@
+.hop-TagGroup  {
+    /* Default */
+    --hop-TagGroup-row-gap: var(--hop-space-inline-sm);
+    --hop-TagGroup-list-column-gap: var(--hop-space-inline-sm);
+    --hop-TagGroup-list-row-gap: var(--hop-space-inline-sm);
+
+    /* Internal Variables */
+    --row-gap: var(--hop-TagGroup-row-gap);
+    --list-column-gap: var(--hop-TagGroup-list-column-gap);
+    --list-row-gap: var(--hop-TagGroup-list-row-gap);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--row-gap);
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    box-sizing: border-box;
+    inline-size: max-content;
+    max-inline-size: 100%;
+}
+
+.hop-TagGroup > .hop-TagGroup__label {
+    order: 1;
+}
+
+.hop-TagGroup__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--list-row-gap) var(--list-column-gap);
+    align-items: center;
+    order: 2;
+}
+
+.hop-TagGroup > .hop-TagGroup__error-message,
+.hop-TagGroup > .hop-TagGroup__helper-message {
+    order: 3;
+}

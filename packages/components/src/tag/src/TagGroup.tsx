@@ -1,33 +1,56 @@
-import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
-import { useContextProps, TagGroup as RACTagGroup, type TagGroupProps as RACTagGroupProps } from "react-aria-components";
+import { useContextProps, TagGroup as RACTagGroup, type TagGroupProps as RACTagGroupProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
 
+import { ErrorMessageContext } from "../../errorMessage/index.ts";
+import { HelperMessageContext } from "../../helperMessage/index.ts";
+import { LabelContext } from "../../Label/index.ts";
+import { SlotProvider, cssModule } from "../../utils/index.ts";
+
+import { TagContext } from "./TagContext.ts";
 import { TagGroupContext } from "./TagGroupContext.ts";
+import { TagListContext } from "./TagListContext.ts";
+
+import styles from "./TagGroup.module.css";
 
 export const GlobalTagGroupCssSelector = "hop-TagGroup";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultTagGroupSlot = "tagGroup";
-
-type PropsToOmit = "selectionBehavior | selectionMode | disallowEmptySelection | selectedKeys | defaultSelectedKeys | onSelectionChange";
-
-export interface TagGroupProps extends StyledComponentProps<Omit<RACTagGroupProps, PropsToOmit>> {}
+export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
+    /** 
+     * Whether the tags are invalid or not.
+     */
+    isInvalid?: boolean;
+    /**
+     * A tag can vary in size.
+     * @default "md"
+     */
+    size?: ResponsiveProp<"md" | "lg">;
+}
 
 function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultTagGroupSlot }, ref, TagGroupContext);
+    [props, ref] = useContextProps(props, ref, TagGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
         children,
+        isInvalid = false,
         style: styleProp,
+        size: sizeProp,
         ...otherProps
     } = ownProps;
+    
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = clsx(
         className,
         GlobalTagGroupCssSelector,
-        stylingProps.className
+        stylingProps.className,
+        cssModule(
+            styles,
+            "hop-TagGroup",
+            size
+        )
     );
 
     const style: CSSProperties = {
@@ -36,15 +59,44 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     };
 
     return (
-        <RACTagGroup
-            {...otherProps}
-            ref={ref}
-            className={classNames}
-            style={style}
-            selectionMode="none"
+        <SlotProvider
+            values={[
+                [LabelContext, {
+                    className: styles["hop-TagGroup__label"],
+                    size: size
+                }],
+                [TagListContext, {
+                    className: styles["hop-TagGroup__list"]
+                }],
+                [TagContext, {
+                    className: styles["hop-TagGroup__tag"],
+                    isInvalid,
+                    size: size
+                }],
+                [ErrorMessageContext, {
+                    className: styles["hop-TagGroup__error-message"],
+                    hideIcon: true
+                }],
+                [HelperMessageContext, {
+                    className: styles["hop-TagGroup__helper-message"],
+                    hideIcon: true
+                }],
+                [RACFieldErrorContext, {
+                    isInvalid: isInvalid,
+                    validationErrors: [] as never[],
+                    validationDetails: {} as never
+                }]
+            ]}
         >
-            {children}
-        </RACTagGroup>
+            <RACTagGroup
+                {...otherProps}
+                ref={ref}
+                className={classNames}
+                style={style}
+            >
+                {children}
+            </RACTagGroup>
+        </SlotProvider>
     );
 }
 
