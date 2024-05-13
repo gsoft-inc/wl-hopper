@@ -1,7 +1,13 @@
 import type { Config } from "svgo";
 
 import { changeColorPlugin } from "./changeColorPlugin.ts";
-import { NeutralIconColor } from "./constants.ts";
+import { DecorativeOption7IconColor, DecorativeOption7SurfaceColor, NeutralIconColor, White } from "./constants.ts";
+
+export const colors: { [key: string]: string } = {
+    [White]: "var(--hop-richicon-placeholder-neutral-surface, #fff)",
+    [DecorativeOption7IconColor]: "var(--hop-richicon-placeholder-background, #2A2620)",
+    [DecorativeOption7SurfaceColor]: "var(--hop-richicon-placeholder-foreground, #E5DED6)"
+};
 
 const config: Config = {
     multipass: true,
