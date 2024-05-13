@@ -13,18 +13,16 @@ import styles from "./Checkbox.module.css";
 
 export const GlobalCheckboxCssSelector = "hop-Checkbox";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultCheckboxSlot = "checkbox";
-
 export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
     /**
      * A checkbox can vary in size.
+     * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
 }
 
 function Checkbox(props:CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultCheckboxSlot }, ref, CheckboxContext);
+    [props, ref] = useContextProps(props, ref, CheckboxContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

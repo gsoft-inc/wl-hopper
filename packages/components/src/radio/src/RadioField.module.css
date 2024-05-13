@@ -1,0 +1,55 @@
+.hop-RadioField  {
+    /* Default */
+    --hop-RadioField-description-color: var(--hop-neutral-text-weak); 
+
+    /* Disabled */
+    --hop-RadioField-description-color-disabled: var(--hop-neutral-text-disabled); 
+
+    /* Small */
+    --hop-RadioField-sm-row-gap: var(--hop-space-stack-xs);
+    --hop-RadioField-radio-sm-inline-size: 1rem;
+    --hop-RadioField-description-sm-margin-inline-start: calc(var(--hop-RadioField-radio-sm-inline-size) + var(--hop-space-inline-sm));
+
+    /* Medium */
+    --hop-RadioField-md-row-gap: var(--hop-space-stack-xs);
+    --hop-RadioField-radio-md-inline-size: 1.5rem;
+    --hop-RadioField-description-md-margin-inline-start: calc(var(--hop-RadioField-radio-md-inline-size) + var(--hop-space-inline-md));
+
+    /* Internal variable */
+    --description-color: var(--hop-RadioField-description-color);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--row-gap, var(--hop-space-stack-sm));
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    box-sizing: border-box;
+    inline-size: max-content; 
+    max-inline-size: 100%;
+}
+
+.hop-RadioField[data-disabled] {
+    --description-color: var(--hop-RadioField-description-color-disabled);
+}
+
+.hop-RadioField--sm {
+    --row-gap: var(--hop-RadioField-sm-row-gap);
+    --description-margin-inline-start: var(--hop-RadioField-description-sm-margin-inline-start);
+}
+
+.hop-RadioField--md {
+    --row-gap: var(--hop-RadioField-md-row-gap);
+    --description-margin-inline-start: var(--hop-RadioField-description-md-margin-inline-start);
+}
+
+/* Description */
+.hop-RadioField__description {
+    order: 2;
+    margin-inline-start: var(--description-margin-inline-start, var(--hop-RadioField-description-md-margin-inline-start));
+    color: var(--description-color);
+}
+
+.hop-RadioField__radio {
+    order: 1;
+}

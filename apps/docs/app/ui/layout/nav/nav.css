@@ -6,9 +6,9 @@
 }
 
 .hd-nav {
+    display: none;
     font-size: var(--hd-nav-font-size);
     line-height: var(--hd-nav-line-height);
-    display: none;
 }
 
 @media screen and (width >= 37.5rem) {

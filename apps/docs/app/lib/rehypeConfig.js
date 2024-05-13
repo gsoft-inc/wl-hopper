@@ -4,7 +4,10 @@ import rehypePrettyCode from "rehype-pretty-code";
 /** @type {import('rehype-pretty-code').Options } */
 export const rehypeOptions = {
     // Use one of Shiki's packaged themes
-    theme: "nord",
+    theme: {
+        light: "one-dark-pro",
+        dark: "one-dark-pro"
+    },
     keepBackground: false,
     onVisitLine(node) {
         // Prevent lines from collapsing in `display: grid` mode, and

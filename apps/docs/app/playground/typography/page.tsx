@@ -24,7 +24,7 @@ export default function CodeBlockPage() {
                         consistency,
                         simplicity and excellence.
                     </p>
-                    <span className="number">0123456789</span>
+                    <span className="number">0123456789 - 8888888888</span>
                 </div>
                 <h5>Inter Variable</h5>
                 <div className="font-sample inter">
@@ -64,7 +64,7 @@ export default function CodeBlockPage() {
                         consistency,
                         simplicity and excellence.
                     </p>
-                    <span className="number">0123456789</span>
+                    <span className="number">0123456789 - 8888888888</span>
                 </div>
                 <h2 className="">Centering</h2>
                 <h3>Contained</h3>

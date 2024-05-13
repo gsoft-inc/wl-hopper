@@ -1,9 +1,9 @@
 .hd-title {
-  --hd-title-font-family: var(--hd-default-font-family);
+    --hd-title-font-family: var(--hd-default-font-family);
 
-  font-family: var(--hd-title-font-family);
-  line-height: 1;
-  margin-block: 0;
+    font-family: var(--hd-title-font-family);
+    line-height: 1;
+    margin-block: 0;
 }
 
 .hd-title--level1 {
@@ -34,14 +34,12 @@
 .hd-title-link {
     position: relative;
     display: inline;
-    padding-left: 2ch;
-    margin-left: -2ch;
 }
 
-.hd-title-link::before {
+.hd-title-link::after {
     content: "#";
     position: absolute;
-    left: 0;
+    left: calc(100% + 1ch);
     font-size: 1em;
     line-height: inherit;
     color: var(--hd-color-neutral-text-weak);
@@ -49,7 +47,7 @@
     transition: opacity 0.1s ease-in;
 }
 
-.hd-title-link:hover::before,
-.hd-title-link:focus::before {
+.hd-title-link:hover::after,
+.hd-title-link:focus::after {
     opacity: 1;
 }

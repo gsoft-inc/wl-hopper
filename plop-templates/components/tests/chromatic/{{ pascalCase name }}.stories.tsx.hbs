@@ -1,5 +1,6 @@
-import { {{ pascalCase name }} } from "../../src/{{ pascalCase name }}.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { {{ pascalCase name }} } from "../../src/{{ pascalCase name }}.tsx";
 
 const meta = {
     title: "Components/{{ pascalCase name }}",
@@ -10,5 +11,5 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-};
+export const Default = {
+} satisfies Story;

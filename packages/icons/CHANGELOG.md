@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 1.10.1
+
+### Patch Changes
+
+- d78aefb: Fix an issue preventing pointer events on icons
+
 ## 1.10.0
 
 ### Minor Changes

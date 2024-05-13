@@ -12,9 +12,6 @@ import styles from "./Label.module.css";
 
 export const GlobalLabelCssSelector = "hop-Label";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultLabelSlot = "label";
-
 // TODO: Add necessityIndicator and required Props
 export interface LabelProps extends StyledComponentProps<RACLabelProps> {
     /**
@@ -25,7 +22,7 @@ export interface LabelProps extends StyledComponentProps<RACLabelProps> {
 }
 
 function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultLabelSlot }, ref, LabelContext);
+    [props, ref] = useContextProps(props, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, style, ...otherProps } = ownProps;
 

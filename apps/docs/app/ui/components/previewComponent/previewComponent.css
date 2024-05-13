@@ -26,7 +26,7 @@
 
 .hd-component-wrapper__action {
     position: absolute;
-    inset: 1rem 1rem 0 auto;
+    inset: 1rem 1rem auto auto;
     z-index: 100;
 }
 
@@ -34,6 +34,7 @@
 [data-theme="light"] .hd-component-wrapper--dark .hd-component-wrapper__action:hover {
     --hd-color-neutral-icon: var(--hd-neutral-900);
 }
+
 
 [data-theme="dark"] .hd-component-wrapper--light .hd-component-wrapper__action:hover {
     --hd-color-neutral-icon: var(--hd-neutral-0);
@@ -47,6 +48,7 @@
     --hd-color-neutral-icon: var(--hd-neutral-0);
 }
 
+[data-theme="dark"] .hd-component-wrapper--light .hd-preview-component__content,
 .hd-component-wrapper--light .hd-preview-component__content {
     --background: var(--hd-white);
     --color: var(--hd-neutral-50);

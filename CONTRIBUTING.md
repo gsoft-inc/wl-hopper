@@ -144,3 +144,27 @@ The test runner is only available locally, and it is not available in the CI/CD 
 2- Open a second terminal, and run `pnpm test-storybook`
 
 **Note:** We need to run `storybook-nolazy` because the axe test runner is not compatible with the lazy loading of the stories.
+
+
+## Localization and Internationalization
+
+Translation files for English (en-US.json) and Canadian French (fr-CA.json) are available in the packages/i18n/src/intl folder. These files follow the [ICU Message Format standard](https://formatjs.io/docs/core-concepts/icu-syntax).
+
+To implement formatting in your components, use the useLocalizedString hook to access the formatter. Then, call the .format method to apply formatting to your strings.
+
+```js
+const stringFormatter = useLocalizedString();
+
+stringFormatter.format("key") // Use for simple string translations
+stringFormatter.format("key", { value }) // Use when additional formatting is needed
+```
+
+This setup allows for seamless integration of localized content and formatting within your components.
+
+We store all the string in a single file for now, which is not great for tree-shaking, but at the moment we expect
+only a few strings to be used in the library. If we see that the bundle size is too big, we can split the strings
+into a file per component.
+
+
+
+

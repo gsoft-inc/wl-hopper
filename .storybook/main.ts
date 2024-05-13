@@ -2,6 +2,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import type { Options } from "@storybook/types";
 import type { Options as SwcOptions } from "@swc/core";
+import path from "path";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 
 import { swcConfig as SwcBuildConfig } from "./swc.build.ts";
@@ -58,26 +59,41 @@ const storybookConfig: StorybookConfig = {
             })
         ].filter(Boolean);
 
-        // We find the CSS Loader and set the localIdentName to a more readable format
-        config.module?.rules?.forEach(rule => {
-            if (typeof rule === "object" && rule?.test?.toString() === "/\\.css$/" && Array.isArray(rule.use)) {
-                rule.use.forEach(loader => {
+        // Modify the css-loader options to simplify the class names
+        // By default, with the config, the classnames are like this: GETEs8cGi4WwwvV1ooFy MUs8LC8twKwy5uAnhOWJ PafTkO4uwI6M3m4HX7JI
+        // With this new config, the classnames are like this: hop-Button___GETEs hop-Button--primary___MUs8L hop-Button--md___PafTk
+        for (const rule of config.module?.rules || []) {
+            if (typeof rule === "object" && rule?.use && Array.isArray(rule.use)) {
+                for (const loader of rule.use) {
                     if (typeof loader === "object" && loader?.loader?.includes("css-loader")) {
-                        const cssLoaderOptions = typeof loader.options === "string" ? { } : loader.options;
-                        loader.options = {
-                            ...cssLoaderOptions,
-                            modules: {
-                                ...((typeof cssLoaderOptions?.modules === "string" ? { mode: cssLoaderOptions?.modules } : cssLoaderOptions?.modules)),
-                                localIdentName: "[local]___[hash:base64:5]"
-                            }
-                        };
+                        const cssLoader = loader;
+                        if (cssLoader && typeof cssLoader === "object") {
+                            const previousOptions = typeof cssLoader.options === "string" ? { } : cssLoader.options;
+                            cssLoader.options = {
+                                ...previousOptions,
+                                modules: {
+                                    ...((typeof previousOptions?.modules === "string" ? { mode: previousOptions?.modules } : previousOptions?.modules)),
+                                    auto: true,
+                                    localIdentName: "[local]___[hash:base64:5]"
+                                }
+                            };
+                        }
                     }
-                });
+                }
             }
+        }
+
+        // This is a custom loader that will be used to load the intl json files and convert them to a format that can
+        // be used by the react-aria useLocalizedStringFormatter hook for formatting.
+        config.module?.rules?.push({
+            loader: path.resolve(".storybook/intl-loader.js"),
+            test: /(intl).*\.json$/,
+            type: "javascript/auto"
         });
 
         return config;
     }
 };
+
 
 export default storybookConfig;
