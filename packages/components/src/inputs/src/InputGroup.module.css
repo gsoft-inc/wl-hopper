@@ -14,7 +14,7 @@
     padding-inline: var(--hop-space-inset-md) var(--hop-space-inset-md);
 
     background: var(--input-group-background);
-    border: 1px solid var(--input-group-border);
+    border: 0.0625rem solid var(--input-group-border);
     border-radius: var(--hop-shape-rounded-md)
 }
 

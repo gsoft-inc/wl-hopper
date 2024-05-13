@@ -1,8 +1,9 @@
 /**
  * @jest-environment node
  */
-import { TextField } from "../../src/TextField.tsx";
 import { renderToString } from "react-dom/server";
+
+import { TextField } from "../../src/TextField.tsx";
 
 describe("TextField", () => {
     it("should render on the server", () => {

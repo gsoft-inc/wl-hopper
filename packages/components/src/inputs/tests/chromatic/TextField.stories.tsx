@@ -1,5 +1,6 @@
-import { TextField } from "../../src/TextField.tsx";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { TextField } from "../../src/TextField.tsx";
 
 const meta = {
     title: "Components/TextField",
