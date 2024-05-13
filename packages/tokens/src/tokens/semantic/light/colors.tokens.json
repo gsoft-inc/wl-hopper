@@ -1065,11 +1065,11 @@
             },
             "text": {
                 "$type": "color",
-                "$value": "{sapphire.500}"
+                "$value": "{sapphire.600}"
             },
             "icon": {
                 "$type": "color",
-                "$value": "{sapphire.500}"
+                "$value": "{sapphire.600}"
             }
         }
     },
