@@ -1,5 +1,6 @@
 import type { Config } from "svgo";
 
+import { changeColorPlugin } from "./changeColorPlugin.ts";
 import { NeutralIconColor } from "./constants.ts";
 
 const config: Config = {
@@ -12,7 +13,7 @@ const config: Config = {
                     /**
                      * viewBox is needed in order to produce 20px by 20px containers
                      * with smaller icons inside.
-                    */
+                     */
                     removeViewBox: false,
                     /**
                      * Some of our icons have multiple fill colors. We want to keep them, but replace the main icon color
@@ -62,7 +63,8 @@ const config: Config = {
             params: {
                 attrs: ["svg:fill:none", "*:fill:currentColor"]
             }
-        }
+        },
+        changeColorPlugin
     ]
 };
 
