@@ -8,14 +8,14 @@ import {
     DecorativeOption7SurfaceColor,
     NeutralIconColor,
     White,
-    WhiteExadecimal
+    WhiteHexadecimal
 } from "./constants.ts";
 
 export const colors: { [key: string]: string } = {
-    [PrimaryIconColor]: `var(--hop-Icon-primary-icon, ${PrimaryIconColor})`,
-    [WarningWeakIconColor]: `var(--hop-Icon-warning-icon-weak, ${WarningWeakIconColor})`,
-    [White]: `var(--hop-Richicon-placeholder-fill, ${WhiteExadecimal})`,
-    [WhiteExadecimal]: `var(--hop-Richicon-placeholder-fill, ${WhiteExadecimal})`,
+    [PrimaryIconColor]: `var(--hop-Icon-placeholder-primary-icon, ${PrimaryIconColor})`,
+    [WarningWeakIconColor]: `var(--hop-Icon-placeholder-warning-icon-weak, ${WarningWeakIconColor})`,
+    [White]: `var(--hop-Richicon-placeholder-fill, ${WhiteHexadecimal})`,
+    [WhiteHexadecimal]: `var(--hop-Richicon-placeholder-fill, ${WhiteHexadecimal})`,
     [DecorativeOption7IconColor]: `var(--hop-Richicon-placeholder-background, ${DecorativeOption7IconColor})`,
     [DecorativeOption7SurfaceColor]: `var(--hop-Richicon-placeholder-shadow, ${DecorativeOption7SurfaceColor})`
 };
