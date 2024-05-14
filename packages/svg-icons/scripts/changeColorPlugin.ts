@@ -20,7 +20,7 @@ export const changeColorPlugin = {
                 enter: (node: XastElement) => {
                     for (const [nodeName, nodeValue] of Object.entries(node.attributes)) {
                         if (colorsProps.has(nodeName)) {
-                            let value = nodeValue as string;
+                            let value = nodeValue;
 
                             if (colors[value]) {
                                 value = colors[value];
