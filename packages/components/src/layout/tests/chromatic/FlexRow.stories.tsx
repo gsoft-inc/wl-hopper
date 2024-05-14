@@ -124,7 +124,7 @@ export const Reverse: Story = {
 
 export const Styling: Story = {
     parameters: {
-        ...a11yParameters({ disabled: true })
+        ...a11yParameters({ disableContrastCheck: true })
     },
     render: args => (
         <Inline>

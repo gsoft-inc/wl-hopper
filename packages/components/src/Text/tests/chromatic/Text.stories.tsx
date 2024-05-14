@@ -38,7 +38,7 @@ export const Inherit: Story = {
 
 export const Styling: Story = {
     parameters: {
-        ...a11yParameters({ disabled: true })
+        ...a11yParameters({ disableContrastCheck: true })
     },
     render: props => (
         <>
