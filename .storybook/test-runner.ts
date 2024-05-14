@@ -20,7 +20,7 @@ export const config = {
         const a11yParameters = getA11yAddonParameters(storyContext.parameters);
 
         // Do not run a11y tests on disabled stories.
-        if (a11yParameters?.disabled) {
+        if (a11yParameters?.disable) {
             return;
         }
 
