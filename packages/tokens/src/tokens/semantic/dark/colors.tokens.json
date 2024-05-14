@@ -764,7 +764,7 @@
         },
         "icon-press": {
             "$type": "color",
-            "$value": "{sapphire.400}"
+            "$value": "{sapphire.75}"
         },
         "icon-strong": {
             "$type": "color",

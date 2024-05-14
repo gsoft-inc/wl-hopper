@@ -1,6 +1,6 @@
 ---
 "@hopper-ui/styled-system": major
 "@hopper-ui/tokens": major
+"@hopper-ui/components": minor
 ---
 
-Added new tokens - updated some existing values

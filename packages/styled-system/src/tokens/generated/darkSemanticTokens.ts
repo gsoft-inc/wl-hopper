@@ -187,7 +187,7 @@ export const DarkSemanticTokens = {
     "--hop-primary-icon-selected": "var(--hop-sapphire-200)",
     "--hop-primary-icon-disabled": "var(--hop-sapphire-700)",
     "--hop-primary-icon-hover": "var(--hop-sapphire-300)",
-    "--hop-primary-icon-press": "var(--hop-sapphire-400)",
+    "--hop-primary-icon-press": "var(--hop-sapphire-75)",
     "--hop-primary-icon-strong": "var(--hop-samoyed)",
     "--hop-primary-icon-strong-hover": "var(--hop-sapphire-300)",
     "--hop-primary-surface": "var(--hop-sapphire-200)",
