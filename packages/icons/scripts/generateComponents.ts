@@ -4,9 +4,7 @@ import path from "path";
 
 import {
     IconSuffix,
-    PrimaryIconColor,
-    RichIconSuffix,
-    WarningWeakIconColor
+    RichIconSuffix
 } from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetchSvgs.ts";
 import svgoConfig from "./svgo-config.ts";
