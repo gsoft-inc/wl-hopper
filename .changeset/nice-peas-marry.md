@@ -4,7 +4,7 @@
 
 Add color variables for custom rich-icons styling
 
-to change the background color, use the variable `--hop-richicon-placeholder-background`
-to change the foreground color, use the variable `--hop-richicon-placeholder-foreground`
+to change the background color, use the variable `--hop-Richicon-placeholder-background`
+to change the shadow color, use the variable `--hop-Richicon-placeholder-shadow`
 
 ``

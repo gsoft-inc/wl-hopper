@@ -2,7 +2,12 @@ import { transform } from "@svgr/core";
 import fs from "fs";
 import path from "path";
 
-import { DecorativeOption7IconColor, DecorativeOption7SurfaceColor, IconSuffix, White, PrimaryIconColor, RichIconSuffix, WarningWeakIconColor } from "./constants.ts";
+import {
+    IconSuffix,
+    PrimaryIconColor,
+    RichIconSuffix,
+    WarningWeakIconColor
+} from "./constants.ts";
 import type { MultiSourceIconSource } from "./fetchSvgs.ts";
 import svgoConfig from "./svgo-config.ts";
 
@@ -34,13 +39,6 @@ export async function generateComponents(componentDirectory: string, icons: Mult
             componentCode += transform.sync(data, {
                 typescript: true,
                 ref: true,
-                replaceAttrValues: {
-                    [PrimaryIconColor]: "var(--hop-primary-icon)",
-                    [WarningWeakIconColor]: "var(--hop-warning-icon-weak)",
-                    [DecorativeOption7IconColor]: `var(--hop-richicon-placeholder-icon-color, ${DecorativeOption7IconColor})`,
-                    [DecorativeOption7SurfaceColor]: `var(--hop-richicon-placeholder-surface-color, ${DecorativeOption7SurfaceColor})`,
-                    [White]: `var(--hop-richicon-placeholder-icon-strong-color, ${White})` // TODO: should be --hop-decorative-option7-icon-strong once it exists
-                },
                 jsxRuntime: "automatic",
                 svgoConfig: svgoConfig,
                 plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],

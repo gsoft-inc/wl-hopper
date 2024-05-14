@@ -1,13 +1,24 @@
 import type { Config } from "svgo";
 
 import { changeColorPlugin } from "./changeColorPlugin.ts";
-import { DecorativeOption7IconColor, DecorativeOption7SurfaceColor, NeutralIconColor, White } from "./constants.ts";
+import {
+    PrimaryIconColor,
+    WarningWeakIconColor,
+    DecorativeOption7IconColor,
+    DecorativeOption7SurfaceColor,
+    NeutralIconColor,
+    White,
+    WhiteExadecimal
+} from "./constants.ts";
 
-export const colors: { [key: string]: string } = {
-    [White]: "var(--hop-richicon-placeholder-neutral-surface, #fff)",
-    [DecorativeOption7IconColor]: "var(--hop-richicon-placeholder-background, #2A2620)",
-    [DecorativeOption7SurfaceColor]: "var(--hop-richicon-placeholder-foreground, #E5DED6)"
-};
+export const colors = {
+    [PrimaryIconColor]: `var(--hop-Icon-primary-icon, ${PrimaryIconColor})`,
+    [WarningWeakIconColor]: `var(--hop-Icon-warning-icon-weak, ${WarningWeakIconColor})`,
+    [White]: `var(--hop-Richicon-placeholder-fill, ${WhiteExadecimal})`,
+    [WhiteExadecimal]: `var(--hop-Richicon-placeholder-fill, ${WhiteExadecimal})`,
+    [DecorativeOption7IconColor]: `var(--hop-Richicon-placeholder-background, ${DecorativeOption7IconColor})`,
+    [DecorativeOption7SurfaceColor]: `var(--hop-Richicon-placeholder-shadow, ${DecorativeOption7SurfaceColor})`
+} satisfies Record<string, string>;
 
 const config: Config = {
     multipass: true,
