@@ -268,6 +268,11 @@ export const PrimaryStates: Story = {
                     link.setAttribute("data-hovered", "true");
                     link.removeAttribute("data-chromatic-force-hover");
                 }
+
+                if (link.getAttribute("data-chromatic-force-press")) {
+                    link.setAttribute("data-pressed", "true");
+                    link.removeAttribute("data-chromatic-force-press");
+                }
             }
         });
     },
@@ -282,6 +287,8 @@ export const PrimaryStates: Story = {
                 <StateTemplate {...args} data-chromatic-force-focus />
                 <h1>Hovered</h1>
                 <StateTemplate {...args} data-chromatic-force-hover />
+                <h1>Pressed</h1>
+                <StateTemplate {...args} data-chromatic-force-press />
                 <h1>Focus Visible and Hovered</h1>
                 <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
             </Stack>
