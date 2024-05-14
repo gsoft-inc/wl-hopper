@@ -1,7 +1,9 @@
 ---
 "@hopper-ui/styled-system": major
 "@hopper-ui/tokens": major
-"@hopper-ui/components": minor
+"@hopper-ui/components": major
+"@hopper-ui/icons": major
+
 ---
 
 ## @hopper-ui/tokens
