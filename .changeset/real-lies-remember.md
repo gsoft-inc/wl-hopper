@@ -1,8 +1,8 @@
 ---
-"@hopper-ui/icons": major
+"@hopper-ui/icons": patch
 ---
 
-Breaking change: Updated the icons variables to be more consistent with the other components.
+Updated the icons variables to be more consistent with the other components.
 
 Will need to update the style sheets to use the new CSS variables. 
 
