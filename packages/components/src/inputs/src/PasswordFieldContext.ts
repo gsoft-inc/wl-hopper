@@ -1,8 +1,8 @@
 import { createContext } from "react";
 import type { ContextValue } from "react-aria-components";
 
-import type { TextFieldProps } from "./TextField.tsx";
+import type { PasswordFieldProps } from "./PasswordField.tsx";
 
-export const TextFieldContext = createContext<ContextValue<TextFieldProps, HTMLDivElement>>({});
+export const PasswordFieldContext = createContext<ContextValue<PasswordFieldProps, HTMLDivElement>>({});
 
-TextFieldContext.displayName = "TextFieldContext";
+PasswordFieldContext.displayName = "PasswordFieldContext";

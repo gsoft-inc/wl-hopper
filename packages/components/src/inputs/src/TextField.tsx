@@ -1,7 +1,8 @@
 import { DismissIcon, IconContext } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, useState, type ForwardedRef, type ReactNode } from "react";
+import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type ReactNode } from "react";
 import { chain } from "react-aria";
+import { useControlledState } from "@react-stately/utils";
 import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
 
 import { Button, type ButtonProps } from "../../buttons/index.ts";
@@ -15,6 +16,7 @@ import { InputGroup } from "./InputGroup.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
 
 import styles from "./TextField.module.css";
+import { useLocalizedString } from "../../i18n/index.ts";
 
 export const GlobalTextFieldCssSelector = "hop-TextField";
 
@@ -37,11 +39,18 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
+
+    /**
+     * Handler that is called when the clear button is pressed.
+     */
+    onClear?:	() => void
 }
 
 function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, TextFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+
+
     const [characterCount, setCharacterCount] = useState(props.value?.length ?? 0);
 
     const {
@@ -55,6 +64,9 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isClearable,
         onChange: onChangeProp,
         children,
+        onClear,
+        defaultValue,
+        value: valueProp,
         ...otherProps
     } = ownProps;
 
@@ -78,9 +90,16 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const handleTextChanged = (value: string) => {
         setCharacterCount(value.length);
+
+        onChangeProp?.(value);
     };
 
-    const onChange = chain(handleTextChanged, onChangeProp);
+    const [value, onChange] = useControlledState<string>(valueProp, defaultValue || '', handleTextChanged);
+
+    const handleClear = useCallback(() => {
+        onChange("");
+        onClear?.()
+    }, [onChange, onClear]);
 
     const showClearButton = isClearable && characterCount !== 0;
     if (showCharacterCount && !maxLength) {
@@ -101,7 +120,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                 </SlotProvider>
                 <Input placeholder={placeholder} />
 
-                {showClearButton && <CrossButton />}
+                {showClearButton && <CrossButton onPress={handleClear} />}
                 {showCharacterCount && maxLength && <CharacterCount characterLeft={maxLength - characterCount} />}
             </InputGroup>
         </ClearContainerSlots>
@@ -124,7 +143,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     });
 
     return (
-        <RACTextField style={style} className={classNames} maxLength={maxLength} onChange={onChange} {...otherProps}>
+        <RACTextField value={value} style={style} className={classNames} maxLength={maxLength} onChange={onChange} {...otherProps}>
             {childrenMarkup}
         </RACTextField>
     );
@@ -135,8 +154,9 @@ interface CharacterCountProps {
 }
 
 function CharacterCount({ characterLeft }: CharacterCountProps) {
-    // TODO
-    const accessibilityString = characterLeft === 1 ? `${characterLeft} character left` : `${characterLeft} characters left`;
+    const stringFormatter = useLocalizedString();
+
+    const accessibilityString = stringFormatter.format("Input.charactersLeft", {charLeft: characterLeft})
 
     return <Text aria-label={accessibilityString} color="neutral-weakest" size="xs">{characterLeft}</Text>;
 }
@@ -147,7 +167,6 @@ function CrossButton(props: Omit<ButtonProps, "children">) {
         <Button size="sm" variant="ghost-secondary" aria-label="TODO" {...props}><DismissIcon /></Button>
     );
 }
-
 
 /**
  * TODO: tagline

@@ -2,12 +2,11 @@ import { AngleDownIcon, DismissIcon, EyeHiddenIcon, EyeVisibleIcon, SearchIcon }
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import { Button } from "../../buttons/index.ts";
 import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
 import { Label } from "../../Label/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { TextField, type TextFieldProps } from "../src/TextField.tsx";
+import { PasswordField } from "../src/PasswordField.tsx";
 
 /**
  * TODO: Add description
@@ -19,67 +18,33 @@ import { TextField, type TextFieldProps } from "../src/TextField.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/TextField",
+    title: "Docs/PasswordField",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: TextField,
+    component: PasswordField,
     args: {
         placeholder: "Placeholder",
         children: [
-            <Label key="1">TextField Label</Label>
+            <Label key="1">PasswordField Label</Label>
         ]
     }
-} satisfies Meta<typeof TextField>;
+} satisfies Meta<typeof PasswordField>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+
 export const Default: Story = {
     render: args => (
         <Stack>
-            <TextField size="sm" {...args} />
-            <TextField {...args} />
+            <PasswordField size="sm" {...args} />
+            <PasswordField {...args} />
         </Stack>
     )
-};
-
-export const PrefixIcon: Story = {
-    ...Default,
-    args: {
-        ...Default.args,
-        prefix: <SearchIcon />
-    }
-};
-
-export const PrefixText: Story = {
-    ...Default,
-    args: {
-        ...Default.args,
-        prefix: "$"
-    }
-};
-
-export const TextAddon: Story = {
-    name: "Suffix, Char. limit",
-    ...Default,
-    args: {
-        ...Default.args,
-        showCharacterCount: true,
-        maxLength: 60
-    }
-};
-
-export const ButtonStory: Story = {
-    name: "Suffix, Clear CTA",
-    ...Default,
-    args: {
-        ...Default.args,
-        isClearable: true
-    }
 };
 
 export const Description: Story = {
@@ -92,6 +57,7 @@ export const Description: Story = {
         ]
     }
 };
+
 
 export const Error: Story = {
     ...Default,

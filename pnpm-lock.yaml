@@ -264,6 +264,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.24.0
         version: 3.24.0(react@18.3.1)
+      '@react-stately/utils':
+        specifier: ^3.10.0
+        version: 3.10.0(react@18.3.1)
       '@react-types/shared':
         specifier: ^3.23.0
         version: 3.23.0(react@18.3.1)
