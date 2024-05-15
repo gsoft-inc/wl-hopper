@@ -22,15 +22,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     const observer = useRef<IntersectionObserver | null>(null);
     const sectionTitleDomElement = "[data-section-title]";
     const titleHeight = 28;
-
-    const setInitialActiveItemIndex = () => {
-        const lastVisibleSection = findLastFullyVisibleSection();
-        if (lastVisibleSection) {
-            const lastVisibleSectionIndex = links.findIndex(link => link.id === lastVisibleSection);
-            setActiveItemIndex(lastVisibleSectionIndex);
-        }
-    };
-
+    
     useEffect(() => {
         const sectionsTitle = document.querySelectorAll(sectionTitleDomElement);
         const options = {
@@ -49,6 +41,13 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
             observer.current?.observe(sectionTitle);
         });
 
+        const setInitialActiveItemIndex = () => {
+            const lastVisibleSection = findLastFullyVisibleSection();
+            if (lastVisibleSection) {
+                const lastVisibleSectionIndex = links.findIndex(link => link.id === lastVisibleSection);
+                setActiveItemIndex(lastVisibleSectionIndex);
+            }
+        };
 
         setInitialActiveItemIndex();
 
@@ -59,7 +58,6 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
             });
         };
     }, [links]);
-
 
     // Custom function to determine the last fully visible section in the viewport
     const findLastFullyVisibleSection = () => {
@@ -82,7 +80,6 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
 
     // Scroll handler to set the active section when scrolling up
     const handleScroll = () => {
-        console.log("scrolling");
         const lastVisibleSection = findLastFullyVisibleSection();
         if (lastVisibleSection) {
             setActiveSection(lastVisibleSection);
