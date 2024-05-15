@@ -37,6 +37,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
     const stringFormatter = useLocalizedString();
 
     const {
+        "aria-label": ariaLabel = stringFormatter.format("ClearButton.clearAriaLabel"),
         className,
         isDisabled,
         isLoading,
@@ -72,6 +73,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
             slot={slot}
             data-loading={isLoading}
             isDisabled={isDisabled || isLoading}
+            aria-label={ariaLabel}
             {...otherProps}
         >
             {() => {
