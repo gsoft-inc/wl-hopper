@@ -81,10 +81,3 @@
     --color: var(--hop-ClearButton-color-pressed);
     --border: var(--hop-ClearButton-border-pressed);
 }
-
-/** Elements */
-.hop-ClearButton__Spinner {
-    position: absolute;
-    justify-self: center;
-    color: var(--spinner-color)
-}

@@ -68,11 +68,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
             aria-label={ariaLabel}
             {...otherProps}
         >
-            {() => {
-                return (
-                    <DismissIcon size="sm" />
-                );
-            }}
+            <DismissIcon size="sm" />
         </RACButton>
     );
 }
