@@ -42,13 +42,3 @@ export const Disabled: Story = {
         isDisabled: true
     }
 };
-
-/**
- * A clearButton can show a loading indicator..
- */
-export const Loading: Story = {
-    ...Default,
-    args: {
-        isLoading: true
-    }
-};

@@ -1,5 +1,4 @@
 import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
-import { userEvent } from "@testing-library/user-event";
 import { createRef } from "react";
 
 import { ClearButton } from "../../src/ClearButton.tsx";
@@ -61,36 +60,6 @@ describe("ClearButton", () => {
         const button = screen.getByRole("button");
         expect(button).toHaveAttribute("form", "foo");
         expect(button).toHaveAttribute("formMethod", "post");
-    });
-
-    /** Loading */
-    it("should show a spinner when the button is loading", async () => {
-        render(<ClearButton isLoading />
-        );
-
-        const element = screen.getByRole("progressbar");
-        expect(element).not.toBeNull();
-    });
-
-    it("should add data-loading and disabled attributes when the button is loading", async () => {
-        render(<ClearButton isLoading />);
-
-        const element = screen.getByRole("button");
-        expect(element).toHaveAttribute("data-loading", "true");
-        expect(element).toHaveAttribute("disabled");
-    });
-
-    it("should prevent onPress when the button is loading", async () => {
-        const handler = jest.fn();
-        const user = userEvent.setup();
-
-        render(<ClearButton isLoading onPress={handler} />
-        );
-
-        const element = screen.getByRole("button");
-        await user.click(element);
-
-        expect(handler).not.toHaveBeenCalled();
     });
 
     // ***** Api *****

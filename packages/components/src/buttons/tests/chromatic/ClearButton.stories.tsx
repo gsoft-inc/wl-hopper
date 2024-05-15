@@ -23,9 +23,6 @@ export const Default: Story = {
                     <Inline alignY="end">
                         <ClearButton {...args} />
                     </Inline>
-                    <Inline alignY="end">
-                        <ClearButton isLoading {...args} />
-                    </Inline>
                 </Stack>
                 <Stack>
                     <h1>Zoom</h1>
@@ -46,7 +43,6 @@ export const Default: Story = {
 const StateTemplate = (args: Partial<ClearButtonProps>) => (
     <Inline alignY="end">
         <ClearButton {...args} />
-        <ClearButton isLoading />
     </Inline>
 );
 

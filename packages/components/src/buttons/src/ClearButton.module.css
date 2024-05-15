@@ -61,25 +61,22 @@
     outline: 0.125rem solid var(--hop-ClearButton-focus-ring-color);
 }
 
-.hop-ClearButton[data-disabled],
-.hop-ClearButton[data-loading] {
-    cursor: not-allowed;
-}
-
-.hop-ClearButton[data-disabled]:not([data-loading]) {
+.hop-ClearButton[data-disabled] {
     --background-color: var(--hop-ClearButton-background-color-disabled);
     --color: var(--hop-ClearButton-color-disabled);
     --border: var(--hop-ClearButton-border-disabled);
+
+    cursor: not-allowed;
 }
 
-.hop-ClearButton[data-hovered]:not([data-disabled], [data-loading]),
-.hop-ClearButton[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-ClearButton[data-hovered]:not([data-disabled]),
+.hop-ClearButton[data-focus-visible]:not([data-disabled]) {
     --background-color: var(--hop-ClearButton-background-color-hover);
     --color: var(--hop-ClearButton-color-hover);
     --border: var(--hop-ClearButton-border-hover);
 }
 
-.hop-ClearButton[data-pressed]:not([data-loading]) {
+.hop-ClearButton[data-pressed] {
     --background-color: var(--hop-ClearButton-background-color-pressed);
     --color: var(--hop-ClearButton-color-pressed);
     --border: var(--hop-ClearButton-border-pressed);
@@ -90,12 +87,4 @@
     position: absolute;
     justify-self: center;
     color: var(--spinner-color)
-}
-
-/* Keep element present to:
- - allow the screen readers to read the content
- - preserve the button's size
-*/
-.hop-ClearButton[data-loading] > *:not(.hop-ClearButton__Spinner) {
-    opacity: 0;
 }

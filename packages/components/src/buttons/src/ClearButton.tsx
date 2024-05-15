@@ -12,7 +12,6 @@ import {
 } from "react-aria-components";
 
 import { useLocalizedString } from "../../i18n/index.ts";
-import { Spinner } from "../../Spinner/index.ts";
 import {
     composeClassnameRenderProps,
     cssModule
@@ -24,11 +23,7 @@ import styles from "./ClearButton.module.css";
 
 export const GlobalClearButtonCssSelector = "hop-ClearButton";
 
-export interface ClearButtonProps extends StyledComponentProps<Omit<RACButtonProps, "children">> {
-
-    /** A clearButton can show a loading indicator.*/
-    isLoading?: boolean;
-}
+export interface ClearButtonProps extends StyledComponentProps<Omit<RACButtonProps, "children">> {}
 
 function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     [props, ref] = useContextProps(props, ref, ClearButtonContext);
@@ -40,7 +35,6 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
         "aria-label": ariaLabel = stringFormatter.format("ClearButton.clearAriaLabel"),
         className,
         isDisabled,
-        isLoading,
         style: styleProp,
         slot = "remove",
         ...otherProps
@@ -51,8 +45,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
         GlobalClearButtonCssSelector,
         cssModule(
             styles,
-            "hop-ClearButton",
-            isLoading && "loading"
+            "hop-ClearButton"
         ),
         stylingProps.className
     );
@@ -71,23 +64,13 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
             className={classNames}
             style={style}
             slot={slot}
-            data-loading={isLoading}
-            isDisabled={isDisabled || isLoading}
+            isDisabled={isDisabled}
             aria-label={ariaLabel}
             {...otherProps}
         >
             {() => {
                 return (
-                    <>
-                        <DismissIcon size="sm" />
-                        {isLoading && (
-                            <Spinner
-                                aria-label={stringFormatter.format("Button.spinnerAriaLabel")}
-                                size="sm"
-                                className={styles["hop-ClearButton__Spinner"]}
-                            />
-                        )}
-                    </>
+                    <DismissIcon size="sm" />
                 );
             }}
         </RACButton>
