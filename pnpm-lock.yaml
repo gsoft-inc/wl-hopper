@@ -161,6 +161,9 @@ importers:
       react:
         specifier: 18.3.1
         version: 18.3.1
+      react-aria:
+        specifier: 3.33.0
+        version: 3.33.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-aria-components:
         specifier: 1.2.0
         version: 1.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -259,8 +262,8 @@ importers:
   packages/components:
     dependencies:
       '@hopper-ui/icons':
-        specifier: ^1.10.1
-        version: 1.10.1(@hopper-ui/styled-system@packages+styled-system)(react-aria-components@1.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../icons
       '@react-aria/utils':
         specifier: ^3.24.0
         version: 3.24.0(react@18.3.1)
@@ -1876,14 +1879,6 @@ packages:
 
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
-
-  '@hopper-ui/icons@1.10.1':
-    resolution: {integrity: sha512-Di6elCjPfb7u1RaNGYJq+ZOMYCm/D9Nwn1EDIpl9lLE/vnKFl/cY5CS1kViGEXr53ccnBGlf1mFPddWbZLrUbg==}
-    peerDependencies:
-      '@hopper-ui/styled-system': ^1
-      react: ^18
-      react-aria-components: ^1.1.0
-      react-dom: ^18
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -11666,15 +11661,6 @@ snapshots:
   '@hapi/topo@5.1.0':
     dependencies:
       '@hapi/hoek': 9.3.0
-
-  '@hopper-ui/icons@1.10.1(@hopper-ui/styled-system@packages+styled-system)(react-aria-components@1.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@hopper-ui/styled-system': link:packages/styled-system
-      '@react-aria/utils': 3.24.0(react@18.3.1)
-      clsx: 2.1.1
-      react: 18.3.1
-      react-aria-components: 1.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:

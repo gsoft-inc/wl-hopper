@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/icons",
     "author": "Workleap",
-    "version": "1.10.1",
+    "version": "2.1.0",
     "description": "The icons package.",
     "license": "Apache-2.0",
     "repository": {
@@ -38,7 +38,7 @@
         "generate-icons": "tsx scripts/build.ts"
     },
     "peerDependencies": {
-        "@hopper-ui/styled-system": "^1",
+        "@hopper-ui/styled-system": "^2.0.0",
         "react": "^18",
         "react-aria-components": "^1.1.0",
         "react-dom": "^18"

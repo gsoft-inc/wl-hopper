@@ -1,4 +1,5 @@
 {
     "Button.spinnerAriaLabel": "Loading",
+    "ClearButton.clearAriaLabel": "Clear",
     "Input.charactersLeft": "{charLeft, plural, =0 {No characters left} one {# character left} other {# characters left}}."
 }

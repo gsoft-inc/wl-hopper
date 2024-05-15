@@ -1,0 +1,83 @@
+.hop-ClearButton {
+    --hop-ClearButton-border-radius: var(--hop-shape-rounded-sm);
+    --hop-ClearButton-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-ClearButton-color: var(--hop-neutral-icon-weak);
+    --hop-ClearButton-color-hover: var(--hop-neutral-icon-weak-hover);
+    --hop-ClearButton-color-pressed: var(--hop-neutral-icon-weak-press);
+    --hop-ClearButton-color-disabled: var(--hop-neutral-icon-disabled);
+    --hop-ClearButton-background-color: transparent;
+    --hop-ClearButton-background-color-hover: var(--hop-neutral-surface-hover);
+    --hop-ClearButton-background-color-pressed: var(--hop-neutral-surface-press);
+    --hop-ClearButton-background-color-disabled: transparent;
+    --hop-ClearButton-spinner-color: var(--hop-neutral-icon);
+    --hop-ClearButton-height: 1rem;
+    --hop-ClearButton-width: 1rem;
+
+    /* Internal variable */
+    --inline-size: var(--hop-ClearButton-width);
+    --block-size: var(--hop-ClearButton-height);
+    --spinner: var(--hop-primary-icon-strong);
+    --padding-inline: 0;
+    --padding-block: 0;
+    --background-color: var(--hop-ClearButton-background-color);
+    --color: var(--hop-ClearButton-color);
+    --border: var(--hop-ClearButton-border);
+    --spinner-color: var(--hop-ClearButton-spinner-color);
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
+
+    /** styles */
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    column-gap: var(--hop-space-inline-xs);
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    inline-size: var(--inline-size);
+    block-size: var(--block-size);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    color: var(--color);
+    text-decoration: none;
+    white-space: nowrap;
+
+    background-color: var(--background-color);
+    border: none;
+    border-radius: var(--hop-ClearButton-border-radius);
+    outline: none;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition);
+}
+
+/** Focus Ring */
+.hop-ClearButton[data-focus-visible] {
+    outline: 0.125rem solid var(--hop-ClearButton-focus-ring-color);
+}
+
+.hop-ClearButton[data-disabled] {
+    --background-color: var(--hop-ClearButton-background-color-disabled);
+    --color: var(--hop-ClearButton-color-disabled);
+    --border: var(--hop-ClearButton-border-disabled);
+
+    cursor: not-allowed;
+}
+
+.hop-ClearButton[data-hovered]:not([data-disabled]),
+.hop-ClearButton[data-focus-visible]:not([data-disabled]) {
+    --background-color: var(--hop-ClearButton-background-color-hover);
+    --color: var(--hop-ClearButton-color-hover);
+    --border: var(--hop-ClearButton-border-hover);
+}
+
+.hop-ClearButton[data-pressed] {
+    --background-color: var(--hop-ClearButton-background-color-pressed);
+    --color: var(--hop-ClearButton-color-pressed);
+    --border: var(--hop-ClearButton-border-pressed);
+}

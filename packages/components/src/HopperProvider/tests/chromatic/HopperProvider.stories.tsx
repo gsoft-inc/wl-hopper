@@ -22,7 +22,7 @@ const meta = {
     },
     parameters: {
         ...hopperParameters({ disabled: true }),
-        ...a11yParameters({ disabled: true })
+        ...a11yParameters({ disableContrastCheck: true })
     }
 } satisfies Meta<typeof HopperProvider>;
 

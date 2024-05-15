@@ -1,3 +1,4 @@
+import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { HelperMessage } from "../../src/HelperMessage.tsx";
@@ -24,6 +25,9 @@ export const Default: Story = {
 };
 
 export const Styling: Story = {
+    parameters: {
+        ...a11yParameters({ disableContrastCheck: true })
+    },
     render: props => (
         <>
             <HelperMessage border="warning-strong" {...props} />

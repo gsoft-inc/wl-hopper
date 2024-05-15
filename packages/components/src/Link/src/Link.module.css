@@ -8,11 +8,13 @@
     --hop-Link-primary-text-color: var(--hop-primary-text);
     --hop-Link-primary-text-disabled-color: var(--hop-primary-text-disabled);
     --hop-Link-primary-text-hover-color: var(--hop-primary-text-hover);
+    --hop-Link-primary-text-pressed-color: var(--hop-primary-text-press);
 
     /** Secondary */
     --hop-Link-neutral-text-color: var(--hop-neutral-text);
     --hop-Link-neutral-text-disabled-color: var(--hop-neutral-text-disabled);
     --hop-Link-neutral-text-hover-color: var(--hop-neutral-text-hover);
+    --hop-Link-neutral-text-pressed-color: var(--hop-neutral-text-press);
 
     cursor: pointer;
 
@@ -62,6 +64,10 @@
     color: var(--hop-Link-primary-text-hover-color);
 }
 
+.hop-Link--primary:not([data-disabled])[data-pressed] {
+    color: var(--hop-Link-primary-text-pressed-color);
+}
+
 .hop-Link--secondary {
     color: var(--hop-Link-neutral-text-color);
 }
@@ -73,6 +79,10 @@
 .hop-Link--secondary:not([data-disabled])[data-focus-visible],
 .hop-Link--secondary:not([data-disabled])[data-hovered] {
     color: var(--hop-Link-neutral-text-hover-color);
+}
+
+.hop-Link--secondary:not([data-disabled])[data-pressed] {
+    color: var(--hop-Link-neutral-text-pressed-color);
 }
 
 .hop-Link__icon,

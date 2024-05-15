@@ -13,6 +13,12 @@
     --hop-Switch-thumb-color-hover: var(--hop-neutral-icon-hover);
     --hop-Switch-text-color-hover: var(--hop-neutral-text-hover);
 
+    /* Pressed */
+    --hop-Switch-border-color-pressed: var(--hop-neutral-border-press);
+    --hop-Switch-background-color-pressed: var(--hop-neutral-surface-press);
+    --hop-Switch-thumb-color-pressed: var(--hop-neutral-icon-press);
+    --hop-Switch-text-color-pressed: var(--hop-neutral-text-press);
+
     /* Focus Visible */
     --hop-Switch-border-color-focus: var(--hop-neutral-border-hover);
     --hop-Switch-background-color-focus: var(--hop-neutral-surface-hover);
@@ -21,9 +27,9 @@
     --hop-Switch-text-color-focus: var(--hop-neutral-text);
 
     /* Selected */
-    --hop-Switch-border-color-selected: var(--hop-neutral-border-active);
-    --hop-Switch-background-color-selected: var(--hop-neutral-surface-active);
-    --hop-Switch-thumb-color-selected: var(--hop-neutral-icon-active);
+    --hop-Switch-border-color-selected: var(--hop-neutral-border-selected);
+    --hop-Switch-background-color-selected: var(--hop-neutral-surface-selected);
+    --hop-Switch-thumb-color-selected: var(--hop-neutral-icon-selected);
     --hop-Switch-text-color-selected: var(--hop-neutral-text);
 
     /* Disabled */
@@ -37,14 +43,14 @@
     --hop-Switch-block-size-md: 1.5rem;
     --hop-Switch-thumb-size-md: 1rem;
     --hop-Switch-inset-inline-start-md: var(--hop-space-inset-xs);
-    --hop-Switch-text-top-offset-md: calc((var(--block-size) - (var(--hop-body-md-line-height) * var(--hop-body-md-font-size))) / 2); 
+    --hop-Switch-text-top-offset-md: calc((var(--block-size) - (var(--hop-body-md-line-height) * var(--hop-body-md-font-size))) / 2);
 
     /* Small */
     --hop-Switch-inline-size-sm: 2rem;
     --hop-Switch-block-size-sm: 1rem;
     --hop-Switch-thumb-size-sm: 0.75rem;
     --hop-Switch-inset-inline-start-sm: calc(var(--hop-space-inset-xs) / 2);
-    --hop-Switch-text-top-offset-sm: calc((var(--block-size) - (var(--hop-body-sm-line-height) * var(--hop-body-sm-font-size))) / 2); 
+    --hop-Switch-text-top-offset-sm: calc((var(--block-size) - (var(--hop-body-sm-line-height) * var(--hop-body-sm-font-size))) / 2);
 
     /* Internal Variables */
     --border-size: var(--hop-Switch-border-size);
@@ -67,7 +73,7 @@
     justify-content: start;
 
     box-sizing: border-box;
-    inline-size: max-content; 
+    inline-size: max-content;
     max-inline-size: 100%;
 }
 
@@ -94,6 +100,14 @@
     --text-color: var(--hop-Switch-text-color-hover);
 }
 
+.hop-Switch[data-pressed],
+.hop-Switch[data-pressed][data-focus-visible] {
+    --border-color: var(--hop-Switch-border-color-pressed);
+    --background-color: var(--hop-Switch-background-color-pressed);
+    --thumb-color: var(--hop-Switch-thumb-color-pressed);
+    --text-color: var(--hop-Switch-text-color-pressed);
+}
+
 .hop-Switch[data-focus-visible] {
     --border-color: var(--hop-Switch-border-color-focus);
     --background-color: var(--hop-Switch-background-color-focus);
@@ -102,7 +116,8 @@
     --text-color: var(--hop-Switch-text-color-focus);
 }
 
-.hop-Switch[data-selected] {
+.hop-Switch[data-selected],
+.hop-Switch[data-selected][data-pressed] {
     --border-color: var(--hop-Switch-border-color-selected);
     --background-color: var(--hop-Switch-background-color-selected);
     --thumb-color: var(--hop-Switch-thumb-color-selected);
