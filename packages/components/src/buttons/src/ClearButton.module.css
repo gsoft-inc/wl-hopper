@@ -13,7 +13,6 @@
     --hop-ClearButton-height: 1rem;
     --hop-ClearButton-width: 1rem;
 
-
     /* Internal variable */
     --inline-size: var(--hop-ClearButton-width);
     --block-size: var(--hop-ClearButton-height);
@@ -24,6 +23,7 @@
     --color: var(--hop-ClearButton-color);
     --border: var(--hop-ClearButton-border);
     --spinner-color: var(--hop-ClearButton-spinner-color);
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
 
     /** styles */
     cursor: pointer;
@@ -52,8 +52,8 @@
     outline: none;
 
     transition:
-        color var(--hop-easing-duration-2) var(--hop-easing-productive),
-        background-color var(--hop-easing-duration-2) var(--hop-easing-productive);
+        color var(--transition),
+        background-color var(--transition);
 }
 
 /** Focus Ring */
