@@ -14,10 +14,10 @@ import {
 export const colors: { [key: string]: string } = {
     [PrimaryIconColor]: `var(--hop-Icon-placeholder-primary-icon, ${PrimaryIconColor})`,
     [WarningWeakIconColor]: `var(--hop-Icon-placeholder-warning-icon-weak, ${WarningWeakIconColor})`,
-    [White]: `var(--hop-Richicon-placeholder-fill, ${WhiteHexadecimal})`,
-    [WhiteHexadecimal]: `var(--hop-Richicon-placeholder-fill, ${WhiteHexadecimal})`,
-    [DecorativeOption7IconColor]: `var(--hop-Richicon-placeholder-background, ${DecorativeOption7IconColor})`,
-    [DecorativeOption7SurfaceColor]: `var(--hop-Richicon-placeholder-shadow, ${DecorativeOption7SurfaceColor})`
+    [White]: `var(--hop-RichIcon-placeholder-fill, ${WhiteHexadecimal})`,
+    [WhiteHexadecimal]: `var(--hop-RichIcon-placeholder-fill, ${WhiteHexadecimal})`,
+    [DecorativeOption7IconColor]: `var(--hop-RichIcon-placeholder-shadow, ${DecorativeOption7IconColor})`,
+    [DecorativeOption7SurfaceColor]: `var(--hop-RichIcon-placeholder-background, ${DecorativeOption7SurfaceColor})`
 };
 
 const config: Config = {

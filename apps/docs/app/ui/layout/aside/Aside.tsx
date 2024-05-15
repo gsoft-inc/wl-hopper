@@ -22,7 +22,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     const observer = useRef<IntersectionObserver | null>(null);
     const sectionTitleDomElement = "[data-section-title]";
     const titleHeight = 28;
-
+    
     useEffect(() => {
         const sectionsTitle = document.querySelectorAll(sectionTitleDomElement);
         const options = {
@@ -100,7 +100,6 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
         setIsOpen(!isOpen);
     };
 
-
     useEffect(() => {
         const handleWindowResize = () => {
             if (window.innerWidth < 768 || window.innerWidth > 992) {
@@ -113,7 +112,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
 
     const listItems = links.map(link => (
         <li className={clsx("hd-aside__item", activeSection === link.id && "hd-aside__item--active")} key={link.id}>
-            <a href={link.url} className="hd-aside__link" >
+            <a href={link.url} className="hd-aside__link">
                 {link.title}
             </a>
         </li>
@@ -126,8 +125,18 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
                     <span className="hd-aside__title">{title}</span>
                     <button type="button" className="hd-aside__button" onClick={toggleList}>
                         {title}
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="hd-aside__button-icon" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 6L8 10L12 6" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            className="hd-aside__button-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path d="M4 6L8 10L12 6"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
                         </svg>
                     </button>
                     <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
