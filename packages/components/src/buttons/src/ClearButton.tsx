@@ -36,7 +36,6 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
         className,
         isDisabled,
         style: styleProp,
-        slot = "remove",
         ...otherProps
     } = ownProps;
 
@@ -63,7 +62,6 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
             ref={ref}
             className={classNames}
             style={style}
-            slot={slot}
             isDisabled={isDisabled}
             aria-label={ariaLabel}
             {...otherProps}
