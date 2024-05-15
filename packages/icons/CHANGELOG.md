@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.1.1
+
+### Patch Changes
+
+- a92e653: fix inversion between background and shadow values
+
 ## 2.1.0
 
 ### Minor Changes

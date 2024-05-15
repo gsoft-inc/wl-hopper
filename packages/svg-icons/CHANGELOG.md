@@ -1,5 +1,11 @@
 # @hopper-ui/svg-icons
 
+## 2.10.1
+
+### Patch Changes
+
+- a92e653: fix inversion between background and shadow values
+
 ## 2.10.0
 
 ### Minor Changes
