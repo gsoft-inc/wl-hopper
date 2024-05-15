@@ -10,7 +10,7 @@ const meta = {
     component: List,
     parameters: {
         ...hopperParameters({ disabled: true }), // the story handle their own color scheme
-        ...a11yParameters({ disabled: true }) // Disable a11y rules as this only displays colors
+        ...a11yParameters({ disable: true }) // Disable a11y rules as this only displays colors
     }
 } satisfies Meta<typeof List>;
 

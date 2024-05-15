@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { Cell, Column, Row, Table as TableRA, TableBody, TableHeader } from "react-aria-components";
-import type { ReactNode } from "react";
+import React, { type ReactNode, useMemo } from "react";
 
 import "./table.css";
 
@@ -25,6 +25,7 @@ function generateUniqueKey() {
 const Table = ({ data, head, lastColumnAlignment = "left", ariaLabel = "standard table", className }: TableProps) => {
     const textAlignRight = lastColumnAlignment === "right";
     const lastColumn = head.length - 1;
+    const dataItem = useMemo(() => data, [data]);
 
     const headItems = head.map((item, index) => {
         return (
@@ -37,7 +38,7 @@ const Table = ({ data, head, lastColumnAlignment = "left", ariaLabel = "standard
         );
     });
 
-    const dataItems = data.map(item => {
+    const dataItems = dataItem.map(item => {
         return (
             <Row key={`table-body-${generateUniqueKey()}`} className="hd-table__row">
                 {Object.keys(item).map((key, index) => {
@@ -54,6 +55,7 @@ const Table = ({ data, head, lastColumnAlignment = "left", ariaLabel = "standard
     });
 
     return (
+
         <TableRA className={clsx("hd-table", className)} aria-label={ariaLabel}>
             <TableHeader>
                 {headItems}

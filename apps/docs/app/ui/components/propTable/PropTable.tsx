@@ -1,93 +1,78 @@
-import { promises as fs } from "fs";
-import path from "path";
-import type { PropItem } from "react-docgen-typescript/lib/parser";
-import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.mjs";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { getComponentProps } from "@/app/lib/getComponentProps.ts";
+import { capitalize } from "@/app/lib/capitalize.ts";
+
 import Collapsible from "@/components/collapsible/Collapsible.tsx";
 import Title from "@/components/title/Title.tsx";
+import Code from "@/components/code/Code.tsx";
+import HighlightCode from "@/components/highlightCode/HighlightCode.tsx";
+
+import { PropTableRender } from "./PropTableRender.tsx";
+import type { Item } from "./PropTableRender.tsx";
 
 import "./propTable.css";
+
 
 export interface PropTableProps {
     component: string;
 }
 
-interface PropItemTypeValue {
+interface PropTableItem extends Item {
     name: string;
-    value?: Array<{ value: string; name: string }>;
-    raw?: string;
+    type: string;
+    description: string;
 }
 
-const filePath = path.join(process.cwd(), "datas", "components");
+export interface Groups {
+    [group: string]: PropTableItem[];
+}
 
-const getType = (type: PropItemTypeValue) => {
-    const handler: {
-        [key: string]: (type: PropItemTypeValue) => string;
-    } = {
-        enum: t =>
-            t.value ? t.value.map(item => item.value.replace(/'/g, "")).join(" \\| ") : "",
-        union: t => t.value ? t.value.map(item => item.name).join(" \\| ") : ""
-    };
-    if (typeof handler[type.name] === "function") {
-        return handler[type.name](type).replace(/\|/g, "");
-    }
+const formatGroup = (groups: Groups[]) => {
+    return groups.map(group => {
+        const [key] = Object.keys(group);
 
-    return type.name;
-};
+        return {
+            [key]: group[key].map(item => {
+                const description = item.description;
 
-const renderRow = (key: string, prop: PropItem) => {
-    const { name, type, defaultValue, required, description } = prop;
-
-    return (
-        <tr key={key}>
-            <td>{name}</td>
-            <td>{getType(type)}</td>
-            <td>{defaultValue?.value}</td>
-            <td>{required ? "✓" : "✗"}</td>
-            <td>{description}</td>
-        </tr>
-    );
+                return {
+                    ...item,
+                    name: <Code value={item.name}>{item.name}</Code>,
+                    type: <HighlightCode code={item.type} variant="tiny" />,
+                    defaultValue: item.defaultValue.replace(/'/g, "\""),
+                    description: <MDXRemote source={description} />
+                };
+            })
+        };
+    });
 };
 
 export default async function PropTable({ component }: PropTableProps) {
-    const file = await fs.readFile(filePath + `/${component}.json`, "utf8");
-    const data = JSON.parse(file);
+    const { description, groups } = await getComponentProps(component);
+    const formatedGroups = formatGroup(groups);
 
-    return data.map((item: ComponentDocWithGroups) => {
-        const { description, displayName, groups } = item;
+    return (
+        <>
+            <p>{description}</p>
+            {formatedGroups.map(group => {
+                const [key] = Object.keys(group);
 
-        return (
-            <>
-                <p>{displayName}</p>
-                <p>{description}</p>
-                {Object.keys(groups).map(group => {
-                    return (
-                        <Collapsible
-                            key={group}
-                            title={
-                                <Title as="h3" level={3}>
-                                    {group}
-                                </Title>
-                            }
-                            className="props__section"
-                        >
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Property</th>
-                                        <th>Type</th>
-                                        <th>Default</th>
-                                        <th>Required</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {Object.keys(groups[group]).map(key => renderRow(key, groups[group][key]))}
-                                </tbody>
-                            </table>
-                        </Collapsible>
-                    );
-                })}
-            </>
-        );
-    });
+                return (
+                    <>
+                        {key === "default" ?
+                            <PropTableRender items={group[key]} /> :
+                            <Collapsible className="hd-props-table__section"
+                                key={key}
+                                title={<Title as="h3" level={3}>
+                                    {capitalize(key)}
+                                </Title>}
+                            >
+                                <PropTableRender items={group[key]} />
+                            </Collapsible>
+                        }
+                    </>
+                );
+            })}
+        </>
+    );
 }

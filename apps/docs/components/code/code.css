@@ -27,3 +27,9 @@
     opacity: 1;
     transform: translateX(var(--hd-space-1));
 }
+
+.hd-code--ghost {
+    padding-block: 0;
+    padding-inline: 0;
+    background-color: transparent;
+}
