@@ -23,6 +23,10 @@
     min-width: 3rem;
 }
 
+.hd-table__th {
+    padding: var(--hd-space-1);
+}
+
 .hd-table__cell {
     font-family: var(--hd-mono-font-family);
     font-size: 0.8125rem;

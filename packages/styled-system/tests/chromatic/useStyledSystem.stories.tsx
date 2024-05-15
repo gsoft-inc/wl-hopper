@@ -15,7 +15,7 @@ const meta = {
             viewports: viewports
         },
         controls: { hideNoControlsWarning: true },
-        ...a11yParameters({ disabled: true })
+        ...a11yParameters({ disable: true })
     },
     args: {
         color: "core_samoyed",

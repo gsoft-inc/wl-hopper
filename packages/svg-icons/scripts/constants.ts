@@ -1,4 +1,3 @@
-
 // Those are hardcoded since they are used directly in the svg files.
 export const NeutralIconColor = "#3C3C3C"; // --hop-neutral-icon
 export const PrimaryIconColor = "#3B57FF"; // --hop-primary-icon
@@ -6,6 +5,7 @@ export const WarningWeakIconColor = "#E57723"; // --hop-warning-icon-weak
 
 export const DecorativeOption7IconColor = "#2A2620"; // --hop-decorative-option7-icon
 export const DecorativeOption7SurfaceColor = "#E5DED6"; // --hop-decorative-option7-surface
+export const WhiteHexadecimal = "#fff";
 export const White = "white"; // TODO: should be --hop-decorative-option7-icon-strong
 
 export const IconsSourceDirectory = "src/icons";
