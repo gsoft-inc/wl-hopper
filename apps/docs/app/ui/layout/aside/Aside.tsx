@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
+import { useHeadsObserver } from "@/hooks/useHeadsObserver";
 
 import "./aside.css";
 
@@ -23,6 +24,18 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     const sectionTitleDomElement = "[data-section-title]";
     const titleHeight = 28;
 
+    const { activeId } = useHeadsObserver();
+    console.log("activeId", activeId);
+
+    const setInitialActiveItemIndex = () => {
+        console.log("setting initial active item index");
+        const lastVisibleSection = findLastFullyVisibleSection();
+        if (lastVisibleSection) {
+            const lastVisibleSectionIndex = links.findIndex(link => link.id === lastVisibleSection);
+            setActiveItemIndex(lastVisibleSectionIndex);
+        }
+    };
+
     useEffect(() => {
         const sectionsTitle = document.querySelectorAll(sectionTitleDomElement);
         const options = {
@@ -41,13 +54,6 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
             observer.current?.observe(sectionTitle);
         });
 
-        const setInitialActiveItemIndex = () => {
-            const lastVisibleSection = findLastFullyVisibleSection();
-            if (lastVisibleSection) {
-                const lastVisibleSectionIndex = links.findIndex(link => link.id === lastVisibleSection);
-                setActiveItemIndex(lastVisibleSectionIndex);
-            }
-        };
 
         setInitialActiveItemIndex();
 
@@ -58,6 +64,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
             });
         };
     }, [links]);
+
 
     // Custom function to determine the last fully visible section in the viewport
     const findLastFullyVisibleSection = () => {
@@ -80,6 +87,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
 
     // Scroll handler to set the active section when scrolling up
     const handleScroll = () => {
+        console.log("scrolling");
         const lastVisibleSection = findLastFullyVisibleSection();
         if (lastVisibleSection) {
             setActiveSection(lastVisibleSection);
@@ -100,7 +108,6 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
         setIsOpen(!isOpen);
     };
 
-
     useEffect(() => {
         const handleWindowResize = () => {
             if (window.innerWidth < 768 || window.innerWidth > 992) {
@@ -113,7 +120,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
 
     const listItems = links.map(link => (
         <li className={clsx("hd-aside__item", activeSection === link.id && "hd-aside__item--active")} key={link.id}>
-            <a href={link.url} className="hd-aside__link" >
+            <a href={link.url} className="hd-aside__link">
                 {link.title}
             </a>
         </li>
@@ -126,8 +133,18 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
                     <span className="hd-aside__title">{title}</span>
                     <button type="button" className="hd-aside__button" onClick={toggleList}>
                         {title}
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="hd-aside__button-icon" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 6L8 10L12 6" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            className="hd-aside__button-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path d="M4 6L8 10L12 6"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
                         </svg>
                     </button>
                     <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
