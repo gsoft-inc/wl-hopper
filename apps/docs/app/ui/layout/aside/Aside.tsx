@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import { useHeadsObserver } from "@/hooks/useHeadsObserver";
 
 import "./aside.css";
 
@@ -24,11 +23,7 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
     const sectionTitleDomElement = "[data-section-title]";
     const titleHeight = 28;
 
-    const { activeId } = useHeadsObserver();
-    console.log("activeId", activeId);
-
     const setInitialActiveItemIndex = () => {
-        console.log("setting initial active item index");
         const lastVisibleSection = findLastFullyVisibleSection();
         if (lastVisibleSection) {
             const lastVisibleSectionIndex = links.findIndex(link => link.id === lastVisibleSection);
