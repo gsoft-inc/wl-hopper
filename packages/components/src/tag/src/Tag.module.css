@@ -4,7 +4,7 @@
     --hop-Tag-border-radius: var(--hop-shape-pill);
     --hop-Tag-column-gap: var(--hop-space-inline-xs);
     --hop-Tag-border-color: var(--hop-neutral-border);
-    --hop-Tag-background-color: var(--hop-neutral-surface-weakest);
+    --hop-Tag-background-color: var(--hop-neutral-surface-weak);
     --hop-Tag-text-color: var(--hop-neutral-text);
 
     /* Medium */
@@ -15,11 +15,6 @@
     --hop-Tag-lg-block-size: 2rem;
     --hop-Tag-lg-padding-inline: var(--hop-space-inset-md);
 
-    /* Hover */
-    --hop-Tag-background-color-hover: var(--hop-neutral-surface-weak-hover);
-    --hop-Tag-border-color-hover: var(--hop-neutral-border-hover);
-    --hop-Tag-text-color-hover: var(--hop-neutral-text-hover);
-
     /* Focus */
     --hop-Tag-background-color-focus: var(--hop-neutral-surface-weak-hover);
     --hop-Tag-border-color-focus: var(--hop-neutral-border-hover);
@@ -27,9 +22,22 @@
     --hop-Tag-focus-ring-color: var(--hop-primary-border-focus);
 
     /* Selected */
-    --hop-Tag-background-color-selected: var(--hop-neutral-surface-active);
-    --hop-Tag-border-color-selected: var(--hop-neutral-border-active);
-    --hop-Tag-text-color-selected: var(--hop-neutral-text-active);
+    --hop-Tag-background-color-selected: var(--hop-neutral-surface-weak-selected);
+    --hop-Tag-border-color-selected: var(--hop-neutral-border-selected);
+    --hop-Tag-text-color-selected: var(--hop-neutral-text);
+
+    /* Hover */
+    --hop-Tag-background-color-hover: var(--hop-neutral-surface-weak-hover);
+    --hop-Tag-border-color-hover: var(--hop-neutral-border-hover);
+    --hop-Tag-text-color-hover: var(--hop-neutral-text-hover);
+    
+    /* Press */
+    --hop-Tag-background-color-press: var(--hop-neutral-surface-weak-press);
+    --hop-Tag-border-color-press: var(--hop-neutral-border-press);
+    --hop-Tag-text-color-press: var(--hop-neutral-text-press);
+    
+    /* Invalid */
+    --hop-Tag-border-color-invalid: var(--hop-danger-border-strong);
 
     /* Disabled */
     --hop-Tag-background-color-disabled: var(--hop-neutral-surface-disabled);
@@ -76,14 +84,6 @@
     --padding-inline: var(--hop-Tag-lg-padding-inline);
 }
 
-.hop-Tag[data-hovered] {
-    --background-color: var(--hop-Tag-background-color-hover);
-    --border-color: var(--hop-Tag-border-color-hover);
-    --text-color: var(--hop-Tag-text-color-hover);
-
-    cursor: pointer;
-}
-
 .hop-Tag[data-focus-visible] {
     --background-color: var(--hop-Tag-background-color-focus);
     --border-color: var(--hop-Tag-border-color-focus);
@@ -96,6 +96,26 @@
     --background-color: var(--hop-Tag-background-color-selected);
     --border-color: var(--hop-Tag-border-color-selected);
     --text-color: var(--hop-Tag-text-color-selected);
+}
+
+.hop-Tag[data-hovered] {
+    --background-color: var(--hop-Tag-background-color-hover);
+    --border-color: var(--hop-Tag-border-color-hover);
+    --text-color: var(--hop-Tag-text-color-hover);
+
+    cursor: pointer;
+}
+
+.hop-Tag[data-pressed] {
+    --background-color: var(--hop-Tag-background-color-press);
+    --border-color: var(--hop-Tag-border-color-press);
+    --text-color: var(--hop-Tag-text-color-press);
+
+    cursor: pointer;
+}
+
+.hop-Tag[data-invalid] {
+    --border-color: var(--hop-Tag-border-color-invalid);
 }
 
 .hop-Tag[data-disabled] {
@@ -122,7 +142,8 @@
     text-overflow: ellipsis;
 }
 
-.hop-Tag__remove-btn {
+.hop-Tag__remove-btn,
+.hop-Tag__Spinner {
     flex: 0 0 auto;
     order: 3;
 }

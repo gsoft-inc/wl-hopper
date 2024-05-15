@@ -69,6 +69,26 @@ export const RemovableTags = {
 } satisfies Story;
 
 /**
+ * Tags can have a loading state.
+ */
+export const LoadingTags = {
+    render: props => (
+        <TagGroup {...props} aria-label="tag-group">
+            <TagList>
+                <Tag id="1" isLoading>Tag 1</Tag>
+                <Tag id="2">Tag 2</Tag>
+                <Tag id="3">Tag 3</Tag>
+            </TagList>
+        </TagGroup>
+    ),
+    args: {
+        onRemove: (ids: Selection) => {
+            alert(`Remove: ${[...ids]}`);
+        }
+    }
+} satisfies Story;
+
+/**
  * A TagGroup can have a Label to provide more context to the user.
  */
 export const LabelStory = {

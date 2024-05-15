@@ -1,10 +1,12 @@
-import { Button } from "@hopper-ui/components";
-import { IconContext, DismissIcon } from "@hopper-ui/icons";
+import { ClearButton } from "@hopper-ui/components";
+import { IconContext } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
 
+import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
+import { Spinner } from "../../Spinner/index.ts";
 import { Text, TextContext, type TextProps } from "../../Text/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots, type SizeAdapter } from "../../utils/index.ts";
 
@@ -24,6 +26,10 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
      * Whether the tag is invalid or not.
      */
     isInvalid?: boolean;
+    /** 
+     * Whether the tag is loading or not.
+     */
+    isLoading?: boolean;
     /**
      * The size of the tag.
      * @default "md"
@@ -38,12 +44,14 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
         className,
         children: childrenProp,
         isInvalid,
+        isLoading,
         size: sizeProp = "md",
         style: styleProp,
         textValue: textValueProp,
         ...otherProps
     } = ownProps;
 
+    const stringFormatter = useLocalizedString();
     const size = useResponsiveValue(sizeProp) ?? "md";
     const textValue = textValueProp ?? (typeof childrenProp === "string" ? childrenProp : undefined);
 
@@ -80,7 +88,8 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
             className={classNames}
             style={style}
             textValue={textValue}
-            data-invalid={isInvalid}
+            data-invalid={isInvalid || undefined}
+            data-loading={isLoading || undefined}
         >
             {tagProps => {
                 const { allowsRemoving, isDisabled } = tagProps;
@@ -107,10 +116,20 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 {children(tagProps)}
                             </SlotProvider>
                         </ClearContainerSlots>
-                        {allowsRemoving && 
-                            <Button slot="remove" isDisabled={isDisabled} className={styles["hop-Tag__remove-btn"]} aria-label="Remove" variant="ghost-secondary" size="sm" width="core_160" height="core_160" style={{ border: "none" }}>
-                                <DismissIcon size="sm" />
-                            </Button>
+                        {(allowsRemoving && !isLoading) && 
+                            <ClearButton 
+                                slot="remove" 
+                                isDisabled={isDisabled} 
+                                className={styles["hop-Tag__remove-btn"]} 
+                                aria-label={stringFormatter.format("Tag.removeAriaLabel")} 
+                            />
+                        }
+                        {isLoading && 
+                            <Spinner
+                                aria-label={stringFormatter.format("Tag.spinnerAriaLabel")}
+                                size="sm"
+                                className={styles["hop-Tag__Spinner"]}
+                            />
                         }
                     </>
                 );
