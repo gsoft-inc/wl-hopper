@@ -1,10 +1,7 @@
-import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Group as RACGroup, type GroupProps as RACGroupProps, composeRenderProps, InputContext, useSlottedContext } from "react-aria-components";
 
-import { ButtonContext } from "../../buttons/index.ts";
-import { TextContext } from "../../Text/index.ts";
 import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { InputGroupContext } from "./InputGroupContext.ts";

@@ -1,13 +1,11 @@
-import { AngleDownIcon, DismissIcon, EyeHiddenIcon, EyeVisibleIcon, SearchIcon } from "@hopper-ui/icons";
+import { SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
 
-import { Button } from "../../buttons/index.ts";
 import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
 import { Label } from "../../Label/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { TextField, type TextFieldProps } from "../src/TextField.tsx";
+import { TextField } from "../src/TextField.tsx";
 
 /**
  * TODO: Add description
@@ -17,6 +15,10 @@ import { TextField, type TextFieldProps } from "../src/TextField.tsx";
  * [View package](https://www.npmjs.com/package/@hopper-ui/components)
  * -
  * View storybook TODO
+ *
+ * Specialized text fields are available for different scenarios:
+ * - If you want a textfield with type="search", use the `SearchField` component.
+ * - If you want a textfield that shows/hides a password, use the `PasswordField` component.
  */
 const meta = {
     title: "Docs/TextField",
@@ -38,6 +40,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/**
+ *
+ */
 export const Default: Story = {
     render: args => (
         <Stack>
@@ -47,6 +52,9 @@ export const Default: Story = {
     )
 };
 
+/**
+ * An icon can be displayed at the start of the input.
+ */
 export const PrefixIcon: Story = {
     ...Default,
     args: {
@@ -55,6 +63,9 @@ export const PrefixIcon: Story = {
     }
 };
 
+/**
+ * A short text can be displayed at the start of the input.
+ */
 export const PrefixText: Story = {
     ...Default,
     args: {
@@ -63,8 +74,12 @@ export const PrefixText: Story = {
     }
 };
 
-export const TextAddon: Story = {
-    name: "Suffix, Char. limit",
+/**
+ * A character count can be displayed at the end of the input.
+ * The character count is based on the `maxLength` prop.
+ * If the `maxLength` prop is not set, the character count will not be displayed.
+ */
+export const CharacterCount: Story = {
     ...Default,
     args: {
         ...Default.args,
@@ -73,8 +88,10 @@ export const TextAddon: Story = {
     }
 };
 
-export const ButtonStory: Story = {
-    name: "Suffix, Clear CTA",
+/**
+ * The `isClearable` prop can be set to `true` to display a clear button at the end of the input.
+ */
+export const Clearable: Story = {
     ...Default,
     args: {
         ...Default.args,
@@ -82,6 +99,9 @@ export const ButtonStory: Story = {
     }
 };
 
+/**
+ * A text field with a helper message.
+ */
 export const Description: Story = {
     ...Default,
     args: {
@@ -93,6 +113,9 @@ export const Description: Story = {
     }
 };
 
+/**
+ * A text field with an error message.
+ */
 export const Error: Story = {
     ...Default,
     args: {
@@ -105,6 +128,9 @@ export const Error: Story = {
     }
 };
 
+/**
+ * A text field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
+ */
 export const Disabled: Story = {
     ...Default,
     args: {
@@ -113,6 +139,9 @@ export const Disabled: Story = {
     }
 };
 
+/**
+ * * The `isReadOnly` prop makes the TextField's text content immutable. Unlike isDisabled, the TextField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+ */
 export const ReadOnly: Story = {
     ...Default,
     args: {

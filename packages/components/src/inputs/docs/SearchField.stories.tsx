@@ -4,10 +4,10 @@ import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
 import { Label } from "../../Label/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { PasswordField } from "../src/PasswordField.tsx";
+import { SearchField } from "../src/SearchField.tsx";
 
 /**
- * A specialized text field which show / hide a password.
+ * A specialized text input for [search input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search).
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/inputs/src)
  * -
@@ -16,39 +16,50 @@ import { PasswordField } from "../src/PasswordField.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/PasswordField",
+    title: "Docs/SearchField",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: PasswordField,
+    component: SearchField,
     args: {
         placeholder: "Placeholder",
         children: [
-            <Label key="1">Password:</Label>
+            <Label key="1">SearchField Label</Label>
         ]
     }
-} satisfies Meta<typeof PasswordField>;
+} satisfies Meta<typeof SearchField>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 /**
- * A default password field.
+ * A default search field.
  */
 export const Default: Story = {
     render: args => (
         <Stack>
-            <PasswordField size="sm" {...args} />
-            <PasswordField {...args} />
+            <SearchField size="sm" {...args} />
+            <SearchField {...args} />
         </Stack>
     )
 };
 
 /**
- * A password field with a helper message.
+ * A search field can hide it's clear button.
+ */
+export const HideClearButton: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        isClearable: false
+    }
+};
+
+/**
+ * A search field with a helper message.
  */
 export const Description: Story = {
     ...Default,
@@ -62,9 +73,9 @@ export const Description: Story = {
 };
 
 /**
- * A password field with an error message.
+ * A search field with an error message.
  */
-export const Validation: Story = {
+export const Error: Story = {
     ...Default,
     args: {
         ...Default.args,
@@ -77,7 +88,7 @@ export const Validation: Story = {
 };
 
 /**
- * A password field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
+ * A search field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
  */
 export const Disabled: Story = {
     ...Default,
@@ -88,7 +99,7 @@ export const Disabled: Story = {
 };
 
 /**
- * The `isReadOnly` prop makes the PasswordField's text content immutable. Unlike isDisabled, the PasswordField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+ * * The `isReadOnly` prop makes the SearchField's text content immutable. Unlike isDisabled, the SearchField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
  */
 export const ReadOnly: Story = {
     ...Default,
@@ -96,5 +107,3 @@ export const ReadOnly: Story = {
         isReadOnly: true
     }
 };
-
-

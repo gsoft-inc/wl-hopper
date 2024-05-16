@@ -1,14 +1,13 @@
-import { DismissIcon, EyeHiddenIcon, EyeVisibleIcon, IconContext } from "@hopper-ui/icons";
+import { EyeHiddenIcon, EyeVisibleIcon } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, useState, type ForwardedRef, type ReactNode } from "react";
-import { chain } from "react-aria";
+import { forwardRef, useState, type ForwardedRef } from "react";
 import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
 
-import { Button, type ButtonProps } from "../../buttons/index.ts";
+import { EmbeddedButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
 import { LabelContext } from "../../Label/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";
 import { PasswordFieldContext } from "./PasswordFieldContext.ts";
@@ -19,12 +18,12 @@ export const GlobalPasswordFieldCssSelector = "hop-PasswordField";
 
 export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFieldProps, "type">> {
     /**
-     * The placeholder text when the TextField is empty.
+     * The placeholder text when the PasswordField is empty.
      */
     placeholder?: string;
 
     /**
-     * The size of the TextField.
+     * The size of the PasswordField.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
@@ -49,7 +48,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         GlobalPasswordFieldCssSelector,
         cssModule(
             styles,
-            "hop-PasswordField",
+            "hop-PasswordField"
         ),
         stylingProps.className
     );
@@ -61,20 +60,19 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         };
     });
 
+    const showPasswordMarkup = showPassword ?
+        <EmbeddedButton onPress={() => { setShowPassword(false);}}>
+            <EyeVisibleIcon />
+        </EmbeddedButton> :
+        <EmbeddedButton onPress={() => { setShowPassword(true);}}>
+            <EyeHiddenIcon />
+        </EmbeddedButton>;
 
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup size={size} className={styles["hop-PasswordField__InputGroup"]}>
                 <Input placeholder={placeholder} type={showPassword ? "text" : "password"} />
-                {
-                    showPassword ?
-                        <Button variant="ghost-secondary" size={size} onPress={() => { setShowPassword(false)}}>
-                            <EyeHiddenIcon />
-                        </Button> :
-                        <Button variant="ghost-secondary" size={size} onPress={() => { setShowPassword(true)}}>
-                            <EyeVisibleIcon />
-                        </Button>
-                }
+                {showPasswordMarkup}
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -103,7 +101,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
 }
 
 /**
- * TODO: tagline
+ * A specialized text field which show / hide a password.
  *
  * [View Documentation](TODO)
  */

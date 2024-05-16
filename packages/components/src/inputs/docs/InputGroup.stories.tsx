@@ -1,9 +1,8 @@
-import { AngleDownIcon, DismissIcon, EyeHiddenIcon, EyeVisibleIcon, SearchIcon } from "@hopper-ui/icons";
+import { AngleDownIcon, DismissIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
 import { Input } from "react-aria-components";
 
-import { Button } from "../../buttons/index.ts";
+import { EmbeddedButton } from "../../buttons/index.ts";
 import { Stack } from "../../layout/index.ts";
 import { Text } from "../../Text/index.ts";
 import { InputGroup } from "../src/InputGroup.tsx";
@@ -19,7 +18,7 @@ import { InputGroup } from "../src/InputGroup.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/InputGroup",
+    title: "Docs-parts/InputGroup",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
@@ -122,24 +121,7 @@ export const ButtonStory: Story = {
         ...Default.args,
         children: [
             <Input type="text" placeholder="Placeholder" key="1" />,
-            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
+            <EmbeddedButton key="2" aria-label="Add email"><DismissIcon /></EmbeddedButton>
         ]
     }
-};
-
-const PasswordStory = () => {
-    const [showPassword, setShowPassword] = useState(false);
-
-    return (
-        <InputGroup>
-            <Input placeholder="Placeholder" type={showPassword ? "text" : "password"} />
-            <Button onPress={() => setShowPassword(!showPassword)} aria-label="Toggle password visibility">
-                {showPassword ? <EyeHiddenIcon /> : <EyeVisibleIcon />}
-            </Button>
-        </InputGroup>
-    );
-};
-
-export const Password: Story = {
-    render: () => <PasswordStory />
 };

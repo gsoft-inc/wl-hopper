@@ -14,7 +14,7 @@ import { ClearButton } from "../src/ClearButton.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Buttons/ClearButton",
+    title: "Docs-parts/ClearButton",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories

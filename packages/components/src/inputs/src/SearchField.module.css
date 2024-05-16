@@ -1,0 +1,49 @@
+.hop-SearchField  {
+    /* TODO */
+    display: flex;
+    flex-direction: column;
+    gap: var(--hop-space-stack-xs);
+    inline-size: 20rem;
+}
+
+.hop-SearchField--fluid  {
+    inline-size: 100%;
+}
+
+.hop-SearchField__Label {
+    order: 0;
+
+    font-family: var(--hop-heading-xs-font-family);
+    font-size: var(--hop-heading-xs-font-size);
+    font-weight: var(--hop-heading-xs-font-weight);
+    line-height: var(--hop-heading-xs-line-height);
+    color: var(--hop-neutral-text-weak);
+}
+
+.hop-SearchField__prefix {
+    color: var(--hop-neutral-text-weak);
+}
+
+.hop-SearchField__InputGroup {
+    order:1;
+    inline-size: 100%;
+    padding-inline: var(--hop-space-inset-md) var(--hop-space-inset-md);
+}
+
+.hop-SearchField--clearable .hop-SearchField__InputGroup {
+    padding-inline-end: 0;
+}
+
+.hop-SearchField__ErrorMessage,
+.hop-SearchField__HelperMessage {
+    order: 3;
+}
+
+.hop-SearchField input::-webkit-search-cancel-button,
+.hop-SearchField input::-webkit-search-decoration {
+    appearance: none;
+}
+
+.hop-SearchField[data-empty] .hop-SearchField__ClearButton {
+    display: none;
+}

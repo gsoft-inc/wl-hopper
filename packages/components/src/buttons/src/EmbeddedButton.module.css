@@ -1,0 +1,83 @@
+.hop-EmbeddedButton {
+    --hop-EmbeddedButton-border-radius: var(--hop-shape-rounded-sm);
+    --hop-EmbeddedButton-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-EmbeddedButton-color: var(--hop-neutral-icon-weak);
+    --hop-EmbeddedButton-color-hover: var(--hop-neutral-icon-weak-hover);
+    --hop-EmbeddedButton-color-pressed: var(--hop-neutral-icon-weak-press);
+    --hop-EmbeddedButton-color-disabled: var(--hop-neutral-icon-disabled);
+    --hop-EmbeddedButton-background-color: transparent;
+    --hop-EmbeddedButton-background-color-hover: var(--hop-neutral-surface-hover);
+    --hop-EmbeddedButton-background-color-pressed: var(--hop-neutral-surface-press);
+    --hop-EmbeddedButton-background-color-disabled: transparent;
+    --hop-EmbeddedButton-spinner-color: var(--hop-neutral-icon);
+    --hop-EmbeddedButton-height: 1rem;
+    --hop-EmbeddedButton-width: 1rem;
+
+    /* Internal variable */
+    --inline-size: var(--hop-EmbeddedButton-width);
+    --block-size: var(--hop-EmbeddedButton-height);
+    --spinner: var(--hop-primary-icon-strong);
+    --padding-inline: 0;
+    --padding-block: 0;
+    --background-color: var(--hop-EmbeddedButton-background-color);
+    --color: var(--hop-EmbeddedButton-color);
+    --border: var(--hop-EmbeddedButton-border);
+    --spinner-color: var(--hop-EmbeddedButton-spinner-color);
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
+
+    /** styles */
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    column-gap: var(--hop-space-inline-xs);
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    inline-size: var(--inline-size);
+    block-size: var(--block-size);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    color: var(--color);
+    text-decoration: none;
+    white-space: nowrap;
+
+    background-color: var(--background-color);
+    border: none;
+    border-radius: var(--hop-EmbeddedButton-border-radius);
+    outline: none;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition);
+}
+
+/** Focus Ring */
+.hop-EmbeddedButton[data-focus-visible] {
+    outline: 0.125rem solid var(--hop-EmbeddedButton-focus-ring-color);
+}
+
+.hop-EmbeddedButton[data-disabled] {
+    --background-color: var(--hop-EmbeddedButton-background-color-disabled);
+    --color: var(--hop-EmbeddedButton-color-disabled);
+    --border: var(--hop-EmbeddedButton-border-disabled);
+
+    cursor: not-allowed;
+}
+
+.hop-EmbeddedButton[data-hovered]:not([data-disabled]),
+.hop-EmbeddedButton[data-focus-visible]:not([data-disabled]) {
+    --background-color: var(--hop-EmbeddedButton-background-color-hover);
+    --color: var(--hop-EmbeddedButton-color-hover);
+    --border: var(--hop-EmbeddedButton-border-hover);
+}
+
+.hop-EmbeddedButton[data-pressed] {
+    --background-color: var(--hop-EmbeddedButton-background-color-pressed);
+    --color: var(--hop-EmbeddedButton-color-pressed);
+    --border: var(--hop-EmbeddedButton-border-pressed);
+}
