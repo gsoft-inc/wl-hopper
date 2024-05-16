@@ -2,8 +2,10 @@
 
 import SectionPopover from "@/app/ui/layout/sectionPopover/sectionPopover";
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
+import { useIsMobile } from "@/hooks/useIsMobile.ts";
 
 import SidePanel from "./assets/side-panel.svg";
+
 import "./subHeader.css";
 
 interface Link {
@@ -18,6 +20,11 @@ interface SubHeaderProps {
 
 const SubHeader = ({ links }: SubHeaderProps) => {
     const { toggleSidebar } = useSidebar();
+    const isMobile = useIsMobile("37.5rem");
+
+    if (!isMobile) {
+        return null;
+    }
 
     return (
         <div className="hd-sub-header">

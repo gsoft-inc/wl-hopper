@@ -15,6 +15,14 @@
     }
 }
 
+.hd-wrapper .hd-sub-header {
+    margin-inline: -1.5rem;
+}
+
+.hd-wrapper:has(.hd-overlay--opening) .hd-sub-header {
+    z-index: 1;
+}
+
 .sub-header-container {
     display: flex;
     justify-content: space-between;

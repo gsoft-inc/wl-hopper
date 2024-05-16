@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
+
 import Heading from "@/app/ui/components/heading/Heading.tsx";
-import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import SubHeader from "@/app/ui/layout/subHeader/SubHeader.tsx";
 import Aside from "@/app/ui/layout/aside/Aside.tsx";
+
+import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 
 interface PageProps {
@@ -53,14 +56,17 @@ export default async function ComponentPage({ params }: PageProps) {
     const sectionLinks = getSectionLinks({ body: { raw: component.raw } });
 
     return (
-        <div className="hd-container">
-            <Aside title="On this page" links={sectionLinks} />
-            <main>
-                <Heading title={title} tag={status} description={description} links={componentLinks} />
-                <div className="hd-content">
-                    {content}
-                </div>
-            </main>
+        <div>
+            <SubHeader links={sectionLinks} />
+            <div className="hd-container">
+                <Aside title="On this page" links={sectionLinks} />
+                <main>
+                    <Heading title={title} tag={status} description={description} links={componentLinks} />
+                    <div className="hd-content">
+                        {content}
+                    </div>
+                </main>
+            </div>
         </div>
     );
 }

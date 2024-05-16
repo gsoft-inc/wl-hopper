@@ -17,6 +17,7 @@
     font-display: fallback;
 }
 
+
 * {
     padding: 0;
     margin: 0;
@@ -51,11 +52,29 @@ a {
 .hd-wrapper {
     width: min(100% - 3rem, 75rem);
     margin-inline: auto;
-    gap: 1.5rem;;
+    gap: 1.5rem;
+}
+
+.hd-wrapper > div {
+    min-width: 0;
 }
 
 .hd-flex {
     display: flex;
+}
+
+.hd-flex-direction-column {
+    flex-direction: column;
+}
+
+.sm\:hd-flex-direction-column {
+    --hd-flex-direction-column: column;
+
+    @media screen and (width >= 37.5rem) {
+        --hd-flex-direction-column: initial;
+    }
+
+    flex-direction: var(--hd-flex-direction-column);
 }
 
 .hd-display {

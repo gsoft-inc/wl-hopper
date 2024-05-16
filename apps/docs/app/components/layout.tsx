@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
-import SubHeader from "@/app/ui/layout/subHeader/SubHeader.tsx";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 
@@ -37,8 +36,7 @@ async function ComponentsLayout({ children }: { children: ReactNode }) {
 
     return (
         <SidebarProvider>
-            <SubHeader links={[{ title: "", url: "", id: "" }]} />
-            <div className="hd-wrapper hd-flex">
+            <div className="hd-wrapper hd-flex sm:hd-flex-direction-column">
                 <Sidebar data={data} />
                 {children}
             </div>
