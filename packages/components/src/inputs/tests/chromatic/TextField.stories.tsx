@@ -31,13 +31,15 @@ export const Default: Story = {
             <Div width="10%">
                 <TextField isFluid {...args} />
             </Div>
+            <TextField showCharacterCount maxLength={20} {...args} />
+            <TextField showCharacterCount maxLength={20} isClearable {...args} />
+            <TextField isClearable {...args} />
         </Stack>
     ),
     args: {
         "aria-label": "Label"
     }
 };
-
 
 export const WithLabel: Story = {
     ...Default,

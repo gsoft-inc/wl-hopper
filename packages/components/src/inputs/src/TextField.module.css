@@ -32,10 +32,6 @@
     inline-size: 100%;
 }
 
-.hop-TextField--clearable .hop-TextField__InputGroup {
-    padding-inline-end: 0;
-}
-
 .hop-TextField__ErrorMessage,
 .hop-TextField__HelperMessage {
     order: 3;

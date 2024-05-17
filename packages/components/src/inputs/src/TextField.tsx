@@ -1,7 +1,9 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
-import { forwardRef, useCallback, useState, type ForwardedRef, type ReactNode } from "react";
+import { forwardRef, useCallback, useState, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
+import { useObjectRef } from "react-aria";
 import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
@@ -48,14 +50,23 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * If `true`, the TextField will take all available width.
      */
     isFluid?: ResponsiveProp<boolean>;
+
+    /**
+     * A ref for the HTML input element.
+     */
+    inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
 function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps(props, ref, TextFieldContext);
+    // we extract the inputRef props, since we want to manually merge it with the context props.
+    const {
+        inputRef: userProvidedInputRef = null,
+        ...propsWithoutRef
+    } = props;
+    [props, ref] = useContextProps(propsWithoutRef, ref, TextFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
-
-    const [characterCount, setCharacterCount] = useState(props.value?.length ?? 0);
+    const [characterCount, setCharacterCount] = useState(() => props.value?.length ?? props.defaultValue?.length ?? 0);
 
     const {
         className,
@@ -75,6 +86,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         ...otherProps
     } = ownProps;
 
+    const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
@@ -123,15 +135,14 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
         </SlotProvider>
     ) : null;
-
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup isFluid={isFluid} size={size} className={styles["hop-TextField__InputGroup"]}>
                 {prefixMarkup}
-                <Input placeholder={placeholder} />
+                <Input ref={inputRef} placeholder={placeholder} />
 
-                {showClearButton && <ClearButton onPress={handleClear} />}
                 {showCharacterCount && maxLength && <CharacterCount characterLeft={maxLength - characterCount} />}
+                {showClearButton && <ClearButton onPress={handleClear} />}
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -153,7 +164,15 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     });
 
     return (
-        <RACTextField value={value} style={style} className={classNames} maxLength={maxLength} onChange={onChange} {...otherProps}>
+        <RACTextField
+            ref={ref}
+            value={value}
+            style={style}
+            className={classNames}
+            maxLength={maxLength}
+            onChange={onChange}
+            {...otherProps}
+        >
             {childrenMarkup}
         </RACTextField>
     );

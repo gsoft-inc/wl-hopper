@@ -7,7 +7,6 @@ import { Stack } from "../../layout/index.ts";
 import { Text } from "../../Text/index.ts";
 import { InputGroup } from "../src/InputGroup.tsx";
 
-
 /**
  * TODO: Add description
  *
@@ -44,17 +43,6 @@ export const Default: Story = {
         ]
     }
 };
-
-// export const PrefixPhone: Story = {
-//     ...Default,
-//     args: {
-//         ...Default.args,
-//         children: [
-//             <Select key="1" />,
-//             <Input key="2" />
-//         ]
-//     }
-// };
 
 export const PrefixIcon: Story = {
     ...Default,

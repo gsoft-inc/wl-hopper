@@ -31,6 +31,7 @@ export const Default: Story = {
             <Div width="10%">
                 <SearchField isFluid {...args} />
             </Div>
+            <SearchField isClearable={false} {...args} />
         </Stack>
     ),
     args: {

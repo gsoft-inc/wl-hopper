@@ -1,6 +1,8 @@
 import { EyeHiddenIcon, EyeVisibleIcon } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, useState, type ForwardedRef } from "react";
+import { mergeRefs } from "@react-aria/utils";
+import { forwardRef, useState, type ForwardedRef, type MutableRefObject } from "react";
+import { useObjectRef } from "react-aria";
 import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
 
 import { EmbeddedButton } from "../../buttons/index.ts";
@@ -33,10 +35,20 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
      * If `true`, the PasswordField will take all available width.
      */
     isFluid?: ResponsiveProp<boolean>;
+
+    /**
+     * A ref for the HTML input element.
+     */
+    inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
 function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps(props, ref, PasswordFieldContext);
+    // we extract the inputRef props, since we want to manually merge it with the context props.
+    const {
+        inputRef: userProvidedInputRef = null,
+        ...propsWithoutRef
+    } = props;
+    [props, ref] = useContextProps(propsWithoutRef, ref, PasswordFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const [showPassword, setShowPassword] = useState(false);
     const stringFormatter = useLocalizedString();
@@ -52,6 +64,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         ...otherProps
     } = ownProps;
 
+    const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
@@ -75,7 +88,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup isFluid={isFluid} size={size} className={styles["hop-PasswordField__InputGroup"]}>
-                <Input placeholder={placeholder} type={showPassword ? "text" : "password"} />
+                <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} />
                 <EmbeddedButton
                     isDisabled={isDisabled}
                     aria-label={stringFormatter.format("PasswordField.toggleVisibility")}
@@ -105,6 +118,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
 
     return (
         <RACTextField
+            ref={ref}
             style={style}
             className={classNames}
             isDisabled={isDisabled}

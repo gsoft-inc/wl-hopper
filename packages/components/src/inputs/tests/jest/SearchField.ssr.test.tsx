@@ -1,14 +1,18 @@
 /**
  * @jest-environment node
  */
-import { Group } from "../../src/Group.tsx";
 import { renderToString } from "react-dom/server";
 
-describe("Group", () => {
+import { Label } from "../../../Label/index.ts";
+import { SearchField } from "../../src/SearchField.tsx";
+
+describe("SearchField", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <Group>Text</Group>
+                <SearchField>
+                    <Label>Label:</Label>
+                </SearchField>
             );
 
         expect(renderOnServer).not.toThrow();

@@ -4,15 +4,15 @@
 import { renderToString } from "react-dom/server";
 
 import { Label } from "../../../Label/index.ts";
-import { TextField } from "../../src/TextField.tsx";
+import { PasswordField } from "../../src/PasswordField.tsx";
 
-describe("TextField", () => {
+describe("PasswordField", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <TextField>
+                <PasswordField>
                     <Label>Label:</Label>
-                </TextField>
+                </PasswordField>
             );
 
         expect(renderOnServer).not.toThrow();

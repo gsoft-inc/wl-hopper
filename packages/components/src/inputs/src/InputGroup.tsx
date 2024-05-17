@@ -60,6 +60,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         >
             <RACGroup
                 {...otherProps}
+                ref={ref}
                 className={classNames}
                 style={style}
             >

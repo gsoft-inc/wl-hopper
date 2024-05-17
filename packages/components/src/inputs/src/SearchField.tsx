@@ -1,6 +1,8 @@
 import { IconContext, SearchIcon } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { mergeRefs } from "@react-aria/utils";
+import { forwardRef, type ForwardedRef, type MutableRefObject } from "react";
+import { useObjectRef } from "react-aria";
 import { composeRenderProps, Input, useContextProps, type SearchFieldProps as RACSearchFieldProps, SearchField as RACSearchField } from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
@@ -44,10 +46,20 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
      * An icon to display at the start of the input.
      */
     icon?: React.ReactNode | null;
+
+    /**
+     * A ref for the HTML input element.
+     */
+    inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
 function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps(props, ref, SearchFieldContext);
+    // we extract the inputRef props, since we want to manually merge it with the context props.
+    const {
+        inputRef: userProvidedInputRef = null,
+        ...propsWithoutRef
+    } = props;
+    [props, ref] = useContextProps(propsWithoutRef, ref, SearchFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const {
@@ -62,6 +74,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
         ...otherProps
     } = ownProps;
 
+    const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
@@ -93,7 +106,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
                 >
                     {icon}
                 </SlotProvider>
-                <Input placeholder={placeholder} />
+                <Input ref={inputRef} placeholder={placeholder} />
                 {isClearable && <ClearButton className={styles["hop-SearchField__ClearButton"]} />}
             </InputGroup>
         </ClearContainerSlots>
@@ -116,7 +129,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
     });
 
     return (
-        <RACSearchField style={style} className={classNames} {...otherProps}>
+        <RACSearchField ref={ref} style={style} className={classNames} {...otherProps}>
             {childrenMarkup}
         </RACSearchField>
     );

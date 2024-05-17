@@ -1,9 +1,11 @@
 .hop-SearchField  {
-    /* TODO */
+    --hop-TextField-gap: var(--hop-space-stack-xs);
+    --hop-TextField-default-inline-size: 20rem;
+
     display: flex;
     flex-direction: column;
-    gap: var(--hop-space-stack-xs);
-    inline-size: 20rem;
+    gap: var(--hop-TextField-gap);
+    inline-size: var(--hop-TextField-default-inline-size);
 }
 
 .hop-SearchField--fluid  {
