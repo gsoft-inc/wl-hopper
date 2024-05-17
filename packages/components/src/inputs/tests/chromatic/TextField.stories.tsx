@@ -3,6 +3,8 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@testing-library/react";
 
+import { ErrorMessage } from "../../../errorMessage/index.ts";
+import { HelperMessage } from "../../../helperMessage/index.ts";
 import { Label } from "../../../Label/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { TextField, type TextFieldProps } from "../../src/TextField.tsx";
@@ -15,7 +17,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
 
 export const Default: Story = {
     render: args => (
@@ -83,11 +84,27 @@ export const TextIcon: Story = {
     }
 };
 
-export const Validation: Story = {
-    ...WithLabel,
+export const HelperText: Story = {
+    ...Default,
     args: {
-        ...WithLabel.args,
+        ...Default.args,
+        children: [
+            <HelperMessage key="1">Helper message</HelperMessage>,
+            <ErrorMessage key="2">Error message</ErrorMessage>
+        ],
+        defaultValue: "Hop we go!"
+    }
+};
+
+export const Validation: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
         isInvalid: true,
+        children: [
+            <HelperMessage key="1">Helper message</HelperMessage>,
+            <ErrorMessage key="2">Error message</ErrorMessage>
+        ],
         defaultValue: "Hop we go!"
     }
 };

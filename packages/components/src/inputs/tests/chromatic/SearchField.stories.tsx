@@ -1,9 +1,13 @@
 import { MailIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
+import { within } from "@testing-library/react";
 
+import { ErrorMessage } from "../../../errorMessage/index.ts";
+import { HelperMessage } from "../../../helperMessage/index.ts";
+import { Label } from "../../../Label/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { SearchField } from "../../src/SearchField.tsx";
+import { SearchField, type SearchFieldProps } from "../../src/SearchField.tsx";
 
 const meta = {
     title: "Components/SearchField",
@@ -15,127 +19,100 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: () => (
+    render: args => (
         <Stack>
             <Inline alignY="center">
-                <SearchField aria-label="Label" />
-                <SearchField aria-label="Label" size="sm" />
+                <SearchField {...args} />
+                <SearchField size="sm" {...args} />
             </Inline>
-            <Inline alignY="center">
-                <SearchField isLoading aria-label="Label"></SearchField>
-                <SearchField isLoading aria-label="Label" size="sm"></SearchField>
-            </Inline>
-            <SearchField isDisabled aria-label="Label"></SearchField>
-            <SearchField isReadOnly aria-label="Label"></SearchField>
-            <SearchField isFluid aria-label="Label"></SearchField>
+            <SearchField isDisabled {...args} />
+            <SearchField isReadOnly {...args} />
+            <SearchField isFluid {...args} />
             <Div width="10%">
-                <SearchField isFluid aria-label="Label"></SearchField>
+                <SearchField isFluid {...args} />
             </Div>
-            <SearchField isLoading isFluid aria-label="Label"></SearchField>
-        </Stack >
-    )
+        </Stack>
+    ),
+    args: {
+        "aria-label": "Label"
+    }
+};
+
+
+export const WithLabel: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        "aria-label": undefined,
+        children: [
+            <Label key="1">Name:</Label>
+        ]
+    }
 };
 
 export const Placeholder: Story = {
-    render: () => (
-        <Stack>
-            <Inline alignY="center">
-                <SearchField placeholder="Where to?" />
-                <SearchField placeholder="Where to?" size="sm" />
-            </Inline>
-            <SearchField isLoading placeholder="Where to?" />
-            <SearchField isDisabled placeholder="Where to?"></SearchField>
-            <SearchField isReadOnly placeholder="Where to?"></SearchField>
-            <SearchField isFluid placeholder="Where to?"></SearchField>
-            <Div width="10%">
-                <SearchField isFluid placeholder="Where to?"></SearchField>
-            </Div>
-            <SearchField isLoading isFluid placeholder="Where to?"></SearchField>
-        </Stack>
-    )
+    ...WithLabel,
+    args: {
+        ...WithLabel.args,
+        placeholder: "Where to?"
+    }
 };
 
 export const Value: Story = {
-    render: () => (
-        <Stack>
-            <Inline alignY="center">
-                <SearchField defaultValue="Mars" aria-label="Label" />
-                <SearchField defaultValue="Mars" aria-label="Label" size="sm" />
-            </Inline>
-            <SearchField isLoading defaultValue="Mars" aria-label="Label" />
-            <SearchField isDisabled defaultValue="Mars" aria-label="Label" />
-            <SearchField isReadOnly defaultValue="Mars" aria-label="Label" />
-            <Inline>
-                <SearchField placeholder="Where to?" defaultValue="Mars" />
-                <SearchField value="Mars" />
-            </Inline>
-            <SearchField isFluid defaultValue="Mars" aria-label="Label"></SearchField>
-            <Div width="10%">
-                <SearchField isFluid defaultValue="Mars" aria-label="Label"></SearchField>
-            </Div>
-            <SearchField isLoading isFluid defaultValue="Mars" aria-label="Label"></SearchField>
-        </Stack>
-    )
+    ...WithLabel,
+    args: {
+        ...WithLabel.args,
+        defaultValue: "Hop we go!"
+    }
+};
+
+export const NonClearable: Story = {
+    ...Value,
+    args: {
+        ...Value.args,
+        isClearable: false
+    }
 };
 
 export const CustomIcon: Story = {
-    render: () => (
-        <Stack>
-            <Inline alignY="center">
-                <SearchField icon={<MailIcon />} placeholder="Where to?" aria-label="Label" />
-                <SearchField icon={<MailIcon />} placeholder="Where to?" aria-label="Label" size="sm" />
-            </Inline>
-            <SearchField icon={<MailIcon />} defaultValue="SpaceX will win the race!" aria-label="Label" />
-            <SearchField isLoading icon={<MailIcon />} placeholder="Where to?" />
-            <SearchField isDisabled icon={<MailIcon />} placeholder="Where to?" />
-            <SearchField isReadOnly icon={<MailIcon />} placeholder="Where to?" />
-            <SearchField isFluid icon={<MailIcon />} placeholder="Where to?" />
-            <Div width="10%">
-                <SearchField isFluid icon={<MailIcon />} placeholder="Where to?" />
-            </Div>
-        </Stack>
-    )
+    ...Value,
+    args: {
+        ...Value.args,
+        icon: <MailIcon />
+    }
 };
 
 export const NoIcon: Story = {
-    render: () => (
-        <Stack>
-            <SearchField icon={null} placeholder="Where to?" />
-            <SearchField icon={null} defaultValue="SpaceX will win the race!" />
-            <SearchField isLoading icon={null} placeholder="Where to?" />
-            <SearchField isDisabled icon={null} placeholder="Where to?" />
-            <SearchField isReadOnly icon={null} placeholder="Where to?" />
-            <SearchField isFluid icon={null} placeholder="Where to?" />
-            <Div width="10%">
-                <SearchField isFluid icon={null} placeholder="Where to?" />
-            </Div>
-        </Stack>
-    )
+    ...Value,
+    args: {
+        ...Value.args,
+        icon: null
+    }
 };
 
-export const States: Story = {
-    render: () => (
-        <Stack>
-            <SearchField active placeholder="Where to?" />
-            <Inline>
-                <SearchField focus placeholder="Where to?" />
-                <SearchField defaultValue="Mars" focus placeholder="Where to?" />
-                <SearchField isLoading defaultValue="Mars" focus placeholder="Where to?" />
-            </Inline>
-            <Inline>
-                <SearchField hover placeholder="Where to?" />
-                <SearchField defaultValue="Mars" hover placeholder="Where to?" />
-                <SearchField isLoading defaultValue="Mars" hover placeholder="Where to?" />
-            </Inline>
-            <Inline>
-                <SearchField focus hover placeholder="Where to?" />
-                <SearchField defaultValue="Mars" focus hover placeholder="Where to?" />
-                <SearchField isLoading defaultValue="Mars" focus hover placeholder="Where to?" />
-            </Inline>
-            <SearchField isDisabled placeholder="Where to?" />
-            <SearchField isReadOnly placeholder="Where to?" />
-        </Stack>
-    )
+export const HelperText: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        children: [
+            <HelperMessage key="1">Helper message</HelperMessage>,
+            <ErrorMessage key="2">Error message</ErrorMessage>
+        ],
+        defaultValue: "Hop we go!"
+    }
+};
+
+export const Validation: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        isInvalid: true,
+        children: [
+            <HelperMessage key="1">Helper message</HelperMessage>,
+            <ErrorMessage key="2">Error message</ErrorMessage>
+        ],
+        defaultValue: "Hop we go!"
+    }
 };
 
 export const Zoom: Story = {
@@ -161,10 +138,78 @@ export const Styling: Story = {
     render: () => (
         <Inline>
             <SearchField border="core_amanita-600" aria-label="Label" />
-            <SearchField className="border-red" aria-label="Label" />
-            <SearchField style={{ border: "1px solid red" }} aria-label="Label" />
+            <SearchField className="bg-red" aria-label="Label" />
+            <SearchField style={{ backgroundColor: "red" }} aria-label="Label" />
+            {/* <SearchField wrapperProps={{ border: "amanita-500" }} aria-label="Label" />
             <SearchField wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <SearchField wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
+            <SearchField wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" /> */}
         </Inline>
     )
+};
+
+const StateTemplate = (args: Partial<SearchFieldProps>) => (
+    <Stack>
+        <Inline alignY="center">
+            <SearchField {...args} />
+            <SearchField size="sm" {...args} />
+        </Inline>
+        <SearchField isDisabled {...args} />
+        <SearchField isReadOnly {...args} />
+        <SearchField isFluid {...args} />
+        <Div width="10%">
+            <SearchField isFluid {...args} />
+        </Div>
+    </Stack>
+);
+
+export const States: Story = {
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const inputs = canvas.getAllByRole("searchbox");
+
+        inputs.forEach(input => {
+            if (input.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
+                const inputGroup = input.parentElement;
+                const field = inputGroup?.parentElement;
+
+                if (field?.getAttribute("data-chromatic-force-focus")) {
+                    input.setAttribute("data-focus-visible", "true");
+                    inputGroup?.setAttribute("data-focus-within", "true");
+                    field?.removeAttribute("data-chromatic-force-focus");
+                }
+
+                if (field?.getAttribute("data-chromatic-force-focus-within")) {
+                    input.setAttribute("data-focus-within", "true");
+                    field?.removeAttribute("data-chromatic-force-focus");
+                }
+
+                if (field?.getAttribute("data-chromatic-force-hover")) {
+                    input.setAttribute("data-hovered", "true");
+                    field?.removeAttribute("data-chromatic-force-hover");
+                }
+            }
+        });
+    },
+    render: args => {
+        return (
+            <Stack>
+                <h1>Default</h1>
+                <StateTemplate {...args} />
+                <h1>Disabled</h1>
+                <StateTemplate {...args} isDisabled />
+                <h1>Focus Within</h1>
+                <StateTemplate {...args} data-chromatic-force-focus-within />
+                <h1>Focus Visible</h1>
+                <StateTemplate {...args} data-chromatic-force-focus />
+                <h1>Hovered</h1>
+                <StateTemplate {...args} data-chromatic-force-hover />
+                <h1>Focus Visible and Hovered</h1>
+                <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
+            </Stack>
+        );
+    },
+    args: {
+        "aria-label": "Label",
+        defaultValue: "Some random text"
+    }
 };
