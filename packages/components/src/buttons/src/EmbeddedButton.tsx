@@ -1,3 +1,4 @@
+import { IconContext } from "@hopper-ui/icons";
 import {
     type StyledComponentProps,
     useStyledSystem
@@ -11,6 +12,7 @@ import {
 } from "react-aria-components";
 
 import {
+    SlotProvider,
     composeClassnameRenderProps,
     cssModule
 } from "../../utils/index.ts";
@@ -22,7 +24,7 @@ import styles from "./EmbeddedButton.module.css";
 export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
-
+    size?: "sm" | "md";
 }
 
 function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
@@ -35,6 +37,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         isDisabled,
         style: styleProp,
         children,
+        size,
         ...otherProps
     } = ownProps;
 
@@ -43,7 +46,8 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         GlobalEmbeddedButtonCssSelector,
         cssModule(
             styles,
-            "hop-EmbeddedButton"
+            "hop-EmbeddedButton",
+            size
         ),
         stylingProps.className
     );
@@ -57,15 +61,23 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
 
 
     return (
-        <RACButton
-            ref={ref}
-            className={classNames}
-            style={style}
-            isDisabled={isDisabled}
-            {...otherProps}
+        <SlotProvider
+            values={[
+                [IconContext, {
+                    size: size
+                }]
+            ]}
         >
-            {children}
-        </RACButton>
+            <RACButton
+                ref={ref}
+                className={classNames}
+                style={style}
+                isDisabled={isDisabled}
+                {...otherProps}
+            >
+                {children}
+            </RACButton>
+        </SlotProvider>
     );
 }
 

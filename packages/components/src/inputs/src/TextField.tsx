@@ -1,5 +1,5 @@
 import { IconContext } from "@hopper-ui/icons";
-import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { useControlledState } from "@react-stately/utils";
 import { forwardRef, useCallback, useState, type ForwardedRef, type ReactNode } from "react";
 import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
@@ -43,6 +43,11 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * Handler that is called when the clear button is pressed.
      */
     onClear?:	() => void;
+
+    /**
+     * If `true`, the TextField will take all available width.
+     */
+    isFluid?: ResponsiveProp<boolean>;
 }
 
 function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -66,8 +71,11 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         onClear,
         defaultValue,
         value: valueProp,
+        isFluid: isFluidProp,
         ...otherProps
     } = ownProps;
+
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -75,7 +83,8 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         cssModule(
             styles,
             "hop-TextField",
-            isClearable && "clearable"
+            isClearable && "clearable",
+            isFluid && "fluid"
         ),
         stylingProps.className
     );
@@ -117,7 +126,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const inputMarkup = (
         <ClearContainerSlots>
-            <InputGroup size={size} className={styles["hop-TextField__InputGroup"]}>
+            <InputGroup isFluid={isFluid} size={size} className={styles["hop-TextField__InputGroup"]}>
                 {prefixMarkup}
                 <Input placeholder={placeholder} />
 

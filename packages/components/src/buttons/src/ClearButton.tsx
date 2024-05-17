@@ -11,7 +11,8 @@ import { EmbeddedButton, type EmbeddedButtonProps } from "./EmbeddedButton.tsx";
 
 export const GlobalClearButtonCssSelector = "hop-ClearButton";
 
-export interface ClearButtonProps extends EmbeddedButtonProps {}
+export interface ClearButtonProps extends EmbeddedButtonProps {
+}
 
 function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     [props, ref] = useContextProps(props, ref, ClearButtonContext);
@@ -19,6 +20,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
 
     const {
         "aria-label": ariaLabel = stringFormatter.format("ClearButton.clearAriaLabel"),
+        size = "sm",
         ...otherProps
     } = props;
 
@@ -26,6 +28,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
         <EmbeddedButton
             ref={ref}
             aria-label={ariaLabel}
+            size={size}
             {...otherProps}
         >
             <DismissIcon size="sm" />

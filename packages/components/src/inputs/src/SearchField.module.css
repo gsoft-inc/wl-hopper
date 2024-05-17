@@ -44,6 +44,10 @@
     appearance: none;
 }
 
+.hop-SearchField__ClearButton {
+    flex-shrink: 0;
+}
+
 .hop-SearchField[data-empty] .hop-SearchField__ClearButton {
     display: none;
 }

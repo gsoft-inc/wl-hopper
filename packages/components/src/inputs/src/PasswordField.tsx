@@ -1,11 +1,12 @@
 import { EyeHiddenIcon, EyeVisibleIcon } from "@hopper-ui/icons";
-import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { forwardRef, useState, type ForwardedRef } from "react";
 import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
 
 import { EmbeddedButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
+import { useLocalizedString } from "../../i18n/index.ts";
 import { LabelContext } from "../../Label/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
 
@@ -27,12 +28,18 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
+
+    /**
+     * If `true`, the PasswordField will take all available width.
+     */
+    isFluid?: ResponsiveProp<boolean>;
 }
 
 function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, PasswordFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const [showPassword, setShowPassword] = useState(false);
+    const stringFormatter = useLocalizedString();
 
     const {
         className,
@@ -40,15 +47,20 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         size,
         placeholder,
         children,
+        isFluid: isFluidProp,
+        isDisabled,
         ...otherProps
     } = ownProps;
+
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
         GlobalPasswordFieldCssSelector,
         cssModule(
             styles,
-            "hop-PasswordField"
+            "hop-PasswordField",
+            isFluid && "fluid"
         ),
         stylingProps.className
     );
@@ -60,19 +72,17 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         };
     });
 
-    const showPasswordMarkup = showPassword ?
-        <EmbeddedButton onPress={() => { setShowPassword(false);}}>
-            <EyeVisibleIcon />
-        </EmbeddedButton> :
-        <EmbeddedButton onPress={() => { setShowPassword(true);}}>
-            <EyeHiddenIcon />
-        </EmbeddedButton>;
-
     const inputMarkup = (
         <ClearContainerSlots>
-            <InputGroup size={size} className={styles["hop-PasswordField__InputGroup"]}>
+            <InputGroup isFluid={isFluid} size={size} className={styles["hop-PasswordField__InputGroup"]}>
                 <Input placeholder={placeholder} type={showPassword ? "text" : "password"} />
-                {showPasswordMarkup}
+                <EmbeddedButton
+                    isDisabled={isDisabled}
+                    aria-label={stringFormatter.format("PasswordField.toggleVisibility")}
+                    onPress={() => { setShowPassword(x => !x);}}
+                >
+                    {showPassword ? <EyeVisibleIcon /> : <EyeHiddenIcon />}
+                </EmbeddedButton>
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -94,7 +104,12 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
     });
 
     return (
-        <RACTextField style={style} className={classNames}{...otherProps}>
+        <RACTextField
+            style={style}
+            className={classNames}
+            isDisabled={isDisabled}
+            {...otherProps}
+        >
             {childrenMarkup}
         </RACTextField>
     );

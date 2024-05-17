@@ -18,8 +18,13 @@
     border-radius: var(--hop-shape-rounded-md)
 }
 
-.hop-InputGroup[data-focus-within],
-.hop-InputGroup[data-hovered]  {
+.hop-InputGroup--fluid,
+.hop-InputGroup--fluid .hop-InputGroup__input {
+    inline-size: 100%
+}
+
+.hop-InputGroup:has(.hop-InputGroup__input[data-focus-within]),
+.hop-InputGroup:has(.hop-InputGroup__input[data-hovered]) {
     --input-group-background: var(--hop-neutral-surface-hover);
     --input-group-border: var(--hop-neutral-border-hover)
 }
@@ -35,6 +40,10 @@
 
 .hop-InputGroup--sm {
     block-size: 2rem;
+}
+
+.hop-InputGroup--fluid {
+    inline-size: 100%
 }
 
 .hop-InputGroup__input {

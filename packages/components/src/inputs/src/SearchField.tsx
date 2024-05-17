@@ -1,5 +1,5 @@
-import { SearchIcon } from "@hopper-ui/icons";
-import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { IconContext, SearchIcon } from "@hopper-ui/icons";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import { composeRenderProps, Input, useContextProps, type SearchFieldProps as RACSearchFieldProps, SearchField as RACSearchField } from "react-aria-components";
 
@@ -34,6 +34,16 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
+
+    /**
+     * If `true`, the SearchField will take all available width.
+     */
+    isFluid?: ResponsiveProp<boolean>;
+
+    /**
+     * An icon to display at the start of the input.
+     */
+    icon?: React.ReactNode | null;
 }
 
 function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -47,15 +57,20 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
         placeholder,
         isClearable = true,
         children,
+        isFluid: isFluidProp,
+        icon = <SearchIcon />,
         ...otherProps
     } = ownProps;
+
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
         GlobalSearchFieldCssSelector,
         cssModule(
             styles,
-            "hop-SearchField"
+            "hop-SearchField",
+            isFluid && "fluid"
         ),
         stylingProps.className
     );
@@ -69,8 +84,15 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
 
     const inputMarkup = (
         <ClearContainerSlots>
-            <InputGroup size={size} className={styles["hop-SearchField__InputGroup"]}>
-                <SearchIcon className={styles["hop-SearchField__prefix"]} />
+            <InputGroup isFluid={isFluid} size={size} className={styles["hop-SearchField__InputGroup"]}>
+                <SlotProvider values={[
+                    [IconContext, {
+                        className: styles["hop-SearchField__prefix"]
+                    }]
+                ]}
+                >
+                    {icon}
+                </SlotProvider>
                 <Input placeholder={placeholder} />
                 {isClearable && <ClearButton className={styles["hop-SearchField__ClearButton"]} />}
             </InputGroup>

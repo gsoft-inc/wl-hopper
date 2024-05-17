@@ -12,6 +12,7 @@ export const GlobalInputGroupCssSelector = "hop-InputGroup";
 
 export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
     size?: ResponsiveProp<"sm" | "md">;
+    isFluid?: ResponsiveProp<boolean>;
 }
 
 function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -23,10 +24,12 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         style: styleProp,
         children,
         size:sizeProp,
+        isFluid: isFluidProp,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -34,6 +37,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         cssModule(
             styles,
             "hop-InputGroup",
+            isFluid && "fluid",
             size
         ),
         stylingProps.className

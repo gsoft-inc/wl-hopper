@@ -23,6 +23,13 @@ const meta = {
         chromatic: { disableSnapshot: true }
     },
     component: PasswordField,
+    decorators: [
+        Story => (
+            <form>
+                <Story />
+            </form>
+        )
+    ],
     args: {
         placeholder: "Placeholder",
         children: [
@@ -45,6 +52,18 @@ export const Default: Story = {
             <PasswordField {...args} />
         </Stack>
     )
+};
+
+/**
+ * If a visible label isn't specified, an aria-label must be provided to the PasswordField for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+ */
+export const Labeling: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        children: [],
+        "aria-label": "Label"
+    }
 };
 
 /**

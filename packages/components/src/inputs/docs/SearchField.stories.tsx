@@ -48,6 +48,18 @@ export const Default: Story = {
 };
 
 /**
+ * If a visible label isn't specified, an aria-label must be provided to the SearchField for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
+ */
+export const Labeling: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        children: [],
+        "aria-label": "Label"
+    }
+};
+
+/**
  * A search field can hide it's clear button.
  */
 export const HideClearButton: Story = {

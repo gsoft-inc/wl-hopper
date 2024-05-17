@@ -1,5 +1,6 @@
 {
     "Button.spinnerAriaLabel": "Chargement en cours",
     "ClearButton.clearAriaLabel": "Effacer",
-    "Input.charactersLeft": "{charLeft, plural, =0 {Aucun caractère restant} one {# caractère restant} other {# caractères restants}}."
+    "Input.charactersLeft": "{charLeft, plural, =0 {Aucun caractère restant} one {# caractère restant} other {# caractères restants}}.",
+    "PasswordField.toggleVisibility": "Basculer la visibilité du mot de passe"
 }
