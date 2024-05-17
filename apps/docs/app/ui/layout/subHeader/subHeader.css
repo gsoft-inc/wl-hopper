@@ -3,7 +3,7 @@
     padding-block: var(--hd-space-2);
     top: 0;
     position: sticky;
-    z-index: 2;
+    z-index: 999;
     backdrop-filter: blur(1rem);
     border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
     border-top: var(--hd-border-size) solid var(--hd-color-neutral-border);

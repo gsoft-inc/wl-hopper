@@ -55,7 +55,7 @@ a {
     gap: 1.5rem;
 }
 
-.hd-wrapper > div {
+.hd-wrapper > .hd-section {
     min-width: 0;
     width: 100%;
 }

@@ -22,8 +22,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
         return ({
             slug: [section, type]
         });
-    }
-    );
+    });
 }
 
 export default async function ComponentPage({ params }: PageProps) {
@@ -61,7 +60,7 @@ export default async function ComponentPage({ params }: PageProps) {
     const sectionLinks = getSectionLinks({ body: { raw: component.raw } });
 
     return (
-        <div>
+        <div className="hd-section">
             <SubHeader links={sectionLinks} />
             <div className="hd-container">
                 <Aside title="On this page" links={sectionLinks} />
