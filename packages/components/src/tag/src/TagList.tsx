@@ -23,6 +23,7 @@ function TagList<T extends object>(props: TagListProps<T>, ref: ForwardedRef<HTM
     const classNames = composeClassnameRenderProps(
         className,
         GlobalTagListCssSelector,
+        "hop-TagList",
         stylingProps.className
     );
 

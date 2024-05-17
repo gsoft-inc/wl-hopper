@@ -1,3 +1,4 @@
+export * from "./badge/index.ts";
 export * from "./buttons/index.ts";
 export * from "./checkbox/index.ts";
 export * from "./chip/index.ts";

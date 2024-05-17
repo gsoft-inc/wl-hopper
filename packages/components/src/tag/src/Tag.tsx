@@ -4,6 +4,7 @@ import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useRes
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
 
+import { BadgeContext } from "../../badge/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
@@ -110,6 +111,10 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                     [IconContext, {
                                         className: styles["hop-Tag__icon"],
                                         size: "sm"
+                                    }],
+                                    [BadgeContext, {
+                                        className: styles["hop-Tag__badge"],
+                                        isDisabled: isDisabled
                                     }]
                                 ]}
                             >
@@ -122,6 +127,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 isDisabled={isDisabled} 
                                 className={styles["hop-Tag__remove-btn"]} 
                                 aria-label={stringFormatter.format("Tag.removeAriaLabel")} 
+                                size={size}
                             />
                         }
                         {isLoading && 

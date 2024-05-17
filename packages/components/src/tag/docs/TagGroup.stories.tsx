@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import type { Selection } from "react-aria-components";
 
+import { Badge } from "../../badge/index.ts";
 import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
 import { IconList } from "../../IconList/index.ts";
@@ -114,7 +115,7 @@ export const Sizes = {
             <TagGroup {...props} aria-label="tag-group" size="md">
                 <TagList>
                     <Tag id="1">Tag 1</Tag>
-                    <Tag id="2" size="lg">Large Tag</Tag>
+                    <Tag id="2">Tag 2</Tag>
                     <Tag id="3">Tag 3</Tag>
                 </TagList>
             </TagGroup>
@@ -135,7 +136,7 @@ export const Sizes = {
 } satisfies Story;
 
 /**
- * Tags can also have icons.
+ * Tags can have icons.
  */
 export const Icons = {
     render: props => (
@@ -169,6 +170,41 @@ export const Icons = {
             alert(`Remove: ${[...ids]}`);
         }
     }
+} satisfies Story;
+
+
+/**
+ * Tags can also have a count using the `Badge` component.
+ */
+export const Count = {
+    render: props => (
+        <Stack>
+            <TagGroup {...props} aria-label="tag-group" size="md">
+                <TagList>
+                    <Tag id="1" textValue="Designer">
+                        <Text>Designer</Text>
+                        <Badge>12</Badge>
+                    </Tag>
+                    <Tag id="2" textValue="Developer">
+                        <Text>Developer</Text>
+                        <Badge variant="secondary">100</Badge>
+                    </Tag>
+                </TagList>
+            </TagGroup>
+            <TagGroup {...props} aria-label="tag-group" size="lg">
+                <TagList>
+                    <Tag id="1" textValue="Designer">
+                        <Badge>12</Badge>
+                        <Text>Designer</Text>
+                    </Tag>
+                    <Tag id="2" textValue="Developer">
+                        <Text>Developer</Text>
+                        <Badge variant="secondary">100</Badge>
+                    </Tag>
+                </TagList>
+            </TagGroup>
+        </Stack>
+    )
 } satisfies Story;
 
 /**

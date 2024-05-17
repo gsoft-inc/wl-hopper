@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Inline } from "../../layout/index.ts";
 import { ClearButton } from "../src/ClearButton.tsx";
 
 /**
@@ -31,6 +32,18 @@ type Story = StoryObj<typeof meta>;
  * A default clearButton.
  */
 export const Default: Story = {
+};
+
+/**
+ * A clearButton can have different sizes
+ */
+export const Sizes: Story = {
+    render: props => (
+        <Inline>
+            <ClearButton {...props} size="md" />
+            <ClearButton {...props} size="lg" />
+        </Inline>
+    )
 };
 
 /**

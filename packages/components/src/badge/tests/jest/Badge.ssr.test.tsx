@@ -3,13 +3,13 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Tag } from "../../src/Tag.tsx";
+import { Badge } from "../../src/Badge.tsx";
 
-describe("Tag", () => {
+describe("Badge", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <Tag>Text</Tag>
+                <Badge>Text</Badge>
             );
 
         expect(renderOnServer).not.toThrow();
