@@ -16,9 +16,14 @@ interface PageProps {
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
     const componentsDetails = await getComponentDetails();
 
-    return componentsDetails.map(({ slug }) => ({
-        slug: ["", slug]
-    }));
+    return componentsDetails.map(({ slug }) => {
+        const [section, type] = slug.split("/");
+
+        return ({
+            slug: [section, type]
+        });
+    }
+    );
 }
 
 export default async function ComponentPage({ params }: PageProps) {
