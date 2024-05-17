@@ -42,9 +42,6 @@ export const Default: Story = {
                     sourceFileDir: "/pages"
                 }
             }
-        ],
-        isOpen: true,
-        onClose: () => {
-        }
+        ]
     }
 };

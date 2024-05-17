@@ -1,8 +1,10 @@
 import type { MDX } from "contentlayer/core";
 import formattingTitleId from "@/app/lib/formattingTitleId";
 
+type SectionLink = Pick<MDX, "raw">;
+
 function getSectionLinks(content: {
-    body: MDX;
+    body: SectionLink;
 }) {
     const regex = /(?<=^##\s).*?(?=\n)/gm;
     const body = content.body.raw;
