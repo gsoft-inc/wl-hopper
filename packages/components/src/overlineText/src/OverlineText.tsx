@@ -41,7 +41,7 @@ function OverlineText(props:OverlineTextProps, ref: ForwardedRef<HTMLSpanElement
             className={classNames}
             style={mergedStyles}
         >
-            {children}
+            <span className={styles["hop-OverlineText__text"]}>{children}</span>
         </RACText>
     );
 }
