@@ -1,6 +1,24 @@
 import type { Config } from "svgo";
 
-import { NeutralIconColor } from "./constants.ts";
+import { changeColorPlugin } from "./changeColorPlugin.ts";
+import {
+    PrimaryIconColor,
+    WarningWeakIconColor,
+    DecorativeOption7IconColor,
+    DecorativeOption7SurfaceColor,
+    NeutralIconColor,
+    White,
+    WhiteHexadecimal
+} from "./constants.ts";
+
+export const colors: { [key: string]: string } = {
+    [PrimaryIconColor]: `var(--hop-Icon-placeholder-primary-icon, ${PrimaryIconColor})`,
+    [WarningWeakIconColor]: `var(--hop-Icon-placeholder-warning-icon-weak, ${WarningWeakIconColor})`,
+    [White]: `var(--hop-RichIcon-placeholder-fill, ${WhiteHexadecimal})`,
+    [WhiteHexadecimal]: `var(--hop-RichIcon-placeholder-fill, ${WhiteHexadecimal})`,
+    [DecorativeOption7IconColor]: `var(--hop-RichIcon-placeholder-shadow, ${DecorativeOption7IconColor})`,
+    [DecorativeOption7SurfaceColor]: `var(--hop-RichIcon-placeholder-background, ${DecorativeOption7SurfaceColor})`
+};
 
 const config: Config = {
     multipass: true,
@@ -12,7 +30,7 @@ const config: Config = {
                     /**
                      * viewBox is needed in order to produce 20px by 20px containers
                      * with smaller icons inside.
-                    */
+                     */
                     removeViewBox: false,
                     /**
                      * Some of our icons have multiple fill colors. We want to keep them, but replace the main icon color
@@ -62,7 +80,8 @@ const config: Config = {
             params: {
                 attrs: ["svg:fill:none", "*:fill:currentColor"]
             }
-        }
+        },
+        changeColorPlugin
     ]
 };
 

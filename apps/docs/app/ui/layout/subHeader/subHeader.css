@@ -3,7 +3,7 @@
     padding-block: var(--hd-space-2);
     top: 0;
     position: sticky;
-    z-index: 2;
+    z-index: 999;
     backdrop-filter: blur(1rem);
     border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);
     border-top: var(--hd-border-size) solid var(--hd-color-neutral-border);
@@ -13,6 +13,14 @@
     .hd-sub-header {
         display: none;
     }
+}
+
+.hd-wrapper .hd-sub-header {
+    margin-inline: -1.5rem;
+}
+
+.hd-wrapper:has(.hd-overlay--opening) .hd-sub-header {
+    z-index: 1;
 }
 
 .sub-header-container {

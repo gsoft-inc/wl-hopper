@@ -193,6 +193,15 @@ export const UncheckedStates: Story = {
                     Option 2
                 </Checkbox>
             </Inline>
+            <h1>Pressed</h1>
+            <Inline alignY="end">
+                <Checkbox {...props} size="sm" data-chromatic-force-press>
+                    Option 1
+                </Checkbox>
+                <Checkbox {...props} size="md" data-chromatic-force-press>
+                    Option 2
+                </Checkbox>
+            </Inline>
             <h1>Disabled & Focus Visible</h1>
             <Inline alignY="end">
                 <Checkbox {...props} size="sm" isDisabled data-chromatic-force-focus>

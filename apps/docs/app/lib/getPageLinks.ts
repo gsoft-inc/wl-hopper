@@ -1,6 +1,6 @@
 interface Raw {
     flattenedPath: string;
-    sourceFileDir: string;
+    sourceFileDir?: string;
 }
 
 export interface Data {
@@ -29,7 +29,7 @@ function capitalizeWords(str: string) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
-function getPageLinks (items: Data[], options?: { order?: string[] }) {
+function getPageLinks(items: Data[], options?: { order?: string[] }) {
     if (!items) {
         return [];
     }

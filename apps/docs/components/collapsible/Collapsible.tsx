@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { type ReactNode, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { ToggleButton } from "react-aria-components";
 import { Icon, CollapseIcon } from "@/components/icon";
 
@@ -19,11 +19,15 @@ const Collapsible = ({ children, title, label, isOpen = false, className }: Coll
     const [open, setOpen] = useState(isOpen);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    let styles = { height: "0px" };
+    useEffect(() => {
+        if (open && contentRef.current) {
+            contentRef.current.style.height = `${contentRef.current.scrollHeight}px`;
+        }
 
-    if (contentRef.current && open) {
-        styles = { height: contentRef.current.scrollHeight + "px" };
-    }
+        if (!open && contentRef.current) {
+            contentRef.current.style.height = "0px";
+        }
+    }, [open]);
 
     const toggle = () => {
         setOpen(!open);
@@ -40,7 +44,6 @@ const Collapsible = ({ children, title, label, isOpen = false, className }: Coll
                 <Icon src={CollapseIcon} />
             </ToggleButton>
             <div ref={contentRef}
-                style={styles}
                 className="hd-collapsible__content-parent"
             >
                 <div className="hd-collapsible__content">{children}</div>

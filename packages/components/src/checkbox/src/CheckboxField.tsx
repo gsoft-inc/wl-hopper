@@ -40,7 +40,7 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
         isDisabled,
         size: sizeProp = "md",
         style,
-        slot = "checkboxField",
+        slot,
         ...otherProps
     } = ownProps;
 
@@ -76,7 +76,7 @@ function CheckboxField(props:CheckboxFieldProps, ref: ForwardedRef<HTMLDivElemen
                     className: styles["hop-CheckboxField__checkbox"],
                     size: size,
                     isDisabled: isDisabled,
-                    "aria-describedby": descriptionId 
+                    "aria-describedby": descriptionId
                 }]
             ]}
         >

@@ -7,7 +7,7 @@
     line-height: 1.35;
     color: var(--hd-color-neutral-text);
     display: flex;
-    width: 100%;
+    width: calc(100% + var(--hd-space-2) * 2);
     justify-content: space-between;
     align-items: center;
     padding-block: var(--hd-space-2);

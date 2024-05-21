@@ -2,20 +2,21 @@
 @import url("./rehype.css");
 
 @font-face {
-	font-family: "ABC Favorit Mono";
-	font-style: normal;
-	font-weight: 400;
-	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/mono/alternative/ABCFavoritMono-Regular.woff2") format("woff2-variations");
-	font-display: fallback;
+    font-family: "ABC Favorit Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/mono/alternative/ABCFavoritMono-Regular.woff2") format("woff2-variations");
+    font-display: fallback;
 }
 
 @font-face {
-	font-family: "ABC Favorit";
-	font-style: normal;
-	font-weight: 100 900;
-	src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/alternative/ABCFavoritVariable.woff2") format("woff2-variations");
-	font-display: fallback;
+    font-family: "ABC Favorit";
+    font-style: normal;
+    font-weight: 100 900;
+    src: url("https://cdn.platform.workleap.com/hopper/fonts/abc-favorit/alternative/ABCFavoritVariable.woff2") format("woff2-variations");
+    font-display: fallback;
 }
+
 
 * {
     padding: 0;
@@ -51,11 +52,30 @@ a {
 .hd-wrapper {
     width: min(100% - 3rem, 75rem);
     margin-inline: auto;
-    gap: 1.5rem;;
+    gap: 1.5rem;
+}
+
+.hd-wrapper > .hd-section {
+    min-width: 0;
+    width: 100%;
 }
 
 .hd-flex {
     display: flex;
+}
+
+.hd-flex-direction-column {
+    flex-direction: column;
+}
+
+.sm\:hd-flex-direction-column {
+    --hd-flex-direction-column: column;
+
+    @media screen and (width >= 37.5rem) {
+        --hd-flex-direction-column: initial;
+    }
+
+    flex-direction: var(--hd-flex-direction-column);
 }
 
 .hd-display {

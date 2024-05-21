@@ -1,7 +1,10 @@
 "use client";
+
 import clsx from "clsx";
 import Button from "@/components/button/Button.tsx";
 import { Icon, GithubIcon, NpmIcon, ExternalLinkIcon, type IconProps } from "@/components/icon";
+
+import "./linkList.css";
 
 export interface Links {
     name: string;

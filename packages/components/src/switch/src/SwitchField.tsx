@@ -40,7 +40,7 @@ function SwitchField(props:SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
         isDisabled,
         size: sizeProp = "md",
         style,
-        slot = "switchField",
+        slot,
         ...otherProps
     } = ownProps;
 
@@ -76,7 +76,7 @@ function SwitchField(props:SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
                     className: styles["hop-SwitchField__switch"],
                     size: size,
                     isDisabled: isDisabled,
-                    "aria-describedby": descriptionId 
+                    "aria-describedby": descriptionId
                 }]
             ]}
         >

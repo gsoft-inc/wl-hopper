@@ -5,7 +5,7 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-    transpilePackages: ["@hopper-ui"],
+    transpilePackages: ["@hopper-ui", "shiki"],
     images: {
         unoptimized: true,
         remotePatterns: [

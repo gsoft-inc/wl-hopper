@@ -14,7 +14,7 @@ interface Group {
 type Groups = { [key: string]: Group }
 
 type GroupsConfig = {
-    [key: string]: string;
+    [key: string]: string | string[]
 }
 
 export interface ComponentDocWithGroups extends ComponentDoc {
@@ -54,25 +54,53 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     const groupsConfig: GroupsConfig = {
         events: "Events",
-        a11y: 'Aria',
+        accessibility: ["Aria", "Focusable"],
+        layout: "Slot",
         // Add more groups here as needed
     };
 
+    // Define the exceptions that should be added to a specific group
+    // The first element is the prop name and the second is the group key
+    const groupsExceptions = [["type", "default"], ["autoFocus", "default"]];
+
     return data.map(component => {
+        // Destructure and ignore id and ref from component.props
+        const {key, ref, ...props} = component.props;
+
         // Initialize the groups
         const groups: Groups = {
             default: {},
             ...Object.keys(groupsConfig).reduce((acc, group) => ({...acc, [group]: {}}), {}),
         };
 
-        Object.entries(component.props).forEach(([key, prop]) => {
+        Object.entries(props).forEach(([key, prop]) => {
             let added = false;
 
             // Check each group to see if the prop should be added to it
             Object.entries(groupsConfig).forEach(([group, term]) => {
-                if (prop.parent?.name.includes(term)) {
+                if (Array.isArray(term)) {
+                    term.forEach(t => {
+                        if (prop.parent?.name.includes(t)) {
+                            groups[group][key] = prop;
+                            added = true;
+                        }
+                    });
+                } else if (prop.parent?.name.includes(term)) {
                     groups[group][key] = prop;
                     added = true;
+                }
+            });
+
+            // Validates if the props that are in the groupsExceptions array then adds them to the corresponding group
+            groupsExceptions.forEach(([propName, groupKey]) => {
+                if (prop.name === propName && groups.hasOwnProperty(groupKey)) {
+                    Object.entries(groups).forEach(([groupName, groupProps]) => {
+                        if (groupProps.hasOwnProperty(propName)) {
+                            groups[groupKey][propName] = groupProps[propName];
+                            delete groups[groupName][propName];
+                            added = true;
+                        }
+                    });
                 }
             });
 

@@ -13,9 +13,6 @@ import styles from "./IconList.module.css";
 
 export const GlobalIconListCssSelector = "hop-IconList";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultIconListSlot = "icon";
-
 export interface IconListProps extends StyledSystemProps, BaseComponentProps {
     /**
     * The size of the icon.
@@ -24,7 +21,7 @@ export interface IconListProps extends StyledSystemProps, BaseComponentProps {
 }
 
 function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultIconListSlot }, ref, IconListContext);
+    [props, ref] = useContextProps(props, ref, IconListContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { children, style, className, slot, size, ...otherProps } = ownProps;

@@ -2,12 +2,11 @@
 
 import { Button as HopperButton, HopperProvider } from "@hopper-ui/components";
 import Image from "next/image";
-import { AccessibleIcon, ArrowIcon, DarkModeIcon, FontSizeIcon, InternationalIcon, LineHeightIcon, MarginIcon, SelectArrowIcon, TypescriptIcon } from "../../../components/icon/index";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import { useContext } from "react";
 import Button from "@/components/button/Button";
 import Tag from "@/components/tag/Tag";
-import { ExternalLinkIcon, Icon } from "@/components/icon";
+import { ExternalLinkIcon, Icon, AccessibleIcon, ArrowIcon, DarkModeIcon, FontSizeIcon, InternationalIcon, LineHeightIcon, MarginIcon, SelectArrowIcon, TypescriptIcon } from "@/components/icon";
 
 // eslint-disable-next-line max-len
 import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, FilterIcon, FocusIcon, ItalicIcon, LightbulbIcon, LockIcon, MailIcon, NotebookIcon, PinIcon, ProfileIcon, ReactionIcon, RecurringIcon, RewindIcon, SearchIcon, ShareIcon, StarIcon, StickyIcon, SyncIcon, TeamIcon, ThumbsUpIcon, UnarchiveIcon, WarningIcon } from "@hopper-ui/icons";
