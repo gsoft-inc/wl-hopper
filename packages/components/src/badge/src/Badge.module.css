@@ -1,12 +1,5 @@
 .hop-Badge  {
     /* Default */
-    --hop-Badge-font-family: var(--hop-overline-font-family);
-    --hop-Badge-font-size: var(--hop-overline-font-size);
-    --hop-Badge-font-weight: var(--hop-overline-font-weight);
-    --hop-Badge-letter-spacing: 0.015rem;
-    --hop-Badge-line-height: var(--hop-overline-line-height);
-    --hop-Badge-top-offset: var(--hop-overline-top-offset);
-    --hop-Badge-bottom-offset: var(--hop-overline-bottom-offset);
     --hop-Badge-height: 1.5rem;
     --hop-Badge-padding-inline: var(--hop-space-inset-sm);
     --hop-Badge-border-radius: var(--hop-shape-pill);
@@ -24,13 +17,6 @@
     --hop-Badge-background-color-disabled: var(--hop-neutral-surface-disabled);
 
     /* Internal Variables */
-    --font-family: var(--hop-Badge-font-family);
-    --font-size: var(--hop-Badge-font-size);
-    --font-weight: var(--hop-Badge-font-weight);
-    --letter-spacing: var(--hop-Badge-letter-spacing);
-    --line-height: var(--hop-Badge-line-height);
-    --top-offset: var(--hop-Badge-top-offset);
-    --bottom-offset: var(--hop-Badge-bottom-offset);
     --height: var(--hop-Badge-height);
     --padding-inline: var(--hop-Badge-padding-inline);
     --border-radius: var(--hop-Badge-border-radius);
@@ -44,13 +30,7 @@
     block-size: var(--height);
     padding-inline: var(--padding-inline);
 
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-feature-settings: "case";
-    font-weight: var(--font-weight);
-    line-height: var(--line-height);
     color: var(--text-color, var(--hop-Badge-primary-text-color));
-    letter-spacing: var(--letter-spacing);
 
     background-color: var(--background-color, var(--hop-Badge-primary-background-color));
     border-radius: var(--border-radius);

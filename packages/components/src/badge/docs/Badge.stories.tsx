@@ -54,7 +54,7 @@ export const Disabled = {
 } satisfies Story;
 
 /**
- * If a value above 99 is needed, use “99+” instead of the number.
+ * If a value above 99 is needed, use `99+` instead of the number.
  */
 export const HighCount = {
     args: {

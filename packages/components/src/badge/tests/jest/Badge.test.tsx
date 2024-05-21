@@ -53,4 +53,12 @@ describe("Badge", () => {
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLSpanElement).toBeTruthy();
     });
+
+    it("should add proper attributes when disabled", () => {
+        render(<Badge isDisabled>12</Badge>);
+
+        const element = screen.getByText("12");
+        expect(element).toHaveAttribute("data-disabled");
+        expect(element).toHaveAttribute("aria-disabled");
+    });
 });

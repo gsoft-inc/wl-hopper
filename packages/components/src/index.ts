@@ -9,6 +9,7 @@ export * from "./IconList/index.ts";
 export * from "./layout/index.ts";
 export * from "./Label/index.ts";
 export * from "./Link/index.ts";
+export * from "./overlineText/index.ts";
 export * from "./radio/index.ts";
 export * from "./Spinner/index.ts";
 export * from "./switch/index.ts";

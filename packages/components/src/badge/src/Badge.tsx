@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
+import { OverlineText } from "../../overlineText/index.ts";
 import { cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
 import { BadgeContext } from "./BadgeContext.ts";
@@ -54,7 +55,7 @@ function Badge(props:BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     };
 
     return (
-        <span
+        <OverlineText
             {...otherProps}
             ref={ref}
             className={classNames}
@@ -64,7 +65,7 @@ function Badge(props:BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
             aria-disabled={isDisabled || undefined}
         >
             {children}
-        </span>
+        </OverlineText>
     );
 }
 
