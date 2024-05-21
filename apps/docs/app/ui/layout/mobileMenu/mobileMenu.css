@@ -9,7 +9,7 @@
     top: 0;
     width: 100%;
     height: 100vh;
-    z-index: var(--hd-zIndex-800);
+    z-index: var(--hd-z-index-800);
     opacity: 0;
 }
 

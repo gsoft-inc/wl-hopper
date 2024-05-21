@@ -10,7 +10,7 @@
     transform: translateX(calc(-1 * var(--sidebar-width)));
     width: var(--sidebar-width);
     max-width: var(--max-sidebar-width);
-    z-index: var(--hd-zIndex-800);
+    z-index: var(--hd-z-index-800);
     flex-basis: 15rem;
     height: 100vh;
     flex-shrink: 0;
