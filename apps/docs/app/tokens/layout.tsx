@@ -1,14 +1,14 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { allTokens } from "contentlayer/generated";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
 import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
-import useSidebarState from "@/hooks/useSidebarState";
+import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import getSectionLinks from "@/app/lib/getSectionLinks";
 
-export default function TokenLayout({ children }: { children: React.ReactNode }) {
-    const { isOpen, toggleOpenState } = useSidebarState(false);
+export default function TokenLayout({ children }: { children: ReactNode }) {
     const selectedLayoutSegment = useSelectedLayoutSegment();
     const [section, type] = selectedLayoutSegment?.split("/") ?? ["", ""];
 
@@ -22,11 +22,13 @@ export default function TokenLayout({ children }: { children: React.ReactNode })
 
     return (
         <>
-            <SubHeader toggleOpenState={toggleOpenState} links={sectionLinks} />
-            <div className="hd-wrapper hd-flex">
-                <Sidebar data={allTokens} isOpen={isOpen} onClose={toggleOpenState} />
-                {children}
-            </div>
+            <SidebarProvider>
+                <SubHeader links={sectionLinks} />
+                <div className="hd-wrapper hd-flex">
+                    <Sidebar data={allTokens} />
+                    {children}
+                </div>
+            </SidebarProvider>
         </>
     );
 }
