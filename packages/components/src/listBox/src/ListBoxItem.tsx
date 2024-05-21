@@ -1,7 +1,8 @@
 import { IconContext, type IconProps } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, ListBoxItem as RACListBoxItem, type ListBoxItemProps as RACListBoxItemProps, composeRenderProps, type SlotProps } from "react-aria-components";
+import { useContextProps, ListBoxItem as RACListBoxItem, type ListBoxItemProps as RACListBoxItemProps, composeRenderProps, type SlotProps,
+    DEFAULT_SLOT } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
 import { Text, TextContext, type TextProps } from "../../Text/index.ts";
@@ -12,9 +13,6 @@ import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 import styles from "./ListBoxItem.module.css";
 
 export const GlobalListBoxItemCssSelector = "hop-ListBoxItem";
-
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultListBoxItemSlot = "listBoxItem";
 
 type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
 
@@ -41,7 +39,7 @@ const ListBoxItemToTextSizeAdapter = {
 } as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
 
 function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultListBoxItemSlot }, ref, ListBoxItemContext);
+    [props, ref] = useContextProps(props, ref, ListBoxItemContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -93,7 +91,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                             values={[
                                 [TextContext, {
                                     slots: {
-                                        text: {
+                                        [DEFAULT_SLOT]: {
                                             className: styles["hop-ListBoxItem__text"],
                                             size: ListBoxItemToTextSizeAdapter[size]
                                         },
@@ -105,7 +103,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                                 }],
                                 [IconListContext, {
                                     slots: {
-                                        icon: {
+                                        [DEFAULT_SLOT]: {
                                             className: styles["hop-ListBoxItem__icon-list"],
                                             size: ListBoxItemToIconSizeAdapter[size]
                                         },
@@ -117,7 +115,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                                 }],
                                 [IconContext, {
                                     slots: {
-                                        icon: {
+                                        [DEFAULT_SLOT]: {
                                             className: styles["hop-ListBoxItem__icon"],
                                             size: ListBoxItemToIconSizeAdapter[size]
                                         },

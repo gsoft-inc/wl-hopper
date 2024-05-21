@@ -11,9 +11,6 @@ import styles from "./ListBox.module.css";
 
 export const GlobalListBoxCssSelector = "hop-ListBox";
 
-// Won't be needed in next react-aria-components release: https://github.com/adobe/react-spectrum/pull/5850
-const DefaultListBoxSlot = "listBox";
-
 export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxProps<T>, "orientation | layout">> {
     /**
      * A ListBox can vary in size.
@@ -23,7 +20,7 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
 }
 
 function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
-    [props, ref] = useContextProps({ ...props, slot: props.slot || DefaultListBoxSlot }, ref, ListBoxContext);
+    [props, ref] = useContextProps(props, ref, ListBoxContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
