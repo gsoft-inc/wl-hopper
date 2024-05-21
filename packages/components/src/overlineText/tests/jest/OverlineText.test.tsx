@@ -1,7 +1,6 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { ButtonGroupContext } from "../../../buttons/src/ButtonGroupContext.ts";
 import { OverlineText } from "../../src/OverlineText.tsx";
 import { OverlineTextContext } from "../../src/OverlineTextContext.ts";
 
