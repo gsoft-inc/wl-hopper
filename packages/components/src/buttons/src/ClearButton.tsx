@@ -28,6 +28,7 @@ export const GlobalClearButtonCssSelector = "hop-ClearButton";
 export interface ClearButtonProps extends StyledComponentProps<Omit<RACButtonProps, "children">> {
     /**
      * The size of the ClearButton.
+     * @default "md"
      */
     size?: ResponsiveProp<"md" | "lg">;
 }
