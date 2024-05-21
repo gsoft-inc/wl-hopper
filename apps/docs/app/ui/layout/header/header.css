@@ -30,7 +30,7 @@
     backdrop-filter: blur(1rem);
     border-block-end: var(--hd-border-size) solid var(--hd-header-border-color);
     border-radius: 0 0 0.5rem 0.5rem;
-    z-index: 999;
+    z-index: var(--hd-zIndex-1000);
 }
 
 @media screen and (width >= 37.5rem) {
