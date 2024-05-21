@@ -1,11 +1,14 @@
 import { SparklesIcon } from "@hopper-ui/icons";
+import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import type { Selection } from "react-aria-components";
+import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
 import { Badge } from "../../badge/index.ts";
 import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
+import { HopperProvider } from "../../HopperProvider/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Label } from "../../Label/index.ts";
 import { Stack } from "../../layout/index.ts";
@@ -296,5 +299,79 @@ export const Validation = {
         );
     }
 } satisfies Story;
+
+/** 
+ * Customize the empty state message when there are no tags.
+ */
+export const EmptyState = {
+    render: props => (
+        <TagGroup {...props} aria-label="tag-group">
+            <TagList
+                renderEmptyState={() => "No tags available"}
+            >
+                {[]}
+            </TagList>
+        </TagGroup>
+    )
+} satisfies Story;
+
+/**
+ * Tags can be links by using the `href` prop on the Tag component. Tags with an `href` are not selectable.
+ */
+export const Links = {
+    render: props => (
+        <TagGroup {...props} aria-label="tag-group">
+            <TagList>
+                <Tag id="1" href="https://www.google.com">Google</Tag>
+                <Tag id="2" href="https://www.bing.com">Bing</Tag>
+                <Tag id="3" href="https://www.yahoo.com">Yahoo</Tag>
+            </TagList>
+        </TagGroup>
+    )
+} satisfies Story;
+
+/**
+ * A Tag can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider
+ */
+export const ReactRouterLink: Story = {
+    render: props => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const navigate = useNavigate();
+
+        return (
+            <HopperProvider colorScheme="light" navigate={navigate}>
+                <TagGroup {...props} aria-label="tag-group">
+                    <TagList>
+                        <Tag id="1" href="/123">Page 1</Tag>
+                        <Tag id="2" href="/456">Page 2</Tag>
+                        <Tag id="3" href="/789">Page 3</Tag>
+                    </TagList>
+                </TagGroup>
+            </HopperProvider>
+        );
+    },
+    decorators: [
+        Story => {
+            const router = createMemoryRouter([{
+                path: "/123",
+                element: <Stack><Story /><Div>Navigated Successfully to page 1!</Div></Stack>
+            }, {
+                path: "/456",
+                element: <Stack><Story /><Div>Navigated Successfully to page 2!</Div></Stack>
+            }, {
+                path: "/789",
+                element: <Stack><Story /><Div>Navigated Successfully to page 3!</Div></Stack>
+            }, {
+                path: "*",
+                element: <Story />
+            }
+            ]);
+
+            return (
+                <RouterProvider router={router} />
+            );
+        }
+    ]
+};
 
 

@@ -65,7 +65,7 @@
 }
 
 .hop-ClearButton::before {
-    content: '';
+    content: "";
 
     position: absolute;
     inset-block-start: 50%;
@@ -86,7 +86,7 @@
 .hop-ClearButton--md {
     --inline-size: var(--hop-ClearButton-md-width);
     --block-size: var(--hop-ClearButton-md-height);
-    --focus-ring-offset: -0.125rem;
+    --focus-ring-offset: calc(-1 * var(--focus-ring-size));
 }
 
 .hop-ClearButton--lg {

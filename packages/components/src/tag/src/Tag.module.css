@@ -118,6 +118,10 @@
     --padding-inline-end: var(--hop-Tag-lg-padding-inline-end-text-last);
 }
 
+.hop-Tag[data-href] {
+    cursor: pointer;
+}
+
 .hop-Tag[data-focus-visible] {
     --background-color: var(--hop-Tag-background-color-focus);
     --border-color: var(--hop-Tag-border-color-focus);
