@@ -61,3 +61,12 @@ export const HighCount = {
         children: "99+"
     }
 } satisfies Story;
+
+/**
+ * A Badge can have any text content.
+ */
+export const Text = {
+    args: {
+        children: "New"
+    }
+} satisfies Story;

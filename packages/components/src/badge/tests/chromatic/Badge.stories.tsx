@@ -22,6 +22,10 @@ export const Primary = {
             <Inline>
                 <Badge {...props} />
             </Inline>
+            <h1>Text</h1>
+            <Inline>
+                <Badge {...props}>New</Badge>
+            </Inline>
             <h1>Disabled</h1>
             <Inline>
                 <Badge {...props} isDisabled />
@@ -42,7 +46,7 @@ export const Styling = {
         <Inline>
             <Badge border="warning-strong" {...props} />
             <Badge className="border-red" {...props} />
-            <Badge style={{ border: "1px solid darkRed" }} {...props} />
+            <Badge style={{ border: "1px solid darkRed" }} {...props}>New</Badge>
         </Inline>
     )
 } satisfies Story;

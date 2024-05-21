@@ -213,13 +213,13 @@ export const Count = {
 export const Description = {
     render: props => (
         <TagGroup {...props}>
-            <Label>List of Tags</Label>
+            <Label>Planets</Label>
             <TagList>
-                <Tag id="1" textValue="Tag 1"><SparklesIcon /><Text>Tag 1</Text></Tag>
-                <Tag id="2" textValue="Tag 2"><SparklesIcon /><Text>Tag 2</Text></Tag>
-                <Tag id="3" textValue="Tag 3"><SparklesIcon /><Text>Tag 3</Text></Tag>
+                <Tag id="1" textValue="Earth"><SparklesIcon /><Text>Earth</Text></Tag>
+                <Tag id="2" textValue="Mars"><SparklesIcon /><Text>Mars</Text></Tag>
+                <Tag id="3" textValue="Jupiter"><SparklesIcon /><Text>Jupiter</Text></Tag>
             </TagList>
-            <HelperMessage>Select one to continue</HelperMessage>
+            <HelperMessage>The planets in this list are in no particular order.</HelperMessage>
         </TagGroup>
     ),
     args: {
