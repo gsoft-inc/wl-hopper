@@ -22,6 +22,7 @@ export const Default: Story = {
                     <h1>Default</h1>
                     <Inline alignY="end">
                         <ClearButton {...args} />
+                        <ClearButton {...args} size="lg" />
                     </Inline>
                 </Stack>
                 <Stack>
@@ -34,6 +35,14 @@ export const Default: Story = {
                             <ClearButton {...args} />
                         </Div>
                     </Inline>
+                    <Inline alignY="end">
+                        <Div className="zoom-in">
+                            <ClearButton {...args} size="lg" />
+                        </Div>
+                        <Div className="zoom-out'">
+                            <ClearButton {...args} size="lg" />
+                        </Div>
+                    </Inline>
                 </Stack>
             </Stack>
         );
@@ -43,6 +52,7 @@ export const Default: Story = {
 const StateTemplate = (args: Partial<ClearButtonProps>) => (
     <Inline alignY="end">
         <ClearButton {...args} />
+        <ClearButton {...args} size="lg" />
     </Inline>
 );
 

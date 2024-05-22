@@ -1,7 +1,9 @@
 import { DismissIcon } from "@hopper-ui/icons";
 import {
     type StyledComponentProps,
-    useStyledSystem
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
 import {
@@ -23,7 +25,13 @@ import styles from "./ClearButton.module.css";
 
 export const GlobalClearButtonCssSelector = "hop-ClearButton";
 
-export interface ClearButtonProps extends StyledComponentProps<Omit<RACButtonProps, "children">> {}
+export interface ClearButtonProps extends StyledComponentProps<Omit<RACButtonProps, "children">> {
+    /**
+     * The size of the ClearButton.
+     * @default "md"
+     */
+    size?: ResponsiveProp<"md" | "lg">;
+}
 
 function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     [props, ref] = useContextProps(props, ref, ClearButtonContext);
@@ -34,17 +42,21 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
     const {
         "aria-label": ariaLabel = stringFormatter.format("ClearButton.clearAriaLabel"),
         className,
+        size: sizeProp,
         isDisabled,
         style: styleProp,
         ...otherProps
     } = ownProps;
+    
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = composeClassnameRenderProps(
         className,
         GlobalClearButtonCssSelector,
         cssModule(
             styles,
-            "hop-ClearButton"
+            "hop-ClearButton",
+            size
         ),
         stylingProps.className
     );
@@ -66,7 +78,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
             aria-label={ariaLabel}
             {...otherProps}
         >
-            <DismissIcon size="sm" />
+            <DismissIcon size="sm" className={styles["hop-ClearButton__icon"]} />
         </RACButton>
     );
 }
