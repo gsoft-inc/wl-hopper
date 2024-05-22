@@ -8,7 +8,7 @@ import { Text } from "../../Text/index.ts";
 import { InputGroup } from "../src/InputGroup.tsx";
 
 /**
- * TODO: Add description
+ * An input group combines an input component with addons.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Group/src)
  * -

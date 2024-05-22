@@ -8,7 +8,7 @@ import { Stack } from "../../layout/index.ts";
 import { TextField } from "../src/TextField.tsx";
 
 /**
- * TODO: Add description
+ * A text field allows a user to enter a plain text value with a keyboard.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/TextField/src)
  * -

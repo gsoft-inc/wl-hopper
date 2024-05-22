@@ -71,7 +71,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
 }
 
 /**
- * TODO: tagline
+ * An input group combines an input component with addons.
  *
  * [View Documentation](TODO)
  */
