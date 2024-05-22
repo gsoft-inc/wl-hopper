@@ -107,6 +107,7 @@ function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
                 className={classNames}
                 style={mergedStyles}
                 slot={slot ?? undefined}
+                role="presentation"
             >
                 {content}
             </span>
