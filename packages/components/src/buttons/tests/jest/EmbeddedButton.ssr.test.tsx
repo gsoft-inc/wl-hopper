@@ -3,13 +3,13 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { ClearButton } from "../../src/ClearButton.tsx";
+import { EmbeddedButton } from "../../src/EmbeddedButton.tsx";
 
-describe("ClearButton", () => {
+describe("EmbeddedButton", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <ClearButton />
+                <EmbeddedButton />
             );
 
         expect(renderOnServer).not.toThrow();

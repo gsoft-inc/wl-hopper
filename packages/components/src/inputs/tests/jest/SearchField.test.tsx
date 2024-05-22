@@ -1,5 +1,5 @@
 import { act, render, screen } from "@hopper-ui/test-utils";
-import { userEvent } from "@storybook/test";
+import { userEvent } from "@testing-library/user-event";
 import { createRef, type MutableRefObject } from "react";
 
 import { Label } from "../../../Label/index.ts";
@@ -115,11 +115,7 @@ describe("SearchField", () => {
         );
 
         const clearButton = screen.getByLabelText("Clear");
-
-        // TODO: not sure why this is needed
-        await act(async () => {
-            await user.click(clearButton);
-        });
+        await user.click(clearButton);
 
         expect(handleClear).toHaveBeenCalledTimes(1);
     });

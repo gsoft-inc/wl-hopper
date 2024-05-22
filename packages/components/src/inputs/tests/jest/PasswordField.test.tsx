@@ -1,5 +1,5 @@
 import { act, render, screen } from "@hopper-ui/test-utils";
-import { userEvent } from "@storybook/test";
+import { userEvent } from "@testing-library/user-event";
 import { createRef, type MutableRefObject } from "react";
 
 import { Label } from "../../../Label/index.ts";
@@ -40,18 +40,12 @@ describe("PasswordField", () => {
         let element = screen.getByLabelText("Label:");
         expect(element).toHaveAttribute("type", "password");
 
-        // TODO: why do i need this again
-        await act(async () => {
-            await user.click(screen.getByRole("button"));
-        });
+        await user.click(screen.getByRole("button"));
 
         element = screen.getByLabelText("Label:");
         expect(element).toHaveAttribute("type", "text");
 
-        // TODO: why do i need this again
-        await act(async () => {
-            await user.click(screen.getByRole("button"));
-        });
+        await user.click(screen.getByRole("button"));
 
         element = screen.getByLabelText("Label:");
         expect(element).toHaveAttribute("type", "password");
