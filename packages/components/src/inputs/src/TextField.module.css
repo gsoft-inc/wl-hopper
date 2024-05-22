@@ -1,9 +1,7 @@
 .hop-TextField  {
     --hop-TextField-gap: var(--hop-space-stack-xs);
     --hop-TextField-default-inline-size: 20rem;
-    --hop-TextField-prefix-color: var(--hop-neutral-text-weak)
-
-    /* TODO */;
+    --hop-TextField-prefix-color: var(--hop-neutral-text-weak);
 
     display: flex;
     flex-direction: column;
