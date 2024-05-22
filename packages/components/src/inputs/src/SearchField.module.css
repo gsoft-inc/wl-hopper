@@ -1,11 +1,13 @@
 .hop-SearchField  {
-    --hop-TextField-gap: var(--hop-space-stack-xs);
-    --hop-TextField-default-inline-size: 20rem;
+    --hop-SearchField-gap: var(--hop-space-stack-xs);
+    --hop-SearchField-default-inline-size: 20rem;
+    --hop-SearchField-color: var(--hop-neutral-text-weak);
+    --hop-SearchField-padding: var(--hop-space-inset-md);
 
     display: flex;
     flex-direction: column;
-    gap: var(--hop-TextField-gap);
-    inline-size: var(--hop-TextField-default-inline-size);
+    gap: var(--hop-SearchField-gap);
+    inline-size: var(--hop-SearchField-default-inline-size);
 }
 
 .hop-SearchField--fluid  {
@@ -19,17 +21,17 @@
     font-size: var(--hop-heading-xs-font-size);
     font-weight: var(--hop-heading-xs-font-weight);
     line-height: var(--hop-heading-xs-line-height);
-    color: var(--hop-neutral-text-weak);
+    color: var(--hop-SearchField-color);
 }
 
 .hop-SearchField__prefix {
-    color: var(--hop-neutral-text-weak);
+    color: var(--hop-SearchField-color);
 }
 
 .hop-SearchField__InputGroup {
     order:1;
     inline-size: 100%;
-    padding-inline: var(--hop-space-inset-md) var(--hop-space-inset-md);
+    padding-inline: var(--hop-SearchField-padding);
 }
 
 .hop-SearchField--clearable .hop-SearchField__InputGroup {

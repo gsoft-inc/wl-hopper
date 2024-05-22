@@ -1,8 +1,10 @@
 .hop-TextField  {
     --hop-TextField-gap: var(--hop-space-stack-xs);
     --hop-TextField-default-inline-size: 20rem;
+    --hop-TextField-prefix-color: var(--hop-neutral-text-weak)
 
-    /* TODO */
+    /* TODO */;
+
     display: flex;
     flex-direction: column;
     gap: var(--hop-TextField-gap);
@@ -24,7 +26,7 @@
 }
 
 .hop-TextField__prefix {
-    color: var(--hop-neutral-text-weak);
+    color: var(--hop-TextField-prefix-color);
 }
 
 .hop-TextField__InputGroup {
