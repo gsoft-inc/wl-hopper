@@ -58,6 +58,7 @@
     --background-color: var(--hop-Tag-background-color);
     --text-color: var(--hop-Tag-text-color);
     --badge-secondary-inline-margin-start: calc(-1 * var(--column-gap));
+    --focus-ring-color: var(--hop-Tag-focus-ring-color);
 
     overflow: hidden;
     display: inline-flex;
@@ -127,7 +128,7 @@
     --border-color: var(--hop-Tag-border-color-focus);
     --text-color: var(--hop-Tag-text-color-focus);
 
-    outline: 0.125rem solid var(--hop-Tag-focus-ring-color);
+    outline: 0.125rem solid var(--focus-ring-color);
 }
 
 .hop-Tag[data-hovered] {
