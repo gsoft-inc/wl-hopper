@@ -1,7 +1,8 @@
-import { IconContext } from "@hopper-ui/icons";
 import {
     type StyledComponentProps,
-    useStyledSystem
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
 import {
@@ -12,7 +13,6 @@ import {
 } from "react-aria-components";
 
 import {
-    SlotProvider,
     composeClassnameRenderProps,
     cssModule
 } from "../../utils/index.ts";
@@ -24,7 +24,11 @@ import styles from "./EmbeddedButton.module.css";
 export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
-    size?: "sm" | "md";
+    /**
+     * The size of the EmbeddedButton.
+     * @default "md"
+     */
+    size?: ResponsiveProp<"md" | "lg">;
 }
 
 function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
@@ -34,12 +38,14 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
 
     const {
         className,
+        size: sizeProp,
         isDisabled,
         style: styleProp,
         children,
-        size,
         ...otherProps
     } = ownProps;
+
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -59,30 +65,21 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         };
     });
 
-
     return (
-        <SlotProvider
-            values={[
-                [IconContext, {
-                    size: size
-                }]
-            ]}
+        <RACButton
+            ref={ref}
+            className={classNames}
+            style={style}
+            isDisabled={isDisabled}
+            {...otherProps}
         >
-            <RACButton
-                ref={ref}
-                className={classNames}
-                style={style}
-                isDisabled={isDisabled}
-                {...otherProps}
-            >
-                {children}
-            </RACButton>
-        </SlotProvider>
+            {children}
+        </RACButton>
     );
 }
 
 /**
- * TODO:
+ * EmbeddedButtons are used to initialize an action. EmbeddedButton labels express what action will occur when the user interacts with it.
  *
  * [View Documentation](TODO)
  */
