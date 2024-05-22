@@ -160,12 +160,3 @@ export const ReadOnly: Story = {
         isReadOnly: true
     }
 };
-
-export const Test: Story = {
-    ...Default,
-    args: {
-        isClearable: true,
-        defaultValue: "defaultVaule",
-        onClear: () => console.log("onClear")
-    }
-};
