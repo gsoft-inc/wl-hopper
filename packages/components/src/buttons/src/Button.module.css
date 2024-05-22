@@ -91,7 +91,7 @@
     --hop-Button-ghost-primary-background-color: transparent;
     --hop-Button-ghost-primary-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-ghost-primary-background-color-pressed: var(--hop-primary-surface-weak-press);
-    --hop-Button-ghost-primary-background-color-disabled: var(--hop-neutral-surface);
+    --hop-Button-ghost-primary-background-color-disabled: transparent;
     --hop-Button-ghost-primary-border: 0.0625rem solid var(--hop-Button-ghost-primary-background-color); /* same color as the background */
     --hop-Button-ghost-primary-border-hover: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-hover); /* same color as the background */
     --hop-Button-ghost-primary-border-pressed: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-pressed); /* same color as the background */
@@ -110,7 +110,7 @@
     --hop-Button-ghost-secondary-background-color: transparent;
     --hop-Button-ghost-secondary-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-ghost-secondary-background-color-pressed: var(--hop-neutral-surface-press);
-    --hop-Button-ghost-secondary-background-color-disabled: var(--hop-neutral-surface);
+    --hop-Button-ghost-secondary-background-color-disabled: transparent;
     --hop-Button-ghost-secondary-border: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color); /* same color as the background */
     --hop-Button-ghost-secondary-border-hover: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-hover); /* same color as the background */
     --hop-Button-ghost-secondary-border-pressed: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-pressed); /* same color as the background */
@@ -129,7 +129,7 @@
     --hop-Button-ghost-danger-background-color: transparent;
     --hop-Button-ghost-danger-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-ghost-danger-background-color-pressed: var(--hop-danger-surface-weak-press);
-    --hop-Button-ghost-danger-background-color-disabled: var(--hop-neutral-surface);
+    --hop-Button-ghost-danger-background-color-disabled: transparent;
     --hop-Button-ghost-danger-border: 0.0625rem solid var(--hop-Button-ghost-danger-background-color); /* same color as the background */
     --hop-Button-ghost-danger-border-hover: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-hover); /* same color as the background */
     --hop-Button-ghost-danger-border-pressed: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-pressed); /* same color as the background */

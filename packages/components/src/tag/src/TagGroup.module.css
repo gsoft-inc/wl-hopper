@@ -1,0 +1,50 @@
+.hop-TagGroup  {
+    /* Default */
+    --hop-TagGroup-row-gap: var(--hop-space-inline-sm);
+    --hop-TagGroup-list-column-gap: var(--hop-space-inline-sm);
+    --hop-TagGroup-list-row-gap: var(--hop-space-inline-sm);
+    --hop-TagGroup-list-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-TagGroup-list-border-radius: var(--hop-shape-rounded-sm);
+
+    /* Internal Variables */
+    --row-gap: var(--hop-TagGroup-row-gap);
+    --list-column-gap: var(--hop-TagGroup-list-column-gap);
+    --list-row-gap: var(--hop-TagGroup-list-row-gap);
+    --list-focus-ring-color: var(--hop-TagGroup-list-focus-ring-color);
+    --list-border-radius: var(--hop-TagGroup-list-border-radius);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--row-gap);
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    box-sizing: border-box;
+    inline-size: max-content;
+    max-inline-size: 100%;
+}
+
+.hop-TagGroup > .hop-TagGroup__label {
+    order: 1;
+}
+
+.hop-TagGroup__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--list-row-gap) var(--list-column-gap);
+    align-items: center;
+    order: 2;
+
+    border-radius: var(--list-border-radius);
+    outline: none;
+}
+
+.hop-TagGroup__list[data-focus-visible] {
+    outline: 0.125rem solid var(--list-focus-ring-color);
+    outline-offset: 0.125rem;
+}
+
+.hop-TagGroup > .hop-TagGroup__error-message,
+.hop-TagGroup > .hop-TagGroup__helper-message {
+    order: 3;
+}

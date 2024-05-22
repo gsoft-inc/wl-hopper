@@ -20,7 +20,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
 
     const {
         "aria-label": ariaLabel = stringFormatter.format("ClearButton.clearAriaLabel"),
-        size = "sm",
+        size = "md",
         ...otherProps
     } = props;
 
