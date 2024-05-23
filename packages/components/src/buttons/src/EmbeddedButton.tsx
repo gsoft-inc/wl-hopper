@@ -1,3 +1,4 @@
+import { IconContext } from "@hopper-ui/icons";
 import {
     type StyledComponentProps,
     useStyledSystem,
@@ -13,6 +14,7 @@ import {
 } from "react-aria-components";
 
 import {
+    SlotProvider,
     composeClassnameRenderProps,
     cssModule
 } from "../../utils/index.ts";
@@ -66,20 +68,29 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
     });
 
     return (
-        <RACButton
-            ref={ref}
-            className={classNames}
-            style={style}
-            isDisabled={isDisabled}
-            {...otherProps}
+        <SlotProvider
+            values={[
+                [IconContext, {
+                    className: styles["hop-EmbeddedButton__icon"],
+                    size: "sm"
+                }]
+            ]}
         >
-            {children}
-        </RACButton>
+            <RACButton
+                ref={ref}
+                className={classNames}
+                style={style}
+                isDisabled={isDisabled}
+                {...otherProps}
+            >
+                {children}
+            </RACButton>
+        </SlotProvider>
     );
 }
 
 /**
- * EmbeddedButtons are used to initialize an action. EmbeddedButton labels express what action will occur when the user interacts with it.
+ * EmbeddedButtons are buttons embedded within other components, such as inputs and tags.
  *
  * [View Documentation](TODO)
  */

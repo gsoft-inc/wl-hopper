@@ -142,7 +142,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                 <Input ref={inputRef} placeholder={placeholder} />
 
                 {showCharacterCount && maxLength && <CharacterCount characterLeft={maxLength - characterCount} />}
-                {showClearButton && <ClearButton onPress={handleClear} />}
+                {showClearButton && <ClearButton size="lg" onPress={handleClear} />}
             </InputGroup>
         </ClearContainerSlots>
     );

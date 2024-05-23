@@ -93,6 +93,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
                     isDisabled={isDisabled}
                     aria-label={stringFormatter.format("PasswordField.toggleVisibility")}
                     onPress={() => { setShowPassword(x => !x);}}
+                    size="lg"
                 >
                     {showPassword ? <EyeVisibleIcon /> : <EyeHiddenIcon />}
                 </EmbeddedButton>

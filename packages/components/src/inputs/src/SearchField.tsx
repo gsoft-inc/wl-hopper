@@ -107,7 +107,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
                     {icon}
                 </SlotProvider>
                 <Input ref={inputRef} placeholder={placeholder} />
-                {isClearable && <ClearButton className={styles["hop-SearchField__ClearButton"]} />}
+                {isClearable && <ClearButton size="lg" className={styles["hop-SearchField__ClearButton"]} />}
             </InputGroup>
         </ClearContainerSlots>
     );

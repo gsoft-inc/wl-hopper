@@ -31,7 +31,7 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
             size={size}
             {...otherProps}
         >
-            <DismissIcon size="sm" />
+            <DismissIcon />
         </EmbeddedButton>
     );
 }
