@@ -31,17 +31,6 @@ export const Default: Story = {
     }
 };
 
-// export const PrefixPhone: Story = {
-//     ...Default,
-//     args: {
-//         ...Default.args,
-//         children: [
-//             <Select key="1" />,
-//             <Input key="2" />
-//         ]
-//     }
-// };
-
 export const PrefixIcon: Story = {
     ...Default,
     args: {

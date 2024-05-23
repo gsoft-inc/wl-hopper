@@ -141,9 +141,6 @@ export const Styling: Story = {
             <SearchField border="core_amanita-600" aria-label="Label" />
             <SearchField className="bg-red" aria-label="Label" />
             <SearchField style={{ backgroundColor: "red" }} aria-label="Label" />
-            {/* <SearchField wrapperProps={{ border: "amanita-500" }} aria-label="Label" />
-            <SearchField wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <SearchField wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" /> */}
         </Inline>
     )
 };

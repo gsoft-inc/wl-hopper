@@ -136,9 +136,6 @@ export const Styling: Story = {
             <TextField border="core_amanita-600" aria-label="Label" />
             <TextField className="bg-red" aria-label="Label" />
             <TextField style={{ backgroundColor: "red" }} aria-label="Label" />
-            {/* <TextField wrapperProps={{ border: "amanita-500" }} aria-label="Label" />
-            <TextField wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <TextField wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" /> */}
         </Inline>
     )
 };
