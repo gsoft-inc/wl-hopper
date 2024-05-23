@@ -1,26 +1,34 @@
 .hop-TextField  {
     --hop-TextField-gap: var(--hop-space-stack-xs);
-    --hop-TextField-default-inline-size: 20rem;
+    --hop-TextField-inline-size: 20rem;
     --hop-TextField-prefix-color: var(--hop-neutral-text-weak);
+    --hop-TextField-font-family: var(--hop-heading-xs-font-family);
+    --hop-TextField-font-size: var(--hop-heading-xs-font-size);
+    --hop-TextField-font-weight: var(--hop-heading-xs-font-weight);
+    --hop-TextField-line-height: var(--hop-heading-xs-line-height);
+    --hop-TextField-color: var(--hop-neutral-text-weak);
+
+    /* Internal Variables */
+    --inline-size: var(--hop-TextField-inline-size);
 
     display: flex;
     flex-direction: column;
     gap: var(--hop-TextField-gap);
-    inline-size: var(--hop-TextField-default-inline-size);
+    inline-size: var(--inline-size);
 }
 
 .hop-TextField--fluid  {
-    inline-size: 100%;
+    --inline-size: 100%;
 }
 
 .hop-TextField__Label {
     order: 0;
 
-    font-family: var(--hop-heading-xs-font-family);
-    font-size: var(--hop-heading-xs-font-size);
-    font-weight: var(--hop-heading-xs-font-weight);
-    line-height: var(--hop-heading-xs-line-height);
-    color: var(--hop-neutral-text-weak);
+    font-family: var(--hop-TextField-font-family);
+    font-size: var(--hop-TextField-font-size);
+    font-weight: var(--hop-TextField-font-weight);
+    line-height: var(--hop-TextField-line-height);
+    color: var(--hop-TextField-color);
 }
 
 .hop-TextField__prefix {
