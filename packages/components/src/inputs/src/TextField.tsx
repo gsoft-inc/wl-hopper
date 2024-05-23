@@ -44,7 +44,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
     /**
      * Handler that is called when the clear button is pressed.
      */
-    onClear?:	() => void;
+    onClear?: () => void;
 
     /**
      * If `true`, the TextField will take all available width.

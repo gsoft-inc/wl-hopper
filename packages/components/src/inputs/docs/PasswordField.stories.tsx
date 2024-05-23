@@ -107,7 +107,7 @@ export const Disabled: Story = {
 };
 
 /**
- * The `isReadOnly` prop makes the PasswordField's text content immutable. Unlike isDisabled, the PasswordField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+ * The `isReadOnly` prop makes the PasswordField's text content immutable. Unlike `isDisabled`, the PasswordField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
  */
 export const ReadOnly: Story = {
     ...Default,
