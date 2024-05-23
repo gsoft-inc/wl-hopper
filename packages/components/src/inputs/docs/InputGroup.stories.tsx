@@ -49,7 +49,7 @@ export const PrefixIcon: Story = {
     args: {
         ...Default.args,
         children: [
-            <SearchIcon key="1" />,
+            <SearchIcon key="1" color="neutral-weak" />,
             <Input type="text" placeholder="Placeholder" key="2" />
         ]
     }
@@ -60,7 +60,7 @@ export const PrefixText: Story = {
     args: {
         ...Default.args,
         children: [
-            <Text key="1">$</Text>,
+            <Text key="1" color="neutral-weak">$</Text>,
             <Input type="text" placeholder="Placeholder" key="2" />
         ]
     }
@@ -73,7 +73,7 @@ export const SuffixIcon: Story = {
         ...Default.args,
         children: [
             <Input type="text" placeholder="Placeholder" key="1" />,
-            <AngleDownIcon key="2" />
+            <AngleDownIcon key="2" color="neutral-weak" />
         ]
     }
 };

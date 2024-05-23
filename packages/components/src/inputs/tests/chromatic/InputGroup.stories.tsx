@@ -1,6 +1,5 @@
-import { AngleDownIcon, DismissIcon, EyeHiddenIcon, EyeVisibleIcon, SearchIcon } from "@hopper-ui/icons";
+import { AngleDownIcon, DismissIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
 import { Input } from "react-aria-components";
 
 import { Button } from "../../../buttons/index.ts";
@@ -36,7 +35,7 @@ export const PrefixIcon: Story = {
     args: {
         ...Default.args,
         children: [
-            <SearchIcon key="1" />,
+            <SearchIcon key="1" color="neutral-weak" />,
             <Input type="text" placeholder="Placeholder" key="2" />
         ]
     }
@@ -47,7 +46,7 @@ export const PrefixText: Story = {
     args: {
         ...Default.args,
         children: [
-            <Text key="1">$</Text>,
+            <Text key="1" color="neutral-weak">$</Text>,
             <Input type="text" placeholder="Placeholder" key="2" />
         ]
     }
@@ -60,7 +59,7 @@ export const SuffixIcon: Story = {
         ...Default.args,
         children: [
             <Input type="text" placeholder="Placeholder" key="1" />,
-            <AngleDownIcon key="2" />
+            <AngleDownIcon key="2" color="neutral-weak" />
         ]
     }
 };
@@ -99,21 +98,4 @@ export const ButtonStory: Story = {
             <Button key="2" aria-label="Add email"><DismissIcon /></Button>
         ]
     }
-};
-
-const PasswordStory = () => {
-    const [showPassword, setShowPassword] = useState(false);
-
-    return (
-        <InputGroup>
-            <Input placeholder="Placeholder" type={showPassword ? "text" : "password"} />
-            <Button onPress={() => setShowPassword(!showPassword)} aria-label="Toggle password visibility">
-                {showPassword ? <EyeHiddenIcon /> : <EyeVisibleIcon />}
-            </Button>
-        </InputGroup>
-    );
-};
-
-export const Password: Story = {
-    render: () => <PasswordStory />
 };
