@@ -2,11 +2,23 @@ import { IconContext, type IconProps } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import type { StyledComponentProps, ResponsiveProp } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, type LinkProps as RACLinkProps, composeRenderProps, Link as RACLink, DEFAULT_SLOT } from "react-aria-components";
+import {
+    useContextProps,
+    type LinkProps as RACLinkProps,
+    composeRenderProps,
+    Link as RACLink,
+    DEFAULT_SLOT
+} from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../Text/index.ts";
-import { SlotProvider, composeClassnameRenderProps, cssModule, isTextOnlyChildren, type SizeAdapter } from "../../utils/index.ts";
+import { Text, TextContext } from "../../typography/Text/index.ts";
+import {
+    SlotProvider,
+    composeClassnameRenderProps,
+    cssModule,
+    isTextOnlyChildren,
+    type SizeAdapter
+} from "../../utils/index.ts";
 
 import { LinkContext } from "./LinkContext.ts";
 
@@ -14,7 +26,7 @@ import styles from "./Link.module.css";
 
 export const GlobalLinkCssSelector = "hop-Link";
 
-export interface LinkProps extends StyledComponentProps<RACLinkProps>{
+export interface LinkProps extends StyledComponentProps<RACLinkProps> {
     /**
      * The visual style of the link.
      * @default "primary"
@@ -37,6 +49,7 @@ export interface LinkProps extends StyledComponentProps<RACLinkProps>{
      */
     isExternal?: boolean;
 }
+
 const LinkToIconSizeAdapter = {
     inherit: undefined,
     xs: "sm",
@@ -47,7 +60,7 @@ const LinkToIconSizeAdapter = {
     "2xl": "lg"
 } as const satisfies SizeAdapter<LinkProps["size"], IconProps["size"]>;
 
-function Link(props:LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
+function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
     [props, ref] = useContextProps(props, ref, LinkContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {

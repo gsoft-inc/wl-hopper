@@ -1,9 +1,14 @@
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 
-import { cssModule } from "../../utils/index.ts";
+import { cssModule } from "../../../utils/index.ts";
 
 import { LabelContext } from "./LabelContext.ts";
 
@@ -23,7 +28,7 @@ export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RAC
     size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
 }
 
-function Label(props:LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
+function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, style, ...otherProps } = ownProps;

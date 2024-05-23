@@ -7,14 +7,14 @@ export * from "./helperMessage/index.ts";
 export * from "./HopperProvider/index.ts";
 export * from "./IconList/index.ts";
 export * from "./layout/index.ts";
-export * from "./Label/index.ts";
+export * from "./typography/Label/index.ts";
 export * from "./Link/index.ts";
-export * from "./overlineText/index.ts";
+export * from "./typography/OverlineText/index.ts";
 export * from "./radio/index.ts";
 export * from "./Spinner/index.ts";
 export * from "./switch/index.ts";
 export * from "./tag/index.ts";
-export * from "./Text/index.ts";
+export * from "./typography/Text/index.ts";
 export * from "./utils/index.ts";
 
 export * from "@hopper-ui/styled-system";

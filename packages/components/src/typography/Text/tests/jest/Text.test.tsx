@@ -1,7 +1,7 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { ButtonGroupContext } from "../../../buttons/src/ButtonGroupContext.ts";
+import { ButtonGroupContext } from "../../../../buttons/src/ButtonGroupContext.ts";
 import { Text } from "../../src/Text.tsx";
 import { TextContext } from "../../src/TextContext.ts";
 
@@ -22,7 +22,7 @@ describe("Text", () => {
     });
 
     it("should support custom style", () => {
-        render(<Text marginTop="stack-sm" style={{ marginBottom: "13px" }} >Test</Text>);
+        render(<Text marginTop="stack-sm" style={{ marginBottom: "13px" }}>Test</Text>);
 
         const element = screen.getByText("Test");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });

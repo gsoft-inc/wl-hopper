@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 
 import { Inline, Stack } from "../../../index.ts";
-import { Text } from "../../../Text/index.ts";
+import { Text } from "../../../typography/Text/index.ts";
 import { Link, type LinkProps } from "../../src/Link.tsx";
 
 const meta = {
@@ -30,7 +30,9 @@ export const Default: Story = {
                 <Div UNSAFE_width="400px">
                     <Link {...args}>
                         Frogs have excellent night vision and are very sensitive to movement.
-                        The bulging eyes of most frogs allow them to see in front, to the sides, and partially behind them. When a frog swallows food, it pulls its eyes down into the roof of its mouth, to help push the food down its throat.
+                        The bulging eyes of most frogs allow them to see in front, to the sides, and partially behind
+                        them. When a frog swallows food, it pulls its eyes down into the roof of its mouth, to help push
+                        the food down its throat.
                     </Link>
                 </Div>
                 <Stack>
@@ -44,7 +46,7 @@ export const Default: Story = {
             </Stack>
         );
     },
-    args:{
+    args: {
         href: "#"
     }
 };
@@ -73,8 +75,10 @@ export const StartIcon: Story = {
                     <Link {...args}>
                         <SparklesIcon slot="start-icon" />
                         <Text>
-                        Frogs have excellent night vision and are very sensitive to movement.
-                        The bulging eyes of most frogs allow them to see in front, to the sides, and partially behind them. When a frog swallows food, it pulls its eyes down into the roof of its mouth, to help push the food down its throat.
+                            Frogs have excellent night vision and are very sensitive to movement.
+                            The bulging eyes of most frogs allow them to see in front, to the sides, and partially
+                            behind them. When a frog swallows food, it pulls its eyes down into the roof of its mouth,
+                            to help push the food down its throat.
                         </Text>
                     </Link>
                 </Div>
@@ -107,7 +111,7 @@ export const StartIcon: Story = {
             </Stack>
         );
     },
-    args:{
+    args: {
         href: "#"
     }
 };
@@ -136,8 +140,10 @@ export const EndIcon: Story = {
                 <Div UNSAFE_width="400px">
                     <Link {...args}>
                         <Text>
-                        Frogs have excellent night vision and are very sensitive to movement.
-                        The bulging eyes of most frogs allow them to see in front, to the sides, and partially behind them. When a frog swallows food, it pulls its eyes down into the roof of its mouth, to help push the food down its throat.
+                            Frogs have excellent night vision and are very sensitive to movement.
+                            The bulging eyes of most frogs allow them to see in front, to the sides, and partially
+                            behind them. When a frog swallows food, it pulls its eyes down into the roof of its mouth,
+                            to help push the food down its throat.
                         </Text>
                         <SparklesIcon />
                     </Link>
@@ -171,7 +177,7 @@ export const EndIcon: Story = {
             </Stack>
         );
     },
-    args:{
+    args: {
         href: "#"
     }
 };
@@ -183,8 +189,8 @@ export const Primary: Story = {
             <Link {...args} />
         </Inline>
     ),
-    args:{
-        variant:"primary",
+    args: {
+        variant: "primary",
         href: "#",
         children: "Learn more"
     }
@@ -192,36 +198,39 @@ export const Primary: Story = {
 
 export const QuietPrimary: Story = {
     ...Primary,
-    args:{
+    args: {
         ...Primary.args,
         isQuiet: true
     }
 };
 
-export const Secondary : Story = {
+export const Secondary: Story = {
     ...Primary,
-    args:{
+    args: {
         ...Primary.args,
-        variant:"secondary"
+        variant: "secondary"
     }
 };
 
 export const QuietSecondary: Story = {
     ...Secondary,
-    args:{
+    args: {
         ...Secondary.args,
         isQuiet: true
     }
 };
 
-export const StaticColor : Story = {
+export const StaticColor: Story = {
     ...Primary,
     decorators: [
-        Story => <Stack backgroundColor="decorative-option4" color="decorative-option4" padding="inset-md"><Story /></Stack>
+        Story => <Stack backgroundColor="decorative-option4"
+            color="decorative-option4"
+            padding="inset-md"
+        ><Story /></Stack>
     ],
-    args:{
+    args: {
         ...Primary.args,
-        color:"inherit"
+        color: "inherit"
     }
 };
 
@@ -294,7 +303,7 @@ export const PrimaryStates: Story = {
             </Stack>
         );
     },
-    args:{
+    args: {
         children: "Learn more",
         href: "#",
         variant: "primary"

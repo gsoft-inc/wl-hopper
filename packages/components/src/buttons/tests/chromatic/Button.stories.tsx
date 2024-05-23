@@ -5,7 +5,7 @@ import { within } from "@storybook/test";
 
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../Text/src/Text.tsx";
+import { Text } from "../../../typography/Text/src/Text.tsx";
 import { ButtonContext } from "../../index.ts";
 import { Button, type ButtonProps } from "../../src/Button.tsx";
 

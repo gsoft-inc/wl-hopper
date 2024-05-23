@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../Text/index.ts";
+import { Text } from "../../../typography/Text/index.ts";
 import { Switch } from "../../src/Switch.tsx";
 
 
