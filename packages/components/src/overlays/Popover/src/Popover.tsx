@@ -1,4 +1,4 @@
-import { composeClassnameRenderProps, cssModule } from "@hopper-ui/components";
+import { composeClassnameRenderProps, SlotProvider, cssModule, TextContext } from "@hopper-ui/components";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import {
@@ -29,6 +29,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
+        children,
         className,
         style: styleProp,
         ...otherProps
@@ -52,11 +53,18 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     });
 
     return (
-        <RACPopover {...otherProps} ref={ref} className={classNames} style={style} {...otherProps}>
-            <Dialog>
-                Popover render here
-            </Dialog>
-        </RACPopover>
+        <SlotProvider values={[
+            [TextContext, { className: "hop-Popover__title", size: "md" }]
+        ]}
+        >
+            <RACPopover {...otherProps} ref={ref} className={classNames} style={style} {...otherProps}>
+                <Dialog>
+                    <>
+                        {children}
+                    </>
+                </Dialog>
+            </RACPopover>
+        </SlotProvider>
     );
 }
 
