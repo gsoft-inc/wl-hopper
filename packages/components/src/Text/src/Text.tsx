@@ -1,7 +1,7 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
-import { Text as RACText, useContextProps, type TextProps as RACTextProps, type SlotProps } from "react-aria-components";
+import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 
 import { cssModule, SlotProvider, ClearContainerSlots } from "../../utils/index.ts";
 
@@ -11,10 +11,7 @@ import styles from "./Text.module.css";
 
 export const GlobalTextCssSelector = "hop-Text";
 
-// TODO: ADD issue tracking number in RAC
-type FixedRACTextProps = Omit<RACTextProps, "slot"> & SlotProps;
-
-export interface TextProps extends StyledComponentProps<FixedRACTextProps> {
+export interface TextProps extends StyledComponentProps<RACTextProps> {
     /**
      * The Typography Type Scale to use.
      * @default "md"
@@ -48,9 +45,6 @@ function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
     return (
         <RACText
             {...otherProps}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error TODO: add issue number
-            slot={props.slot}
             ref={ref}
             elementType={elementType}
             className={classNames}

@@ -1,4 +1,4 @@
-import { act, render, screen } from "@hopper-ui/test-utils";
+import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef, type MutableRefObject } from "react";
 
