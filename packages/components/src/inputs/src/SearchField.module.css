@@ -12,6 +12,7 @@
     --inline-size: var(--hop-SearchField-inline-size);
     --input-group-padding-inline-end: var(--hop-SearchField-padding);
     --input-group-padding-inline-start: var(--hop-SearchField-padding);
+    --clear-button-display: initial;
 
     display: flex;
     flex-direction: column;
@@ -57,10 +58,11 @@
     appearance: none;
 }
 
-.hop-SearchField__ClearButton {
-    flex-shrink: 0;
+.hop-SearchField[data-empty]  {
+    --clear-button-display: none;
 }
 
-.hop-SearchField[data-empty] .hop-SearchField__ClearButton {
-    display: none;
+.hop-SearchField__ClearButton {
+    display: var(--clear-button-display);
+    flex-shrink: 0
 }

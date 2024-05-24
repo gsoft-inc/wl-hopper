@@ -61,7 +61,6 @@
     inline-size: 100%;
 }
 
-.hop-InputGroup[data-focus-within],
 .hop-InputGroup[data-hovered] {
     --background: var(--hop-InputGroup-background-hover);
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-hover)

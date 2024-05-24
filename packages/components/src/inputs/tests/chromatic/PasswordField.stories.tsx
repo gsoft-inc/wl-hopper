@@ -125,14 +125,14 @@ export const Styling: Story = {
 const StateTemplate = (args: Partial<PasswordFieldProps>) => (
     <Stack>
         <Inline alignY="center">
-            <PasswordField {...args} />
-            <PasswordField size="sm" {...args} />
+            <PasswordField data-testid="passwordField" {...args} />
+            <PasswordField data-testid="passwordField" size="sm" {...args} />
         </Inline>
-        <PasswordField isDisabled {...args} />
-        <PasswordField isReadOnly {...args} />
-        <PasswordField isFluid {...args} />
+        <PasswordField data-testid="passwordField" isDisabled {...args} />
+        <PasswordField data-testid="passwordField" isReadOnly {...args} />
+        <PasswordField data-testid="passwordField" isFluid {...args} />
         <Div width="10%">
-            <PasswordField isFluid {...args} />
+            <PasswordField data-testid="passwordField" isFluid {...args} />
         </Div>
     </Stack>
 );
@@ -140,29 +140,26 @@ const StateTemplate = (args: Partial<PasswordFieldProps>) => (
 export const States: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const passInputs = canvas.getAllByRole("passwordbox");
-        const textInputs = canvas.getAllByRole("textbox");
-
-        const inputs = [...passInputs, ...textInputs];
+        const inputs = canvas.getAllByLabelText("Label");
 
         inputs.forEach(input => {
             if (input.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
-                const inputGroup = input.parentElement;
+                const inputGroup = input.parentElement!;
                 const field = inputGroup?.parentElement;
 
                 if (field?.getAttribute("data-chromatic-force-focus")) {
-                    input.setAttribute("data-focus-visible", "true");
+                    inputGroup?.setAttribute("data-focus-visible", "true");
                     inputGroup?.setAttribute("data-focus-within", "true");
                     field?.removeAttribute("data-chromatic-force-focus");
                 }
 
                 if (field?.getAttribute("data-chromatic-force-focus-within")) {
-                    input.setAttribute("data-focus-within", "true");
+                    inputGroup?.setAttribute("data-focus-within", "true");
                     field?.removeAttribute("data-chromatic-force-focus");
                 }
 
                 if (field?.getAttribute("data-chromatic-force-hover")) {
-                    input.setAttribute("data-hovered", "true");
+                    inputGroup?.setAttribute("data-hovered", "true");
                     field?.removeAttribute("data-chromatic-force-hover");
                 }
             }
