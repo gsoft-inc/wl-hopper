@@ -71,6 +71,8 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
         children,
         isFluid: isFluidProp,
         icon = <SearchIcon />,
+        isDisabled,
+        isInvalid,
         ...otherProps
     } = ownProps;
 
@@ -97,7 +99,13 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
 
     const inputMarkup = (
         <ClearContainerSlots>
-            <InputGroup isFluid={isFluid} size={size} className={styles["hop-SearchField__InputGroup"]}>
+            <InputGroup
+                isDisabled={isDisabled}
+                isInvalid={isInvalid}
+                isFluid={isFluid}
+                size={size}
+                className={styles["hop-SearchField__InputGroup"]}
+            >
                 <SlotProvider values={[
                     [IconContext, {
                         className: styles["hop-SearchField__prefix"]
@@ -107,7 +115,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
                     {icon}
                 </SlotProvider>
                 <Input ref={inputRef} placeholder={placeholder} />
-                {isClearable && <ClearButton size="lg" className={styles["hop-SearchField__ClearButton"]} />}
+                {isClearable && <ClearButton size="lg" isDisabled={isDisabled} className={styles["hop-SearchField__ClearButton"]} />}
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -129,7 +137,14 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
     });
 
     return (
-        <RACSearchField ref={ref} style={style} className={classNames} {...otherProps}>
+        <RACSearchField
+            ref={ref}
+            style={style}
+            className={classNames}
+            isDisabled={isDisabled}
+            isInvalid={isInvalid}
+            {...otherProps}
+        >
             {childrenMarkup}
         </RACSearchField>
     );

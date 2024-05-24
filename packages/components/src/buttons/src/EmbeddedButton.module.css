@@ -41,6 +41,7 @@
 
     overflow: hidden;
     display: flex;
+    flex-shrink: 0;
     column-gap: var(--hop-space-inline-xs);
     align-items: center;
     justify-content: center;

@@ -61,6 +61,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         children,
         isFluid: isFluidProp,
         isDisabled,
+        isInvalid,
         ...otherProps
     } = ownProps;
 
@@ -87,7 +88,13 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
 
     const inputMarkup = (
         <ClearContainerSlots>
-            <InputGroup isFluid={isFluid} size={size} className={styles["hop-PasswordField__InputGroup"]}>
+            <InputGroup
+                isDisabled={isDisabled}
+                isInvalid={isInvalid}
+                isFluid={isFluid}
+                size={size}
+                className={styles["hop-PasswordField__InputGroup"]}
+            >
                 <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} />
                 <EmbeddedButton
                     isDisabled={isDisabled}
@@ -123,6 +130,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
             style={style}
             className={classNames}
             isDisabled={isDisabled}
+            isInvalid={isInvalid}
             {...otherProps}
         >
             {childrenMarkup}

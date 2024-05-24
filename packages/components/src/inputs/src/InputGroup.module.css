@@ -53,9 +53,12 @@
     border-radius: var(--hop-InputGroup-border-radius)
 }
 
-.hop-InputGroup--fluid,
-.hop-InputGroup--fluid .hop-InputGroup__input {
+.hop-InputGroup--fluid {
     --inline-size: 100%
+}
+
+.hop-InputGroup--fluid .hop-InputGroup__input {
+    inline-size: 100%;
 }
 
 .hop-InputGroup[data-focus-within],
@@ -68,7 +71,7 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-focus)
 }
 
-.hop-InputGroup:has(.hop-InputGroup__input[data-invalid])  {
+.hop-InputGroup[data-invalid] {
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-invalid)
 }
 
@@ -112,7 +115,7 @@
     opacity: 1
 }
 
-.hop-InputGroup:has(.hop-InputGroup__input[data-disabled]) {
+.hop-InputGroup[data-disabled] {
     --background: var(--hop-InputGroup-background-disabled);
     --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled)
 }

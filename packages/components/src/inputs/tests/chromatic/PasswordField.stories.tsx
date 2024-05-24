@@ -140,7 +140,10 @@ const StateTemplate = (args: Partial<PasswordFieldProps>) => (
 export const States: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const inputs = canvas.getAllByRole("passwordbox");
+        const passInputs = canvas.getAllByRole("passwordbox");
+        const textInputs = canvas.getAllByRole("textbox");
+
+        const inputs = [...passInputs, ...textInputs];
 
         inputs.forEach(input => {
             if (input.getAttribute("disabled") !== "") { // don't try and force states on a disabled input

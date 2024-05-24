@@ -99,3 +99,29 @@ export const ButtonStory: Story = {
         ]
     }
 };
+
+export const Disabled: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        isDisabled: true,
+        children: [
+            <Input type="text" placeholder="Placeholder" key="1" />,
+            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
+        ]
+    }
+};
+
+
+export const Invalid: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        isInvalid: true,
+        children: [
+            <Input type="text" placeholder="Placeholder" key="1" />,
+            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
+        ]
+    }
+};
+

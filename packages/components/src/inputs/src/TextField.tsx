@@ -90,6 +90,8 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         defaultValue,
         value: valueProp,
         isFluid: isFluidProp,
+        isDisabled,
+        isInvalid,
         ...otherProps
     } = ownProps;
 
@@ -144,12 +146,18 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     ) : null;
     const inputMarkup = (
         <ClearContainerSlots>
-            <InputGroup isFluid={isFluid} size={size} className={styles["hop-TextField__InputGroup"]}>
+            <InputGroup
+                isFluid={isFluid}
+                size={size}
+                className={styles["hop-TextField__InputGroup"]}
+                isDisabled={isDisabled}
+                isInvalid={isInvalid}
+            >
                 {prefixMarkup}
                 <Input ref={inputRef} placeholder={placeholder} />
 
                 {showCharacterCount && maxLength && <CharacterCount characterLeft={maxLength - characterCount} />}
-                {showClearButton && <ClearButton size="lg" onPress={handleClear} />}
+                {showClearButton && <ClearButton isDisabled={isDisabled} size="lg" onPress={handleClear} />}
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -178,6 +186,8 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             className={classNames}
             maxLength={maxLength}
             onChange={onChange}
+            isDisabled={isDisabled}
+            isInvalid={isInvalid}
             {...otherProps}
         >
             {childrenMarkup}
