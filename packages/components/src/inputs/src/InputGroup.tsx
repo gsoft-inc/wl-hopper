@@ -11,7 +11,14 @@ import styles from "./InputGroup.module.css";
 export const GlobalInputGroupCssSelector = "hop-InputGroup";
 
 export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
+    /**
+     * The size of the input group.
+     * @default "md"
+     */
     size?: ResponsiveProp<"sm" | "md">;
+    /**
+     * Whether or not the button takes up the width of its container.
+     */
     isFluid?: ResponsiveProp<boolean>;
 }
 

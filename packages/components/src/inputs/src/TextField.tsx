@@ -22,9 +22,16 @@ import styles from "./TextField.module.css";
 export const GlobalTextFieldCssSelector = "hop-TextField";
 
 export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> {
+    /**
+     * An icon or text to display at the start of the input.
+     */
     prefix?: ReactNode;
 
+    /**
+     * True to display the number of remaining allowed characters on the right of the input. Requires a valid value in the "maxLength" prop.
+     */
     showCharacterCount?: boolean;
+
     /**
      * Whether the TextField is clearable.
      */

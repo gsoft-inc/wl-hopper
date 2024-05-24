@@ -53,7 +53,7 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * Whether or not the button takes up the width of its container.
      */
-    fluid?: ResponsiveProp<boolean>;
+    isFluid?: ResponsiveProp<boolean>;
 
     /** A button can show a loading indicator.*/
     isLoading?: boolean;
@@ -148,7 +148,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
         className,
         children: childrenProp,
         size: sizeProp,
-        fluid: fluidProp,
+        isFluid: isFluidProp,
         variant = "primary",
         isLoading,
         style: styleProp,
@@ -158,7 +158,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
     const [textRef, hasText] = useSlot();
 
     const size = useResponsiveValue(sizeProp) ?? "md";
-    const fluid = useResponsiveValue(fluidProp) ?? false;
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -168,7 +168,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
             "hop-Button",
             variant,
             size,
-            fluid && "fluid",
+            isFluid && "fluid",
             isLoading && "loading",
             !hasText && "icon-only"
         ),

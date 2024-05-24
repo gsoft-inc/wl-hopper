@@ -134,7 +134,7 @@ export const Fluid: Story = {
         </div>
     ),
     args: {
-        fluid: true
+        isFluid: true
     }
 };
 
