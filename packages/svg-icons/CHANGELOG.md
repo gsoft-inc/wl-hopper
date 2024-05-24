@@ -1,5 +1,41 @@
 # @hopper-ui/svg-icons
 
+## 2.10.1
+
+### Patch Changes
+
+- a92e653: fix inversion between background and shadow values
+
+## 2.10.0
+
+### Minor Changes
+
+- 75db68e: Added the following SVG icons:
+
+  **Added**
+
+  | SVG Name              |
+  | --------------------- |
+  | graduation-hat-16.svg |
+  | graduation-hat-24.svg |
+  | graduation-hat-32.svg |
+  | image-16.svg          |
+  | image-24.svg          |
+  | image-32.svg          |
+  | screen-share-16.svg   |
+  | screen-share-24.svg   |
+  | screen-share-32.svg   |
+
+  Added the following Icons:
+
+  **Added**
+
+  | Icon Name       |
+  | --------------- |
+  | GraduationHat   |
+  | ImageIcon       |
+  | ScreenShareIcon |
+
 ## 2.9.1
 
 ### Patch Changes

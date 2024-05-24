@@ -1,4 +1,7 @@
 {
     "Button.spinnerAriaLabel": "Chargement en cours",
+    "Tag.spinnerAriaLabel": "Chargement en cours",
+    "ClearButton.clearAriaLabel": "Effacer",
+    "Tag.removeAriaLabel": "Supprimer",
     "Input.charactersLeft": "{charLeft, plural, =0 {Aucun caractère restant} one {# caractère restant} other {# caractères restants}}."
 }

@@ -79,7 +79,7 @@ export const Size = {
     render: props => (
         <Inline>
             <Chip size="xs" {...props}>
-                <Text>xSmall Chip</Text>
+                <Text>Extra Small Chip</Text>
             </Chip>
             <Chip size="sm" {...props}>
                 <Text>Small Chip</Text>

@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Neutral = {
     render: props => (
         <Div>
-            <h1>XSmall</h1>
+            <h1>Extra Small</h1>
             <Inline alignY="end">
                 <Chip {...props} size="xs">
                     <Text>Default</Text>

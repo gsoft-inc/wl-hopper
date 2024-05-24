@@ -7,13 +7,16 @@ import { data } from "@/app/lib/contentConfig.ts";
 
 export const COMPONENT_PATH = path.join(process.cwd(), "content", "components");
 
+export interface ComponentData {
+    title: string;
+    description: string;
+    status?: string;
+    links?: { source: string; npm: string; issue: string };
+    order?: number | undefined;
+}
+
 async function parseFrontMatter(fileContent: string) {
-    const { content, frontmatter } = await compileMDX<{
-        title: string;
-        description: string;
-        status: string;
-        links: { source: string; npm: string; issue: string };
-    }>({
+    const { content, frontmatter } = await compileMDX<ComponentData>({
         source: fileContent,
         options: {
             scope: data,
@@ -23,7 +26,7 @@ async function parseFrontMatter(fileContent: string) {
         components: components
     });
 
-    return { content, frontmatter };
+    return { content, frontmatter, raw: fileContent };
 }
 
 async function readMDXFile(filePath: string) {
@@ -33,21 +36,33 @@ async function readMDXFile(filePath: string) {
 }
 
 function getMDXFiles(dir: string) {
-    return fs.readdirSync(dir).filter(file => [".mdx"].includes(path.extname(file)));
+    const elements = fs.readdirSync(dir);
+    let filelist: string[] = [];
+
+    elements.forEach(element => {
+        if (fs.statSync(path.join(dir, element)).isDirectory()) {
+            filelist = filelist.concat(getMDXFiles(path.join(dir, element)));
+        } else if (path.extname(element) === ".mdx") {
+            filelist.push(path.join(dir, element));
+        }
+    });
+
+    return filelist;
 }
 
 function getMDXData(dir: string) {
     const mdxFiles = getMDXFiles(dir);
 
     return mdxFiles.map(async file => {
-        const { frontmatter, content } = await readMDXFile(path.join(dir, file));
-        const slug = path.basename(file, path.extname(file));
-
+        const { frontmatter, content, raw } = await readMDXFile(file);
+        const startIndex = file.indexOf(COMPONENT_PATH) + COMPONENT_PATH.length + 1;
+        const slug = file.substring(startIndex, file.length - ".mdx".length);
 
         return {
             slug,
             frontmatter,
-            content
+            content,
+            raw
         };
     });
 }
