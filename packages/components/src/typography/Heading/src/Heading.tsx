@@ -1,7 +1,10 @@
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue } from "@hopper-ui/components";
 import { useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import {
+    forwardRef,
+    type CSSProperties, type ForwardedRef
+} from "react";
 import { useContextProps, Heading as RACHeading, type HeadingProps as RACHeadingProps } from "react-aria-components";
 
 import { cssModule } from "../../../utils/index.ts";
@@ -65,3 +68,27 @@ const _Heading = forwardRef<HTMLHeadingElement, HeadingProps>(Heading);
 _Heading.displayName = "Heading";
 
 export { _Heading as Heading };
+
+/**
+ * Creates a Heading component with the specified level.
+ * @param as
+ */
+function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
+    const level = parseInt(as[1]);
+
+    return forwardRef<HTMLHeadingElement, HeadingProps>((props, ref) => {
+        return <_Heading {...props} ref={ref} level={level} />;
+    });
+}
+
+export const H1 = createHeading("h1");
+
+export const H2 = createHeading("h2");
+
+export const H3 = createHeading("h3");
+
+export const H4 = createHeading("h4");
+
+export const H5 = createHeading("h5");
+
+export const H6 = createHeading("h6");
