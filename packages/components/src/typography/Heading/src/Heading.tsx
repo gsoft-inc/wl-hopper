@@ -82,14 +82,44 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
     });
 }
 
+/**
+ *
+ * A primitive h1 component matching Hopper's typography type scale.
+ * [View Documentation](TODO)
+ */
 export const H1 = createHeading("h1");
 
+/**
+ *
+ * A primitive h2 component matching Hopper's typography type scale.
+ * [View Documentation](TODO)
+ */
 export const H2 = createHeading("h2");
 
+/**
+ *
+ * A primitive h3 component matching Hopper's typography type scale.
+ * [View Documentation](TODO)
+ */
 export const H3 = createHeading("h3");
 
+/**
+ *
+ * A primitive h4 component matching Hopper's typography type scale.
+ * [View Documentation](TODO)
+ */
 export const H4 = createHeading("h4");
 
+/**
+ *
+ * A primitive h5 component matching Hopper's typography type scale.
+ * [View Documentation](TODO)
+ */
 export const H5 = createHeading("h5");
 
+/**
+ *
+ * A primitive h6 component matching Hopper's typography type scale.
+ * [View Documentation](TODO)
+ */
 export const H6 = createHeading("h6");
