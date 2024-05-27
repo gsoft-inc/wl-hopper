@@ -1,11 +1,27 @@
 import { IconContext } from "@hopper-ui/icons";
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, Switch as RACSwitch, type SwitchProps as RACSwitchProps, composeRenderProps } from "react-aria-components";
+import {
+    useContextProps,
+    Switch as RACSwitch,
+    type SwitchProps as RACSwitchProps,
+    composeRenderProps
+} from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../Text/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots } from "../../utils/index.ts";
+import { Text, TextContext } from "../../typography/Text/index.ts";
+import {
+    composeClassnameRenderProps,
+    SlotProvider,
+    cssModule,
+    isTextOnlyChildren,
+    ClearContainerSlots
+} from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
 
@@ -21,7 +37,7 @@ export interface SwitchProps extends StyledComponentProps<RACSwitchProps> {
     size?: ResponsiveProp<"sm" | "md">;
 }
 
-function Switch(props:SwitchProps, ref: ForwardedRef<HTMLLabelElement>) {
+function Switch(props: SwitchProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, SwitchContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {

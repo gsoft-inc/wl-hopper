@@ -1,59 +1,56 @@
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Stack } from "../../layout/index.ts";
-import { SlotProvider } from "../../utils/index.ts";
-import { Text } from "../src/Text.tsx";
-import { TextContext } from "../src/TextContext.ts";
+import { Stack } from "../../../layout/index.ts";
+import { SlotProvider } from "../../../utils/index.ts";
+import { Label } from "../src/Label.tsx";
+import { LabelContext } from "../src/LabelContext.ts";
 
 /**
- * A primitive text component matching Hopper's typography type scale.
+ * A primitive label component matching Hopper's typography type scale.
  *
- * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Text/src)
+ * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Label/src)
  * -
  * [View package](https://www.npmjs.com/package/@hopper-ui/components)
  * -
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Text",
+    title: "Docs/Typography/Label",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: Text,
+    component: Label,
     args: {
         children: "Software built for everyone to do their best work"
     }
-} satisfies Meta<typeof Text>;
+} satisfies Meta<typeof Label>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 /**
- * The Text component provides default styling based on it's `size` prop`, but can also receive styling from a parent component
+ * The Label component provides default styling based on it's `size` prop`, but can also receive styling from a parent component
  * when used as a child of a Hopper component.
- *
- * See Button for examples of how to use the Text component in the context of a Hopper component
  */
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 /**
- * You can alter the size of the text by specifying a `size` prop.
+ * You can alter the size of the label by specifying a `size` prop.
  * The available sizes match Hopper Typography Type Scale (a type scale is a set of [font-size and line-height](https://hopper.workleap.design/tokens/semantic/typography#body) pairs).
  */
 export const Size: Story = {
     render: props => (
         <Stack>
-            <Text size="xs" {...props} />
-            <Text size="sm" {...props} />
-            <Text size="md" {...props} />
-            <Text size="lg" {...props} />
-            <Text size="xl" {...props} />
-            <Text size="2xl" {...props} />
+            <Label size="xs" {...props} />
+            <Label size="sm" {...props} />
+            <Label size="md" {...props} />
+            <Label size="lg" {...props} />
+            <Label size="xl" {...props} />
+            <Label size="2xl" {...props} />
         </Stack>
     )
 };
@@ -64,7 +61,7 @@ export const Size: Story = {
 export const Inherit: Story = {
     render: props => (
         <Div fontSize="body-xs">
-            <Text size="inherit" {...props} />
+            <Label size="inherit" {...props} />
         </Div>
     )
 };
@@ -77,23 +74,10 @@ export const Inherit: Story = {
 export const AdvancedCustomization: Story = {
     render: props => (
         <SlotProvider values={[
-            [TextContext, { size: "xl" }]
+            [LabelContext, { size: "xl" }]
         ]}
         >
-            <Text {...props} />
+            <Label {...props} />
         </SlotProvider>
     )
-};
-
-/**
- * The Text component can be nested within other Text components and inherit the parent's size by default.
- */
-export const Nested: Story = {
-    args: {
-        size: "lg",
-        children: [
-            <Text key="1" color="primary">Nested</Text>,
-            " Text"
-        ]
-    }
 };

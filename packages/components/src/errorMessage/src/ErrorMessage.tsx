@@ -2,9 +2,13 @@ import { WarningIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
-import { useContextProps, type FieldErrorProps as RACFieldErrorProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
+import {
+    useContextProps,
+    type FieldErrorProps as RACFieldErrorProps,
+    FieldErrorContext as RACFieldErrorContext
+} from "react-aria-components";
 
-import { type TextProps, Text } from "../../Text/index.ts";
+import { type TextProps, Text } from "../../typography/Text/index.ts";
 import { cssModule, useRenderProps } from "../../utils/index.ts";
 
 import { ErrorMessageContext } from "./ErrorMessageContext.ts";

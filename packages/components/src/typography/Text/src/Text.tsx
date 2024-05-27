@@ -1,9 +1,14 @@
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 
-import { cssModule, SlotProvider, ClearContainerSlots } from "../../utils/index.ts";
+import { cssModule, SlotProvider, ClearContainerSlots } from "../../../utils/index.ts";
 
 import { TextContext } from "./TextContext.ts";
 
@@ -19,7 +24,7 @@ export interface TextProps extends StyledComponentProps<RACTextProps> {
     size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
 }
 
-function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
+function Text(props: TextProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, TextContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, style, elementType = "span", ...otherProps } = ownProps;
@@ -54,7 +59,7 @@ function Text(props:TextProps, ref: ForwardedRef<HTMLSpanElement>) {
                 <SlotProvider
                     values={[
                         [TextContext, {
-                            size:"inherit"
+                            size: "inherit"
                         }]
                     ]}
                 >
