@@ -6,7 +6,7 @@
     --hop-InputGroup-sm-block-size: 2rem;
     --hop-InputGroup-md-block-size: 2.5rem;
     --hop-InputGroup-border-radius: var(--hop-shape-rounded-md);
-    --hop-InputGroup-padding-inline: var(--hop-space-inset-md) var(--hop-space-inset-md);
+    --hop-InputGroup-padding-inline: var(--hop-space-inset-md);
     --hop-InputGroup-border-color-hover: var(--hop-neutral-border-hover);
     --hop-InputGroup-border-color-focus: var(--hop-primary-border-focus);
     --hop-InputGroup-background-hover: var(--hop-neutral-surface-hover);
@@ -57,8 +57,8 @@
     --inline-size: 100%
 }
 
-.hop-InputGroup--fluid .hop-InputGroup__input {
-    inline-size: 100%;
+.hop-InputGroup--sm {
+    --block-size: var(--hop-InputGroup-sm-block-size);
 }
 
 .hop-InputGroup[data-hovered] {
@@ -74,20 +74,31 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-invalid)
 }
 
-.hop-InputGroup--sm {
-    --block-size: var(--hop-InputGroup-sm-block-size);
+.hop-InputGroup[data-disabled] {
+    --background: var(--hop-InputGroup-background-disabled);
+    --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled)
 }
 
 .hop-InputGroup__input {
+    --input-font-family: var(--hop-InputGroup-input-md-font-family);
+    --input-font-size: var(--hop-InputGroup-input-md-font-size);
+    --input-font-weight: var(--hop-InputGroup-input-md-font-weight);
+    --input-line-height: var(--hop-InputGroup-input-md-line-height);
+    --input-block-size: var(--hop-InputGroup-input-md-block-size);
+    --input-inline-size: initial;
+    --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
+
+
     flex-grow: 1;
 
-    block-size: var(--hop-InputGroup-input-md-block-size);
+    inline-size: var(--input-inline-size);
+    block-size: var(--input-block-size);
     padding: 0;
 
-    font-family: var(--hop-InputGroup-input-md-font-family);
-    font-size: var(--hop-InputGroup-input-md-font-size);
-    font-weight: var(--hop-InputGroup-input-md-font-weight);
-    line-height: var(--hop-InputGroup-input-md-line-height);
+    font-family: var(--input-font-family);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
+    line-height: var(--input-line-height);
     color: var(--hop-InputGroup-input-color);
 
     background: transparent;
@@ -95,30 +106,26 @@
     outline: none
 }
 
-.hop-InputGroup--sm .hop-InputGroup__input {
-    block-size: var(--hop-InputGroup-input-sm-block-size);
-
-    font-family: var(--hop-InputGroup-input-sm-font-family);
-    font-size: var(--hop-InputGroup-input-sm-font-size);
-    font-weight: var(--hop-InputGroup-input-sm-font-weight);
-    line-height: var(--hop-InputGroup-input-sm-line-height);
+.hop-InputGroup--fluid .hop-InputGroup__input {
+    --input-inline-size: 100%;
 }
 
-.hop-InputGroup .hop-InputGroup__input::placeholder {
+.hop-InputGroup--sm .hop-InputGroup__input {
+    --input-font-family: var(--hop-InputGroup-input-sm-font-family);
+    --input-font-size: var(--hop-InputGroup-input-sm-font-size);
+    --input-font-weight: var(--hop-InputGroup-input-sm-font-weight);
+    --input-line-height: var(--hop-InputGroup-input-sm-line-height);
+    --input-block-size: var(--hop-InputGroup-input-sm-block-size);
+}
+
+.hop-InputGroup__input::placeholder {
     font-family: var(--hop-InputGroup-placeholder-font-family);
     font-size: var(--hop-InputGroup-placeholder-font-size);
     font-weight: var(--hop-InputGroup-placeholder-font-weight);
     line-height: var(--hop-InputGroup-placeholder-line-height);
-    color: var(--hop-InputGroup-placeholder-color);
-
-    opacity: 1
-}
-
-.hop-InputGroup[data-disabled] {
-    --background: var(--hop-InputGroup-background-disabled);
-    --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled)
+    color: var(--input-placeholder-color);
 }
 
 .hop-InputGroup__input[data-disabled]::placeholder {
-    color: var(--hop-InputGroup-placeholder-color-disabled);
+    --input-placeholder-color: var(--hop-InputGroup-placeholder-color-disabled);
 }

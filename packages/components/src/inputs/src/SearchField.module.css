@@ -39,12 +39,12 @@
 }
 
 .hop-SearchField__InputGroup {
-    order:1;
+    order: 1;
     inline-size: 100%;
     padding-inline: var(--input-group-padding-inline-start) var(--input-group-padding-inline-end)
 }
 
-.hop-SearchField--clearable .hop-SearchField__InputGroup {
+.hop-SearchField--clearable {
     --input-group-padding-inline-end: 0;
 }
 

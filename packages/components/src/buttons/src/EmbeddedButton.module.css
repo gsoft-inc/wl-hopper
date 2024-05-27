@@ -23,7 +23,6 @@
     --hop-EmbeddedButton-lg-effect-height: 1.5rem;
     --hop-EmbeddedButton-lg-effect-width: 1.5rem;
 
-
     /* Internal variable */
     --spinner: var(--hop-primary-icon-strong);
     --padding-inline: 0;
@@ -98,7 +97,6 @@
 .hop-EmbeddedButton--md::before {
     --effect-inline-size: var(--hop-EmbeddedButton-md-effect-width);
     --effect-block-size: var(--hop-EmbeddedButton-md-effect-height);
-
 }
 
 .hop-EmbeddedButton--lg::before {

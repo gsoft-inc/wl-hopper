@@ -115,9 +115,6 @@ export const Styling: Story = {
             <PasswordField border="core_amanita-600" aria-label="Label" />
             <PasswordField className="bg-red" aria-label="Label" />
             <PasswordField style={{ backgroundColor: "red" }} aria-label="Label" />
-            {/* <PasswordField wrapperProps={{ border: "amanita-500" }} aria-label="Label" />
-            <PasswordField wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <PasswordField wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" /> */}
         </Inline>
     )
 };
