@@ -1,12 +1,23 @@
 import { IconContext } from "@hopper-ui/icons";
-import { type StyledSystemProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledSystemProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
 import { DEFAULT_SLOT, useContextProps } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext, type TextProps } from "../../Text/index.ts";
-import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps, isTextOnlyChildren } from "../../utils/index.ts";
+import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
+import {
+    SlotProvider,
+    type SizeAdapter,
+    cssModule,
+    type BaseComponentProps,
+    isTextOnlyChildren
+} from "../../utils/index.ts";
 
 import { ChipContext } from "./ChipContext.ts";
 
@@ -34,7 +45,7 @@ export interface ChipProps extends StyledSystemProps, BaseComponentProps {
     variant?: "neutral" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6" | "inactive" | "disabled";
 }
 
-function Chip(props:ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
+function Chip(props: ChipProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, ChipContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {

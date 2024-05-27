@@ -5,9 +5,9 @@ import { useState } from "react";
 import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
 import { IconList } from "../../IconList/index.ts";
-import { Label } from "../../Label/index.ts";
 import { Inline } from "../../layout/index.ts";
-import { Text } from "../../Text/index.ts";
+import { Label } from "../../typography/Label/index.ts";
+import { Text } from "../../typography/Text/index.ts";
 import { Radio } from "../src/Radio.tsx";
 import { RadioField } from "../src/RadioField.tsx";
 import { RadioGroup } from "../src/RadioGroup.tsx";
@@ -178,6 +178,7 @@ export const Validation = {
     },
     render: function Render(args) {
         const [isInvalid, setIsInvalid] = useState(args.isInvalid);
+
         function onChange(value: string) {
             // if value is empty, then it is invalid
             setIsInvalid(value.length === 0);

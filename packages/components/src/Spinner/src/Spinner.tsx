@@ -1,8 +1,13 @@
-import { useStyledSystem, type ResponsiveProp, useResponsiveValue, type StyledSystemProps } from "@hopper-ui/styled-system";
+import {
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue,
+    type StyledSystemProps
+} from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { ProgressBar, useContextProps } from "react-aria-components";
 
-import { Label, type LabelProps } from "../../Label/index.ts";
+import { Label, type LabelProps } from "../../typography/Label/index.ts";
 import { composeClassnameRenderProps, cssModule, type SizeAdapter, type BaseComponentProps } from "../../utils/index.ts";
 
 import { SpinnerContext } from "./SpinnerContext.ts";
@@ -26,7 +31,7 @@ const SpinnerToLabelSizeAdapter: SizeAdapter<SpinnerProps["size"], LabelProps["s
     lg: "md"
 };
 
-const Spinner = (props:SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
+const Spinner = (props: SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
     [props, ref] = useContextProps(props, ref, SpinnerContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);

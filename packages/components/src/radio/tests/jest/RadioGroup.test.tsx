@@ -4,7 +4,7 @@ import { screen, render } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef } from "react";
 
-import { Text } from "../../../Text/src/Text.tsx";
+import { Text } from "../../../typography/Text/src/Text.tsx";
 import { Radio } from "../../src/Radio.tsx";
 import { RadioField } from "../../src/RadioField.tsx";
 import { RadioGroup } from "../../src/RadioGroup.tsx";
@@ -27,7 +27,9 @@ describe("Radio", () => {
     });
 
     it("should support custom style", () => {
-        render(<RadioGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Radio value="option1">option 1</Radio></RadioGroup>);
+        render(<RadioGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Radio
+            value="option1"
+        >option 1</Radio></RadioGroup>);
 
         const element = screen.getByRole("radiogroup");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
@@ -48,7 +50,7 @@ describe("Radio", () => {
         );
 
         const element = screen.getByRole("radiogroup");
-        
+
         expect(element).toHaveAttribute("slot", "test");
         expect(element).toHaveAttribute("aria-label", "test");
     });
@@ -83,7 +85,7 @@ describe("Radio", () => {
 
         const element = screen.getByRole("radiogroup");
         const radio = screen.getByRole("radio");
-        
+
         expect(element).toHaveAttribute("data-disabled", "true");
         expect(radio).toBeDisabled();
     });

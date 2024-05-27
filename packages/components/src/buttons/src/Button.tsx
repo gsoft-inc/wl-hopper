@@ -21,7 +21,7 @@ import {
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { TextContext, Text } from "../../Text/index.ts";
+import { TextContext, Text } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
     SlotProvider,
