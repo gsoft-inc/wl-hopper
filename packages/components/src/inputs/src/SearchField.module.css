@@ -12,7 +12,7 @@
     --inline-size: var(--hop-SearchField-inline-size);
     --input-group-padding-inline-end: var(--hop-SearchField-padding);
     --input-group-padding-inline-start: var(--hop-SearchField-padding);
-    --clear-button-display: initial;
+    --clear-button-display: flex;
 
     display: flex;
     flex-direction: column;
@@ -64,5 +64,4 @@
 
 .hop-SearchField__ClearButton {
     display: var(--clear-button-display);
-    flex-shrink: 0
 }
