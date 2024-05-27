@@ -3,7 +3,7 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Text } from "../../../Text/index.ts";
+import { Text } from "../../../typography/Text/index.ts";
 import { Radio } from "../../src/Radio.tsx";
 import { RadioField } from "../../src/RadioField.tsx";
 import { RadioGroup } from "../../src/RadioGroup.tsx";

@@ -5,9 +5,9 @@ import type { Selection } from "react-aria-components";
 
 import { Badge } from "../../../badge/index.ts";
 import { IconList } from "../../../IconList/index.ts";
-import { Label } from "../../../Label/index.ts";
 import { Stack } from "../../../layout/index.ts";
-import { Text } from "../../../Text/index.ts";
+import { Label } from "../../../typography/Label/index.ts";
+import { Text } from "../../../typography/Text/index.ts";
 import { TagGroup, TagList, Tag, type TagGroupProps } from "../../src/index.ts";
 
 const meta = {
@@ -31,7 +31,7 @@ export const Default = {
                         <Tag id="3" style={{ maxWidth: "5rem" }}>Tag 3 with long text</Tag>
                     </TagList>
                 </TagGroup>
-            
+
                 <TagGroup {...props} size="lg">
                     <Label>Large</Label>
                     <TagList>
@@ -106,7 +106,7 @@ export const Count = {
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "6rem" }}>
-                            <Text>Executive Officer</Text>                            
+                            <Text>Executive Officer</Text>
                             <Badge>100</Badge>
                         </Tag>
                     </TagList>
@@ -123,7 +123,7 @@ export const Count = {
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "7rem" }}>
-                            <Text>Executive Officer</Text>                            
+                            <Text>Executive Officer</Text>
                             <Badge>100</Badge>
                         </Tag>
                     </TagList>
@@ -208,8 +208,8 @@ export const Everything = {
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "9rem" }}>
-                            <Text>Executive Officer</Text>        
-                            <SparklesIcon />                    
+                            <Text>Executive Officer</Text>
+                            <SparklesIcon />
                             <Badge>100</Badge>
                         </Tag>
                     </TagList>
@@ -300,7 +300,7 @@ export const DefaultStates: Story = {
                     }
                 }
             });
-            
+
             tagGroup.removeAttribute("data-chromatic-force-focus");
             tagGroup.removeAttribute("data-chromatic-force-hover");
             tagGroup.removeAttribute("data-chromatic-force-press");

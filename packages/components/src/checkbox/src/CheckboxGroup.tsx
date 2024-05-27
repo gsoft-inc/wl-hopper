@@ -1,11 +1,21 @@
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, CheckboxGroup as RACCheckboxGroup, type CheckboxGroupProps as RACCheckboxGroupProps, composeRenderProps } from "react-aria-components";
+import {
+    useContextProps,
+    CheckboxGroup as RACCheckboxGroup,
+    type CheckboxGroupProps as RACCheckboxGroupProps,
+    composeRenderProps
+} from "react-aria-components";
 
 import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../../checkbox/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
-import { LabelContext } from "../../Label/index.ts";
+import { LabelContext } from "../../typography/Label/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
 
 import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
