@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconList } from "../../IconList/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Text } from "../../Text/index.ts";
+import { Text } from "../../typography/Text/index.ts";
 import { Checkbox } from "../src/Checkbox.tsx";
 
 /**

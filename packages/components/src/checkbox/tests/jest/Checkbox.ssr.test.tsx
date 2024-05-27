@@ -3,7 +3,7 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Text } from "../../../Text/index.ts";
+import { Text } from "../../../typography/Text/index.ts";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";

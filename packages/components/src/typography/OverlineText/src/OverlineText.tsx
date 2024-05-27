@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 
-import { cssModule } from "../../utils/index.ts";
+import { cssModule } from "../../../utils/index.ts";
 
 import { OverlineTextContext } from "./OverlineTextContext.ts";
 
@@ -11,9 +11,10 @@ import styles from "./OverlineText.module.css";
 
 export const GlobalOverlineTextCssSelector = "hop-OverlineText";
 
-export interface OverlineTextProps extends StyledComponentProps<RACTextProps> {}
+export interface OverlineTextProps extends StyledComponentProps<RACTextProps> {
+}
 
-function OverlineText(props:OverlineTextProps, ref: ForwardedRef<HTMLSpanElement>) {
+function OverlineText(props: OverlineTextProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, OverlineTextContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, children, style, elementType = "span", ...otherProps } = ownProps;

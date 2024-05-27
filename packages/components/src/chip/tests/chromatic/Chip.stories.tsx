@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../Text/src/Text.tsx";
+import { Text } from "../../../typography/Text/src/Text.tsx";
 import { Chip } from "../../src/Chip.tsx";
 
 const meta = {
@@ -151,10 +151,12 @@ export const Neutral = {
             <h1>Overflow</h1>
             <Inline alignY="end">
                 <Chip {...props} style={{ maxWidth: "12rem" }}>
-                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum nisl quis augue blandit aliquet. </Text>
+                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum nisl quis augue
+                        blandit aliquet. </Text>
                 </Chip>
                 <Chip {...props} style={{ maxWidth: "12rem" }}>
-                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum nisl quis augue blandit aliquet. </Text>
+                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum nisl quis augue
+                        blandit aliquet. </Text>
                     <IconList>
                         <SparklesIcon />
                         <SparklesIcon />
@@ -162,7 +164,8 @@ export const Neutral = {
                     </IconList>
                 </Chip>
                 <Chip {...props} style={{ maxWidth: "12rem" }}>
-                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum nisl quis augue blandit aliquet. </Text>
+                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum nisl quis augue
+                        blandit aliquet. </Text>
                     <IconList slot="end-icon">
                         <SparklesIcon />
                         <SparklesIcon />

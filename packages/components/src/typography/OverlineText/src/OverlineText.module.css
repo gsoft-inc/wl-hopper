@@ -1,4 +1,4 @@
-.hop-OverlineText  {
+:where(.hop-OverlineText) {
     --hop-OverlineText-font-family: var(--hop-overline-font-family);
     --hop-OverlineText-font-size: var(--hop-overline-font-size);
     --hop-OverlineText-font-weight: var(--hop-overline-font-weight);
@@ -17,7 +17,7 @@
     --bottom-offset: var(--hop-OverlineText-bottom-offset);
 
     box-sizing: border-box;
-    
+
     font-family: var(--font-family);
     font-size: var(--font-size);
     font-feature-settings: "case"; /* Needed to use an alternate version of the font, which has a better + sign. */
@@ -41,12 +41,12 @@
     inline-size: 0;
     block-size: 0;
 }
- 
+
 .hop-OverlineText__text::before {
     /* -0.125rem */
     margin-block-end: var(--bottom-offset);
 }
- 
+
 .hop-OverlineText__text::after {
     /* -0.25rem */
     margin-block-start: var(--top-offset);

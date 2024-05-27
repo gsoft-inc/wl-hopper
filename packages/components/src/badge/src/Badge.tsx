@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import { OverlineText } from "../../overlineText/index.ts";
+import { OverlineText } from "../../typography/OverlineText/index.ts";
 import { cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
 import { BadgeContext } from "./BadgeContext.ts";
@@ -24,9 +24,9 @@ export interface BadgeProps extends StyledSystemProps, BaseComponentProps {
     isDisabled?: boolean;
 }
 
-function Badge(props:BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
+function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, BadgeContext);
-    
+
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         children,

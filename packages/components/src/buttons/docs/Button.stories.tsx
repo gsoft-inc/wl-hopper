@@ -4,7 +4,7 @@ import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-do
 
 import { HopperProvider } from "../../HopperProvider/index.ts";
 import { Inline, Stack } from "../../layout/index.ts";
-import { Text } from "../../Text/index.ts";
+import { Text } from "../../typography/Text/index.ts";
 import { SlotProvider } from "../../utils/index.ts";
 import { Button } from "../src/Button.tsx";
 import { ButtonContext } from "../src/ButtonContext.ts";
@@ -40,8 +40,7 @@ type Story = StoryObj<typeof meta>;
 /**
  * A default button.
  */
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 /**
  * A button can use different variants.

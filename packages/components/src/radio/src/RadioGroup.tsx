@@ -1,11 +1,21 @@
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, RadioGroup as RACRadioGroup, type RadioGroupProps as RACRadioGroupProps, composeRenderProps } from "react-aria-components";
+import {
+    useContextProps,
+    RadioGroup as RACRadioGroup,
+    type RadioGroupProps as RACRadioGroupProps,
+    composeRenderProps
+} from "react-aria-components";
 
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
-import { LabelContext } from "../../Label/index.ts";
 import { RadioContext, RadioFieldContext, RadioListContext } from "../../radio/index.ts";
+import { LabelContext } from "../../typography/Label/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
 
 import { RadioGroupContext } from "./RadioGroupContext.ts";

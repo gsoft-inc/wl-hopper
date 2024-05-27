@@ -4,7 +4,7 @@ import { screen, render } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef } from "react";
 
-import { Text } from "../../../Text/src/Text.tsx";
+import { Text } from "../../../typography/Text/src/Text.tsx";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
@@ -27,7 +27,8 @@ describe("Checkbox", () => {
     });
 
     it("should support custom style", () => {
-        render(<CheckboxGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option 1</Checkbox></CheckboxGroup>);
+        render(<CheckboxGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option
+            1</Checkbox></CheckboxGroup>);
 
         const element = screen.getByRole("group");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
@@ -48,7 +49,7 @@ describe("Checkbox", () => {
         );
 
         const element = screen.getByRole("group");
-        
+
         expect(element).toHaveAttribute("slot", "test");
         expect(element).toHaveAttribute("aria-label", "test");
     });
@@ -83,7 +84,7 @@ describe("Checkbox", () => {
 
         const element = screen.getByRole("group");
         const checkbox = screen.getByRole("checkbox");
-        
+
         expect(element).toHaveAttribute("data-disabled", "true");
         expect(checkbox).toBeDisabled();
     });
