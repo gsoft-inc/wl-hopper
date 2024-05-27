@@ -1,11 +1,27 @@
 import { IconContext, BulletIcon } from "@hopper-ui/icons";
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, Radio as RACRadio, type RadioProps as RACRadioProps, composeRenderProps } from "react-aria-components";
+import {
+    useContextProps,
+    Radio as RACRadio,
+    type RadioProps as RACRadioProps,
+    composeRenderProps
+} from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../Text/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots } from "../../utils/index.ts";
+import { Text, TextContext } from "../../typography/Text/index.ts";
+import {
+    composeClassnameRenderProps,
+    SlotProvider,
+    cssModule,
+    isTextOnlyChildren,
+    ClearContainerSlots
+} from "../../utils/index.ts";
 
 import { RadioContext } from "./RadioContext.ts";
 
@@ -21,7 +37,7 @@ export interface RadioProps extends StyledComponentProps<RACRadioProps> {
     size?: ResponsiveProp<"sm" | "md">;
 }
 
-function Radio(props:RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
+function Radio(props: RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, RadioContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {

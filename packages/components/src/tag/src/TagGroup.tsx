@@ -1,11 +1,21 @@
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
-import { useContextProps, TagGroup as RACTagGroup, type TagGroupProps as RACTagGroupProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
+import {
+    useContextProps,
+    TagGroup as RACTagGroup,
+    type TagGroupProps as RACTagGroupProps,
+    FieldErrorContext as RACFieldErrorContext
+} from "react-aria-components";
 
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
-import { LabelContext } from "../../Label/index.ts";
+import { LabelContext } from "../../typography/Label/index.ts";
 import { SlotProvider, cssModule } from "../../utils/index.ts";
 
 import { TagContext } from "./TagContext.ts";
@@ -17,7 +27,7 @@ import styles from "./TagGroup.module.css";
 export const GlobalTagGroupCssSelector = "hop-TagGroup";
 
 export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
-    /** 
+    /**
      * Whether the tags are invalid or not.
      */
     isInvalid?: boolean;
@@ -39,7 +49,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         size: sizeProp,
         ...otherProps
     } = ownProps;
-    
+
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = clsx(

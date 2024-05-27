@@ -1,10 +1,15 @@
-import { type StyledSystemProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledSystemProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
 import { useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
-import { TextContext, type TextProps } from "../../Text/index.ts";
+import { TextContext, type TextProps } from "../../typography/Text/index.ts";
 import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
 import { RadioContext } from "./RadioContext.ts";
@@ -31,7 +36,7 @@ export interface RadioFieldProps extends StyledSystemProps, BaseComponentProps {
     size?: ResponsiveProp<"sm" | "md">;
 }
 
-function RadioField(props:RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
+function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, RadioFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {

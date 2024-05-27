@@ -5,7 +5,7 @@ import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-do
 
 import { HopperProvider } from "../../HopperProvider/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Text } from "../../Text/index.ts";
+import { Text } from "../../typography/Text/index.ts";
 import { Link } from "../src/Link.tsx";
 
 import { FrogImage } from "./assets/index.ts";
@@ -40,13 +40,12 @@ type Story = StoryObj<typeof meta>;
 /**
  * A default link
  */
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 /**
  * A link can use a different style.
  */
-export const Variants : Story = {
+export const Variants: Story = {
     render: args => (
         <>
             <Link variant="primary" {...args}>Primary</Link>
@@ -62,7 +61,7 @@ export const Quiet: Story = {
     render: args => (
         <p>Would you like to <Link {...args}>learn more</Link> about this fine component?</p>
     ),
-    args:{
+    args: {
         isQuiet: true
     }
 };
@@ -117,7 +116,7 @@ export const IconOnly: Story = {
 /**
  * A link can have a **disabled** style.
  */
-export const Disabled : Story = {
+export const Disabled: Story = {
     ...Variants,
     args: {
         ...Variants.args,
@@ -128,7 +127,7 @@ export const Disabled : Story = {
 /**
  * A link can vary in size.
  */
-export const Size : Story = {
+export const Size: Story = {
     render: args => (
         <Stack>
             <Text size="xs">
@@ -147,7 +146,7 @@ export const Size : Story = {
 /**
  * The size can also be inherited
  */
-export const InheritSize : Story = {
+export const InheritSize: Story = {
     render: args => (
         <Text size="lg">
             Would you like to <Link {...args}>learn more</Link> about this fine component?
@@ -170,7 +169,7 @@ export const External: Story = {
  * Use the color props when a link needs to be placed on top of a color background or visual.
  * Make sure that the background and the link color meet the minimum color contrast ratio.
  */
-export const StaticColor : Story = {
+export const StaticColor: Story = {
     decorators: [
         Story => (
             <Div padding="inset-md" backgroundColor="decorative-option3">
@@ -178,7 +177,7 @@ export const StaticColor : Story = {
             </Div>
         )
     ],
-    args:{
+    args: {
         color: "decorative-option3",
         colorHover: "decorative-option3-weak",
         colorFocus: "decorative-option3-weak"
@@ -190,10 +189,12 @@ export const StaticColor : Story = {
  *
  * Note: this will not behave like a native link. Browser features like context menus and open in new tab will not apply.
  */
-export const NoHref : Story = {
-    args:{
+export const NoHref: Story = {
+    args: {
         href: undefined,
-        onPress: () => {window.alert("span clicked");}
+        onPress: () => {
+            window.alert("span clicked");
+        }
     }
 };
 

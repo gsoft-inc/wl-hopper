@@ -1,6 +1,11 @@
 import { ClearButton } from "@hopper-ui/components";
 import { IconContext } from "@hopper-ui/icons";
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledComponentProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
 
@@ -8,8 +13,15 @@ import { BadgeContext } from "../../badge/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { Text, TextContext, type TextProps } from "../../Text/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots, type SizeAdapter } from "../../utils/index.ts";
+import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
+import {
+    composeClassnameRenderProps,
+    SlotProvider,
+    cssModule,
+    isTextOnlyChildren,
+    ClearContainerSlots,
+    type SizeAdapter
+} from "../../utils/index.ts";
 
 import { TagContext } from "./TagContext.ts";
 
@@ -23,11 +35,11 @@ const TagToTextSizeAdapter: SizeAdapter<TagProps["size"], TextProps["size"]> = {
 };
 
 export interface TagProps extends StyledComponentProps<RACTagProps> {
-    /** 
+    /**
      * Whether the tag is invalid or not.
      */
     isInvalid?: boolean;
-    /** 
+    /**
      * Whether the tag is loading or not.
      */
     isLoading?: boolean;
@@ -121,16 +133,16 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 {children(tagProps)}
                             </SlotProvider>
                         </ClearContainerSlots>
-                        {(allowsRemoving && !isLoading) && 
-                            <ClearButton 
-                                slot="remove" 
-                                isDisabled={isDisabled} 
-                                className={styles["hop-Tag__remove-btn"]} 
-                                aria-label={stringFormatter.format("Tag.removeAriaLabel")} 
+                        {(allowsRemoving && !isLoading) &&
+                            <ClearButton
+                                slot="remove"
+                                isDisabled={isDisabled}
+                                className={styles["hop-Tag__remove-btn"]}
+                                aria-label={stringFormatter.format("Tag.removeAriaLabel")}
                                 size={size}
                             />
                         }
-                        {isLoading && 
+                        {isLoading &&
                             <Spinner
                                 aria-label={stringFormatter.format("Tag.spinnerAriaLabel")}
                                 size="sm"

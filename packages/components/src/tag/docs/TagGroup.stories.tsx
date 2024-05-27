@@ -10,18 +10,18 @@ import { ErrorMessage } from "../../errorMessage/index.ts";
 import { HelperMessage } from "../../helperMessage/index.ts";
 import { HopperProvider } from "../../HopperProvider/index.ts";
 import { IconList } from "../../IconList/index.ts";
-import { Label } from "../../Label/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Text } from "../../Text/index.ts";
+import { Label } from "../../typography/Label/index.ts";
+import { Text } from "../../typography/Text/index.ts";
 import { Tag } from "../src/Tag.tsx";
 import { TagGroup } from "../src/TagGroup.tsx";
 import { TagList } from "../src/TagList.tsx";
 
 /**
- * The TagGroup is a dynamic UI component that encapsulates a collection of tags. 
- * Each tag, representing a label, category, keyword, or filter, is designed to be used within a TagList for groupings. 
- * 
- * The TagGroup provides a centralized way to manage these tags, including support for keyboard navigation, selection, and removal of individual tags. 
+ * The TagGroup is a dynamic UI component that encapsulates a collection of tags.
+ * Each tag, representing a label, category, keyword, or filter, is designed to be used within a TagList for groupings.
+ *
+ * The TagGroup provides a centralized way to manage these tags, including support for keyboard navigation, selection, and removal of individual tags.
  * Unlike some other tag implementations, this Tag component does not support different colors, keeping the UI consistent and focused on the content of the tags themselves.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Tag/src)
@@ -234,7 +234,7 @@ export const Description = {
 
 /**
  * Tags can be selected using the `selectionMode` prop.
- * Use `defaultSelectedKeys` for initial selected items (uncontrolled) and `selectedKeys` to manage selected items (controlled). 
+ * Use `defaultSelectedKeys` for initial selected items (uncontrolled) and `selectedKeys` to manage selected items (controlled).
  * The selected keys should match the item's id prop.
  */
 export const SelectableTags = {
@@ -268,6 +268,7 @@ export const Validation = {
     },
     render: function Render(args) {
         const [isInvalid, setIsInvalid] = useState(args.isInvalid);
+
         function onChange(keys: Selection) {
             // if value is empty, then it is invalid
             if (typeof keys === "object") {
@@ -300,7 +301,7 @@ export const Validation = {
     }
 } satisfies Story;
 
-/** 
+/**
  * Customize the empty state message when there are no tags.
  */
 export const EmptyState = {

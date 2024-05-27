@@ -1,10 +1,15 @@
-import { type StyledSystemProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import {
+    type StyledSystemProps,
+    useStyledSystem,
+    type ResponsiveProp,
+    useResponsiveValue
+} from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
 import { useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
-import { TextContext, type TextProps } from "../../Text/index.ts";
+import { TextContext, type TextProps } from "../../typography/Text/index.ts";
 import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
@@ -31,7 +36,7 @@ export interface SwitchFieldProps extends StyledSystemProps, BaseComponentProps 
     size?: ResponsiveProp<"sm" | "md">;
 }
 
-function SwitchField(props:SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
+function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, SwitchFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {

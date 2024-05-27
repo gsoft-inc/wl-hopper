@@ -3,7 +3,7 @@
 import { screen, render } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { Text } from "../../../Text/src/Text.tsx";
+import { Text } from "../../../typography/Text/src/Text.tsx";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxFieldContext } from "../../src/CheckboxFieldContext.ts";
@@ -13,14 +13,18 @@ describe("Checkbox", () => {
     const testId = "checkbox-field";
 
     it("should render with default class", () => {
-        render(<CheckboxField data-testid={testId}><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId}><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         const element = screen.getByTestId(testId);
         expect(element).toHaveClass("hop-CheckboxField");
     });
 
     it("should support custom class", () => {
-        render(<CheckboxField data-testid={testId} className="test"><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId} className="test"><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         const element = screen.getByTestId(testId);
         expect(element).toHaveClass("hop-CheckboxField");
@@ -28,14 +32,17 @@ describe("Checkbox", () => {
     });
 
     it("should support custom style", () => {
-        render(<CheckboxField data-testid={testId} marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId} marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option
+            1</Checkbox><Text slot="description">description</Text></CheckboxField>);
 
         const element = screen.getByTestId(testId);
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<CheckboxField data-testid={testId} data-foo="bar"><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId} data-foo="bar"><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         const element = screen.getByTestId(testId);
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -44,26 +51,32 @@ describe("Checkbox", () => {
     it("should support slots", () => {
         render(
             <CheckboxFieldContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <CheckboxField data-testid={testId} slot="test"><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>
+                <CheckboxField data-testid={testId} slot="test"><Checkbox>option 1</Checkbox><Text
+                    slot="description"
+                >description</Text></CheckboxField>
             </CheckboxFieldContext.Provider>
         );
 
         const element = screen.getByTestId(testId);
-        
+
         expect(element).toHaveAttribute("slot", "test");
         expect(element).toHaveAttribute("aria-label", "test");
     });
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<CheckboxField ref={ref}><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField ref={ref}><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
     });
 
     it("should set the size class name and pass the size to the checkbox", () => {
-        render(<CheckboxField data-testid={testId} size="sm"><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId} size="sm"><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         const element = screen.getByTestId(testId);
         const checkbox = screen.getByRole("checkbox").closest("label");
@@ -72,7 +85,9 @@ describe("Checkbox", () => {
     });
 
     it("should set an id on the description and aria-describedby on the checkbox", () => {
-        render(<CheckboxField data-testid={testId}><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId}><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         const checkbox = screen.getByRole("checkbox");
         const descriptionElement = screen.getByText("description");
@@ -83,11 +98,13 @@ describe("Checkbox", () => {
     });
 
     it("should be disabled and pass it to the checkbox", () => {
-        render(<CheckboxField data-testid={testId} isDisabled><Checkbox>option 1</Checkbox><Text slot="description">description</Text></CheckboxField>);
+        render(<CheckboxField data-testid={testId} isDisabled><Checkbox>option 1</Checkbox><Text
+            slot="description"
+        >description</Text></CheckboxField>);
 
         const element = screen.getByTestId(testId);
         const checkbox = screen.getByRole("checkbox");
-        
+
         expect(element).toHaveAttribute("data-disabled", "true");
         expect(checkbox).toBeDisabled();
     });

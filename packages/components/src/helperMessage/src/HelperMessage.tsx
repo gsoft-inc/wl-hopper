@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
 import { useContextProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
 
-import { type TextProps, Text } from "../../Text/index.ts";
+import { type TextProps, Text } from "../../typography/Text/index.ts";
 import { cssModule } from "../../utils/index.ts";
 
 import { HelperMessageContext } from "./HelperMessageContext.ts";
@@ -12,6 +12,7 @@ import { HelperMessageContext } from "./HelperMessageContext.ts";
 import styles from "./HelperMessage.module.css";
 
 export const GlobalHelperMessageCssSelector = "hop-HelperMessage";
+
 export interface HelperMessageProps extends StyledComponentProps<Omit<TextProps, "size">> {
     /**
      * Whether or not to hide the helper message icon.

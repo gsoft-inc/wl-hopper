@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ErrorMessage } from "../../../errorMessage/index.ts";
 import { HelperMessage } from "../../../helperMessage/index.ts";
-import { Label } from "../../../Label/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../Text/index.ts";
+import { Label } from "../../../typography/Label/index.ts";
+import { Text } from "../../../typography/Text/index.ts";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
