@@ -3,7 +3,7 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Label } from "../../../Label/index.ts";
+import { Label } from "../../../typography/index.ts";
 import { PasswordField } from "../../src/PasswordField.tsx";
 
 describe("PasswordField", () => {

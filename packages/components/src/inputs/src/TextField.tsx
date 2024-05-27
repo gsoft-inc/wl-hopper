@@ -10,8 +10,7 @@ import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../errorMessage/index.ts";
 import { HelperMessageContext } from "../../helperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
-import { LabelContext } from "../../Label/index.ts";
-import { Text, TextContext } from "../../Text/index.ts";
+import { Text, TextContext, LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";

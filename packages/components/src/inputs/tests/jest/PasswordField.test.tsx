@@ -2,7 +2,7 @@ import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef, type MutableRefObject } from "react";
 
-import { Label } from "../../../Label/index.ts";
+import { Label } from "../../../typography/index.ts";
 import { PasswordField } from "../../src/PasswordField.tsx";
 import { PasswordFieldContext } from "../../src/PasswordFieldContext.ts";
 

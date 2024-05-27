@@ -4,8 +4,8 @@ import { within } from "@testing-library/react";
 
 import { ErrorMessage } from "../../../errorMessage/index.ts";
 import { HelperMessage } from "../../../helperMessage/index.ts";
-import { Label } from "../../../Label/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
+import { Label } from "../../../typography/index.ts";
 import { PasswordField, type PasswordFieldProps } from "../../src/PasswordField.tsx";
 
 const meta = {

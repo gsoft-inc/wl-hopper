@@ -4,7 +4,7 @@ import { Input } from "react-aria-components";
 
 import { EmbeddedButton } from "../../buttons/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Text } from "../../Text/index.ts";
+import { Text } from "../../typography/index.ts";
 import { InputGroup } from "../src/InputGroup.tsx";
 
 /**
