@@ -1,11 +1,14 @@
-import { Button } from "@hopper-ui/components";
+import { Button, Heading } from "@hopper-ui/components";
+import { withClassInject } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Popover, PopoverTrigger } from "../../src/Popover.tsx";
 
 const meta = {
     title: "Components/Popover",
-    component: Popover
+    component: Popover,
+    decorators: [Story => <Story />, withClassInject]
+
 } satisfies Meta<typeof Popover>;
 
 export default meta;
@@ -18,8 +21,8 @@ export const Dev = {
             <PopoverTrigger>
                 <Button>Open Popover</Button>
                 <Popover {...args} >
-                    <div>Title</div>
-                    <div>content</div>
+                    <Heading>Title</Heading>
+                    <p>content</p>
                     <div>footer</div>
                 </Popover>
             </PopoverTrigger>
