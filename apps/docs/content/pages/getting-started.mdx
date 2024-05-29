@@ -5,23 +5,36 @@ description: Getting started with Workleap Design Tokens
 
 This guide will help you get started with Hopper UI. Hopper UI is a Design System that provides a collection of components, tokens, and icons to help you build applications.
 
+<Callout>Hopper is compatible with React 18. Not using React, or using an older version than 18? You can still benefit from Hopper, read on to discover how.</Callout>
+
 ## Quick Install
 
 Run the following command in your terminal to install the Hopper packages.
 
-<PackageInstallation library="components @hopper-ui/icons @hopper-ui/tokens @hopper-ui/styled-system" mod="prod" />
+<PackageInstallation library="components @hopper-ui/icons @hopper-ui/styled-system react-aria react-aria-components" mod="prod" />
 
 After installing Hopper UI packages, you must setup a Provider at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
 
 ```jsx
 import { HopperProvider } from "@hopper-ui/components";
+import { createRoot } from 'react-dom/client';
 
-<HopperProvider colorScheme="light">
-    <Button>Hello World</Button>
-</HopperProvider>
+const root = createRoot(document.getElementById('root'));
+root.render(
+  < HopperProvider >
+    <App />
+  </HopperProvider >
+);
 ```
 
-<Callout>Hopper is compatible with React 18. Not using React, or using an older version than 18? You can still benefit from Hopper, read on to discover how.</Callout>
+You will also need to import the Hopper styles in your project. You can do this by importing the following CSS files:
+
+```css
+@import "@hopper-ui/tokens/tokens.css";
+@import "@hopper-ui/tokens/fonts.css";
+```
+
+You are now ready to use Hopper UI in your project! Need more details? Keep reading for a more detailed installation guide.
 
 ## Detailed Installation
 
@@ -106,7 +119,7 @@ import { AddIcon, ConversationRichIcon } from "@hopper-ui/icons";
 <ConversationRichIcon />
 ```
 
-#### Non-standard installations
+#### Framework agnostic installations
 
 ##### SVG Icons
 
@@ -128,7 +141,7 @@ Alternatively, you can utilize SVG icons within your CSS in the following manner
 }
 ```
 
-##### React Icons Standalone Installation
+##### Standalone Installation
 
 It is recommended to use `@hopper-ui/icons` with `@hopper-ui/components`. The standalone installation procedure is detailed in case you only need the icons, and not the components. This is also the installation process until the components are released.
 
