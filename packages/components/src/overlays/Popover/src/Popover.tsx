@@ -1,5 +1,17 @@
-import { composeClassnameRenderProps, SlotProvider, cssModule, TextContext, HeadingContext } from "@hopper-ui/components";
+import {
+    composeClassnameRenderProps,
+    SlotProvider,
+    cssModule,
+    ButtonContext,
+    ButtonGroupContext,
+    FooterContext,
+    TextContext,
+    HeadingContext,
+    LinkContext,
+    useColorSchemeContext, HopperProvider
+} from "@hopper-ui/components";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
 import {
     useContextProps,
@@ -7,7 +19,8 @@ import {
     type DialogTriggerProps,
     DialogTrigger,
     Popover as RACPopover,
-    composeRenderProps, Dialog
+    composeRenderProps,
+    Dialog
 } from "react-aria-components";
 
 import { PopoverContext } from "./PopoverContext.ts";
@@ -32,40 +45,73 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         children,
         className,
         style: styleProp,
+        offset = 4,
         ...otherProps
     } = ownProps;
 
-    const classNames = composeClassnameRenderProps(
+    const { colorScheme } = useColorSchemeContext();
+    
+    const popoverClassNames = composeClassnameRenderProps(
         className,
         GlobalPopoverCssSelector,
         cssModule(
             styles,
             "hop-Popover"
-        ),
-        stylingProps.className
+        )
     );
 
     const style = composeRenderProps(styleProp, prev => {
         return {
-            ...stylingProps.style,
             ...prev
         };
     });
 
     return (
-        <SlotProvider values={[
-            [TextContext, { className: "hop-Popover__title", size: "md" }],
-            [HeadingContext, { className: "hop-Popover__title", size: "md" }]
-        ]}
+        <RACPopover
+            {...otherProps}
+            offset={offset}
+            ref={ref}
+            className={popoverClassNames}
+            style={style}
         >
-            <RACPopover {...otherProps} ref={ref} className={classNames} style={style} {...otherProps}>
-                <Dialog>
-                    <>
-                        {children}
-                    </>
+            <HopperProvider colorScheme={colorScheme}>
+                <Dialog className={clsx(stylingProps.className, styles["hop-Popover__dialog"])}
+                    style={stylingProps.style}
+                >
+                    <SlotProvider values={[
+                        [TextContext, {
+                            className: styles["hop-Popover__title"],
+                            size: "md"
+                        }],
+                        [HeadingContext, {
+                            className: styles["hop-Popover__title"],
+                            size: "inherit"
+                        }],
+                        [ButtonContext, {
+                            size: "sm",
+                            className: styles["hop-Popover__action"]
+                        }],
+                        [ButtonGroupContext, {
+                            size: "sm",
+                            align: "end",
+                            className: styles["hop-Popover__actions"]
+                        }],
+                        [FooterContext, {
+                            className: styles["hop-Popover__footer"]
+                        }],
+                        [LinkContext, {
+                            size: "sm",
+                            isQuiet: true
+                        }]
+                    ]}
+                    >
+                        <>
+                            {children}
+                        </>
+                    </SlotProvider>
                 </Dialog>
-            </RACPopover>
-        </SlotProvider>
+            </HopperProvider>
+        </RACPopover>
     );
 }
 
