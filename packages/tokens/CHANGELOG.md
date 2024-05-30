@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.0.1
+
+### Patch Changes
+
+- ffe99c7: Adjustment of the text crop token value for ABC Favorit Mono typeface
+
 ## 4.0.0
 
 ### Major Changes
