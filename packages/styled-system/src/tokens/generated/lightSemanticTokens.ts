@@ -843,7 +843,7 @@ export const SemanticTokens = {
     "--hop-overline-font-weight": "var(--hop-font-weight-400)",
     "--hop-overline-line-height": "var(--hop-line-height-1-33)",
     "--hop-overline-top-offset": "-0.25rem",
-    "--hop-overline-bottom-offset": "-0.125rem",
+    "--hop-overline-bottom-offset": "-0.25rem",
     "--hop-body-2xl-font-family": "var(--hop-font-family-secondary)",
     "--hop-body-2xl-font-size": "var(--hop-font-size-320)",
     "--hop-body-2xl-font-weight": "var(--hop-font-weight-410)",
