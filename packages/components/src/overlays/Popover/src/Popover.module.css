@@ -4,6 +4,7 @@
     font-weight: var(--font-weight);
     line-height: var(--line-height);
     color: var(--color);
+    outline: none;
 }
 
 .hop-Popover__dialog {
@@ -20,6 +21,7 @@
     --hop-Popover-content-color: var(--hop-neutral-text-weak);
     --hop-Popover-footer-font-size: var(--hop-body-sm-font-size);
     --hop-Popover-footer-line-height: var(--hop-body-sm-line-height);
+    --hop-Popover-footer-link-color: var(--hop-primary-text);
     --hop-Popover-border: 0.0625rem solid var(--hop-neutral-border-weak);
     --hop-Popover-border-radius: var(--hop-shape-rounded-md);
     --hop-Popover-box-shadow: var(--hop-elevation-lifted);
@@ -82,4 +84,8 @@
 
     grid-area: footer;
     place-self: center start;
+}
+
+.hop-Popover__footer :where(a) {
+    --color: var(--hop-Popover-footer-link-color);
 }
