@@ -152,7 +152,7 @@ a {
 }
 
 .myBadge .hd-sample-off-centered-text.fixed::before {
-    margin-bottom: -0.125rem;
+    margin-bottom: -0.25rem;
 }
 
 .myBadge .hd-sample-off-centered-text.fixed::after {

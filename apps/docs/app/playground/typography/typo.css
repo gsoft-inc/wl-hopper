@@ -119,7 +119,7 @@ button.overline {
 
 /* Favorite Mono Overline  */
 .favorit-mono .offset::before {
-    margin-bottom: -0.125rem;
+    margin-bottom: -0.25rem;
 }
 
 .favorit-mono .offset::after {
