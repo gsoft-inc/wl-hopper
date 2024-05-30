@@ -42,7 +42,7 @@
     gap: var(--hop-space-inset-sm);
 
     box-sizing: border-box;
-    inline-size: 100%;
+    inline-size: var(--hop-Popover-max-inline-width);
     max-inline-size: var(--hop-Popover-max-inline-width);
     padding: var(--hop-space-inset-md);
 

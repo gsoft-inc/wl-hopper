@@ -1,10 +1,15 @@
+import { InfoIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "../../../buttons/index.ts";
+import { Button, ButtonGroup } from "../../../buttons/index.ts";
+import { Footer } from "../../../layout/index.ts";
+import { Link } from "../../../Link/index.ts";
+import { Text } from "../../../typography/index.ts";
 import { Popover, PopoverTrigger } from "../src/Popover.tsx";
 
 /**
- * TODO: Add description
+ * Popovers are small overlays that open on demand.
+ * They let users access additional content and actions without cluttering the page.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Popover/src)
  * -
@@ -19,7 +24,12 @@ const meta = {
         // Disables Chromatic's snapshotting on documentation stories
         chromatic: { disableSnapshot: true }
     },
-    component: Popover
+    component: Popover,
+    render: props =>
+        <PopoverTrigger>
+            <Button variant="secondary"><InfoIcon /></Button>
+            <Popover {...props} />
+        </PopoverTrigger>
 } satisfies Meta<typeof Popover>;
 
 export default meta;
@@ -27,15 +37,63 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * TODO: Add description
+ * A Popover can contain title, content, and a footer.
  */
 export const Default: Story = {
     args: {
-        className: "my-class"
-    },
-    render: props =>
-        <PopoverTrigger>
-            <Button>ⓘ Click here</Button>
-            <Popover {...props} />
-        </PopoverTrigger>
+        children: <>
+            <Text>Title</Text>
+            <p>Popover content</p>
+            <Footer>
+                <Link href="#">Tell me more</Link>
+            </Footer>
+        </>
+    }
+};
+
+/**
+ * A popover can have a single button:
+ */
+export const Buttons: Story = {
+    args: {
+        children: <>
+            <Text>Title</Text>
+            <p>Popover content</p>
+            <Button>Go it</Button>
+        </>
+    }
+};
+
+/**
+ * A popover can have a group of button:
+ */
+export const MutlipleButton: Story = {
+    args: {
+        children: <>
+            <Text>Title</Text>
+            <p>Popover content</p>
+            <ButtonGroup>
+                <Button variant="secondary">Next</Button>
+                <Button>Go it</Button>
+            </ButtonGroup>
+        </>
+    }
+};
+
+/**
+ * A popover can have footer text.
+ */
+export const FooterText: Story = {
+    args: {
+        children: <>
+            <Text>Title</Text>
+            <p>Popover content</p>
+            <Footer>
+                All right reserved.
+            </Footer>
+
+            <Button>Go it</Button>
+
+        </>
+    }
 };

@@ -59,7 +59,7 @@ export const Default = {
                     <Popover {...args} >
                         <Text>{TITLE}</Text>
                         <span>{CONTENT}</span>
-                        <Button>Button</Button>
+                        <Button>{PRIMARY_ACTION}</Button>
                     </Popover>
                 </PopoverTrigger>
 
@@ -85,7 +85,7 @@ export const Default = {
                         <Footer>
                             All right reserved.
                         </Footer>
-                        <Button>Button</Button>
+                        <Button>{PRIMARY_ACTION}</Button>
                     </Popover>
                 </PopoverTrigger>
             </Stack>
