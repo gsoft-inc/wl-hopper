@@ -41,3 +41,19 @@ export interface RenderPropsHookOptions<T> extends RenderProps<T>, SharedDOMProp
 export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotProps {
 
 }
+
+/** Added these for when we need to force an interactive state like for radios inside list box items */
+export interface InteractionProps {
+    /**
+     * @ignore
+     */
+    isPressed?: boolean;
+    /**
+     * @ignore
+     */
+    isFocused?: boolean;
+    /**
+     * @ignore
+     */
+    isHovered?: boolean;
+}

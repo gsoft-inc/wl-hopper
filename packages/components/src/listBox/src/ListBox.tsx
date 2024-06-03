@@ -2,9 +2,13 @@ import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useRes
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps } from "react-aria-components";
 
+import { DividerContext } from "../../divider/index.ts";
+import { HeaderContext } from "../../header/index.ts";
+import { SectionContext } from "../../section/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
+import type { ListBoxItemSize } from "./ListBoxItem.ts";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 
 import styles from "./ListBox.module.css";
@@ -13,10 +17,24 @@ export const GlobalListBoxCssSelector = "hop-ListBox";
 
 export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxProps<T>, "orientation | layout">> {
     /**
-     * A ListBox can vary in size.
-     * @default "md"
+     * Whether or not the ListBox is 100% of its container's width.
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    isFluid?: ResponsiveProp<boolean>;
+    /**
+     * Whether or not the ListBox is in an invalid state.
+     */
+    isInvalid?: boolean;
+    /**
+     * The selection indicator to use. Only available if the selection mode is not "none".
+     * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
+     * @default "check"
+     */
+    selectionIndicator?: "check" | "input";
+    /**
+     * A ListBox can vary in size.
+     * @default "sm"
+     */
+    size?: ResponsiveProp<ListBoxItemSize>;
 }
 
 function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
@@ -25,12 +43,16 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
     const {
         className,
         children,
+        isFluid: isFluidProp,
+        isInvalid,
         size: sizeProp,
         style: styleProp,
+        selectionIndicator = "check",
         ...otherProps
     } = ownProps;
 
-    const size = useResponsiveValue(sizeProp) ?? "md";
+    const size = useResponsiveValue(sizeProp) ?? "sm";
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -38,7 +60,8 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         cssModule(
             styles,
             "hop-ListBox",
-            size
+            size,
+            isFluid && "fluid"
         ),
         stylingProps.className
     );
@@ -54,9 +77,20 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
     return (
         <SlotProvider
             values={[
+                [HeaderContext, {
+                    className: styles["hop-ListBox__section-header"]
+                }],
+                [SectionContext, {
+                    className: styles["hop-ListBox__section"]
+                }],
+                [DividerContext, {
+                    className: styles["hop-ListBox__divider"]
+                }],
                 [ListBoxItemContext, {
                     className: styles["hop-ListBox__item"],
-                    size: size
+                    size: size,
+                    selectionIndicator: selectionIndicator,
+                    isInvalid: isInvalid
                 }]
             ]}
         >

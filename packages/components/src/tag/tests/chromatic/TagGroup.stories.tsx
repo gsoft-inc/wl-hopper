@@ -6,8 +6,7 @@ import type { Selection } from "react-aria-components";
 import { Badge } from "../../../badge/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Stack } from "../../../layout/index.ts";
-import { Label } from "../../../typography/Label/index.ts";
-import { Text } from "../../../typography/Text/index.ts";
+import { Label, Text } from "../../../typography/index.ts";
 import { TagGroup, TagList, Tag, type TagGroupProps } from "../../src/index.ts";
 
 const meta = {

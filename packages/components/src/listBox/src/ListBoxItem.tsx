@@ -1,12 +1,21 @@
-import { IconContext, type IconProps } from "@hopper-ui/icons";
+import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, ListBoxItem as RACListBoxItem, type ListBoxItemProps as RACListBoxItemProps, composeRenderProps, type SlotProps,
-    DEFAULT_SLOT } from "react-aria-components";
+import {
+    useContextProps, 
+    ListBoxItem as RACListBoxItem, 
+    type ListBoxItemProps as RACListBoxItemProps, 
+    composeRenderProps, 
+    type SlotProps,
+    DEFAULT_SLOT
+} from "react-aria-components";
 
+import { BadgeContext } from "../../badge/index.ts";
+import { Checkbox } from "../../checkbox/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext, type TextProps } from "../../Text/index.ts";
-import { composeClassnameRenderProps, type SizeAdapter, SlotProvider, cssModule, isTextOnlyChildren, ClearContainerSlots } from "../../utils/index.ts";
+import { Radio, RadioGroup, RadioList } from "../../radio/index.ts";
+import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
+import { composeClassnameRenderProps, type SizeAdapter, SlotProvider, cssModule, isTextOnlyChildren } from "../../utils/index.ts";
 
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 
@@ -14,12 +23,22 @@ import styles from "./ListBoxItem.module.css";
 
 export const GlobalListBoxItemCssSelector = "hop-ListBoxItem";
 
-type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
+export type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
 
 export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBoxItemProps<T>, "orientation | layout">>, SlotProps {
     /**
+     * Whether or not the ListBoxItem is in an invalid state.
+     */
+    isInvalid?: boolean;
+    /**
+     * The selection indicator to use. Only available if the selection mode is not "none".
+     * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
+     * @default "check"
+     */
+    selectionIndicator?: "check" | "input";
+    /**
      * A ListBoxItem can vary in size.
-     * @default "md"
+     * @default "sm"
      */
     size?: ResponsiveProp<ListBoxItemSize>;
 }
@@ -44,12 +63,16 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
     const {
         className,
         children: childrenProp,
+        isInvalid,
         size: sizeProp,
         style: styleProp,
+        textValue: textValueProp,
+        selectionIndicator,
         ...otherProps
     } = ownProps;
 
-    const size = useResponsiveValue(sizeProp) ?? "md";
+    const size = useResponsiveValue(sizeProp) ?? "sm";
+    const textValue = textValueProp ?? (typeof childrenProp === "string" ? childrenProp : undefined);
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -57,7 +80,8 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
         cssModule(
             styles,
             "hop-ListBoxItem",
-            size
+            size,
+            selectionIndicator
         ),
         stylingProps.className
     );
@@ -71,7 +95,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
 
     const children = composeRenderProps(childrenProp, prev => {
         if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
+            return <Text slot="label">{prev}</Text>;
         }
 
         return prev;
@@ -83,16 +107,61 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             ref={ref}
             className={classNames}
             style={style}
+            textValue={textValue}
+            data-invalid={isInvalid || undefined}
         >
             {ListBoxItemProps => {
+                const { selectionMode, isDisabled, isFocusVisible, isPressed, isHovered, isSelected } = ListBoxItemProps;
+                const isRadio = selectionIndicator === "input" && selectionMode === "single";
+                const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
+                const isCheck = selectionIndicator === "check" && selectionMode !== "none";
+
                 return (
-                    <ClearContainerSlots>
+                    <>
+                        {isRadio && (
+                            <RadioGroup 
+                                size="sm"
+                                aria-hidden="true" 
+                                aria-label="list item indicator"
+                                value={isSelected ? "radio" : null} 
+                                className={styles["hop-ListBoxItem__radio-group"]}
+                            >
+                                <RadioList>
+                                    <Radio
+                                        className={styles["hop-ListBoxItem__radio"]}
+                                        value="radio"
+                                        isDisabled={isDisabled}
+                                        isFocused={isFocusVisible}
+                                        isHovered={isHovered}
+                                        isPressed={isPressed}
+                                    />
+                                </RadioList>
+                            </RadioGroup>
+                        )}
+                        {isCheckbox && (
+                            <Checkbox
+                                size="sm"
+                                value="checkbox"
+                                aria-hidden="true"
+                                className={styles["hop-ListBoxItem__checkbox"]}
+                                isDisabled={isDisabled}
+                                isFocused={isFocusVisible}
+                                isHovered={isHovered}
+                                isPressed={isPressed}
+                                isSelected={isSelected}
+                            />
+                        )}
                         <SlotProvider
                             values={[
                                 [TextContext, {
                                     slots: {
                                         [DEFAULT_SLOT]: {
-                                            className: styles["hop-ListBoxItem__text"],
+                                            slot: "label",
+                                            className: styles["hop-ListBoxItem__label"],
+                                            size: ListBoxItemToTextSizeAdapter[size]
+                                        },
+                                        label: {
+                                            className: styles["hop-ListBoxItem__label"],
                                             size: ListBoxItemToTextSizeAdapter[size]
                                         },
                                         description: {
@@ -124,12 +193,19 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                                             size: ListBoxItemToIconSizeAdapter[size]
                                         }
                                     }
+                                }],
+                                [BadgeContext, {
+                                    className: styles["hop-ListBoxItem__badge"],
+                                    slot: null
                                 }]
                             ]}
                         >
                             {children(ListBoxItemProps)}
                         </SlotProvider>
-                    </ClearContainerSlots>
+                        {isCheck && (
+                            <CheckmarkIcon className={styles["hop-ListBoxItem__checkmark"]} />
+                        )}
+                    </>
                 );
             }}
         </RACListBoxItem>
@@ -137,7 +213,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
 }
 
 /**
- * TODO: tagline
+ * A ListBoxItem represents an item within a ListBox component.
  *
  * [View Documentation](TODO)
  */

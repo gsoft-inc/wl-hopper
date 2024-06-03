@@ -3,14 +3,13 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { ListBoxItem } from "../../src/index.ts";
-import { ListBox } from "../../src/ListBox.tsx";
+import { Header } from "../../src/Header.tsx";
 
-describe("ListBox", () => {
+describe("Header", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <ListBox aria-label="list-box"><ListBoxItem>Text</ListBoxItem></ListBox>
+                <Header>Text</Header>
             );
 
         expect(renderOnServer).not.toThrow();
