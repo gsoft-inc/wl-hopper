@@ -27,16 +27,16 @@
     --hop-Popover-border-radius: var(--hop-shape-rounded-md);
     --hop-Popover-box-shadow: var(--hop-elevation-lifted);
     --hop-Popover-max-inline-width: calc(100% - 1rem);
-
-    @media (width >= 40rem) {
-        --hop-Popover-max-inline-width: 25rem;
-    }
-
+    
     /* Internal variables */
     --font-family: var(--hop-Popover-font-family);
     --font-size: var(--hop-Popover-font-size);
     --font-weight: var(--hop-Popover-font-weight);
     --line-height: var(--hop-Popover-line-height);
+
+    @media (width >= 40rem) {
+        --hop-Popover-max-inline-width: 25rem;
+    }
 
     display: grid;
     grid-template-areas:

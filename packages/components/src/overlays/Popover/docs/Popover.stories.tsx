@@ -1,12 +1,14 @@
+import { SlotProvider } from "@hopper-ui/components";
 import { InfoIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useCallback, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 
-import { Button, ButtonGroup } from "../../../buttons/index.ts";
-import { Footer } from "../../../layout/index.ts";
+import { Button, ButtonGroup, ButtonContext } from "../../../buttons/index.ts";
+import { Footer, Inline } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
 import { Text } from "../../../typography/index.ts";
 import { Popover, PopoverTrigger } from "../src/Popover.tsx";
+import { PopoverContext } from "../src/PopoverContext.ts";
 
 /**
  * Popovers are small overlays that open on demand.
@@ -116,7 +118,7 @@ export const Position: Story = {
 export const DisabledTrigger: Story = {
     render: () =>
         <PopoverTrigger>
-            <Button isDisabled variant="secondary"><InfoIcon /></Button>
+            <Button isDisabled variant="secondary" aria-label="information"><InfoIcon /></Button>
             <Popover>
                 <Text>Title</Text>
                 <p>Popover content</p>
@@ -124,22 +126,52 @@ export const DisabledTrigger: Story = {
         </PopoverTrigger>
 };
 
-const ControlledPopover = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const HighlightedTrigger = ({ children }: { children: ReactNode }) => {
+    const triggerRef = useRef(null);
+    const [isOpen, setOpen] = useState(false);
 
-    const handleOpenChange = useCallback(
-        (newOpen: boolean) => {
-            setIsOpen(newOpen);
-            // eslint-disable-next-line no-console
-            console.log(newOpen);
-        },
-        [setIsOpen]
-    );
 
     return (
-        <PopoverTrigger isOpen={isOpen} onOpenChange={handleOpenChange}>
-            <Button variant="secondary"><InfoIcon /></Button>
-            <Popover>
+        <SlotProvider values={[
+            [PopoverContext, { isOpen, onOpenChange: setOpen }],
+            [ButtonContext, {
+                onPress: () => setOpen(!isOpen),
+                ref: triggerRef,
+                variant: isOpen ? "primary" : "secondary"
+            }]
+        ]}
+        >
+            {children}
+        </SlotProvider>
+    );
+};
+
+export const Context: Story = {
+    render: () =>
+        <HighlightedTrigger>
+            <PopoverTrigger>
+                <Button aria-label="information"><InfoIcon /></Button>
+                <Popover>
+                    <Text>Title</Text>
+                    <p>Popover content</p>
+                </Popover>
+            </PopoverTrigger>
+        </HighlightedTrigger>
+};
+
+const ControlledPopover = () => {
+    const [isOpen, setOpen] = useState(false);
+    const triggerRef = useRef(null);
+
+    return (
+        <PopoverTrigger>
+            <Inline>
+                <Button onPress={() => setOpen(true)} variant="secondary" aria-label="information"><InfoIcon /></Button>
+                <span ref={triggerRef}>
+                    Popover will be positioned relative to me
+                </span>
+            </Inline>
+            <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
                 <Text>Title</Text>
                 <p>Popover content</p>
             </Popover>
