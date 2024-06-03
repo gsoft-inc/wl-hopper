@@ -26,7 +26,11 @@
     --hop-Popover-border: 0.0625rem solid var(--hop-neutral-border-weak);
     --hop-Popover-border-radius: var(--hop-shape-rounded-md);
     --hop-Popover-box-shadow: var(--hop-elevation-lifted);
-    --hop-Popover-max-inline-width: 25rem;
+    --hop-Popover-max-inline-width: calc(100% - 1rem);
+
+    @media (width >= 40rem) {
+        --hop-Popover-max-inline-width: 25rem;
+    }
 
     /* Internal variables */
     --font-family: var(--hop-Popover-font-family);
