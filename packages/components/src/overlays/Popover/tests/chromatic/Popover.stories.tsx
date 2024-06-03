@@ -21,89 +21,84 @@ const SECONDARY_ACTION = "Next";
 
 export const Default = {
     render: args => (
-        <>
-            <Stack>
-                <h1>Default</h1>
-                <PopoverTrigger>
-                    <Button>{TRIGGER}</Button>
-                    <Popover {...args} >
-                        <Text>{TITLE}</Text>
-                        <p>{CONTENT}</p>
-                    </Popover>
-                </PopoverTrigger>
+        <Stack>
+            <h1>Default</h1>
+            <PopoverTrigger>
+                <Button>{TRIGGER}</Button>
+                <Popover {...args} >
+                    <Text>{TITLE}</Text>
+                    <p>{CONTENT}</p>
+                </Popover>
+            </PopoverTrigger>
 
-                <h1>Heading</h1>
-                <PopoverTrigger>
-                    <Button>{TRIGGER}</Button>
-                    <Popover {...args} >
-                        <Heading>{TITLE}</Heading>
-                        <p>{CONTENT}</p>
-                    </Popover>
-                </PopoverTrigger>
+            <h1>Heading</h1>
+            <PopoverTrigger>
+                <Button>{TRIGGER}</Button>
+                <Popover {...args} >
+                    <Heading>{TITLE}</Heading>
+                    <p>{CONTENT}</p>
+                </Popover>
+            </PopoverTrigger>
 
-                <h1>Link</h1>
-                <PopoverTrigger>
-                    <Button>{TRIGGER}</Button>
-                    <Popover {...args} >
-                        <Text>{TITLE}</Text>
-                        <p>{CONTENT}</p>
-                        <Footer>
-                            <Link href="#">{LINK}</Link>
-                        </Footer>
-                    </Popover>
-                </PopoverTrigger>
+            <h1>Link</h1>
+            <PopoverTrigger>
+                <Button>{TRIGGER}</Button>
+                <Popover {...args} >
+                    <Text>{TITLE}</Text>
+                    <p>{CONTENT}</p>
+                    <Footer>
+                        <Link href="#">{LINK}</Link>
+                    </Footer>
+                </Popover>
+            </PopoverTrigger>
 
-                <h1>Button</h1>
-                <PopoverTrigger>
-                    <Button>{TRIGGER}</Button>
-                    <Popover {...args} >
-                        <Text>{TITLE}</Text>
-                        <span>{CONTENT}</span>
+            <h1>Button</h1>
+            <PopoverTrigger>
+                <Button>{TRIGGER}</Button>
+                <Popover {...args} >
+                    <Text>{TITLE}</Text>
+                    <span>{CONTENT}</span>
+                    <Button>{PRIMARY_ACTION}</Button>
+                </Popover>
+            </PopoverTrigger>
+
+            <h1>Button Group</h1>
+            <PopoverTrigger>
+                <Button>{TRIGGER}</Button>
+                <Popover {...args} >
+                    <Text>{TITLE}</Text>
+                    <p>{CONTENT}</p>
+                    <ButtonGroup>
+                        <Button variant="secondary">{SECONDARY_ACTION}</Button>
                         <Button>{PRIMARY_ACTION}</Button>
-                    </Popover>
-                </PopoverTrigger>
+                    </ButtonGroup>
+                </Popover>
+            </PopoverTrigger>
 
-                <h1>Button Group</h1>
-                <PopoverTrigger>
-                    <Button>{TRIGGER}</Button>
-                    <Popover {...args} >
-                        <Text>{TITLE}</Text>
-                        <p>{CONTENT}</p>
-                        <ButtonGroup>
-                            <Button variant="secondary">{SECONDARY_ACTION}</Button>
-                            <Button>{PRIMARY_ACTION}</Button>
-                        </ButtonGroup>
-                    </Popover>
-                </PopoverTrigger>
-
-                <h1>Footer</h1>
-                <PopoverTrigger>
-                    <Button>{TRIGGER}</Button>
-                    <Popover {...args} >
-                        <Text>{TITLE}</Text>
-                        <p>{CONTENT}</p>
-                        <Footer>
-                            All right reserved.
-                        </Footer>
-                        <Button>{PRIMARY_ACTION}</Button>
-                    </Popover>
-                </PopoverTrigger>
-            </Stack>
-        </>
+            <h1>Footer</h1>
+            <PopoverTrigger>
+                <Button>{TRIGGER}</Button>
+                <Popover {...args} >
+                    <Text>{TITLE}</Text>
+                    <p>{CONTENT}</p>
+                    <Footer>
+                        All right reserved.
+                    </Footer>
+                    <Button>{PRIMARY_ACTION}</Button>
+                </Popover>
+            </PopoverTrigger>
+        </Stack>
     )
 } satisfies Story;
 
 export const Styling = {
     render: args => (
-        <>
-            <h1>Styled System</h1>
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} borderRadius={0} border="transparent" boxShadow="none">
-                    <Text>{TITLE}</Text>
-                    <p>{CONTENT}</p>
-                </Popover>
-            </PopoverTrigger>
-        </>
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} borderRadius={0} border="transparent" boxShadow="none">
+                <Text>{TITLE}</Text>
+                <p>{CONTENT}</p>
+            </Popover>
+        </PopoverTrigger>
     )
 } satisfies Story;

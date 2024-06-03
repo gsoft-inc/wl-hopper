@@ -1,5 +1,6 @@
 import { InfoIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
+import { useCallback, useState } from "react";
 
 import { Button, ButtonGroup } from "../../../buttons/index.ts";
 import { Footer } from "../../../layout/index.ts";
@@ -27,7 +28,7 @@ const meta = {
     component: Popover,
     render: props =>
         <PopoverTrigger>
-            <Button variant="secondary"><InfoIcon /></Button>
+            <Button aria-label="information" variant="secondary"><InfoIcon /></Button>
             <Popover {...props} />
         </PopoverTrigger>
 } satisfies Meta<typeof Popover>;
@@ -91,9 +92,63 @@ export const FooterText: Story = {
             <Footer>
                 All right reserved.
             </Footer>
-
             <Button>Go it</Button>
-
         </>
     }
+};
+
+/**
+ * A popover can open at different positions..
+ */
+export const Position: Story = {
+    args: {
+        placement: "right",
+        children: <>
+            <Text>Title</Text>
+            <p>Popover content</p>
+        </>
+    }
+};
+
+/**
+ * A popover will not open when its trigger is disabled.
+ */
+export const DisabledTrigger: Story = {
+    render: () =>
+        <PopoverTrigger>
+            <Button isDisabled variant="secondary"><InfoIcon /></Button>
+            <Popover>
+                <Text>Title</Text>
+                <p>Popover content</p>
+            </Popover>
+        </PopoverTrigger>
+};
+
+const ControlledPopover = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpenChange = useCallback(
+        (newOpen: boolean) => {
+            setIsOpen(newOpen);
+            console.log(newOpen);
+        },
+        [setIsOpen]
+    );
+
+    return (
+        <PopoverTrigger isOpen={isOpen} onOpenChange={handleOpenChange}>
+            <Button variant="secondary"><InfoIcon /></Button>
+            <Popover>
+                <Text>Title</Text>
+                <p>Popover content</p>
+            </Popover>
+        </PopoverTrigger>
+    );
+};
+
+/**
+ * A popover open state can be handled in controlled mode.
+ */
+export const Controlled: Story = {
+    render: () => <ControlledPopover />
 };

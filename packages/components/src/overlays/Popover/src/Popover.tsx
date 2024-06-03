@@ -12,14 +12,13 @@ import {
 } from "@hopper-ui/components";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef } from "react";
+import { forwardRef, type ForwardedRef, type Ref } from "react";
 import {
     useContextProps,
     type PopoverProps as RACPopoverProps,
     type DialogTriggerProps,
     DialogTrigger,
     Popover as RACPopover,
-    composeRenderProps,
     Dialog
 } from "react-aria-components";
 
@@ -38,19 +37,19 @@ export interface PopoverTriggerProps extends DialogTriggerProps {
 export const PopoverTrigger = (props: PopoverTriggerProps) =>
     <DialogTrigger {...props}>{props.children}</DialogTrigger>;
 
+
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         children,
         className,
-        style: styleProp,
         offset = 4,
         ...otherProps
     } = ownProps;
 
     const { colorScheme } = useColorSchemeContext();
-    
+
     const popoverClassNames = composeClassnameRenderProps(
         className,
         GlobalPopoverCssSelector,
@@ -60,19 +59,12 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         )
     );
 
-    const style = composeRenderProps(styleProp, prev => {
-        return {
-            ...prev
-        };
-    });
-
     return (
         <RACPopover
             {...otherProps}
             offset={offset}
             ref={ref}
             className={popoverClassNames}
-            style={style}
         >
             <HopperProvider colorScheme={colorScheme}>
                 <Dialog className={clsx(stylingProps.className, styles["hop-Popover__dialog"])}
@@ -116,7 +108,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
 }
 
 /**
- * TODO: tagline
+ * Popovers are small overlays that open on demand. They let users access additional content and actions without cluttering the page.
  *
  * [View Documentation](TODO)
  */
