@@ -12,7 +12,7 @@ import {
 } from "@hopper-ui/components";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type Ref } from "react";
+import { forwardRef, type ForwardedRef } from "react";
 import {
     useContextProps,
     type PopoverProps as RACPopoverProps,

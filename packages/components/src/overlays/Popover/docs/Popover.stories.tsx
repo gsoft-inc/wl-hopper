@@ -130,6 +130,7 @@ const ControlledPopover = () => {
     const handleOpenChange = useCallback(
         (newOpen: boolean) => {
             setIsOpen(newOpen);
+            // eslint-disable-next-line no-console
             console.log(newOpen);
         },
         [setIsOpen]
