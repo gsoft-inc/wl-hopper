@@ -145,7 +145,9 @@ const HighlightedTrigger = ({ children }: { children: ReactNode }) => {
         </SlotProvider>
     );
 };
-
+/**
+ * A popover isOpen state or close function can be retrieved from PopoverContext and ButtonContext.
+ **/
 export const Context: Story = {
     render: () =>
         <HighlightedTrigger>
@@ -168,7 +170,7 @@ const ControlledPopover = () => {
             <Inline>
                 <Button onPress={() => setOpen(true)} variant="secondary" aria-label="information"><InfoIcon /></Button>
                 <span ref={triggerRef}>
-                    Popover will be positioned relative to me
+ Popover will be positioned relative to me
                 </span>
             </Inline>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
