@@ -34,10 +34,6 @@
     --font-weight: var(--hop-Popover-font-weight);
     --line-height: var(--hop-Popover-line-height);
 
-    @media (width >= 40rem) {
-        --hop-Popover-max-inline-width: 25rem;
-    }
-
     display: grid;
     grid-template-areas:
         "header header"
@@ -55,6 +51,10 @@
     border: var(--hop-Popover-border);
     border-radius: var(--hop-Popover-border-radius);
     box-shadow: var(--hop-Popover-box-shadow);
+
+    @media (width >= 40rem) {
+        --hop-Popover-max-inline-width: 25rem;
+    }
 }
 
 .hop-Popover__title {
