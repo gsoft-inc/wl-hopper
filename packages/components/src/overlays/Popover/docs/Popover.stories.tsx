@@ -146,7 +146,7 @@ const HighlightedTrigger = ({ children }: { children: ReactNode }) => {
     );
 };
 /**
- * A popover isOpen state or close function can be retrieved from PopoverContext and ButtonContext.
+ * A popover's isOpen state or close function can be retrieved from PopoverContext and ButtonContext.
  **/
 export const Context: Story = {
     render: () =>
