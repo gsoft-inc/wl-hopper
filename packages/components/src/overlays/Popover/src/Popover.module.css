@@ -1,4 +1,4 @@
-:where(.hop-Popover *) {
+:where(.hop-Popover__dialog) {
     font-family: var(--font-family);
     font-size: var(--font-size);
     font-weight: var(--font-weight);
@@ -41,7 +41,7 @@
         "content content"
         "footer action";
     grid-template-columns: repeat(2, auto);
-    gap: var(--hop-space-inset-sm);
+    column-gap: var(--hop-space-inset-sm);
 
     box-sizing: border-box;
     inline-size: var(--width);
@@ -79,7 +79,9 @@
     --color: var(--hop-Popover-content-color);
 
     grid-area: content;
-    margin: 0;
+    margin-block-start: var(--hop-space-stack-sm);
+    margin-block-end: 0;
+    margin-inline: 0;
     padding: 0;
 }
 
@@ -88,6 +90,7 @@
     --line-height: var(--hop-Popover-footer-line-height);
     --color: var(--hop-Popover-color);
 
+    margin-block-start: var(--hop-space-stack-sm);
     grid-area: footer;
     place-self: center start;
 }
