@@ -182,7 +182,7 @@ const ControlledPopover = () => {
 };
 
 /**
- * A popover open state can be handled in controlled mode.
+ * A popover's open state can be handled in controlled mode.
  */
 export const Controlled: Story = {
     render: () => <ControlledPopover />
