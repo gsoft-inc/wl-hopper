@@ -100,7 +100,7 @@ export const FooterText: Story = {
 };
 
 /**
- * A popover can open at different positions..
+ * A popover can open at different positions.
  */
 export const Position: Story = {
     args: {
