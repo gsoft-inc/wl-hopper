@@ -79,8 +79,8 @@
     --color: var(--hop-Popover-content-color);
 
     grid-area: content;
-    margin-block-start: var(--hop-space-stack-sm);
-    margin-block-end: 0;
+
+    margin-block: var(--hop-space-stack-sm) 0;
     margin-inline: 0;
     padding: 0;
 }
@@ -90,9 +90,9 @@
     --line-height: var(--hop-Popover-footer-line-height);
     --color: var(--hop-Popover-color);
 
-    margin-block-start: var(--hop-space-stack-sm);
     grid-area: footer;
     place-self: center start;
+    margin-block-start: var(--hop-space-stack-sm);
 }
 
 .hop-Popover__footer :where(a) {

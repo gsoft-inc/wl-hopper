@@ -162,20 +162,27 @@ export const Context: Story = {
 };
 
 const ControlledPopover = () => {
-    const [isOpen, setOpen] = useState(false);
     const triggerRef = useRef(null);
+    const [isOpen, setOpen] = useState(false);
 
     return (
-        <PopoverTrigger>
+        <>
             <Inline>
-                <Button onPress={() => setOpen(true)} variant="secondary" aria-label="information"><InfoIcon /></Button>
+
+                <Button
+                    onPress={() => setOpen(!isOpen)}
+                    variant="secondary"
+                    aria-label="information"
+                >
+                    <InfoIcon />
+                </Button>
                 <span ref={triggerRef}>Popover will be positioned relative to me</span>
             </Inline>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
                 <Text>Title</Text>
                 <p>Popover content</p>
             </Popover>
-        </PopoverTrigger>
+        </>
     );
 };
 
