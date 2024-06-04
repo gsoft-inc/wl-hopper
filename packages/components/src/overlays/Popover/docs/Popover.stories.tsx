@@ -68,7 +68,7 @@ export const Buttons: Story = {
 };
 
 /**
- * A popover can have a group of button:
+ * A popover can have a group of buttons:
  */
 export const MutlipleButton: Story = {
     args: {
