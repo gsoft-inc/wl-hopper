@@ -77,7 +77,7 @@ export const MutlipleButton: Story = {
             <p>Popover content</p>
             <ButtonGroup>
                 <Button variant="secondary">Next</Button>
-                <Button>Go it</Button>
+                <Button>Got it</Button>
             </ButtonGroup>
         </>
     }
@@ -94,7 +94,7 @@ export const FooterText: Story = {
             <Footer>
                 All right reserved.
             </Footer>
-            <Button>Go it</Button>
+            <Button>Got it</Button>
         </>
     }
 };
@@ -102,7 +102,7 @@ export const FooterText: Story = {
 /**
  * A popover can open at different positions.
  */
-export const Position: Story = {
+export const Placement: Story = {
     args: {
         placement: "right",
         children: <>
@@ -130,7 +130,6 @@ const HighlightedTrigger = ({ children }: { children: ReactNode }) => {
     const triggerRef = useRef(null);
     const [isOpen, setOpen] = useState(false);
 
-
     return (
         <SlotProvider values={[
             [PopoverContext, { isOpen, onOpenChange: setOpen }],
@@ -145,6 +144,7 @@ const HighlightedTrigger = ({ children }: { children: ReactNode }) => {
         </SlotProvider>
     );
 };
+
 /**
  * A popover's isOpen state or close function can be retrieved from PopoverContext and ButtonContext.
  **/
@@ -169,9 +169,7 @@ const ControlledPopover = () => {
         <PopoverTrigger>
             <Inline>
                 <Button onPress={() => setOpen(true)} variant="secondary" aria-label="information"><InfoIcon /></Button>
-                <span ref={triggerRef}>
- Popover will be positioned relative to me
-                </span>
+                <span ref={triggerRef}>Popover will be positioned relative to me</span>
             </Inline>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
                 <Text>Title</Text>

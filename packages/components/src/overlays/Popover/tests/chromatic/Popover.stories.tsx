@@ -16,7 +16,7 @@ const TRIGGER = "Trigger";
 const TITLE = "Engagement score";
 const CONTENT = "The engagement score is the weighted average of the key metric scores below. To calculate these, we take the latest answers from each survey questions within the last 90 days.";
 const LINK = "Tell me more";
-const PRIMARY_ACTION = "Go it";
+const PRIMARY_ACTION = "Got it";
 const SECONDARY_ACTION = "Next";
 
 export const Dev = {
