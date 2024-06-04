@@ -53,7 +53,7 @@ p {
 }
 
 .hd-content p + * {
-    margin-block-start: var(--hd-space-3);
+    margin-block: var(--hd-space-3);
 }
 
 .hd-content ul li:not([class]) {
