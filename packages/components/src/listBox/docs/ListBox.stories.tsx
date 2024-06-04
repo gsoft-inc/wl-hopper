@@ -70,7 +70,7 @@ export const Description = {
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 3">
                     <Text>Item 3</Text>
-                    <Text slot="description">Description of item 3</Text>
+                    <Text slot="description">Description of item 3 will be a long one to show wrapping.</Text>
                 </ListBoxItem>
             </ListBox>
         );
@@ -197,7 +197,7 @@ export const Disabled = {
  * A ListBox that is invalid.
  */
 export const Invalid = {
-    ...MultipleSelection,
+    ...Description,
     args: {
         isInvalid: true,
         selectionMode: "multiple",

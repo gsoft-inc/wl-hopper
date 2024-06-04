@@ -8,6 +8,7 @@
     --hop-ListBoxItem-row-gap: var(--hop-space-stack-xs);
     --hop-ListBoxItem-column-gap: var(--hop-space-inline-sm);
     --hop-ListBoxItem-input-inline-size: 1rem;
+    --hop-ListBoxItem-description-text-color: var(--hop-neutral-text-weak);
 
     /* xs */
     --hop-ListBoxItem-xs-padding-block: var(--hop-space-inset-xs);
@@ -58,6 +59,9 @@
     --hop-ListBoxItem-text-color-invalid-focused: var(--hop-danger-text-strong);
     --hop-ListBoxItem-text-color-invalid-selected: var(--hop-danger-text);
     --hop-ListBoxItem-text-color-invalid-disabled: var(--hop-danger-text-disabled);
+    --hop-ListBoxItem-description-text-color-invalid-hovered: inherit;
+    --hop-ListBoxItem-description-text-color-invalid-pressed: inherit;
+    --hop-ListBoxItem-description-text-color-invalid-focused: inherit;
 
     /* Disabled */
     --hop-ListBoxItem-background-color-disabled: transparent;
@@ -70,6 +74,7 @@
     --cursor: default;
     --checkmark-visibility: hidden;
     --description-margin-inline-start: 0;
+    --description-text-color: var(--hop-ListBoxItem-description-text-color);
 
     cursor: var(--cursor);
 
@@ -159,16 +164,19 @@
 .hop-ListBoxItem[data-invalid][data-focus-visible] {
     --background-color: var(--hop-ListBoxItem-background-color-invalid-focused);
     --text-color: var(--hop-ListBoxItem-text-color-invalid-focused);
+    --description-text-color: var(--hop-ListBoxItem-description-text-color-invalid-focused);
 }
 
 .hop-ListBoxItem[data-invalid][data-hovered] {
     --background-color: var(--hop-ListBoxItem-background-color-invalid-hovered);
     --text-color: var(--hop-ListBoxItem-text-color-invalid-hovered);
+    --description-text-color: var(--hop-ListBoxItem-description-text-color-invalid-hovered);
 }
 
 .hop-ListBoxItem[data-invalid][data-pressed] {
     --background-color: var(--hop-ListBoxItem-background-color-invalid-pressed);
     --text-color: var(--hop-ListBoxItem-text-color-invalid-pressed);
+    --description-text-color: var(--hop-ListBoxItem-description-text-color-invalid-pressed);
 }
 
 .hop-ListBoxItem[data-invalid][data-disabled] {
@@ -213,17 +221,18 @@
 
 .hop-ListBoxItem__badge {
     flex: 0 0 auto;
-    order: 4;
+    order: 5;
 }
 
 .hop-ListBoxItem__description {
     flex: 1 1 100%;
-    order: 6;
+    order: 7;
     margin-inline-start: var(--description-margin-inline-start);
+    color: var(--description-text-color);
 }
 
 .hop-ListBoxItem__checkmark {
     flex: 0 0 auto;
-    order: 5;
+    order: 6;
     visibility: var(--checkmark-visibility);
 }

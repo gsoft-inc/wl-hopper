@@ -23,7 +23,7 @@ import { RadioList } from "../src/RadioList.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Radio/RadioGroup",
+    title: "Docs/RadioGroup",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories
