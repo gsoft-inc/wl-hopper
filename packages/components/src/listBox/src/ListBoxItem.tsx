@@ -125,6 +125,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                                 aria-label="list item indicator"
                                 value={isSelected ? "radio" : null} 
                                 className={styles["hop-ListBoxItem__radio-group"]}
+                                isInvalid={isInvalid}
                             >
                                 <RadioList>
                                     <Radio
@@ -149,6 +150,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                                 isHovered={isHovered}
                                 isPressed={isPressed}
                                 isSelected={isSelected}
+                                isInvalid={isInvalid}
                             />
                         )}
                         <SlotProvider
