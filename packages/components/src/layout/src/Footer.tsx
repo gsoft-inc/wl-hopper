@@ -9,8 +9,7 @@ import { FooterContext } from "./FooterContext.ts";
 
 export const GlobalFooterCssSelector = "hop-Footer";
 
-export interface FooterProps extends StyledComponentProps<BaseComponentProps> {
-}
+export interface FooterProps extends StyledComponentProps<BaseComponentProps> {}
 
 function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, FooterContext);
@@ -48,7 +47,7 @@ function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
 }
 
 /**
- * The Footer component represents a Footer within a Hopper container such as a Modal or Section.
+ * The Footer component represents a Footer within a Hopper container such as a Modal or Popover.
  *
  * [View Documentation](TODO)
  */
