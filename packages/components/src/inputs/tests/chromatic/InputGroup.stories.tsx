@@ -2,7 +2,7 @@ import { AngleDownIcon, DismissIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "react-aria-components";
 
-import { Button } from "../../../buttons/index.ts";
+import { Button, ClearButton } from "../../../buttons/index.ts";
 import { Stack } from "../../../layout/index.ts";
 import { Text } from "../../../typography/index.ts";
 import { InputGroup } from "../../src/InputGroup.tsx";
@@ -95,7 +95,7 @@ export const ButtonStory: Story = {
         ...Default.args,
         children: [
             <Input type="text" placeholder="Placeholder" key="1" />,
-            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
+            <ClearButton key="2" size="lg" />
         ]
     }
 };
@@ -104,24 +104,15 @@ export const Disabled: Story = {
     ...Default,
     args: {
         ...Default.args,
-        isDisabled: true,
-        children: [
-            <Input type="text" placeholder="Placeholder" key="1" />,
-            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
-        ]
+        isDisabled: true
     }
 };
-
 
 export const Invalid: Story = {
     ...Default,
     args: {
         ...Default.args,
-        isInvalid: true,
-        children: [
-            <Input type="text" placeholder="Placeholder" key="1" />,
-            <Button key="2" aria-label="Add email"><DismissIcon /></Button>
-        ]
+        isInvalid: true
     }
 };
 
