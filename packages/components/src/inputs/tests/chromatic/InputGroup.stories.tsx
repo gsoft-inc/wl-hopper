@@ -1,8 +1,8 @@
-import { AngleDownIcon, DismissIcon, SearchIcon } from "@hopper-ui/icons";
+import { AngleDownIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "react-aria-components";
 
-import { Button, ClearButton } from "../../../buttons/index.ts";
+import { ClearButton } from "../../../buttons/index.ts";
 import { Stack } from "../../../layout/index.ts";
 import { Text } from "../../../typography/index.ts";
 import { InputGroup } from "../../src/InputGroup.tsx";
