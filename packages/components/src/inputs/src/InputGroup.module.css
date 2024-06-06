@@ -87,8 +87,9 @@
     --input-block-size: var(--hop-InputGroup-input-md-block-size);
     --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
 
-    flex-grow: 1;
+    flex: 1 1 auto;
 
+    min-inline-size: 0;
     block-size: var(--input-block-size);
     padding: 0;
 
