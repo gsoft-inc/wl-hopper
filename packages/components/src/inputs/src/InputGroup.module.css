@@ -88,7 +88,6 @@
     --input-inline-size: initial;
     --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
 
-
     flex-grow: 1;
 
     inline-size: var(--input-inline-size);
