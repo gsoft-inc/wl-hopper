@@ -79,7 +79,6 @@
     --color: var(--hop-Popover-content-color);
 
     grid-area: content;
-
     margin-block: var(--hop-space-stack-sm) 0;
     margin-inline: 0;
     padding: 0;
