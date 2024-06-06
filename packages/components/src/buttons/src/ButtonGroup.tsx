@@ -23,7 +23,7 @@ export interface ButtonGroupProps extends StyledComponentProps<HTMLAttributes<HT
     isDisabled?: boolean;
 
     /** Whether the Buttons in the ButtonGroup are all fluid. */
-    fluid?: ResponsiveProp<boolean>;
+    isFluid?: ResponsiveProp<boolean>;
 
     /**
      * The size of the buttons in the ButtonGroup.
@@ -54,7 +54,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
     const {
         children,
         size: sizeProp,
-        fluid: fluidProp,
+        isFluid: isFluidProp,
         isDisabled = false,
         className,
         align: alignProp,
@@ -66,7 +66,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
 
     const align = useResponsiveValue(alignProp) ?? "start";
     const size = useResponsiveValue(sizeProp) ?? "md";
-    const fluid = useResponsiveValue(fluidProp) ?? false;
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const wrap = useResponsiveValue(wrapProp) ?? true;
     const orientation = useResponsiveValue(orientationProp) ?? "horizontal";
 
@@ -78,7 +78,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
             "hop-ButtonGroup",
             size,
             align,
-            fluid && "fluid",
+            isFluid && "fluid",
             wrap && "wrap",
             orientation
         ),
@@ -102,7 +102,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
                 ButtonContext, {
                     size,
                     isDisabled,
-                    fluid
+                    isFluid
                 }
             ]]}
             >

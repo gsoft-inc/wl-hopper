@@ -46,7 +46,7 @@ export const Fluid: Story = {
     ...Default,
     args:{
         ...Default.args,
-        fluid: true
+        isFluid: true
     }
 };
 

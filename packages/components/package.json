@@ -46,6 +46,7 @@
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
         "@react-aria/utils": "^3.24.1",
+        "@react-stately/utils": "^3.10.1",
         "@react-types/shared": "^3.23.1",
         "clsx": "^2.1.1"
     },

@@ -3,16 +3,18 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { ClearButton } from "../../src/ClearButton.tsx";
+import { Label } from "../../../typography/index.ts";
+import { TextField } from "../../src/TextField.tsx";
 
-describe("ClearButton", () => {
+describe("TextField", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <ClearButton />
+                <TextField>
+                    <Label>Label:</Label>
+                </TextField>
             );
 
         expect(renderOnServer).not.toThrow();
     });
 });
-

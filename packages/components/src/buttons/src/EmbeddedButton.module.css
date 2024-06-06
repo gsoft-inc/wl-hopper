@@ -1,0 +1,132 @@
+.hop-EmbeddedButton {
+    --hop-EmbeddedButton-border-radius: var(--hop-shape-rounded-md);
+    --hop-EmbeddedButton-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-EmbeddedButton-color: var(--hop-neutral-icon-weak);
+    --hop-EmbeddedButton-color-hover: var(--hop-neutral-icon-weak-hover);
+    --hop-EmbeddedButton-color-pressed: var(--hop-neutral-icon-weak-press);
+    --hop-EmbeddedButton-color-disabled: var(--hop-neutral-icon-disabled);
+    --hop-EmbeddedButton-effect-background-color: transparent;
+    --hop-EmbeddedButton-effect-background-color-hover: var(--hop-neutral-surface-weak-hover);
+    --hop-EmbeddedButton-effect-background-color-pressed: var(--hop-neutral-surface-weak-press);
+    --hop-EmbeddedButton-effect-background-color-disabled: transparent;
+    --hop-EmbeddedButton-effect-border-radius: var(--hop-shape-circle);
+
+    /* Medium */
+    --hop-EmbeddedButton-md-height: 1.5rem;
+    --hop-EmbeddedButton-md-width: 1.5rem;
+    --hop-EmbeddedButton-md-effect-height: 1rem;
+    --hop-EmbeddedButton-md-effect-width: 1rem;
+
+    /* Large */
+    --hop-EmbeddedButton-lg-height: 1.5rem;
+    --hop-EmbeddedButton-lg-width: 1.5rem;
+    --hop-EmbeddedButton-lg-effect-height: 1.5rem;
+    --hop-EmbeddedButton-lg-effect-width: 1.5rem;
+
+    /* Internal variable */
+    --spinner: var(--hop-primary-icon-strong);
+    --padding-inline: 0;
+    --padding-block: 0;
+    --effect-background-color: var(--hop-EmbeddedButton-effect-background-color);
+    --color: var(--hop-EmbeddedButton-color);
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
+    --effect-border-radius: var(--hop-EmbeddedButton-effect-border-radius);
+    --focus-ring-size: 0.125rem;
+
+    /** styles */
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    inline-size: var(--inline-size);
+    block-size: var(--block-size);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    color: var(--color);
+    text-decoration: none;
+    white-space: nowrap;
+
+    background: none;
+    border: none;
+    border-radius: var(--hop-EmbeddedButton-border-radius);
+    outline: none;
+
+    transition: color var(--transition);
+}
+
+.hop-EmbeddedButton::before {
+    content: "";
+
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+
+    display: block;
+
+    inline-size: var(--effect-inline-size);
+    block-size: var(--effect-block-size);
+
+    background-color: var(--effect-background-color);
+    border-radius: var(--effect-border-radius);
+
+    transition: background-color var(--transition);
+}
+
+.hop-EmbeddedButton--md {
+    --inline-size: var(--hop-EmbeddedButton-md-width);
+    --block-size: var(--hop-EmbeddedButton-md-height);
+    --focus-ring-offset: calc(-1 * var(--focus-ring-size));
+}
+
+.hop-EmbeddedButton--lg {
+    --inline-size: var(--hop-EmbeddedButton-lg-width);
+    --block-size: var(--hop-EmbeddedButton-lg-height);
+    --focus-ring-offset: 0;
+}
+
+.hop-EmbeddedButton--md::before {
+    --effect-inline-size: var(--hop-EmbeddedButton-md-effect-width);
+    --effect-block-size: var(--hop-EmbeddedButton-md-effect-height);
+}
+
+.hop-EmbeddedButton--lg::before {
+    --effect-inline-size: var(--hop-EmbeddedButton-lg-effect-width);
+    --effect-block-size: var(--hop-EmbeddedButton-lg-effect-height);
+}
+
+/* Focus Ring */
+.hop-EmbeddedButton[data-focus-visible] {
+    outline: var(--focus-ring-size) solid var(--hop-EmbeddedButton-focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+}
+
+.hop-EmbeddedButton[data-disabled] {
+    --effect-background-color: var(--hop-EmbeddedButton-effect-background-color-disabled);
+    --color: var(--hop-EmbeddedButton-color-disabled);
+
+    cursor: not-allowed;
+}
+
+.hop-EmbeddedButton[data-hovered]:not([data-disabled], [data-pressed]),
+.hop-EmbeddedButton[data-focus-visible]:not([data-disabled], [data-pressed]) {
+    --effect-background-color: var(--hop-EmbeddedButton-effect-background-color-hover);
+    --color: var(--hop-EmbeddedButton-color-hover);
+}
+
+.hop-EmbeddedButton[data-pressed]:not([data-disabled]) {
+    --effect-background-color: var(--hop-EmbeddedButton-effect-background-color-pressed);
+    --color: var(--hop-EmbeddedButton-color-pressed);
+}
+
+.hop-EmbeddedButton__icon {
+    position: relative;
+}
