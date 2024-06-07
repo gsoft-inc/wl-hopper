@@ -33,10 +33,10 @@
 }
 
 :where(.hop-Label) {
-    font-family: var(--font-family, var(--hop-Label-md-font-family));
-    font-size: var(--font-size, var(--hop-Label-md-font-size));
-    font-weight: var(--font-weight, var(--hop-Label-md-font-weight));
-    line-height: var(--line-height, var(--hop-Label-md-line-height));
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
 }
 
 :where(.hop-Label--xs) {
