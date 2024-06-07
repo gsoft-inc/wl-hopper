@@ -1,0 +1,67 @@
+.hop-SearchField  {
+    --hop-SearchField-gap: var(--hop-space-stack-xs);
+    --hop-SearchField-inline-size: 20rem;
+    --hop-SearchField-color: var(--hop-neutral-text-weak);
+    --hop-SearchField-padding: var(--hop-space-inset-md);
+    --hop-SearchField-font-family: var(--hop-heading-xs-font-family);
+    --hop-SearchField-font-size: var(--hop-heading-xs-font-size);
+    --hop-SearchField-font-weight: var(--hop-heading-xs-font-weight);
+    --hop-SearchField-line-height: var(--hop-heading-xs-line-height);
+
+    /* Internal Variables */
+    --inline-size: var(--hop-SearchField-inline-size);
+    --input-group-padding-inline-end: var(--hop-SearchField-padding);
+    --input-group-padding-inline-start: var(--hop-SearchField-padding);
+    --clear-button-display: flex;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hop-SearchField-gap);
+    inline-size: var(--inline-size);
+}
+
+.hop-SearchField--fluid  {
+    --inline-size: 100%;
+}
+
+.hop-SearchField__Label {
+    order: 0;
+
+    font-family: var(--hop-SearchField-font-family);
+    font-size: var(--hop-SearchField-font-size);
+    font-weight: var(--hop-SearchField-font-weight);
+    line-height: var(--hop-SearchField-line-height);
+    color: var(--hop-SearchField-color);
+}
+
+.hop-SearchField__prefix {
+    color: var(--hop-SearchField-color);
+}
+
+.hop-SearchField__InputGroup {
+    order: 1;
+    inline-size: 100%;
+    padding-inline: var(--input-group-padding-inline-start) var(--input-group-padding-inline-end)
+}
+
+.hop-SearchField--clearable {
+    --input-group-padding-inline-end: 0;
+}
+
+.hop-SearchField__ErrorMessage,
+.hop-SearchField__HelperMessage {
+    order: 3;
+}
+
+.hop-SearchField input::-webkit-search-cancel-button,
+.hop-SearchField input::-webkit-search-decoration {
+    appearance: none;
+}
+
+.hop-SearchField[data-empty]  {
+    --clear-button-display: none;
+}
+
+.hop-SearchField__ClearButton {
+    display: var(--clear-button-display);
+}

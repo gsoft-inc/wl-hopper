@@ -17,10 +17,8 @@ import styles from "./Label.module.css";
 
 export const GlobalLabelCssSelector = "hop-Label";
 
-export type RACLabelPropsToOmit = "elementType";
-
 // TODO: Add necessityIndicator and required Props
-export interface LabelProps extends StyledComponentProps<Omit<RACLabelProps, RACLabelPropsToOmit>> {
+export interface LabelProps extends StyledComponentProps<RACLabelProps> {
     /**
      * The Typography Type Scale to use.
      * @default "md"

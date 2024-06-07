@@ -7,7 +7,7 @@ export interface HopperProviderWrapperOptions {
     locale?: string;
 }
 
-function createHopperProviderWrapper({ colorScheme = "light", locale }: HopperProviderWrapperOptions = {}): RenderOptions["wrapper"] {
+function createHopperProviderWrapper({ colorScheme = "light", locale = "en-US" }: HopperProviderWrapperOptions = {}): RenderOptions["wrapper"] {
     return ({ children }) => {
         return (
             <HopperProvider colorScheme={colorScheme} locale={locale}>

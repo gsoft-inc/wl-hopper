@@ -36,13 +36,13 @@ export const Primary: Story = {
                         <Button isLoading {...args}>Save</Button>
                     </Inline>
                     <Div>
-                        <Button fluid {...args}>Save</Button>
+                        <Button isFluid {...args}>Save</Button>
                     </Div>
                     <Div width="10%">
-                        <Button fluid {...args}>Save</Button>
+                        <Button isFluid {...args}>Save</Button>
                     </Div>
                     <Div>
-                        <Button isLoading fluid {...args}>Save</Button>
+                        <Button isLoading isFluid {...args}>Save</Button>
                     </Div>
                 </Stack>
                 <Stack>
@@ -88,11 +88,11 @@ export const Primary: Story = {
                         </Button>
                     </Div>
                     <Stack>
-                        <Button fluid {...args}>
+                        <Button isFluid {...args}>
                             <SparklesIcon />
                             <Text>Save</Text>
                         </Button>
-                        <Button fluid {...args}>
+                        <Button isFluid {...args}>
                             <Text>Save</Text>
                         </Button>
                     </Stack>
@@ -140,11 +140,11 @@ export const Primary: Story = {
                         </Button>
                     </Div>
                     <Stack>
-                        <Button fluid {...args}>
+                        <Button isFluid {...args}>
                             <Text>Save</Text>
                             <SparklesIcon slot="end-icon" />
                         </Button>
-                        <Button fluid {...args}>
+                        <Button isFluid {...args}>
                             <Text>Save</Text>
                         </Button>
                     </Stack>

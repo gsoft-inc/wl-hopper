@@ -39,6 +39,7 @@ const preview: Preview = {
             storySort: {
                 order: [
                     "Docs",
+                    "Docs-parts",
                     "Components",
                     "Styled System",
                     "Icons",

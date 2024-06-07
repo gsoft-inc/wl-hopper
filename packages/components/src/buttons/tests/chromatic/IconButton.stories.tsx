@@ -30,8 +30,8 @@ export const Primary: Story = {
                 <Button isLoading size="sm" {...args} />
                 <Button isLoading {...args} />
             </Inline>
-            <Button size="sm" fluid {...args} />
-            <Button fluid {...args} />
+            <Button size="sm" isFluid {...args} />
+            <Button isFluid {...args} />
         </Stack>
     )
 };
