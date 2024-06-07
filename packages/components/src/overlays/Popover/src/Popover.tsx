@@ -8,7 +8,7 @@ import {
     TextContext,
     HeadingContext,
     LinkContext,
-    useColorSchemeContext, HopperProvider
+    useColorSchemeContext, HopperProvider, isNil
 } from "@hopper-ui/components";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
@@ -21,6 +21,8 @@ import {
     Popover as RACPopover,
     Dialog
 } from "react-aria-components";
+
+import { isFunction } from "../../../utils/index.ts";
 
 import { PopoverContext } from "./PopoverContext.ts";
 
@@ -36,7 +38,7 @@ export interface PopoverTriggerProps extends DialogTriggerProps {
 
 export const PopoverTrigger = (props: PopoverTriggerProps) =>
     <DialogTrigger {...props}>{props.children}</DialogTrigger>;
-    
+
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
@@ -65,43 +67,43 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
             ref={ref}
             className={popoverClassNames}
         >
-            <HopperProvider colorScheme={colorScheme}>
-                <Dialog className={clsx(stylingProps.className, styles["hop-Popover__dialog"])}
-                    style={stylingProps.style}
-                >
-                    <SlotProvider values={[
-                        [TextContext, {
-                            className: styles["hop-Popover__title"],
-                            size: "md"
-                        }],
-                        [HeadingContext, {
-                            className: styles["hop-Popover__title"],
-                            size: "inherit"
-                        }],
-                        [ButtonContext, {
-                            size: "sm",
-                            className: styles["hop-Popover__action"]
-                        }],
-                        [ButtonGroupContext, {
-                            size: "sm",
-                            align: "end",
-                            className: styles["hop-Popover__actions"]
-                        }],
-                        [FooterContext, {
-                            className: styles["hop-Popover__footer"]
-                        }],
-                        [LinkContext, {
-                            size: "sm",
-                            isQuiet: true
-                        }]
-                    ]}
+            {state => (
+                <HopperProvider colorScheme={colorScheme}>
+                    <Dialog className={clsx(stylingProps.className, styles["hop-Popover__dialog"])}
+                        style={stylingProps.style}
                     >
-                        <>
-                            {children}
-                        </>
-                    </SlotProvider>
-                </Dialog>
-            </HopperProvider>
+                        <SlotProvider values={[
+                            [TextContext, {
+                                className: styles["hop-Popover__title"],
+                                size: "md"
+                            }],
+                            [HeadingContext, {
+                                className: styles["hop-Popover__title"],
+                                size: "inherit"
+                            }],
+                            [ButtonContext, {
+                                size: "sm",
+                                className: styles["hop-Popover__action"]
+                            }],
+                            [ButtonGroupContext, {
+                                size: "sm",
+                                align: "end",
+                                className: styles["hop-Popover__actions"]
+                            }],
+                            [FooterContext, {
+                                className: styles["hop-Popover__footer"]
+                            }],
+                            [LinkContext, {
+                                size: "sm",
+                                isQuiet: true
+                            }]
+                        ]}
+                        >
+                            {(isFunction(children) && !isNil(children)) ? children(state) : children}
+                        </SlotProvider>
+                    </Dialog>
+                </HopperProvider>
+            )}
         </RACPopover>
     );
 }
