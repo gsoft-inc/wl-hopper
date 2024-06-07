@@ -62,7 +62,7 @@ export const Buttons: Story = {
         children: <>
             <Text>Title</Text>
             <p>Popover content</p>
-            <Button>Go it</Button>
+            <Button>Got it</Button>
         </>
     }
 };
@@ -168,7 +168,6 @@ const ControlledPopover = () => {
     return (
         <>
             <Inline>
-
                 <Button
                     onPress={() => setOpen(!isOpen)}
                     variant="secondary"

@@ -36,8 +36,7 @@ export interface PopoverTriggerProps extends DialogTriggerProps {
 
 export const PopoverTrigger = (props: PopoverTriggerProps) =>
     <DialogTrigger {...props}>{props.children}</DialogTrigger>;
-
-
+    
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
