@@ -1,7 +1,7 @@
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import type { Selection } from "react-aria-components";
+import { type Selection, Collection } from "react-aria-components";
 
 import { Badge } from "../../badge/index.ts";
 import { Divider } from "../../divider/index.ts";
@@ -10,8 +10,7 @@ import { IconList } from "../../IconList/index.ts";
 import { Inline } from "../../layout/index.ts";
 import { Section } from "../../section/index.ts";
 import { Text } from "../../typography/Text/index.ts";
-import { ListBox } from "../src/ListBox.tsx";
-import { ListBoxItem } from "../src/ListBoxItem.tsx";
+import { ListBox, ListBoxItem } from "../src/index.ts";
 
 /**
  * A ListBox is a disclosure component that appears with a set of actions relevant to a specific control, interface area, data element or application view. 
@@ -37,6 +36,16 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+interface ListItemProps {
+    id: number | string;
+    name: string;
+}
+
+interface ListSectionProps {
+    name: string;
+    children: ListItemProps[];
+}
 
 /**
  * The default ListBox.
@@ -309,6 +318,7 @@ export const Count = {
             <ListBox {...args} aria-label="list of options">
                 <ListBoxItem textValue="Item 1">
                     <Text slot="label">Item 1</Text>
+                    <SparklesIcon slot="end-icon" />
                     <Badge>50</Badge>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 2">
@@ -318,6 +328,9 @@ export const Count = {
                 <ListBoxItem>Item 3</ListBoxItem>
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -374,6 +387,73 @@ export const Dividers = {
                 <ListBoxItem>Item 10</ListBoxItem>
             </ListBox>
         );
+    }
+} satisfies Story;
+
+/**
+ * Items and sections can be populated from a hierarchial data structure. 
+ * If a section has a header, the `Collection` component can be used to render the child items.
+ */
+export const DynamicLists = {
+    render: args => {
+        const options = [
+            { id: 2, name: "Fred" },
+            { id: 3, name: "Bob" },
+            { id: 4, name: "Gabriel" },
+            { id: 6, name: "Sarah" },
+            { id: 7, name: "Louise" },
+            { id: 8, name: "Karen" }
+        ] satisfies ListItemProps[];
+
+        const optionsWithSections = [
+            { name: "Boy Names", children: [
+                { id: 2, name: "Fred" },
+                { id: 3, name: "Bob" },
+                { id: 4, name: "Gabriel" }
+            ] },
+            { name: "Girl Names", children: [
+                { id: 6, name: "Sarah" },
+                { id: 7, name: "Louise" },
+                { id: 8, name: "Karen" }
+            ] }
+        ] satisfies ListSectionProps[];
+
+        return (
+            <Inline alignY="flex-start">
+                <ListBox
+                    {...args}
+                    aria-label="Names"
+                    items={options}
+                >
+                    {item => {
+                        const listItem = item as ListItemProps;
+                    
+                        return <ListBoxItem>{listItem.name}</ListBoxItem>;
+                    }}
+                </ListBox>
+                <ListBox
+                    {...args}
+                    aria-label="Names"
+                    items={optionsWithSections}
+                >
+                    {section => {
+                        const listSection = section as ListSectionProps;
+
+                        return (
+                            <Section id={listSection.name}>
+                                <Header>{listSection.name}</Header>
+                                <Collection items={listSection.children}>
+                                    {item => <ListBoxItem>{item.name}</ListBoxItem>}
+                                </Collection>
+                            </Section>
+                        );
+                    }}
+                </ListBox>
+            </Inline>
+        );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 

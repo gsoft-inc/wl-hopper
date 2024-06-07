@@ -171,6 +171,7 @@
     --background-color: var(--hop-ListBoxItem-background-color-disabled);
     --text-color: var(--hop-ListBoxItem-text-color-disabled);
     --icon-color: var(--hop-ListBoxItem-icon-color-disabled);
+    --description-text-color: var(--hop-ListBoxItem-text-color-disabled);
     --cursor: not-allowed;
 }
 

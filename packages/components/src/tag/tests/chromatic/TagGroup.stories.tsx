@@ -10,7 +10,7 @@ import { Label, Text } from "../../../typography/index.ts";
 import { TagGroup, TagList, Tag, type TagGroupProps } from "../../src/index.ts";
 
 const meta = {
-    title: "Components/Tag",
+    title: "Components/TagGroup",
     component: TagGroup
 } satisfies Meta<typeof TagGroup>;
 

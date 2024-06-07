@@ -198,7 +198,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                                 }],
                                 [BadgeContext, {
                                     className: styles["hop-ListBoxItem__badge"],
-                                    slot: null
+                                    isDisabled: isDisabled
                                 }]
                             ]}
                         >
