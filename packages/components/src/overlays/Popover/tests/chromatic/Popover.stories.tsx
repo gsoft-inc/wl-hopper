@@ -19,24 +19,12 @@ const LINK = "Tell me more";
 const PRIMARY_ACTION = "Got it";
 const SECONDARY_ACTION = "Next";
 
-export const Dev = {
-    render: args => (
-        <PopoverTrigger>
-            <Button>{TRIGGER}</Button>
-            <Popover {...args} >
-                <Text>{TITLE}</Text>
-                <p>{CONTENT}</p>
-                <Footer>
-                    <Link href="#">{LINK}</Link>
-                </Footer>
-            </Popover>
-        </PopoverTrigger>
-    )
-} satisfies Story;
-
 export const Default = {
+    args: {
+        isOpen: true
+    },
     render: args => (
-        <Stack>
+        <Stack gap="stack-xl">
             <h1>Default</h1>
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
