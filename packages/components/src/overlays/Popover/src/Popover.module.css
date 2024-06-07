@@ -73,7 +73,7 @@
     margin-block-start: var(--hop-space-stack-sm);
 }
 
-.hop-Popover__title + :where(p, span, div) {
+.hop-Popover__content {
     --font-size: var(--hop-Popover-content-font-size);
     --line-height: var(--hop-Popover-content-line-height);
     --color: var(--hop-Popover-content-color);

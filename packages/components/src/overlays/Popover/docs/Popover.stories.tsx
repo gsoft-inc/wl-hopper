@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { type ReactNode, useRef, useState } from "react";
 
 import { Button, ButtonGroup, ButtonContext } from "../../../buttons/index.ts";
-import { Footer, Inline } from "../../../layout/index.ts";
+import { Footer, Inline, Content } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
 import { Text } from "../../../typography/index.ts";
 import { Popover, PopoverTrigger } from "../src/Popover.tsx";
@@ -46,7 +46,9 @@ export const Default: Story = {
     args: {
         children: <>
             <Text>Title</Text>
-            <p>Popover content</p>
+            <Content>
+                Popover content
+            </Content>
             <Footer>
                 <Link href="#">Tell me more</Link>
             </Footer>
@@ -61,7 +63,9 @@ export const Buttons: Story = {
     args: {
         children: <>
             <Text>Title</Text>
-            <p>Popover content</p>
+            <Content>
+                Popover content
+            </Content>
             <Button>Got it</Button>
         </>
     }
@@ -74,7 +78,9 @@ export const MutlipleButton: Story = {
     args: {
         children: <>
             <Text>Title</Text>
-            <p>Popover content</p>
+            <Content>
+                Popover content
+            </Content>
             <ButtonGroup>
                 <Button variant="secondary">Next</Button>
                 <Button>Got it</Button>
@@ -90,7 +96,9 @@ export const FooterText: Story = {
     args: {
         children: <>
             <Text>Title</Text>
-            <p>Popover content</p>
+            <Content>
+                Popover content
+            </Content>
             <Footer>
                 All right reserved.
             </Footer>
@@ -107,7 +115,9 @@ export const Placement: Story = {
         placement: "right",
         children: <>
             <Text>Title</Text>
-            <p>Popover content</p>
+            <Content>
+                Popover content
+            </Content>
         </>
     }
 };
@@ -121,7 +131,9 @@ export const DisabledTrigger: Story = {
             <Button isDisabled variant="secondary" aria-label="information"><InfoIcon /></Button>
             <Popover>
                 <Text>Title</Text>
-                <p>Popover content</p>
+                <Content>
+                    Popover content
+                </Content>
             </Popover>
         </PopoverTrigger>
 };
@@ -155,7 +167,9 @@ export const Context: Story = {
                 <Button aria-label="information"><InfoIcon /></Button>
                 <Popover>
                     <Text>Title</Text>
-                    <p>Popover content</p>
+                    <Content>
+                        Popover content
+                    </Content>
                 </Popover>
             </PopoverTrigger>
         </HighlightedTrigger>
@@ -179,7 +193,9 @@ const ControlledPopover = () => {
             </Inline>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
                 <Text>Title</Text>
-                <p>Popover content</p>
+                <Content>
+                    Popover content
+                </Content>
             </Popover>
         </>
     );

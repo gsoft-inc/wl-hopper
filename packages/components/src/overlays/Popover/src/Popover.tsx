@@ -4,11 +4,12 @@ import {
     cssModule,
     ButtonContext,
     ButtonGroupContext,
+    ContentContext,
     FooterContext,
     TextContext,
     HeadingContext,
     LinkContext,
-    useColorSchemeContext, HopperProvider, isNil
+    useColorSchemeContext, HopperProvider, isNil, isFunction
 } from "@hopper-ui/components";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
@@ -21,8 +22,6 @@ import {
     Popover as RACPopover,
     Dialog
 } from "react-aria-components";
-
-import { isFunction } from "../../../utils/index.ts";
 
 import { PopoverContext } from "./PopoverContext.ts";
 
@@ -89,6 +88,9 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                                 size: "sm",
                                 align: "end",
                                 className: styles["hop-Popover__actions"]
+                            }],
+                            [ContentContext, {
+                                className: styles["hop-Popover__content"]
                             }],
                             [FooterContext, {
                                 className: styles["hop-Popover__footer"]

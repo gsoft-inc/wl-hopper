@@ -7,7 +7,7 @@ import type { BaseComponentProps } from "../../utils/index.ts";
 
 import { ContentContext } from "./ContentContext.ts";
 
-export const GlobalFooterCssSelector = "hop-Content";
+export const GlobalContentCssSelector = "hop-Content";
 
 export interface ContentProps extends StyledComponentProps<BaseComponentProps> {
 }
@@ -24,7 +24,7 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLElement>) {
     } = ownProps;
 
     const classNames = clsx(
-        GlobalFooterCssSelector,
+        GlobalContentCssSelector,
         stylingProps.className,
         className
     );
