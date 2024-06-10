@@ -127,25 +127,25 @@ export const Vertical = {
                     <Radio value="manager">Manager</Radio>
                 </RadioList>
             </RadioGroup>
-            {/*<h1>Bordered</h1>*/}
-            {/*<Inline alignY="start">*/}
-            {/*    <RadioGroup {...props} size="sm" variant="bordered">*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="developer">Developer</Radio>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <Radio value="manager">Manager</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*    <RadioGroup {...props} size="md" variant="bordered">*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="developer">Developer</Radio>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <Radio value="manager">Manager</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*</Inline>*/}
+            <h1>Bordered</h1>
+            <Inline alignY="start">
+                <RadioGroup {...props} size="sm" variant="bordered">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <Radio value="developer">Developer</Radio>
+                        <Radio value="designer">Designer</Radio>
+                        <Radio value="manager">Manager</Radio>
+                    </RadioList>
+                </RadioGroup>
+                <RadioGroup {...props} size="md" variant="bordered">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <Radio value="developer">Developer</Radio>
+                        <Radio value="designer">Designer</Radio>
+                        <Radio value="manager">Manager</Radio>
+                    </RadioList>
+                </RadioGroup>
+            </Inline>
             {/*<h1>Bordered with Description</h1>*/}
             {/*<Inline alignY="start">*/}
             {/*    <RadioGroup {...props} size="sm" variant="bordered">*/}
@@ -179,78 +179,105 @@ export const Vertical = {
             {/*        <HelperMessage>Select one to continue</HelperMessage>*/}
             {/*    </RadioGroup>*/}
             {/*</Inline>*/}
-            {/*<h1>Bordered & Invalid</h1>*/}
-            {/*<Inline alignY="start">*/}
-            {/*    <RadioGroup {...props} size="sm" variant="bordered" isInvalid>*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="developer">Developer</Radio>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <Radio value="manager">Manager</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*        <ErrorMessage>This field is required</ErrorMessage>*/}
-            {/*    </RadioGroup>*/}
-            {/*    <RadioGroup {...props} size="md" variant="bordered" isInvalid>*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="developer">Developer</Radio>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <Radio value="manager">Manager</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*        <ErrorMessage>This field is required</ErrorMessage>*/}
-            {/*    </RadioGroup>*/}
-            {/*</Inline>*/}
-            {/*<h1>Styling</h1>*/}
-            {/*<Inline>*/}
-            {/*    <RadioGroup border="warning-strong">*/}
-            {/*        <Label>Numbers</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="1">1</Radio>*/}
-            {/*            <Radio value="2">2</Radio>*/}
-            {/*            <Radio value="3">3</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*    <RadioGroup className="border-blue">*/}
-            {/*        <Label>Numbers</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="1">1</Radio>*/}
-            {/*            <Radio value="2">2</Radio>*/}
-            {/*            <Radio value="3">3</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*    <RadioGroup style={{ border: "1px solid red" }}>*/}
-            {/*        <Label>Numbers</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="1">1</Radio>*/}
-            {/*            <Radio value="2">2</Radio>*/}
-            {/*            <Radio value="3">3</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*</Inline>*/}
-            {/*<h1>Zoom</h1>*/}
-            {/*<Inline alignY="start">*/}
-            {/*    <RadioGroup {...props} className="zoom-in">*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="developer">Developer</Radio>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <Radio value="manager">Manager</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*    <RadioGroup {...props} className="zoom-out">*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <Radio value="developer">Developer</Radio>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <Radio value="manager">Manager</Radio>*/}
-            {/*        </RadioList>*/}
-            {/*    </RadioGroup>*/}
-            {/*</Inline>*/}
+            <h1>Bordered & Invalid</h1>
+            <Inline alignY="start">
+                <RadioGroup {...props} size="sm" variant="bordered" isInvalid>
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <Radio value="developer">Developer</Radio>
+                        <Radio value="designer">Designer</Radio>
+                        <Radio value="manager">Manager</Radio>
+                    </RadioList>
+                    <ErrorMessage>This field is required</ErrorMessage>
+                </RadioGroup>
+                <RadioGroup {...props} size="md" variant="bordered" isInvalid>
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <Radio value="developer">Developer</Radio>
+                        <Radio value="designer">Designer</Radio>
+                        <Radio value="manager">Manager</Radio>
+                    </RadioList>
+                    <ErrorMessage>This field is required</ErrorMessage>
+                </RadioGroup>
+            </Inline>
+            <h1>Styling</h1>
+            <Inline>
+                <RadioGroup border="warning-strong">
+                    <Label>Numbers</Label>
+                    <RadioList>
+                        <Radio value="1">1</Radio>
+                        <Radio value="2">2</Radio>
+                        <Radio value="3">3</Radio>
+                    </RadioList>
+                </RadioGroup>
+                <RadioGroup className="border-blue">
+                    <Label>Numbers</Label>
+                    <RadioList>
+                        <Radio value="1">1</Radio>
+                        <Radio value="2">2</Radio>
+                        <Radio value="3">3</Radio>
+                    </RadioList>
+                </RadioGroup>
+                <RadioGroup style={{ border: "1px solid red" }}>
+                    <Label>Numbers</Label>
+                    <RadioList>
+                        <Radio value="1">1</Radio>
+                        <Radio value="2">2</Radio>
+                        <Radio value="3">3</Radio>
+                    </RadioList>
+                </RadioGroup>
+            </Inline>
+            <h1>Zoom</h1>
+            <Inline alignY="start">
+                <RadioGroup {...props} className="zoom-in">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <Radio value="developer">Developer</Radio>
+                        <Radio value="designer">Designer</Radio>
+                        <Radio value="manager">Manager</Radio>
+                    </RadioList>
+                </RadioGroup>
+                <RadioGroup {...props} className="zoom-out">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <Radio value="developer">Developer</Radio>
+                        <Radio value="designer">Designer</Radio>
+                        <Radio value="manager">Manager</Radio>
+                    </RadioList>
+                </RadioGroup>
+            </Inline>
         </Stack>
     ),
     args: {
         orientation: "vertical"
     }
+} satisfies Story;
+
+export const Debug = {
+    render: props => (
+        <>
+            <h1>Bordered with Description</h1>
+            <Inline alignY="start">
+                <RadioGroup {...props} size="sm" variant="bordered">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <RadioField>
+                            <Radio value="developer">Developer</Radio>
+                            <Text slot="description">Team Lead</Text>
+                        </RadioField>
+                        <Radio value="designer">Designer</Radio>
+                        {/*<RadioField>*/}
+                        {/*    <Radio value="manager">Manager</Radio>*/}
+                        {/*    <Text slot="description">Team Manager</Text>*/}
+                        {/*</RadioField>*/}
+                    </RadioList>
+                    <HelperMessage>Select one to continue</HelperMessage>
+                </RadioGroup>
+
+            </Inline>
+        </>
+    )
+
 } satisfies Story;
 
 
