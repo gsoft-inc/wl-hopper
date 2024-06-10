@@ -6,7 +6,6 @@ import {
     ButtonGroupContext,
     ContentContext,
     FooterContext,
-    TextContext,
     HeadingContext,
     LinkContext,
     useColorSchemeContext, HopperProvider, isNil, isFunction
@@ -30,6 +29,7 @@ import styles from "./Popover.module.css";
 export const GlobalPopoverCssSelector = "hop-Popover";
 
 export interface PopoverProps extends StyledComponentProps<RACPopoverProps> {
+    boundaryOffset?: number;
 }
 
 export interface PopoverTriggerProps extends DialogTriggerProps {
@@ -45,6 +45,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         children,
         className,
         offset = 4,
+        boundaryOffset,
         ...otherProps
     } = ownProps;
 
@@ -65,6 +66,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
             offset={offset}
             ref={ref}
             className={popoverClassNames}
+            arrowBoundaryOffset={boundaryOffset}
         >
             {state => (
                 <HopperProvider colorScheme={colorScheme}>
@@ -72,10 +74,6 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                         style={stylingProps.style}
                     >
                         <SlotProvider values={[
-                            [TextContext, {
-                                className: styles["hop-Popover__title"],
-                                size: "md"
-                            }],
                             [HeadingContext, {
                                 className: styles["hop-Popover__title"],
                                 size: "inherit"

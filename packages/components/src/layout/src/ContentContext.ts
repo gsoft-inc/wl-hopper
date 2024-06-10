@@ -3,6 +3,6 @@ import type { ContextValue } from "react-aria-components";
 
 import type { ContentProps } from "./Content.tsx";
 
-export const ContentContext = createContext<ContextValue<ContentProps, HTMLElement>>({});
+export const ContentContext = createContext<ContextValue<ContentProps, HTMLDivElement>>({});
 
 ContentContext.displayName = "ContentContext";

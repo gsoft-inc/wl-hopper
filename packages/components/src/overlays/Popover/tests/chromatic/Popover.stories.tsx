@@ -1,4 +1,4 @@
-import { Button, Heading, Footer, Content, Link, ButtonGroup, Stack, Text } from "@hopper-ui/components";
+import { Button, Heading, Footer, Content, Link, ButtonGroup, Stack } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Popover, PopoverTrigger } from "../../src/Popover.tsx";
@@ -29,15 +29,6 @@ export const Default = {
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
                 <Popover {...args} >
-                    <Text>{TITLE}</Text>
-                    <Content>{CONTENT}</Content>
-                </Popover>
-            </PopoverTrigger>
-
-            <h1>Heading</h1>
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} >
                     <Heading>{TITLE}</Heading>
                     <Content>{CONTENT}</Content>
                 </Popover>
@@ -47,7 +38,7 @@ export const Default = {
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
                 <Popover {...args} >
-                    <Text>{TITLE}</Text>
+                    <Heading>{TITLE}</Heading>
                     <Content>{CONTENT}</Content>
                     <Footer>
                         <Link href="#">{LINK}</Link>
@@ -59,7 +50,7 @@ export const Default = {
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
                 <Popover {...args} >
-                    <Text>{TITLE}</Text>
+                    <Heading>{TITLE}</Heading>
                     <Content>{CONTENT}</Content>
                     <Button>{PRIMARY_ACTION}</Button>
                 </Popover>
@@ -69,7 +60,7 @@ export const Default = {
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
                 <Popover {...args} >
-                    <Text>{TITLE}</Text>
+                    <Heading>{TITLE}</Heading>
                     <Content>{CONTENT}</Content>
                     <ButtonGroup>
                         <Button variant="secondary">{SECONDARY_ACTION}</Button>
@@ -82,7 +73,7 @@ export const Default = {
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
                 <Popover {...args} >
-                    <Text>{TITLE}</Text>
+                    <Heading>{TITLE}</Heading>
                     <Content>{CONTENT}</Content>
                     <Footer>
                         All right reserved.
@@ -99,7 +90,7 @@ export const Styling = {
         <PopoverTrigger>
             <Button>{TRIGGER}</Button>
             <Popover {...args} borderRadius={0} border="transparent" boxShadow="none">
-                <Text>{TITLE}</Text>
+                <Heading>{TITLE}</Heading>
                 <Content>{CONTENT}</Content>
             </Popover>
         </PopoverTrigger>

@@ -6,7 +6,7 @@ import { type ReactNode, useRef, useState } from "react";
 import { Button, ButtonGroup, ButtonContext } from "../../../buttons/index.ts";
 import { Footer, Inline, Content } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
-import { Text } from "../../../typography/index.ts";
+import { Heading } from "../../../typography/index.ts";
 import { Popover, PopoverTrigger } from "../src/Popover.tsx";
 import { PopoverContext } from "../src/PopoverContext.ts";
 
@@ -45,7 +45,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         children: <>
-            <Text>Title</Text>
+            <Heading>Title</Heading>
             <Content>
                 Popover content
             </Content>
@@ -62,7 +62,7 @@ export const Default: Story = {
 export const Buttons: Story = {
     args: {
         children: <>
-            <Text>Title</Text>
+            <Heading>Title</Heading>
             <Content>
                 Popover content
             </Content>
@@ -77,7 +77,7 @@ export const Buttons: Story = {
 export const MutlipleButton: Story = {
     args: {
         children: <>
-            <Text>Title</Text>
+            <Heading>Title</Heading>
             <Content>
                 Popover content
             </Content>
@@ -95,7 +95,7 @@ export const MutlipleButton: Story = {
 export const FooterText: Story = {
     args: {
         children: <>
-            <Text>Title</Text>
+            <Heading>Title</Heading>
             <Content>
                 Popover content
             </Content>
@@ -114,7 +114,7 @@ export const Placement: Story = {
     args: {
         placement: "right",
         children: <>
-            <Text>Title</Text>
+            <Heading>Title</Heading>
             <Content>
                 Popover content
             </Content>
@@ -130,7 +130,7 @@ export const DisabledTrigger: Story = {
         <PopoverTrigger>
             <Button isDisabled variant="secondary" aria-label="information"><InfoIcon /></Button>
             <Popover>
-                <Text>Title</Text>
+                <Heading>Title</Heading>
                 <Content>
                     Popover content
                 </Content>
@@ -166,7 +166,7 @@ export const Context: Story = {
             <PopoverTrigger>
                 <Button aria-label="information"><InfoIcon /></Button>
                 <Popover>
-                    <Text>Title</Text>
+                    <Heading>Title</Heading>
                     <Content>
                         Popover content
                     </Content>
@@ -192,7 +192,7 @@ const ControlledPopover = () => {
                 <span ref={triggerRef}>Popover will be positioned relative to me</span>
             </Inline>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
-                <Text>Title</Text>
+                <Heading>Title</Heading>
                 <Content>
                     Popover content
                 </Content>

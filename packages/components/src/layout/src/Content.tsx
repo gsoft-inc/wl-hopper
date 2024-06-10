@@ -12,7 +12,7 @@ export const GlobalContentCssSelector = "hop-Content";
 export interface ContentProps extends StyledComponentProps<BaseComponentProps> {
 }
 
-function Content(props: ContentProps, ref: ForwardedRef<HTMLElement>) {
+function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, ContentContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -35,7 +35,7 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLElement>) {
     };
 
     return (
-        <span
+        <div
             {...otherProps}
             ref={ref}
             className={classNames}
@@ -43,16 +43,16 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLElement>) {
             slot={slot || undefined}
         >
             {children}
-        </span>
+        </div>
     );
 }
 
 /**
- * The Content component represents a Footer within a Hopper container such as a Modal or Popover.
+ * The Content component represents a Content within a Hopper container such as a Modal or Popover.
  *
  * [View Documentation](TODO)
  */
-const _Content = forwardRef<HTMLElement, ContentProps>(Content);
+const _Content = forwardRef<HTMLDivElement, ContentProps>(Content);
 _Content.displayName = "Content";
 
 export { _Content as Content };
