@@ -6,9 +6,9 @@ import { Flex } from "../../src/Flex.tsx";
 import { Inline } from "../../src/Inline.tsx";
 
 const meta = {
-    title: "Components/Flex/Row",
+    title: "Components/Layout/Flex-Row",
     component: Flex,
-    args:{
+    args: {
         direction: "row",
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
@@ -26,8 +26,7 @@ function Square(props: DivProps) {
     return <Div backgroundColor="decorative-option1" height="core_640" width="core_640" {...props} />;
 }
 
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 export const Gap: Story = {
     args: {
@@ -110,7 +109,7 @@ export const Wrap: Story = {
 
 export const WrapReverse: Story = {
     ...Wrap,
-    args:{
+    args: {
         ...Wrap.args,
         wrap: "wrap-reverse"
     }
