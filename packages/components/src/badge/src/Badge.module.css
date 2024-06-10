@@ -9,7 +9,7 @@
     --hop-Badge-primary-background-color: var(--hop-primary-surface-strong);
 
     /* Secondary */
-    --hop-Badge-secondary-text-color: var(--hop-neutral-text-weak);
+    --hop-Badge-secondary-text-color: var(--hop-neutral-text);
     --hop-Badge-secondary-background-color: var(--hop-neutral-surface-weak);
 
     /* Disabled */
