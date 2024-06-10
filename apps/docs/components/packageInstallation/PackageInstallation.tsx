@@ -45,7 +45,7 @@ const installMethods = methods.map(method => ({
 }));
 
 const formatCode = async (method: string, library: string, mode: string) => {
-    const code = `${method} add ${mode === "dev" ? "-D" : ""} @hopper-ui/${library}`;
+    const code = `${method} ${method === "npm" ? "install" : "add"} ${mode === "dev" ? "-D" : ""} @hopper-ui/${library}`;
 
     return await highlightCode(`
 \`\`\`shell
