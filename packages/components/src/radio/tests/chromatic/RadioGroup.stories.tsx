@@ -146,39 +146,39 @@ export const Vertical = {
                     </RadioList>
                 </RadioGroup>
             </Inline>
-            {/*<h1>Bordered with Description</h1>*/}
-            {/*<Inline alignY="start">*/}
-            {/*    <RadioGroup {...props} size="sm" variant="bordered">*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <RadioField>*/}
-            {/*                <Radio value="developer">Developer</Radio>*/}
-            {/*                <Text slot="description">Team Lead</Text>*/}
-            {/*            </RadioField>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <RadioField>*/}
-            {/*                <Radio value="manager">Manager</Radio>*/}
-            {/*                <Text slot="description">Team Manager</Text>*/}
-            {/*            </RadioField>*/}
-            {/*        </RadioList>*/}
-            {/*        <HelperMessage>Select one to continue</HelperMessage>*/}
-            {/*    </RadioGroup>*/}
-            {/*    <RadioGroup {...props} size="md" variant="bordered">*/}
-            {/*        <Label>Roles</Label>*/}
-            {/*        <RadioList>*/}
-            {/*            <RadioField>*/}
-            {/*                <Radio value="developer">Developer</Radio>*/}
-            {/*                <Text slot="description">Team Lead</Text>*/}
-            {/*            </RadioField>*/}
-            {/*            <Radio value="designer">Designer</Radio>*/}
-            {/*            <RadioField>*/}
-            {/*                <Radio value="manager">Manager</Radio>*/}
-            {/*                <Text slot="description">Team Manager</Text>*/}
-            {/*            </RadioField>*/}
-            {/*        </RadioList>*/}
-            {/*        <HelperMessage>Select one to continue</HelperMessage>*/}
-            {/*    </RadioGroup>*/}
-            {/*</Inline>*/}
+            <h1>Bordered with Description</h1>
+            <Inline alignY="start">
+                <RadioGroup {...props} size="sm" variant="bordered">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <RadioField>
+                            <Radio value="developer">Developer</Radio>
+                            <Text slot="description">Team Lead</Text>
+                        </RadioField>
+                        <Radio value="designer">Designer</Radio>
+                        <RadioField>
+                            <Radio value="manager">Manager</Radio>
+                            <Text slot="description">Team Manager</Text>
+                        </RadioField>
+                    </RadioList>
+                    <HelperMessage>Select one to continue</HelperMessage>
+                </RadioGroup>
+                <RadioGroup {...props} size="md" variant="bordered">
+                    <Label>Roles</Label>
+                    <RadioList>
+                        <RadioField>
+                            <Radio value="developer">Developer</Radio>
+                            <Text slot="description">Team Lead</Text>
+                        </RadioField>
+                        <Radio value="designer">Designer</Radio>
+                        <RadioField>
+                            <Radio value="manager">Manager</Radio>
+                            <Text slot="description">Team Manager</Text>
+                        </RadioField>
+                    </RadioList>
+                    <HelperMessage>Select one to continue</HelperMessage>
+                </RadioGroup>
+            </Inline>
             <h1>Bordered & Invalid</h1>
             <Inline alignY="start">
                 <RadioGroup {...props} size="sm" variant="bordered" isInvalid>
@@ -252,34 +252,6 @@ export const Vertical = {
         orientation: "vertical"
     }
 } satisfies Story;
-
-export const Debug = {
-    render: props => (
-        <>
-            <h1>Bordered with Description</h1>
-            <Inline alignY="start">
-                <RadioGroup {...props} size="sm" variant="bordered">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <RadioField>
-                            <Radio value="developer">Developer</Radio>
-                            <Text slot="description">Team Lead</Text>
-                        </RadioField>
-                        <Radio value="designer">Designer</Radio>
-                        {/*<RadioField>*/}
-                        {/*    <Radio value="manager">Manager</Radio>*/}
-                        {/*    <Text slot="description">Team Manager</Text>*/}
-                        {/*</RadioField>*/}
-                    </RadioList>
-                    <HelperMessage>Select one to continue</HelperMessage>
-                </RadioGroup>
-
-            </Inline>
-        </>
-    )
-
-} satisfies Story;
-
 
 export const Horizontal = {
     ...Vertical,
