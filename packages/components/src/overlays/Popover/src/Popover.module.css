@@ -58,10 +58,6 @@
 }
 
 .hop-Popover__title {
-    --font-family: var(--hop-Popover-title-font-family);
-
-    --font-weight: var(--hop-Popover-title-font-weight);
-
     grid-area: header;
     color: var(--hop-Popover-color);
 }

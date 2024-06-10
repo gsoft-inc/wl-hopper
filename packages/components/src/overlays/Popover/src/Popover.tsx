@@ -76,7 +76,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                         <SlotProvider values={[
                             [HeadingContext, {
                                 className: styles["hop-Popover__title"],
-                                size: "inherit"
+                                size: "xs"
                             }],
                             [ButtonContext, {
                                 size: "sm",
