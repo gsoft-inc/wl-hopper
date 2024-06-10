@@ -1,4 +1,4 @@
-import { Button, Heading, Footer, Content, Link, ButtonGroup, Stack, Div } from "@hopper-ui/components";
+import { Button, Heading, Footer, Content, Link, ButtonGroup, Div } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Popover, PopoverTrigger } from "../../src/Popover.tsx";
@@ -18,7 +18,7 @@ const meta = {
     },
     decorators: [
         Story => (
-            <Div UNSAFE_marginBottom="10rem">
+            <Div UNSAFE_marginBottom="12rem">
                 <Story />
             </Div>
         )
@@ -31,56 +31,57 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
     render: args => (
-        <Stack gap="stack-xl">
-            <h1>Default</h1>
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} >
-                    <Heading>{TITLE}</Heading>
-                    <Content>{CONTENT}</Content>
-                </Popover>
-            </PopoverTrigger>
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} >
+                <Heading>{TITLE}</Heading>
+                <Content>{CONTENT}</Content>
+            </Popover>
+        </PopoverTrigger>
+    )
+} satisfies Story;
 
-            <h1>Link</h1>
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} >
-                    <Heading>{TITLE}</Heading>
-                    <Content>{CONTENT}</Content>
-                    <Footer>
-                        <Link href="#">{LINK}</Link>
-                    </Footer>
-                </Popover>
-            </PopoverTrigger>
-        </Stack>
+export const HasLink = {
+    render: args => (
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} >
+                <Heading>{TITLE}</Heading>
+                <Content>{CONTENT}</Content>
+                <Footer>
+                    <Link href="#">{LINK}</Link>
+                </Footer>
+            </Popover>
+        </PopoverTrigger>
     )
 } satisfies Story;
 
 export const Buttons = {
     render: args => (
-        <Stack gap="stack-xl">
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} >
-                    <Heading>{TITLE}</Heading>
-                    <Content>{CONTENT}</Content>
-                    <Button>{PRIMARY_ACTION}</Button>
-                </Popover>
-            </PopoverTrigger>
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} >
+                <Heading>{TITLE}</Heading>
+                <Content>{CONTENT}</Content>
+                <Button>{PRIMARY_ACTION}</Button>
+            </Popover>
+        </PopoverTrigger>
+    )
+} satisfies Story;
 
-            <h1>Button Group</h1>
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} >
-                    <Heading>{TITLE}</Heading>
-                    <Content>{CONTENT}</Content>
-                    <ButtonGroup>
-                        <Button variant="secondary">{SECONDARY_ACTION}</Button>
-                        <Button>{PRIMARY_ACTION}</Button>
-                    </ButtonGroup>
-                </Popover>
-            </PopoverTrigger>
-        </Stack>
+export const HasButtonGroup = {
+    render: args => (
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} >
+                <Heading>{TITLE}</Heading>
+                <Content>{CONTENT}</Content>
+                <ButtonGroup>
+                    <Button variant="secondary">{SECONDARY_ACTION}</Button>
+                    <Button>{PRIMARY_ACTION}</Button>
+                </ButtonGroup>
+            </Popover>
+        </PopoverTrigger>
     )
 } satisfies Story;
 
