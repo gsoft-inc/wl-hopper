@@ -1,16 +1,7 @@
-import { Button, Heading, Footer, Content, Link, ButtonGroup, Stack } from "@hopper-ui/components";
+import { Button, Heading, Footer, Content, Link, ButtonGroup, Stack, Inline, Div } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Popover, PopoverTrigger } from "../../src/Popover.tsx";
-
-const meta = {
-    title: "Components/Popover",
-    component: Popover
-} satisfies Meta<typeof Popover>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
 
 const TRIGGER = "Trigger";
 const TITLE = "Engagement score";
@@ -19,10 +10,26 @@ const LINK = "Tell me more";
 const PRIMARY_ACTION = "Got it";
 const SECONDARY_ACTION = "Next";
 
-export const Default = {
+const meta = {
+    title: "Components/Popover",
+    component: Popover,
     args: {
         isOpen: true
     },
+    decorators: [
+        Story => (
+            <Div UNSAFE_marginBottom="10rem">
+                <Story />
+            </Div>
+        )
+    ]
+} satisfies Meta<typeof Popover>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default = {
     render: args => (
         <Stack gap="stack-xl">
             <h1>Default</h1>
@@ -45,8 +52,13 @@ export const Default = {
                     </Footer>
                 </Popover>
             </PopoverTrigger>
+        </Stack>
+    )
+} satisfies Story;
 
-            <h1>Button</h1>
+export const Buttons = {
+    render: args => (
+        <Stack gap="stack-xl">
             <PopoverTrigger>
                 <Button>{TRIGGER}</Button>
                 <Popover {...args} >
@@ -68,22 +80,26 @@ export const Default = {
                     </ButtonGroup>
                 </Popover>
             </PopoverTrigger>
-
-            <h1>Footer</h1>
-            <PopoverTrigger>
-                <Button>{TRIGGER}</Button>
-                <Popover {...args} >
-                    <Heading>{TITLE}</Heading>
-                    <Content>{CONTENT}</Content>
-                    <Footer>
-                        All right reserved.
-                    </Footer>
-                    <Button>{PRIMARY_ACTION}</Button>
-                </Popover>
-            </PopoverTrigger>
         </Stack>
     )
 } satisfies Story;
+
+export const HasFooter = {
+    render: args => (
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} >
+                <Heading>{TITLE}</Heading>
+                <Content>{CONTENT}</Content>
+                <Footer>
+                    All right reserved.
+                </Footer>
+                <Button>{PRIMARY_ACTION}</Button>
+            </Popover>
+        </PopoverTrigger>
+    )
+} satisfies Story;
+
 
 export const Styling = {
     render: args => (
