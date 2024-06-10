@@ -97,6 +97,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                             }],
                             [LinkContext, {
                                 size: "sm",
+                                variant: "primary",
                                 isQuiet: true
                             }]
                         ]}

@@ -3,7 +3,6 @@
     font-size: var(--font-size);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
-    color: var(--color);
 
     outline: none;
 }
@@ -61,9 +60,9 @@
 .hop-Popover__title {
     --font-family: var(--hop-Popover-title-font-family);
     --font-weight: var(--hop-Popover-title-font-weight);
-    --color: var(--hop-Popover-color);
 
     grid-area: header;
+    color: var(--hop-Popover-color);
 }
 
 .hop-Popover__actions,
@@ -76,24 +75,22 @@
 .hop-Popover__content {
     --font-size: var(--hop-Popover-content-font-size);
     --line-height: var(--hop-Popover-content-line-height);
-    --color: var(--hop-Popover-content-color);
 
     grid-area: content;
+
     margin-block: var(--hop-space-stack-sm) 0;
     margin-inline: 0;
     padding: 0;
+
+    color: var(--hop-Popover-content-color);
 }
 
 .hop-Popover__footer {
     --font-size: var(--hop-Popover-footer-font-size);
     --line-height: var(--hop-Popover-footer-line-height);
-    --color: var(--hop-Popover-color);
 
     grid-area: footer;
     place-self: center start;
     margin-block-start: var(--hop-space-stack-sm);
-}
-
-.hop-Popover__footer :where(a) {
-    --color: var(--hop-Popover-footer-link-color);
+    color: var(--hop-Popover-color);
 }
