@@ -44,13 +44,13 @@ Added Pingboard and Discount Rich Icons
 
 | Icon Name                            |
 | ------------------------------------ |
-| AnniversaryRichIcon.svg              |
-| BirthdayRichIcon.svg                 |
-| BrokenImageRichIcon.svg              |
-| DepartementRichIcon.svg              |
-| DirectoryRichIcon.svg                |
-| DiscountRichIcon.svg                 |
-| GroupRichIcon.svg                    |
-| LocationRichIcon.svg                 |
-| StatusRichIcon.svg                   |
-| WhoswhoRichIcon.svg                  |
+| AnniversaryRichIcon                  |
+| BirthdayRichIcon                     |
+| BrokenImageRichIcon                  |
+| DepartementRichIcon                  |
+| DirectoryRichIcon                    |
+| DiscountRichIcon                     |
+| GroupRichIcon                        |
+| LocationRichIcon                     |
+| StatusRichIcon                       |
+| WhoswhoRichIcon                      |
