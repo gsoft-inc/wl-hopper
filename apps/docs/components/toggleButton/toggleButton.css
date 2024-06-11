@@ -1,0 +1,30 @@
+.hd-toggleButton {
+    background-color: transparent;
+    color: var(--hd-color-neutral-icon);
+    border-width: 0;
+    border-radius: var(--hd-space-05);
+    display: flex;
+    gap: var(--hd-space-2);
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+
+
+    @media screen and (width >= 37.5rem) {
+        width: var(--hd-space-4);
+        aspect-ratio: 1/1;
+
+        &:hover {
+            background-color: var(--hd-color-neutral-surface-weak);
+            cursor: pointer;
+        }
+
+        &[data-selected] {
+            background-color: var(--hd-color-neutral-surface-weak);
+        }
+
+        > span {
+            display: none;
+        }
+    }
+}
