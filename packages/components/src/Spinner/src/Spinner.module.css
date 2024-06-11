@@ -55,8 +55,8 @@
     grid-area: spinner;
 
     box-sizing: border-box;
-    inline-size: var(--width, --hop-Spinner-md-wheel-size);
-    block-size: var(--height, --hop-Spinner-md-wheel-size);
+    inline-size: var(--width, var(--hop-Spinner-md-wheel-size));
+    block-size: var(--height, var(--hop-Spinner-md-wheel-size));
 
     opacity: var(--hop-Spinner-track-opacity);
     border: var(--hop-Spinner-track-border);
@@ -67,10 +67,10 @@
     grid-area: spinner;
 
     box-sizing: border-box;
-    inline-size: var(--width, --hop-Spinner-md-wheel-size);
-    block-size: var(--height, --hop-Spinner-md-wheel-size);
+    inline-size: var(--width, var(--hop-Spinner-md-wheel-size));
+    block-size: var(--height, var(--hop-Spinner-md-wheel-size));
 
-    border: var( --hop-Spinner-fill-border);
+    border: var(--hop-Spinner-fill-border);
     border-inline-start: var(--hop-Spinner-fill-border-inline-start);
     border-radius: var(--hop-Spinner-border-radius);
 

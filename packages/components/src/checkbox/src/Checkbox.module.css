@@ -69,11 +69,13 @@
     --hop-Checkbox-icon-color-pressed-invalid: var(--hop-danger-icon-weak-press);
 
     /* Small */
+    --hop-Checkbox-box-sm-block-size: 1rem;
     --hop-Checkbox-box-sm-inline-size: 1rem;
     --hop-Checkbox-text-sm-top-offset: calc((var(--box-inline-size) - (var(--hop-body-sm-line-height) * var(--hop-body-sm-font-size))) / 2);
     --hop-Checkbox-text-sm-margin-inline-start: calc(var(--hop-space-inline-sm) - var(--hop-space-inline-xs));
 
     /* Medium */
+    --hop-Checkbox-box-md-block-size: 1.5rem;
     --hop-Checkbox-box-md-inline-size: 1.5rem;
     --hop-Checkbox-text-md-top-offset: calc((var(--box-inline-size) - (var(--hop-body-md-line-height) * var(--hop-body-md-font-size))) / 2);
     --hop-Checkbox-text-md-margin-inline-start: calc(var(--hop-space-inline-md) - var(--hop-space-inline-xs));
@@ -192,12 +194,14 @@
 }
 
 .hop-Checkbox--sm {
+    --box-block-size: var(--hop-Checkbox-box-sm-block-size);
     --box-inline-size: var(--hop-Checkbox-box-sm-inline-size);
     --text-top-offset: var(--hop-Checkbox-text-sm-top-offset);
     --text-margin-inline-start: var(--hop-Checkbox-text-sm-margin-inline-start);
 }
 
 .hop-Checkbox--md {
+    --box-block-size: var(--hop-Checkbox-box-md-block-size);
     --box-inline-size: var(--hop-Checkbox-box-md-inline-size);
     --text-top-offset: var(--hop-Checkbox-text-md-top-offset);
     --text-margin-inline-start: var(--hop-Checkbox-text-md-margin-inline-start);
@@ -220,8 +224,8 @@
     order: 1;
 
     box-sizing: border-box;
-    aspect-ratio: 1/1;
     inline-size: var(--box-inline-size, var(--hop-Checkbox-box-md-inline-size));
+    block-size: var(--box-block-size, var(--hop-Checkbox-box-md-block-size));
 
     background-color: var(--box-background-color);
     border: var(--hop-Checkbox-box-border-size) solid var(--box-border-color);

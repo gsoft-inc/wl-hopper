@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.0.1
+
+### Patch Changes
+
+- 8ad853b: Retro fitted active color tokens to ease with migrations, these will be deprecated eventually.
+
 ## 2.0.0
 
 ### Major Changes

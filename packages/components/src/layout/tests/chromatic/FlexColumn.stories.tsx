@@ -10,7 +10,7 @@ function Square(props: DivProps) {
 }
 
 const meta = {
-    title: "Components/Flex/Column",
+    title: "Components/Layout/Flex-Column",
     component: Flex,
     args: {
         direction: "column",
@@ -26,11 +26,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 export const Gap: Story = {
-    args:{
+    args: {
         gap: "stack-md"
     }
 };
