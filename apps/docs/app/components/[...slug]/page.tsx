@@ -47,12 +47,12 @@ export default async function ComponentPage({ params }: PageProps) {
         },
         {
             name: "npm",
-            src: links.npm,
+            src: "https://www.npmjs.com/package/@hopper-ui/components",
             label: "View on npm"
         },
         {
             name: "issue",
-            src: links.issue,
+            src: "https://github.com/gsoft-inc/wl-hopper/issues/new",
             label: "Report an issue"
         }
     ];
