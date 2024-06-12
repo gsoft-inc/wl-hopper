@@ -8,9 +8,9 @@ function Square(props: DivProps) {
 }
 
 const meta = {
-    title: "Components/Stack",
+    title: "Components/Layout/Stack",
     component: Stack,
-    args:{
+    args: {
         children: [
             <Square key="1" backgroundColor="decorative-option1" />,
             <Square key="2" backgroundColor="decorative-option3" />,
@@ -24,35 +24,34 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 export const Reverse: Story = {
-    args:{
+    args: {
         reverse: true
     }
 };
 
 export const AlignXStart: Story = {
-    args:{
+    args: {
         alignX: "start"
     }
 };
 
 export const AlignXCenter: Story = {
-    args:{
+    args: {
         alignX: "center"
     }
 };
 
 export const AlignXEnd: Story = {
-    args:{
+    args: {
         alignX: "end"
     }
 };
 
 export const AlignYStart: Story = {
-    args:{
+    args: {
         alignY: "start",
         UNSAFE_height: "400px"
     }
@@ -60,7 +59,7 @@ export const AlignYStart: Story = {
 
 export const AlignYCenter: Story = {
     ...AlignYStart,
-    args:{
+    args: {
         ...AlignYStart.args,
         alignY: "center"
     }
@@ -68,7 +67,7 @@ export const AlignYCenter: Story = {
 
 export const AlignYEnd: Story = {
     ...AlignYStart,
-    args:{
+    args: {
         ...AlignYStart.args,
         alignY: "end"
     }

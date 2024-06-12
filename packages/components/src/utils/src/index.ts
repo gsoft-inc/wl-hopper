@@ -7,3 +7,4 @@ export * from "./SlotProvider.ts";
 export * from "./useSlot.ts";
 export * from "./ClearSlots.tsx";
 export * from "./useRenderProps.ts";
+export * from "./assertion.ts";

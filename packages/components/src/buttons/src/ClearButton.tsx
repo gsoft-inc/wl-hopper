@@ -1,85 +1,38 @@
 import { DismissIcon } from "@hopper-ui/icons";
-import {
-    type StyledComponentProps,
-    useStyledSystem,
-    type ResponsiveProp,
-    useResponsiveValue
-} from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
 import {
-    Button as RACButton,
-    type ButtonProps as RACButtonProps,
-    composeRenderProps,
     useContextProps
 } from "react-aria-components";
 
 import { useLocalizedString } from "../../i18n/index.ts";
-import {
-    composeClassnameRenderProps,
-    cssModule
-} from "../../utils/index.ts";
 
 import { ClearButtonContext } from "./ClearButtonContext.ts";
-
-import styles from "./ClearButton.module.css";
+import { EmbeddedButton, type EmbeddedButtonProps } from "./EmbeddedButton.tsx";
 
 export const GlobalClearButtonCssSelector = "hop-ClearButton";
 
-export interface ClearButtonProps extends StyledComponentProps<Omit<RACButtonProps, "children">> {
-    /**
-     * The size of the ClearButton.
-     * @default "md"
-     */
-    size?: ResponsiveProp<"md" | "lg">;
+export interface ClearButtonProps extends EmbeddedButtonProps {
 }
 
 function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     [props, ref] = useContextProps(props, ref, ClearButtonContext);
-
-    const { stylingProps, ...ownProps } = useStyledSystem(props);
     const stringFormatter = useLocalizedString();
 
     const {
         "aria-label": ariaLabel = stringFormatter.format("ClearButton.clearAriaLabel"),
-        className,
-        size: sizeProp,
-        isDisabled,
-        style: styleProp,
+        size = "md",
         ...otherProps
-    } = ownProps;
-    
-    const size = useResponsiveValue(sizeProp) ?? "md";
-
-    const classNames = composeClassnameRenderProps(
-        className,
-        GlobalClearButtonCssSelector,
-        cssModule(
-            styles,
-            "hop-ClearButton",
-            size
-        ),
-        stylingProps.className
-    );
-
-    const style = composeRenderProps(styleProp, prev => {
-        return {
-            ...stylingProps.style,
-            ...prev
-        };
-    });
-
+    } = props;
 
     return (
-        <RACButton
+        <EmbeddedButton
             ref={ref}
-            className={classNames}
-            style={style}
-            isDisabled={isDisabled}
             aria-label={ariaLabel}
+            size={size}
             {...otherProps}
         >
-            <DismissIcon size="sm" className={styles["hop-ClearButton__icon"]} />
-        </RACButton>
+            <DismissIcon />
+        </EmbeddedButton>
     );
 }
 

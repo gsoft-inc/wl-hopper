@@ -8,7 +8,7 @@ function Square(props: DivProps) {
 }
 
 const meta = {
-    title: "Components/Flex",
+    title: "Components/Layout/Flex",
     component: Flex,
     args: {
         children: [
@@ -23,8 +23,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-};
+export const Default: Story = {};
 
 export const FlexInline: Story = {
     name: "Inline",

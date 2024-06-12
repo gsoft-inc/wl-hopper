@@ -253,7 +253,6 @@ export const Vertical = {
     }
 } satisfies Story;
 
-
 export const Horizontal = {
     ...Vertical,
     args: {

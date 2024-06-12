@@ -1,34 +1,34 @@
 import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { ClearButton } from "../../src/ClearButton.tsx";
-import { ClearButtonContext } from "../../src/ClearButtonContext.ts";
+import { EmbeddedButton } from "../../src/EmbeddedButton.tsx";
+import { EmbeddedButtonContext } from "../../src/EmbeddedButtonContext.ts";
 
-describe("ClearButton", () => {
+describe("EmbeddedButton", () => {
     it("should render with default class", () => {
-        render(<ClearButton />);
+        render(<EmbeddedButton />);
 
         const element = screen.getByRole("button");
-        expect(element).toHaveClass("hop-ClearButton");
+        expect(element).toHaveClass("hop-EmbeddedButton");
     });
 
     it("should support custom class", () => {
-        render(<ClearButton className="test" />);
+        render(<EmbeddedButton className="test" />);
 
         const element = screen.getByRole("button");
-        expect(element).toHaveClass("hop-ClearButton");
+        expect(element).toHaveClass("hop-EmbeddedButton");
         expect(element).toHaveClass("test");
     });
 
     it("should support custom style", () => {
-        render(<ClearButton marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
+        render(<EmbeddedButton marginTop="stack-sm" style={{ marginBottom: "13px" }} />);
 
         const element = screen.getByRole("button");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<ClearButton data-foo="bar" />);
+        render(<EmbeddedButton data-foo="bar" />);
 
         const element = screen.getByRole("button");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -36,9 +36,9 @@ describe("ClearButton", () => {
 
     it("should support slots", () => {
         render(
-            <ClearButtonContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <ClearButton slot="test" />
-            </ClearButtonContext.Provider>
+            <EmbeddedButtonContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
+                <EmbeddedButton slot="test" />
+            </EmbeddedButtonContext.Provider>
         );
 
         const element = screen.getByRole("button");
@@ -48,14 +48,14 @@ describe("ClearButton", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLButtonElement>();
-        render(<ClearButton ref={ref} />);
+        render(<EmbeddedButton ref={ref} />);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLButtonElement).toBeTruthy();
     });
 
     it("should support form props", () => {
-        render(<form id="foo"><ClearButton form="foo" formMethod="post" /></form>);
+        render(<form id="foo"><EmbeddedButton form="foo" formMethod="post" /></form>);
 
         const button = screen.getByRole("button");
         expect(button).toHaveAttribute("form", "foo");
@@ -66,7 +66,7 @@ describe("ClearButton", () => {
     it("should be focused on render when the focus api is called", async () => {
         const ref = createRef<HTMLButtonElement>();
 
-        render(<ClearButton ref={ref} />);
+        render(<EmbeddedButton ref={ref} />);
 
         act(() => {
             ref.current?.focus();

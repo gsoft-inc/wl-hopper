@@ -72,7 +72,7 @@ export const Disabled: Story = {
  */
 export const Fluid: Story = {
     args:{
-        fluid: true
+        isFluid: true
     }
 };
 

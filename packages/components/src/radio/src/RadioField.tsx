@@ -10,7 +10,13 @@ import { useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import {
+    SlotProvider,
+    type SizeAdapter,
+    cssModule,
+    type BaseComponentProps,
+    ClearContainerSlots
+} from "../../utils/index.ts";
 
 import { RadioContext } from "./RadioContext.ts";
 import { RadioFieldContext } from "./RadioFieldContext.ts";
@@ -70,32 +76,34 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     const descriptionId = useId();
 
     return (
-        <SlotProvider
-            values={[
-                [TextContext, {
-                    id: descriptionId,
-                    className: styles["hop-RadioField__description"],
-                    size: RadioToDescriptionSizeAdapter[size]
-                }],
-                [RadioContext, {
-                    className: styles["hop-RadioField__radio"],
-                    size: size,
-                    isDisabled: isDisabled,
-                    "aria-describedby": descriptionId
-                }]
-            ]}
-        >
-            <div
-                {...otherProps}
-                ref={ref}
-                className={classNames}
-                style={mergedStyles}
-                slot={slot ?? undefined}
-                data-disabled={isDisabled}
+        <ClearContainerSlots>
+            <SlotProvider
+                values={[
+                    [TextContext, {
+                        id: descriptionId,
+                        className: styles["hop-RadioField__description"],
+                        size: RadioToDescriptionSizeAdapter[size]
+                    }],
+                    [RadioContext, {
+                        className: styles["hop-RadioField__radio"],
+                        size: size,
+                        isDisabled: isDisabled,
+                        "aria-describedby": descriptionId
+                    }]
+                ]}
             >
-                {children}
-            </div>
-        </SlotProvider>
+                <div
+                    {...otherProps}
+                    ref={ref}
+                    className={classNames}
+                    style={mergedStyles}
+                    slot={slot ?? undefined}
+                    data-disabled={isDisabled}
+                >
+                    {children}
+                </div>
+            </SlotProvider>
+        </ClearContainerSlots>
     );
 }
 
