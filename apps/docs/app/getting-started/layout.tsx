@@ -1,0 +1,34 @@
+"use client";
+
+import type { ReactNode } from "react";
+import { allGettingStarteds } from "contentlayer/generated";
+import { useSelectedLayoutSegment } from "next/navigation";
+import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
+import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
+import getSectionLinks from "@/app/lib/getSectionLinks";
+import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
+
+export default function TokenLayout({ children }: { children: ReactNode }) {
+    const selectedLayoutSegment = useSelectedLayoutSegment();
+    const [section, type] = selectedLayoutSegment?.split("/") ?? ["", ""];
+
+    const pageContent = allGettingStarteds.find(page => page.slug === type && page.section === section);
+
+    if (!pageContent) {
+        return null;
+    }
+
+    const sectionLinks = getSectionLinks(pageContent);
+
+    return (
+        <>
+            <SidebarProvider>
+                <SubHeader links={sectionLinks} />
+                <div className="hd-wrapper hd-flex">
+                    <Sidebar data={allGettingStarteds} />
+                    {children}
+                </div>
+            </SidebarProvider>
+        </>
+    );
+}
