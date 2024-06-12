@@ -9,7 +9,6 @@
     align-items: center;
     font-size: 1rem;
 
-
     @media screen and (width >= 37.5rem) {
         width: var(--hd-space-4);
         aspect-ratio: 1/1;
@@ -21,6 +20,14 @@
 
         &[data-selected] {
             background-color: var(--hd-color-neutral-surface-weak);
+        }
+
+        &[data-focused] {
+            outline: none;
+        }
+
+        &[data-focus-visible] {
+            box-shadow: var(--hd-focus-ring);
         }
 
         > span {
