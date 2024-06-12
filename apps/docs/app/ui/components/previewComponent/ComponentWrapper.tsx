@@ -1,13 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
-import { StyledSystemProvider } from "@hopper-ui/styled-system";
 import Card from "@/components/card/Card.tsx";
-import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleton.tsx";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch.tsx";
 import type { ColorScheme } from "@/context/theme/ThemeProvider.tsx";
+import Example from "@/app/ui/components/exampleComponent/Example.tsx";
+
+import "./componentWrapper.css";
 
 interface ComponentWrapperProps {
     className?: string;
@@ -15,11 +15,6 @@ interface ComponentWrapperProps {
 }
 
 const ComponentWrapper = ({ className, src }: ComponentWrapperProps) => {
-    const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${src}.tsx`), {
-        ssr: false,
-        loading: () => <PreviewSkeleton overlay />
-    }), [src]);
-
     const [colorScheme, setColorScheme] = useState<"light" | "dark">("light");
 
     const toggleTheme = () => {
@@ -31,14 +26,12 @@ const ComponentWrapper = ({ className, src }: ComponentWrapperProps) => {
     };
 
     return (
-        <StyledSystemProvider colorScheme={colorScheme}>
-            <div className={clsx("hd-component-wrapper", `hd-component-wrapper--${colorScheme}`)}>
-                <ThemeSwitch className="hd-component-wrapper__action" onChange={toggleTheme} colorMode={colorScheme} />
-                <Card className={className} size="sm">
-                    <DynamicComponent />
-                </Card>
-            </div>
-        </StyledSystemProvider>
+        <div className={clsx("hd-component-wrapper", `hd-component-wrapper--${colorScheme}`)}>
+            <ThemeSwitch className="hd-component-wrapper__action" onChange={toggleTheme} colorMode={colorScheme} />
+            <Card className={className} size="sm">
+                <Example src={src} colorScheme={colorScheme} />
+            </Card>
+        </div>
     );
 };
 
