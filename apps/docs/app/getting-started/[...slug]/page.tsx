@@ -12,14 +12,16 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    return allGettingStarteds.map(({ slug, section }) => ({
-        slug: [section, slug]
+    return allGettingStarteds.map(({ section }) => ({
+        slug: [section]
     }));
 }
 
 export default function GettingStartedPage({ params }: PageProps) {
-    const [section, type] = params.slug;
-    const pages = allGettingStarteds.find(page => page.slug === type && page.section === section);
+    const [section] = params.slug;
+
+    const pages = allGettingStarteds.find(page => page.slug === section);
+
 
     if (!pages) {
         notFound();

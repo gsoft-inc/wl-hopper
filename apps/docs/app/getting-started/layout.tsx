@@ -9,10 +9,8 @@ import getSectionLinks from "@/app/lib/getSectionLinks";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 
 export default function TokenLayout({ children }: { children: ReactNode }) {
-    const selectedLayoutSegment = useSelectedLayoutSegment();
-    const [section, type] = selectedLayoutSegment?.split("/") ?? ["", ""];
-
-    const pageContent = allGettingStarteds.find(page => page.slug === type && page.section === section);
+    const slug = useSelectedLayoutSegment();
+    const pageContent = allGettingStarteds.find(page => page.slug === slug);
 
     if (!pageContent) {
         return null;
