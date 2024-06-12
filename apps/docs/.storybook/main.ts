@@ -1,12 +1,18 @@
-import type { StorybookConfig } from "@storybook/nextjs";
+import type {StorybookConfig} from "@storybook/nextjs";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import path from "path";
 
 export default {
     stories: ["../components/**/*.stories.@(ts|tsx)", "../app/ui/**/*.stories.@(ts|tsx)"],
+    env: (config) => ({
+        ...config,
+        STORYBOOK_MODE: "active",
+    }),
     addons: [
+        "@storybook/addon-a11y",
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-interactions"
+        "@storybook/addon-interactions",
     ],
     framework: {
         name: "@storybook/nextjs",
@@ -15,6 +21,9 @@ export default {
     docs: {
         autodocs: "tag"
     },
+    features: {
+        experimentalRSC: true
+    },
     webpackFinal: async config => {
         // Configure aliases
         if (config.resolve) {
@@ -22,8 +31,14 @@ export default {
                 ...(config.resolve.plugins || []),
                 new TsconfigPathsPlugin({
                     extensions: config.resolve.extensions
-                })
+                }),
+
             ];
+            config.resolve.alias = {
+                ...config.resolve.alias,
+                "@": path.resolve(__dirname, "app"),
+                "react-dom": "react-dom"
+            };
         }
 
         // Configure SVGR
