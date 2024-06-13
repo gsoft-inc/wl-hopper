@@ -1,0 +1,53 @@
+.hop-Avatar  {
+    /* Default */
+    --hop-Avatar-border-radius: var(--hop-shape-circle);
+
+    /* xs */
+    --hop-Avatar-xs-size: 1rem;
+
+    /* sm */
+    --hop-Avatar-sm-size: 1.5rem;
+
+    /* md */
+    --hop-Avatar-md-size: 2rem;
+
+    /* lg */
+    --hop-Avatar-lg-size: 3rem;
+
+    /* xl */
+    --hop-Avatar-xl-size: 4rem;
+
+    /* 2xl */
+    --hop-Avatar-2xl-size: 6rem;
+
+    /* Internal Variables */
+    
+    user-select: none;
+    aspect-ratio: 1;
+    inline-size: var(--size, var(--hop-Avatar-md-size));
+    border-radius: var(--hop-Avatar-border-radius);
+}
+
+.hop-Avatar--xs {
+    --size: var(--hop-Avatar-xs-size);
+}
+
+.hop-Avatar--sm {
+    --size: var(--hop-Avatar-sm-size);
+}
+
+.hop-Avatar--md {
+    --size: var(--hop-Avatar-md-size);
+}
+
+.hop-Avatar--lg {
+    --size: var(--hop-Avatar-lg-size);
+}
+
+.hop-Avatar--xl {
+    --size: var(--hop-Avatar-xl-size);
+}
+
+.hop-Avatar--2xl {
+    --size: var(--hop-Avatar-2xl-size);
+}
