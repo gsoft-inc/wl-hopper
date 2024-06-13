@@ -13,9 +13,13 @@ Below is the typical installation path, this assumes you are using React. If you
 
 ## Installation
 
+### Install packages
+
 Run the following command in your terminal to install the Hopper packages.
 
 <PackageInstallation library="components @hopper-ui/icons @hopper-ui/styled-system react-aria react-aria-components" mod="prod" />
+
+### Configure your application
 
 After installing Hopper UI packages, you must setup a Provider at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
 
@@ -25,17 +29,19 @@ import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  < HopperProvider >
+  <HopperProvider>
     <App />
-  </HopperProvider >
+  </HopperProvider>
 );
 ```
+
+### Import styles
 
 You will also need to import the Hopper styles in your project. You can do this by importing the following CSS files:
 
 ```css
-@import "@hopper-ui/tokens/tokens.css";
-@import "@hopper-ui/tokens/fonts.css";
+@import "@hopper-ui/components/index.css";
+@import "@hopper-ui/icons/index.css";
 ```
 
 You are now ready to use Hopper UI in your project! Need more details? Have a look at the [Individual package installation](/getting-started/individual-packages) page.
