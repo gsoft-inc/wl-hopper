@@ -13,6 +13,7 @@ import IconSpecTable from "@/app/ui/tokens/table/IconSpecTable.tsx";
 import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
 import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
+import Overview from "@/app/ui/components/overview/Overview.tsx";
 import Title from "@/components/title/Title.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
@@ -41,6 +42,7 @@ export const components = {
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,
     IconSpecTable: IconSpecTable,
+    Overview: Overview,
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,

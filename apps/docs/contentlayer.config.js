@@ -139,6 +139,9 @@ export const Components = defineDocumentType(() => ({
         },
         status: {
             type: "string"
+        },
+        teaser: {
+            type: "string"
         }
     },
     computedFields: {

@@ -1,0 +1,19 @@
+.hd-component-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.hd-component-overview__item {
+    border-radius: 0.5rem;
+    padding: .75rem;
+}
+
+.hd-component-overview__item-teaser {
+    font-size: 1rem;
+    line-height: 1.125;
+    margin-top: 0.75rem;
+}
+
+.hd-component-overview__item:hover {
+    background-color: red;
+}
