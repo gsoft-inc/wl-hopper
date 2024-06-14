@@ -1,8 +1,7 @@
-import { Suspense } from "react";
 import Tabs from "@/components/tabs/Tabs.tsx";
-import ComponentWrapper from "@/app/ui/components/previewComponent/ComponentWrapper.tsx";
-import CodeWrapper from "@/app/ui/components/previewComponent/CodeWrapper.tsx";
-import PreviewSkeleton from "@/app/ui/components/previewComponent/PreviewSkeleton.tsx";
+
+import { getComponentCode } from "@/app/lib/getComponentCode.ts";
+import ComponentExample from "@/app/ui/components/componentExample/ComponentExample.tsx";
 
 import "./previewComponent.css";
 
@@ -21,17 +20,15 @@ const PreviewComponent = async ({ src }: PreviewComponentProps) => {
         return null;
     }
 
+    const code = await getComponentCode(src);
+
     return (
         <div className="hd-preview-component">
 
             <Tabs tabs={tabsConfig}>
-                <ComponentWrapper className="hd-preview-component__content"
-                    src={src}
-                />
+                <ComponentExample type="preview" src={src} className="hd-preview-component__content" />
 
-                <Suspense fallback={<PreviewSkeleton />}>
-                    <CodeWrapper src={src} />
-                </Suspense>
+                <ComponentExample type="code" code={code} />
 
                 {/*<PlaygroundWrapper key="playground" />*/}
             </Tabs>

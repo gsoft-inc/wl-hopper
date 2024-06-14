@@ -1,0 +1,55 @@
+.hd-component-preview-wrapper {
+    position: relative;
+}
+
+.hd-component-preview-wrapper__card {
+    height: 100%;
+}
+
+[data-schema="light"] {
+    .hd-component-preview-wrapper__card {
+        --background: var(--hd-white);
+        --background-dot: var(--hd-neutral-50);
+    }
+
+    .hd-component-preview-wrapper__action {
+        --toggleButton-color: var(--hd-neutral-900);
+    }
+
+    .hd-component-preview-wrapper__action:hover {
+        --toggleButton-hover-background: var(--hd-neutral-50);
+    }
+
+    .hd-component-preview-wrapper__action[data-selected] {
+        --toggleButton-selected-background: var(--hd-neutral-50);
+    }
+}
+
+[data-schema="dark"] {
+    .hd-component-preview-wrapper__card {
+        --background: var(--hd-neutral-900);
+        --background-dot: var(--hd-neutral-800);
+    }
+
+    .hd-component-preview-wrapper__action {
+        --toggleButton-color: var(--hd-neutral-0);
+    }
+
+    .hd-component-preview-wrapper__action:hover {
+        --toggleButton-hover-background: var(--hd-neutral-900);
+        --toggleButton-color: var(--hd-neutral-0);
+    }
+
+    .hd-component-preview-wrapper__action[data-selected] {
+        --toggleButton-selected-background: var(--hd-neutral-800);
+    }
+}
+
+
+.hd-component-preview-wrapper__actions {
+    display: flex;
+    gap: var(--hd-space-1);
+    position: absolute;
+    inset: 1rem 1rem auto auto;
+    z-index: 100;
+}

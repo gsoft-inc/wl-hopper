@@ -1,8 +1,8 @@
 import { highlightCode } from "@/components/highlightCode";
 import { getFormattedCode } from "@/app/lib/getComponentCode.ts";
 
-export async function mockGetComponentCode() {
-    const mockCode = await getFormattedCode("import { Button } from \"@hopper-ui/components\"");
+export async function mockGetComponentCode(code: string) {
+    const mockCode = await getFormattedCode(code);
 
     return await highlightCode(mockCode);
 }
