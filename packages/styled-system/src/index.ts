@@ -21,6 +21,7 @@ export * from "./utils/useInsertStyleElement.ts";
 export * from "./utils/useIsomorphicInsertionEffect.ts";
 export * from "./utils/useIsomorphicLayoutEffect.ts";
 export * from "./utils/useThemeComputedStyle.ts";
+export * from "./utils/slot.ts";
 
 export * from "./StyledSystemProvider.tsx";
 export * from "./styledSystemProps.ts";
