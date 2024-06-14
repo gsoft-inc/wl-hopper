@@ -1,0 +1,6 @@
+.hd-callout {
+    background-color: var(--hd-color-accent-surface);
+    border-radius: 0.25rem;
+    border-left: 0.25rem solid var(--hd-color-accent-border);
+    padding: 1rem;
+}
