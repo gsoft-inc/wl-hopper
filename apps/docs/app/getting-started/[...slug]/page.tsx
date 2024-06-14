@@ -4,6 +4,7 @@ import { allGettingStarteds } from "contentlayer/generated";
 import Aside from "@/app/ui/layout/aside/Aside.tsx";
 import Mdx from "@/components/mdx/Mdx.tsx";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
+import Title from "@/components/title/Title";
 
 interface PageProps {
     params: {
@@ -33,7 +34,7 @@ export default function IconPage({ params }: PageProps) {
             <Aside title="On this page" links={sectionLinks} />
             <main>
                 <article className="hd-content" key={pages._id}>
-                    <h1 className="hd-title hd-title--level1">{pages.title}</h1>
+                    <Title as="h1">{pages.title}</Title>
                     <Mdx code={pages.body.code} />
                 </article>
             </main>
