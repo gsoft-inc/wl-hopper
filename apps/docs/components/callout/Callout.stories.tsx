@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Callout from "./Callout.tsx";
 
-
 const meta = {
     title: "components/Callout",
     component: Callout

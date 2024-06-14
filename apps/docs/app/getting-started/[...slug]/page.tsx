@@ -17,11 +17,10 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function GettingStartedPage({ params }: PageProps) {
-    const [section] = params.slug;
+export default function IconPage({ params }: PageProps) {
+    const [slug] = params.slug;
 
-    const pages = allGettingStarteds.find(page => page.slug === section);
-
+    const pages = allGettingStarteds.find(page => page.slug === slug);
 
     if (!pages) {
         notFound();
