@@ -24,7 +24,8 @@
         "PreviewComponent": true,
         "MigrateGuide": true,
         "PackageInstallation": true,
-        "PropTable": true
+        "PropTable": true,
+        "Example": true
     },
     "overrides": [
         {

@@ -5,21 +5,20 @@ import clsx from "clsx";
 
 import { CodeIcon } from "@/components/icon";
 import { ToggleButton } from "@/components/toggleButton/ToggleButton.tsx";
-import HighlightCode from "@/components/highlightCode/HighlightCode.tsx";
 
 import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 
 import "./componentExample.css";
 
-interface componentExampleProps {
+export interface ComponentExampleProps {
     type?: "code" | "preview" | "both";
-    src?: string;
-    code?: string;
+    src: string;
+    code?: React.ReactNode;
     className?: string;
     isOpen?: boolean;
 }
 
-const ComponentExample = ({ type = "both", src = "", code = "", className, isOpen = true }: componentExampleProps) => {
+const ComponentExample = ({ type = "both", src = "", code = "", className, isOpen = true }: ComponentExampleProps) => {
     const [showCode, setShowCode] = useState(isOpen);
 
     const showBothComponent = useMemo(() => type === "both", [type]);
@@ -44,7 +43,7 @@ const ComponentExample = ({ type = "both", src = "", code = "", className, isOpe
                 toggleButton={toggleShowCodeButton}
             />}
             <div className={clsx("hd-component-code", showCodeComponent && "hd-component-code--expanded")}>
-                <HighlightCode code={code} />
+                {code}
             </div>
         </div>
     );

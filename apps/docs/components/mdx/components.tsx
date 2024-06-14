@@ -19,15 +19,19 @@ import Footnote from "@/components/footnote/Footnote.tsx";
 import PackageInstallation, {
     type PackageInstallationProps
 } from "@/components/packageInstallation/PackageInstallation.tsx";
+
 import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
+import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
+import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const PreviewComponent = dynamic(() => import("@/app/ui/components/previewComponent/PreviewComponent.tsx"));
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
+const ComponentExample = dynamic(() => import("@/app/ui/components/componentExample/ComponentExample.tsx"));
 
 export const components = {
     Card,
@@ -48,7 +52,10 @@ export const components = {
         return <PackageInstallation {...props} />;
     },
     PreviewComponent: (props: PreviewComponentProps) => {
-        return <PreviewComponent {...props} />;
+        return <PreviewComponent {...props} code={<ComponentCodeWrapper src={props.src} />} />;
+    },
+    Example: (props: ComponentExampleProps) => {
+        return <ComponentExample {...props} code={<ComponentCodeWrapper src={props.src} />} />;
     },
     MigrateGuide: (props: MigrateGuideProps) => {
         return <MigrateGuide {...props} />;

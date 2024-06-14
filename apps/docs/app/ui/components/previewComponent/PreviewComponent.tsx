@@ -1,12 +1,12 @@
 import Tabs from "@/components/tabs/Tabs.tsx";
 
-import { getComponentCode } from "@/app/lib/getComponentCode.ts";
 import ComponentExample from "@/app/ui/components/componentExample/ComponentExample.tsx";
 
 import "./previewComponent.css";
 
 export interface PreviewComponentProps {
     src: string;
+    code?: React.ReactNode;
 }
 
 const tabsConfig = [
@@ -15,12 +15,10 @@ const tabsConfig = [
     // { category: "playground", title: "Playground" }
 ];
 
-const PreviewComponent = async ({ src }: PreviewComponentProps) => {
+const PreviewComponent = async ({ src, code }: PreviewComponentProps) => {
     if (!src) {
         return null;
     }
-
-    const code = await getComponentCode(src);
 
     return (
         <div className="hd-preview-component">
@@ -28,7 +26,7 @@ const PreviewComponent = async ({ src }: PreviewComponentProps) => {
             <Tabs tabs={tabsConfig}>
                 <ComponentExample type="preview" src={src} className="hd-preview-component__content" />
 
-                <ComponentExample type="code" code={code} />
+                <ComponentExample type="code" src={src} code={code} />
 
                 {/*<PlaygroundWrapper key="playground" />*/}
             </Tabs>
