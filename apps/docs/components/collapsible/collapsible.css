@@ -44,7 +44,7 @@
 .hd-collapsible__content-wrapper {
     height: 0;
     overflow: hidden;
-    transition: height cubic-bezier(0.4, 0, 0.2, 1) 400ms;
+    transition: height cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
 

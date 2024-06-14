@@ -22,7 +22,7 @@
 .hd-component-code {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows cubic-bezier(0.4, 0, 0.2, 1) 400ms;
+    transition: grid-template-rows cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 
     [data-rehype-pretty-code-figure] {
         overflow: hidden;

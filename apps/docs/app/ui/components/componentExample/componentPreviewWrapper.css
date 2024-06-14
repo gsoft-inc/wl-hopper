@@ -13,15 +13,15 @@
     }
 
     .hd-component-preview-wrapper__action {
-        --toggleButton-color: var(--hd-neutral-900);
+        --toggle-button-color: var(--hd-neutral-900);
     }
 
     .hd-component-preview-wrapper__action:hover {
-        --toggleButton-hover-background: var(--hd-neutral-50);
+        --toggle-button-hover-background: var(--hd-neutral-50);
     }
 
     .hd-component-preview-wrapper__action[data-selected] {
-        --toggleButton-selected-background: var(--hd-neutral-50);
+        --toggle-button-selected-background: var(--hd-neutral-50);
     }
 }
 
@@ -32,16 +32,16 @@
     }
 
     .hd-component-preview-wrapper__action {
-        --toggleButton-color: var(--hd-neutral-0);
+        --toggle-button-color: var(--hd-neutral-0);
     }
 
     .hd-component-preview-wrapper__action:hover {
-        --toggleButton-hover-background: var(--hd-neutral-900);
-        --toggleButton-color: var(--hd-neutral-0);
+        --toggle-button-hover-background: var(--hd-neutral-900);
+        --toggle-button-color: var(--hd-neutral-0);
     }
 
     .hd-component-preview-wrapper__action[data-selected] {
-        --toggleButton-selected-background: var(--hd-neutral-800);
+        --toggle-button-selected-background: var(--hd-neutral-800);
     }
 }
 

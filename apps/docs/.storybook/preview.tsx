@@ -1,4 +1,4 @@
-import type {Preview} from "@storybook/react";
+import type { Preview } from "@storybook/react";
 import React from "react";
 
 import "../app/globals.css";
@@ -6,20 +6,20 @@ import "../app/globals.css";
 // Storybook styles
 import "./global.css";
 
-const Container = ({children, theme}: { children: React.ReactNode; theme: "light" | "dark" }) => (
+const Container = ({ children, theme }: { children: React.ReactNode; theme: "light" | "dark" }) => (
     <div className="shd-container" data-theme={theme}>{children}</div>
 );
 
 const preview: Preview = {
     parameters: {
         layout: "fullscreen",
-        actions: {argTypesRegex: "^on[A-Z].*"},
+        actions: { argTypesRegex: "^on[A-Z].*" },
         controls: {
             matchers: {
                 color: /(background|color)$/i,
                 date: /Date$/
             }
-        },
+        }
     },
     globalTypes: {
         scheme: {
@@ -29,8 +29,8 @@ const preview: Preview = {
                 title: "Theme",
                 icon: "circlehollow",
                 items: [
-                    {value: "light", title: "Light"},
-                    {value: "dark", title: "Dark"}
+                    { value: "light", title: "Light" },
+                    { value: "dark", title: "Dark" }
                 ],
                 dynamicTitle: true
             }
@@ -38,12 +38,12 @@ const preview: Preview = {
     },
     decorators: [
         (Story, context) => {
-            const {scheme} = context.globals;
+            const { scheme } = context.globals;
             const theme = scheme === "light" ? "light" : "dark";
 
             return (
                 <Container theme={theme}>
-                    <Story/>
+                    <Story />
                 </Container>
             );
         }

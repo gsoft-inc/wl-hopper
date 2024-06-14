@@ -1,10 +1,10 @@
 .hd-toggleButton {
-    --toggleButton-selected-background: var(--hd-color-neutral-surface-weak);
-    --toggleButton-hover-background: var(--hd-color-neutral-surface-weak);
-    --toggleButton-color: var(--hd-color-neutral-icon);
+    --toggle-button-selected-background: var(--hd-color-neutral-surface-weak);
+    --toggle-button-hover-background: var(--hd-color-neutral-surface-weak);
+    --toggle-button-color: var(--hd-color-neutral-icon);
 
     background-color: transparent;
-    color: var(--toggleButton-color);
+    color: var(--toggle-button-color);
     border-width: 0;
     border-radius: var(--hd-space-05);
     display: flex;
@@ -18,12 +18,12 @@
         aspect-ratio: 1/1;
 
         &:hover {
-            background-color: var(--toggleButton-hover-background);
+            background-color: var(--toggle-button-hover-background);
             cursor: pointer;
         }
 
         &[data-selected] {
-            background-color: var(--toggleButton-selected-background);
+            background-color: var(--toggle-button-selected-background);
         }
 
         &[data-focused] {
