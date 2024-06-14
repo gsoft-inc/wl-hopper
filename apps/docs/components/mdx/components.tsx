@@ -2,6 +2,7 @@ import type { HTMLAttributes } from "react";
 import dynamic from "next/dynamic";
 
 import Card from "@/components/card/Card.tsx";
+import Callout from "@/components/callout/Callout.tsx";
 import NextImage from "@/components/image/Image.tsx";
 import Pre from "@/components/pre/Pre.tsx";
 import InlineCode from "@/components/code/InlineCode.tsx";
@@ -32,6 +33,7 @@ const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.
 export const components = {
     Card,
     code: InlineCode,
+    Callout: Callout,
     Image: NextImage,
     pre: Pre,
     MotionPreview: MotionPreview,
