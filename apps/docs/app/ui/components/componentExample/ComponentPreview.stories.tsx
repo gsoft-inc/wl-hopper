@@ -12,7 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        src: "buttons/docs/preview",
-        colorScheme: "light"
+        src: "buttons/docs/preview"
     }
 };
