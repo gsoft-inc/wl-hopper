@@ -10,20 +10,33 @@ import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 
 import "./componentExample.css";
 
+// TODO rework for conditional rendering props
 export interface ComponentExampleProps {
-    type?: "code" | "preview" | "both";
     src: string;
+    type?: "code" | "preview" | "both";
     code?: React.ReactNode;
+    preview?: React.ReactNode;
     className?: string;
     isOpen?: boolean;
 }
 
-const ComponentExample = ({ type = "both", src = "", code = "", className, isOpen = true }: ComponentExampleProps) => {
+const ComponentExample = ({
+    src,
+    type = "both",
+    code = "",
+    preview = "",
+    className,
+    isOpen = false
+}: ComponentExampleProps) => {
     const [showCode, setShowCode] = useState(isOpen);
 
     const showBothComponent = useMemo(() => type === "both", [type]);
     const showPreviewComponent = useMemo(() => type === "preview" || showBothComponent, [type, showBothComponent]);
     const showCodeComponent = useMemo(() => (showBothComponent && showCode) || type === "code", [showBothComponent, showCode, type]);
+
+    if (!src) {
+        return null;
+    }
 
     const toggleShowCodeButton = showBothComponent &&
         <ToggleButton isSelected={showCode}
@@ -39,7 +52,7 @@ const ComponentExample = ({ type = "both", src = "", code = "", className, isOpe
             className={clsx("hd-component-example", showCodeComponent && "hd-component-example--expanded", className)}
         >
             {showPreviewComponent && <ComponentPreviewWrapper
-                src={src}
+                preview={preview}
                 toggleButton={toggleShowCodeButton}
             />}
             <div className={clsx("hd-component-code", showCodeComponent && "hd-component-code--expanded")}>

@@ -6,6 +6,7 @@ import "./previewComponent.css";
 
 export interface PreviewComponentProps {
     src: string;
+    preview?: React.ReactNode;
     code?: React.ReactNode;
 }
 
@@ -15,7 +16,7 @@ const tabsConfig = [
     // { category: "playground", title: "Playground" }
 ];
 
-const PreviewComponent = async ({ src, code }: PreviewComponentProps) => {
+const PreviewComponent = async ({ src, preview, code }: PreviewComponentProps) => {
     if (!src) {
         return null;
     }
@@ -24,7 +25,7 @@ const PreviewComponent = async ({ src, code }: PreviewComponentProps) => {
         <div className="hd-preview-component">
 
             <Tabs tabs={tabsConfig}>
-                <ComponentExample type="preview" src={src} className="hd-preview-component__content" />
+                <ComponentExample type="preview" src={src} preview={preview} className="hd-preview-component__content" />
 
                 <ComponentExample type="code" src={src} code={code} />
 

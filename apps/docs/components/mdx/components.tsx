@@ -19,12 +19,13 @@ import Footnote from "@/components/footnote/Footnote.tsx";
 import PackageInstallation, {
     type PackageInstallationProps
 } from "@/components/packageInstallation/PackageInstallation.tsx";
+import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
+import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 
 import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
 import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
-import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
 
 type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -52,10 +53,16 @@ export const components = {
         return <PackageInstallation {...props} />;
     },
     PreviewComponent: (props: PreviewComponentProps) => {
-        return <PreviewComponent {...props} code={<ComponentCodeWrapper src={props.src} />} />;
+        return <PreviewComponent {...props}
+            code={<ComponentCodeWrapper src={props.src} />}
+            preview={<ComponentPreview src={props.src} />}
+        />;
     },
     Example: (props: ComponentExampleProps) => {
-        return <ComponentExample {...props} code={<ComponentCodeWrapper src={props.src} />} />;
+        return <ComponentExample {...props}
+            code={<ComponentCodeWrapper src={props.src} />}
+            preview={<ComponentPreview src={props.src} />}
+        />;
     },
     MigrateGuide: (props: MigrateGuideProps) => {
         return <MigrateGuide {...props} />;
