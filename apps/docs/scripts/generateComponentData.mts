@@ -145,12 +145,12 @@ async function generateComponentList(source: string): Promise<(ComponentData | u
 async function generateComponentData() {
     console.log('Start api generation for components');
 
-    // const components = await generateComponentList(PACKAGES);
+    const components = await generateComponentList(PACKAGES);
     // Data for the tests only
-    const components = [{
-        name: "Button",
-        filePath: `${PACKAGES}/buttons/src/Button.tsx`
-    }]
+    // const components = [{
+    //     name: "Button",
+    //     filePath: `${PACKAGES}/buttons/src/Button.tsx`
+    // }]
 
     if (!components.length) {
         console.error('No components found');

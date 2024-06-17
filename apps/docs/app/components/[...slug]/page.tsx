@@ -20,7 +20,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
         const [section, type] = slug.split("/");
 
         return ({
-            slug: [section, type]
+            slug: [section, type],
         });
     });
 }
@@ -63,7 +63,7 @@ export default async function ComponentPage({ params }: PageProps) {
         <div className="hd-section">
             <SubHeader links={sectionLinks} />
             <div className="hd-container">
-                <Aside title="On this page" links={sectionLinks} />
+                {type !== "overview" && <Aside title="On this page" links={sectionLinks} />}
                 <main>
                     <Heading title={title} tag={status} description={description} links={componentLinks} />
                     <div className="hd-content">

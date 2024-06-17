@@ -140,7 +140,7 @@ export const Components = defineDocumentType(() => ({
         status: {
             type: "string"
         },
-        teaser: {
+        category: {
             type: "string"
         }
     },
