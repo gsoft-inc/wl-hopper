@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, memo, useCallback, useMemo, type ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 import clsx from "clsx";
 
 import { CodeIcon } from "@/components/icon";
 import { ToggleButton } from "@/components/toggleButton/ToggleButton.tsx";
+import { useToggle } from "@/hooks/useToggle.ts";
 
 import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 
@@ -41,13 +42,11 @@ const ComponentExample = memo(({
     isOpen = false,
     ...props
 }: ComponentExampleProps) => {
-    const [showCode, setShowCode] = useState(isOpen);
+    const [showCode, toggleShowCode] = useToggle(isOpen);
 
-    const showBothComponent = useMemo(() => type === "both", [type]);
-    const showPreviewComponent = useMemo(() => type === "preview" || showBothComponent, [type, showBothComponent]);
-    const showCodeComponent = useMemo(() => (showBothComponent && showCode) || type === "code", [showBothComponent, showCode, type]);
-
-    const toggleShowCode = useCallback(() => setShowCode(prevShowCode => !prevShowCode), []);
+    const showBothComponent = type === "both";
+    const showPreviewComponent = type === "preview" || showBothComponent;
+    const showCodeComponent = (showBothComponent && showCode) || type === "code";
 
     if (!src) {
         return null;
