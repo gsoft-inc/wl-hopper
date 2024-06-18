@@ -37,7 +37,7 @@ const formatGroup = (groups: Groups[]) => {
 
                 return {
                     ...item,
-                    name: <Code value={item.name}>{item.name}</Code>,
+                    name: <Code>{item.name}</Code>,
                     type: <HighlightCode code={item.type} variant="tiny" />,
                     defaultValue: item.defaultValue.replace(/'/g, "\""),
                     description: <MDXRemote source={description} />
