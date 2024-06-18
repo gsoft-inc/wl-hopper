@@ -22,7 +22,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
         <>
             <SidebarProvider>
                 <SubHeader links={sectionLinks} />
-                <div className="hd-wrapper hd-flex">
+                <div className="hd-wrapper hd-layout-with-nav">
                     <Sidebar data={allGettingStarteds} />
                     {children}
                 </div>

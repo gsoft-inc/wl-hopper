@@ -37,7 +37,7 @@
     .hd-header {
         border-radius: 0.5rem;
         margin: 1.5rem auto 0;
-        width: min(100% - 3rem, 75rem);
+        width: min(100% - 3rem, var(--layout-width));
     }
 }
 

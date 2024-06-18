@@ -13,13 +13,7 @@ html {
 }
 
 .hd-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    flex-shrink: 1;
-    flex-grow: 1;
-    gap: var(--hd-space-3);
-    position: relative;
+
 }
 
 main {
@@ -29,9 +23,11 @@ main {
     order: 1;
 }
 
-@media screen and (width >= 62rem) {
+@media screen and (width >= 64rem) {
     .hd-container {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr var(--aside-width);
+        gap: var(--hd-space-4);
     }
 
     main {

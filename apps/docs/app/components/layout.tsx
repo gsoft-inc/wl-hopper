@@ -36,7 +36,7 @@ async function ComponentsLayout({ children }: { children: ReactNode }) {
 
     return (
         <SidebarProvider>
-            <div className="hd-wrapper hd-flex sm:hd-flex-direction-column">
+            <div className="hd-wrapper hd-layout-with-nav sm:hd-flex-direction-column">
                 <Sidebar data={data} />
                 {children}
             </div>
