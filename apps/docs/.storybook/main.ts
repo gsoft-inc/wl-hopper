@@ -36,8 +36,7 @@ export default {
             ];
             config.resolve.alias = {
                 ...config.resolve.alias,
-                "@": path.resolve(__dirname, "app"),
-                "react-dom": "react-dom"
+                "@": path.resolve(__dirname, "app")
             };
         }
 
