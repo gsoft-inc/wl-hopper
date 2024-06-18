@@ -18,7 +18,6 @@ function ToggleButton(props: ToggleButtonProps, ref: ForwardedRef<HTMLButtonElem
     const { children, className, ...other } = props;
 
     return (
-
         <RACToggleButton
             {...other}
             className={clsx("hd-toggleButton", className)}

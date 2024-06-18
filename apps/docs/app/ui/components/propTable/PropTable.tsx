@@ -48,12 +48,11 @@ const formatGroup = (groups: Groups[]) => {
 };
 
 export default async function PropTable({ component }: PropTableProps) {
-    const { description, groups } = await getComponentProps(component);
+    const { groups } = await getComponentProps(component);
     const formatedGroups = formatGroup(groups);
 
     return (
         <>
-            <p>{description}</p>
             {formatedGroups.map(group => {
                 const [key] = Object.keys(group);
 
