@@ -1,5 +1,19 @@
 # @hopper-ui/components
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [1dc67e4]
+  - @hopper-ui/icons@2.3.0
+
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [e94a3e0]
+  - @hopper-ui/icons@2.2.0
+
 ## 1.0.2
 
 ### Patch Changes

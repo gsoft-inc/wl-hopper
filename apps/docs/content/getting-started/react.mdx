@@ -1,0 +1,51 @@
+---
+title: React
+description: Getting started with Hopper UI.
+order: 1
+---
+
+This guide will help you get started with Hopper UI. Hopper UI is a Design System that provides a collection of components, [tokens](/tokens/getting-started/introduction), and [icons](/icons/getting-started/introduction) to help you build applications.
+
+Below is the typical installation path, assuming you are using React. If you have particluar needs you can have a look at these pages:
+
+- [Javascript installation](/getting-started/javascript)
+- [Individual package installation](/getting-started/individual-packages)
+
+## Installation
+
+### Install packages
+
+Run the following command in your terminal to install the Hopper packages.
+
+<PackageInstallation library="components @hopper-ui/icons @hopper-ui/styled-system react-aria react-aria-components" mod="prod" />
+
+### Configure your application
+
+After installing Hopper UI packages, you must setup a Provider at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
+
+```jsx
+import { HopperProvider } from "@hopper-ui/components";
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <HopperProvider>
+    <App />
+  </HopperProvider>
+);
+```
+
+### Import styles
+
+You will also need to import the Hopper styles in your project. You can do this by importing the following CSS files:
+
+```css
+@import "@hopper-ui/components/index.css";
+@import "@hopper-ui/icons/index.css";
+```
+
+You are now ready to use Hopper UI in your project! Need more details? Have a look at the [Individual package installation](/getting-started/individual-packages) page.
+
+## Contribute
+
+Pull requests are welcome. For major changes, please open a [discussion](https://github.com/gsoft-inc/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested in contributing, check out our [Contributing Guide](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md).

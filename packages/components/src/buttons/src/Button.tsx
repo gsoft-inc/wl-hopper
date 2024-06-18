@@ -3,7 +3,8 @@ import {
     type StyledComponentProps,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    useResponsiveValue,
+    slot
 } from "@hopper-ui/styled-system";
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
 import type { RouterOptions } from "@react-types/shared";
@@ -274,7 +275,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Button = forwardRef(Button);
+const _Button = slot("button", forwardRef(Button));
 
 _Button.displayName = "Button";
 

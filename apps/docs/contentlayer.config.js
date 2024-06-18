@@ -122,6 +122,39 @@ export const Icons = defineDocumentType(() => ({
     }
 }));
 
+export const GettingStarted = defineDocumentType(() => ({
+    name: "GettingStarted",
+    filePathPattern: "getting-started/**/*.mdx",
+    contentType: "mdx",
+    fields: {
+        title: {
+            type: "string",
+            required: true
+        },
+        description: {
+            type: "string"
+        },
+        section: {
+            type: "string"
+        },
+        order: {
+            type: "number"
+        }
+    },
+    computedFields: {
+        slug: {
+            type: "string",
+            resolve: post => post._raw.sourceFileName.replace(/\.mdx$/, "")
+        },
+        section: {
+            type: "string",
+            resolve: post => {
+                return post._raw.sourceFileDir.replace("getting-started/", "");
+            }
+        }
+    }
+}));
+
 export const Components = defineDocumentType(() => ({
     name: "Components",
     filePathPattern: "components/**/*.mdx",
@@ -151,7 +184,7 @@ export const Components = defineDocumentType(() => ({
 
 export default makeSource({
     contentDirPath: "./content",
-    documentTypes: [Page, Tokens, Components, Icons, Guides],
+    documentTypes: [Page, Tokens, Components, Icons, Guides, GettingStarted],
     mdx: {
         remarkPlugins: [],
         rehypePlugins: rehypePluginOptions
