@@ -6,7 +6,6 @@ import ComponentExample from "@/app/ui/components/componentExample/ComponentExam
 import "./previewComponent.css";
 
 export interface PreviewComponentProps {
-    src: string;
     preview?: React.ReactNode;
     code?: React.ReactNode;
 }
@@ -17,17 +16,12 @@ const tabsConfig = [
     // { category: "playground", title: "Playground" }
 ];
 
-const PreviewComponent = async ({ src, preview, code }: PreviewComponentProps) => {
+const PreviewComponent = async ({ preview, code }: PreviewComponentProps) => {
     const PreviewComponentExample = useMemo(() => <ComponentExample type="preview"
-        src={src}
         preview={preview}
         className="hd-preview-component__content"
-    />, [src, preview]);
-    const CodeComponentExample = useMemo(() => <ComponentExample type="code" src={src} code={code} />, [src, code]);
-
-    if (!src) {
-        return null;
-    }
+    />, [preview]);
+    const CodeComponentExample = useMemo(() => <ComponentExample type="code" code={code} />, [code]);
 
     return (
         <div className="hd-preview-component">

@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { mockGetComponentCode } from "@/app/lib/getComponentCode.mock.ts";
 import ComponentExample from "./ComponentExample.tsx";
+import HighlightCode from "../../../../components/highlightCode/HighlightCode.tsx";
+import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 
 const meta = {
     title: "components/ComponentExample",
@@ -11,38 +13,36 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const code = await mockGetComponentCode("import { Button } from \"@headless/button\"");
+const mockCode = await mockGetComponentCode("import { Button } from \"@headless/button\"");
+const preview = <ComponentPreview src="buttons/docs/button/preview" />;
+const MockComponentCodeWrapper = ({ code }: { code: string }) => <HighlightCode code={code} />;
 
 export const Default: Story = {
     args: {
         type: "both",
-        src: "buttons/docs/preview",
-        preview: <button type="button">click me</button>,
-        code
+        preview,
+        code: <MockComponentCodeWrapper code={mockCode} />
     }
 };
 
 export const Code: Story = {
     args: {
-        src: "buttons/docs/preview",
         type: "code",
-        code
+        code: <MockComponentCodeWrapper code={mockCode} />
     }
 };
 
 export const Preview: Story = {
     args: {
         type: "preview",
-        src: "buttons/docs/preview",
-        preview: <button type="button">click me</button>
+        preview
     }
 };
 
 export const Open: Story = {
     args: {
         type: "code",
-        src: "buttons/docs/preview",
-        code,
+        code: <MockComponentCodeWrapper code={mockCode} />,
         isOpen: true
     }
 };

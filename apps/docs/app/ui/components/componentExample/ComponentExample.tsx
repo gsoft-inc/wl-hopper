@@ -11,7 +11,6 @@ import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 import "./componentExample.css";
 
 interface CommonProps {
-    src: string;
     className?: string;
     isOpen?: boolean;
 }
@@ -35,7 +34,6 @@ interface BothProps extends CommonProps {
 export type ComponentExampleProps = CodeProps | PreviewProps | BothProps;
 
 const ComponentExample = memo(({
-    src,
     type = "both",
     className,
     isOpen = false,
@@ -48,10 +46,6 @@ const ComponentExample = memo(({
     const showCodeComponent = useMemo(() => (showBothComponent && showCode) || type === "code", [showBothComponent, showCode, type]);
 
     const toggleShowCode = useCallback(() => setShowCode(prevShowCode => !prevShowCode), []);
-
-    if (!src) {
-        return null;
-    }
 
     const renderToggleButton = () => {
         if (!showBothComponent) {
