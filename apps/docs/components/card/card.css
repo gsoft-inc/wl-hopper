@@ -1,6 +1,6 @@
 .hd-card {
     --background: var(--hd-white);
-    --background-dot: var(--hd-neutral-50);
+    --dot-background: var(--hd-neutral-50);
     --color: var(--hd-color-neutral-text);
 
     display: flex;
@@ -11,7 +11,7 @@
     padding: var(--hd-space-4);
     background: linear-gradient(90deg, var(--background) 0.625rem, transparent 1%) 50%,
     linear-gradient(var(--background) 0.625rem, transparent 1%) 50%,
-    var(--background-dot);
+    var(--dot-background);
     background-size: 0.75rem 0.75rem;
     color: var(--color);
 }
@@ -38,6 +38,6 @@
 
 [data-theme="dark"] .hd-card {
     --background: var(--hd-neutral-900);
-    --background-dot: var(--hd-neutral-800);
+    --dot-background: var(--hd-neutral-800);
 }
 

@@ -1,4 +1,5 @@
 .hd-component-preview-wrapper {
+    color: var(--hd-color-neutral-text);
     position: relative;
 }
 
@@ -9,7 +10,7 @@
 [data-schema="light"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-white);
-        --background-dot: var(--hd-neutral-50);
+        --dot-background: var(--hd-neutral-50);
     }
 
     .hd-component-preview-wrapper__action {
@@ -28,7 +29,7 @@
 [data-schema="dark"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-neutral-900);
-        --background-dot: var(--hd-neutral-800);
+        --dot-background: var(--hd-neutral-800);
     }
 
     .hd-component-preview-wrapper__action {
