@@ -23,11 +23,13 @@ import PackageInstallation, {
 
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
-import type { ComponentExampleWrapperProps } from "@/app/ui/components/componentExample/ComponentExampleWrapper.tsx";
+import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
+import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
+import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
-const ComponentExampleWrapper = dynamic(() => import("@/app/ui/components/componentExample/ComponentExampleWrapper.tsx"));
+const ComponentExample = dynamic(() => import("@/app/ui/components/componentExample/ComponentExample.tsx"));
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -50,11 +52,15 @@ export const components = {
     PackageInstallation: (props: PackageInstallationProps) => {
         return <PackageInstallation {...props} />;
     },
-    PreviewComponent: (props: ComponentExampleWrapperProps) => {
-        return <ComponentExampleWrapper type="preview" {...props} />;
-    },
-    Example: (props: ComponentExampleWrapperProps) => {
-        return <ComponentExampleWrapper {...props} />;
+    Example: (props: ComponentExampleProps) => {
+        const { src } = props;
+
+        return <ComponentExample
+            {...props}
+            type="both"
+            code={<ComponentCodeWrapper src={src} />}
+            preview={<ComponentPreview src={src} />}
+        />;
     },
     MigrateGuide: (props: MigrateGuideProps) => {
         return <MigrateGuide {...props} />;
