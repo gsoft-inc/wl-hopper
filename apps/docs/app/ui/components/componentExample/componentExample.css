@@ -30,6 +30,12 @@
     }
 }
 
+.hd-component-example {
+    + p {
+        margin-block-start: var(--hd-space-3);
+    }
+}
+
 .hd-component-code--expanded {
     grid-template-rows: 1fr;
 }

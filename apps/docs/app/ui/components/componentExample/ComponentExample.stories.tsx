@@ -46,4 +46,3 @@ export const Open: Story = {
         isOpen: true
     }
 };
-
