@@ -7,7 +7,10 @@ import ComponentPreview from "@/app/ui/components/componentExample/ComponentPrev
 
 const meta = {
     title: "components/ComponentExample",
-    component: ComponentExample
+    component: ComponentExample,
+    args: {
+        src: "buttons/docs/button"
+    }
 } satisfies Meta<typeof ComponentExample>;
 
 export default meta;
