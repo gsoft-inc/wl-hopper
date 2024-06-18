@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, type ReactNode } from "react";
 import clsx from "clsx";
 
 import { CodeIcon } from "@/components/icon";
@@ -10,23 +10,36 @@ import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 
 import "./componentExample.css";
 
-// TODO rework for conditional rendering props
-export interface ComponentExampleProps {
+interface CommonProps {
     src: string;
-    type?: "code" | "preview" | "both";
-    code?: React.ReactNode;
-    preview?: React.ReactNode;
     className?: string;
     isOpen?: boolean;
 }
 
+interface CodeProps extends CommonProps {
+    type: "code";
+    code: ReactNode;
+}
+
+interface PreviewProps extends CommonProps {
+    type: "preview";
+    preview: ReactNode;
+}
+
+interface BothProps extends CommonProps {
+    type: "both";
+    code: ReactNode;
+    preview: ReactNode;
+}
+
+type ComponentExampleProps = CodeProps | PreviewProps | BothProps;
+
 const ComponentExample = ({
     src,
     type = "both",
-    code = "",
-    preview = "",
     className,
-    isOpen = false
+    isOpen = false,
+    ...props
 }: ComponentExampleProps) => {
     const [showCode, setShowCode] = useState(isOpen);
 
@@ -52,11 +65,11 @@ const ComponentExample = ({
             className={clsx("hd-component-example", showCodeComponent && "hd-component-example--expanded", className)}
         >
             {showPreviewComponent && <ComponentPreviewWrapper
-                preview={preview}
+                preview={(type === "preview" || type === "both") ? (props as PreviewProps | BothProps).preview : undefined}
                 toggleButton={toggleShowCodeButton}
             />}
             <div className={clsx("hd-component-code", showCodeComponent && "hd-component-code--expanded")}>
-                {code}
+                {(type === "code" || type === "both") ? (props as CodeProps | BothProps).code : undefined}
             </div>
         </div>
     );
