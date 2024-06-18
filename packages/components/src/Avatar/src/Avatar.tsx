@@ -1,4 +1,4 @@
-import { BrokenImageRichIcon, type RichIconProps } from "@hopper-ui/icons";
+import { BrokenImageRichIcon } from "@hopper-ui/icons";
 import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue, type BackgroundColorValue, type ColorValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef, useMemo } from "react";
@@ -8,12 +8,13 @@ import { Text, type TextProps } from "../../typography/Text/index.ts";
 import { type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
 import { AvatarContext } from "./AvatarContext.ts";
+import { RichIconAvatarImage } from "./RichIconAvatarImage.tsx";
 import { useImageFallback } from "./useImageFallback.ts";
 
 import styles from "./Avatar.module.css";
 
 export const GlobalAvatarCssSelector = "hop-Avatar";
-type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
 export interface AvatarProps extends StyledSystemProps, BaseComponentProps {
     /**
@@ -53,20 +54,11 @@ interface AvatarImageProps extends Omit<AvatarProps, AvatarOmittedProps>, Omit<R
     children: React.ReactNode;
 }
 
-const AvatarToTextSizeAdapter: SizeAdapter<AvatarProps["size"], TextProps["size"]> = {
+export const AvatarToTextSizeAdapter: SizeAdapter<AvatarProps["size"], TextProps["size"]> = {
     xs: "xs",
     sm: "xs",
     md: "md",
     lg: "lg",
-    xl: "xl",
-    "2xl": "xl"
-};
-
-const AvatarToIconSizeAdapter: SizeAdapter<AvatarProps["size"], RichIconProps["size"]> = {
-    xs: "md",
-    sm: "md",
-    md: "lg",
-    lg: "xl",
     xl: "xl",
     "2xl": "xl"
 };
@@ -87,16 +79,23 @@ function getColorIndexForInitial(name: string, maxNumberOfColor: number) {
 function AvatarInitials(props: AvatarInitialsProps) {
     const { 
         "aria-label": ariaLabel,
-        name, 
+        className,
+        isDisabled,
+        name,
         size,
         slot,
         ...otherProps 
     } = props;
 
+    const classNames = clsx(
+        className,
+        styles["hop-Avatar--initials"]
+    );
+
     const initials = useMemo(() => {
         const cleanName = name.replace(/\s+/g, " ").trim();
         const [firstName, lastName] = cleanName.split(" ");
-        const letters = !firstName && !lastName
+        const letters = firstName && lastName
             ? `${firstName.charAt(0)}${lastName.charAt(0)}`
             : firstName.charAt(0);
 
@@ -105,18 +104,20 @@ function AvatarInitials(props: AvatarInitialsProps) {
     
     const variantToUse = useMemo(() => `option${getColorIndexForInitial(name, 8) + 1}`, [name]);
 
-    const tokenBackgroundColor = `decorative-${variantToUse}-strong` as BackgroundColorValue;
-    const tokenTextColor = `decorative-${variantToUse}` as ColorValue;
+    const tokenBackgroundColor = isDisabled ? "neutral-disabled" : `decorative-${variantToUse}-strong` as BackgroundColorValue;
+    const tokenTextColor = isDisabled ? "neutral-disabled" : `decorative-${variantToUse}` as ColorValue;
 
     return (
         <Text
             {...otherProps}
-            aria-label={ariaLabel ?? name}
+            aria-label={ariaLabel || name}
             role="img"
             size={AvatarToTextSizeAdapter[size]}
-            slot={slot ?? undefined}
+            slot={slot || undefined}
             backgroundColor={tokenBackgroundColor}
             color={tokenTextColor}
+            className={classNames}
+            data-disabled={isDisabled || undefined}
         >
             {initials}
         </Text>
@@ -125,7 +126,10 @@ function AvatarInitials(props: AvatarInitialsProps) {
 
 function AvatarImage(props: AvatarImageProps) {
     const {
+        "aria-label": ariaLabel,
         children,
+        className,
+        isDisabled,
         src,
         fallbackSrc,
         name,
@@ -134,13 +138,20 @@ function AvatarImage(props: AvatarImageProps) {
         onError,
         ...otherProps
     } = props;
+
+    const classNames = clsx(
+        className,
+        styles["hop-Avatar--image"]
+    );
     
     const [imageUrl, handleImageError, imageFailed] = useImageFallback(src, fallbackSrc);
 
     if (imageFailed) {
         if (fallbackSrc === undefined) {
             return (
-                <BrokenImageRichIcon size={AvatarToIconSizeAdapter[size]} />
+                <RichIconAvatarImage aria-label={ariaLabel ?? name} size={size} isDisabled={isDisabled}>
+                    <BrokenImageRichIcon />
+                </RichIconAvatarImage>
             );
         }
 
@@ -148,13 +159,20 @@ function AvatarImage(props: AvatarImageProps) {
     }
 
     return (
-        <img
-            {...otherProps}
-            src={imageUrl}
-            alt={name}
-            slot={slot ?? undefined}
-            onError={onError || handleImageError}
-        />
+        <div
+            data-disabled={isDisabled || undefined}
+            slot={slot || undefined}
+            aria-label={ariaLabel ?? name}
+            className={classNames}
+        >
+            <img
+                {...otherProps}
+                src={imageUrl}
+                alt={name}
+                onError={onError || handleImageError}
+                className={styles["hop-Avatar__image"]}
+            />
+        </div>
     );
 }
 
@@ -190,26 +208,27 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const content = src ? (
         <AvatarImage
+            {...otherProps}
             src={src}
             fallbackSrc={fallbackSrc}
             className={classNames}
             size={size}
             style={mergedStyles}
-            {...otherProps}
         >
+            {/* Anything added in children is a fallback if AvatarImage fails to load. */}
             <AvatarInitials 
+                {...otherProps}
                 className={classNames}
                 size={size}
                 style={mergedStyles}
-                {...otherProps}
             />
         </AvatarImage>
     ) : (
-        <AvatarInitials 
+        <AvatarInitials
+            {...otherProps} 
             className={classNames}
             size={size}
             style={mergedStyles}
-            {...otherProps}
         />
     );
 
@@ -219,7 +238,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
 }
 
 /**
- * TODO: tagline
+ * Avatars are used to show a thumbnail representation of an individual, team or group in the interface.
  *
  * [View Documentation](TODO)
  */

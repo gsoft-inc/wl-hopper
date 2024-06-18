@@ -1,6 +1,7 @@
 .hop-Avatar  {
     /* Default */
     --hop-Avatar-border-radius: var(--hop-shape-circle);
+    --hop-Avatar-mix-blend-mode: normal;
 
     /* xs */
     --hop-Avatar-xs-size: 1rem;
@@ -20,11 +21,26 @@
     /* 2xl */
     --hop-Avatar-2xl-size: 6rem;
 
-    /* Internal Variables */
-    
+    /* disabled */
+    --hop-Avatar-image-background-color-disabled: var(--hop-neutral-surface-disabled);
+    --hop-Avatar-mix-blend-mode-disabled: luminosity;
+
+    /* Internal variables */
+    --mlx-blend-mode: var(--hop-Avatar-mix-blend-mode);
+
     user-select: none;
-    aspect-ratio: 1;
+
+    position: relative;
+
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
     inline-size: var(--size, var(--hop-Avatar-md-size));
+    block-size: var(--size, var(--hop-Avatar-md-size));
+
     border-radius: var(--hop-Avatar-border-radius);
 }
 
@@ -50,4 +66,29 @@
 
 .hop-Avatar--2xl {
     --size: var(--hop-Avatar-2xl-size);
+}
+
+/* The avatar that contains an image */
+.hop-Avatar--image {
+    overflow: hidden;
+}
+
+.hop-Avatar--image[data-disabled] {
+    --mlx-blend-mode: var(--hop-Avatar-mix-blend-mode-disabled);
+
+    isolation: isolate;
+    background-color: var(--hop-Avatar-image-background-color-disabled);
+}
+
+.hop-Avatar__image {
+    position: relative;
+
+    display: block;
+
+    box-sizing: border-box;
+    inline-size: 100%;
+    block-size: auto;
+
+    object-fit: cover;
+    mix-blend-mode: var(--mlx-blend-mode);
 }
