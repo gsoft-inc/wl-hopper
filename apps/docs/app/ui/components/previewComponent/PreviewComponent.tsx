@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Tabs from "@/components/tabs/Tabs.tsx";
 
 import ComponentExample from "@/app/ui/components/componentExample/ComponentExample.tsx";
@@ -17,6 +18,13 @@ const tabsConfig = [
 ];
 
 const PreviewComponent = async ({ src, preview, code }: PreviewComponentProps) => {
+    const PreviewComponentExample = useMemo(() => <ComponentExample type="preview"
+        src={src}
+        preview={preview}
+        className="hd-preview-component__content"
+    />, [src, preview]);
+    const CodeComponentExample = useMemo(() => <ComponentExample type="code" src={src} code={code} />, [src, code]);
+
     if (!src) {
         return null;
     }
@@ -25,9 +33,8 @@ const PreviewComponent = async ({ src, preview, code }: PreviewComponentProps) =
         <div className="hd-preview-component">
 
             <Tabs tabs={tabsConfig}>
-                <ComponentExample type="preview" src={src} preview={preview} className="hd-preview-component__content" />
-
-                <ComponentExample type="code" src={src} code={code} />
+                {PreviewComponentExample}
+                {CodeComponentExample}
 
                 {/*<PlaygroundWrapper key="playground" />*/}
             </Tabs>

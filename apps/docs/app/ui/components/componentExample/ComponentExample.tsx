@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, type ReactNode } from "react";
+import { useState, memo, useCallback, useMemo, type ReactNode } from "react";
 import clsx from "clsx";
 
 import { CodeIcon } from "@/components/icon";
@@ -32,9 +32,9 @@ interface BothProps extends CommonProps {
     preview: ReactNode;
 }
 
-type ComponentExampleProps = CodeProps | PreviewProps | BothProps;
+export type ComponentExampleProps = CodeProps | PreviewProps | BothProps;
 
-const ComponentExample = ({
+const ComponentExample = memo(({
     src,
     type = "both",
     className,
@@ -47,32 +47,61 @@ const ComponentExample = ({
     const showPreviewComponent = useMemo(() => type === "preview" || showBothComponent, [type, showBothComponent]);
     const showCodeComponent = useMemo(() => (showBothComponent && showCode) || type === "code", [showBothComponent, showCode, type]);
 
+    const toggleShowCode = useCallback(() => setShowCode(prevShowCode => !prevShowCode), []);
+
     if (!src) {
         return null;
     }
 
-    const toggleShowCodeButton = showBothComponent &&
-        <ToggleButton isSelected={showCode}
-            className="hd-component-preview-wrapper__action"
-            onPress={() => setShowCode(!showCode)}
-        >
-            <CodeIcon />
-            <span>Show code</span>
-        </ToggleButton>;
+    const renderToggleButton = () => {
+        if (!showBothComponent) {
+            return null;
+        }
+
+        return (
+            <ToggleButton isSelected={showCode}
+                className="hd-component-preview-wrapper__action"
+                onPress={toggleShowCode}
+            >
+                <CodeIcon />
+                <span>Show code</span>
+            </ToggleButton>
+        );
+    };
+
+    const renderPreviewComponent = () => {
+        if (!showPreviewComponent) {
+            return null;
+        }
+
+        return (
+            <ComponentPreviewWrapper
+                preview={(type === "preview" || type === "both") ? (props as PreviewProps | BothProps).preview : undefined}
+                toggleButton={renderToggleButton()}
+            />
+        );
+    };
+
+    const renderCodeComponent = () => {
+        if (!showCodeComponent) {
+            return null;
+        }
+
+        return (
+            <div className={clsx("hd-component-code", showCodeComponent && "hd-component-code--expanded")}>
+                {(type === "code" || type === "both") ? (props as CodeProps | BothProps).code : undefined}
+            </div>
+        );
+    };
 
     return (
         <div data-usage={type}
             className={clsx("hd-component-example", showCodeComponent && "hd-component-example--expanded", className)}
         >
-            {showPreviewComponent && <ComponentPreviewWrapper
-                preview={(type === "preview" || type === "both") ? (props as PreviewProps | BothProps).preview : undefined}
-                toggleButton={toggleShowCodeButton}
-            />}
-            <div className={clsx("hd-component-code", showCodeComponent && "hd-component-code--expanded")}>
-                {(type === "code" || type === "both") ? (props as CodeProps | BothProps).code : undefined}
-            </div>
+            {renderPreviewComponent()}
+            {renderCodeComponent()}
         </div>
     );
-};
+});
 
 export default ComponentExample;

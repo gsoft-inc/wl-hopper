@@ -60,6 +60,7 @@ export const components = {
     },
     Example: (props: ComponentExampleProps) => {
         return <ComponentExample {...props}
+            type="both"
             code={<ComponentCodeWrapper src={props.src} />}
             preview={<ComponentPreview src={props.src} />}
         />;

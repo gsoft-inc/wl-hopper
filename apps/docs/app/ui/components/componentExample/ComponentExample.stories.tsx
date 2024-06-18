@@ -15,7 +15,9 @@ const code = await mockGetComponentCode("import { Button } from \"@headless/butt
 
 export const Default: Story = {
     args: {
+        type: "both",
         src: "buttons/docs/preview",
+        preview: <button type="button">click me</button>,
         code
     }
 };
@@ -30,16 +32,18 @@ export const Code: Story = {
 
 export const Preview: Story = {
     args: {
+        type: "preview",
         src: "buttons/docs/preview",
-        type: "preview"
+        preview: <button type="button">click me</button>
     }
 };
 
-export const Close: Story = {
+export const Open: Story = {
     args: {
+        type: "code",
         src: "buttons/docs/preview",
         code,
-        isOpen: false
+        isOpen: true
     }
 };
 
