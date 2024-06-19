@@ -28,12 +28,15 @@ export interface Options {
 const PACKAGES = path.join(process.cwd(), "..", "..", "packages", "components", "src");
 const COMPONENT_DATA = path.join(process.cwd(), "datas", "components");
 
-const tsConfigParser = docgenTs.withDefaultConfig({
-    propFilter: (prop) => {
-        // Remove props from StyledSystemProps
-        return prop?.parent?.name !== "StyledSystemProps";
+const tsConfigParser = docgenTs.withCustomConfig(
+    "./tsconfig.json",
+    {
+        propFilter: (prop) => {
+            // Remove props from StyledSystemProps
+            return prop?.parent?.name !== "StyledSystemProps";
+        }
     }
-});
+);
 
 async function writeFile(filename: string, data: ComponentDocWithGroups[]) {
     if (!fs.existsSync(COMPONENT_DATA)) {
@@ -150,11 +153,24 @@ async function generateComponentList(source: string, options: Options = {}): Pro
     return files.flat().filter(Boolean) as ComponentData[]
 }
 
+// input: docs
+// output: /docs/
+function toDirectoryPath(partialPath: string) {
+    return `${ path.sep }${ partialPath }${path.sep}`;
+}
+
 async function generateComponentData() {
     console.log('Start api generation for components');
     const options = {
-        exclude: ['/docs/', '/tests/', '/utils/', '/i18n', 'index.ts', 'Context.ts']
-    }
+exclude: [
+    toDirectoryPath('docs'),
+    toDirectoryPath('tests'),
+    toDirectoryPath('utils'),
+    toDirectoryPath('i18n'),
+    'index.ts',
+    'Context.ts'
+]
+}
 
     const components = await generateComponentList(PACKAGES, options);
 
