@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 
@@ -36,10 +37,10 @@ async function ComponentsLayout({ children }: { children: ReactNode }) {
 
     return (
         <SidebarProvider>
-            <div className="hd-wrapper hd-layout-with-nav sm:hd-flex-direction-column">
+            <Wrapper type="with-sidebar">
                 <Sidebar data={data} />
                 {children}
-            </div>
+            </Wrapper>
         </SidebarProvider>
     );
 }

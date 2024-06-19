@@ -45,54 +45,13 @@ a {
     text-decoration: none;
 }
 
-#App {
-    --layout-width: 90rem;
-    --nav-width: 14.875rem;
-    --aside-width: 14.875rem;
-}
 
 [data-theme="dark"] {
     color-scheme: dark;
 }
 
-.hd-wrapper {
-    width: min(100% - 2rem, var(--layout-width));
-    margin-inline: auto;
-}
-
-.hd-layout-with-nav {
-    @media screen and (width >= 37.5rem) {
-        padding-inline: var(--hd-space-2);
-    }
-
-    @media screen and (width >= 48rem) {
-        display: grid;
-        grid-template-columns: var(--nav-width) 1fr;
-        gap: var(--hd-space-4);
-    }
-}
-
-.hd-wrapper > .hd-section {
-    min-width: 0;
-    width: 100%;
-}
-
 .hd-flex {
     display: flex;
-}
-
-.hd-flex-direction-column {
-    flex-direction: column;
-}
-
-.sm\:hd-flex-direction-column {
-    --hd-flex-direction-column: column;
-
-    @media screen and (width >= 37.5rem) {
-        --hd-flex-direction-column: initial;
-    }
-
-    flex-direction: var(--hd-flex-direction-column);
 }
 
 .hd-display {

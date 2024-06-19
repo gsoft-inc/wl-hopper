@@ -26,7 +26,7 @@ export default function RootLayout({ children }: {
 
     return (
         <html lang="en" suppressHydrationWarning>
-            <body id="App">
+            <body id="App" className="hd-layout">
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>
                     <Header />

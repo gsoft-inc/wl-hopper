@@ -1,6 +1,7 @@
 "use client";
 
 import SectionPopover from "@/app/ui/layout/sectionPopover/sectionPopover";
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
 import { useIsMobile } from "@/hooks/useIsMobile.ts";
 
@@ -28,14 +29,14 @@ const SubHeader = ({ links }: SubHeaderProps) => {
 
     return (
         <div className="hd-sub-header">
-            <div className="hd-wrapper">
+            <Wrapper>
                 <div className="sub-header-container">
                     <button type="button" className="hd-sub-header__sidebar-button" onClick={toggleSidebar}>
                         <SidePanel className="hd-sub-header__button-icon" />
                     </button>
                     <SectionPopover links={links} />
                 </div>
-            </div>
+            </Wrapper>
         </div>
     );
 };

@@ -7,6 +7,7 @@ import IconButton from "@/components/iconButton/IconButton";
 import MobileMenu from "@/app/ui/layout/mobileMenu/MobileMenu";
 import MobileMenuTrigger from "@/app/ui/layout/mobileMenu/MobileMenuTrigger";
 import Nav from "@/app/ui/layout/nav/Nav";
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { navigation } from "@/configs/navigation";
 import { useContext, useEffect, useState } from "react";
 
@@ -47,7 +48,7 @@ const Header = () => {
     return (
         <>
             <header className="hd-header">
-                <div className="hd-wrapper hd-flex">
+                <Wrapper className="hd-flex">
                     <div className="hd-header__nav">
                         <Link href="/" className="hd-brand" aria-label="Hopper Brand">
                             <HopperLogo />
@@ -69,7 +70,7 @@ const Header = () => {
                         </IconButton>
                     </div>
                     <MobileMenuTrigger onToggle={handleMobileMenuToggle} />
-                </div>
+                </Wrapper>
             </header>
             {isMobileMenuOpen && <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} />}
         </>
