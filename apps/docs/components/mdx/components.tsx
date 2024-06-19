@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, DetailedHTMLProps } from "react";
 import dynamic from "next/dynamic";
 
 import Card from "@/components/card/Card.tsx";
@@ -20,15 +20,18 @@ import Footnote from "@/components/footnote/Footnote.tsx";
 import PackageInstallation, {
     type PackageInstallationProps
 } from "@/components/packageInstallation/PackageInstallation.tsx";
-import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
+
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
+import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
+import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
+import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 
-type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
-
-const PreviewComponent = dynamic(() => import("@/app/ui/components/previewComponent/PreviewComponent.tsx"));
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
+const ComponentExample = dynamic(() => import("@/app/ui/components/componentExample/ComponentExample.tsx"));
+
+type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 export const components = {
     Card,
@@ -49,8 +52,15 @@ export const components = {
     PackageInstallation: (props: PackageInstallationProps) => {
         return <PackageInstallation {...props} />;
     },
-    PreviewComponent: (props: PreviewComponentProps) => {
-        return <PreviewComponent {...props} />;
+    Example: (props: ComponentExampleProps) => {
+        const { src } = props;
+
+        return <ComponentExample
+            {...props}
+            type="both"
+            code={<ComponentCodeWrapper src={src} />}
+            preview={<ComponentPreview src={src} />}
+        />;
     },
     MigrateGuide: (props: MigrateGuideProps) => {
         return <MigrateGuide {...props} />;
