@@ -275,7 +275,10 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
  *
  * [View Documentation](TODO)
  */
+
+
 const _Button = slot("button", forwardRef(Button));
+// const _Button = forwardRef(Button);
 
 _Button.displayName = "Button";
 

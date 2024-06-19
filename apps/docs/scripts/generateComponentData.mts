@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import docgenTs, {type ComponentDoc, PropItem} from "react-docgen-typescript";
+import docgenTs, {type ComponentDoc, getDefaultExportForFile, PropItem} from "react-docgen-typescript";
 
 interface ComponentData {
     name: string;
@@ -29,7 +29,7 @@ const PACKAGES = path.join(process.cwd(), "..", "..", "packages", "components", 
 const COMPONENT_DATA = path.join(process.cwd(), "datas", "components");
 
 const tsConfigParser = docgenTs.withDefaultConfig({
-    propFilter: (prop) => {
+    propFilter: (prop, component) => {
         // Remove props from StyledSystemProps
         return prop?.parent?.name !== "StyledSystemProps";
     }
@@ -156,7 +156,11 @@ async function generateComponentData() {
         exclude: ['/docs/', '/tests/', '/utils/', '/i18n', 'index.ts', 'Context.ts']
     }
 
-    const components = await generateComponentList(PACKAGES, options);
+    // const components = await generateComponentList(PACKAGES, options);
+    const components = [{
+        name: "Button",
+        filePath: `${PACKAGES}/buttons/src/Button.tsx`
+    }]
 
     if (!components.length) {
         console.error('No components found');
