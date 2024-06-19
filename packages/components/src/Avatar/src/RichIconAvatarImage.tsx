@@ -1,5 +1,5 @@
 import { RichIconContext, type RichIconProps } from "@hopper-ui/icons";
-import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, useResponsiveValue, useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
 import { useContextProps } from "react-aria-components";
@@ -22,7 +22,7 @@ export interface RichIconAvatarImageProps extends StyledSystemProps, BaseCompone
      * The size of the image.
      * * @default "md"
      */
-    size?: AvatarSize;
+    size?: ResponsiveProp<AvatarSize>;
 }
 
 export const AvatarToIconSizeAdapter: SizeAdapter<AvatarProps["size"], RichIconProps["size"]> = {
@@ -43,9 +43,11 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
         isDisabled,
         style,
         slot,
-        size = "md",
+        size: sizeValue,
         ...otherProps
     } = ownProps;
+    
+    const size = useResponsiveValue(sizeValue) ?? "md";
 
     const classNames = clsx(
         className,

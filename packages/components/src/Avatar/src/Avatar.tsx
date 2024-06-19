@@ -1,5 +1,5 @@
 import { BrokenImageRichIcon } from "@hopper-ui/icons";
-import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue, type BackgroundColorValue, type ColorValue } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef, useMemo } from "react";
 import { useContextProps } from "react-aria-components";
@@ -16,16 +16,18 @@ import styles from "./Avatar.module.css";
 export const GlobalAvatarCssSelector = "hop-Avatar";
 export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
-type ImageOmittedProps = "name" | "size" | "slot" | "content" | "color" | "height" | "width";
-type AvatarOmittedProps = "content" | "color" | "height" | "width";
-type AvatarImageBaseProps = Omit<React.HTMLProps<HTMLImageElement>, ImageOmittedProps>;
+type AvatarImageBaseProps = React.HTMLProps<HTMLImageElement>;
 
-interface AvatarBaseProps extends StyledSystemProps, BaseComponentProps {
+export interface AvatarProps extends StyledSystemProps, BaseComponentProps {
     /**
      * The src of the image to display if the image fails to load. If set to null, the initials will be displayed instead.
      * * @default "BrokenImageRichIcon"
      */
     fallbackSrc?: string | null;
+    /**
+     * Props to add to the img element when src is provided.
+     */
+    imageProps?: AvatarImageBaseProps;
     /**
      * Whether or not the avatar is disabled.
      */
@@ -44,16 +46,11 @@ interface AvatarBaseProps extends StyledSystemProps, BaseComponentProps {
      */
     src?: string;
 }
-export type AvatarProps = AvatarBaseProps & AvatarImageBaseProps;
 
-interface AvatarInitialsProps extends Omit<AvatarProps, "src"> {
-    size: AvatarSize;
-}
+interface AvatarInitialsProps extends Omit<AvatarProps, "src"> {}
 
-interface AvatarImageProps extends Omit<AvatarBaseProps, AvatarOmittedProps>, AvatarImageBaseProps {
-    size: AvatarSize;
+interface AvatarImageProps extends AvatarProps {
     src: string;
-    children: React.ReactNode;
 }
 
 export const AvatarToTextSizeAdapter: SizeAdapter<AvatarProps["size"], TextProps["size"]> = {
@@ -79,20 +76,18 @@ function getColorIndexForInitial(name: string, maxNumberOfColor: number) {
 }
 
 function AvatarInitials(props: AvatarInitialsProps) {
+    const { ...ownProps } = useStyledSystem(props);
     const { 
         "aria-label": ariaLabel,
         className,
         isDisabled,
         name,
-        size,
+        size: sizeValue,
         slot,
         ...otherProps 
-    } = props;
-
-    const classNames = clsx(
-        className,
-        styles["hop-Avatar--initials"]
-    );
+    } = ownProps;
+    
+    const size = useResponsiveValue(sizeValue) ?? "md";
 
     const initials = useMemo(() => {
         const cleanName = name.replace(/\s+/g, " ").trim();
@@ -106,8 +101,13 @@ function AvatarInitials(props: AvatarInitialsProps) {
     
     const variantToUse = useMemo(() => `option${getColorIndexForInitial(name, 8) + 1}`, [name]);
 
-    const tokenBackgroundColor = isDisabled ? "neutral-disabled" : `decorative-${variantToUse}-strong` as BackgroundColorValue;
-    const tokenTextColor = isDisabled ? "neutral-disabled" : `decorative-${variantToUse}` as ColorValue;
+    const colorName = `decorative-${variantToUse}`;
+
+    const classNames = clsx(
+        className,
+        styles["hop-Avatar--initials"],
+        styles[`hop-Avatar--${colorName}`]
+    );
 
     return (
         <Text
@@ -116,8 +116,6 @@ function AvatarInitials(props: AvatarInitialsProps) {
             role="img"
             size={AvatarToTextSizeAdapter[size]}
             slot={slot || undefined}
-            backgroundColor={tokenBackgroundColor}
-            color={tokenTextColor}
             className={classNames}
             data-disabled={isDisabled || undefined}
         >
@@ -127,31 +125,34 @@ function AvatarInitials(props: AvatarInitialsProps) {
 }
 
 function AvatarImage(props: AvatarImageProps) {
+    const { ...ownProps } = useStyledSystem(props);
     const {
         "aria-label": ariaLabel,
         children,
         className,
+        imageProps,
         isDisabled,
         src,
         fallbackSrc,
         name,
         slot,
         size,
-        onError,
         ...otherProps
-    } = props;
+    } = ownProps;
 
     const classNames = clsx(
         className,
         styles["hop-Avatar--image"]
     );
+
+    const { onError, ...otherImageProps } = imageProps ?? {};
     
     const [imageUrl, handleImageError, imageFailed] = useImageFallback(src, fallbackSrc);
 
     if (imageFailed) {
         if (fallbackSrc === undefined) {
             return (
-                <RichIconAvatarImage aria-label={ariaLabel ?? name} size={size} isDisabled={isDisabled}>
+                <RichIconAvatarImage aria-label={ariaLabel ?? name} size={size} isDisabled={isDisabled} className={className}>
                     <BrokenImageRichIcon />
                 </RichIconAvatarImage>
             );
@@ -162,6 +163,7 @@ function AvatarImage(props: AvatarImageProps) {
 
     return (
         <div
+            {...otherProps}
             data-disabled={isDisabled || undefined}
             slot={slot || undefined}
             role="img"
@@ -169,7 +171,7 @@ function AvatarImage(props: AvatarImageProps) {
             className={classNames}
         >
             <img
-                {...otherProps}
+                {...otherImageProps}
                 src={imageUrl}
                 alt={name}
                 onError={onError || handleImageError}
@@ -179,7 +181,7 @@ function AvatarImage(props: AvatarImageProps) {
     );
 }
 
-function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLElement>) {
+function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, AvatarContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -209,29 +211,29 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLElement>) {
         ...style
     };
 
+    const commonProps = {
+        className: classNames,
+        size,
+        style: mergedStyles
+    };
+
     const content = src ? (
         <AvatarImage
             {...otherProps}
+            {...commonProps}
             src={src}
             fallbackSrc={fallbackSrc}
-            className={classNames}
-            size={size}
-            style={mergedStyles}
         >
             {/* Anything added in children is a fallback if AvatarImage fails to load. */}
             <AvatarInitials 
                 {...otherProps}
-                className={classNames}
-                size={size}
-                style={mergedStyles}
+                {...commonProps}
             />
         </AvatarImage>
     ) : (
         <AvatarInitials
-            {...otherProps} 
-            className={classNames}
-            size={size}
-            style={mergedStyles}
+            {...otherProps}
+            {...commonProps}
         />
     );
 
@@ -245,7 +247,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Avatar = forwardRef<HTMLElement, AvatarProps>(Avatar);
+const _Avatar = forwardRef<HTMLDivElement, AvatarProps>(Avatar);
 _Avatar.displayName = "Avatar";
 
 export { _Avatar as Avatar };
