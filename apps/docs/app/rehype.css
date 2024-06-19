@@ -80,6 +80,7 @@ code[data-theme*=' '] span {
     content: counter(line);
     display: inline-block;
     margin-right: var(--hd-space-2);
+    min-width: var(--hd-space-2);
     text-align: right;
     color: var(--hd-codeblock-line-line-number-color);
 }
