@@ -36,7 +36,7 @@ const tsConfigParser = docgenTs.withCustomConfig(
             return prop?.parent?.name !== "StyledSystemProps";
         }
     }
-});
+);
 
 async function writeFile(filename: string, data: ComponentDocWithGroups[]) {
     if (!fs.existsSync(COMPONENT_DATA)) {
@@ -156,27 +156,23 @@ async function generateComponentList(source: string, options: Options = {}): Pro
 // input: docs
 // output: /docs/
 function toDirectoryPath(partialPath: string) {
-    return `${ path.sep }${ partialPath }${path.sep}`;
+    return `${path.sep}${partialPath}${path.sep}`;
 }
 
 async function generateComponentData() {
     console.log('Start api generation for components');
     const options = {
-exclude: [
-    toDirectoryPath('docs'),
-    toDirectoryPath('tests'),
-    toDirectoryPath('utils'),
-    toDirectoryPath('i18n'),
-    'index.ts',
-    'Context.ts'
-]
-}
+        exclude: [
+            toDirectoryPath('docs'),
+            toDirectoryPath('tests'),
+            toDirectoryPath('utils'),
+            toDirectoryPath('i18n'),
+            'index.ts',
+            'Context.ts'
+        ]
+    }
 
-    // const components = await generateComponentList(PACKAGES, options);
-    const components = [{
-        name: "Button",
-        filePath: `${PACKAGES}/buttons/src/Button.tsx`
-    }]
+    const components = await generateComponentList(PACKAGES, options);
 
     if (!components.length) {
         console.error('No components found');
