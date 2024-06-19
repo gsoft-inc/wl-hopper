@@ -1,4 +1,4 @@
-import { ToggleButton } from "react-aria-components";
+import { ToggleButton } from "@/components/toggleButton/ToggleButton";
 
 import type { ColorScheme } from "@/context/theme/ThemeProvider";
 import Icon from "@/components/themeSwitch/ThemeSwitchIcons";
@@ -22,7 +22,7 @@ const ThemeSwitch = ({ text, className, colorMode, onChange }: ThemeSwitchProps)
                 aria-label="Toggle theme"
             >
                 <Icon icon={colorMode === "dark" ? "sun" : "moon"} />
-                <span className="hd-theme-switch__text">{text}</span>
+                <span>{text}</span>
             </ToggleButton>
         );
     }

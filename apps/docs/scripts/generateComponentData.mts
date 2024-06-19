@@ -157,7 +157,7 @@ async function generateComponentList(source: string, options: Options = {}): Pro
 // input: docs
 // output: /docs/
 function toDirectoryPath(partialPath: string) {
-    return `${ path.sep }${ partialPath }${path.sep}`;
+    return `${path.sep}${partialPath}${path.sep}`;
 }
 
 async function generateComponentData() {
