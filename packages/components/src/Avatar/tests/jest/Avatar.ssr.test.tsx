@@ -9,7 +9,7 @@ describe("Avatar", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <Avatar>Text</Avatar>
+                <Avatar name="John Doe" />
             );
 
         expect(renderOnServer).not.toThrow();

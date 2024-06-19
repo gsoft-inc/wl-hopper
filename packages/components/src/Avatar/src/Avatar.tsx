@@ -16,7 +16,11 @@ import styles from "./Avatar.module.css";
 export const GlobalAvatarCssSelector = "hop-Avatar";
 export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
-export interface AvatarProps extends StyledSystemProps, BaseComponentProps {
+type ImageOmittedProps = "name" | "size" | "slot" | "content" | "color" | "height" | "width";
+type AvatarOmittedProps = "content" | "color" | "height" | "width";
+type AvatarImageBaseProps = Omit<React.HTMLProps<HTMLImageElement>, ImageOmittedProps>;
+
+interface AvatarBaseProps extends StyledSystemProps, BaseComponentProps {
     /**
      * The src of the image to display if the image fails to load. If set to null, the initials will be displayed instead.
      * * @default "BrokenImageRichIcon"
@@ -40,15 +44,13 @@ export interface AvatarProps extends StyledSystemProps, BaseComponentProps {
      */
     src?: string;
 }
+export type AvatarProps = AvatarBaseProps & AvatarImageBaseProps;
 
 interface AvatarInitialsProps extends Omit<AvatarProps, "src"> {
     size: AvatarSize;
 }
 
-type AvatarOmittedProps = "content" | "color" | "height" | "width";
-type ImageOmittedProps = "name" | "size" | "slot";
-
-interface AvatarImageProps extends Omit<AvatarProps, AvatarOmittedProps>, Omit<React.HTMLProps<HTMLImageElement>, ImageOmittedProps> {
+interface AvatarImageProps extends Omit<AvatarBaseProps, AvatarOmittedProps>, AvatarImageBaseProps {
     size: AvatarSize;
     src: string;
     children: React.ReactNode;
@@ -162,6 +164,7 @@ function AvatarImage(props: AvatarImageProps) {
         <div
             data-disabled={isDisabled || undefined}
             slot={slot || undefined}
+            role="img"
             aria-label={ariaLabel ?? name}
             className={classNames}
         >
@@ -176,7 +179,7 @@ function AvatarImage(props: AvatarImageProps) {
     );
 }
 
-function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
+function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, AvatarContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -242,7 +245,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Avatar = forwardRef<HTMLDivElement, AvatarProps>(Avatar);
+const _Avatar = forwardRef<HTMLElement, AvatarProps>(Avatar);
 _Avatar.displayName = "Avatar";
 
 export { _Avatar as Avatar };

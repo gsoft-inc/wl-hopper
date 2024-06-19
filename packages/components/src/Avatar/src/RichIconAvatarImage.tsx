@@ -1,7 +1,7 @@
 import { RichIconContext, type RichIconProps } from "@hopper-ui/icons";
 import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
+import { type CSSProperties, forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
 import { useContextProps } from "react-aria-components";
 
 import { type SizeAdapter, SlotProvider, cssModule, type BaseComponentProps } from "../../utils/index.ts";
@@ -13,7 +13,7 @@ import styles from "./RichIconAvatarImage.module.css";
 
 export const GlobalRichIconAvatarImageCssSelector = "hop-RichIconAvatarImage";
 
-export interface RichIconAvatarImageProps extends StyledSystemProps, BaseComponentProps {
+export interface RichIconAvatarImageProps extends StyledSystemProps, BaseComponentProps, Omit<HTMLAttributes<HTMLDivElement>, "slot" | "content" | "color"> {
     /**
      * Whether or not the avatar image is disabled.
      */
@@ -70,6 +70,7 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
             className={classNames}
             style={mergedStyles}
             slot={slot ?? undefined}
+            role="img"
             data-disabled={isDisabled || undefined}
         >
             <SlotProvider
