@@ -31,6 +31,7 @@ const COMPONENT_DATA = path.join(process.cwd(), "datas", "components");
 const tsConfigParser = docgenTs.withCustomConfig(
     "./tsconfig.json",
     {
+        shouldRemoveUndefinedFromOptional: true,
         propFilter: (prop) => {
             // Remove props from StyledSystemProps
             return prop?.parent?.name !== "StyledSystemProps";
@@ -162,15 +163,15 @@ function toDirectoryPath(partialPath: string) {
 async function generateComponentData() {
     console.log('Start api generation for components');
     const options = {
-exclude: [
-    toDirectoryPath('docs'),
-    toDirectoryPath('tests'),
-    toDirectoryPath('utils'),
-    toDirectoryPath('i18n'),
-    'index.ts',
-    'Context.ts'
-]
-}
+        exclude: [
+            toDirectoryPath('docs'),
+            toDirectoryPath('tests'),
+            toDirectoryPath('utils'),
+            toDirectoryPath('i18n'),
+            'index.ts',
+            'Context.ts'
+        ]
+    }
 
     const components = await generateComponentList(PACKAGES, options);
 
