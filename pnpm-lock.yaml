@@ -234,6 +234,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
+      '@workleap/typescript-configs':
+        specifier: 3.0.2
+        version: 3.0.2(typescript@5.4.5)
       eslint:
         specifier: 8.57.0
         version: 8.57.0
