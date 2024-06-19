@@ -110,17 +110,20 @@ function AvatarInitials(props: AvatarInitialsProps) {
     );
 
     return (
-        <Text
+        <div
             {...otherProps}
             aria-label={ariaLabel || name}
             role="img"
-            size={AvatarToTextSizeAdapter[size]}
             slot={slot || undefined}
             className={classNames}
             data-disabled={isDisabled || undefined}
         >
-            {initials}
-        </Text>
+            <Text
+                size={AvatarToTextSizeAdapter[size]}
+            >
+                {initials}
+            </Text>
+        </div>
     );
 }
 
