@@ -1,7 +1,7 @@
 import { MailIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
-import { within } from "@testing-library/react";
+import { within } from "@storybook/test";
 
 import { ErrorMessage } from "../../../errorMessage/index.ts";
 import { HelperMessage } from "../../../helperMessage/index.ts";

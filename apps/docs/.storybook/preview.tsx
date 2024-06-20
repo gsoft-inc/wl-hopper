@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 import React from "react";
+
 import "../app/globals.css";
 
 // Storybook styles
@@ -22,12 +23,15 @@ const preview: Preview = {
     },
     globalTypes: {
         scheme: {
-            name: "Color scheme",
-            description: "Global color scheme for components",
+            description: "Global theme for components",
             defaultValue: "light",
             toolbar: {
-                icon: "mirror",
-                items: ["light", "dark"],
+                title: "Theme",
+                icon: "circlehollow",
+                items: [
+                    { value: "light", title: "Light" },
+                    { value: "dark", title: "Dark" }
+                ],
                 dynamicTitle: true
             }
         }

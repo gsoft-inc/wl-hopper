@@ -21,15 +21,23 @@ export interface ComponentDocWithGroups extends ComponentDoc {
     groups: Groups;
 }
 
+export interface Options {
+    exclude?: string[];
+}
+
 const PACKAGES = path.join(process.cwd(), "..", "..", "packages", "components", "src");
 const COMPONENT_DATA = path.join(process.cwd(), "datas", "components");
 
-const tsConfigParser = docgenTs.withDefaultConfig({
-    propFilter: (prop) => {
-        // Remove props from StyledSystemProps
-        return prop?.parent?.name !== "StyledSystemProps";
+const tsConfigParser = docgenTs.withCustomConfig(
+    "./tsconfig.json",
+    {
+        shouldRemoveUndefinedFromOptional: true,
+        propFilter: (prop) => {
+            // Remove props from StyledSystemProps
+            return prop?.parent?.name !== "StyledSystemProps";
+        }
     }
-});
+);
 
 async function writeFile(filename: string, data: ComponentDocWithGroups[]) {
     if (!fs.existsSync(COMPONENT_DATA)) {
@@ -64,6 +72,9 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     const groupsExceptions = [["type", "default"], ["autoFocus", "default"]];
 
     return data.map(component => {
+        // Remove the local or server path from the filePath
+        component.filePath = component.filePath.split("wl-hopper")[1];
+
         // Destructure and ignore id and ref from component.props
         const {key, ref, ...props} = component.props;
 
@@ -117,18 +128,19 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     })
 }
 
-async function generateComponentList(source: string): Promise<(ComponentData | undefined)[]> {
-    const subdirs = fs.readdirSync(source);
+async function generateComponentList(source: string, options: Options = {}): Promise<(ComponentData | undefined)[]> {
+    const exclude = options.exclude || [];
+    const subdirs = await fs.promises.readdir(source);
     const files = await Promise.all(subdirs.map(async (subdir) => {
         const res = path.resolve(source, subdir);
 
         // Checks if the path corresponds to a directory
         if (fs.statSync(res).isDirectory()) {
-            return generateComponentList(res);
+            return generateComponentList(res, {exclude});
         }
 
-        // Checks whether the file is in the docs or tests directory
-        if (/\/(docs|tests)\/|index\.ts$/.test(res)) {
+        // Checks whether the file or directory is in the exclude list
+        if (exclude.some(ex => res.includes(ex))) {
             return;
         }
 
@@ -142,15 +154,26 @@ async function generateComponentList(source: string): Promise<(ComponentData | u
     return files.flat().filter(Boolean) as ComponentData[]
 }
 
+// input: docs
+// output: /docs/
+function toDirectoryPath(partialPath: string) {
+    return `${path.sep}${partialPath}${path.sep}`;
+}
+
 async function generateComponentData() {
     console.log('Start api generation for components');
+    const options = {
+        exclude: [
+            toDirectoryPath('docs'),
+            toDirectoryPath('tests'),
+            toDirectoryPath('utils'),
+            toDirectoryPath('i18n'),
+            'index.ts',
+            'Context.ts'
+        ]
+    }
 
-    const components = await generateComponentList(PACKAGES);
-    // Data for the tests only
-    // const components = [{
-    //     name: "Button",
-    //     filePath: `${PACKAGES}/buttons/src/Button.tsx`
-    // }]
+    const components = await generateComponentList(PACKAGES, options);
 
     if (!components.length) {
         console.error('No components found');

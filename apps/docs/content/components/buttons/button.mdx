@@ -1,25 +1,88 @@
 ---
 title: Button
 description: Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
-status: "draft"
 category: "buttons"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/buttons/src/Button.tsx
-    npm: https://www.npmjs.com/package/@hopper-ui/components
-    issue: https://github.com/gsoft-inc/wl-hopper/issues/new
 ---
 
-<PreviewComponent src="buttons/docs/preview"/>
+<Example src="buttons/docs/button/preview" isOpen />
 
-## Usage
-```tsx showLineNumbers
-import { Button } from "@hopper-ui/components";
-
-<Button>save</Button>
-```
 ## Props
 
 <PropTable component="Button" />
+
+## Examples
+
+### Variants
+A button can use different variants.
+
+<Example src="buttons/docs/button/variant" />
+
+**Primary**: For the principal call to action on the page. Primary buttons should only appear once per screen (not including the application header, modal or side panel).
+
+**Secondary**: For secondary actions on each page. Secondary buttons can be used in conjunction with a primary button or on its own. Paired with a Primary button, the secondary button usually performs the negative action of the set, such as “Cancel.”
+
+**Upsell**: For upsell actions that relates to upgrading an account or a plan. Use the upsell button to distinguish from an existing primary button. In some case a primary button can be used in its place when the general context of the page is about upselling.
+
+**Danger**: For actions that could have destructive effects on the user’s data.
+
+**Ghost-[primary|secondary|danger]**: For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Ghost buttons can also be used for sub-tasks on a
+page where a primary button for the main and final action is present.
+
+### Sizes
+A button can vary in size.
+
+<Example src="buttons/docs/button/size" />
+
+### Disabled
+A button can be disabled.
+
+<Example src="buttons/docs/button/state" />
+
+### Loading
+A button can show a loading indicator. The button text is hidden but the button maintains the width that it would have if the text were visible.
+
+<Example src="buttons/docs/button/loading" />
+
+### Fluid
+A button can be expanded to full width to fill its parent container.
+
+<Example src="buttons/docs/button/layout" />
+
+### Icon Only
+A button can contain only an icon.
+
+<Example src="buttons/docs/button/icon" />
+
+### Icon
+A button can contain icons.
+
+<Example src="buttons/docs/button/icons" />
+
+### End Icon
+Non standard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go to.
+
+<Example src="buttons/docs/button/endIcon" />
+
+### As Link
+A button can be rendered as a link by using the href property.
+
+<Example src="buttons/docs/button/asLink" />
+
+### As Router Link
+A button can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider
+
+<Example src="buttons/docs/button/reactRouterLink" />
+
+
+### Advanced Customization
+
+All Hopper Components exports a corresponding context that can be used to send props to them from a parent element.
+You can send any prop or ref via context that you could pass to the corresponding component.
+The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+
+<Example src="buttons/docs/button/advancedCustomization" />
 
 ## Migration Notes
 <MigrateGuide src="buttons/docs/migration-notes" />
