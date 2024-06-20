@@ -1,5 +1,6 @@
 import { BrokenImageRichIcon } from "@hopper-ui/icons";
 import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
+import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type ReactNode, type ReactEventHandler } from "react";
 import { useContextProps } from "react-aria-components";
@@ -139,6 +140,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         style,
         ...otherProps
     } = ownProps;
+    const domProps = filterDOMProps(otherProps);
     
     const { onError, ...otherImageProps } = imageProps ?? {};
     const [imageUrl, handleImageError, imageFailed] = useImageFallback(src, fallbackSrc);
@@ -183,7 +185,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
             if (fallbackSrc !== null) {
                 return (
                     <RichIconAvatarImage
-                        {...otherProps}
+                        {...domProps}
                         className={classNames}
                         isDisabled={isDisabled}
                         ref={ref}
@@ -197,7 +199,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
             }
         } else {
             content = <img
-                {...otherImageProps}
+                {...filterDOMProps(otherImageProps)}
                 alt=""
                 aria-hidden
                 className={styles["hop-Avatar__image"]}
@@ -209,7 +211,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     
     return (
         <div
-            {...otherProps}
+            {...domProps}
             className={classNames}
             data-disabled={isDisabled || undefined}
             role="img"
