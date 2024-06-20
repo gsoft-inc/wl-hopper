@@ -21,7 +21,7 @@ const Overview = () => {
                                     <Image src={`https://place-hold.it/260x140?text=${component.title}&fontsize=20`} alt="thumb" width="260" height="140" className="hd-component-overview__item-img" />
                                 </div>
                                 <div className="hd-component-overview-item__caption">
-                                    <Title as="h3" level={3}>{component.title}</Title>
+                                    <h3>{component.title}</h3>
                                     <p className="hd-component-overview__item-teaser">{component.description}</p>
                                 </div>
                             </Link>
