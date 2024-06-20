@@ -86,6 +86,18 @@ export const BrokenImage = {
 } satisfies Story;
 
 /**
+ * An Avatar when both src and fallbackSrc fail to load.
+ * A default image will be displayed instead.
+ */
+export const BrokenImageWithBothFailingSources = {
+    args: {
+        name: "John Doe",
+        src: "https://example.com/image.jpg",
+        fallbackSrc: "https://example.com/image.jpg"
+    }
+} satisfies Story;
+
+/**
  * An Avatar where the src fails to load and the fallback is bypassed.
  * The initials will be displayed instead.
  */

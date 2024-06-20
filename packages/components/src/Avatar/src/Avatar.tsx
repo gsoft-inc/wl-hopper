@@ -1,7 +1,7 @@
 import { BrokenImageRichIcon } from "@hopper-ui/icons";
 import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type ReactNode } from "react";
+import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type ReactNode, type ReactEventHandler } from "react";
 import { useContextProps } from "react-aria-components";
 
 import { Text, type TextProps } from "../../typography/Text/index.ts";
@@ -128,7 +128,6 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, AvatarContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
-        "aria-label": ariaLabel,
         className,
         fallbackSrc,
         imageProps,
@@ -145,26 +144,20 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const [imageUrl, handleImageError, imageFailed] = useImageFallback(src, fallbackSrc);
 
     const size = useResponsiveValue(sizeValue) ?? "md";
+    const isBrokenImage = src && imageFailed && fallbackSrc === undefined;
+    const isImage = src && !imageFailed;
+    const isInitials = !src || (src && imageFailed && fallbackSrc === null);
 
-    let classNames = clsx(
+    const classNames = clsx(
         className,
         GlobalAvatarCssSelector,
         cssModule(
             styles,
             "hop-Avatar",
             size,
-            getColorName(name)
-        ),
-        stylingProps.className
-    );
-
-    const brokenImageClassNames = clsx(
-        className,
-        GlobalAvatarCssSelector,
-        cssModule(
-            styles,
-            "hop-Avatar",
-            "broken-image"
+            isBrokenImage && "broken-image",
+            isImage && "image",
+            isInitials && getColorName(name)
         ),
         stylingProps.className
     );
@@ -174,57 +167,42 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         ...style
     };
 
-    const initialsContent = <AvatarInitials
+    const handleError: ReactEventHandler<HTMLImageElement> = e => {
+        handleImageError?.(e);
+        onError?.(e);
+    };
+
+    let content = <AvatarInitials
         {...otherProps}
         name={name}
         size={size}
     />;
-
-    const commonProps = {
-        ...otherProps,
-        ariaLabel,
-        ref,
-        size,
-        style: mergedStyles
-    };
-
-    let content = initialsContent;
     
     if (src) {
         if (imageFailed) {
-            if (fallbackSrc === undefined) {
+            if (fallbackSrc !== null) {
                 return (
                     <RichIconAvatarImage
                         {...otherProps}
-                        {...commonProps}
-                        className={brokenImageClassNames}
+                        className={classNames}
                         isDisabled={isDisabled}
+                        ref={ref}
+                        size={size}
                         slot={slot}
+                        style={mergedStyles}
                     >
                         <BrokenImageRichIcon />
                     </RichIconAvatarImage>
                 );
             }
         } else {
-            classNames = clsx(
-                className,
-                GlobalAvatarCssSelector,
-                cssModule(
-                    styles,
-                    "hop-Avatar",
-                    "image",
-                    size
-                ),
-                stylingProps.className
-            );
-
             content = <img
                 {...otherImageProps}
-                src={imageUrl}
                 alt=""
                 aria-hidden
-                onError={onError || handleImageError}
                 className={styles["hop-Avatar__image"]}
+                onError={handleError}
+                src={imageUrl}
             />;
         }
     }
@@ -232,11 +210,12 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     return (
         <div
             {...otherProps}
-            {...commonProps}
             className={classNames}
             data-disabled={isDisabled || undefined}
             role="img"
             slot={slot ?? undefined}
+            ref={ref}
+            style={mergedStyles}
         >
             {content}
         </div>
