@@ -69,8 +69,8 @@
     display: inline-flex;
     column-gap: var(--column-gap);
     align-items: center;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     box-sizing: border-box;
     inline-size: max-content;

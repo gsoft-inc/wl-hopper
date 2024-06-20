@@ -96,8 +96,8 @@
 
     display: flex;
     column-gap: var(--hop-space-inline-xs);
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     box-sizing: border-box;
     inline-size: max-content;
