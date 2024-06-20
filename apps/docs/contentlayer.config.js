@@ -180,6 +180,9 @@ export const Components = defineDocumentType(() => ({
         status: {
             type: "string"
         },
+        category: {
+            type: "string"
+        },
         order: {
             type: "number"
         },
