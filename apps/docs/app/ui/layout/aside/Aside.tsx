@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { useHeadsObserver } from "@/hooks/useHeadsObserver";
 
 import "./aside.css";
+import Link from "next/link";
 
 interface Link {
     title: string;
@@ -52,9 +53,9 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
         })}
         key={link.id}
         >
-            <a href={link.url} className="hd-aside__link">
+            <Link href={link.url} className="hd-aside__link">
                 {link.title}
-            </a>
+            </Link>
         </li>
     ));
 

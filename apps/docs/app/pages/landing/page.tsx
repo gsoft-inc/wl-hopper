@@ -13,6 +13,7 @@ import { CalendarIcon, ChartBarIcon, CheckmarkIcon, DeleteIcon, EyeVisibleIcon, 
 
 import "@hopper-ui/tokens/fonts.css";
 import "../../home.css";
+import Link from "next/link";
 
 export default function Home() {
     const { colorMode } = useContext(ThemeContext);
@@ -60,7 +61,7 @@ export default function Home() {
                     <div className="hd-home-samples__col hd-home-samples__main-wrapper">
                         <div className="hd-home-samples__row">
                             <div className="hd-home-samples__col">
-                                <a className="hd-home-sample__item hd-home-sample__item-colors" href="/tokens/semantic/color">
+                                <Link className="hd-home-sample__item hd-home-sample__item-colors" href="/tokens/semantic/color">
                                     <h3 className="hd-home-sample__title">Colors <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                                     <div className="hd-home-sample__colors">
                                         <div className="hd-home-sample__colors-row">
@@ -76,8 +77,8 @@ export default function Home() {
                                             <span className="hd-home-sample__color hd-home-sample__color-sapphire-500"></span>
                                         </div>
                                     </div>
-                                </a>
-                                <a className="hd-home-sample__item hd-home-sample__item-sizes" href="/tokens/semantic/space">
+                                </Link>
+                                <Link className="hd-home-sample__item hd-home-sample__item-sizes" href="/tokens/semantic/space">
                                     <h3 className="hd-home-sample__title">Sizes <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                                     <div className="hd-home-sample__sizes">
                                         <div className="hd-home-sample__size hd-home-sample__size-16">
@@ -97,10 +98,10 @@ export default function Home() {
                                             <div className="hd-home-sample__size-bar"></div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                             <div className="hd-home-samples__col">
-                                <a className="hd-home-sample__item hd-home-sample__item-text-styles" href="/tokens/semantic/typography">
+                                <Link className="hd-home-sample__item hd-home-sample__item-text-styles" href="/tokens/semantic/typography">
                                     <h3 className="hd-home-sample__title">Text Styles <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                                     <div className="hd-home-sample__text-styles">
                                         <div className="hd-home-sample__text-styles-col">
@@ -125,10 +126,10 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
-                        <a className="hd-home-sample__item hd-home-sample__item-icons" href="/icons/getting-started/introduction">
+                        <Link className="hd-home-sample__item hd-home-sample__item-icons" href="/icons/getting-started/introduction">
                             <h3 className="hd-home-sample__title">Icons <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                             <p className="hd-home-sample__tagline">A set of commonly used interface icons.</p>
                             <HopperProvider colorScheme={theme} className="hd-home-sample__icons">
@@ -166,7 +167,7 @@ export default function Home() {
                                     <RecurringIcon className="hd-home-sample__icons-icon" size="sm" />
                                 </div>
                             </HopperProvider>
-                        </a>
+                        </Link>
                     </div>
                     <div className="hd-home-sample__item hd-home-sample__item-components">
                         <div className="hd-home-sample__item-upcoming"></div>

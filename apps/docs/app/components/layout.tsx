@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import { splitPath } from "@/app/lib/splitPath";
 
 interface Data {
     frontmatter: ComponentData;
@@ -14,8 +15,8 @@ function formatComponentData(data: Data[]) {
         const { slug, frontmatter: { title, order } } = component;
         let section = "";
 
-        if (slug.split("/").length > 1) {
-            section = slug.split("/")[0];
+        if (splitPath(slug)!.length > 1) {
+            section = splitPath(slug)![0];
         }
 
         return {

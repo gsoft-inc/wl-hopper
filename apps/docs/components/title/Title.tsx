@@ -2,6 +2,7 @@ import formattingTitleId from "@/app/lib/formattingTitleId";
 import clsx from "clsx";
 
 import "./title.css";
+import Link from "next/link";
 
 export interface TitleProps {
     as?: "h1" | "h2" | "h3" | "h4" | "h5";
@@ -34,9 +35,9 @@ const Title = ({
             {...rest}
         >
             {level > 1 ? (
-                <a href={`#${uniqueId}`} className="hd-title-link">
+                <Link href={`#${uniqueId}`} className="hd-title-link">
                     {children}
-                </a>
+                </Link>
             ) : (
                 children
             )}

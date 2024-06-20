@@ -5,7 +5,9 @@ import SubHeader from "@/app/ui/layout/subHeader/SubHeader.tsx";
 import Aside from "@/app/ui/layout/aside/Aside.tsx";
 
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import { splitPath } from "@/app/lib/splitPath";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
+import path from "path";
 
 interface PageProps {
     params: {
@@ -17,7 +19,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
     const componentsDetails = await getComponentDetails();
 
     return componentsDetails.map(({ slug }) => {
-        const [section, type] = slug.split("/");
+        const [section, type] = slug.split(path.sep);
 
         return ({
             slug: [section, type]
@@ -29,7 +31,7 @@ export default async function ComponentPage({ params }: PageProps) {
     const [section, type] = params.slug;
 
     const component = (await getComponentDetails()).find(componentDetail => {
-        const [componentSlugSection, componentSlugType] = componentDetail.slug.split("/");
+        const [componentSlugSection, componentSlugType] = splitPath(componentDetail.slug)!;
 
         return componentSlugType === type && componentSlugSection === section;
     });

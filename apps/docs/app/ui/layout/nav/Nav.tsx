@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { splitPath } from "@/app/lib/splitPath";
 import type { NavItem } from "@/configs/navigation";
 
 import "./nav.css";
@@ -13,7 +13,7 @@ const Nav = ({ items }: { items: React.PropsWithoutRef<NavItem[]> }) => {
     let firstPathLevel: string;
 
     if (pathname) {
-        firstPathLevel = pathname.split("/")[1].trim();
+        firstPathLevel = splitPath(pathname)![1].trim();
     }
 
     const navItems = items.map(item => {

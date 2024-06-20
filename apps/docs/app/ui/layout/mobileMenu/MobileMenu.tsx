@@ -8,6 +8,7 @@ import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
 import IconButton from "@/components/iconButton/IconButton";
 import { navigation } from "@/configs/navigation";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { splitPath } from "@/app/lib/splitPath";
 
 import CloseIcon from "./assets/close.svg";
 import GithubLogo from "./assets/github.svg";
@@ -45,7 +46,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
     }, [isOpen]);
 
     if (pathname) {
-        firstPathLevel = pathname.split("/")[1].trim();
+        firstPathLevel = splitPath(pathname)![1].trim();
     }
 
     useEffect(() => {
