@@ -57,9 +57,10 @@ function getMDXData(dir: string) {
         const { frontmatter, content, raw } = await readMDXFile(file);
         const startIndex = file.indexOf(COMPONENT_PATH) + COMPONENT_PATH.length + 1;
         const slug = file.substring(startIndex, file.length - ".mdx".length);
+        const slugs = slug.split(path.sep);
 
         return {
-            slug,
+            slugs,
             frontmatter,
             content,
             raw
