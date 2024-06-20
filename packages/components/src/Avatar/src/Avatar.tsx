@@ -180,6 +180,14 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         size={size}
     />;
 
+    const commonProps = {
+        ...otherProps,
+        ariaLabel,
+        ref,
+        size,
+        style: mergedStyles
+    };
+
     let content = initialsContent;
     
     if (src) {
@@ -188,13 +196,10 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
                 return (
                     <RichIconAvatarImage
                         {...otherProps}
-                        aria-label={ariaLabel ?? name}
+                        {...commonProps}
                         className={brokenImageClassNames}
                         isDisabled={isDisabled}
-                        ref={ref}
                         slot={slot}
-                        size={size}
-                        style={mergedStyles}
                     >
                         <BrokenImageRichIcon />
                     </RichIconAvatarImage>
@@ -227,13 +232,11 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     return (
         <div
             {...otherProps}
-            data-disabled={isDisabled || undefined}
-            slot={slot ?? undefined}
-            role="img"
-            aria-label={ariaLabel ?? name}
+            {...commonProps}
             className={classNames}
-            ref={ref}
-            style={mergedStyles}
+            data-disabled={isDisabled || undefined}
+            role="img"
+            slot={slot ?? undefined}
         >
             {content}
         </div>
