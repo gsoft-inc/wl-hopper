@@ -82,6 +82,7 @@
     --hd-color-neutral-icon-weak: var(--hd-neutral-700);
     --hd-color-neutral-icon-weak-hover: var(--hd-neutral-900);
     --hd-color-neutral-border: var(--hd-neutral-75);
+    --hd-color-neutral-border-hover: var(--hd-neutral-300);
     --hd-color-neutral-border-weak: var(--hd-neutral-20);
     --hd-color-accent-text: var(--hd-accent-700);
     --hd-color-accent-border: var(--hd-accent-700);
@@ -118,6 +119,7 @@
     --hd-color-neutral-icon-weak: var(--hd-neutral-300);
     --hd-color-neutral-icon-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-border: var(--hd-neutral-700);
+    --hd-color-neutral-border-hover: var(--hd-neutral-400);
     --hd-color-accent-text: var(--hd-accent-300);
     --hd-color-accent-border: var(--hd-accent-700);
     --hd-color-accent-surface: var(--hd-accent-900);

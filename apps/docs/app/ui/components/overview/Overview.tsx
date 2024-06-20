@@ -23,7 +23,6 @@ const Overview = () => {
                                     <h3>{component.title}</h3>
                                     <p className="hd-component-overview__item-teaser">{component.description}</p>
                                 </div>
-                                <div className="hd-component-item__overlay-effect"></div>
                             </a>
                         ))}
                     </div>
