@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
 import { rehypePluginOptions } from "./app/lib/rehypeConfig.js";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
@@ -155,6 +155,13 @@ export const GettingStarted = defineDocumentType(() => ({
     }
 }));
 
+const Links = defineNestedType(() => ({
+    name: "Links",
+    fields: {
+        source: { type: "string", required: true }
+    }
+}));
+
 export const Components = defineDocumentType(() => ({
     name: "Components",
     filePathPattern: "components/**/*.mdx",
@@ -172,6 +179,13 @@ export const Components = defineDocumentType(() => ({
         },
         status: {
             type: "string"
+        },
+        order: {
+            type: "number"
+        },
+        links: {
+            type: "nested",
+            of: Links
         }
     },
     computedFields: {
