@@ -1,48 +1,48 @@
 {
-  "extends": "@workleap/typescript-configs/web-application.json",
-  "compilerOptions": {
-    "incremental": true,
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@hopper-ui/icons": [
-        "../../packages/icons/src/index.ts"
-      ],
-      "@hopper-ui/styled-system": [
-        "../../packages/styled-system/src/index.ts"
-      ],
-      "@hopper-ui/components": [
-        "../../packages/components/src/index.ts"
-      ],
-      "@hopper-ui/storybook-addon": [
-        "../../tooling/storybook-addon/index.ts"
-      ],
-      "@hopper-ui/test-utils": [
-        "../../tooling/test-utils/index.ts"
-      ],
-      "contentlayer/generated": [
-        "./.contentlayer/generated"
-      ]
+    "extends": "@workleap/typescript-configs/web-application.json",
+    "compilerOptions": {
+        "incremental": true,
+        "jsx": "preserve",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            "@/*": [
+                "./*"
+            ],
+            "@hopper-ui/icons": [
+                "../../packages/icons/src/index.ts"
+            ],
+            "@hopper-ui/styled-system": [
+                "../../packages/styled-system/src/index.ts"
+            ],
+            "@hopper-ui/components": [
+                "../../packages/components/src/index.ts"
+            ],
+            "@hopper-ui/storybook-addon": [
+                "../../tooling/storybook-addon/index.ts"
+            ],
+            "@hopper-ui/test-utils": [
+                "../../tooling/test-utils/index.ts"
+            ],
+            "contentlayer/generated": [
+                "./.contentlayer/generated"
+            ]
+        }
     },
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".contentlayer/generated"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        ".contentlayer/generated"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
