@@ -56,11 +56,11 @@ function AnonymousAvatar(props: AnonymousAvatarProps, ref: ForwardedRef<HTMLDivE
     return (        
         <RichIconAvatarImage
             {...otherProps}
+            aria-label={ariaLabel}
             className={classNames}
             ref={ref}
-            style={mergedStyles}
-            aria-label={ariaLabel}
             size={size}
+            style={mergedStyles}
         >
             <AnonymousRichIcon />
         </RichIconAvatarImage>

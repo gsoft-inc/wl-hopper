@@ -1,6 +1,6 @@
 import { useState, useEffect, type ReactEventHandler } from "react";
 
-export function useImageFallback(firstChoice: string, fallback?: string | null): [string, ReactEventHandler<HTMLImageElement> | undefined, boolean] {
+export function useImageFallback(firstChoice: string = "", fallback?: string | null): [string, ReactEventHandler<HTMLImageElement> | undefined, boolean] {
     const [imageUrl, setImageUrl] = useState<string>(firstChoice);
     const [imageFailed, setImageFailed] = useState<boolean>(false);
 

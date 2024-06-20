@@ -56,11 +56,11 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
     return (        
         <RichIconAvatarImage
             {...otherProps}
+            aria-label={ariaLabel}
             className={classNames}
             ref={ref}
-            style={mergedStyles}
-            aria-label={ariaLabel}
             size={size}
+            style={mergedStyles}
         >
             <DeletedUserRichIcon />
         </RichIconAvatarImage>
