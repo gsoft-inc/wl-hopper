@@ -12,7 +12,8 @@ interface ComponentPreviewProps {
 }
 
 const ComponentPreview = ({ src }: ComponentPreviewProps) => {
-    const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${src}.tsx`), {
+    // const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${src}.tsx`), {
+    const DynamicComponent = useMemo(() => dynamic(() => import("../../../../../../packages/components/src/buttons/docs/button/preview.tsx"), {
         ssr: false,
         loading: () => <ComponentSkeleton overlay />
     }), [src]);
