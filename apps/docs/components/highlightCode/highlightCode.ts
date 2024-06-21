@@ -1,7 +1,7 @@
 import { type Plugin, unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import { rehypePluginOptions } from "@/app/lib/rehypeConfig";
+import { rehypePluginOptions } from "@/app/lib/rehypeConfig.ts";
 import rehypeStringify from "rehype-stringify";
 
 export async function highlightCode(code: string) {

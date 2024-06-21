@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { components } from "@/components/mdx/components.tsx";
-import { rehypePluginOptions } from "@/app/lib/rehypeConfig";
+import { rehypePluginOptions } from "@/app/lib/rehypeConfig.ts";
 import { data } from "@/app/lib/contentConfig.ts";
 
 export const COMPONENT_PATH = path.join(process.cwd(), "content", "components");
