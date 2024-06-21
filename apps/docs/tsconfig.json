@@ -3,8 +3,8 @@
     "compilerOptions": {
         "incremental": true,
         "jsx": "preserve",
-        "module": "esnext",
-        "moduleResolution": "bundler",
+        "module": "preserve",
+        "moduleResolution": "Bundler",
         "baseUrl": ".",
         "plugins": [
             {
