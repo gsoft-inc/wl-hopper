@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import TokenTable from "@/app/ui/tokens/table/TokenTable.tsx";
 
 import "@hopper-ui/tokens/fonts.css";

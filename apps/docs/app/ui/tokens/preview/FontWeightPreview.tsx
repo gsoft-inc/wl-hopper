@@ -1,9 +1,10 @@
 import "@hopper-ui/tokens/fonts.css";
 import "./preview.css";
+import type { CSSProperties } from "react";
 
 interface FontWeightPreviewProps {
     values?: TypographyValues;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
 interface TypographyValues {

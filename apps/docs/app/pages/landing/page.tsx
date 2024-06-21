@@ -53,7 +53,7 @@ export default function Home() {
                     <div className="hd-home__feature-item">
                         <h2 className="hd-home__feature-title"><DarkModeIcon className="hd-home-feature-title__icon" />Dark mode</h2>
                         <p className="hd-home__feature-copy">
-                            Switching from light to dark mode couldn't be easier.
+                            Switching from light to dark mode couldn&apos;t be easier.
                         </p>
                     </div>
                 </div>

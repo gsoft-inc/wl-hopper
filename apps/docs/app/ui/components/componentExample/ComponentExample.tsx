@@ -103,4 +103,6 @@ const ComponentExample = memo(({
     );
 });
 
+ComponentExample.displayName = "ComponentExample";
+
 export default ComponentExample;

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { createContext, useEffect, useState, type ReactNode } from "react";
 import { getInitialColorMode } from "./getInitialColorMode";
 
 interface ColorSchemeContextType {
@@ -9,30 +9,30 @@ interface ColorSchemeContextType {
 }
 
 interface ThemeProviderProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 export type ColorScheme = "light" | "dark";
 
-export const ThemeContext = React.createContext<ColorSchemeContextType>({
+export const ThemeContext = createContext<ColorSchemeContextType>({
     colorMode: "light",
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     setColorMode: () => {}
 });
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const [colorMode, setColorMode] = React.useState<ColorScheme | undefined>(
+    const [colorMode, setColorMode] = useState<ColorScheme | undefined>(
         undefined
     );
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (colorMode) {
             document.documentElement.setAttribute("data-theme", colorMode);
             window.localStorage.setItem("hdTheme", colorMode);
         }
     }, [colorMode]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setColorMode (getInitialColorMode());
     }, [setColorMode ]);
 

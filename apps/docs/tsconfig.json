@@ -4,7 +4,7 @@
         "incremental": true,
         "jsx": "preserve",
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "baseUrl": ".",
         "plugins": [
             {
@@ -38,9 +38,11 @@
     "include": [
         "next-env.d.ts",
         "**/*.ts",
+        "**/*.mts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        ".contentlayer/generated"
+        ".contentlayer/generated",
+        ".storybook/**/*"
     ],
     "exclude": [
         "node_modules"

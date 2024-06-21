@@ -1,5 +1,6 @@
 import "@hopper-ui/tokens/fonts.css";
 import "./preview.css";
+import type { CSSProperties, ReactNode } from "react";
 
 interface PreviewProps {
     category?: string;
@@ -9,8 +10,8 @@ interface PreviewProps {
 
 interface PreviewElemProps {
     className?: string;
-    content?: React.ReactNode;
-    style?: React.CSSProperties;
+    content?: ReactNode;
+    style?: CSSProperties;
 }
 
 const Preview = ({ category, name, value }: PreviewProps) => {

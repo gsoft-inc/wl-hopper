@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useState } from "react";
+import { useState, type PropsWithoutRef } from "react";
 import { Button } from "react-aria-components";
 
 import ChevronIcon from "./assets/chevron-icon.svg";
@@ -18,7 +18,7 @@ interface SectionPopoverProps {
     links: Link[];
 }
 
-const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) => {
+const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const togglePopover = () => {
