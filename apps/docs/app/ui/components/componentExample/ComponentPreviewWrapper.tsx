@@ -48,4 +48,6 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, height = "13rem" 
     );
 });
 
+ComponentPreviewWrapper.displayName = "ComponentPreviewWrapper";
+
 export default ComponentPreviewWrapper;

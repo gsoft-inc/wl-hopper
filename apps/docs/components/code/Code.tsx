@@ -1,4 +1,4 @@
-import React from "react";
+import type { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 import CopyButton from "@/components/copyButton/CopyButton";
@@ -6,11 +6,11 @@ import CopyButton from "@/components/copyButton/CopyButton";
 import "./code.css";
 
 interface CodeProps {
-    children: React.ReactNode;
+    children: ReactNode;
     value?: string;
 }
 
-const Code: React.FC<CodeProps> = ({ children, value }) => {
+const Code: FC<CodeProps> = ({ children, value }) => {
     return (
         <div className={clsx("hd-code__wrapper", value && "hd-code__wrapper--interactive")}>
             <code className="hd-code">{children}</code>

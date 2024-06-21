@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { Children, useState, type ReactElement } from "react";
+import { Children, useState, type ReactElement, type ReactNode } from "react";
 
 import "./tabs.css";
 
@@ -14,7 +14,7 @@ interface TabProps {
 interface TabsProps {
     tabs: TabProps[];
     className?: string;
-    children?: React.ReactNode;
+    children?: ReactNode;
 }
 
 const Tabs = ({ tabs, className, children }: TabsProps) => {

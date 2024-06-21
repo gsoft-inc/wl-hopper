@@ -4,6 +4,7 @@ import Code from "@/components/code/Code";
 import type { FontProperties, Size } from "@/app/lib/getTypographyTokens";
 
 import "./tokenTable.css";
+import Link from "next/link";
 
 export function typographyTableRow(type: string, properties: FontProperties, size?: Size) {
     const {
@@ -86,9 +87,9 @@ function PropertiesCell({ properties }: PropertiesCellProps) {
                         key="topOffset"
                         className="hd-typo-offset-cell"
                         tokenName={properties.topOffset.tokenName}
-                        displayName={<>Top Offset<a href="#offset-tokens"
+                        displayName={<>Top Offset<Link href="#offset-tokens"
                             className="hd-table__link"
-                        ><sup>1</sup></a></>}
+                        ><sup>1</sup></Link></>}
                         value={properties.topOffset.value}
                     />
                 )}
@@ -97,9 +98,9 @@ function PropertiesCell({ properties }: PropertiesCellProps) {
                         key="bottomOffset"
                         className={properties.topOffset ? undefined : "hd-typo-offset-cell"}
                         tokenName={properties.bottomOffset.tokenName}
-                        displayName={<>Bottom Offset<a href="#offset-tokens"
+                        displayName={<>Bottom Offset<Link href="#offset-tokens"
                             className="hd-table__link"
-                        ><sup>1</sup></a></>}
+                        ><sup>1</sup></Link></>}
                         value={properties.bottomOffset.value}
                     />
                 )}

@@ -6,7 +6,7 @@ export default function CodeBlockPage() {
         {allPages
             .filter(page => page._id === "pages/playground-codeblock.mdx")
             .map(page => (
-                <div className="hd-wrapper hd-flex">
+                <div key={page._id} className="hd-wrapper hd-flex">
                     <article className="hd-content" key={page._id}>
                         {page.body && <Mdx code={page.body.code} />}
                     </article>

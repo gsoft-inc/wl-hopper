@@ -1,9 +1,10 @@
+import type { CSSProperties } from "react";
 import "./preview.css";
 import "@hopper-ui/tokens/fonts.css";
 
 interface TypographyPreviewProps {
     values?: TypographyValues;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
 interface TypographyValues {

@@ -16,8 +16,8 @@ interface PageProps {
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
     const componentsDetails = await getComponentDetails();
 
-    return componentsDetails.map(({ slug }) => {
-        const [section, type] = slug.split("/");
+    return componentsDetails.map(({ slugs }) => {
+        const [section, type] = slugs;
 
         return ({
             slug: [section, type]
@@ -29,7 +29,7 @@ export default async function ComponentPage({ params }: PageProps) {
     const [section, type] = params.slug;
 
     const component = (await getComponentDetails()).find(componentDetail => {
-        const [componentSlugSection, componentSlugType] = componentDetail.slug.split("/");
+        const [componentSlugSection, componentSlugType] = componentDetail.slugs;
 
         return componentSlugType === type && componentSlugSection === section;
     });

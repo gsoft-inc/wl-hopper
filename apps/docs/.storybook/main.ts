@@ -47,8 +47,14 @@ export default {
 
         // This modifies the existing image rule to exclude .svg files
         // since you want to handle those files with @svgr/webpack
+        // disable ts since we know the concrete type of rule.
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const imageRule = config.module.rules.find(rule => rule?.["test"]?.test(".svg"));
         if (imageRule) {
+            // disable ts since we know the concrete type of imageRule.
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             imageRule["exclude"] = /\.svg$/;
         }
 

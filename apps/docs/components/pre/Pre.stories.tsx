@@ -15,7 +15,7 @@ export const Default: Story = {
         raw: "const foo = 'bar';",
         title: "Story.tsx",
         "data-language": "tsx",
-        children: <code>const foo = 'bar';</code>
+        children: <code>const foo = &apos;bar&apos;;</code>
     }
 };
 
@@ -23,6 +23,6 @@ export const WithoutTitle: Story = {
     args: {
         raw: "const foo = 'bar';",
         "data-language": "tsx",
-        children: <code>const foo = 'bar';</code>
+        children: <code>const foo = &apos;bar&apos;;</code>
     }
 };

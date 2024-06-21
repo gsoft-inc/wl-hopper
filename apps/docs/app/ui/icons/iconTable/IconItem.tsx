@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type FC, type ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import CopyButton from "@/components/copyButton/CopyButton.tsx";
 
 import "./iconItem.css";

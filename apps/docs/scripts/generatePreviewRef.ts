@@ -10,7 +10,7 @@ function getExamplePath(filePath: string[]) {
     const srcValues: string[] = [];
 
     filePath.forEach(file => {
-        const content = fs.readFileSync(file, 'utf-8');
+        const content = fs.readFileSync(file, "utf-8");
         const regex = /<Example\s+(?:[^>]*?\s+)?src="([^"]*)"/g;
         let match;
         while ((match = regex.exec(content)) !== null) {
@@ -33,19 +33,19 @@ function generateDemoFile(content?: string) {
         fs.mkdirSync(dirPath);
     }
 
-    fs.writeFileSync(filePath, content || '');
+    fs.writeFileSync(filePath, content || "");
 }
 
 function generatePreviewRef() {
-    console.log('Start generation Preview references...');
+    console.log("Start generation Preview references...");
     const files = getMdxFiles();
     const examplePaths = getExamplePath(files);
 
     let previewEntries = "";
-    for (const path of examplePaths) {
+    for (const examplePath of examplePaths) {
         previewEntries += `
-    "${path}": {
-        component: lazy(() => import("@/../../packages/components/src/${path}.tsx"))
+    "${examplePath}": {
+        component: lazy(() => import("@/../../packages/components/src/${examplePath}.tsx"))
     },`;
     }
 
@@ -63,10 +63,10 @@ interface Preview {
 
 export const Previews: Record<string, Preview> = {${previewEntries}
 };
-    `
+    `;
 
-    generateDemoFile(previewContent)
-    console.log('🎉 Success')
+    generateDemoFile(previewContent);
+    console.log("🎉 Success");
 }
 
 generatePreviewRef();
