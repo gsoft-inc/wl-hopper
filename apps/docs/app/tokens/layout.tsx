@@ -25,7 +25,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
             <SidebarProvider>
                 <SubHeader links={sectionLinks} />
                 <div className="hd-wrapper hd-flex">
-                    <Sidebar data={allTokens} />
+                    <Sidebar data={allTokens} order={["getting-started", "semantic", "core"]} />
                     {children}
                 </div>
             </SidebarProvider>

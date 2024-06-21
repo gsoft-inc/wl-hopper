@@ -15,11 +15,12 @@ import "./sidebar.css";
 
 interface SidebarProps {
     data: Data[];
+    order?: string[];
 }
 
-const Sidebar = ({ data }: SidebarProps) => {
+const Sidebar = ({ data, order }: SidebarProps) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
-    const links = getPageLinks(data, { order: ["getting-started", "semantic", "core", "react-icons", "svg"] });
+    const links = getPageLinks(data, { order });
     const pathName = usePathname();
     const { toggleSidebar, isSidebarOpen } = useSidebar();
 
