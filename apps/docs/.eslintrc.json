@@ -21,6 +21,7 @@
         "TableSection": true,
         "Switcher": true,
         "IconSpecTable": true,
+        "Overview": true,
         "PreviewComponent": true,
         "MigrateGuide": true,
         "PackageInstallation": true,
