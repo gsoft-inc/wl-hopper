@@ -32,7 +32,6 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
     [props, ref] = useContextProps(props, ref, AvatarContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
-        "aria-label": ariaLabel,
         className,
         size: sizeValue,
         style,
@@ -56,7 +55,6 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
     return (        
         <RichIconAvatarImage
             {...otherProps}
-            aria-label={ariaLabel}
             className={classNames}
             ref={ref}
             size={size}

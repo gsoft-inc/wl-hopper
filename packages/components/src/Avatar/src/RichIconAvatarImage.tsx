@@ -15,6 +15,10 @@ export const GlobalRichIconAvatarImageCssSelector = "hop-RichIconAvatarImage";
 
 export interface RichIconAvatarImageProps extends StyledSystemProps, BaseComponentProps, Omit<HTMLAttributes<HTMLDivElement>, "slot" | "content" | "color"> {
     /**
+     * The aria-label for the image.
+     */
+    "aria-label": string;
+    /**
      * Whether or not the avatar image is disabled.
      */
     isDisabled?: boolean;

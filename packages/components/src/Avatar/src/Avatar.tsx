@@ -129,6 +129,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, AvatarContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
+        "aria-label": ariaLabel,
         className,
         fallbackSrc,
         imageProps,
@@ -146,7 +147,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const [imageUrl, handleImageError, imageFailed] = useImageFallback(src, fallbackSrc);
 
     const size = useResponsiveValue(sizeValue) ?? "md";
-    const isBrokenImage = src && imageFailed && fallbackSrc === undefined;
+    const isBrokenImage = src && imageFailed && fallbackSrc !== null;
     const isImage = src && !imageFailed;
     const isInitials = !src || (src && imageFailed && fallbackSrc === null);
 
@@ -186,6 +187,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
                 return (
                     <RichIconAvatarImage
                         {...domProps}
+                        aria-label={ariaLabel ?? name}
                         className={classNames}
                         isDisabled={isDisabled}
                         ref={ref}
@@ -212,6 +214,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     return (
         <div
             {...domProps}
+            aria-label={ariaLabel ?? name}
             className={classNames}
             data-disabled={isDisabled || undefined}
             role="img"
