@@ -176,7 +176,7 @@ async function generateComponentData() {
     };
 
     const components = await generateComponentList(PACKAGES, options);
-    console.log('Found components:', components)
+    console.log("Found components:", components);
 
     if (!components.length) {
         console.error("No components found");
