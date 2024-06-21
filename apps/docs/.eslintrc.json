@@ -37,12 +37,8 @@
             "extends": "plugin:@workleap/package-json"
         },
         {
-            "files": "*.mts",
-            "extends": "plugin:@workleap/web-application"
-        },
-        {
             "files": [
-                "*.{js,jsx,ts,tsx,mts}"
+                "*.{js,jsx,ts,tsx}"
             ],
             "excludedFiles": "scripts/**",
             "rules": {

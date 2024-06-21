@@ -2,6 +2,8 @@
     "name": "docs",
     "version": "0.4.0",
     "private": true,
+    "type": "module",
+    "sideEffects": "*.css",
     "scripts": {
         "start": "next start",
         "dev": "pnpm run \"/^dev:.*/\"",
@@ -12,7 +14,7 @@
         "lint:types": "tsc --noEmit",
         "storybook": "storybook dev -p 6010",
         "build:storybook": "storybook build",
-        "build:componentData": "tsx scripts/generateComponentData.mts"
+        "build:componentData": "tsx scripts/generateComponentData.ts"
     },
     "dependencies": {
         "@tanstack/react-table": "^8.17.3",
