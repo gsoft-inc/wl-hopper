@@ -1,4 +1,4 @@
-.hop-Checkbox  {
+.hop-Checkbox {
     /* Default */
     --hop-Checkbox-box-border-size: 0.0625rem;
     --hop-Checkbox-box-border-color: var(--hop-neutral-border);
@@ -233,9 +233,8 @@
     outline: var(--box-outline, none);
     outline-offset: 0.125rem;
 
-    transition:
-        background-color var(--transition-duration) var(--hop-easing-productive),
-        border var(--transition-duration) var(--hop-easing-productive);
+    transition: background-color var(--transition-duration) var(--hop-easing-productive),
+    border var(--transition-duration) var(--hop-easing-productive);
 }
 
 /* Check */

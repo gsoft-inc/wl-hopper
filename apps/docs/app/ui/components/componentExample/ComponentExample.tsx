@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, type ReactNode } from "react";
+import { memo, useState, useEffect, type ReactNode } from "react";
 import clsx from "clsx";
 
 import { CodeIcon } from "@/components/icon";
@@ -10,6 +10,7 @@ import { useToggle } from "@/hooks/useToggle.ts";
 import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 
 import "./componentExample.css";
+import ComponentSkeleton from "@/app/ui/components/componentExample/ComponentSkeleton.tsx";
 
 interface CommonProps {
     src: string;
@@ -43,6 +44,11 @@ const ComponentExample = memo(({
     ...props
 }: ComponentExampleProps) => {
     const [showCode, toggleShowCode] = useToggle(isOpen);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
 
     const showBothComponent = type === "both";
     const showPreviewComponent = type === "preview" || showBothComponent;
@@ -50,6 +56,10 @@ const ComponentExample = memo(({
 
     if (!src) {
         return null;
+    }
+
+    if (isLoading) {
+        return <div data-usage={type} className="hd-component-example__skeleton"><ComponentSkeleton /></div>;
     }
 
     const renderToggleButton = () => {

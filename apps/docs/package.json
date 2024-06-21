@@ -14,7 +14,8 @@
         "lint:types": "tsc --noEmit",
         "storybook": "storybook dev -p 6010",
         "build:storybook": "storybook build",
-        "build:componentData": "tsx scripts/generateComponentData.ts"
+        "build:componentData": "tsx scripts/generateComponentData.ts && pnpm run build:previewRef",
+        "build:previewRef": "tsx scripts/generatePreviewRef.ts"
     },
     "dependencies": {
         "@tanstack/react-table": "^8.17.3",
