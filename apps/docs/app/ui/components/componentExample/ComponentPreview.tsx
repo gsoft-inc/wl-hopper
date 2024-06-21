@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
+import { useMemo, Suspense } from "react";
 
 import ComponentSkeleton from "./ComponentSkeleton.tsx";
+import { Previews } from "@/examples/Preview.ts";
 
 import "./componentSkeleton.css";
 
@@ -12,13 +12,16 @@ interface ComponentPreviewProps {
 }
 
 const ComponentPreview = ({ src }: ComponentPreviewProps) => {
-    // const DynamicComponent = useMemo(() => dynamic(() => import(`../../../../../../packages/components/src/${src}.tsx`), {
-    const DynamicComponent = useMemo(() => dynamic(() => import("../../../../../../packages/components/src/buttons/docs/button/preview.tsx"), {
-        ssr: false,
-        loading: () => <ComponentSkeleton overlay />
-    }), [src]);
+    const Component = useMemo(() => Previews[src]?.component, [src]);
+    if (!Component) {
+        return <div>No Preview</div>;
+    }
 
-    return <DynamicComponent />;
+    return (
+        <Suspense fallback={<ComponentSkeleton overlay />}>
+            <Component />
+        </Suspense>
+    );
 };
 
 export default ComponentPreview;

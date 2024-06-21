@@ -23,15 +23,6 @@ const nextConfig = {
             use: ["@svgr/webpack"]
         });
 
-        config.module.rules.push({
-            test: /\.css/i,
-            use: [
-                "style-loader",
-                "css-loader",
-                "postcss-loader"
-            ]
-        });
-
         return config;
     }
 };
