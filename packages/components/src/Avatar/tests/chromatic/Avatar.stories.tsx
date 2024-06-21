@@ -7,7 +7,6 @@ import { DeletedAvatar, type DeletedAvatarProps } from "../../src/DeletedAvatar.
 
 import { Anime, Astronaut, Person } from "./assets/index.ts";
 
-
 const meta = {
     title: "Components/Avatar",
     component: Avatar

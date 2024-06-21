@@ -66,7 +66,7 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
 }
 
 /**
- * Avatars are used to show a thumbnail representation of an individual, team or group in the interface.
+ * DeletedAvatars are used to represent deleted users.
  *
  * [View Documentation](TODO)
  */

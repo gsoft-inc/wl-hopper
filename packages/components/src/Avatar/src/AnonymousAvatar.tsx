@@ -66,7 +66,7 @@ function AnonymousAvatar(props: AnonymousAvatarProps, ref: ForwardedRef<HTMLDivE
 }
 
 /**
- * Avatars are used to show a thumbnail representation of an individual, team or group in the interface.
+ * AnonymousAvatars are used to represent users who wish to remain anonymous.
  *
  * [View Documentation](TODO)
  */
