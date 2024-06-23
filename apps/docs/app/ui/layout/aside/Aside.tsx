@@ -60,6 +60,10 @@ const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
         </li>
     ));
 
+    if (listItems.length <= 1) {
+        return null;
+    }
+
     return (
         <aside className="hd-aside">
             {links.length > 0 && (
