@@ -4,7 +4,7 @@ description: Getting started with Workleap Design Tokens
 ---
 import tokens from '../../../datas/tokens.json';
 
-## Guideline
+## Guidelines
 
 ### Working with spaces
 
@@ -20,11 +20,13 @@ The more visual elements are related, the closer they should be to each other.
 
 export const categoryKey = "size";
 
-## Padding
+## Tokens
+
+### Padding
 
 Padding refers to the space within a block or container from which elements are separated from the edge.
 
-### Inset
+#### Inset
 
 Inset space refers to the space within a block or container from which elements are separated from the edge. By default, the inset is equal on all four sides. Inset is also known as padding.
 
@@ -32,7 +34,7 @@ Inset space refers to the space within a block or container from which elements 
     ["inset"]
 } excludedCategories={["inset-squish", "inset-stretch"]} />
 
-### Inset Squish
+#### Inset Squish
 
 Squish inset reduces the top and bottom padding by one space increment relative to the default inset space.
 
@@ -40,7 +42,7 @@ Squish inset reduces the top and bottom padding by one space increment relative 
     ["inset-squish"]
 } />
 
-### Inset Stretch
+#### Inset Stretch
 
 Stretch inset increases the top and bottom padding by one space increment relative to the default inset space.
 
@@ -48,11 +50,11 @@ Stretch inset increases the top and bottom padding by one space increment relati
     ["inset-stretch"]
 } />
 
-## Margin
+### Margin
 
 Margin refers to the traditional meaning of space between elements. It can be used as a margin or gap when in grid or flex layouts.
 
-### Stack
+#### Stack
 
 Stack is the space that separates elements or containers arranged vertically within a column. The last element of the stack should omit this space.
 
@@ -60,7 +62,7 @@ Stack is the space that separates elements or containers arranged vertically wit
     ["stack"]
 } />
 
-### Inline
+#### Inline
 
 Inline refers to the space that separates inline elements arranged horizontally and that may wrap on the right. The last element should omit this space.
 
