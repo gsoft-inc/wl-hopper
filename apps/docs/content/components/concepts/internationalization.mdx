@@ -1,16 +1,29 @@
 ---
-title: Internationalization (WIP)
-description: This page describes how adapting components to respect languages and cultures of users around the world is an important way to help make your application accessible to the widest number of people. Hopper supports many aspects of localization for various components out of the box, including translations for built-in strings, localized date, and number formatting
+title: Internationalization
+description: This page describes how adapting components to respect languages and cultures of users around the world is an important way to help make your application accessible to the widest number of people.
 order: 8
 ---
 
-This page will be heavily inspired by:
-- https://react-spectrum.adobe.com/react-aria/internationalization.html#example
-
 ## Introduction
+
+Internationalization is the process of structuring your code and user interface to support localization. Hopper supports many aspects of localization for many components out of the box, including translations for builtin strings, localized date and number formatting, and more. By using Hopper to build your applications, these aspects of internationalization are handled for you.
+
+To set the locale for your application, you can follow the procedure described in the [HopperProvider documentation](../application/hopper-provider#locales).
 
 ## Supported locales
 
+Hopper currently supports translations for 2 locales. They are listed below.
+
+- English (United States) - `en-US`
+- French (Canada) - `fr-CA`
+
 ## Optimizing bundle size
 
-Mention that since React-aria is a peer dependencies, they should still do this section to reduce the bundle size
+Hopper uses React-aria for internationalization, which is a peer dependency. This means that you must install React-aria in your application. React-Aria includes translations for over 30 languages.
+This is inclusive to the most users out of the box, but comes at the cost of bundle size. Since applications using Hopper does not support all of these locales, you can use React-Aria build plugins to include only the languages that we support in your JavaScript bundle.
+
+The complete process is described in the [React-aria documentation](https://react-spectrum.adobe.com/react-aria/internationalization.html#optimizing-bundle-size).
+
+## Utility Methods
+
+React-Aria (which is a peer dependency of Hopper) provides some utility methods to help with Localization. See [useDateFormatter](https://react-spectrum.adobe.com/react-aria/useDateFormatter.html), [useNumberFormatter](https://react-spectrum.adobe.com/react-aria/useNumberFormatter.html), and [useCollator](https://react-spectrum.adobe.com/react-aria/useCollator.html) for more information. The [Internationalized](https://react-spectrum.adobe.com/internationalized/index.html) collection of libraries provides framework-agnostic utilities for representing and manipulating dates and times, and parsing and formatting numbers across many locales, calendar systems, numbering systems, and more.

@@ -4,15 +4,92 @@ description: This page describes how Hopper style props accept a specialized syn
 order: 3
 ---
 
-This page will be heavily inspired by https://wl-orbiter-website.netlify.app/?path=/docs/responsive-styles--page
-This page should slightly be inspired by https://tailwindcss.com/docs/responsive-design
-
 ## Introduction
+
+In addition to static values, all style props support object syntax to specify different values for the prop depending on the responsive breakpoint. Breakpoints are named following t-shirt sizing, and correspond to common device resolutions
+
+In this example, the `Div` has a default background color, which is overriden at each breakpoint. Resize your browser window to see this in action.
+
+{/* TODO: example and modify all the property values so it fits hopper */}
+```tsx
+<Div
+    backgroundColor={{
+        base: "moss-200",
+        xs: "sapphire-200",
+        sm: "moss-200",
+        md: "sapphire-200",
+        lg: "rock-200",
+        xl: "sunken-treasure-200"
+    }}
+    width="30rem"
+    maxWidth="100%"
+    padding={160}
+>
+    <Text>Resize to see the background color change!</Text>
+</Div>
+```
 
 ## Breakpoints
 
+There are five breakpoints available (+ the base), inspired by common device resolutions:
+
+{/* TODO: do a table here */}
+| Name | Minimum width |
+| ---- | ------------- |
+| base | 0px |
+| xs | 640px |
+| sm | 768px |
+| md | 1024px |
+| lg | 1280px |
+| xl | 1440px |
+
 ## Working mobile-first
+
+By default, Hopper uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap or Tailwind.
+
+{/* TODO start the sentence with a <SuccessIcon /> */}
+**Don't use `sm:` to target mobile devices**
+
+{/* TODO: convert to example */}
+```tsx
+<Div
+    // This will only center text on screens 768px and wider, not on small screens
+    textAlign={{sm: "left"}}
+    width="30rem"
+    maxWidth="100%"
+    padding={160}
+>
+    <Text>Text Content</Text>
+</Div>
+```
+
+{/* TODO start the sentence with a <SuccessIcon /> */}
+**Use `base` to target mobile, and override them at larger breakpoints**
+
+{/* TODO: covnert to example */}
+```tsx
+<Div
+    // This will center text on mobile, and left align it on screens 768px and wider
+    textAlign={{base: "center", sm: "left"}}
+    width="30rem"
+    maxWidth="100%"
+    padding={160}
+>
+    <Text>Text Content</Text>
+</Div>
+```
+
+For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for sm screens, followed by md screens, etc.
 
 ## Utility Methods
 
 ### useResponsiveValue
+
+To resolve a responsive value within a React component, Hopper provides the useResponsiveValue hook.
+
+{/* TODO example */}
+```tsx
+import { useResponsiveValue } from "@hopper-ui/components";
+
+const isFluidValue = useResponsiveValue({ base: true, lg: false });
+```
