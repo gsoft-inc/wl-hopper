@@ -5,10 +5,10 @@ import Title from "@/components/title/Title";
 
 import "./overview.css";
 
-const Overview = () => {
-    // Get unique categories
-    const categories = Array.from(new Set(allComponents.map(component => component.category)));
+const ignoreCategories = ["application"];
+const categories = Array.from(new Set(allComponents.map(component => component.category))).filter(x => x && !ignoreCategories.includes(x));
 
+const Overview = () => {
     return (
         <div className="hd-component-overview-wrapper">
             {categories.map(category => (
