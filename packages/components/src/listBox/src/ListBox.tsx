@@ -2,13 +2,13 @@ import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useRes
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps } from "react-aria-components";
 
-import { DividerContext } from "../../divider/index.ts";
-import { HeaderContext } from "../../header/index.ts";
-import { SectionContext } from "../../section/index.ts";
+import { DividerContext } from "../../Divider/index.ts";
+import { HeaderContext } from "../../Header/index.ts";
+import { SectionContext } from "../../Section/index.ts";
 import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
-import type { ListBoxItemSize } from "./ListBoxItem.ts";
+import type { ListBoxItemSize } from "./ListBoxItem.tsx";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 
 import styles from "./ListBox.module.css";
@@ -72,7 +72,6 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             ...prev
         };
     });
-
 
     return (
         <SlotProvider

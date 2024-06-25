@@ -2,8 +2,8 @@ import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import { ErrorMessage } from "../../errorMessage/index.ts";
-import { HelperMessage } from "../../helperMessage/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Inline } from "../../layout/index.ts";
 import { Label } from "../../typography/Label/index.ts";
@@ -23,7 +23,7 @@ import { RadioList } from "../src/RadioList.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/RadioGroup",
+    title: "Docs/Form/RadioGroup",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories

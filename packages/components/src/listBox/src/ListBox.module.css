@@ -6,7 +6,7 @@
     --hop-ListBox-border-size: 0.0625rem;
     --hop-ListBox-padding-inline: var(--hop-space-inset-sm);
     --hop-ListBox-padding-block: var(--hop-space-inset-sm);
-    --hop-ListBox-min-width: 13.6rem;
+    --hop-ListBox-min-width: 13.625rem;
     --hop-ListBox-max-width: 18rem;
     --hop-ListBox-width: max-content;
 

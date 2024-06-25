@@ -34,7 +34,6 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
 } satisfies Story;
 
-
 /**
  * A Divider can have two orientations: horizontal or vertical.
  */

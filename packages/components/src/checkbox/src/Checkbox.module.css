@@ -14,7 +14,7 @@
     --hop-Checkbox-box-border-color-hovered: var(--hop-neutral-border-hover);
     --hop-Checkbox-box-background-color-hovered: var(--hop-neutral-surface-hover);
     --hop-Checkbox-text-color-hovered: var(--hop-neutral-text-hover);
-    --hop-Checkbox-icon-color-hovered: var(--hop-neutral-icon);
+    --hop-Checkbox-icon-color-hovered: var(--hop-neutral-icon-hover);
 
     /* Pressed */
     --hop-Checkbox-box-border-color-pressed: var(--hop-neutral-border-press);
@@ -39,8 +39,8 @@
     /* Focus */
     --hop-Checkbox-box-border-color-focused: var(--hop-neutral-border-hover);
     --hop-Checkbox-box-background-color-focused: var(--hop-neutral-surface-hover);
-    --hop-Checkbox-text-color-focused: var(--hop-neutral-text);
-    --hop-Checkbox-icon-color-focused: var(--hop-neutral-icon);
+    --hop-Checkbox-text-color-focused: var(--hop-neutral-text-hover);
+    --hop-Checkbox-icon-color-focused: var(--hop-neutral-icon-hover);
 
     /* Invalid  */
     --hop-Checkbox-box-border-color-invalid: var(--hop-danger-border-strong);
@@ -97,7 +97,8 @@
     max-inline-size: 100%;
 }
 
-.hop-Checkbox[data-focus-visible], .hop-Checkbox--focused {
+.hop-Checkbox[data-focus-visible],
+.hop-Checkbox--focused {
     --box-background-color: var(--hop-Checkbox-box-background-color-focused);
     --box-border-color: var(--hop-Checkbox-box-border-color-focused);
     --box-outline: var(--hop-Checkbox-box-outline-size) solid var(--hop-Checkbox-box-outline-color);
@@ -106,7 +107,8 @@
     --description-color: var(--hop-Checkbox-description-color-focus);
 }
 
-.hop-Checkbox[data-hovered], .hop-Checkbox--hovered {
+.hop-Checkbox[data-hovered],
+.hop-Checkbox--hovered {
     --box-background-color: var(--hop-Checkbox-box-background-color-hovered);
     --box-border-color: var(--hop-Checkbox-box-border-color-hovered);
     --text-color: var(--hop-Checkbox-text-color-hovered);
@@ -114,7 +116,8 @@
     --description-color: var(--hop-Checkbox-description-color-hover);
 }
 
-.hop-Checkbox[data-pressed], .hop-Checkbox--pressed {
+.hop-Checkbox[data-pressed],
+.hop-Checkbox--pressed {
     --box-background-color: var(--hop-Checkbox-box-background-color-pressed);
     --box-border-color: var(--hop-Checkbox-box-border-color-pressed);
     --text-color: var(--hop-Checkbox-text-color-pressed);

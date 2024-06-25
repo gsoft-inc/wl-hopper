@@ -10,7 +10,7 @@ import {
     DEFAULT_SLOT
 } from "react-aria-components";
 
-import { BadgeContext } from "../../badge/index.ts";
+import { BadgeContext } from "../../Badge/index.ts";
 import { Checkbox } from "../../checkbox/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Radio, RadioGroup, RadioList } from "../../radio/index.ts";

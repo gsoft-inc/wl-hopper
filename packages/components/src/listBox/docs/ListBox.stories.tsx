@@ -3,12 +3,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { type Selection, Collection } from "react-aria-components";
 
-import { Badge } from "../../badge/index.ts";
-import { Divider } from "../../divider/index.ts";
-import { Header } from "../../header/index.ts";
+import { Badge } from "../../Badge/index.ts";
+import { Divider } from "../../Divider/index.ts";
+import { Header } from "../../Header/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Inline } from "../../layout/index.ts";
-import { Section } from "../../section/index.ts";
+import { Section } from "../../Section/index.ts";
 import { Text } from "../../typography/Text/index.ts";
 import { ListBox, ListBoxItem } from "../src/index.ts";
 

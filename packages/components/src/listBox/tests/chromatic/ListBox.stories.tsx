@@ -3,11 +3,11 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@testing-library/react";
 
-import { Badge } from "../../../badge/index.ts";
-import { Header } from "../../../header/index.ts";
+import { Badge } from "../../../Badge/index.ts";
+import { Header } from "../../../Header/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Section } from "../../../section/index.ts";
+import { Section } from "../../../Section/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../index.ts";
 

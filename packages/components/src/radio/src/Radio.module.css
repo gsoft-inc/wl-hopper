@@ -96,7 +96,8 @@
     max-inline-size: 100%;
 }
 
-.hop-Radio[data-focus-visible], .hop-Radio--focused {
+.hop-Radio[data-focus-visible],
+.hop-Radio--focused {
     --box-background-color: var(--hop-Radio-box-background-color-focused);
     --box-border-color: var(--hop-Radio-box-border-color-focused);
     --box-outline: var(--hop-Radio-box-outline-size) solid var(--hop-Radio-box-outline-color);
@@ -105,7 +106,8 @@
     --description-color: var(--hop-Radio-description-color-focus);
 }
 
-.hop-Radio[data-hovered], .hop-Radio--hovered {
+.hop-Radio[data-hovered],
+.hop-Radio--hovered {
     --box-background-color: var(--hop-Radio-box-background-color-hovered);
     --box-border-color: var(--hop-Radio-box-border-color-hovered);
     --text-color: var(--hop-Radio-text-color-hovered);
@@ -113,7 +115,8 @@
     --description-color: var(--hop-Radio-description-color-hover);
 }
 
-.hop-Radio[data-pressed], .hop-Radio--pressed {
+.hop-Radio[data-pressed],
+.hop-Radio--pressed {
     --box-background-color: var(--hop-Radio-box-background-color-pressed);
     --box-border-color: var(--hop-Radio-box-border-color-pressed);
     --text-color: var(--hop-Radio-text-color-pressed);
