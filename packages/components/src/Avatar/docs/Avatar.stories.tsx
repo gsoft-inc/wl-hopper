@@ -94,7 +94,7 @@ export const BrokenImageWithBothFailingSources = {
     args: {
         name: "John Doe",
         src: "https://example.com/image.jpg",
-        fallbackSrc: "https://example.com/image.jpg"
+        fallbackSrc: "https://example.com/image2.jpg"
     }
 } satisfies Story;
 

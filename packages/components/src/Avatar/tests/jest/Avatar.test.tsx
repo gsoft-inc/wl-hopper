@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@hopper-ui/test-utils";
+import { act, mocks, render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
 import { Avatar } from "../../src/Avatar.tsx";
@@ -82,55 +82,7 @@ describe("Avatar", () => {
         expect(ref.current?.tagName.toUpperCase()).toBe("DIV");
     });
     
-    it("should load broken image when src fails amd support refs", () => {
-        const ref = createRef<HTMLDivElement>();
-        
-        const src = "https://example.com/image.jpg";
-        const name = "John Doe";
-        render(<Avatar name={name} src={src} ref={ref} />);
-
-        const imageElem = screen.getByAltText("");
-        fireEvent.error(imageElem);
-        
-        const brokenImage = screen.getByRole("img", { name: "John Doe" });
-
-        expect(ref.current).toBe(brokenImage);
-        expect(ref.current).toHaveClass("hop-Avatar--broken-image");
-        expect(ref.current instanceof HTMLDivElement).toBeTruthy();
-        expect(ref.current?.tagName.toUpperCase()).toBe("DIV");
-    });
-
-    it("should render fallback image", () => {
-        const src = "https://example.com/image.jpg";
-        const fallbackSrc = "https://i.pravatar.cc/96?img=2";
-        render(<Avatar name="John Doe" src={src} fallbackSrc={fallbackSrc} />);
-
-        const imageElem = screen.getByAltText("");
-        fireEvent.error(imageElem);
-
-        const element = screen.getByRole("img", { name: "John Doe" });
-
-        expect(element).toHaveClass("hop-Avatar--image");
-        expect(imageElem).toHaveAttribute("src", fallbackSrc);
-    });
-
-    it("should render broken image if src and fallback src fail", () => {
-        const src = "https://example.com/image.jpg";
-        const fallbackSrc = "https://example.com/image2.jpg";
-        render(<Avatar name="John Doe" src={src} fallbackSrc={fallbackSrc} />);
-
-        const imageElem = screen.getByAltText("");
-
-        /* Call error event twice to signify that the fallback also failed */
-        fireEvent.error(imageElem);
-        fireEvent.error(imageElem);
-
-        const element = screen.getByRole("img", { name: "John Doe" });
-
-        expect(imageElem).not.toBeInTheDocument();
-        expect(element).toHaveClass("hop-Avatar--broken-image");
-    });
-
+    
     it("should render the correct initials when no src is set", () => {
         const initials = "JD";
         render(<Avatar name="John Doe" />);
@@ -143,18 +95,6 @@ describe("Avatar", () => {
     it("should render only one initial when the Avatar size is xs", () => {
         const initials = "J";
         render(<Avatar name="John Doe" size="xs" />);
-
-        const element = screen.getByRole("img", { name: "John Doe" });
-
-        expect(element).toHaveTextContent(initials);
-    });
-
-    it("should render initials when the image fails to load an the fallback is set to null", () => {
-        const initials = "JD";
-        render(<Avatar name="John Doe" src="https://example.com/image.jpg" fallbackSrc={null} />);
-
-        const imageElem = screen.getByAltText("");
-        fireEvent.error(imageElem);
 
         const element = screen.getByRole("img", { name: "John Doe" });
 
@@ -183,5 +123,93 @@ describe("Avatar", () => {
         const element = screen.getByRole("img", { name: "John Doe" });
 
         expect(element).toHaveClass("hop-DeletedAvatar");
+    });
+});
+
+describe("Avatar - fallback + loading strategy", () => {
+    beforeEach(() => {
+        jest.useFakeTimers();
+    });
+  
+    afterEach(() => {
+        jest.useRealTimers();
+        mocks.image().restore();
+    });
+
+    it("should load broken image when src fails and it should support refs", () => {
+        const mock = mocks.image();
+        mock.simulate(["error"]);
+        const ref = createRef<HTMLDivElement>();
+        
+        const src = "https://example.com/image.jpg";
+        const name = "John Doe";
+        const onErrorFn = jest.fn();
+        render(<Avatar name={name} src={src} ref={ref} imageProps={{ onError: onErrorFn }} />);
+        act(() => {
+            jest.runAllTimers();
+        });
+        const brokenImage = screen.getByRole("img", { name: "John Doe" });
+
+        expect(onErrorFn).toHaveBeenCalledTimes(1);
+        expect(ref.current).toBe(brokenImage);
+        expect(ref.current).toHaveClass("hop-Avatar--broken-image");
+        expect(ref.current instanceof HTMLDivElement).toBeTruthy();
+        expect(ref.current?.tagName.toUpperCase()).toBe("DIV");
+    });
+
+    it("should render fallback image", () => {
+        const mock = mocks.image();
+        mock.simulate(["error"]);
+        const src = "https://example.com/image.jpg";
+        const fallbackSrc = "https://i.pravatar.cc/96?img=2";
+        const onErrorFn = jest.fn();
+        render(<Avatar name="John Doe" src={src} fallbackSrc={fallbackSrc} imageProps={{ onError: onErrorFn }} />);
+        act(() => {
+            jest.runAllTimers();
+        });
+        const imageElem = screen.getByAltText("");
+
+        const element = screen.getByRole("img", { name: "John Doe" });
+
+        expect(onErrorFn).toHaveBeenCalledTimes(1);
+        expect(element).toHaveClass("hop-Avatar--image");
+        expect(imageElem).toHaveAttribute("src", fallbackSrc);
+    });
+
+    it("should render broken image if src and fallback src fail", () => {
+        const mock = mocks.image();
+
+        // Call error event twice to signify that the fallback also failed
+        mock.simulate(["error", "error"]);
+
+        const src = "https://example.com/image.jpg";
+        const fallbackSrc = "https://example.com/image2.jpg";
+        const onErrorFn = jest.fn();
+        render(<Avatar name="John Doe" src={src} fallbackSrc={fallbackSrc} imageProps={{ onError: onErrorFn }} />);
+        act(() => {
+            jest.runAllTimers();
+        });
+
+        const element = screen.getByRole("img", { name: "John Doe" });
+        const imageElem = element.querySelector("img");
+
+        expect(onErrorFn).toHaveBeenCalledTimes(2);
+        expect(imageElem).not.toBeInTheDocument();
+        expect(element).toHaveClass("hop-Avatar--broken-image");
+    });
+
+    it("should render initials when the image fails to load and the fallback is set to null", () => {
+        const mock = mocks.image();
+        mock.simulate(["error"]);
+        const initials = "JD";
+        const onErrorFn = jest.fn();
+        render(<Avatar name="John Doe" src="https://example.com/image.jpg" fallbackSrc={null} imageProps={{ onError: onErrorFn }} />);
+        act(() => {
+            jest.runAllTimers();
+        });
+        const element = screen.getByRole("img", { name: "John Doe" });
+
+        expect(onErrorFn).toHaveBeenCalledTimes(1);
+        expect(element).toHaveTextContent(initials);
     });
 });

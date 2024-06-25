@@ -143,8 +143,10 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     } = ownProps;
     const domProps = filterDOMProps(otherProps);
     
-    const { onError, ...otherImageProps } = imageProps ?? {};
-    const [imageUrl, handleImageError, imageFailed] = useImageFallback(src, fallbackSrc);
+    const { onError, onLoad, ...otherImageProps } = imageProps ?? {};
+    const [imageUrl, status] = useImageFallback({ src, fallbackSrc, onError, onLoad });
+    const imageLoaded = status === "loaded";
+    const imageFailed = status === "failed";
 
     const size = useResponsiveValue(sizeValue) ?? "md";
     const isBrokenImage = src && imageFailed && fallbackSrc !== null;
@@ -171,7 +173,6 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     };
 
     const handleError: ReactEventHandler<HTMLImageElement> = e => {
-        handleImageError?.(e);
         onError?.(e);
     };
 
@@ -181,34 +182,38 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         size={size}
     />;
     
-    if (src) {
-        if (imageFailed) {
-            if (fallbackSrc !== null) {
-                return (
-                    <RichIconAvatarImage
-                        {...domProps}
-                        aria-label={ariaLabel ?? name}
-                        className={classNames}
-                        isDisabled={isDisabled}
-                        ref={ref}
-                        size={size}
-                        slot={slot}
-                        style={mergedStyles}
-                    >
-                        <BrokenImageRichIcon />
-                    </RichIconAvatarImage>
-                );
-            }
-        } else {
-            content = <img
-                {...filterDOMProps(otherImageProps)}
-                alt=""
-                aria-hidden
-                className={styles["hop-Avatar__image"]}
-                onError={handleError}
-                src={imageUrl}
-            />;
+    if (imageLoaded) {
+        content = <img
+            {...filterDOMProps(otherImageProps)}
+            alt=""
+            aria-hidden
+            className={styles["hop-Avatar__image"]}
+            onError={handleError}
+            src={imageUrl}
+        />;
+    }
+
+    if (imageFailed) {
+        if (fallbackSrc !== null) {
+            return (
+                <RichIconAvatarImage
+                    {...domProps}
+                    aria-label={ariaLabel ?? name}
+                    className={classNames}
+                    isDisabled={isDisabled}
+                    ref={ref}
+                    size={size}
+                    slot={slot}
+                    style={mergedStyles}
+                >
+                    <BrokenImageRichIcon />
+                </RichIconAvatarImage>
+            );
         }
+    }
+
+    if (!isInitials && !imageLoaded) {
+        return null;
     }
     
     return (
