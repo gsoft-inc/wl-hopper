@@ -7,6 +7,7 @@ import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
 import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
 import getSectionLinks from "@/app/lib/getSectionLinks";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
+import getPageLinks from "@/app/lib/getPageLinks";
 
 export default function TokenLayout({ children }: { children: ReactNode }) {
     const selectedLayoutSegment = useSelectedLayoutSegment();
@@ -19,13 +20,16 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
     }
 
     const sectionLinks = getSectionLinks(pageContent);
+    const allIconsLinks = getPageLinks(allIcons, {
+        order: ["getting-started", "react-icons", "svg"]
+    });
 
     return (
         <>
             <SidebarProvider>
                 <SubHeader links={sectionLinks} />
                 <div className="hd-wrapper hd-flex">
-                    <Sidebar data={allIcons} order={["getting-started", "react-icons", "svg"]} />
+                    <Sidebar links={allIconsLinks} />
                     {children}
                 </div>
             </SidebarProvider>

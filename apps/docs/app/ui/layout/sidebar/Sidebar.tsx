@@ -7,20 +7,17 @@ import { useEffect, useRef } from "react";
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
 
 import Overlay from "@/components/overlay/Overlay";
-import getPageLinks from "@/app/lib/getPageLinks";
 
-import type { Data } from "@/app/lib/getPageLinks";
+import type { Section } from "@/app/lib/getPageLinks";
 
 import "./sidebar.css";
 
 interface SidebarProps {
-    data: Data[];
-    order?: string[];
+    links: Section[];
 }
 
-const Sidebar = ({ data, order }: SidebarProps) => {
+const Sidebar = ({ links }: SidebarProps) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
-    const links = getPageLinks(data, { order });
     const pathName = usePathname();
     const { toggleSidebar, isSidebarOpen } = useSidebar();
 

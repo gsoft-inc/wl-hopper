@@ -26,12 +26,13 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
 }
 
 export default async function ComponentPage({ params }: PageProps) {
-    const [section, type] = params.slug;
+    const [type] = params.slug;
 
     const component = (await getComponentDetails()).find(componentDetail => {
-        const [componentSlugSection, componentSlugType] = componentDetail.slugs;
+        // the path should be the component name, but the content files are classified by sections
+        const [, componentSlugType] = componentDetail.slugs;
 
-        return componentSlugType === type && componentSlugSection === section;
+        return componentSlugType === type ;
     });
 
     if (!component) {
@@ -39,6 +40,7 @@ export default async function ComponentPage({ params }: PageProps) {
     }
 
     const { content, frontmatter: { title, status, description, links } } = component;
+
     const componentLinks = links && [
         {
             name: "github",

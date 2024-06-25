@@ -14,7 +14,7 @@ We recommend that all Hopper applications support both light and dark mode. It c
 
 A color scheme can either be enforced by providing a specific light or dark value to a [HopperProvider](../application/hopper-provider.mdx).
 
-{/* example */}
+{/* TODO: example */}
 ```tsx
     <HopperProvider colorScheme="dark">
         <Button variant="secondary">Button</Button>
@@ -24,7 +24,7 @@ A color scheme can either be enforced by providing a specific light or dark valu
 A color scheme can also be set to `system`, which will follow the [user's operating system setting](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 When the `system` value is provided, an additional fallback color scheme must be specified to defaultColorScheme in case the theme provider is not able to access the user setting.
 
-{/* example */}
+{/* TODO: example */}
 ```tsx
     <HopperProvider colorScheme="system" defaultColorScheme="light">
         <Button variant="secondary">Button</Button>
@@ -33,6 +33,7 @@ When the `system` value is provided, an additional fallback color scheme must be
 
 Color schemes can also be nested. You could have a dark themed dialog inside a light themed application, for example. This might be useful for certain experiences like color scheme previews, where you want to showcase a specific color scheme, regardless of the operating system setting.
 
+{/* TODO: example */}
 ```tsx
 <HopperProvider colorScheme="light">
   <Button margin="inline-md">I'm a light button</Button>
@@ -46,7 +47,7 @@ Color schemes can also be nested. You could have a dark themed dialog inside a l
 
 To manage the color scheme in your application, Hopper exposes a `ColorSchemeContext` and a `useColorSchemeContext` hook.
 
-{/* example */}
+{/* TODO: example */}
 ```tsx
 function ColorSchemeToggle() {
     const { colorScheme, setColorScheme } = useColorSchemeContext();
@@ -83,7 +84,7 @@ Some features requires the usage of custom colors. Those colors aren't like Hopp
 
 To help with that, Hopper offer the `useColorSchemeValue` hook which will return the value matching the current color scheme of the closest `HopperProvider`.
 
-{/* Example */}
+{/* TODO: example */}
 ```tsx
 import { useColorSchemeValue } from "@hopper-ui/components";
 
