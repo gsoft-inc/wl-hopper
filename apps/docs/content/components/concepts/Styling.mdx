@@ -4,28 +4,89 @@ description: This page describes how styling works in Hopper, including how to c
 order: 2
 ---
 
-this page's content will be heavily inspired by :
--  https://wl-orbiter-website.netlify.app/?path=/docs/style-props--page
--  https://react-spectrum.adobe.com/react-spectrum/styling.html
-
 ## Introduction
+
+Hopper components are designed to be consistent across all Workleap applications. They include built-in styling that has been considered carefully, and extensively tested. In general, customizing Hopper is discouraged, but most components do offer control over layout and other aspects. In addition, you can use Hopper's tokens to ensure your application conforms to design requirements, and is adaptive across color schemes.
 
 ## Style props
 
+A Hopper style property is a mapping of a CSS property to a component property. With style props, Hopper let you easily set style values for a curated set of CSS properties like font-size, margin, padding, width and many more.
+
+All of the available style props are listed in the ["Properties List"](#Properties-List) section below.
+
 ### Usage
+
+To use a style prop on a Hopper component, pass the prop as a camelCased string to the component.
+By default, only tokens are accepted as values for style props. They help promote consistency and maintainability across your application.
+
+If you need to pass a custom value, you can use the `UNSAFE_` prefix to bypass the token system. You can refer to the ["Escape hatches"](#Escape-hatches) section for more information.
+
+{/* TODO: example */}
+```tsx
+<Div
+    fontSize="1.375rem"
+    fontWeight={680}
+    paddingTop={160}
+    paddingBottom={160}
+    marginBottom={160}
+    color="samoyed"
+    borderRadius="rounded-md"
+    backgroundColor="primary"
+>
+    Style properties are fun.
+</Div>
+```
 
 ### Shorthands
 
+Props like border and paddingX are also provided to help you save keystrokes. An exhaustive list of all the supported props is available in the ["Properties List"](#Properties-List) section.
+
+{/* TODO: example */}
+```tsx
+<Div paddingY={80} border="primary">
+    Shorthands.
+</Div>
+```
+
 ### Escape hatches
- using the `UNSAFE_` properties
+
+ TODO
+using the `UNSAFE_` properties
 
 ### Pseudo-classes
 
+Style props doesn't support every CSS pseudo-classes. [Location pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#location_pseudo-classes), [input pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#the_input_pseudo-classes), [tree-structural pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), ::before and ::after are not supported and will most likely never be.
+
+When a CSS pseudo-class is not supported by Hopper style props, we recommend using a CSS class.
+
+Since the following user action pseudo-classes are often used, some style props supports them. These behaves like their pseudo CSS counterparts.
+
+{/* TODO: table */}
+|Suffix | Pseudo state |
+|---|---|
+| active | :active |
+| hover | :hover |
+| focus | :focus |
+
+Not all style props supports user action pseudo-classes. Find out which props support user action pseudo-classes in the ["Properties List"](#Properties-List) section.
+
 ## HTML Elements
+
+You might wonder how will you use Hopper style props on your HTML elements?
+
+Hopper provides a set of HTML elements components already configured with Hopper styled system. You should chose these components over native HTML elements.
+
+`<A>`, `<Address>`, `<Article>`, `<Aside>`, `<HtmlButton>`, `<Div>`, `<HtmlFooter>`, `<HtmlHeader>`, `<Img>`, `<Input>`, `<List>`, `<Main>`, `<Nav>`, `<Section>`, `<Span>`, `<Table>`
+
+For text elements, prefer a `<Text>` or `<Paragraph>` component rather than `<Span>` or a `<Div>`.
 
 ## Custom components
 
+TODO
+
 ## Properties List
+
+The following tables provide a list of all available style props by category.
 
 ### Space
 
