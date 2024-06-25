@@ -44,7 +44,7 @@ const Collapsible = ({ children, title, label, isOpen = false, className }: Coll
                 <Icon src={CollapseIcon} />
             </ToggleButton>
             <div ref={contentRef}
-                className="hd-collapsible__content-parent"
+                className="hd-collapsible__content-wrapper"
             >
                 <div className="hd-collapsible__content">{children}</div>
             </div>

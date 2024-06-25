@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.0.2
+
+### Patch Changes
+
+- ac53639: Added slot method to utilities for Orbiter's interoperability
+
 ## 2.0.1
 
 ### Patch Changes

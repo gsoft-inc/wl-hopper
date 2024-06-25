@@ -1,3 +1,4 @@
+import { slot } from "@hopper-ui/styled-system";
 import { forwardRef, type ComponentProps, type ElementType, type RefAttributes, type SVGProps } from "react";
 
 import { Icon, type IconProps } from "./Icon.tsx";
@@ -20,13 +21,7 @@ export function createIcon(
 
     iconComponent.displayName = displayName;
 
-    /**
-     * TODO: This line is added strictly for backward compatibility with Orbiter. Once orbiter is gone, we can remove this line
-     */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (iconComponent as Record<string, any>)["__slot__"] = "icon";
-
-    return iconComponent;
+    return slot("icon", iconComponent);
 }
 
 export type CreatedIconProps = ComponentProps<ReturnType<typeof createIcon>>;

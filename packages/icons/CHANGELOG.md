@@ -1,5 +1,23 @@
 # @hopper-ui/icons
 
+## 2.3.0
+
+### Minor Changes
+
+- 1dc67e4: **Added**
+
+  | SVG Name            |
+  | ------------------- |
+  | deleted-user-24.svg |
+  | deleted-user-32.svg |
+  | deleted-user-40.svg |
+
+  **Added**
+
+  | Icon Name           |
+  | ------------------- |
+  | DeletedUserRichIcon |
+
 ## 2.2.0
 
 ### Minor Changes

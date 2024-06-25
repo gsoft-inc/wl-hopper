@@ -1,11 +1,12 @@
+import type { FC, ReactNode } from "react";
 import "./footnote.css";
 
 interface FootnoteProps {
-    children: React.ReactNode;
+    children: ReactNode;
     name: string;
 }
 
-const Footnote: React.FC<FootnoteProps> = ({ children, name }) => {
+const Footnote: FC<FootnoteProps> = ({ children, name }) => {
     return (
         <div className="hd-footnote" id={name}>
             {children}

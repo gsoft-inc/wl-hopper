@@ -2,16 +2,16 @@
     "$schema": "https://json.schemastore.org/eslintrc",
     "root": true,
     "extends": [
-        "next",
-        "plugin:@workleap/web-application"
+        "plugin:@workleap/web-application",
+        "next"
     ],
-    "settings": {
-        "next": {
-            "rootDir": "apps/docs"
-        }
+    "rules": {
+        "@next/next/no-html-link-for-pages": "off"
     },
     "globals": {
         "Card": true,
+        "Callout": true,
+        "Collapsible": true,
         "Table": true,
         "MotionPreview": true,
         "Footnote": true,
@@ -21,16 +21,27 @@
         "TableSection": true,
         "Switcher": true,
         "IconSpecTable": true,
+        "Overview": true,
         "PreviewComponent": true,
         "MigrateGuide": true,
         "PackageInstallation": true,
-        "PropTable": true
+        "PropTable": true,
+        "Example": true
     },
     "overrides": [
+        {
+            "files": "*.mdx",
+            "extends": "plugin:@workleap/mdx"
+        },
+        {
+            "files": "package.json",
+            "extends": "plugin:@workleap/package-json"
+        },
         {
             "files": [
                 "*.{js,jsx,ts,tsx}"
             ],
+            "excludedFiles": "scripts/**",
             "rules": {
                 "no-console": [
                     "warn",
@@ -42,7 +53,22 @@
                     }
                 ],
                 "react/destructuring-assignment": "off",
-                "no-param-reassign": "off"
+                "no-param-reassign": "off",
+                "no-restricted-imports": ["error", {
+                    "patterns": [
+                        {
+                            "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
+                            "message": "Avoid importing from index.ts files directly next or above the current file"
+                        }
+                    ],
+                    "paths": [
+                        {
+                            "name": "react",
+                            "importNames": ["default"],
+                            "message": "import React from \"react\" is no longer necessary and should be avoided. "
+                        }
+                    ]
+                }]
             }
         }
     ]

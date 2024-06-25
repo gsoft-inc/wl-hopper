@@ -1,20 +1,21 @@
 import clsx from "clsx";
 
 import "./iconButton.css";
+import type { ComponentProps, ElementType, ReactNode } from "react";
 
 interface BaseProps {
-    children: React.ReactNode;
+    children: ReactNode;
     className?: string;
 }
 
-type PolymorphicProps<Element extends React.ElementType, Props> = Props & Omit<React.ComponentProps<Element>, "as"> & {
+type PolymorphicProps<Element extends ElementType, Props> = Props & Omit<ComponentProps<Element>, "as"> & {
     as?: Element;
 };
 
 const IconButtonClass = "hd-icon-button";
 const defaultElement = "button";
 
-const IconButton = <Element extends React.ElementType = typeof defaultElement>(props: PolymorphicProps<Element, BaseProps>) => {
+const IconButton = <Element extends ElementType = typeof defaultElement>(props: PolymorphicProps<Element, BaseProps>) => {
     const {
         as: Component = defaultElement,
         children,

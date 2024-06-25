@@ -3,7 +3,8 @@ import {
     type StyledComponentProps,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    useResponsiveValue,
+    slot
 } from "@hopper-ui/styled-system";
 import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
 import type { RouterOptions } from "@react-types/shared";
@@ -40,7 +41,7 @@ export const GlobalButtonCssSelector = "hop-Button";
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
-     * * @default "primary"
+     * @default "primary"
      */
     variant?: "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
 
@@ -271,10 +272,12 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
- *
  * [View Documentation](TODO)
+ *
  */
-const _Button = forwardRef(Button);
+
+
+const _Button = slot("button", forwardRef(Button));
 
 _Button.displayName = "Button";
 

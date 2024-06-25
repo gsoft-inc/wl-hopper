@@ -22,6 +22,13 @@
                             "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
                             "message": "Avoid importing from index.ts files directly next or above the current file"
                         }
+                    ],
+                    "paths": [
+                        {
+                            "name": "react",
+                            "importNames": ["default"],
+                            "message": "import React from \"react\" is no longer necessary and should be avoided. "
+                        }
                     ]
                 }]
             }
@@ -39,6 +46,13 @@
                             "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
                             "message": "Avoid importing from index.ts files directly next or above the current file"
                         }
+                    ],
+                    "paths": [
+                        {
+                            "name": "react",
+                            "importNames": ["default"],
+                            "message": "import React from \"react\" is no longer necessary and should be avoided. "
+                        }
                     ]
                 }]
             }
@@ -55,6 +69,13 @@
                         {
                             "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
                             "message": "Avoid importing from index.ts files directly next or above the current file"
+                        }
+                    ],
+                    "paths": [
+                        {
+                            "name": "react",
+                            "importNames": ["default"],
+                            "message": "import React from \"react\" is no longer necessary and should be avoided. "
                         }
                     ]
                 }]

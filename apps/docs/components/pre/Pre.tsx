@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type HTMLAttributes } from "react";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import clsx from "clsx";
 
 import CopyButton from "@/components/copyButton/CopyButton.tsx";
@@ -8,7 +8,7 @@ import LangIcon from "@/components/pre/langIcon/LangIcon";
 
 import "./pre.css";
 
-export type PreProps = React.DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
+export type PreProps = DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
     "data-language"?: string;
     raw?: string;
     className?: string;
