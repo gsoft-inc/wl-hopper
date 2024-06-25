@@ -1,10 +1,10 @@
-import React, { type HTMLAttributes } from "react";
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import clsx from "clsx";
 
 import "./code.css";
 
-export type InlineCodeProps = React.DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
-    children?: React.ReactNode;
+export type InlineCodeProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
+    children?: ReactNode;
     variant?: "default" | "ghost";
 };
 

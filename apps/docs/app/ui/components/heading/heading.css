@@ -1,3 +1,7 @@
+.hd-heading {
+    margin-block-end: var(--hd-space-4);
+}
+
 .hd-heading__title {
     display: flex;
     align-items: baseline;

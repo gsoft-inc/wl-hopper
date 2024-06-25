@@ -1,0 +1,21 @@
+.hd-component-example-skeleton {
+    height: 100%;
+    border-radius: var(--hd-space-2);
+    border: var(--hd-border-size) solid transparent;
+    animation: skeleton-loading 0.5s linear infinite alternate;
+}
+
+.hd-component-example-skeleton__overlay {
+    position: absolute;
+    inset: -0.125rem;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: var(--hd-neutral-20);
+    }
+
+    100% {
+        background-color: var(--hd-neutral-50);
+    }
+}

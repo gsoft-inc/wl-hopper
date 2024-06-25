@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, type ReactNode } from "react";
+import { memo, useState, type ReactNode } from "react";
 import { RadioGroup, Radio, type RadioProps } from "react-aria-components";
 import { IconTable } from "@/app/ui/icons/iconTable/IconTable.tsx";
 import { SparklesIcon, SparklesRichIcon, iconNames, richIconNames } from "@hopper-ui/icons";
@@ -14,7 +14,7 @@ interface SwitcherProps {
 
 type AvailableSizes = "sm"| "md" | "lg" | "xl";
 
-const Switcher = React.memo(({ type, iconType = "icon" }: SwitcherProps) => {
+const Switcher = memo(({ type, iconType = "icon" }: SwitcherProps) => {
     const [selectedSize, setSelectedSize] = useState<AvailableSizes>(iconType === "icon" ? "md" : "lg");
 
     const Icon = iconType === "icon" ? SparklesIcon : SparklesRichIcon;
@@ -32,6 +32,8 @@ const Switcher = React.memo(({ type, iconType = "icon" }: SwitcherProps) => {
         </>
     );
 });
+
+Switcher.displayName = "Switcher";
 
 interface SwitcherChoiceProps extends RadioProps {
     preview: ReactNode;

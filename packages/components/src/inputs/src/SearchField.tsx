@@ -1,7 +1,7 @@
 import { IconContext, SearchIcon } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
-import { forwardRef, type ForwardedRef, type MutableRefObject } from "react";
+import { forwardRef, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
 import { composeRenderProps, Input, useContextProps, type SearchFieldProps as RACSearchFieldProps, SearchField as RACSearchField } from "react-aria-components";
 
@@ -45,7 +45,7 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
     /**
      * An icon to display at the start of the input.
      */
-    icon?: React.ReactNode | null;
+    icon?: ReactNode | null;
 
     /**
      * A ref for the HTML input element.

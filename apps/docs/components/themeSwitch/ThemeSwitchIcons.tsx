@@ -1,7 +1,8 @@
+import type { SVGProps } from "react";
 import "./themeSwitchIcons.css";
 
 export interface IconTypes {
-    iconProps?: React.SVGProps<SVGSVGElement>;
+    iconProps?: SVGProps<SVGSVGElement>;
     icon?: "sun" | "moon";
 }
 

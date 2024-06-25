@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, DetailedHTMLProps } from "react";
 import dynamic from "next/dynamic";
 
 import Card from "@/components/card/Card.tsx";
@@ -14,21 +14,25 @@ import IconSpecTable from "@/app/ui/tokens/table/IconSpecTable.tsx";
 import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
 import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
+import Overview from "@/app/ui/components/overview/Overview.tsx";
 import Title from "@/components/title/Title.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
 import PackageInstallation, {
     type PackageInstallationProps
 } from "@/components/packageInstallation/PackageInstallation.tsx";
-import type { PreviewComponentProps } from "@/app/ui/components/previewComponent/PreviewComponent.tsx";
+
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
+import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
+import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
+import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 
-type HeadingProps = React.DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
-
-const PreviewComponent = dynamic(() => import("@/app/ui/components/previewComponent/PreviewComponent.tsx"));
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
+const ComponentExample = dynamic(() => import("@/app/ui/components/componentExample/ComponentExample.tsx"));
+
+type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 export const components = {
     Card,
@@ -43,14 +47,22 @@ export const components = {
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,
     IconSpecTable: IconSpecTable,
+    Overview: Overview,
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
     PackageInstallation: (props: PackageInstallationProps) => {
         return <PackageInstallation {...props} />;
     },
-    PreviewComponent: (props: PreviewComponentProps) => {
-        return <PreviewComponent {...props} />;
+    Example: (props: ComponentExampleProps) => {
+        const { src } = props;
+
+        return <ComponentExample
+            {...props}
+            type="both"
+            code={<ComponentCodeWrapper src={src} />}
+            preview={<ComponentPreview src={src} />}
+        />;
     },
     MigrateGuide: (props: MigrateGuideProps) => {
         return <MigrateGuide {...props} />;
