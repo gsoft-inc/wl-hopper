@@ -6,7 +6,6 @@ import { useHeadsObserver } from "@/hooks/useHeadsObserver";
 import type { PropsWithoutRef } from "react";
 
 import "./aside.css";
-import Link from "next/link";
 
 interface Link {
     title: string;
@@ -54,9 +53,10 @@ const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
         })}
         key={link.id}
         >
-            <Link href={link.url} className="hd-aside__link">
+            {/* This has to be an a, not a link: https://github.com/vercel/next.js/issues/49612 */}
+            <a href={link.url} className="hd-aside__link">
                 {link.title}
-            </Link>
+            </a>
         </li>
     ));
 
