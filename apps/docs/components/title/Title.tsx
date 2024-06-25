@@ -33,6 +33,7 @@ const Title = ({
             })}
             id={level > 1 ? uniqueId : undefined}
             data-section-title={level === 2 ? uniqueId : undefined}
+            data-subsection-title={level === 3 ? uniqueId : undefined}
             {...rest}
         >
             {level > 1 ? (

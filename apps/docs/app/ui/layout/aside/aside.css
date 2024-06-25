@@ -84,6 +84,10 @@
     color: var(--hd-color-primary-text);
 }
 
+.hd-aside__link-level-3 {
+    padding-inline-start: var(--hd-space-3);
+}
+
 .hd-aside__title {
     display: none;
     font-size: 0.875rem;

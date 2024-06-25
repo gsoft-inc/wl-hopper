@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 
-const ELEMENTS = "[data-section-title]";
+const ELEMENTS = "[data-section-title], [data-subsection-title]";
 
 function findAllFullyVisibleElements() {
     const elements = document.querySelectorAll(ELEMENTS);

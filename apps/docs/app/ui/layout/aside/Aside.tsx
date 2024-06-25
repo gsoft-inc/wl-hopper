@@ -11,6 +11,7 @@ interface Link {
     title: string;
     url: string;
     id: string;
+    level?: number;
 }
 
 interface AsideProps {
@@ -54,19 +55,15 @@ const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
         key={link.id}
         >
             {/* This has to be an a, not a link: https://github.com/vercel/next.js/issues/49612 */}
-            <a href={link.url} className="hd-aside__link">
+            <a href={link.url} className={`hd-aside__link hd-aside__link-level-${link.level}`}>
                 {link.title}
             </a>
         </li>
     ));
 
-    if (listItems.length <= 1) {
-        return null;
-    }
-
     return (
         <aside className="hd-aside">
-            {links.length > 0 && (
+            {listItems.length > 0 && (
                 <>
                     <span className="hd-aside__title">{title}</span>
                     <button type="button" className="hd-aside__button" onClick={toggleList}>
