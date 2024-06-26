@@ -1,0 +1,25 @@
+.hop-ErrorMessage  {
+    --hop-ErrorMessage-color: var(--hop-danger-text-weak);
+    --hop-ErrorMessage-font-family: var(--hop-body-xs-font-family);
+    --hop-ErrorMessage-font-size: var(--hop-body-xs-font-size);
+    --hop-ErrorMessage-font-weight: var(--hop-body-xs-font-weight);
+    --hop-ErrorMessage-line-height: var(--hop-body-xs-line-height);
+    --hop-ErrorMessage-column-gap: var(--hop-space-inline-xs);
+
+    display: flex;
+    column-gap: var(--hop-ErrorMessage-column-gap);
+    align-items: center;
+
+    box-sizing: border-box;
+
+    font-family: var(--hop-ErrorMessage-font-family);
+    font-size: var(--hop-ErrorMessage-font-size);
+    font-weight: var(--hop-ErrorMessage-font-weight);
+    line-height: var(--hop-ErrorMessage-line-height);
+    color: var(--hop-ErrorMessage-color);
+}
+
+.hop-ErrorMessage__icon {
+    flex: 0 0 auto;
+    align-self: flex-start
+}
