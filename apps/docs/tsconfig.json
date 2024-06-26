@@ -41,11 +41,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         ".contentlayer/generated",
-        ".storybook/**/*",
-        "../../packages/components/src/**/docs"
-    ],
+        ".storybook/**/*"],
     "exclude": [
-        "node_modules",
-        "../../packages/components/src/**/docs/**/*.stories.tsx",
+        "node_modules"
     ]
 }
