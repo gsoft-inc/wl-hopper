@@ -20,7 +20,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
     }
 
     const sectionLinks = getSectionLinks(pageContent);
-    const allTokensLinks = getPageLinks(allTokens, {
+    const allTokenLinks = getPageLinks(allTokens, {
         order: ["getting-started", "semantic", "core"]
     });
 
@@ -29,7 +29,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
             <SidebarProvider>
                 <SubHeader links={sectionLinks} />
                 <div className="hd-wrapper hd-flex">
-                    <Sidebar links={allTokensLinks} />
+                    <Sidebar links={allTokenLinks} />
                     {children}
                 </div>
             </SidebarProvider>

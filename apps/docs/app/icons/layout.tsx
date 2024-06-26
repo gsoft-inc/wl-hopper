@@ -20,7 +20,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
     }
 
     const sectionLinks = getSectionLinks(pageContent);
-    const allIconsLinks = getPageLinks(allIcons, {
+    const allIconLinks = getPageLinks(allIcons, {
         order: ["getting-started", "react-icons", "svg"]
     });
 
@@ -29,7 +29,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
             <SidebarProvider>
                 <SubHeader links={sectionLinks} />
                 <div className="hd-wrapper hd-flex">
-                    <Sidebar links={allIconsLinks} />
+                    <Sidebar links={allIconLinks} />
                     {children}
                 </div>
             </SidebarProvider>
