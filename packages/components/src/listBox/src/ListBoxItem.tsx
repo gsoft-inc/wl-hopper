@@ -1,13 +1,15 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState } from "react";
 import {
     useContextProps, 
     ListBoxItem as RACListBoxItem, 
     type ListBoxItemProps as RACListBoxItemProps, 
     composeRenderProps, 
     type SlotProps,
-    DEFAULT_SLOT
+    DEFAULT_SLOT,
+    ListStateContext,
+    type ListBoxItemRenderProps
 } from "react-aria-components";
 
 import { BadgeContext } from "../../Badge/index.ts";
@@ -43,6 +45,28 @@ export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBo
     size?: ResponsiveProp<ListBoxItemSize>;
 }
 
+interface ListBoxInnerProps extends ListBoxItemRenderProps {
+    /**
+     * The selection indicator to use. Only available if the selection mode is not "none".
+     * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
+     * @default "check"
+     */
+    selectionIndicator?: "check" | "input";
+    /**
+     * Whether or not the ListBoxItem is in an invalid state.
+     */
+    isInvalid?: boolean;
+    /**
+     * A ListBoxItem can vary in size.
+     * @default "sm"
+     */
+    size: ListBoxItemSize;
+    /**
+     * The children of the ListBoxItem.
+     */
+    children: ReactNode;
+}
+
 const ListBoxItemToIconSizeAdapter = {
     xs: "sm",
     sm: "sm",
@@ -56,6 +80,137 @@ const ListBoxItemToTextSizeAdapter = {
     md: "sm",
     lg: "md"
 } as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
+
+const getIsListHasSelectionEnd = (isListHasSelection: boolean, prevIsListHasSelectionEnd: boolean): boolean => {
+    return isListHasSelection && !prevIsListHasSelectionEnd;
+};
+
+function ListBoxItemInner(props: ListBoxInnerProps) {
+    const listStateContext = useContext(ListStateContext);
+    const isListHasSelection = listStateContext.selectionManager.selectedKeys.size > 0;
+    
+    const { selectionMode, 
+        isDisabled, 
+        isFocusVisible, 
+        isPressed, 
+        isHovered, 
+        isSelected, 
+        selectionIndicator, 
+        isInvalid, 
+        size, 
+        children 
+    } = props;
+    const isRadio = selectionIndicator === "input" && selectionMode === "single";
+    const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
+    const isCheck = selectionIndicator === "check" && selectionMode !== "none";
+    const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(getIsListHasSelectionEnd(isListHasSelection, false));
+
+    const handleTransitionEnd: React.TransitionEventHandler<HTMLDivElement> = event => {
+        if (event.propertyName === "grid-template-columns") {
+            setIsListHasSelectionEnd(prev => getIsListHasSelectionEnd(isListHasSelection, prev));
+        }
+    };
+
+    return (
+        <div 
+            className={styles["hop-ListBoxItem__inner"]}
+            data-list-has-selection={isListHasSelection || undefined}
+            data-list-has-selection-end={isListHasSelectionEnd || undefined}
+            onTransitionEnd={handleTransitionEnd}
+        >
+            {isRadio && (
+                <RadioGroup 
+                    size="sm"
+                    aria-hidden="true" 
+                    aria-label="list item indicator"
+                    value={isSelected ? "radio" : null} 
+                    className={styles["hop-ListBoxItem__radio-group"]}
+                    isInvalid={isInvalid}
+                >
+                    <RadioList>
+                        <Radio
+                            className={styles["hop-ListBoxItem__radio"]}
+                            value="radio"
+                            isDisabled={isDisabled}
+                            isFocused={isFocusVisible}
+                            isHovered={isHovered}
+                            isPressed={isPressed}
+                        />
+                    </RadioList>
+                </RadioGroup>
+            )}
+            {isCheckbox && (
+                <Checkbox
+                    size="sm"
+                    value="checkbox"
+                    aria-hidden="true"
+                    className={styles["hop-ListBoxItem__checkbox"]}
+                    isDisabled={isDisabled}
+                    isFocused={isFocusVisible}
+                    isHovered={isHovered}
+                    isPressed={isPressed}
+                    isSelected={isSelected}
+                    isInvalid={isInvalid}
+                />
+            )}
+            {isCheck && (
+                <CheckmarkIcon className={styles["hop-ListBoxItem__checkmark"]} size="sm" />
+            )}
+
+            <SlotProvider
+                values={[
+                    [TextContext, {
+                        slots: {
+                            [DEFAULT_SLOT]: {
+                                slot: "label",
+                                className: styles["hop-ListBoxItem__label"],
+                                size: ListBoxItemToTextSizeAdapter[size]
+                            },
+                            label: {
+                                className: styles["hop-ListBoxItem__label"],
+                                size: ListBoxItemToTextSizeAdapter[size]
+                            },
+                            description: {
+                                className: styles["hop-ListBoxItem__description"],
+                                size: "xs"
+                            }
+                        }
+                    }],
+                    [IconListContext, {
+                        slots: {
+                            [DEFAULT_SLOT]: {
+                                className: styles["hop-ListBoxItem__icon-list"],
+                                size: ListBoxItemToIconSizeAdapter[size]
+                            },
+                            "end-icon": {
+                                className: styles["hop-ListBoxItem__end-icon-list"],
+                                size: ListBoxItemToIconSizeAdapter[size]
+                            }
+                        }
+                    }],
+                    [IconContext, {
+                        slots: {
+                            [DEFAULT_SLOT]: {
+                                className: styles["hop-ListBoxItem__icon"],
+                                size: ListBoxItemToIconSizeAdapter[size]
+                            },
+                            "end-icon": {
+                                className: styles["hop-ListBoxItem__end-icon"],
+                                size: ListBoxItemToIconSizeAdapter[size]
+                            }
+                        }
+                    }],
+                    [BadgeContext, {
+                        className: styles["hop-ListBoxItem__badge"],
+                        isDisabled: isDisabled
+                    }]
+                ]}
+            >
+                {children}
+            </SlotProvider>
+        </div>
+    );
+}
 
 function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, ListBoxItemContext);
@@ -110,104 +265,11 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             textValue={textValue}
             data-invalid={isInvalid || undefined}
         >
-            {ListBoxItemProps => {
-                const { selectionMode, isDisabled, isFocusVisible, isPressed, isHovered, isSelected } = ListBoxItemProps;
-                const isRadio = selectionIndicator === "input" && selectionMode === "single";
-                const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
-                const isCheck = selectionIndicator === "check" && selectionMode !== "none";
-
+            {listBoxItemProps => {
                 return (
-                    <>
-                        {isRadio && (
-                            <RadioGroup 
-                                size="sm"
-                                aria-hidden="true" 
-                                aria-label="list item indicator"
-                                value={isSelected ? "radio" : null} 
-                                className={styles["hop-ListBoxItem__radio-group"]}
-                                isInvalid={isInvalid}
-                            >
-                                <RadioList>
-                                    <Radio
-                                        className={styles["hop-ListBoxItem__radio"]}
-                                        value="radio"
-                                        isDisabled={isDisabled}
-                                        isFocused={isFocusVisible}
-                                        isHovered={isHovered}
-                                        isPressed={isPressed}
-                                    />
-                                </RadioList>
-                            </RadioGroup>
-                        )}
-                        {isCheckbox && (
-                            <Checkbox
-                                size="sm"
-                                value="checkbox"
-                                aria-hidden="true"
-                                className={styles["hop-ListBoxItem__checkbox"]}
-                                isDisabled={isDisabled}
-                                isFocused={isFocusVisible}
-                                isHovered={isHovered}
-                                isPressed={isPressed}
-                                isSelected={isSelected}
-                                isInvalid={isInvalid}
-                            />
-                        )}
-                        <SlotProvider
-                            values={[
-                                [TextContext, {
-                                    slots: {
-                                        [DEFAULT_SLOT]: {
-                                            slot: "label",
-                                            className: styles["hop-ListBoxItem__label"],
-                                            size: ListBoxItemToTextSizeAdapter[size]
-                                        },
-                                        label: {
-                                            className: styles["hop-ListBoxItem__label"],
-                                            size: ListBoxItemToTextSizeAdapter[size]
-                                        },
-                                        description: {
-                                            className: styles["hop-ListBoxItem__description"],
-                                            size: "xs"
-                                        }
-                                    }
-                                }],
-                                [IconListContext, {
-                                    slots: {
-                                        [DEFAULT_SLOT]: {
-                                            className: styles["hop-ListBoxItem__icon-list"],
-                                            size: ListBoxItemToIconSizeAdapter[size]
-                                        },
-                                        "end-icon": {
-                                            className: styles["hop-ListBoxItem__end-icon-list"],
-                                            size: ListBoxItemToIconSizeAdapter[size]
-                                        }
-                                    }
-                                }],
-                                [IconContext, {
-                                    slots: {
-                                        [DEFAULT_SLOT]: {
-                                            className: styles["hop-ListBoxItem__icon"],
-                                            size: ListBoxItemToIconSizeAdapter[size]
-                                        },
-                                        "end-icon": {
-                                            className: styles["hop-ListBoxItem__end-icon"],
-                                            size: ListBoxItemToIconSizeAdapter[size]
-                                        }
-                                    }
-                                }],
-                                [BadgeContext, {
-                                    className: styles["hop-ListBoxItem__badge"],
-                                    isDisabled: isDisabled
-                                }]
-                            ]}
-                        >
-                            {children(ListBoxItemProps)}
-                        </SlotProvider>
-                        {isCheck && (
-                            <CheckmarkIcon className={styles["hop-ListBoxItem__checkmark"]} />
-                        )}
-                    </>
+                    <ListBoxItemInner {...listBoxItemProps} selectionIndicator={selectionIndicator} isInvalid={isInvalid} size={size}>
+                        {children(listBoxItemProps)}
+                    </ListBoxItemInner>
                 );
             }}
         </RACListBoxItem>
