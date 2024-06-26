@@ -45,7 +45,7 @@ function generatePreviewRef() {
     for (const examplePath of examplePaths) {
         previewEntries += `
     "${examplePath}": {
-        component: lazy(() => import("./${examplePath}.tsx"))
+        component: lazy(() => import("@/../../packages/components/src/${examplePath}.tsx"))
     },`;
     }
 
