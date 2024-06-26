@@ -6,7 +6,37 @@ import Title from "@/components/title/Title";
 import "./overview.css";
 
 const ignoreCategories = ["application"];
-const categories = Array.from(new Set(allComponents.map(component => component.category))).filter(x => x && !ignoreCategories.includes(x));
+const sortOrder = [
+    "layout",
+    "buttons",
+    "collections",
+    "forms",
+    "icons",
+    "navigation",
+    "overlays",
+    "pickers",
+    "status",
+    "content"
+];
+
+const categories = Array.from(new Set(allComponents.map(component => component.category))).filter(x => x && !ignoreCategories.includes(x)).sort((a, b) => {
+    const aIndex = sortOrder.indexOf(a!);
+    const bIndex = sortOrder.indexOf(b!);
+
+    if (aIndex === -1 && bIndex === -1) {
+        return 0;
+    }
+
+    if (aIndex === -1) {
+        return 1;
+    }
+
+    if (bIndex === -1) {
+        return -1;
+    }
+
+    return aIndex - bIndex;
+});
 
 const Overview = () => {
     return (
@@ -16,7 +46,7 @@ const Overview = () => {
                     <Title as="h3" level={2} className="hd-component-overview-category__title">{category}</Title>
                     <div className="hd-component-overview">
                         {allComponents.filter(component => component.category && component.category === category).map(component => (
-                            <Link key={component._id} className="hd-component-overview__item" href={`/${component._raw.flattenedPath}`}>
+                            <Link key={component._id} className="hd-component-overview__item" href={`/components/${component.slug}`}>
                                 <div className="hd-component-overview__item-thumb">
                                     <Image src={`https://place-hold.it/260x140?text=${component.title}&fontsize=20`} alt="thumb" width="260" height="140" className="hd-component-overview__item-img" />
                                 </div>
