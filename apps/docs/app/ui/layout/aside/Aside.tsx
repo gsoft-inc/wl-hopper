@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useHeadsObserver } from "@/hooks/useHeadsObserver";
+import type { PropsWithoutRef } from "react";
 
 import "./aside.css";
+import Link from "next/link";
 
 interface Link {
     title: string;
@@ -17,7 +19,7 @@ interface AsideProps {
     links: Link[];
 }
 
-const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
+const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
     const titleHeight = 28;
     const { activeId, setNextActiveId } = useHeadsObserver();
     const activeIndex = links.findIndex(link => link.id === activeId);
@@ -52,9 +54,9 @@ const Aside = ({ title, links }: React.PropsWithoutRef<AsideProps>) => {
         })}
         key={link.id}
         >
-            <a href={link.url} className="hd-aside__link">
+            <Link href={link.url} className="hd-aside__link">
                 {link.title}
-            </a>
+            </Link>
         </li>
     ));
 

@@ -1,0 +1,1 @@
+[{"tags":{},"filePath":"/Users/francis.thibault/Repos/wl-hopper/packages/components/src/i18n/src/useLocalizedString.tsx","description":"This hook is used to get the localized string formatter.\nIt uses the resources from the component package.","displayName":"useLocalizedString","methods":[],"props":{},"groups":{"default":{},"events":{},"accessibility":{},"layout":{}}}]

@@ -3,20 +3,21 @@ import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import path from "path";
 
 interface Data {
     frontmatter: ComponentData;
-    slug: string;
+    slugs: string[];
     content: ReactNode;
 }
 
 function formatComponentData(data: Data[]) {
     return data.map((component, index) => {
-        const { slug, frontmatter: { title, order } } = component;
+        const { slugs, frontmatter: { title, order } } = component;
         let section = "";
 
-        if (slug.split("/").length > 1) {
-            section = slug.split("/")[0];
+        if (slugs.length > 1) {
+            section = slugs[0];
         }
 
         return {
@@ -25,7 +26,7 @@ function formatComponentData(data: Data[]) {
             order,
             section: section,
             _raw: {
-                flattenedPath: `components/${slug}`
+                flattenedPath: `components/${path.join(...slugs)}`
             }
         };
     });

@@ -1,11 +1,12 @@
 import type { Preview } from "@storybook/react";
-import React from "react";
+import type { ReactNode } from "react";
+
 import "../app/globals.css";
 
 // Storybook styles
 import "./global.css";
 
-const Container = ({ children, theme }: { children: React.ReactNode; theme: "light" | "dark" }) => (
+const Container = ({ children, theme }: { children: ReactNode; theme: "light" | "dark" }) => (
     <div className="shd-container" data-theme={theme}>{children}</div>
 );
 
@@ -22,12 +23,15 @@ const preview: Preview = {
     },
     globalTypes: {
         scheme: {
-            name: "Color scheme",
-            description: "Global color scheme for components",
+            description: "Global theme for components",
             defaultValue: "light",
             toolbar: {
-                icon: "mirror",
-                items: ["light", "dark"],
+                title: "Theme",
+                icon: "circlehollow",
+                items: [
+                    { value: "light", title: "Light" },
+                    { value: "dark", title: "Dark" }
+                ],
                 dynamicTitle: true
             }
         }

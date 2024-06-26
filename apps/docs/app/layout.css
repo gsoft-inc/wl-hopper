@@ -12,7 +12,7 @@ html {
     margin: calc(-1 * var(--hd-space-8)) 0 0;
 }
 
-/*New layout start here*/
+/* New layout start here */
 .hd-layout {
     --layout-width: 90rem;
     --nav-width: 14.875rem;

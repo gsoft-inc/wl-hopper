@@ -16,8 +16,8 @@ interface PageProps {
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
     const componentsDetails = await getComponentDetails();
 
-    return componentsDetails.map(({ slug }) => {
-        const [section, type] = slug.split("/");
+    return componentsDetails.map(({ slugs }) => {
+        const [section, type] = slugs;
 
         return ({
             slug: [section, type]
@@ -29,7 +29,7 @@ export default async function ComponentPage({ params }: PageProps) {
     const [section, type] = params.slug;
 
     const component = (await getComponentDetails()).find(componentDetail => {
-        const [componentSlugSection, componentSlugType] = componentDetail.slug.split("/");
+        const [componentSlugSection, componentSlugType] = componentDetail.slugs;
 
         return componentSlugType === type && componentSlugSection === section;
     });
@@ -47,12 +47,12 @@ export default async function ComponentPage({ params }: PageProps) {
         },
         {
             name: "npm",
-            src: links.npm,
+            src: "https://www.npmjs.com/package/@hopper-ui/components",
             label: "View on npm"
         },
         {
             name: "issue",
-            src: links.issue,
+            src: "https://github.com/gsoft-inc/wl-hopper/issues/new",
             label: "Report an issue"
         }
     ];
@@ -63,7 +63,7 @@ export default async function ComponentPage({ params }: PageProps) {
         <div className="hd-section">
             <SubHeader links={sectionLinks} />
             <div className="hd-container">
-                <Aside title="On this page" links={sectionLinks} />
+                {type !== "overview" && <Aside title="On this page" links={sectionLinks} />}
                 <main>
                     <Heading title={title} tag={status} description={description} links={componentLinks} />
                     <div className="hd-content">

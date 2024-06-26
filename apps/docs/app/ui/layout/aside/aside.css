@@ -9,8 +9,7 @@
 @media screen and (width >= 48rem) {
     .hd-aside {
         display: flex;
-        padding-block-start: var(--hd-space-8);
-        padding-block-end: var(--hd-space-4);
+        padding-block: var(--hd-space-8) var(--hd-space-4);
     }
 
     .hd-aside + main {

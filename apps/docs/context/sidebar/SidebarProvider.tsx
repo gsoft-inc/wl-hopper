@@ -1,7 +1,6 @@
 "use client";
 
-import type React from "react";
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
 interface SidebarProps {
     isSidebarOpen: boolean;
@@ -16,7 +15,7 @@ const SidebarContext = createContext<SidebarProps>({
 
 export const useSidebar = () => useContext(SidebarContext);
 
-export function SidebarProvider({ children }: { children: React.ReactNode }) {
+export function SidebarProvider({ children }: { children: ReactNode }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {

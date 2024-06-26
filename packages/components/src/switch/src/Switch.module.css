@@ -1,4 +1,4 @@
-.hop-Switch  {
+.hop-Switch {
     /* Default */
     --hop-Switch-border-size: 0.0625rem;
     --hop-Switch-border-color: var(--hop-neutral-border);
@@ -68,9 +68,8 @@
 
     display: inline-flex;
     column-gap: var(--column-gap);
-    align-items: center;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     box-sizing: border-box;
     inline-size: max-content;
@@ -122,9 +121,9 @@
     --background-color: var(--hop-Switch-background-color-selected);
     --thumb-color: var(--hop-Switch-thumb-color-selected);
     --thumb-transform: translate(calc(var(--inline-size) -
-            var(--thumb-size, var(--hop-Switch-thumb-size-md)) -
-            (2 * var(--inset-inline-start, var(--hop-Switch-inset-inline-start-md))) -
-            (2 * var(--border-size))), -50%);
+    var(--thumb-size, var(--hop-Switch-thumb-size-md)) -
+    (2 * var(--inset-inline-start, var(--hop-Switch-inset-inline-start-md))) -
+    (2 * var(--border-size))), -50%);
     --text-color: var(--hop-Switch-text-color-selected);
 }
 

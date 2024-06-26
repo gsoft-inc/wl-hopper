@@ -1,11 +1,12 @@
 "use client";
 
 import clsx from "clsx";
-import { useState } from "react";
+import { useState, type PropsWithoutRef } from "react";
 import { Button } from "react-aria-components";
 
 import ChevronIcon from "./assets/chevron-icon.svg";
 import "./sectionPopover.css";
+import Link from "next/link";
 
 interface Link {
     title: string;
@@ -17,7 +18,7 @@ interface SectionPopoverProps {
     links: Link[];
 }
 
-const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) => {
+const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const togglePopover = () => {
@@ -36,9 +37,9 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
 
     const listItems = links.map(link => (
         <li className="hd-section-popover__list-item" key={link.id}>
-            <a href={link.url} className="hd-section-popover__list-link" onClick={togglePopover}>
+            <Link href={link.url} className="hd-section-popover__list-link" onClick={togglePopover}>
                 {link.title}
-            </a>
+            </Link>
         </li>
     ));
 
@@ -51,7 +52,7 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
                         <ChevronIcon className="hd-section-popover__button-icon" />
                     </Button>
                     <div className={clsx("hd-section-popover__popover", isOpen && "hd-section-popover__popover--open")}>
-                        <a className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</a>
+                        <Link className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</Link>
                         <ul className="hd-section-popover__list">
                             {listItems}
                         </ul>

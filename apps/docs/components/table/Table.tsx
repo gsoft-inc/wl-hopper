@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { Cell, Column, Row, Table as TableRA, TableBody, TableHeader } from "react-aria-components";
-import React, { type ReactNode, useMemo } from "react";
+import { type ReactNode, useMemo } from "react";
 
 import "./table.css";
 
