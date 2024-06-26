@@ -10,7 +10,7 @@ export default function Example() {
             </Button>
             <Button size="sm" aria-label="Clean" variant="secondary">
                 <SparklesIcon key="1" slot="end-icon" />
-                <Text key="2">This is a custom string i can search</Text>
+                <Text key="2">Save</Text>
             </Button>
         </Inline>
     );
