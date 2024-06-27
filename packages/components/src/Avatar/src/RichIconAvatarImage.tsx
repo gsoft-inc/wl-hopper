@@ -15,10 +15,6 @@ export const GlobalRichIconAvatarImageCssSelector = "hop-RichIconAvatarImage";
 
 export interface RichIconAvatarImageProps extends StyledSystemProps, BaseComponentProps, Omit<HTMLAttributes<HTMLDivElement>, "slot" | "content" | "color"> {
     /**
-     * The aria-label for the image.
-     */
-    "aria-label": string;
-    /**
      * Whether or not the avatar image is disabled.
      */
     isDisabled?: boolean;
@@ -68,6 +64,10 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
         ...stylingProps.style,
         ...style
     };
+
+    if (!props["aria-label"] && !props["aria-labelledby"]) {
+        console.warn("An aria-label or aria-labelledby prop is required for accessibility.");
+    }
 
     return (
         <div

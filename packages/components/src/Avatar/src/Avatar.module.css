@@ -23,22 +23,12 @@
     --hop-Avatar-decorative-8-text-color: var(--hop-decorative-option8-text);
     --hop-Avatar-decorative-9-text-color: var(--hop-decorative-option9-text);
 
-    /* xs */
+    /* Sizes */
     --hop-Avatar-xs-size: 1rem;
-
-    /* sm */
     --hop-Avatar-sm-size: 1.5rem;
-
-    /* md */
     --hop-Avatar-md-size: 2rem;
-
-    /* lg */
     --hop-Avatar-lg-size: 3rem;
-
-    /* xl */
     --hop-Avatar-xl-size: 4rem;
-
-    /* 2xl */
     --hop-Avatar-2xl-size: 6rem;
 
     /* disabled */
@@ -47,7 +37,7 @@
     --hop-Avatar-mix-blend-mode-disabled: luminosity;
 
     /* Internal variables */
-    --mlx-blend-mode: var(--hop-Avatar-mix-blend-mode);
+    --mix-blend-mode: var(--hop-Avatar-mix-blend-mode);
 
     user-select: none;
 
@@ -142,7 +132,7 @@
 .hop-Avatar[data-disabled] {
     --background-color: var(--hop-Avatar-background-color-disabled);
     --text-color: var(--hop-Avatar-text-color-disabled);
-    --mlx-blend-mode: var(--hop-Avatar-mix-blend-mode-disabled);
+    --mix-blend-mode: var(--hop-Avatar-mix-blend-mode-disabled);
 
     isolation: isolate;
 }
@@ -157,5 +147,5 @@
     block-size: 100%;
 
     object-fit: cover;
-    mix-blend-mode: var(--mlx-blend-mode);
+    mix-blend-mode: var(--mix-blend-mode);
 }

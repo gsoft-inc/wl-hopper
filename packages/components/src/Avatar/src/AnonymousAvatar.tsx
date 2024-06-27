@@ -14,10 +14,6 @@ export const GlobalAnonymousAvatarCssSelector = "hop-AnonymousAvatar";
 
 export interface AnonymousAvatarProps extends StyledSystemProps, BaseComponentProps {
     /**
-     * The label to display for the avatar.
-     */
-    "aria-label": string;
-    /**
      * Whether or not the avatar is disabled.
      */
     isDisabled?: boolean;

@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Inline, Stack } from "../../../layout/index.ts";
-import { AnonymousAvatar, type AnonymousAvatarProps } from "../../src/AnonymousAvatar.tsx";
 import { Avatar } from "../../src/Avatar.tsx";
-import { DeletedAvatar, type DeletedAvatarProps } from "../../src/DeletedAvatar.tsx";
 
 import { Anime, Astronaut, Person } from "./assets/index.ts";
 
@@ -15,8 +13,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-type AnonymousStory = StoryObj<AnonymousAvatarProps>;
-type DeletedStory = StoryObj<DeletedAvatarProps>;
 
 export const LocalImage = {
     render: args => (
@@ -157,16 +153,4 @@ export const Initials = {
         name: "Gab Seguin"
     }
 } satisfies Story;
-
-export const Anonymous = {
-    render: args => (
-        <AnonymousAvatar {...args} aria-label="anonymous" />
-    )
-} satisfies AnonymousStory;
-
-export const Deleted = {
-    render: args => (
-        <DeletedAvatar {...args} aria-label="deleted" />
-    )
-} satisfies DeletedStory;
 

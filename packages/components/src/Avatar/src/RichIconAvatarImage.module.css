@@ -4,27 +4,17 @@
     --hop-RichIconAvatarImage-border-radius: var(--hop-shape-circle);
     --hop-RichIconAvatarImage-icon-color: var(--hop-decorative-option7-icon);
 
-    /* xs */
+    /* Sizes */
     --hop-RichIconAvatarImage-xs-size: 1rem;
     --hop-RichIconAvatarImage-icon-xs-size: 1rem;
-
-    /* sm */
     --hop-RichIconAvatarImage-sm-size: 1.5rem;
     --hop-RichIconAvatarImage-icon-sm-size: 1.5rem;
-
-    /* md */
     --hop-RichIconAvatarImage-md-size: 2rem;
     --hop-RichIconAvatarImage-icon-md-size: 2rem;
-
-    /* lg */
     --hop-RichIconAvatarImage-lg-size: 3rem;
     --hop-RichIconAvatarImage-icon-lg-size: 3rem;
-
-    /* xl */
     --hop-RichIconAvatarImage-xl-size: 4rem;
     --hop-RichIconAvatarImage-icon-xl-size: 4rem;
-
-    /* 2xl */
     --hop-RichIconAvatarImage-2xl-size: 6rem;
     --hop-RichIconAvatarImage-icon-2xl-size: 4rem;
 
