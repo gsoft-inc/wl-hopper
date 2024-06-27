@@ -1,6 +1,6 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState } from "react";
+import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState, useEffect, useCallback } from "react";
 import {
     useContextProps, 
     ListBoxItem as RACListBoxItem, 
@@ -64,6 +64,10 @@ interface ListBoxInnerProps extends ListBoxItemRenderProps {
      * The children of the ListBoxItem.
      */
     children: ReactNode;
+    /**
+     * A function to set the list has selection state.
+     */
+    setListHasSelection: (value: boolean) => void;
 }
 
 const ListBoxItemToIconSizeAdapter = {
@@ -86,7 +90,6 @@ const getIsListHasSelectionEnd = (isListHasSelection: boolean, prevIsListHasSele
 
 function ListBoxItemInner(props: ListBoxInnerProps) {
     const listStateContext = useContext(ListStateContext);
-    const isListHasSelection = listStateContext.selectionManager.selectedKeys.size > 0;
     
     const { selectionMode, 
         isDisabled, 
@@ -97,26 +100,20 @@ function ListBoxItemInner(props: ListBoxInnerProps) {
         selectionIndicator, 
         isInvalid, 
         size, 
-        children
+        children,
+        setListHasSelection
     } = props;
+    
     const isRadio = selectionIndicator === "input" && selectionMode === "single";
     const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
     const isCheck = selectionIndicator === "check" && selectionMode !== "none";
-    const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(getIsListHasSelectionEnd(isListHasSelection, false));
 
-    const handleTransitionEnd: React.TransitionEventHandler<HTMLDivElement> = event => {
-        if (event.propertyName === "grid-template-columns") {
-            setIsListHasSelectionEnd(prev => getIsListHasSelectionEnd(isListHasSelection, prev));
-        }
-    };
+    useEffect(() => {
+        setListHasSelection(listStateContext.selectionManager.selectedKeys.size > 0);
+    }, [listStateContext.selectionManager.selectedKeys.size, setListHasSelection]);
 
     return (
-        <div 
-            className={styles["hop-ListBoxItem__inner"]}
-            data-list-has-selection={isListHasSelection || undefined}
-            data-list-has-selection-end={isListHasSelectionEnd || undefined}
-            onTransitionEnd={handleTransitionEnd}
-        >
+        <>
             {isRadio && (
                 <RadioGroup 
                     size="sm"
@@ -207,7 +204,7 @@ function ListBoxItemInner(props: ListBoxInnerProps) {
             >
                 {children}
             </SlotProvider>
-        </div>
+        </>
     );
 }
 
@@ -255,6 +252,28 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
         return prev;
     });
 
+    const [isListHasSelection, setIsListHasSelection] = useState(false);
+    const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(getIsListHasSelectionEnd(isListHasSelection, false));
+
+    const handleTransitionEnd = useCallback((event: TransitionEvent) => {
+        if (event.propertyName === "grid-template-columns") {
+            setIsListHasSelectionEnd(prev => getIsListHasSelectionEnd(isListHasSelection, prev));
+        }
+    }, [isListHasSelection]);
+
+    useEffect(() => {    
+        const element = ref.current;
+        if (element) {
+            element.addEventListener("transitionend", handleTransitionEnd);
+        }
+    
+        return () => {
+            if (element) {
+                element.removeEventListener("transitionend", handleTransitionEnd);
+            }
+        };
+    }, [handleTransitionEnd, ref]);
+
     return (
         <RACListBoxItem
             {...otherProps}
@@ -263,10 +282,18 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             style={style}
             textValue={textValue}
             data-invalid={isInvalid || undefined}
+            data-list-has-selection={isListHasSelection || undefined}
+            data-list-has-selection-end={isListHasSelectionEnd || undefined}
         >
             {listBoxItemProps => {
                 return (
-                    <ListBoxItemInner {...listBoxItemProps} selectionIndicator={selectionIndicator} isInvalid={isInvalid} size={size}>
+                    <ListBoxItemInner 
+                        {...listBoxItemProps} 
+                        selectionIndicator={selectionIndicator} 
+                        isInvalid={isInvalid} 
+                        size={size}
+                        setListHasSelection={setIsListHasSelection}
+                    >
                         {children(listBoxItemProps)}
                     </ListBoxItemInner>
                 );

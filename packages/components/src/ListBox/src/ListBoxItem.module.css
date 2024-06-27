@@ -98,12 +98,25 @@
     --checkmark-transition: opacity 0.2s ease-in-out .2s;
 
     cursor: var(--cursor);
+    
+    display: grid;
+    grid-template-areas: var(--grid-template-areas);
+    grid-template-columns: var(--grid-template-columns);
+    row-gap: var(--row-gap);
+    align-items: center;
+
+    box-sizing: border-box;
+    min-block-size: var(--min-height);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
 
     color: var(--text-color);
 
     background-color: var(--background-color);
     border-radius: var(--hop-ListBoxItem-border-radius);
     outline: var(--outline);
+
+    transition: grid-template-columns .3s ease-in-out;
 }
 
 .hop-ListBoxItem--xs {
@@ -138,11 +151,11 @@
     --grid-template-columns: var(--hop-ListBoxItem-grid-template-columns-not-selected);
 }
 
-.hop-ListBoxItem__inner:not([data-list-has-selection]):has(.hop-ListBoxItem__checkmark) {
+.hop-ListBoxItem:not([data-list-has-selection]):has(.hop-ListBoxItem__checkmark) {
     --grid-template-columns: var(--hop-ListBoxItem-grid-template-columns-not-selected);
 }
 
-.hop-ListBoxItem__inner[data-list-has-selection-end]:has(.hop-ListBoxItem__checkmark) {
+.hop-ListBoxItem[data-list-has-selection-end]:has(.hop-ListBoxItem__checkmark) {
     --checkmark-transition: none;
 }
 
@@ -222,21 +235,6 @@
 .hop-ListBoxItem:has(.hop-ListBoxItem__description) {
     --row-gap: var(--hop-ListBoxItem-row-gap);
     --grid-template-areas: var(--hop-ListBoxItem-grid-template-areas-with-description);
-}
-
-.hop-ListBoxItem__inner {
-    display: grid;
-    grid-template-areas: var(--grid-template-areas);
-    grid-template-columns: var(--grid-template-columns);
-    row-gap: var(--row-gap);
-    align-items: center;
-
-    box-sizing: border-box;
-    min-block-size: var(--min-height);
-    padding-block: var(--padding-block);
-    padding-inline: var(--padding-inline);
-
-    transition: grid-template-columns .3s ease-in-out;
 }
 
 .hop-ListBoxItem__checkmark {
