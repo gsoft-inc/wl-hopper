@@ -39,7 +39,6 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
     const classNames = clsx(
         className,
         GlobalDeletedAvatarCssSelector,
-        "hop-DeletedAvatar",
         stylingProps.className
     );
 

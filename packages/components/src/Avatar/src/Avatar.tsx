@@ -2,7 +2,7 @@ import { BrokenImageRichIcon } from "@hopper-ui/icons";
 import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type ReactNode, type ReactEventHandler } from "react";
+import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type ReactEventHandler, type HTMLProps } from "react";
 import { useContextProps } from "react-aria-components";
 
 import { Text, type TextProps } from "../../typography/Text/index.ts";
@@ -17,22 +17,13 @@ import styles from "./Avatar.module.css";
 export const GlobalAvatarCssSelector = "hop-Avatar";
 export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
-type AvatarImageBaseProps = React.HTMLProps<HTMLImageElement>;
-
-export interface AvatarInitialsProps {
+type AvatarImageBaseProps = HTMLProps<HTMLImageElement>;
+export interface AvatarProps extends StyledSystemProps, BaseComponentProps {
     /**
-     * The name of the Avatar. This will be used for the alt text of the image or the initials if no image is provided.
-     */
-    name: string;
-    /**
-     * The size of the avatar.
-     * * @default "md"
-     */
-    size: ResponsiveProp<AvatarSize>;
-}
-
-export interface AvatarImageProps {
-    children?: ReactNode;
+    * The src of the image to display if the image fails to load. If set to null, the initials will be displayed instead.
+    * * @default "BrokenImageRichIcon"
+    */
+    fallbackSrc?: string | null;
     /**
      * Props to add to the img element when src is provided.
      */
@@ -42,22 +33,9 @@ export interface AvatarImageProps {
      */
     isDisabled?: boolean;
     /**
-     * The size of the avatar.
-     * * @default "md"
+     * The name of the Avatar. This will be used for the alt text of the image or the initials if no image is provided.
      */
-    size: ResponsiveProp<AvatarSize>;
-    /**
-     * The src of the image to display. If not provided, the initials will be displayed instead.
-     */
-    src: string;
-    /**
-    * The src of the image to display if the image fails to load. If set to null, the initials will be displayed instead.
-    * * @default "BrokenImageRichIcon"
-    */
-    fallbackSrc?: string | null;
-}
-
-export interface AvatarProps extends StyledSystemProps, BaseComponentProps, Omit<AvatarImageProps, "size" | "src">, Omit<AvatarInitialsProps, "size"> {
+    name: string;
     /**
      * The size of the avatar.
      * * @default "md"
@@ -95,6 +73,17 @@ function getColorName(name: string) {
     const variantToUse = `option${getColorIndex(name, 8) + 1}`;
 
     return `decorative-${variantToUse}`;
+}
+export interface AvatarInitialsProps {
+    /**
+     * The name of the Avatar. This will be used for the alt text of the image or the initials if no image is provided.
+     */
+    name: string;
+    /**
+     * The size of the avatar.
+     * * @default "md"
+     */
+    size: ResponsiveProp<AvatarSize>;
 }
 
 function AvatarInitials(props: AvatarInitialsProps) {

@@ -39,7 +39,6 @@ function AnonymousAvatar(props: AnonymousAvatarProps, ref: ForwardedRef<HTMLDivE
     const classNames = clsx(
         className,
         GlobalAnonymousAvatarCssSelector,
-        "hop-AnonymousAvatar",
         stylingProps.className
     );
 
