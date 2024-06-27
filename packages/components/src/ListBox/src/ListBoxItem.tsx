@@ -5,8 +5,7 @@ import {
     useContextProps, 
     ListBoxItem as RACListBoxItem, 
     type ListBoxItemProps as RACListBoxItemProps, 
-    composeRenderProps, 
-    type SlotProps,
+    composeRenderProps,
     DEFAULT_SLOT,
     ListStateContext,
     type ListBoxItemRenderProps
@@ -27,7 +26,7 @@ export const GlobalListBoxItemCssSelector = "hop-ListBoxItem";
 
 export type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
 
-export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBoxItemProps<T>, "orientation | layout">>, SlotProps {
+export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBoxItemProps<T>, "orientation | layout">> {
     /**
      * Whether or not the ListBoxItem is in an invalid state.
      */
@@ -98,7 +97,7 @@ function ListBoxItemInner(props: ListBoxInnerProps) {
         selectionIndicator, 
         isInvalid, 
         size, 
-        children 
+        children
     } = props;
     const isRadio = selectionIndicator === "input" && selectionMode === "single";
     const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
