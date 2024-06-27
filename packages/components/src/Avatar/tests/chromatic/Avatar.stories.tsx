@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Avatar } from "../../src/Avatar.tsx";
 
-import { Frog, FrogTall, FrogWide } from "./assets/index.js";
+import { Frog, FrogTall, FrogWide } from "./assets/index.ts";
 
 const meta = {
     title: "Components/Avatar",

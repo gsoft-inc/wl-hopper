@@ -7,7 +7,7 @@ import { AnonymousAvatar, type AnonymousAvatarProps } from "../src/AnonymousAvat
 import { Avatar } from "../src/Avatar.tsx";
 import { DeletedAvatar, type DeletedAvatarProps } from "../src/DeletedAvatar.tsx";
 
-import { Frog } from "./assets/index.js";
+import { Frog } from "./assets/index.ts";
 
 /**
  * Avatars are used to represent a user, team or another entity. They are often paired with text where room is available.
