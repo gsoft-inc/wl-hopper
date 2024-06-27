@@ -54,7 +54,7 @@ main {
         gap: var(--hd-space-4);
     }
 
-    .hd-container:has(:not(.hd-aside)) {
+    .hd-container:not(:has(.hd-aside)) {
         grid-template-columns: 1fr;
     }
 

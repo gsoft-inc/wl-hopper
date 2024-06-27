@@ -80,9 +80,9 @@ export const components = {
         return <Title {...props} as="h3" interactive level={3} />;
     },
     h4: (props: HeadingProps) => {
-        return <Title {...props} as="h4" level={4} />;
+        return <Title {...props} as="h4" interactive level={4} />;
     },
     h5: (props: HeadingProps) => {
-        return <Title {...props} as="h5" level={5} />;
+        return <Title {...props} as="h5" interactive level={5} />;
     }
 };
