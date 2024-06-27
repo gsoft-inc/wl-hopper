@@ -6,12 +6,12 @@ import { Button } from "react-aria-components";
 
 import ChevronIcon from "./assets/chevron-icon.svg";
 import "./sectionPopover.css";
-import Link from "next/link";
 
 interface Link {
     title: string;
     url: string;
     id: string;
+    level?: number;
 }
 
 interface SectionPopoverProps {
@@ -37,9 +37,10 @@ const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
 
     const listItems = links.map(link => (
         <li className="hd-section-popover__list-item" key={link.id}>
-            <Link href={link.url} className="hd-section-popover__list-link" onClick={togglePopover}>
+            {/* This has to be an a, not a link: https://github.com/vercel/next.js/issues/49612 */}
+            <a href={link.url} className={`hd-section-popover__list-link hd-section-popover__list-link-${link.level}`} onClick={togglePopover}>
                 {link.title}
-            </Link>
+            </a>
         </li>
     ));
 
@@ -52,7 +53,7 @@ const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
                         <ChevronIcon className="hd-section-popover__button-icon" />
                     </Button>
                     <div className={clsx("hd-section-popover__popover", isOpen && "hd-section-popover__popover--open")}>
-                        <Link className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</Link>
+                        <a className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</a>
                         <ul className="hd-section-popover__list">
                             {listItems}
                         </ul>

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Sidebar from "./Sidebar";
+import getPageLinks from "@/app/lib/getPageLinks";
 
 const meta = {
     title: "app/layout/Sidebar",
@@ -17,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        data: [
+        links: getPageLinks([
             {
                 _id: "1",
                 title: "Getting Started",
@@ -42,6 +43,6 @@ export const Default: Story = {
                     sourceFileDir: "/pages"
                 }
             }
-        ]
+        ])
     }
 };
