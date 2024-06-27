@@ -178,14 +178,14 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         );
     }
 
-    let content: ReactElement | null = <AvatarInitials
-        {...otherProps}
-        name={name}
-        size={size}
-    />;
+    let content: ReactElement | null = null;
 
-    if (!isInitials && !imageLoaded) {
-        content = null;
+    if (isInitials || imageLoaded) {
+        content = <AvatarInitials
+            {...otherProps}
+            name={name}
+            size={size}
+        />;
     }
     
     if (imageLoaded) {
