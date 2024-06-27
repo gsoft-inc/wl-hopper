@@ -8,6 +8,7 @@ import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import getSectionLinks from "@/app/lib/getSectionLinks";
+import getPageLinks from "@/app/lib/getPageLinks";
 
 export default function TokenLayout({ children }: { children: ReactNode }) {
     const selectedLayoutSegment = useSelectedLayoutSegment();
@@ -20,13 +21,16 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
     }
 
     const sectionLinks = getSectionLinks(pageContent);
+    const allTokenLinks = getPageLinks(allTokens, {
+        order: ["getting-started", "semantic", "core"]
+    });
 
     return (
         <>
             <SidebarProvider>
                 <SubHeader links={sectionLinks} />
                 <Wrapper type="with-sidebar">
-                    <Sidebar data={allTokens} />
+                    <Sidebar links={allTokenLinks} />
                     {children}
                 </Wrapper>
             </SidebarProvider>

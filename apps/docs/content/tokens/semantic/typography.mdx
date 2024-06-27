@@ -9,35 +9,24 @@ Typography tokens are composite tokens, meaning they are made up of multiple oth
 
 ## Guidelines
 
-### Working with typography
+- **Use the bounding box to align with grid** - The bounding box is the vertical height of the text and is defined by the line height. That value of the line height is critical to make sure text is aligned to the 8px grid of the interface.
+- **Use text-crop when a font looks off-centered** - Some fonts, such as *ABC Favorit* requires a little help to look centered. In those cases, apply a [text-crop](/guides/css/text-crop) to adjust the line height. These values are available as tokens, and are documented below. Hopper Components already apply these values when necessary.
+- **Align text using baseline** - When aligning different text boxes together horizontally, use their baselines as a guide instead of their true center for a more harmonious look.
+- **Line length should be between 40 to 60 characters** - Lines of text that are too short make the eyes strain while long lines make it hard to concentrate. As a way to give users the best reading experience, aim for lines of text between 40 to 60 characters, including spaces. If your text doesn’t fit this rule, review the content length, font size or even information hierarchy.
 
-#### Use the bounding box to align with grid
+## Tokens
 
-The bounding box is the vertical height of the text and is defined by the line height. That value of the line height is critical to make sure text is aligned to the 8px grid of the interface.
-
-#### Use text-crop when a font looks off-centered
-
-Some fonts, such as *ABC Favorit* requires a little help to look centered. In those cases, apply a [text-crop](/guides/css/text-crop) to adjust the line height. These values are available as tokens, and are documented below. Hopper Components already apply these values when necessary.
-
-### Line length should be between 40 to 60 characters.
-
-Lines of text that are too short make the eyes strain while long lines make it hard to concentrate. As a way to give users the best reading experience, aim for lines of text between 40 to 60 characters, including spaces. If your text doesn’t fit this rule, review the content length, font size or even information hierarchy.
-
-### Align text using baseline
-
-When aligning different text boxes together horizontally, use their baselines as a guide instead of their true center for a more harmonious look.
-
-## Heading
+### Heading
 
 Headings are used to create a hierarchy of content. They are used to help users scan and understand the content on a page.
 
 <TypographyTable type="heading" data={tokens.semantic} />
 
-### Variations
+#### Variations
 
 <TypographyVariantTable type="heading" data={tokens.semantic} />
 
-## Overline
+### Overline
 
 Used to introduce a headline.
 
@@ -45,17 +34,17 @@ _Adding a text-transform of uppercase is necessary in order to render overline a
 
 <TypographyTable type="overline" data={tokens.semantic} />
 
-## Body
+### Body
 
 Body text is used to communicate the main content of a page.
 
 <TypographyTable type="body" data={tokens.semantic} />
 
-### Variations
+#### Variations
 
 <TypographyVariantTable type="body" data={tokens.semantic} />
 
-## Accent
+### Accent
 
 Accent text is used to highlight important information on a page.
 

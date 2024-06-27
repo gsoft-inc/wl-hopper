@@ -14,10 +14,12 @@ import { useContext, useEffect, useState } from "react";
 import HopperLogo from "./assets/hopper-logo.svg";
 import "./header.css";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const isMobile = useIsMobile("37.5rem");
 
     useEffect(() => {
         if (isMobileMenuOpen) {
@@ -69,7 +71,7 @@ const Header = () => {
                             </svg>
                         </IconButton>
                     </div>
-                    <MobileMenuTrigger onToggle={handleMobileMenuToggle} />
+                    {isMobile && <MobileMenuTrigger onToggle={handleMobileMenuToggle} />}
                 </Wrapper>
             </header>
             {isMobileMenuOpen && <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMobileMenuClose} />}

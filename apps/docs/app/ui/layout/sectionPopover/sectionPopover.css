@@ -64,6 +64,10 @@
     color: var(--hd-color-neutral-text-weakest-hover);
 }
 
+.hd-section-popover__list-link-3{
+    padding-left: var(--hd-space-2);
+}
+
 .hd-section-popover__top-section {
     display: flex;
     border-bottom: var(--hd-border-size) solid var(--hd-color-neutral-border);

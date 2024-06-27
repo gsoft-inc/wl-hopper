@@ -17,21 +17,22 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
     const componentsDetails = await getComponentDetails();
 
     return componentsDetails.map(({ slugs }) => {
-        const [section, type] = slugs;
+        const [, type] = slugs;
 
         return ({
-            slug: [section, type]
+            slug: [type]
         });
     });
 }
 
 export default async function ComponentPage({ params }: PageProps) {
-    const [section, type] = params.slug;
+    const [type] = params.slug;
 
     const component = (await getComponentDetails()).find(componentDetail => {
-        const [componentSlugSection, componentSlugType] = componentDetail.slugs;
+        // the path should be the component name, but the content files are classified by sections
+        const [, componentSlugType] = componentDetail.slugs;
 
-        return componentSlugType === type && componentSlugSection === section;
+        return componentSlugType === type;
     });
 
     if (!component) {
@@ -39,6 +40,7 @@ export default async function ComponentPage({ params }: PageProps) {
     }
 
     const { content, frontmatter: { title, status, description, links } } = component;
+
     const componentLinks = links && [
         {
             name: "github",
@@ -63,7 +65,7 @@ export default async function ComponentPage({ params }: PageProps) {
         <div className="hd-section">
             <SubHeader links={sectionLinks} />
             <div className="hd-container">
-                {type !== "overview" && <Aside title="On this page" links={sectionLinks} />}
+                {type !== "component-list" && <Aside title="On this page" links={sectionLinks} />}
                 <main>
                     <Heading title={title} tag={status} description={description} links={componentLinks} />
                     <div className="hd-content">

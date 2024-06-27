@@ -11,14 +11,14 @@ export interface Data {
     _raw: Raw;
 }
 
-interface LinkItem {
+export interface LinkItem {
     id: string;
     title: string;
     order?: number;
     path: string;
 }
 
-interface Section {
+export interface Section {
     id: string;
     title: string;
     linkItems: LinkItem[];

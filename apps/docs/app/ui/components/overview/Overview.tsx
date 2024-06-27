@@ -10,10 +10,40 @@ import { OverviewComponents } from "@/examples/overview";
 
 import "./overview.css";
 
-const Overview = () => {
-    // Get unique categories
-    const categories = Array.from(new Set(allComponents.map(component => component.category)));
+const ignoreCategories = ["application"];
+const sortOrder = [
+    "layout",
+    "buttons",
+    "collections",
+    "forms",
+    "icons",
+    "navigation",
+    "overlays",
+    "pickers",
+    "status",
+    "content"
+];
 
+const categories = Array.from(new Set(allComponents.map(component => component.category))).filter(x => x && !ignoreCategories.includes(x)).sort((a, b) => {
+    const aIndex = sortOrder.indexOf(a!);
+    const bIndex = sortOrder.indexOf(b!);
+
+    if (aIndex === -1 && bIndex === -1) {
+        return 0;
+    }
+
+    if (aIndex === -1) {
+        return 1;
+    }
+
+    if (bIndex === -1) {
+        return -1;
+    }
+
+    return aIndex - bIndex;
+});
+
+const Overview = () => {
     const overviewSection = categories.map(category => {
         if (!category) {
             return null;
@@ -31,10 +61,10 @@ const Overview = () => {
                         const ComponentIcon = OverviewComponents[component.title] || EmptyComponent;
 
                         return (
-                            <Card key={category} align="start" ghost className="hd-component-overview-item">
-                                <Link key={component._id}
+                            <Card key={component._id} align="start" ghost className="hd-component-overview-item">
+                                <Link
                                     className="hd-component-overview-item__link"
-                                    href={`/${component._raw.flattenedPath}`}
+                                    href={`/components/${component.slug}`}
                                 >
                                     <div className="hd-component-overview-item__img">
                                         <Icon src={ComponentIcon} />
