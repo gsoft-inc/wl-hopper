@@ -4,7 +4,7 @@ import { Inline } from "../../../layout/index.ts";
 import { DeletedAvatar } from "../../src/DeletedAvatar.tsx";
 
 const meta = {
-    title: "Components/Avatar",
+    title: "Components/Avatar/DeletedAvatar",
     component: DeletedAvatar
 } satisfies Meta<typeof DeletedAvatar>;
 
@@ -12,8 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const DeletedAvatarStory = {
-    name: "Deleted Avatar",
+export const Default = {
     render: args => (
         <Inline alignY="center">
             <DeletedAvatar {...args} size="xs" />

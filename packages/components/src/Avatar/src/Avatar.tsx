@@ -2,7 +2,7 @@ import { BrokenImageRichIcon } from "@hopper-ui/icons";
 import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type ReactEventHandler, type HTMLProps } from "react";
+import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type HTMLProps, type ReactElement } from "react";
 import { useContextProps } from "react-aria-components";
 
 import { Text, type TextProps } from "../../typography/Text/index.ts";
@@ -133,7 +133,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const domProps = filterDOMProps(otherProps);
     
     const { onError, onLoad, ...otherImageProps } = imageProps ?? {};
-    const [imageUrl, status] = useImageFallback({ src, fallbackSrc, onError, onLoad });
+    const { imageUrl, status } = useImageFallback({ src, fallbackSrc, onError, onLoad });
     const imageLoaded = status === "loaded";
     const imageFailed = status === "failed";
 
@@ -161,15 +161,32 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         ...style
     };
 
-    const handleError: ReactEventHandler<HTMLImageElement> = e => {
-        onError?.(e);
-    };
+    if (imageFailed && fallbackSrc !== null) {
+        return (
+            <RichIconAvatarImage
+                {...domProps}
+                aria-label={ariaLabel ?? name}
+                className={classNames}
+                isDisabled={isDisabled}
+                ref={ref}
+                size={size}
+                slot={slot}
+                style={mergedStyles}
+            >
+                <BrokenImageRichIcon />
+            </RichIconAvatarImage>
+        );
+    }
 
-    let content = <AvatarInitials
+    let content: ReactElement | null = <AvatarInitials
         {...otherProps}
         name={name}
         size={size}
     />;
+
+    if (!isInitials && !imageLoaded) {
+        content = null;
+    }
     
     if (imageLoaded) {
         content = <img
@@ -177,32 +194,9 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
             alt=""
             aria-hidden
             className={styles["hop-Avatar__image"]}
-            onError={handleError}
+            onError={onError}
             src={imageUrl}
         />;
-    }
-
-    if (imageFailed) {
-        if (fallbackSrc !== null) {
-            return (
-                <RichIconAvatarImage
-                    {...domProps}
-                    aria-label={ariaLabel ?? name}
-                    className={classNames}
-                    isDisabled={isDisabled}
-                    ref={ref}
-                    size={size}
-                    slot={slot}
-                    style={mergedStyles}
-                >
-                    <BrokenImageRichIcon />
-                </RichIconAvatarImage>
-            );
-        }
-    }
-
-    if (!isInitials && !imageLoaded) {
-        return null;
     }
     
     return (

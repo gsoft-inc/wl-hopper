@@ -1,3 +1,3 @@
-import Frog from "./frog.png";
+import Frog from "./frog.jpg";
 
 export { Frog };

@@ -3,7 +3,6 @@ import { createRef } from "react";
 
 import { Avatar } from "../../src/Avatar.tsx";
 import { AvatarContext } from "../../src/AvatarContext.ts";
-import { AnonymousAvatar, DeletedAvatar } from "../../src/index.ts";
 
 describe("Avatar", () => {
     it("should render with default class", () => {
@@ -63,7 +62,7 @@ describe("Avatar", () => {
         expect(await screen.findByLabelText("Maye Musk")).not.toBeNull();
     });
     
-    it("should have the name as the aria-label in no aria-label is provided", async () => {
+    it("should have the name as the aria-label if no aria-label is provided", async () => {
         render(
             <Avatar name="Elon Musk" />
         );
@@ -107,22 +106,6 @@ describe("Avatar", () => {
         const element = screen.getByRole("img", { name: "John Doe" });
 
         expect(element).toHaveAttribute("data-disabled");
-    });
-
-    it("should render the AnonymousAvatar", () => {
-        render(<AnonymousAvatar aria-label="John Doe" />);
-
-        const element = screen.getByRole("img", { name: "John Doe" });
-
-        expect(element).toHaveClass("hop-AnonymousAvatar");
-    });
-
-    it("should render the DeletedAvatar", () => {
-        render(<DeletedAvatar aria-label="John Doe" />);
-
-        const element = screen.getByRole("img", { name: "John Doe" });
-
-        expect(element).toHaveClass("hop-DeletedAvatar");
     });
 });
 
