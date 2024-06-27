@@ -71,13 +71,13 @@ export const components = {
         return <PropTable {...props} />;
     },
     h1: (props: HeadingProps) => {
-        return <Title {...props} as="h1" />;
+        return <Title {...props} as="h1" interactive />;
     },
     h2: (props: HeadingProps) => {
-        return <Title {...props} as="h2" level={2} />;
+        return <Title {...props} as="h2" interactive level={2} />;
     },
     h3: (props: HeadingProps) => {
-        return <Title {...props} as="h3" level={3} />;
+        return <Title {...props} as="h3" interactive level={3} />;
     },
     h4: (props: HeadingProps) => {
         return <Title {...props} as="h4" level={4} />;

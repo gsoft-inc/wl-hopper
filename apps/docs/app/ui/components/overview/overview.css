@@ -30,6 +30,7 @@
 .hd-component-overview-item__title {
     font-size: 1.125rem;
     line-height: 1.333;
+    margin-block: 0;
 }
 
 .hd-component-overview-item__description {

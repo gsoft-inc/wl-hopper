@@ -102,9 +102,15 @@
 
 .hd-sidebar__link {
     display: inline-flex;
-    flex-grow: 1;
+    width: 90%;
     transition: background-color .2s ease-in;
     outline-offset: -1px; /* stylelint-disable-line unit-allowed-list */
+}
+
+.hd-sidebar__link:focus-visible {
+    outline: none;
+    box-shadow: var(--hd-focus-ring);
+    border-radius: 0.125em;
 }
 
 /* ScrollBar */

@@ -29,6 +29,11 @@
     box-sizing: border-box;
 }
 
+*:focus-visible {
+    outline: var(--hd-neutral-900) auto 1px;
+}
+
+
 ::selection {
     background: var(--hd-color-surface-neutral-selection);
 }

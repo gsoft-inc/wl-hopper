@@ -59,6 +59,12 @@
     display: flex;
 }
 
+.hd-brand:focus-visible {
+    outline: 0;
+    box-shadow: var(--hd-focus-ring);
+    border-radius: var(--hd-space-05);
+}
+
 .hd-brand__logo {
     fill: var(--hd-color-neutral-icon);
 }

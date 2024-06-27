@@ -21,7 +21,11 @@ const Overview = () => {
 
         return (
             <div className="hd-component-overview-category" key={category}>
-                <Title as="h3" level={2} className="hd-component-overview-category__title">{category}</Title>
+                <Title as="h3"
+                    level={2}
+                    interactive
+                    className="hd-component-overview-category__title"
+                >{category}</Title>
                 <div className="hd-component-overview">
                     {allComponents.filter(component => component.category && component.category === category).map(component => {
                         const ComponentIcon = OverviewComponents[component.title] || EmptyComponent;
@@ -36,7 +40,10 @@ const Overview = () => {
                                         <Icon src={ComponentIcon} />
                                     </div>
                                     <div className="hd-component-overview-item__caption">
-                                        <h3 className="hd-component-overview-item__title">{component.title}</h3>
+                                        <Title as="h3"
+                                            level={3}
+                                            className="hd-component-overview-item__title"
+                                        >{component.title}</Title>
                                         <p className="hd-component-overview-item__description">{component.description}</p>
                                     </div>
                                 </Link>
