@@ -1,4 +1,4 @@
-import ChrisHadfield from "./hadfield.png";
+import Frog from "./frog.png";
 
-export { ChrisHadfield };
+export { Frog };
 

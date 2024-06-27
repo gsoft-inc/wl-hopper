@@ -7,7 +7,7 @@ import { AnonymousAvatar, type AnonymousAvatarProps } from "../src/AnonymousAvat
 import { Avatar } from "../src/Avatar.tsx";
 import { DeletedAvatar, type DeletedAvatarProps } from "../src/DeletedAvatar.tsx";
 
-import { ChrisHadfield } from "./assets/index.js";
+import { Frog } from "./assets/index.js";
 
 /**
  * Avatars are used to represent a user, team or another entity. They are often paired with text where room is available.
@@ -45,12 +45,12 @@ export const Default = {
 } satisfies Story;
 
 /**
- * An Avatar with a local image. It would normally be imported from a file like this: `import ChrisHadfield from "./hadfield.png";` then used as the `src`.
+ * An Avatar with a local image. It would normally be imported from a file like this: `import Frog from "./hadfield.png";` then used as the `src`.
  */
 export const LocalImage = {
     args: {
-        name: "Chris Hadfield",
-        src: ChrisHadfield
+        name: "Kermit Frog",
+        src: Frog
     }
 } satisfies Story;
 

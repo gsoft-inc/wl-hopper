@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Avatar } from "../../src/Avatar.tsx";
 
-import { Anime, Astronaut, Person } from "./assets/index.ts";
+import { Frog, FrogTall, FrogWide } from "./assets/index.js";
 
 const meta = {
     title: "Components/Avatar",
@@ -26,8 +26,8 @@ export const LocalImage = {
         </Inline>
     ),
     args: {
-        name: "Jane Doe",
-        src: Person
+        name: "Hoppy Hopper",
+        src: Frog
     }
 } satisfies Story;
 
@@ -43,8 +43,8 @@ export const LocalTallImage = {
         </Inline>
     ),
     args: {
-        name: "Neil Armstrong",
-        src: Astronaut
+        name: "Anthony Hopkins",
+        src: FrogTall
     }
 } satisfies Story;
 
@@ -60,8 +60,8 @@ export const LocalWideImage = {
         </Inline>
     ),
     args: {
-        name: "Ai Hoshino",
-        src: Anime
+        name: "Frogger Croak",
+        src: FrogWide
     }
 } satisfies Story;
 
@@ -124,7 +124,7 @@ export const FallbackImage = {
     args: {
         name: "John Doe",
         src: "https://example.com/image.jpg",
-        fallbackSrc: Person
+        fallbackSrc: Frog
     }
 } satisfies Story;
 
