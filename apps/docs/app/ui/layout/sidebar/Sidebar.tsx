@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
 
 import Overlay from "@/components/overlay/Overlay";
-import Title from "@/components/title/Title";
 import getPageLinks from "@/app/lib/getPageLinks";
 
 import type { Data } from "@/app/lib/getPageLinks";
