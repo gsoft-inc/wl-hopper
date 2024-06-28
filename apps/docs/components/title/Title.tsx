@@ -8,12 +8,14 @@ import type { PropsWithChildren } from "react";
 export interface TitleProps {
     as?: "h1" | "h2" | "h3" | "h4" | "h5";
     level?: 1 | 2 | 3 | 4 | 5;
+    interactive?: boolean;
     className?: string;
 }
 
 const Title = ({
     as = "h1",
     level = 1,
+    interactive = false,
     className,
     children,
     ...rest
@@ -36,7 +38,7 @@ const Title = ({
             data-subsection-title={level === 3 ? uniqueId : undefined}
             {...rest}
         >
-            {level > 1 ? (
+            {interactive ? (
                 <Link href={`#${uniqueId}`} className="hd-title-link">
                     {children}
                 </Link>

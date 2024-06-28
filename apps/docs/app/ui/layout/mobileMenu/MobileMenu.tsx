@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
 import IconButton from "@/components/iconButton/IconButton";
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { navigation } from "@/configs/navigation";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
@@ -92,14 +93,14 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
             className={clsx("hd-mobile-menu", isAnimating && "hd-mobile-menu--is-animating", `hd-mobile-menu--${animationDirection}`)}
         >
             <div className="hd-mobile-menu__header">
-                <div className="hd-wrapper hd-flex">
+                <Wrapper className="hd-flex">
                     <Link href="/" className="hd-brand" aria-label="Hopper Brand">
                         <HopperLogo />
                     </Link>
                     <IconButton onClick={onClose} className="hd-mobile-menu__close">
                         <CloseIcon className="hd-mobile-menu__close-icon" />
                     </IconButton>
-                </div>
+                </Wrapper>
             </div>
             <div className="hd-mobile-menu__container">
                 <div className="hd-mobile-menu-nav">

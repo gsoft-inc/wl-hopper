@@ -92,10 +92,6 @@ const ComponentExample = memo(({
     };
 
     const renderCodeComponent = () => {
-        if (!showCodeComponent) {
-            return null;
-        }
-
         return (
             <div className={clsx("hd-component-code", showCodeComponent && "hd-component-code--expanded")}>
                 {(type === "code" || type === "both") ? (props as CodeProps | BothProps).code : undefined}

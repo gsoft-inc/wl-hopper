@@ -36,6 +36,11 @@
     margin-top: var(--hd-space-4);
 }
 
+.hd-card--ghost {
+    border-color: transparent;
+    padding: 0;
+}
+
 [data-theme="dark"] .hd-card {
     --background: var(--hd-neutral-900);
     --dot-background: var(--hd-neutral-800);

@@ -1,3 +1,7 @@
+.hd-home {
+    padding-inline: var(--hd-space-4);
+}
+
 .hd-home__heading {
     align-items: center;
     display: flex;
@@ -377,7 +381,7 @@ a.hd-home-sample__item:hover::after {
 
 .hd-home-sample__text-styles {
     border-bottom: 0;
-    border-image: linear-gradient(90deg,rgba(0 0 0 / 0%),rgb(186 188 192)) 1;
+    border-image: linear-gradient(90deg, rgba(0 0 0 / 0%), rgb(186 188 192)) 1;
     border-top: 0;
     border-style: solid;
     border-right: 0;
@@ -531,7 +535,7 @@ a.hd-home-sample__item:hover::after {
     .hd-home-sample-components__item-wrapper:nth-child(odd) {
         background: linear-gradient(-90deg, var(--background) 0%, var(--background) 85%, rgba(0 212 255 / 0%) 100%);
         border-bottom: 0;
-        border-image: linear-gradient(90deg,rgba(0 0 0 / 0%),rgb(186 188 192)) 1;
+        border-image: linear-gradient(90deg, rgba(0 0 0 / 0%), rgb(186 188 192)) 1;
         border-style: solid;
         border-right: 0;
         border-left: 0;
@@ -541,7 +545,7 @@ a.hd-home-sample__item:hover::after {
     .hd-home-sample-components__item-wrapper:nth-child(even) {
         background: linear-gradient(90deg, var(--background) 0%, var(--background) 85%, rgba(255 255 255 / 0%) 100%);
         border-bottom: 0;
-        border-image: linear-gradient(-90deg,rgba(0 0 0 / 0%), rgb(186 188 192)) 1;
+        border-image: linear-gradient(-90deg, rgba(0 0 0 / 0%), rgb(186 188 192)) 1;
         border-style: solid;
         border-right: 0;
         border-left: 0;
@@ -550,7 +554,7 @@ a.hd-home-sample__item:hover::after {
 
     .hd-home-sample-components__item-wrapper:nth-child(2) .hd-home-sample-components__item {
         border-bottom: 0;
-        border-image: linear-gradient(-90deg,rgba(0 0 0 / 0%), rgb(186 188 192)) 1;
+        border-image: linear-gradient(-90deg, rgba(0 0 0 / 0%), rgb(186 188 192)) 1;
         border-style: solid;
         border-right: 0;
         border-left-width: var(--hd-border-size);
@@ -559,7 +563,7 @@ a.hd-home-sample__item:hover::after {
 
     .hd-home-sample-components__item-wrapper:nth-child(4) .hd-home-sample-components__item {
         border-bottom: 0;
-        border-image: linear-gradient(0deg,rgba(0 0 0 / 0%) 0%, rgba(0 0 0 / 0%) 25%, rgb(186 188 192)) 1;
+        border-image: linear-gradient(0deg, rgba(0 0 0 / 0%) 0%, rgba(0 0 0 / 0%) 25%, rgb(186 188 192)) 1;
         border-style: solid;
         border-right: 0;
         border-left-width: var(--hd-border-size);
