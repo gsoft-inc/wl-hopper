@@ -1,5 +1,4 @@
-import { Div, DivProps, useStyledSystem } from "@hopper-ui/components";
-import { forwardRef } from "react";
+import { type DivProps, useStyledSystem } from "@hopper-ui/components";
 
 interface MyCustomComponentProps extends Omit<DivProps, "children"> {
     // your custom props here
@@ -16,8 +15,8 @@ function MyCustomComponent(props: MyCustomComponentProps) {
         <div style={mergedStyles} className={classNames} >
             My Custom component
         </div>
-    )
-};
+    );
+}
 
 export default function Example() {
     return (
