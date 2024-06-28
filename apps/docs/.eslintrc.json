@@ -21,6 +21,7 @@
         "TypographyVariantTable": true,
         "Tabs": true,
         "TableSection": true,
+        "SimpleTable": true,
         "Switcher": true,
         "IconSpecTable": true,
         "Overview": true,
@@ -28,6 +29,7 @@
         "MigrateGuide": true,
         "PackageInstallation": true,
         "PropTable": true,
+        "CodeOnlyExample": true,
         "Example": true
     },
     "overrides": [

@@ -3,10 +3,7 @@ import clsx from "clsx";
 interface SimpleTableProps {
     "aria-label"?: string;
     headers: string[];
-    data: {
-        name: string;
-        value: string;
-    }[];
+    data: object[];
     lastColumnAlignment?: "left" | "right";
 }
 

@@ -11,10 +11,10 @@ import { HopperProvider } from "@hopper-ui/components";
 interface ComponentPreviewWrapperProps {
     preview?: ReactNode;
     toggleButton?: ReactNode;
-    height?: string;
+    minHeight?: string;
 }
 
-const ComponentPreviewWrapper = memo(({ preview, toggleButton, height = "13rem" }: ComponentPreviewWrapperProps) => {
+const ComponentPreviewWrapper = memo(({ preview, toggleButton, minHeight = "13rem" }: ComponentPreviewWrapperProps) => {
     const { colorMode = "light" } = useContext(ThemeContext);
     const [localColorMode, setLocalColorMode] = useState(colorMode);
 
@@ -35,7 +35,7 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, height = "13rem" 
         <div
             className="hd-component-preview-wrapper"
             data-schema={localColorMode}
-            style={{ height: height }}
+            style={{ minHeight: minHeight }}
         >
             <div className="hd-component-preview-wrapper__actions">
                 {toggleButton}
@@ -44,7 +44,7 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, height = "13rem" 
                     colorMode={localColorMode}
                 />
             </div>
-            <Card className="hd-component-preview-wrapper__card" size="sm">
+            <Card className="hd-component-preview-wrapper__card" size="sm" style={{ minHeight: minHeight }}>
                 <HopperProvider colorScheme={localColorMode}>
                     {preview}
                 </HopperProvider>

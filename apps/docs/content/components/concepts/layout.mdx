@@ -1,5 +1,5 @@
 ---
-title: Layout (WIP)
+title: Layout
 description: This page describes how to build application layouts with Hopper using Flex or Grid.
 order: 1
 ---
@@ -8,14 +8,92 @@ This page will be heavily inspired by https://react-spectrum.adobe.com/react-spe
 
 ## Introduction
 
+hopper includes layout components to help build applications more easily. The [Flex](./Flex) and [Grid](./Grid)
+components are containers, which are responsible for the layout of their children. `Flex` follows the
+[CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+algorithm, while `Grid` implements
+[CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout).
+These components provide props with pre-defined Hopper tokens for sizing, spacing,
+and other layout options. You can use `Flex` and `Grid` together as needed to build different
+parts of your application, and even nest them to create more complex layouts.
+
+In general, you should prefer using flex and grid over other CSS layout models. Spacing between components
+should be left to parent layout components rather than added as via margins to specific children. This helps
+ensure components are composable when reused in different places, and ensures that spacing is consistent.
+
+In addition to `Flex` and `Grid`, some Hopper components include pre-built layouts which you can
+insert your content into via slots. You can read more about slots in the [slots](./slots) concept page.
+
 ## Flex
+
+The [flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+layout model is a simple yet versatile method of laying out components in rows and columns.
+You can use it to build vertical or horizontal stacks, simple wrapping grids, and more. The [Flex](./Flex)
+component can be used to create flexbox containers, and any Hopper component can be used as a child.
+Flex layouts can be nested to create more complex layouts.
+
+The `gap`, `rowGap` and `columnGap` can be defined with [Hopper space tokens](/tokens/semantic/space)
+to ensure consistency across applications, and allow the layout to adapt to different devices automatically.
+
+### Example
+This example shows a simple vertical stack, with a gap between each item defined using a [Hopper space token](/tokens/semantic/space).
+
+<Example src="HopperProvider/docs/layout/flex" isOpen />
+
+### Learn more
+
+You can learn more about `Flex` and see more examples on the [Flex](./Flex) page. In addition,
+there are many great resources on the web for learning flexbox.
+
+* [The MDN guide to flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) — full walkthrough
+of flexbox layout.
+* [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) — great reference for all of the
+properties supported by flexbox.
 
 ## Grid
 
+[CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
+is a powerful way to lay out elements in two dimensions. It can be used to to build full page application
+layouts, or smaller user interface elements. It is especially powerful because it allows you to build many types of
+layouts without extra presentational elements, keeping your code clean and semantic. In addition, grid layouts
+are automatically mirrored in right-to-left languages.
+
+The [Grid](./Grid) component can be used as a container to define a grid layout. Any Hopper component can be used as
+a child of a `Grid`. The `Grid` component extends the CSS syntax to support
+defining grids using [Hopper-defined dimension tokens](/tokens/core/dimensions).
+This ensures that sizing and spacing is consistent between applications, and allows the layout to adapt to different devices
+automatically.
+
+### Defining grids
+
+There are many ways to define grids, but the simplest is to use the `areas` prop to declaratively
+specify your layout using named areas. This prop accepts an array of strings which represent rows. Within the rows,
+you specify space separated names for grid areas. The children of the `Grid` can declare the `gridArea` prop, which
+places them into these named regions.
+
+In addition, you can define the `columns` and `rows`
+props on the `Grid` container to specify the widths and heights of the columns and rows respectively. This can be
+done using [Hopper-defined dimension tokens](/tokens/core/dimensions) to ensure they are adaptive on various devices.
+
+The following example shows how you could use `Grid` to declare a common application layout, with a header, sidebar,
+content area, and footer. Notice how there are no nested layout elements — the layout is entirely declared in the
+`Grid` and the children simply declare where they should be placed.
+
+<Example src="HopperProvider/docs/layout/grid" isOpen />
+
+### Learn more
+
+You can learn more about `Grid` and see more examples on the [Grid](./Grid) page. In addition,
+there are many great resources on the web for learning CSS grid.
+
+* [The MDN guide to CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) — full walkthrough of
+grid layout.
+* [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid) — great reference for all of the
+properties supported by grid.
+* [The Difference Between Explicit and Implicit Grids](https://css-tricks.com/difference-explicit-implicit-grids/) — an
+article that discusses the various ways of defining grids.
+
 ## Responsive layout
 
-{/* TODO Make sure to include Link to responsive styles page */}
-
-## Slots
-
-{/* TODO: Brielfy mention slots, but link to the slots concept page. */}
+All props of the Flex and Grid components support object syntax to specify different values for the prop depending on the responsive breakpoint.
+You can learn more about responsive styles on the [Responsive Styles](./responsive-styles) page.

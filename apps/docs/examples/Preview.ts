@@ -62,6 +62,12 @@ export const Previews: Record<string, Preview> = {
     "HopperProvider/docs/color-scheme/useColorSchemeValue": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/useColorSchemeValue.tsx"))
     },
+    "HopperProvider/docs/layout/flex": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/layout/flex.tsx"))
+    },
+    "HopperProvider/docs/layout/grid": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/layout/grid.tsx"))
+    },
     "HopperProvider/docs/responsive-styles/introduction": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/introduction.tsx"))
     },
