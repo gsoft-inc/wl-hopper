@@ -497,17 +497,12 @@ export const LoadOnScroll = {
             }
         });
 
-        const handleLoadMore = () => {
-            list.loadMore();
-            console.log("called load more");
-        };
-
         return (
             <ListBox {...args}
                 aria-label="list of options"
                 items={list.items as Iterable<Character>}
                 isLoading={list.isLoading}
-                onLoadMore={handleLoadMore}
+                onLoadMore={list.loadMore}
                 maxHeight="core_1280"
             >
                 {item => {
