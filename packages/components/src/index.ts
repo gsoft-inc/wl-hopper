@@ -24,5 +24,7 @@ export * from "./typography/Text/index.ts";
 export * from "./utils/index.ts";
 
 export { Collection } from "react-aria-components";
+export { useAsyncList } from "react-stately";
+
 
 export * from "@hopper-ui/styled-system";

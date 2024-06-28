@@ -10,6 +10,7 @@ import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../util
 import { ListBoxContext } from "./ListBoxContext.ts";
 import type { ListBoxItemSize } from "./ListBoxItem.tsx";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
+import { useLoadOnScroll } from "./useLoadOnScroll.ts";
 
 import styles from "./ListBox.module.css";
 
@@ -24,6 +25,14 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
      * Whether or not the ListBox is in an invalid state.
      */
     isInvalid?: boolean;
+    /**
+     * Whether data is currently being loaded.
+     * */
+    isLoading?: boolean;
+    /**
+     * Handler that is called when more items should be loaded, e.g. while scrolling near the bottom.
+     * */
+    onLoadMore?: () => void;
     /**
      * The selection indicator to use. Only available if the selection mode is not "none".
      * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
@@ -45,6 +54,8 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         children,
         isFluid: isFluidProp,
         isInvalid,
+        isLoading,
+        onLoadMore,
         size: sizeProp,
         style: styleProp,
         selectionIndicator = "check",
@@ -73,6 +84,8 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         };
     });
 
+    const onScroll = useLoadOnScroll({ isLoading, onLoadMore }, ref);
+
     return (
         <SlotProvider
             values={[
@@ -98,6 +111,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 ref={ref}
                 className={classNames}
                 style={style}
+                onScroll={onScroll}
             >
                 {children}
             </RACListBox>

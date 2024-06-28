@@ -2,6 +2,7 @@ import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { type Selection, Collection } from "react-aria-components";
+import { useAsyncList } from "react-stately";
 
 import { Badge } from "../../Badge/index.ts";
 import { Divider } from "../../Divider/index.ts";
@@ -457,3 +458,64 @@ export const DynamicLists = {
     }
 } satisfies Story;
 
+/**
+ * A ListBox can have a loading state.
+ */
+export const Loading = {
+    render: function Render(args) {
+        return (
+            <ListBox {...args}
+                aria-label="list of options"
+                isLoading
+            >
+                <ListBoxItem>Loading...</ListBoxItem>
+            </ListBox>
+        );
+    }
+} satisfies Story;
+
+interface Character {
+    name: string;
+}
+
+/**
+ * A ListBox can be used to load more items when scrolling.
+ */
+export const LoadOnScroll = {
+    render: function Render(args) {
+        const list = useAsyncList({
+            async load({ signal, cursor }) {
+                const res = await fetch(cursor || "https://pokeapi.co/api/v2/pokemon", {
+                    signal
+                });
+                const json = await res.json();
+
+                return {
+                    items: json.results,
+                    cursor: json.next
+                };
+            }
+        });
+
+        const handleLoadMore = () => {
+            list.loadMore();
+            console.log("called load more");
+        };
+
+        return (
+            <ListBox {...args}
+                aria-label="list of options"
+                items={list.items as Iterable<Character>}
+                isLoading={list.isLoading}
+                onLoadMore={handleLoadMore}
+                maxHeight="core_1280"
+            >
+                {item => {
+                    const listItem = item as Character;
+
+                    return <ListBoxItem id={listItem.name}>{listItem.name}</ListBoxItem>;
+                }}
+            </ListBox>
+        );
+    }
+} satisfies Story;
