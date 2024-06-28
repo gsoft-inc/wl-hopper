@@ -1,0 +1,91 @@
+.hop-RichIconAvatarImage  {
+    /* Default */
+    --hop-RichIconAvatarImage-background-color: var(--hop-decorative-option7-surface);
+    --hop-RichIconAvatarImage-border-radius: var(--hop-shape-circle);
+    --hop-RichIconAvatarImage-icon-color: var(--hop-decorative-option7-icon);
+
+    /* Sizes */
+    --hop-RichIconAvatarImage-xs-size: 1rem;
+    --hop-RichIconAvatarImage-icon-xs-size: 1rem;
+    --hop-RichIconAvatarImage-sm-size: 1.5rem;
+    --hop-RichIconAvatarImage-icon-sm-size: 1.5rem;
+    --hop-RichIconAvatarImage-md-size: 2rem;
+    --hop-RichIconAvatarImage-icon-md-size: 2rem;
+    --hop-RichIconAvatarImage-lg-size: 3rem;
+    --hop-RichIconAvatarImage-icon-lg-size: 3rem;
+    --hop-RichIconAvatarImage-xl-size: 4rem;
+    --hop-RichIconAvatarImage-icon-xl-size: 4rem;
+    --hop-RichIconAvatarImage-2xl-size: 6rem;
+    --hop-RichIconAvatarImage-icon-2xl-size: 4rem;
+
+    /* disabled */
+    --hop-RichIconAvatarImage-background-color-disabled: var(--hop-neutral-surface-disabled);
+    --hop-RichIconAvatarImage-icon-color-disabled: var(--hop-neutral-icon-disabled);
+
+    /* Internal Variables */
+    --background-color: var(--hop-RichIconAvatarImage-background-color);
+
+    user-select: none;
+
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: var(--size, var(--hop-RichIconAvatarImage-md-size));
+    block-size: var(--size, var(--hop-RichIconAvatarImage-md-size));
+
+    color: var(--hop-RichIconAvatarImage-icon-color);
+    
+    background-color: var(--background-color);
+    border-radius: var(--hop-RichIconAvatarImage-border-radius);
+}
+
+.hop-RichIconAvatarImage--xs {
+    --size: var(--hop-RichIconAvatarImage-xs-size);
+    --icon-size: var(--hop-RichIconAvatarImage-icon-xs-size);
+}
+
+.hop-RichIconAvatarImage--sm {
+    --size: var(--hop-RichIconAvatarImage-sm-size);
+    --icon-size: var(--hop-RichIconAvatarImage-icon-sm-size);
+}
+
+.hop-RichIconAvatarImage--md {
+    --size: var(--hop-RichIconAvatarImage-md-size);
+    --icon-size: var(--hop-RichIconAvatarImage-icon-md-size);
+}
+
+.hop-RichIconAvatarImage--lg {
+    --size: var(--hop-RichIconAvatarImage-lg-size);
+    --icon-size: var(--hop-RichIconAvatarImage-icon-lg-size);
+}
+
+.hop-RichIconAvatarImage--xl {
+    --size: var(--hop-RichIconAvatarImage-xl-size);
+    --icon-size: var(--hop-RichIconAvatarImage-icon-xl-size);
+}
+
+.hop-RichIconAvatarImage--2xl {
+    --size: var(--hop-RichIconAvatarImage-2xl-size);
+    --icon-size: var(--hop-RichIconAvatarImage-icon-2xl-size);
+}
+
+.hop-RichIconAvatarImage[data-disabled] {
+    --background-color: var(--hop-RichIconAvatarImage-background-color-disabled);
+}
+
+.hop-RichIconAvatarImage__icon {
+    position: relative;
+    display: block;
+    inline-size: var(--icon-size, var(--hop-RichIconAvatarImage-icon-md-size));
+    block-size: var(--icon-size, var(--hop-RichIconAvatarImage-icon-md-size));
+}
+
+/* External variables need to be set in the scope of the svg */
+.hop-RichIconAvatarImage[data-disabled] .hop-RichIconAvatarImage__icon {
+    --hop-RichIcon-placeholder-background: var(--hop-RichIconAvatarImage-background-color-disabled);
+    --hop-RichIcon-placeholder-shadow: var(--hop-RichIconAvatarImage-icon-color-disabled);
+}

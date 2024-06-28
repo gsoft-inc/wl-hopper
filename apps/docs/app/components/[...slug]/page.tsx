@@ -65,7 +65,7 @@ export default async function ComponentPage({ params }: PageProps) {
         <div className="hd-section">
             <SubHeader links={sectionLinks} />
             <div className="hd-container">
-                {type !== "overview" && <Aside title="On this page" links={sectionLinks} />}
+                {type !== "component-list" && <Aside title="On this page" links={sectionLinks} />}
                 <main>
                     <Heading title={title} tag={status} description={description} links={componentLinks} />
                     <div className="hd-content">

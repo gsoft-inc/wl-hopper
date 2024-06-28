@@ -6,12 +6,14 @@ import "./card.css";
 export interface CardProps extends ComponentProps<"div">{
     size?: "sm" | "md" | "lg";
     align?: "start" | "center" | "end";
+    ghost?: boolean;
 }
 
-const Card = ({ children, className, size = "md", align = "center", ...rest }: CardProps) => {
+const Card = ({ children, className, size = "md", align = "center", ghost, ...rest }: CardProps) => {
     const cardClass = clsx("hd-card", {
         [`hd-card--${size}`]: size !== "md",
-        [`hd-card--${align}`]: align !== "center"
+        [`hd-card--${align}`]: align !== "center",
+        "hd-card--ghost": ghost
     }, className);
 
     return (
