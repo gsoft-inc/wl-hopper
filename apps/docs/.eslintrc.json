@@ -9,16 +9,18 @@
         "@next/next/no-html-link-for-pages": "off"
     },
     "globals": {
+        "BreakpointTable": true,
         "Card": true,
         "Callout": true,
         "Collapsible": true,
-        "Table": true,
+        "TokenTable": true,
         "MotionPreview": true,
         "Footnote": true,
         "TypographyTable": true,
         "TypographyVariantTable": true,
         "Tabs": true,
         "TableSection": true,
+        "SimpleTable": true,
         "Switcher": true,
         "IconSpecTable": true,
         "Overview": true,
@@ -26,6 +28,7 @@
         "MigrateGuide": true,
         "PackageInstallation": true,
         "PropTable": true,
+        "CodeOnlyExample": true,
         "Example": true
     },
     "overrides": [

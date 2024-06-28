@@ -7,7 +7,7 @@
     height: 100%;
 }
 
-[data-schema="light"] {
+.hd-component-preview-wrapper[data-schema="light"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-white);
         --dot-background: var(--hd-neutral-50);
@@ -26,7 +26,7 @@
     }
 }
 
-[data-schema="dark"] {
+.hd-component-preview-wrapper[data-schema="dark"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-neutral-900);
         --dot-background: var(--hd-neutral-800);

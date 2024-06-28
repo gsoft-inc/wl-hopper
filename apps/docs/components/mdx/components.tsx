@@ -27,6 +27,8 @@ import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx
 import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
 import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
 import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
+import BreakpointTable from "@/app/ui/components/breakpointTable/BreakpointTable";
+import SimpleTable from "@/app/ui/components/simpleTable/SimpleTable";
 
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
@@ -41,13 +43,15 @@ export const components = {
     Image: NextImage,
     pre: Pre,
     MotionPreview: MotionPreview,
+    BreakpointTable: BreakpointTable,
     Footnote: Footnote,
-    Table: TokenTable,
+    TokenTable: TokenTable,
     TypographyTable: TypographyTable,
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,
     IconSpecTable: IconSpecTable,
     Overview: Overview,
+    SimpleTable: SimpleTable,
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
@@ -62,6 +66,15 @@ export const components = {
             type="both"
             code={<ComponentCodeWrapper src={src} />}
             preview={<ComponentPreview src={src} />}
+        />;
+    },
+    CodeOnlyExample: (props: ComponentExampleProps) => {
+        const { src } = props;
+
+        return <ComponentExample
+            {...props}
+            type="code"
+            code={<ComponentCodeWrapper src={src} />}
         />;
     },
     MigrateGuide: (props: MigrateGuideProps) => {

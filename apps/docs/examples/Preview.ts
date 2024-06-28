@@ -47,5 +47,38 @@ export const Previews: Record<string, Preview> = {
     "buttons/docs/button/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/advancedCustomization.tsx"))
     },
+    "HopperProvider/docs/color-scheme/apply": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply.tsx"))
+    },
+    "HopperProvider/docs/color-scheme/apply-system": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply-system.tsx"))
+    },
+    "HopperProvider/docs/color-scheme/apply-nested": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply-nested.tsx"))
+    },
+    "HopperProvider/docs/color-scheme/changing": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/changing.tsx"))
+    },
+    "HopperProvider/docs/color-scheme/useColorSchemeValue": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/useColorSchemeValue.tsx"))
+    },
+    "HopperProvider/docs/layout/flex": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/layout/flex.tsx"))
+    },
+    "HopperProvider/docs/layout/grid": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/layout/grid.tsx"))
+    },
+    "HopperProvider/docs/responsive-styles/introduction": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/introduction.tsx"))
+    },
+    "HopperProvider/docs/responsive-styles/mobile-first-do-not": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/mobile-first-do-not.tsx"))
+    },
+    "HopperProvider/docs/responsive-styles/mobile-first-do": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/mobile-first-do.tsx"))
+    },
+    "HopperProvider/docs/responsive-styles/useResponsiveValue": {
+        component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/useResponsiveValue.tsx"))
+    },
 };
     

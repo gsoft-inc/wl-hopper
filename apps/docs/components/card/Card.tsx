@@ -1,17 +1,15 @@
-import type { ReactNode } from "react";
+import type { ComponentProps } from "react";
 import clsx from "clsx";
 
 import "./card.css";
 
-export interface CardProps {
-    children: ReactNode;
-    className?: string;
+export interface CardProps extends ComponentProps<"div">{
     size?: "sm" | "md" | "lg";
     align?: "start" | "center" | "end";
     ghost?: boolean;
 }
 
-const Card = ({ children, className, size = "md", align = "center", ghost }: CardProps) => {
+const Card = ({ children, className, size = "md", align = "center", ghost, ...rest }: CardProps) => {
     const cardClass = clsx("hd-card", {
         [`hd-card--${size}`]: size !== "md",
         [`hd-card--${align}`]: align !== "center",
@@ -19,7 +17,7 @@ const Card = ({ children, className, size = "md", align = "center", ghost }: Car
     }, className);
 
     return (
-        <div className={cardClass}>
+        <div className={cardClass} {...rest}>
             {children}
         </div>
     );
