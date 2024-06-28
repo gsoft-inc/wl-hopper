@@ -13,7 +13,6 @@
         "Card": true,
         "Callout": true,
         "Collapsible": true,
-        "Table": true,
         "TokenTable": true,
         "MotionPreview": true,
         "Footnote": true,
