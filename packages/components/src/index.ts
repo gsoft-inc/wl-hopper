@@ -1,3 +1,4 @@
+export * from "./Avatar/index.ts";
 export * from "./Badge/index.ts";
 export * from "./buttons/index.ts";
 export * from "./checkbox/index.ts";

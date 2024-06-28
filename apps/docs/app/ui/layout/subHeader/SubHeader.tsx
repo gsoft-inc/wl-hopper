@@ -12,6 +12,7 @@ interface Link {
     title: string;
     url: string;
     id: string;
+    level?: number;
 }
 
 interface SubHeaderProps {

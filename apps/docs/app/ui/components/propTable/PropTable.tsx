@@ -11,6 +11,7 @@ import { PropTableRender } from "./PropTableRender.tsx";
 import type { Item } from "./PropTableRender.tsx";
 
 import "./propTable.css";
+import { Fragment } from "react";
 
 
 export interface PropTableProps {
@@ -57,7 +58,7 @@ export default async function PropTable({ component }: PropTableProps) {
                 const [key] = Object.keys(group);
 
                 return (
-                    <>
+                    <Fragment key={key}>
                         {key === "default" ?
                             <PropTableRender items={group[key]} /> :
                             <Collapsible className="hd-props-table__section"
@@ -69,7 +70,7 @@ export default async function PropTable({ component }: PropTableProps) {
                                 <PropTableRender items={group[key]} />
                             </Collapsible>
                         }
-                    </>
+                    </Fragment>
                 );
             })}
         </>

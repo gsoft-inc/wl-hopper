@@ -1,0 +1,146 @@
+---
+title: HopperProvider (WIP)
+description: HopperProvider is the container for all applications using Hopper. It defines the color scheme, locale, and other application level settings. It is also used to dynamically inject CSS variables and Body styles to your application.
+order: 1
+category: "application"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/HopperProvider/src/HopperProvider.tsx
+---
+
+{/* TODO example at the top */}
+```tsx
+import { Button, HopperProvider } from "@hopper-ui/components";
+
+function App() {
+  return (
+    <HopperProvider withBodyStyle>
+      <Button variant="accent">
+        Hello!
+      </Button>
+    </HopperProvider>
+  );
+}
+```
+
+## Props (WIP)
+
+{/* TODO Prop table not working */}
+{/* <PropTable component="HopperProvider" /> */}
+
+## Application provider
+
+A HopperProvider must be the root component of your application. All other Hopper components rely on the Provider to define the color scheme, locale, and other settings that they need in order to render.
+You can also nest multiple HopperProviders to create different themes or locales for different parts of your application.
+
+### Color scheme
+
+We recommend supporting both light and dark color schemes in your app, however, if you need to override this with an application specific setting, you can use the colorScheme prop.
+
+{/* TODO example */}
+```tsx
+import { HopperProvider, Button } from "@hopper-ui/components";
+
+function Demo() {
+    return (
+        <HopperProvider colorScheme="light">
+            <Button>I'm a light button</Button>
+        </HopperProvider>
+    );
+}
+```
+
+See the [styling documentation](/components/concepts/styling) for more information about using Hopper color variables in your  app to ensure it adapts to light and dark mode properly.
+
+See the [color schemes documentation](/components/concepts/color-schemes) for more information on how to apply a color scheme to your application.
+
+### Locales
+
+Another important setting for your application is the locale. By default, Hopper chooses the locale matching the user's browser/operating system language, but this can be overridden with the locale prop if you have an application specific setting. This prop accepts a [BCP 47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code.
+Hopper currently supports the following locales: `en-US`, `en-UK`, `fr-CA`, `fr-FR`.
+
+{/* TODO example */}
+```tsx
+import { HopperProvider } from "@hopper-ui/components";
+
+function Demo() {
+    return (
+        <HopperProvider locale="en-US">
+            {/* Your app here */}
+        </HopperProvider>
+    );
+}
+```
+
+{/* TODO, hopper should re-export useLocale and document it? */}
+To access the current locale anywhere in your application, see the [useLocale](https://react-spectrum.adobe.com/react-aria/useLocale.html) hook.
+
+### Client side routing
+
+The HopperProvider component accepts an optional router prop. This enables Hopper components that render links to perform client side navigation using your application or framework's client side router. See the [client side routing](/components/concepts/client-side-routing) guide for details on how to set this up.
+
+```tsx
+import { HopperProvider } from "@hopper-ui/components";
+
+function Demo() {
+    const navigate = useNavigateFromYourRouter();
+    return (
+        <HopperProvider router={{navigate}}>
+            {/* Your app here */}
+        </HopperProvider>
+    );
+}
+```
+
+### Inject body styles
+
+`withBodyStyle` determines whether you want Hopper to style the body of your application. By default, it is set to false. You should enable it on the Hopper provider at the root of your application.
+
+```tsx
+import { HopperProvider } from "@hopper-ui/components";
+
+function Demo() {
+    return (
+        <HopperProvider withBodyStyle>
+            {/* Your app here */}
+        </HopperProvider>
+    );
+}
+```
+
+`withBodyStyle` includes the following body elements styles:
+
+```css
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--hop-body-md-font-family), Arial, sans-serif;
+    line-height: var(--hop-body-md-line-height);
+    font-size: var(--hop-body-md-font-size);
+    color: var(--hop-neutral-text);
+    background-color: var(--hop-neutral-surface);
+    margin: 0;
+    padding: 0;
+}
+
+@media not (prefers-reduced-motion) {
+    body {
+        scroll-behavior: smooth;
+    }
+}
+```
+
+### Inject CSS Variables
+
+`withCssVariables` determines whether Hopper's CSS variables should be added to your application. By default, it is set to true, you should not change it unless you want to manage CSS variables via .css file (Note that in this case you will need to add the tokens manually, ideally with the [`@hopper-ui/tokens` package](/tokens/getting-started/usage))
+
+{/* TODO: Make this an example */}
+```tsx
+import { HopperProvider } from "@hopper-ui/components";
+
+function Demo() {
+    return (
+        <HopperProvider withCssVariables={false}>
+            {/* Your app here */}
+        </HopperProvider>
+    );
+}
+```
