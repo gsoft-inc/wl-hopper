@@ -1,0 +1,41 @@
+.hop-Divider {
+    --hop-Divider-border-color: var(--hop-neutral-border-weak);
+    --hop-Divider-border-size: 0.0625rem;
+
+    /* Horizontal */
+    --hop-Divider-horizontal-border-block-end: var(--hop-Divider-border-size) solid var(--hop-Divider-border-color);
+    --hop-Divider-horizontal-border-inline-start: none;
+    --hop-Divider-horizontal-inline-size: auto;
+    --hop-Divider-horizontal-block-size: 0;
+
+    /* Vertical */
+    --hop-Divider-vertical-border-inline-start: var(--hop-Divider-border-size) solid var(--hop-Divider-border-color);
+    --hop-Divider-vertical-border-block-end: none;
+    --hop-Divider-vertical-inline-size: 0;
+    --hop-Divider-vertical-block-size: auto;
+
+    /* Internal Variables */
+    --border-block-end: var(--hop-Divider-horizontal-border-block-end);
+    --border-inline-start: var(--hop-Divider-horizontal-border-inline-start);
+    --inline-size: var(--hop-Divider-horizontal-inline-size);
+    --block-size: var(--hop-Divider-horizontal-block-size);
+
+    display: block;
+    flex: 0 0 auto;
+
+    box-sizing: border-box;
+    inline-size: var(--inline-size);
+    block-size: var(--block-size);
+    margin: 0;
+
+    border: none;
+    border-block-end: var(--border-block-end);
+    border-inline-start: var(--border-inline-start);
+}
+
+.hop-Divider--vertical {
+    --border-block-end: var(--hop-Divider-vertical-border-block-end);
+    --border-inline-start: var(--hop-Divider-vertical-border-inline-start);
+    --inline-size: var(--hop-Divider-vertical-inline-size);
+    --block-size: var(--hop-Divider-vertical-block-size);
+}

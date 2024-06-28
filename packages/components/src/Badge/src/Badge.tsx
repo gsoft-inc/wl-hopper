@@ -4,7 +4,7 @@ import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
 import { OverlineText } from "../../typography/OverlineText/index.ts";
-import { cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import { ClearContainerSlots, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
 import { BadgeContext } from "./BadgeContext.ts";
 
@@ -55,17 +55,20 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     };
 
     return (
-        <OverlineText
-            {...otherProps}
-            ref={ref}
-            className={classNames}
-            style={mergedStyles}
-            slot={slot ?? undefined}
-            data-disabled={isDisabled || undefined}
-            aria-disabled={isDisabled || undefined}
-        >
-            {children}
-        </OverlineText>
+        
+        <ClearContainerSlots>
+            <OverlineText
+                {...otherProps}
+                ref={ref}
+                className={classNames}
+                style={mergedStyles}
+                slot={slot ?? undefined}
+                data-disabled={isDisabled || undefined}
+                aria-disabled={isDisabled || undefined}
+            >
+                {children}
+            </OverlineText>
+        </ClearContainerSlots>
     );
 }
 

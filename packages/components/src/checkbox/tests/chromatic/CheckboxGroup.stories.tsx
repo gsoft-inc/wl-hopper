@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../../errorMessage/index.ts";
-import { HelperMessage } from "../../../helperMessage/index.ts";
+import { ErrorMessage } from "../../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Label } from "../../../typography/Label/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
@@ -11,7 +11,7 @@ import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
 import { CheckboxList } from "../../src/CheckboxList.tsx";
 
 const meta = {
-    title: "Components/Checkbox/CheckboxGroup",
+    title: "Components/Form/Checkbox/CheckboxGroup",
     component: CheckboxGroup
 } satisfies Meta<typeof CheckboxGroup>;
 

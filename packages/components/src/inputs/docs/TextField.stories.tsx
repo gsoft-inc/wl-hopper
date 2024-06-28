@@ -1,8 +1,8 @@
 import { SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../errorMessage/index.ts";
-import { HelperMessage } from "../../helperMessage/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Stack } from "../../layout/index.ts";
 import { Label } from "../../typography/index.ts";
 import { TextField } from "../src/TextField.tsx";

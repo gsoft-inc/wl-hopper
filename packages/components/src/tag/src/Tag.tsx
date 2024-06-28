@@ -9,7 +9,7 @@ import {
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
 
-import { BadgeContext } from "../../badge/index.ts";
+import { BadgeContext } from "../../Badge/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";

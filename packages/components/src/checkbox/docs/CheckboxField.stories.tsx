@@ -15,7 +15,7 @@ import { CheckboxField } from "../src/CheckboxField.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Checkbox/CheckboxField",
+    title: "Docs/Form/Checkbox/CheckboxField",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories

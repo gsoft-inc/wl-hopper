@@ -20,7 +20,8 @@ import {
     SlotProvider,
     cssModule,
     isTextOnlyChildren,
-    ClearContainerSlots
+    ClearContainerSlots,
+    type InteractionProps
 } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
@@ -29,7 +30,7 @@ import styles from "./Checkbox.module.css";
 
 export const GlobalCheckboxCssSelector = "hop-Checkbox";
 
-export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
+export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps>, InteractionProps {
     /**
      * A checkbox can vary in size.
      * @default "md"
@@ -45,6 +46,9 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
         children: childrenProp,
         size: sizeProp = "md",
         style: styleProp,
+        isPressed,
+        isHovered,
+        isFocused,
         ...otherProps
     } = ownProps;
 
@@ -56,7 +60,10 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
         cssModule(
             styles,
             "hop-Checkbox",
-            size
+            size,
+            isPressed && "pressed",
+            isHovered && "hovered",
+            isFocused && "focused"
         ),
         stylingProps.className
     );

@@ -3,8 +3,8 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 
-import { ErrorMessage } from "../../../errorMessage/index.ts";
-import { HelperMessage } from "../../../helperMessage/index.ts";
+import { ErrorMessage } from "../../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Label } from "../../../typography/index.ts";
 import { TextField, type TextFieldProps } from "../../src/TextField.tsx";
