@@ -9,10 +9,12 @@
         "@next/next/no-html-link-for-pages": "off"
     },
     "globals": {
+        "BreakpointTable": true,
         "Card": true,
         "Callout": true,
         "Collapsible": true,
         "Table": true,
+        "TokenTable": true,
         "MotionPreview": true,
         "Footnote": true,
         "TypographyTable": true,

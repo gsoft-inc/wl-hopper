@@ -1,4 +1,4 @@
-import { useColorSchemeValue, Div } from "@hopper-ui/components";
+import { Div, useColorSchemeValue } from "@hopper-ui/components";
 
 export default function Example() {
     const color = useColorSchemeValue("#fff", "#000");

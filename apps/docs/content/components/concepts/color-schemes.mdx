@@ -15,22 +15,22 @@ We recommend that all Hopper applications support both light and dark mode. It c
 A color scheme can either be enforced by providing a specific light or dark value to a [HopperProvider](../application/hopper-provider.mdx).
 
 
-<Example src="HopperProvider/docs/color-scheme/apply" isOpen/>
+<Example src="HopperProvider/docs/color-scheme/apply" isOpen />
 
 A color scheme can also be set to `system`, which will follow the [user's operating system setting](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 When the `system` value is provided, an additional fallback color scheme must be specified to defaultColorScheme in case the theme provider is not able to access the user setting.
 
-<Example src="HopperProvider/docs/color-scheme/apply-system" isOpen/>
+<Example src="HopperProvider/docs/color-scheme/apply-system" isOpen />
 
 Color schemes can also be nested. You could have a dark themed dialog inside a light themed application. For example, this might be useful for certain experiences like color scheme previews, where you want to showcase a specific color scheme, regardless of the operating system setting.
 
-<Example src="HopperProvider/docs/color-scheme/apply-nested" isOpen/>
+<Example src="HopperProvider/docs/color-scheme/apply-nested" isOpen />
 
 ## Changing the color scheme
 
 To manage the color scheme in your application, Hopper exposes a `ColorSchemeContext` and a `useColorSchemeContext` hook.
 
-<Example src="HopperProvider/docs/color-scheme/changing" isOpen/>
+<Example src="HopperProvider/docs/color-scheme/changing" isOpen />
 
 ## Utility Methods
 
@@ -40,4 +40,4 @@ Some features require the usage of custom colors. Those colors aren't like Hoppe
 
 To help with that, Hopper offers the `useColorSchemeValue` hook which will return the value matching the current color scheme of the closest `HopperProvider`.
 
-<Example src="HopperProvider/docs/color-scheme/useColorSchemeValue" isOpen/>
+<Example src="HopperProvider/docs/color-scheme/useColorSchemeValue" isOpen />

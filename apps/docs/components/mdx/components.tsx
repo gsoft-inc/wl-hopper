@@ -27,6 +27,7 @@ import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx
 import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
 import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
 import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
+import BreakpointTable from "@/app/ui/components/breakpointTable/BreakpointTable";
 
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
@@ -41,8 +42,9 @@ export const components = {
     Image: NextImage,
     pre: Pre,
     MotionPreview: MotionPreview,
+    BreakpointTable: BreakpointTable,
     Footnote: Footnote,
-    Table: TokenTable,
+    TokenTable: TokenTable,
     TypographyTable: TypographyTable,
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,
