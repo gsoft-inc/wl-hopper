@@ -29,6 +29,7 @@ export * from "./LikertScaleRichIcon.tsx";
 export * from "./LocationRichIcon.tsx";
 export * from "./MultipleChoiceRichIcon.tsx";
 export * from "./OneOnOneRichIcon.tsx";
+export * from "./OpenRoleRichIcon.tsx";
 export * from "./OpinionScaleRichIcon.tsx";
 export * from "./OrganizationRichIcon.tsx";
 export * from "./PeopleRichIcon.tsx";
@@ -49,4 +50,4 @@ export * from "./TextAnswerRichIcon.tsx";
 export * from "./UpsellRichIcon.tsx";
 export * from "./WhosWhoRichIcon.tsx";
 
-export const richIconNames = ["ActionListRichIcon","AnniversaryRichIcon","AnonymousRichIcon","BirthdayRichIcon","BrokenImageRichIcon","CautionRichIcon","ConversationRichIcon","CustomRichIcon","DecreasingScoreRichIcon","DeletedUserRichIcon","DepartmentRichIcon","DirectoryRichIcon","DiscountRichIcon","EmailRichIcon","FeedbackRichIcon","GoalIndividualRichIcon","GoalTeamRichIcon","GroupRichIcon","GrowthRichIcon","IdeaRichIcon","InfoRichIcon","LikertScaleRichIcon","LocationRichIcon","MultipleChoiceRichIcon","OneOnOneRichIcon","OpinionScaleRichIcon","OrganizationRichIcon","PeopleRichIcon","QuestionRichIcon","ReminderRichIcon","ReviewRichIcon","RisingScoreRichIcon","RocketRichIcon","ScriptRichIcon","SettingsRichIcon","SparklesRichIcon","StarRichIcon","StatusRichIcon","SuccessRichIcon","SupportRichIcon","TemplateRichIcon","TextAnswerRichIcon","UpsellRichIcon","WhosWhoRichIcon"] as const;
+export const richIconNames = ["ActionListRichIcon","AnniversaryRichIcon","AnonymousRichIcon","BirthdayRichIcon","BrokenImageRichIcon","CautionRichIcon","ConversationRichIcon","CustomRichIcon","DecreasingScoreRichIcon","DeletedUserRichIcon","DepartmentRichIcon","DirectoryRichIcon","DiscountRichIcon","EmailRichIcon","FeedbackRichIcon","GoalIndividualRichIcon","GoalTeamRichIcon","GroupRichIcon","GrowthRichIcon","IdeaRichIcon","InfoRichIcon","LikertScaleRichIcon","LocationRichIcon","MultipleChoiceRichIcon","OneOnOneRichIcon","OpenRoleRichIcon","OpinionScaleRichIcon","OrganizationRichIcon","PeopleRichIcon","QuestionRichIcon","ReminderRichIcon","ReviewRichIcon","RisingScoreRichIcon","RocketRichIcon","ScriptRichIcon","SettingsRichIcon","SparklesRichIcon","StarRichIcon","StatusRichIcon","SuccessRichIcon","SupportRichIcon","TemplateRichIcon","TextAnswerRichIcon","UpsellRichIcon","WhosWhoRichIcon"] as const;
