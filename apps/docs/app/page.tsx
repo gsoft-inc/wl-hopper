@@ -35,7 +35,6 @@ import {
 import "@hopper-ui/tokens/fonts.css";
 
 import Button from "@/components/button/Button";
-import Tag from "@/components/tag/Tag";
 import {
     ExternalLinkIcon,
     Icon,
