@@ -4,31 +4,44 @@
     grid-template-columns: repeat(auto-fill, minmax(18.125rem, 1fr));
 }
 
-.hd-component-overview__item {
-    border: 0.0625rem solid var(--hd-color-neutral-border);
-    border-radius: var(--hd-space-1);
-    height: 20rem;
-    position: relative;
-}
-
-.hd-component-overview__item-teaser {
-    font-size: 1rem;
-    line-height: 1.125;
-    margin-top: var(--hd-space-1);
-}
-
-.hd-component-overview__item-thumb {
-    align-items: center;
-    border-radius: var(--hd-space-1);
-    display: flex;
+.hd-component-overview-item {
+    overflow: hidden;
     flex-direction: column;
+    transition: box-shadow cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+}
+
+.hd-component-overview-item:hover {
+    cursor: pointer;
+    box-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
+}
+
+.hd-component-overview-item:has(:focus) {
+    box-shadow: var(--hd-focus-ring);
+}
+
+.hd-component-overview-item__img {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: var(--hd-space-2);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.hd-component-overview-item__link {
     width: 100%;
 }
 
-.hd-component-overview__item-img {
-    max-width: 19.5rem;
+.hd-component-overview-item__title {
+    font-size: 1.125rem;
+    line-height: 1.333;
+    margin-block: 0;
+}
+
+.hd-component-overview-item__description {
+    font-size: 0.875rem;
+    color: var(--hd-color-neutral-text-weak);
+    line-height: 1.428;
+    margin-top: var(--hd-space-1);
 }
 
 .hd-component-overview-category {
@@ -41,24 +54,6 @@
 }
 
 .hd-component-overview-item__caption {
+    background-color: var(--hd-color-neutral-surface);
     padding: var(--hd-space-2);
-}
-
-.hd-component-overview__item:hover,
-.hd-component-overview__item:focus-visible  {
-    background-color: var(--hd-color-neutral-surface-weak);
-    border-color: var(--hd-color-neutral-border-hover);
-}
-
-.hd-component-item__overlay-effect {
-    background-color: rgb(0 0 0 / 6.4%);
-    border-radius: var(--hd-space-1);
-    height: calc(100% + var(--hd-space-2));
-    left: calc(-1 * var(--hd-space-1));
-    opacity: 0;
-    position: absolute;
-    transition: opacity 0.3s ease;
-    top: calc(-1 * var(--hd-space-1));
-    width: calc(100% + var(--hd-space-2));
-    z-index: -1;
 }

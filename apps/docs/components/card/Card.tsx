@@ -8,12 +8,14 @@ export interface CardProps {
     className?: string;
     size?: "sm" | "md" | "lg";
     align?: "start" | "center" | "end";
+    ghost?: boolean;
 }
 
-const Card = ({ children, className, size = "md", align = "center" }: CardProps) => {
+const Card = ({ children, className, size = "md", align = "center", ghost }: CardProps) => {
     const cardClass = clsx("hd-card", {
         [`hd-card--${size}`]: size !== "md",
-        [`hd-card--${align}`]: align !== "center"
+        [`hd-card--${align}`]: align !== "center",
+        "hd-card--ghost": ghost
     }, className);
 
     return (

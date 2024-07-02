@@ -3,8 +3,8 @@
     "compilerOptions": {
         "incremental": true,
         "jsx": "preserve",
-        "module": "esnext",
-        "moduleResolution": "node",
+        "module": "preserve",
+        "moduleResolution": "Bundler",
         "baseUrl": ".",
         "plugins": [
             {
@@ -40,7 +40,8 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        ".contentlayer/generated"
+        ".contentlayer/generated",
+        ".storybook/**/*"
     ],
     "exclude": [
         "node_modules"

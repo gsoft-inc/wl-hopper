@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useState } from "react";
+import { useState, type PropsWithoutRef } from "react";
 import { Button } from "react-aria-components";
 
 import ChevronIcon from "./assets/chevron-icon.svg";
@@ -11,13 +11,14 @@ interface Link {
     title: string;
     url: string;
     id: string;
+    level?: number;
 }
 
 interface SectionPopoverProps {
     links: Link[];
 }
 
-const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) => {
+const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const togglePopover = () => {
@@ -36,7 +37,8 @@ const SectionPopover = ({ links }: React.PropsWithoutRef<SectionPopoverProps>) =
 
     const listItems = links.map(link => (
         <li className="hd-section-popover__list-item" key={link.id}>
-            <a href={link.url} className="hd-section-popover__list-link" onClick={togglePopover}>
+            {/* This has to be an a, not a link: https://github.com/vercel/next.js/issues/49612 */}
+            <a href={link.url} className={`hd-section-popover__list-link hd-section-popover__list-link-${link.level}`} onClick={togglePopover}>
                 {link.title}
             </a>
         </li>

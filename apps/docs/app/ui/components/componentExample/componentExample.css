@@ -30,6 +30,10 @@
     }
 }
 
+.hd-component-example__skeleton {
+    height: 13rem;
+}
+
 .hd-component-example + p {
     margin-block-start: var(--hd-space-3);
 }

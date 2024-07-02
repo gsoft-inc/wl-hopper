@@ -26,3 +26,8 @@
 
     cursor: pointer;
 }
+
+.hd-icon-button:focus-visible {
+    outline: 0;
+    box-shadow: var(--hd-focus-ring);
+}

@@ -1,5 +1,6 @@
 import Header from "@/app/ui/layout/header/Header";
 import { ThemeProvider } from "@/context/theme/ThemeProvider";
+import type { ReactNode } from "react";
 
 import "./globals.css";
 import "./layout.css";
@@ -10,7 +11,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
     const setInitialTheme = `
     function getUserPreference() {
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: {
 
     return (
         <html lang="en" suppressHydrationWarning>
-            <body id="App">
+            <body id="App" className="hd-layout">
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                 <ThemeProvider>
                     <Header />

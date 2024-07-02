@@ -1,5 +1,6 @@
 export * from "./src/Flex.tsx";
 export * from "./src/Grid.tsx";
+export * from "./src/grid-helpers.ts";
 export * from "./src/Inline.tsx";
 export * from "./src/Stack.tsx";
 export * from "./src/Footer.tsx";

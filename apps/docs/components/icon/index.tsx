@@ -14,6 +14,7 @@ import TokenIcon from "./assets/tokens.svg";
 import TypescriptIcon from "./assets/typescript.svg";
 import CollapseIcon from "./assets/collapse.svg";
 import CodeIcon from "./assets/code.svg";
+import EmptyComponent from "./assets/empty-component.svg";
 import Icon, { type IconProps } from "./Icon.tsx";
 
 export {
@@ -33,6 +34,7 @@ export {
     CollapseIcon,
     CodeIcon,
     TypescriptIcon,
+    EmptyComponent,
     Icon,
     IconProps
 };

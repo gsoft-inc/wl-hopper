@@ -9,7 +9,7 @@
 @media screen and (width >= 48rem) {
     .hd-aside {
         display: flex;
-        padding-block-start: var(--hd-space-8);
+        padding-block: var(--hd-space-8) var(--hd-space-4);
     }
 
     .hd-aside + main {
@@ -17,7 +17,7 @@
     }
 }
 
-@media screen and (width >= 62rem) {
+@media screen and (width >= 64rem) {
     .hd-aside {
         order: 2;
         padding-block: var(--hd-space-8);
@@ -51,7 +51,7 @@
     display: none;
 }
 
-@media screen and (width >= 62rem) {
+@media screen and (width >= 64rem) {
     .hd-aside__list {
         margin-block-start: 0;
 
@@ -84,6 +84,10 @@
     color: var(--hd-color-primary-text);
 }
 
+.hd-aside__link-level-3 {
+    padding-inline-start: var(--hd-space-2);
+}
+
 .hd-aside__title {
     display: none;
     font-size: 0.875rem;
@@ -92,7 +96,7 @@
     color: var(--hd-color-neutral-text);
 }
 
-@media screen and (width >= 62rem) {
+@media screen and (width >= 64rem) {
     .hd-aside__title {
         display: flex;
     }
@@ -121,7 +125,7 @@
     display: none;
 }
 
-@media screen and (width >= 62rem) {
+@media screen and (width >= 64rem) {
     .hd-aside__marker {
         display: block;
     }
@@ -151,7 +155,7 @@
     color: var(--hd-color-neutral-text-weak-hover);
 }
 
-@media screen and (width >= 62rem) {
+@media screen and (width >= 64rem) {
     .hd-aside__button {
         display: none;
     }

@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.mjs";
+import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.ts";
 import type { PropItem } from "react-docgen-typescript/lib/parser";
 import { getType } from "@/app/lib/gePropsType.ts";
 import { formatCode } from "@/app/lib/formatingCode.ts";
@@ -37,10 +37,10 @@ async function formatPropTable(data: ComponentDocWithGroups[]) {
 }
 
 export async function getComponentProps(component: string) {
-    const file = await fs.readFile(filePath + `/${component}.json`, "utf8");
+    const file = await fs.readFile(path.join(filePath, `${component}.json`), "utf8");
     const data = JSON.parse(file);
     const [item] = data;
-    
+
     const groups = await formatPropTable(data);
 
     return ({ description: item.description, groups });

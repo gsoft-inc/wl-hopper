@@ -20,9 +20,9 @@ import TypescriptIcon from "./icons/typescript.svg";
 import XmlIcon from "./icons/xml.svg";
 import YamlIcon from "./icons/yaml.svg";
 import FileIcon from "./icons/file.svg";
-import type { ElementType } from "react";
+import type { ElementType, SVGProps } from "react";
 
-const LangMapping: Record<string, ElementType<React.SVGProps<SVGSVGElement>>> = {
+const LangMapping: Record<string, ElementType<SVGProps<SVGSVGElement>>> = {
     "c":CIcon,
     "csharp": CSharpIcon,
     "css": CSSIcon,
@@ -48,7 +48,7 @@ const LangMapping: Record<string, ElementType<React.SVGProps<SVGSVGElement>>> = 
     "yaml": YamlIcon
 } ;
 
-interface LangIconProps extends React.SVGProps<SVGSVGElement> {
+interface LangIconProps extends SVGProps<SVGSVGElement> {
     lang: string;
 }
 

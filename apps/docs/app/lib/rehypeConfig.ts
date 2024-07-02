@@ -1,12 +1,15 @@
-import { visit } from "unist-util-visit";
-import rehypePrettyCode from "rehype-pretty-code";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// this file is hard to type, since the unified version used between frontmatter and contentlayer are different and expecting different types.
 
-/** @type {import('rehype-pretty-code').Options } */
-export const rehypeOptions = {
+import { visit } from "unist-util-visit";
+import rehypePrettyCode, { type Options } from "rehype-pretty-code";
+import type { BuiltinTheme } from "shiki";
+
+export const rehypeOptions: Options = {
     // Use one of Shiki's packaged themes
     theme: {
-        light: "one-dark-pro",
-        dark: "one-dark-pro"
+        light: "one-dark-pro" satisfies BuiltinTheme,
+        dark: "one-dark-pro" satisfies BuiltinTheme
     },
     keepBackground: false,
     onVisitLine(node) {
@@ -22,12 +25,12 @@ export const rehypeOptions = {
     onVisitHighlightedLine(node) {
         const nodeClass = node.properties.className;
         if (nodeClass && nodeClass.length > 0) {
-            node.properties.className.push("highlighted");
+            node.properties.className?.push("highlighted");
         } else {
             node.properties.className = ["highlighted"];
         }
     },
-    onVisitHighlightedWord(node, id) {
+    onVisitHighlightedChars(node, id) {
         // Each word node has no className by default.
         node.properties.className = ["word"];
 
@@ -36,7 +39,9 @@ export const rehypeOptions = {
             // colors from the child nodes.
             if (node.properties["data-rehype-pretty-code-wrapper"]) {
                 node.children.forEach(childNode => {
-                    childNode.properties.style = "";
+                    if (childNode.type === "element") {
+                        childNode.properties.style = "";
+                    }
                 });
             }
 
@@ -46,8 +51,8 @@ export const rehypeOptions = {
     }
 };
 
-export const rehypePluginOptions = [
-    () => tree => {
+export const rehypePluginOptions: any[] = [
+    () => (tree: any) => {
         visit(tree, node => {
             if (node?.type === "element" && node?.tagName === "pre") {
                 const [codeEl] = node.children;
@@ -60,10 +65,10 @@ export const rehypePluginOptions = [
         });
     },
     [rehypePrettyCode, rehypeOptions],
-    () => tree => {
+    () => (tree: any) => {
         visit(tree, node => {
             if (node?.type === "element" && node?.tagName === "figure") {
-                const titleChild = node.children.find(child => {
+                const titleChild = node.children.find((child: any) => {
                     return (
                         child.properties &&
                         "data-rehype-pretty-code-title" in child.properties

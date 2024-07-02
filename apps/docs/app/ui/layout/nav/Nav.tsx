@@ -3,12 +3,12 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import type { NavItem } from "@/configs/navigation";
+import type { PropsWithoutRef } from "react";
 
 import "./nav.css";
 
-const Nav = ({ items }: { items: React.PropsWithoutRef<NavItem[]> }) => {
+const Nav = ({ items }: { items: PropsWithoutRef<NavItem[]> }) => {
     const pathname = usePathname()!;
     let firstPathLevel: string;
 
