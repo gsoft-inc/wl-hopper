@@ -1,5 +1,6 @@
 import Header from "@/app/ui/layout/header/Header";
 import { ThemeProvider } from "@/context/theme/ThemeProvider";
+import { FeatureFlagProvider } from "@/context/feature/FeatureFlagProvider";
 import type { ReactNode } from "react";
 
 import "./globals.css";
@@ -29,15 +30,17 @@ export default function RootLayout({ children }: {
         <html lang="en" suppressHydrationWarning>
             <body id="App" className="hd-layout">
                 <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
-                <ThemeProvider>
-                    <Header />
-                    <div className="hd-header__shadow" role="presentation">
-                        <div className="hd-header-shadow-block hd-header-shadow-block-1"></div>
-                        <div className="hd-header-shadow-block hd-header-shadow-block-2"></div>
-                        <div className="hd-header-shadow-block hd-header-shadow-block-3"></div>
-                    </div>
-                    {children}
-                </ThemeProvider>
+                <FeatureFlagProvider>
+                    <ThemeProvider>
+                        <Header />
+                        <div className="hd-header__shadow" role="presentation">
+                            <div className="hd-header-shadow-block hd-header-shadow-block-1"></div>
+                            <div className="hd-header-shadow-block hd-header-shadow-block-2"></div>
+                            <div className="hd-header-shadow-block hd-header-shadow-block-3"></div>
+                        </div>
+                        {children}
+                    </ThemeProvider>
+                </FeatureFlagProvider>
             </body>
         </html>
     );
