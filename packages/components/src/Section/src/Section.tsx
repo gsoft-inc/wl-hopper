@@ -1,6 +1,6 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
+import { type CSSProperties, forwardRef, type ForwardedRef, type NamedExoticComponent } from "react";
 import { Section as RACSection, useContextProps, type SectionProps as RACSectionProps } from "react-aria-components";
 
 import { SectionContext } from "./SectionContext.ts";
@@ -47,7 +47,9 @@ function Section<T extends object>(props: SectionProps<T>, ref: ForwardedRef<HTM
  *
  * [View Documentation](TODO)
  */
-const _Section = forwardRef<HTMLElement, SectionProps<object>>(Section);
-_Section.displayName = "Section";
+const _Section = forwardRef(Section) as <T>(
+    props: SectionProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof Section>;
+(_Section as NamedExoticComponent).displayName = "Section";
 
 export { _Section as Section };

@@ -14,8 +14,10 @@
     --hop-ListBoxItem-grid-template-areas-with-description:
         "indicator avatar icon label end-icon badge"
         ". avatar . description description description";
+    --hop-ListBoxItem-grid-template-areas-loading: "label";
     --hop-ListBoxItem-grid-template-columns: var(--hop-ListBoxItem-indicator-inline-size) auto auto 1fr auto auto;
     --hop-ListBoxItem-grid-template-columns-not-selected: 0 auto auto 1fr auto auto;
+    --hop-ListBoxItem-grid-template-columns-loading: 1fr;
 
     /* xs */
     --hop-ListBoxItem-xs-padding-block: var(--hop-space-inset-xs);
@@ -83,6 +85,7 @@
     /* Disabled */
     --hop-ListBoxItem-background-color-disabled: transparent;
     --hop-ListBoxItem-text-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-ListBoxItem-icon-color-disabled: var(--hop-neutral-icon-disabled);
 
     /* Internal Variables */
     --background-color: var(--hop-ListBoxItem-background-color);
@@ -99,16 +102,7 @@
 
     cursor: var(--cursor);
     
-    display: grid;
-    grid-template-areas: var(--grid-template-areas);
-    grid-template-columns: var(--grid-template-columns);
-    row-gap: var(--row-gap);
-    align-items: center;
-
     box-sizing: border-box;
-    min-block-size: var(--min-height);
-    padding-block: var(--padding-block);
-    padding-inline: var(--padding-inline);
 
     color: var(--text-color);
 
@@ -116,7 +110,6 @@
     border-radius: var(--hop-ListBoxItem-border-radius);
     outline: var(--outline);
 
-    transition: grid-template-columns .3s ease-in-out;
 }
 
 .hop-ListBoxItem--xs {
@@ -151,11 +144,11 @@
     --grid-template-columns: var(--hop-ListBoxItem-grid-template-columns-not-selected);
 }
 
-.hop-ListBoxItem:not([data-list-has-selection]):has(.hop-ListBoxItem__checkmark) {
+.hop-ListBoxItem__inner:not([data-list-has-selection]):has(.hop-ListBoxItem__checkmark) {
     --grid-template-columns: var(--hop-ListBoxItem-grid-template-columns-not-selected);
 }
 
-.hop-ListBoxItem[data-list-has-selection-end]:has(.hop-ListBoxItem__checkmark) {
+.hop-ListBoxItem__inner[data-list-has-selection-end]:has(.hop-ListBoxItem__checkmark) {
     --checkmark-transition: none;
 }
 
@@ -235,6 +228,27 @@
 .hop-ListBoxItem:has(.hop-ListBoxItem__description) {
     --row-gap: var(--hop-ListBoxItem-row-gap);
     --grid-template-areas: var(--hop-ListBoxItem-grid-template-areas-with-description);
+}
+
+.hop-ListBoxItem[data-loading] {
+    --grid-template-areas: var(--hop-ListBoxItem-grid-template-areas-loading);
+    --grid-template-columns: var(--hop-ListBoxItem-grid-template-columns-loading);
+}
+
+.hop-ListBoxItem__inner {
+    display: grid;
+    grid-template-areas: var(--grid-template-areas);
+    grid-template-columns: var(--grid-template-columns);
+    row-gap: var(--row-gap);
+    align-items: center;
+
+    box-sizing: border-box;
+    min-block-size: var(--min-height);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+
+    
+    transition: grid-template-columns .3s ease-in-out;
 }
 
 .hop-ListBoxItem__checkmark {

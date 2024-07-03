@@ -56,13 +56,8 @@ export const Default = {
         return (
             <Stack>
                 <h1>Only Items</h1>
-                <Inline alignY="flex-end">
-                    <ListBox {...args} size="xs">
-                        <ListBoxItem id="1">Earth</ListBoxItem>
-                        <ListBoxItem id="2">Mars</ListBoxItem>
-                        <ListBoxItem id="3">Saturn</ListBoxItem>
-                    </ListBox>
-                    <ListBox {...args} size="sm">
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg">
                         <ListBoxItem id="1">Earth</ListBoxItem>
                         <ListBoxItem id="2">Mars</ListBoxItem>
                         <ListBoxItem id="3">Saturn</ListBoxItem>
@@ -72,7 +67,12 @@ export const Default = {
                         <ListBoxItem id="2">Mars</ListBoxItem>
                         <ListBoxItem id="3">Saturn</ListBoxItem>
                     </ListBox>
-                    <ListBox {...args} size="lg">
+                    <ListBox {...args} size="sm">
+                        <ListBoxItem id="1">Earth</ListBoxItem>
+                        <ListBoxItem id="2">Mars</ListBoxItem>
+                        <ListBoxItem id="3">Saturn</ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs">
                         <ListBoxItem id="1">Earth</ListBoxItem>
                         <ListBoxItem id="2">Mars</ListBoxItem>
                         <ListBoxItem id="3">Saturn</ListBoxItem>
@@ -108,13 +108,8 @@ export const Default = {
                     <ListBoxItem id="7">Uranus</ListBoxItem>
                 </ListBox>
                 <h1>Items with Start Icon</h1>
-                <Inline alignY="flex-end">
-                    <ListBox {...args} size="xs">
-                        <ListBoxItem id="1" textValue="Earth"><SparklesIcon /><Text slot="label">Earth</Text></ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars"><SparklesIcon /><Text slot="label">Mars</Text></ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn"><SparklesIcon /><Text slot="label">Saturn</Text></ListBoxItem>
-                    </ListBox>
-                    <ListBox {...args} size="sm">
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg">
                         <ListBoxItem id="1" textValue="Earth"><SparklesIcon /><Text slot="label">Earth</Text></ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars"><SparklesIcon /><Text slot="label">Mars</Text></ListBoxItem>
                         <ListBoxItem id="3" textValue="Saturn"><SparklesIcon /><Text slot="label">Saturn</Text></ListBoxItem>
@@ -124,20 +119,20 @@ export const Default = {
                         <ListBoxItem id="2" textValue="Mars"><SparklesIcon /><Text slot="label">Mars</Text></ListBoxItem>
                         <ListBoxItem id="3" textValue="Saturn"><SparklesIcon /><Text slot="label">Saturn</Text></ListBoxItem>
                     </ListBox>
-                    <ListBox {...args} size="lg">
+                    <ListBox {...args} size="sm">
+                        <ListBoxItem id="1" textValue="Earth"><SparklesIcon /><Text slot="label">Earth</Text></ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars"><SparklesIcon /><Text slot="label">Mars</Text></ListBoxItem>
+                        <ListBoxItem id="3" textValue="Saturn"><SparklesIcon /><Text slot="label">Saturn</Text></ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs">
                         <ListBoxItem id="1" textValue="Earth"><SparklesIcon /><Text slot="label">Earth</Text></ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars"><SparklesIcon /><Text slot="label">Mars</Text></ListBoxItem>
                         <ListBoxItem id="3" textValue="Saturn"><SparklesIcon /><Text slot="label">Saturn</Text></ListBoxItem>
                     </ListBox>
                 </Inline>
                 <h1>Items with End Icon</h1>
-                <Inline alignY="flex-end">
-                    <ListBox {...args} size="xs">
-                        <ListBoxItem id="1" textValue="Earth"><SparklesIcon slot="end-icon" /><Text slot="label">Earth</Text></ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars"><SparklesIcon slot="end-icon" /><Text slot="label">Mars</Text></ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn"><SparklesIcon slot="end-icon" /><Text slot="label">Saturn</Text></ListBoxItem>
-                    </ListBox>
-                    <ListBox {...args} size="sm">
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg">
                         <ListBoxItem id="1" textValue="Earth"><SparklesIcon slot="end-icon" /><Text slot="label">Earth</Text></ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars"><SparklesIcon slot="end-icon" /><Text slot="label">Mars</Text></ListBoxItem>
                         <ListBoxItem id="3" textValue="Saturn"><SparklesIcon slot="end-icon" /><Text slot="label">Saturn</Text></ListBoxItem>
@@ -147,68 +142,73 @@ export const Default = {
                         <ListBoxItem id="2" textValue="Mars"><SparklesIcon slot="end-icon" /><Text slot="label">Mars</Text></ListBoxItem>
                         <ListBoxItem id="3" textValue="Saturn"><SparklesIcon slot="end-icon" /><Text slot="label">Saturn</Text></ListBoxItem>
                     </ListBox>
-                    <ListBox {...args} size="lg">
+                    <ListBox {...args} size="sm">
+                        <ListBoxItem id="1" textValue="Earth"><SparklesIcon slot="end-icon" /><Text slot="label">Earth</Text></ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars"><SparklesIcon slot="end-icon" /><Text slot="label">Mars</Text></ListBoxItem>
+                        <ListBoxItem id="3" textValue="Saturn"><SparklesIcon slot="end-icon" /><Text slot="label">Saturn</Text></ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs">
                         <ListBoxItem id="1" textValue="Earth"><SparklesIcon slot="end-icon" /><Text slot="label">Earth</Text></ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars"><SparklesIcon slot="end-icon" /><Text slot="label">Mars</Text></ListBoxItem>
                         <ListBoxItem id="3" textValue="Saturn"><SparklesIcon slot="end-icon" /><Text slot="label">Saturn</Text></ListBoxItem>
                     </ListBox>
                 </Inline>
                 <h1>Items with Badge</h1>
-                <Inline alignY="flex-end">
-                    <ListBox {...args} size="xs">
-                        <ListBoxItem id="1" textValue="Earth">
-                            <Text>Earth</Text>
-                            <Badge>50</Badge>
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg">
+                        <ListBoxItem id="3" textValue="Saturn">
+                            <Text>Saturn</Text>
+                            <Badge>1</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn">
-                            <Text>Saturn</Text>
-                            <Badge>1</Badge>
-                        </ListBoxItem>
-                    </ListBox>
-                    <ListBox {...args} size="sm">
                         <ListBoxItem id="1" textValue="Earth">
                             <Text>Earth</Text>
                             <Badge>50</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
-                            <Text>Mars</Text>
-                            <Badge variant="secondary">99+</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn">
-                            <Text>Saturn</Text>
-                            <Badge>1</Badge>
                         </ListBoxItem>
                     </ListBox>
                     <ListBox {...args} size="md">
-                        <ListBoxItem id="1" textValue="Earth">
-                            <Text>Earth</Text>
-                            <Badge>50</Badge>
+                        <ListBoxItem id="3" textValue="Saturn">
+                            <Text>Saturn</Text>
+                            <Badge>1</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn">
-                            <Text>Saturn</Text>
-                            <Badge>1</Badge>
+                        <ListBoxItem id="1" textValue="Earth">
+                            <Text>Earth</Text>
+                            <Badge>50</Badge>
                         </ListBoxItem>
                     </ListBox>
-                    <ListBox {...args} size="lg">
-                        <ListBoxItem id="1" textValue="Earth">
-                            <Text>Earth</Text>
-                            <Badge>50</Badge>
+                    <ListBox {...args} size="sm">
+                        <ListBoxItem id="3" textValue="Saturn">
+                            <Text>Saturn</Text>
+                            <Badge>1</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Earth">
+                            <Text>Earth</Text>
+                            <Badge>50</Badge>
+                        </ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs">
                         <ListBoxItem id="3" textValue="Saturn">
                             <Text>Saturn</Text>
                             <Badge>1</Badge>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars">
+                            <Text>Mars</Text>
+                            <Badge variant="secondary">99+</Badge>
+                        </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Earth">
+                            <Text>Earth</Text>
+                            <Badge>50</Badge>
                         </ListBoxItem>
                     </ListBox>
                 </Inline>
@@ -266,8 +266,21 @@ export const Default = {
                     </ListBoxItem>
                 </ListBox>
                 <h1>Items with Everything</h1>
-                <Inline alignY="flex-end">
-                    <ListBox {...args} size="xs">
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg">
+                        <ListBoxItem id="3" textValue="Saturn">
+                            <SparklesIcon />
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Saturn</Text>
+                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Badge>1</Badge>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars">
+                            <SparklesIcon />
+                            <Text slot="label">Mars</Text>
+                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Badge variant="secondary">99+</Badge>
+                        </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <SparklesIcon />
                             <IconList slot="end-icon">
@@ -276,46 +289,22 @@ export const Default = {
                             <Text slot="label">Earth</Text>
                             <Text slot="description">The third planet from the sun.</Text>
                             <Badge>50</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
-                            <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
-                            <Badge variant="secondary">99+</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn">
-                            <SparklesIcon />
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
-                            <Badge>1</Badge>
-                        </ListBoxItem>
-                    </ListBox>
-                    <ListBox {...args} size="sm">
-                        <ListBoxItem id="1" textValue="Earth">
-                            <SparklesIcon />
-                            <IconList slot="end-icon">
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                            </IconList>
-                            <Text slot="label">Earth</Text>
-                            <Text slot="description">The third planet from the sun.</Text>
-                            <Badge>50</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
-                            <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
-                            <Badge variant="secondary">99+</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn">
-                            <SparklesIcon />
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
-                            <Badge>1</Badge>
                         </ListBoxItem>
                     </ListBox>
                     <ListBox {...args} size="md">
+                        <ListBoxItem id="3" textValue="Saturn">
+                            <SparklesIcon />
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Saturn</Text>
+                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Badge>1</Badge>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars">
+                            <SparklesIcon />
+                            <Text slot="label">Mars</Text>
+                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Badge variant="secondary">99+</Badge>
+                        </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <SparklesIcon />
                             <IconList slot="end-icon">
@@ -324,22 +313,22 @@ export const Default = {
                             <Text slot="label">Earth</Text>
                             <Text slot="description">The third planet from the sun.</Text>
                             <Badge>50</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
-                            <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
-                            <Badge variant="secondary">99+</Badge>
-                        </ListBoxItem>
-                        <ListBoxItem id="3" textValue="Saturn">
-                            <SparklesIcon />
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
-                            <Badge>1</Badge>
                         </ListBoxItem>
                     </ListBox>
-                    <ListBox {...args} size="lg">
+                    <ListBox {...args} size="sm">
+                        <ListBoxItem id="3" textValue="Saturn">
+                            <SparklesIcon />
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Saturn</Text>
+                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Badge>1</Badge>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars">
+                            <SparklesIcon />
+                            <Text slot="label">Mars</Text>
+                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Badge variant="secondary">99+</Badge>
+                        </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <SparklesIcon />
                             <IconList slot="end-icon">
@@ -349,12 +338,8 @@ export const Default = {
                             <Text slot="description">The third planet from the sun.</Text>
                             <Badge>50</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
-                            <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
-                            <Badge variant="secondary">99+</Badge>
-                        </ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs">
                         <ListBoxItem id="3" textValue="Saturn">
                             <SparklesIcon />
                             <SparklesIcon slot="end-icon" />
@@ -362,6 +347,59 @@ export const Default = {
                             <Text slot="description">The sixth planet from the sun.</Text>
                             <Badge>1</Badge>
                         </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Mars">
+                            <SparklesIcon />
+                            <Text slot="label">Mars</Text>
+                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Badge variant="secondary">99+</Badge>
+                        </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Earth">
+                            <SparklesIcon />
+                            <IconList slot="end-icon">
+                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                            </IconList>
+                            <Text slot="label">Earth</Text>
+                            <Text slot="description">The third planet from the sun.</Text>
+                            <Badge>50</Badge>
+                        </ListBoxItem>
+                    </ListBox>
+                </Inline>
+                <h1>Loading</h1>
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg" isLoading>
+                        {[]}
+                    </ListBox>
+                    <ListBox {...args} size="md" isLoading>
+                        {[]}
+                    </ListBox>
+                    <ListBox {...args} size="sm" isLoading>
+                        {[]}
+                    </ListBox>
+                    <ListBox {...args} size="xs" isLoading>
+                        {[]}
+                    </ListBox>
+                </Inline>
+                <h1>Loading with Existing Items</h1>
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg" isLoading>
+                        <ListBoxItem id="1">Earth</ListBoxItem>
+                        <ListBoxItem id="2">Mars</ListBoxItem>
+                        <ListBoxItem id="3">Saturn</ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="md" isLoading>
+                        <ListBoxItem id="1">Earth</ListBoxItem>
+                        <ListBoxItem id="2">Mars</ListBoxItem>
+                        <ListBoxItem id="3">Saturn</ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="sm" isLoading>
+                        <ListBoxItem id="1">Earth</ListBoxItem>
+                        <ListBoxItem id="2">Mars</ListBoxItem>
+                        <ListBoxItem id="3">Saturn</ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs" isLoading>
+                        <ListBoxItem id="1">Earth</ListBoxItem>
+                        <ListBoxItem id="2">Mars</ListBoxItem>
+                        <ListBoxItem id="3">Saturn</ListBoxItem>
                     </ListBox>
                 </Inline>
                 <h1>Item Overflow</h1>
@@ -561,7 +599,7 @@ export const InputMultiSelect = {
     }
 } satisfies Story;
 
-const StateTemplate = (args: Partial<ListBoxProps<object>>) => (
+const StateTemplate = (args: Partial<ListBoxProps<unknown>>) => (
     <Inline alignY="flex-end">
         <ListBox {...args} size="xs">
             <ListBoxItem id="1" textValue="Earth">

@@ -1,0 +1,60 @@
+.hop-ListBoxItemSkeleton  {
+    /* Default */
+    --hop-ListBoxItemSkeleton-background-color: var(--hop-neutral-surface-weak);
+    --hop-ListBoxItemSkeleton-border-radius: var(--hop-shape-rounded-md);
+
+    /* Sizes */
+    --hop-ListBoxItemSkeleton-xs-height: 1.25rem;
+    --hop-ListBoxItemSkeleton-sm-height: 1.25rem;
+    --hop-ListBoxItemSkeleton-md-height: 1.25rem;
+    --hop-ListBoxItemSkeleton-lg-height: 1.5rem;
+
+    grid-area: label;    
+
+    box-sizing: border-box;
+    block-size: var(--height);
+
+    background-color: var(--hop-ListBoxItemSkeleton-background-color);
+    background-image: linear-gradient(
+        90deg,
+        var(--hop-neutral-surface-weak) 25%,
+        var(--hop-neutral-surface-weak-hover) 37%,
+        var(--hop-neutral-surface-weak-hover) 63%,
+        var(--hop-neutral-surface-weak) 100%
+    );
+    background-size: 400% 100%;
+    border-radius: var(--hop-ListBoxItemSkeleton-border-radius);
+
+    animation-name: placeholder-shimmer;
+    animation-duration: 1.4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+}
+
+.hop-ListBoxItemSkeleton--xs {
+    --height: var(--hop-ListBoxItemSkeleton-xs-height);
+}
+
+.hop-ListBoxItemSkeleton--sm {
+    --height: var(--hop-ListBoxItemSkeleton-sm-height);
+}
+
+.hop-ListBoxItemSkeleton--md {
+    --height: var(--hop-ListBoxItemSkeleton-md-height);
+}
+
+.hop-ListBoxItemSkeleton--lg {
+    --height: var(--hop-ListBoxItemSkeleton-lg-height);
+}
+
+@keyframes placeholder-shimmer {
+    0% {
+      background-position: 125% 50%;
+    }
+
+    100% {
+      background-position: -25% 50%;
+    }
+  }

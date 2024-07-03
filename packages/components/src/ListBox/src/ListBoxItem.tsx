@@ -1,6 +1,6 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState, useEffect, useCallback } from "react";
+import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState, type TransitionEventHandler } from "react";
 import {
     useContextProps, 
     ListBoxItem as RACListBoxItem, 
@@ -13,12 +13,14 @@ import {
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { Checkbox } from "../../checkbox/index.ts";
+import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Radio, RadioGroup, RadioList } from "../../radio/index.ts";
 import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, type SizeAdapter, SlotProvider, cssModule, isTextOnlyChildren } from "../../utils/index.ts";
 
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
+import { ListBoxItemSkeleton } from "./ListBoxItemSkeleton.tsx";
 
 import styles from "./ListBoxItem.module.css";
 
@@ -32,6 +34,10 @@ export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBo
      */
     isInvalid?: boolean;
     /**
+     * Whether the item is loading.
+     * */
+    isLoading?: boolean;
+    /**
      * The selection indicator to use. Only available if the selection mode is not "none".
      * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
      * @default "check"
@@ -44,7 +50,7 @@ export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBo
     size?: ResponsiveProp<ListBoxItemSize>;
 }
 
-interface ListBoxInnerProps extends ListBoxItemRenderProps {
+interface ListBoxItemInnerProps extends ListBoxItemRenderProps {
     /**
      * The selection indicator to use. Only available if the selection mode is not "none".
      * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
@@ -64,10 +70,6 @@ interface ListBoxInnerProps extends ListBoxItemRenderProps {
      * The children of the ListBoxItem.
      */
     children: ReactNode;
-    /**
-     * A function to set the list has selection state.
-     */
-    setListHasSelection: (value: boolean) => void;
 }
 
 const ListBoxItemToIconSizeAdapter = {
@@ -84,11 +86,8 @@ const ListBoxItemToTextSizeAdapter = {
     lg: "md"
 } as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
 
-const getIsListHasSelectionEnd = (isListHasSelection: boolean, prevIsListHasSelectionEnd: boolean): boolean => {
-    return isListHasSelection && !prevIsListHasSelectionEnd;
-};
-
-function ListBoxItemInner(props: ListBoxInnerProps) {
+function ListBoxItemInner(props: ListBoxItemInnerProps) {
+    const stringFormatter = useLocalizedString();
     const listStateContext = useContext(ListStateContext);
     
     const { selectionMode, 
@@ -100,25 +99,34 @@ function ListBoxItemInner(props: ListBoxInnerProps) {
         selectionIndicator, 
         isInvalid, 
         size, 
-        children,
-        setListHasSelection
+        children
     } = props;
     
     const isRadio = selectionIndicator === "input" && selectionMode === "single";
     const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
     const isCheck = selectionIndicator === "check" && selectionMode !== "none";
+    
+    const isListHasSelection = listStateContext.selectionManager.selectedKeys.size > 0;
+    const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(isListHasSelection);
 
-    useEffect(() => {
-        setListHasSelection(listStateContext.selectionManager.selectedKeys.size > 0);
-    }, [listStateContext.selectionManager.selectedKeys.size, setListHasSelection]);
+    const handleTransitionEnd: TransitionEventHandler<HTMLDivElement> = event => {
+        if (event.propertyName === "grid-template-columns") {
+            setIsListHasSelectionEnd(prev => isListHasSelection && !prev);
+        }
+    };
 
     return (
-        <>
+        <div 
+            className={styles["hop-ListBoxItem__inner"]}
+            data-list-has-selection={isListHasSelection || undefined}
+            data-list-has-selection-end={isListHasSelectionEnd || undefined}
+            onTransitionEnd={handleTransitionEnd}
+        >
             {isRadio && (
                 <RadioGroup 
                     size="sm"
-                    aria-hidden="true" 
-                    aria-label="list item indicator"
+                    aria-hidden="true"
+                    aria-label={stringFormatter.format("ListBoxItem.indicatorAriaLabel")}
                     value={isSelected ? "radio" : null} 
                     className={styles["hop-ListBoxItem__radio-group"]}
                     isInvalid={isInvalid}
@@ -204,7 +212,7 @@ function ListBoxItemInner(props: ListBoxInnerProps) {
             >
                 {children}
             </SlotProvider>
-        </>
+        </div>
     );
 }
 
@@ -214,7 +222,9 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
     const {
         className,
         children: childrenProp,
+        isDisabled,
         isInvalid,
+        isLoading,
         size: sizeProp,
         style: styleProp,
         textValue: textValueProp,
@@ -252,28 +262,6 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
         return prev;
     });
 
-    const [isListHasSelection, setIsListHasSelection] = useState(false);
-    const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(getIsListHasSelectionEnd(isListHasSelection, false));
-
-    const handleTransitionEnd = useCallback((event: TransitionEvent) => {
-        if (event.propertyName === "grid-template-columns") {
-            setIsListHasSelectionEnd(prev => getIsListHasSelectionEnd(isListHasSelection, prev));
-        }
-    }, [isListHasSelection]);
-
-    useEffect(() => {    
-        const element = ref.current;
-        if (element) {
-            element.addEventListener("transitionend", handleTransitionEnd);
-        }
-    
-        return () => {
-            if (element) {
-                element.removeEventListener("transitionend", handleTransitionEnd);
-            }
-        };
-    }, [handleTransitionEnd, ref]);
-
     return (
         <RACListBoxItem
             {...otherProps}
@@ -281,18 +269,30 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             className={classNames}
             style={style}
             textValue={textValue}
+            isDisabled={isLoading || isDisabled}
             data-invalid={isInvalid || undefined}
-            data-list-has-selection={isListHasSelection || undefined}
-            data-list-has-selection-end={isListHasSelectionEnd || undefined}
+            data-loading={isLoading || undefined}
         >
             {listBoxItemProps => {
+                if (isLoading) {
+                    return (
+                        <div 
+                            className={styles["hop-ListBoxItem__inner"]}
+                        >
+                            <ListBoxItemSkeleton
+                                size={size}
+                                slot="label"
+                            />
+                        </div>
+                    );
+                }
+
                 return (
                     <ListBoxItemInner 
                         {...listBoxItemProps} 
                         selectionIndicator={selectionIndicator} 
                         isInvalid={isInvalid} 
                         size={size}
-                        setListHasSelection={setIsListHasSelection}
                     >
                         {children(listBoxItemProps)}
                     </ListBoxItemInner>

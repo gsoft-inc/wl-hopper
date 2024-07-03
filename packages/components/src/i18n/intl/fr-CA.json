@@ -4,5 +4,7 @@
     "ClearButton.clearAriaLabel": "Effacer",
     "Input.charactersLeft": "{charLeft, plural, =0 {Aucun caractère restant} one {# caractère restant} other {# caractères restants}}.",
     "PasswordField.toggleVisibility": "Basculer la visibilité du mot de passe",
-    "Tag.removeAriaLabel": "Supprimer"
+    "Tag.removeAriaLabel": "Supprimer",
+    "ListBoxItem.loadingTextValue": "Élément en cours de chargement",
+    "ListBoxItem.indicatorAriaLabel": "Indicateur de sélection d'élément de liste"
 }

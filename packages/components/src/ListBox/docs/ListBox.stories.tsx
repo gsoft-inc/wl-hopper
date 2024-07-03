@@ -429,7 +429,7 @@ export const DynamicLists = {
                     {item => {
                         const listItem = item as ListItemProps;
                     
-                        return <ListBoxItem>{listItem.name}</ListBoxItem>;
+                        return <ListBoxItem id={listItem.name}>{listItem.name}</ListBoxItem>;
                     }}
                 </ListBox>
                 <ListBox
@@ -444,7 +444,7 @@ export const DynamicLists = {
                             <Section id={listSection.name}>
                                 <Header>{listSection.name}</Header>
                                 <Collection items={listSection.children}>
-                                    {item => <ListBoxItem>{item.name}</ListBoxItem>}
+                                    {item => <ListBoxItem id={item.name}>{item.name}</ListBoxItem>}
                                 </Collection>
                             </Section>
                         );
@@ -468,7 +468,7 @@ export const Loading = {
                 aria-label="list of options"
                 isLoading
             >
-                <ListBoxItem>Loading...</ListBoxItem>
+                {[]}
             </ListBox>
         );
     }
@@ -510,6 +510,19 @@ export const LoadOnScroll = {
 
                     return <ListBoxItem id={listItem.name}>{listItem.name}</ListBoxItem>;
                 }}
+            </ListBox>
+        );
+    }
+} satisfies Story;
+
+/**
+ * A ListBox can have an empty state.
+ */
+export const Empty = {
+    render: args => {
+        return (
+            <ListBox {...args} aria-label="list of options" renderEmptyState={() => "No results found."}>
+                {[]}
             </ListBox>
         );
     }

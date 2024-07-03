@@ -1,14 +1,15 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps } from "react-aria-components";
+import { forwardRef, type ReactNode, type ForwardedRef, type NamedExoticComponent } from "react";
+import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection } from "react-aria-components";
 
 import { DividerContext } from "../../Divider/index.ts";
 import { HeaderContext } from "../../Header/index.ts";
+import { useLocalizedString } from "../../i18n/index.ts";
 import { SectionContext } from "../../Section/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
+import { composeClassnameRenderProps, SlotProvider, cssModule, isFunction } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
-import type { ListBoxItemSize } from "./ListBoxItem.tsx";
+import { ListBoxItem, type ListBoxItemSize } from "./ListBoxItem.tsx";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 import { useLoadOnScroll } from "./useLoadOnScroll.ts";
 
@@ -64,6 +65,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
 
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const stringFormatter = useLocalizedString();
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -85,6 +87,17 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
     });
 
     const onScroll = useLoadOnScroll({ isLoading, onLoadMore }, ref);
+    const renderChildren = (): ReactNode => {
+        if (props.items) {
+            return (
+                <Collection items={props.items}>
+                    {item => (isFunction(children) ? children(item) : children)}
+                </Collection>
+            );
+        }
+
+        return <>{children}</>;
+    };
 
     return (
         <SlotProvider
@@ -112,8 +125,12 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 className={classNames}
                 style={style}
                 onScroll={onScroll}
+                data-loading={isLoading}
             >
-                {children}
+                {renderChildren()}
+                {isLoading && Array.from({ length: 5 }).map((_, index) => {
+                    return <ListBoxItem key={`loadingListItem_${index.toString()}`} id={`loadingListItem_${index.toString()}`} isLoading={isLoading} size={size} textValue={stringFormatter.format("ListBoxItem.loadingTextValue")} />;
+                })}
             </RACListBox>
         </SlotProvider>
     );
@@ -124,7 +141,9 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
  *
  * [View Documentation](TODO)
  */
-const _ListBox = forwardRef<HTMLDivElement, ListBoxProps<object>>(ListBox);
-_ListBox.displayName = "ListBox";
+const _ListBox = forwardRef(ListBox) as <T>(
+    props: ListBoxProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof ListBox>;
+(_ListBox as NamedExoticComponent).displayName = "ListBox";
 
 export { _ListBox as ListBox };
