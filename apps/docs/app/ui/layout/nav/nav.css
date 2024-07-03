@@ -34,9 +34,17 @@
     padding-block: var(--hd-space-1);
 }
 
+.hd-nav__link:focus-visible {
+    outline: 0;
+}
+
 .hd-nav__list-item--active,
 .hd-nav__list-item:hover {
     background-color: var(--hd-color-neutral-surface-weak);
+}
+
+.hd-nav__list-item:has(:focus-visible) {
+    box-shadow: var(--hd-focus-ring);
 }
 
 .hd-nav__link--disabled {
