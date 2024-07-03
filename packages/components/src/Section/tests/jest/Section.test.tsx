@@ -35,7 +35,7 @@ describe("Section", () => {
     });
 
     it("should support refs", () => {
-        const ref = createRef<HTMLElement>();
+        const ref = createRef<HTMLDivElement>();
         render(<ListBox aria-label="list-box"><Section ref={ref}>Test</Section></ListBox>);
 
         expect(ref.current).not.toBeNull();
