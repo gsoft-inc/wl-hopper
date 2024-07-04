@@ -1,58 +1,58 @@
 name: Changesets
 
 on:
-  push:
-    branches: [ "main" ]
+    push:
+        branches: [ "main" ]
 env:
-  CI: true
+    CI: true
 
 jobs:
-  version:
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write # required for provenance https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions
-      contents: write
-      pull-requests: write
+    version:
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write # required for provenance https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions
+            contents: write
+            pull-requests: write
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ".nvmrc"
+            -   name: Install Node.js
+                uses: actions/setup-node@v4
+                with:
+                    node-version-file: ".nvmrc"
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        id: pnpm-install
-        with:
-          version: 9
-          run_install: false
+            -   name: Install pnpm
+                uses: pnpm/action-setup@v4
+                id: pnpm-install
+                with:
+                    version: 9
+                    run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+            -   name: Get pnpm store directory
+                id: pnpm-cache
+                shell: bash
+                run: |
+                    echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            -   name: Setup pnpm cache
+                uses: actions/cache@v4
+                with:
+                    path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+                    key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                    restore-keys: |
+                        ${{ runner.os }}-pnpm-store-
 
-      - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
+            -   name: Install Dependencies
+                run: pnpm i --frozen-lockfile
 
-      - name: Create release Pull Request or publish to NPM
-        uses: changesets/action@v1
-        with:
-          commit: "ci(changesets): version packages"
-          title: "Changeset: New Version"
-          publish: pnpm run ci-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.WORKLEAP_NPM_TOKEN }}
+            -   name: Create release Pull Request or publish to NPM
+                uses: changesets/action@v1
+                with:
+                    commit: "ci(changesets): version packages"
+                    title: "Changeset: New Version"
+                    publish: pnpm run ci-release
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    NPM_TOKEN: ${{ secrets.WORKLEAP_NPM_TOKEN }}

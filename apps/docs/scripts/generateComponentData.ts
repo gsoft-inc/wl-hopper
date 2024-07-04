@@ -11,7 +11,9 @@ interface Group {
     [key: string]: PropItem;
 }
 
-interface Groups { [key: string]: Group }
+interface Groups {
+    [key: string]: Group;
+}
 
 interface GroupsConfig {
     [key: string]: string | string[];
@@ -176,7 +178,6 @@ async function generateComponentData() {
     };
 
     const components = await generateComponentList(PACKAGES, options);
-    console.log("Found components:", components);
 
     if (!components.length) {
         console.error("No components found");

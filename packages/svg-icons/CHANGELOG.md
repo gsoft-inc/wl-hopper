@@ -1,5 +1,31 @@
 # @hopper-ui/svg-icons
 
+## 2.13.0
+
+### Minor Changes
+
+- 339c517: Added the following SVG icons:
+
+  **Added**
+
+  | SVG Name           |
+  | ------------------ |
+  | connections-16.svg |
+  | connections-24.svg |
+  | connections-32.svg |
+  | open-role-24.svg   |
+  | open-role-32.svg   |
+  | open-role-40.svg   |
+
+  Added the following icons:
+
+  **Added**
+
+  | Icon Name        |
+  | ---------------- |
+  | ConnectionsIcon  |
+  | OpenRoleRichIcon |
+
 ## 2.12.0
 
 ### Minor Changes

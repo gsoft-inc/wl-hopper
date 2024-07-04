@@ -1,8 +1,6 @@
-"use client";
-
 import "./typo.css";
 
-export default function CodeBlockPage() {
+export default function TypographyPage() {
     return (
         <article className="hd-content">
             <main data-font="cdn" className="hd-wrapper">

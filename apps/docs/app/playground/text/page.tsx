@@ -5,7 +5,7 @@ import Aside from "@/app/ui/layout/aside/Aside.tsx";
 import getSectionLinks from "@/app/lib/getSectionLinks";
 
 export default function HeadingsLinkPage() {
-    const page = allPages.find(playgroundPage => playgroundPage._id === "pages/playground-headings-links.mdx");
+    const page = allPages.find(playgroundPage => playgroundPage._id === "pages/playground-text-flow.mdx");
 
     if (!page) {
         notFound();
