@@ -29,7 +29,8 @@
         "PackageInstallation": true,
         "PropTable": true,
         "CodeOnlyExample": true,
-        "Example": true
+        "Example": true,
+        "FeatureFlag": true
     },
     "overrides": [
         {
@@ -57,21 +58,31 @@
                 ],
                 "react/destructuring-assignment": "off",
                 "no-param-reassign": "off",
-                "no-restricted-imports": ["error", {
-                    "patterns": [
-                        {
-                            "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
-                            "message": "Avoid importing from index.ts files directly next or above the current file"
-                        }
-                    ],
-                    "paths": [
-                        {
-                            "name": "react",
-                            "importNames": ["default"],
-                            "message": "import React from \"react\" is no longer necessary and should be avoided. "
-                        }
-                    ]
-                }]
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "patterns": [
+                            {
+                                "group": [
+                                    "../../index.ts",
+                                    "../index.ts",
+                                    "../../../index.ts",
+                                    "./index.ts"
+                                ],
+                                "message": "Avoid importing from index.ts files directly next or above the current file"
+                            }
+                        ],
+                        "paths": [
+                            {
+                                "name": "react",
+                                "importNames": [
+                                    "default"
+                                ],
+                                "message": "import React from \"react\" is no longer necessary and should be avoided. "
+                            }
+                        ]
+                    }
+                ]
             }
         }
     ]
