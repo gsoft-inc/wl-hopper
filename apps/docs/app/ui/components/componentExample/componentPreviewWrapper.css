@@ -10,6 +10,7 @@
 .hd-component-preview-wrapper[data-schema="light"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-white);
+        --color: var(--hd-neutral-900);
         --dot-background: var(--hd-neutral-50);
     }
 
@@ -29,6 +30,7 @@
 .hd-component-preview-wrapper[data-schema="dark"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-neutral-900);
+        --color: var(--hd-neutral-0);
         --dot-background: var(--hd-neutral-800);
     }
 

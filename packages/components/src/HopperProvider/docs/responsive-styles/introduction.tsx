@@ -1,4 +1,3 @@
-
 import { Div, Text } from "@hopper-ui/components";
 
 export default function Example() {
@@ -16,7 +15,7 @@ export default function Example() {
             maxWidth="100%"
             padding="inset-md"
         >
-            <Text>Resize to see the background color change!</Text>
+            <Text>Resize the window to see the background color change!</Text>
         </Div>
     );
 }
