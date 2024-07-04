@@ -867,11 +867,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{koi.200}"
+                "$value": "{koi.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{koi.300}"
+                "$value": "{koi.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -953,11 +953,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{rock.200}"
+                "$value": "{rock.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{rock.300}"
+                "$value": "{rock.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1039,11 +1039,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{amanita.200}"
+                "$value": "{amanita.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{amanita.300}"
+                "$value": "{amanita.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1143,11 +1143,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{coastal.200}"
+                "$value": "{coastal.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{coastal.300}"
+                "$value": "{coastal.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1229,11 +1229,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{orchid-bloom.200}"
+                "$value": "{orchid-bloom.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{orchid-bloom.300}"
+                "$value": "{orchid-bloom.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1315,11 +1315,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{quetzal.200}"
+                "$value": "{quetzal.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{quetzal.300}"
+                "$value": "{quetzal.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1401,11 +1401,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{fog.200}"
+                "$value": "{fog.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{fog.300}"
+                "$value": "{fog.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1487,11 +1487,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{toad.200}"
+                "$value": "{toad.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{toad.300}"
+                "$value": "{toad.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1573,11 +1573,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{sunken-treasure.200}"
+                "$value": "{sunken-treasure.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{sunken-treasure.300}"
+                "$value": "{sunken-treasure.500}"
             },
             "border-selected": {
                 "$type": "color",
@@ -1649,6 +1649,26 @@
             }
         },
         "positive": {
+            "border": {
+                "$type": "color",
+                "$value": "{moss.300}"
+            },
+            "border-disabled": {
+                "$type": "color",
+                "$value": "{moss.50}"
+            },
+            "border-hover": {
+                "$type": "color",
+                "$value": "{moss.400}"
+            },
+            "border-press": {
+                "$type": "color",
+                "$value": "{moss.500}"
+            },
+            "border-selected": {
+                "$type": "color",
+                "$value": "{moss.700}"
+            },
             "icon": {
                 "$type": "color",
                 "$value": "{moss.600}"
@@ -1725,11 +1745,11 @@
             },
             "border-hover": {
                 "$type": "color",
-                "$value": "{sapphire.200}"
+                "$value": "{sapphire.400}"
             },
             "border-press": {
                 "$type": "color",
-                "$value": "{sapphire.300}"
+                "$value": "{sapphire.500}"
             },
             "border-selected": {
                 "$type": "color",
