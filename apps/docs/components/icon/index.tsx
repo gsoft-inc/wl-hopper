@@ -15,6 +15,12 @@ import TypescriptIcon from "./assets/typescript.svg";
 import CollapseIcon from "./assets/collapse.svg";
 import CodeIcon from "./assets/code.svg";
 import EmptyComponent from "./assets/empty-component.svg";
+import CheckIcon from "./assets/check.svg";
+import ErrorIcon from "./assets/error.svg";
+import InfoIcon from "./assets/info.svg";
+import MessageIcon from "./assets/message.svg";
+import WarningIcon from "./assets/warning.svg";
+
 import Icon, { type IconProps } from "./Icon.tsx";
 
 export {
@@ -35,6 +41,11 @@ export {
     CodeIcon,
     TypescriptIcon,
     EmptyComponent,
+    CheckIcon,
+    ErrorIcon,
+    InfoIcon,
+    MessageIcon,
+    WarningIcon,
     Icon,
     IconProps
 };
