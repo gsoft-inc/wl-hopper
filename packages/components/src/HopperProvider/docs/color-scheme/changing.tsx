@@ -25,7 +25,7 @@ export default function Example() {
 
     return (
         <HopperProvider colorScheme={parentColorScheme}>
-            <Div backgroundColor="neutral" padding="inset-md">
+            <Div backgroundColor="neutral" padding="inset-lg" borderRadius="core_2">
                 <ColorSchemeToggle />
             </Div>
         </HopperProvider>

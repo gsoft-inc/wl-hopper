@@ -15,7 +15,7 @@ In this example, the `Div` has a default background color, which is overridden a
 ## Breakpoints
 
 There are five breakpoints available (+ the base), inspired by common device resolutions:
-x
+
 <BreakpointTable />
 
 ## Working mobile-first
@@ -23,13 +23,11 @@ x
 By default, Hopper uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap or Tailwind.
 
 {/* TODO start the sentence with a <ErrorIcon /> */}
-**Don't use `sm:` to target mobile devices**
+<Callout variant="error">Don't use `sm:` to target mobile devices</Callout>
 
 <Example src="HopperProvider/docs/responsive-styles/mobile-first-do-not" isOpen />
 
-
-{/* TODO start the sentence with a <SuccessIcon /> */}
-**Use `base` to target mobile, and override them at larger breakpoints**
+<Callout variant="success">Use `base` to target mobile devices</Callout>
 
 <Example src="HopperProvider/docs/responsive-styles/mobile-first-do" isOpen />
 
