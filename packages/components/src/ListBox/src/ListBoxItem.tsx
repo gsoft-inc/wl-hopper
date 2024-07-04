@@ -1,6 +1,6 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState, type TransitionEventHandler } from "react";
+import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState, type TransitionEventHandler, type NamedExoticComponent } from "react";
 import {
     useContextProps, 
     ListBoxItem as RACListBoxItem, 
@@ -307,7 +307,9 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
  *
  * [View Documentation](TODO)
  */
-const _ListBoxItem = forwardRef<HTMLDivElement, ListBoxItemProps<object>>(ListBoxItem);
-_ListBoxItem.displayName = "ListBoxItem";
+const _ListBoxItem = forwardRef(ListBoxItem) as <T>(
+    props: ListBoxItemProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof ListBoxItem>;
+(_ListBoxItem as NamedExoticComponent).displayName = "ListBoxItem";
 
 export { _ListBoxItem as ListBoxItem };

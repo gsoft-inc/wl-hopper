@@ -599,90 +599,96 @@ export const InputMultiSelect = {
     }
 } satisfies Story;
 
-const StateTemplate = (args: Partial<ListBoxProps<unknown>>) => (
-    <Inline alignY="flex-end">
-        <ListBox {...args} size="xs">
-            <ListBoxItem id="1" textValue="Earth">
-                <SparklesIcon />
-                <Text slot="label">Earth</Text>
-                <Text slot="description">The third planet from the sun.</Text>
-                <Badge>50</Badge>
-            </ListBoxItem>
-            <ListBoxItem id="2" textValue="Mars">
-                <SparklesIcon />
-                <Text slot="label">Mars</Text>
-                <Text slot="description">The fourth planet from the sun.</Text>
-                <Badge variant="secondary">99+</Badge>
-            </ListBoxItem>
-        </ListBox>
-        <ListBox {...args} size="sm">
-            <ListBoxItem id="1" textValue="Earth">
-                <SparklesIcon />
-                <Text slot="label">Earth</Text>
-                <Text slot="description">The third planet from the sun.</Text>
-                <Badge>50</Badge>
-            </ListBoxItem>
-            <ListBoxItem id="2" textValue="Mars">
-                <SparklesIcon />
-                <Text slot="label">Mars</Text>
-                <Text slot="description">The fourth planet from the sun.</Text>
-                <Badge variant="secondary">99+</Badge>
-            </ListBoxItem>
-        </ListBox>
-        <ListBox {...args} size="md">
-            <ListBoxItem id="1" textValue="Earth">
-                <SparklesIcon />
-                <Text slot="label">Earth</Text>
-                <Text slot="description">The third planet from the sun.</Text>
-                <Badge>50</Badge>
-            </ListBoxItem>
-            <ListBoxItem id="2" textValue="Mars">
-                <SparklesIcon />
-                <Text slot="label">Mars</Text>
-                <Text slot="description">The fourth planet from the sun.</Text>
-                <Badge variant="secondary">99+</Badge>
-            </ListBoxItem>
-        </ListBox>
-        <ListBox {...args} size="lg">
-            <ListBoxItem id="1" textValue="Earth">
-                <SparklesIcon />
-                <Text slot="label">Earth</Text>
-                <Text slot="description">The third planet from the sun.</Text>
-                <Badge>50</Badge>
-            </ListBoxItem>
-            <ListBoxItem id="2" textValue="Mars">
-                <SparklesIcon />
-                <Text slot="label">Mars</Text>
-                <Text slot="description">The fourth planet from the sun.</Text>
-                <Badge variant="secondary">99+</Badge>
-            </ListBoxItem>
-        </ListBox>
-    </Inline>
-);
+interface StateTemplateProps extends Partial<ListBoxProps<unknown>> {
+    "data-chromatic-force"?: string[];
+}
+
+const StateTemplate = (args: StateTemplateProps) => {
+    const { "data-chromatic-force": dataChromaticForce, ...rest } = args;
+
+    return (
+        <Inline alignY="flex-end">
+            <ListBox {...rest} size="xs">
+                <ListBoxItem id="1" textValue="Earth" data-testid="first-item" data-chromatic-force={dataChromaticForce}>
+                    <SparklesIcon />
+                    <Text slot="label">Earth</Text>
+                    <Text slot="description">The third planet from the sun.</Text>
+                    <Badge>50</Badge>
+                </ListBoxItem>
+                <ListBoxItem id="2" textValue="Mars">
+                    <SparklesIcon />
+                    <Text slot="label">Mars</Text>
+                    <Text slot="description">The fourth planet from the sun.</Text>
+                    <Badge variant="secondary">99+</Badge>
+                </ListBoxItem>
+            </ListBox>
+            <ListBox {...rest} size="sm">
+                <ListBoxItem id="1" textValue="Earth" data-testid="first-item" data-chromatic-force={dataChromaticForce}>
+                    <SparklesIcon />
+                    <Text slot="label">Earth</Text>
+                    <Text slot="description">The third planet from the sun.</Text>
+                    <Badge>50</Badge>
+                </ListBoxItem>
+                <ListBoxItem id="2" textValue="Mars">
+                    <SparklesIcon />
+                    <Text slot="label">Mars</Text>
+                    <Text slot="description">The fourth planet from the sun.</Text>
+                    <Badge variant="secondary">99+</Badge>
+                </ListBoxItem>
+            </ListBox>
+            <ListBox {...rest} size="md">
+                <ListBoxItem id="1" textValue="Earth" data-testid="first-item" data-chromatic-force={dataChromaticForce}>
+                    <SparklesIcon />
+                    <Text slot="label">Earth</Text>
+                    <Text slot="description">The third planet from the sun.</Text>
+                    <Badge>50</Badge>
+                </ListBoxItem>
+                <ListBoxItem id="2" textValue="Mars">
+                    <SparklesIcon />
+                    <Text slot="label">Mars</Text>
+                    <Text slot="description">The fourth planet from the sun.</Text>
+                    <Badge variant="secondary">99+</Badge>
+                </ListBoxItem>
+            </ListBox>
+            <ListBox {...rest} size="lg">
+                <ListBoxItem id="1" textValue="Earth" data-testid="first-item" data-chromatic-force={dataChromaticForce}>
+                    <SparklesIcon />
+                    <Text slot="label">Earth</Text>
+                    <Text slot="description">The third planet from the sun.</Text>
+                    <Badge>50</Badge>
+                </ListBoxItem>
+                <ListBoxItem id="2" textValue="Mars">
+                    <SparklesIcon />
+                    <Text slot="label">Mars</Text>
+                    <Text slot="description">The fourth planet from the sun.</Text>
+                    <Badge variant="secondary">99+</Badge>
+                </ListBoxItem>
+            </ListBox>
+        </Inline>
+    );
+};
 
 export const SingleSelectStates = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const listboxes = canvas.getAllByRole("listbox");
+        const listboxes = await canvas.findAllByRole("listbox");
         listboxes.forEach(async listbox => {
-            const firstItem = (await within(listbox).findAllByRole("option"))[0];
-            if (!firstItem.hasAttribute("data-disabled")) { // don't try and force states on a disabled input
-                if (listbox.getAttribute("data-chromatic-force-press")) {
-                    firstItem.setAttribute("data-pressed", "true");
+            const listboxItem = await within(listbox).findByTestId("first-item");
+            if (!listboxItem.hasAttribute("data-disabled") && listboxItem.hasAttribute("data-chromatic-force")) { // don't try and force states on a disabled input
+                if (listboxItem.getAttribute("data-chromatic-force")?.includes("press")) {
+                    listboxItem.setAttribute("data-pressed", "true");
                 }
 
-                if (listbox.getAttribute("data-chromatic-force-focus")) {
-                    firstItem.setAttribute("data-focus-visible", "true");
+                if (listboxItem.getAttribute("data-chromatic-force")?.includes("focus")) {
+                    listboxItem.setAttribute("data-focus-visible", "true");
                 }
 
-                if (listbox.getAttribute("data-chromatic-force-hover")) {
-                    firstItem.setAttribute("data-hovered", "true");
+                if (listboxItem.getAttribute("data-chromatic-force")?.includes("hover")) {
+                    listboxItem.setAttribute("data-hovered", "true");
                 }
+                
+                listboxItem.removeAttribute("data-chromatic-force");
             }
-            
-            listbox.removeAttribute("data-chromatic-force-press");
-            listbox.removeAttribute("data-chromatic-force-focus");
-            listbox.removeAttribute("data-chromatic-force-hover");
         });
     },
     render: props => (
@@ -690,15 +696,15 @@ export const SingleSelectStates = {
             <h1>Default</h1>
             <StateTemplate {...props} />
             <h1>Focus Visible</h1>
-            <StateTemplate {...props} data-chromatic-force-focus />
+            <StateTemplate {...props} data-chromatic-force={["focus"]} />
             <h1>Hovered</h1>
-            <StateTemplate {...props} data-chromatic-force-hover />
+            <StateTemplate {...props} data-chromatic-force={["hover"]} />
             <h1>Focus Visible & Hovered</h1>
-            <StateTemplate {...props} data-chromatic-force-focus data-chromatic-force-hover />
+            <StateTemplate {...props} data-chromatic-force={["focus", "hover"]} />
             <h1>Pressed</h1>
-            <StateTemplate {...props} data-chromatic-force-press />
+            <StateTemplate {...props} data-chromatic-force={["press"]} />
             <h1>All States & Disabled</h1>
-            <StateTemplate {...props} disabledKeys={["1", "2"]} data-chromatic-force-focus data-chromatic-force-hover force-hover data-chromatic-force-press />
+            <StateTemplate {...props} disabledKeys={["1", "2"]} data-chromatic-force={["focus", "hover", "press"]} />
         </Stack>
     ),
     args: {
