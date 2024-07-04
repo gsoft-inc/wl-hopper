@@ -305,6 +305,13 @@
 }
 
 .hop-ListBoxItem__description {
+    overflow: hidden;
+    display: -webkit-box;
     grid-area: description;
+    -webkit-box-orient: vertical;
+
     color: var(--description-text-color);
+
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
 }

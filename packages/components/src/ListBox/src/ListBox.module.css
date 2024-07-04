@@ -16,7 +16,9 @@
 
     /* Section */
     --hop-ListBox-section-padding-block: var(--hop-ListBox-padding-block);
+    --hop-ListBox-section-padding-inline: var(--hop-ListBox-padding-inline);
     --hop-ListBox-section-margin-block: var(--hop-space-stack-sm);
+    --hop-ListBox-section-margin-inline: calc(-1 * var(--hop-ListBox-padding-inline));
     --hop-ListBox-section-border-size: var(--hop-ListBox-border-size);
     --hop-ListBox-section-border-color: var(--hop-ListBox-border-color); 
 
@@ -33,6 +35,7 @@
 
     /* Divider */
     --hop-ListBox-divider-margin-block: var(--hop-space-stack-sm);
+    --hop-ListBox-divider-margin-inline: calc(-1 * var(--hop-ListBox-padding-inline));
 
     /* Internal Variables */
     --max-width: var(--hop-ListBox-max-width);
@@ -64,7 +67,10 @@
 
 .hop-ListBox__section {
     margin-block: var(--section-margin-block-start) var(--section-margin-block-end);
+    margin-inline: var(--hop-ListBox-section-margin-inline);
     padding-block: var(--section-padding-block-start) var(--section-padding-block-end);
+    padding-inline: var(--hop-ListBox-section-padding-inline);
+
     border-block-start: var(--section-border-block-start);
     border-block-end: var(--section-border-block-end);
 }
@@ -124,4 +130,5 @@
 
 .hop-ListBox__divider {
     margin-block: var(--hop-ListBox-divider-margin-block);
+    margin-inline: var(--hop-ListBox-divider-margin-inline);
 }

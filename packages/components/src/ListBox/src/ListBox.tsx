@@ -165,6 +165,8 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 style={style}
                 onScroll={onScroll}
                 data-loading={isLoading}
+                // @ts-expect-error It's not defined, but it is used in RAC
+                shouldSelectOnPressUp
             >
                 {renderChildren()}
                 {isLoading && Array.from({ length: 5 }).map((_, index) => {
