@@ -874,7 +874,7 @@
                 "$value": "{koi.900}"
             }
         },
-        "inselected": {
+        "inactive": {
             "icon": {
                 "$type": "color",
                 "$value": "{rock.800}"
