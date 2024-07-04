@@ -1,18 +1,11 @@
 "use client";
 
 import { createContext, type ReactNode } from "react";
+import { flags } from "./flags.ts";
 
-export interface FeatureFlags {
-    alpha?: boolean;
-}
-
-export const FeatureFlagContext = createContext<FeatureFlags>({});
+export const FeatureFlagContext = createContext<Record<string, boolean>>({});
 
 export const FeatureFlagProvider = ({ children }: { children: ReactNode }) => {
-    const flags = {
-        alpha: process.env.NEXT_PUBLIC_ALPHA === "true"
-    };
-
     return (
         <FeatureFlagContext.Provider value={flags}>
             {children}
