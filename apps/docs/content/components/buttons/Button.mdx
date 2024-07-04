@@ -1,5 +1,5 @@
 ---
-title: Button
+title: Button (WIP)
 description: Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
 category: "buttons"
 links:
@@ -11,6 +11,29 @@ links:
 ## Props
 
 <PropTable component="Button" />
+
+## Guidelines
+
+TODO: If we have some guidelines about this component's usage
+
+### Accessibility ?
+
+TODO: If we have some guidelines about this component and accessibility
+
+## Anatomy
+
+TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+### Concepts
+
+- [Client Side Routing](./client-side-routing)
+
+### Composed Components
+
+A `Button` uses the following components.
+
+- [Icon](./Icon)
+- [Text](./Text)
 
 ## Examples
 
@@ -27,7 +50,7 @@ A button can use different variants.
 
 **Danger** - For actions that could have destructive effects on the user’s data.
 
-**Ghost-[primary|secondary|danger]** - For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Ghost buttons can also be used for sub-tasks on a
+**Ghost ** -[primary|secondary|danger]** - For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Ghost buttons can also be used for sub-tasks on a
 page where a primary button for the main and final action is present.
 
 ### Sizes
@@ -75,14 +98,23 @@ A button can be rendered as a react router link when using the href property, an
 
 <Example src="buttons/docs/button/reactRouterLink" />
 
+## Advanced customization
 
-### Advanced Customization
+### Contexts
 
 All Hopper Components exports a corresponding context that can be used to send props to them from a parent element.
 You can send any prop or ref via context that you could pass to the corresponding component.
 The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
 
 <Example src="buttons/docs/button/advancedCustomization" />
+
+### Custom Children
+
+TODO: Example of passing custom childrens to the components to fake a slot
+
+### Custom Component
+
+TODO: Example of creating a custom version of this component
 
 ## Migration Notes (WIP)
 

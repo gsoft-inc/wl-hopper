@@ -1,5 +1,5 @@
 ---
-title: Responsive Styles (WIP)
+title: Responsive Styles
 description: This page describes how Hopper style props accept a specialized syntax to support responsive breakpoints. These responsive properties help build adaptive user interfaces.
 order: 3
 ---
@@ -10,74 +10,25 @@ In addition to static values, all style props support object syntax to specify d
 
 In this example, the `Div` has a default background color, which is overridden at each breakpoint. Resize your browser window to see this in action.
 
-{/* TODO: example and modify all the property values so it fits hopper */}
-```tsx
-<Div
-    backgroundColor={{
-        base: "moss-200",
-        xs: "sapphire-200",
-        sm: "moss-200",
-        md: "sapphire-200",
-        lg: "rock-200",
-        xl: "sunken-treasure-200"
-    }}
-    width="30rem"
-    maxWidth="100%"
-    padding={160}
->
-    <Text>Resize to see the background color change!</Text>
-</Div>
-```
+<Example src="HopperProvider/docs/responsive-styles/introduction" isOpen />
 
 ## Breakpoints
 
 There are five breakpoints available (+ the base), inspired by common device resolutions:
 
-{/* TODO: do a table here */}
-| Name | Minimum width |
-| ---- | ------------- |
-| base | 0px |
-| xs | 640px |
-| sm | 768px |
-| md | 1024px |
-| lg | 1280px |
-| xl | 1440px |
+<BreakpointTable />
 
 ## Working mobile-first
 
 By default, Hopper uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap or Tailwind.
 
-{/* TODO start the sentence with a <SuccessIcon /> */}
-**Don't use `sm:` to target mobile devices**
+<Callout variant="error">Don&apos;t use `sm:` to target mobile devices</Callout>
 
-{/* TODO: convert to example */}
-```tsx
-<Div
-    // This will only center text on screens 768px and wider, not on small screens
-    textAlign={{sm: "left"}}
-    width="30rem"
-    maxWidth="100%"
-    padding={160}
->
-    <Text>Text Content</Text>
-</Div>
-```
+<Example src="HopperProvider/docs/responsive-styles/mobile-first-do-not" isOpen />
 
-{/* TODO start the sentence with a <SuccessIcon /> */}
-**Use `base` to target mobile, and override them at larger breakpoints**
+<Callout variant="success">Use `base` to target mobile devices</Callout>
 
-{/* TODO: covnert to example */}
-```tsx
-<Div
-    // This will center text on mobile, and left align it on screens 768px and wider
-    textAlign={{base: "center", sm: "left"}}
-    width="30rem"
-    maxWidth="100%"
-    padding={160}
->
-    <Text>Text Content</Text>
-</Div>
-```
+<Example src="HopperProvider/docs/responsive-styles/mobile-first-do" isOpen />
 
 For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for sm screens, followed by md screens, etc.
 
@@ -87,9 +38,4 @@ For this reason, it's often a good idea to implement the mobile layout for a des
 
 To resolve a responsive value within a React component, Hopper provides the useResponsiveValue hook.
 
-{/* TODO example */}
-```tsx
-import { useResponsiveValue } from "@hopper-ui/components";
-
-const isFluidValue = useResponsiveValue({ base: true, lg: false });
-```
+<Example src="HopperProvider/docs/responsive-styles/useResponsiveValue" isOpen />
