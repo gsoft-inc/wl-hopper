@@ -33,6 +33,7 @@ import SimpleTable from "@/app/ui/components/simpleTable/SimpleTable";
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
 const PropTable = dynamic(() => import("@/app/ui/components/propTable/PropTable.tsx"));
 const ComponentExample = dynamic(() => import("@/app/ui/components/componentExample/ComponentExample.tsx"));
+const FeatureFlag = dynamic(() => import("@/components/featureFlag/FeatureFlag.tsx"));
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -55,6 +56,7 @@ export const components = {
     Tabs: Tabs,
     TableSection: TableSection,
     Switcher: Switcher,
+    FeatureFlag: FeatureFlag,
     PackageInstallation: (props: PackageInstallationProps) => {
         return <PackageInstallation {...props} />;
     },
