@@ -109,7 +109,6 @@
     background-color: var(--background-color);
     border-radius: var(--hop-ListBoxItem-border-radius);
     outline: var(--outline);
-
 }
 
 .hop-ListBoxItem--xs {
@@ -247,7 +246,6 @@
     padding-block: var(--padding-block);
     padding-inline: var(--padding-inline);
 
-    
     transition: grid-template-columns .3s ease-in-out;
 }
 

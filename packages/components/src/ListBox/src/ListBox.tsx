@@ -1,12 +1,14 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { forwardRef, type ReactNode, type ForwardedRef, type NamedExoticComponent } from "react";
-import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection } from "react-aria-components";
+import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection, type ListBoxRenderProps } from "react-aria-components";
 
 import { DividerContext } from "../../Divider/index.ts";
 import { HeaderContext } from "../../Header/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { SectionContext } from "../../Section/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, isFunction } from "../../utils/index.ts";
+import { Text, type TextProps } from "../../typography/Text/index.ts";
+import { composeClassnameRenderProps, SlotProvider, cssModule, isFunction, type SizeAdapter } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
 import { ListBoxItem, type ListBoxItemSize } from "./ListBoxItem.tsx";
@@ -16,6 +18,7 @@ import { useLoadOnScroll } from "./useLoadOnScroll.ts";
 import styles from "./ListBox.module.css";
 
 export const GlobalListBoxCssSelector = "hop-ListBox";
+export const GlobalListBoxEmptyItemCssSelector = "hop-ListBox__empty-item";
 
 export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxProps<T>, "orientation | layout">> {
     /**
@@ -47,24 +50,35 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
     size?: ResponsiveProp<ListBoxItemSize>;
 }
 
+const ListBoxToTextSizeAdapter = {
+    xs: "sm",
+    sm: "sm",
+    md: "sm",
+    lg: "md"
+} as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
+
 function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, ListBoxContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
         children,
+        disallowEmptySelection: disallowEmptySelectionProp,
         isFluid: isFluidProp,
         isInvalid,
         isLoading,
         onLoadMore,
+        renderEmptyState,
         size: sizeProp,
         style: styleProp,
         selectionIndicator = "check",
+        selectionMode,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const disallowEmptySelection = disallowEmptySelectionProp ?? (selectionIndicator === "input" && selectionMode === "single");
     const stringFormatter = useLocalizedString();
 
     const classNames = composeClassnameRenderProps(
@@ -77,6 +91,15 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             isFluid && "fluid"
         ),
         stylingProps.className
+    );
+
+    const emptyItemClassNames = clsx(
+        GlobalListBoxEmptyItemCssSelector,
+        cssModule(
+            styles,
+            "hop-ListBox__empty-item",
+            size
+        )
     );
 
     const style = composeRenderProps(styleProp, prev => {
@@ -97,6 +120,19 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         }
 
         return <>{children}</>;
+    };
+
+    const handleRenderEmptyState = (renderProps: ListBoxRenderProps) => {
+        let result = null;
+        if (renderEmptyState && isFunction(renderEmptyState)) {
+            result = renderEmptyState(renderProps);
+            
+            if (result) {
+                return <Text className={emptyItemClassNames} size={ListBoxToTextSizeAdapter[size]}>{result}</Text>;
+            }
+        }
+
+        return result;
     };
 
     return (
@@ -123,6 +159,9 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 {...otherProps}
                 ref={ref}
                 className={classNames}
+                disallowEmptySelection={disallowEmptySelection}
+                renderEmptyState={handleRenderEmptyState}
+                selectionMode={selectionMode}
                 style={style}
                 onScroll={onScroll}
                 data-loading={isLoading}

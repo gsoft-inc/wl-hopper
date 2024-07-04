@@ -132,6 +132,7 @@ export const SingleSelection = {
 
 /** 
  * A ListBox can have a different selection indicator for single select.
+ * By default, disallowEmptySelection is set to true when the selection indicator is a radio button.
  */
 export const SingleSelectionIndicator = {
     ...SingleSelection,
@@ -199,6 +200,7 @@ export const Disabled = {
         );
     },
     args: {
+        selectionMode: "single",
         disabledKeys: ["2"]
     }
 } satisfies Story;
@@ -244,6 +246,9 @@ export const Sizes = {
                 </ListBox>
             </Inline>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -260,6 +265,9 @@ export const ItemSizes = {
                 <ListBoxItem size="lg">LG Item</ListBoxItem>
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -282,6 +290,9 @@ export const Icons = {
                 <ListBoxItem>Item 3</ListBoxItem>
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -366,6 +377,9 @@ export const Sections = {
                 <ListBoxItem>Item 16</ListBoxItem>
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -388,6 +402,9 @@ export const Dividers = {
                 <ListBoxItem>Item 10</ListBoxItem>
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -471,6 +488,9 @@ export const Loading = {
                 {[]}
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 
@@ -512,6 +532,9 @@ export const LoadOnScroll = {
                 }}
             </ListBox>
         );
+    },
+    args: {
+        selectionMode: "single"
     }
 } satisfies Story;
 

@@ -1,7 +1,17 @@
 .hop-ListBoxItemSkeleton  {
     /* Default */
-    --hop-ListBoxItemSkeleton-background-color: var(--hop-neutral-surface-weak);
+    --hop-ListBoxItemSkeleton-background-color: var(--hop-rock-50);
+    --hop-ListBoxItemSkeleton-background-color-dark: var(--hop-rock-75);
     --hop-ListBoxItemSkeleton-border-radius: var(--hop-shape-rounded-md);
+    --hop-ListBoxItemSkeleton-animation-duration: 1.4s;
+    --hop-ListBoxItemSkeleton-animation-reduced-motion-duration: 3.4s;
+    --hop-ListBoxItemSkeleton-linear-gradient: linear-gradient(
+        90deg,
+        var(--hop-ListBoxItemSkeleton-background-color) 25%,
+        var(--hop-ListBoxItemSkeleton-background-color-dark) 37%,
+        var(--hop-ListBoxItemSkeleton-background-color-dark) 63%,
+        var(--hop-ListBoxItemSkeleton-background-color) 100%
+    );
 
     /* Sizes */
     --hop-ListBoxItemSkeleton-xs-height: 1.25rem;
@@ -9,28 +19,28 @@
     --hop-ListBoxItemSkeleton-md-height: 1.25rem;
     --hop-ListBoxItemSkeleton-lg-height: 1.5rem;
 
+    /* Internal Variables */
+    --animation-duration: var(--hop-ListBoxItemSkeleton-animation-duration);
+
     grid-area: label;    
 
     box-sizing: border-box;
     block-size: var(--height);
 
     background-color: var(--hop-ListBoxItemSkeleton-background-color);
-    background-image: linear-gradient(
-        90deg,
-        var(--hop-neutral-surface-weak) 25%,
-        var(--hop-neutral-surface-weak-hover) 37%,
-        var(--hop-neutral-surface-weak-hover) 63%,
-        var(--hop-neutral-surface-weak) 100%
-    );
+    background-image: var(--hop-ListBoxItemSkeleton-linear-gradient);
     background-size: 400% 100%;
     border-radius: var(--hop-ListBoxItemSkeleton-border-radius);
 
     animation-name: placeholder-shimmer;
-    animation-duration: 1.4s;
+    animation-duration: var(--animation-duration);
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
 
+    @media (prefers-reduced-motion: reduce) {
+        --animation-duration: var(--hop-ListBoxItemSkeleton-animation-reduced-motion-duration);
+    }
 }
 
 .hop-ListBoxItemSkeleton--xs {
