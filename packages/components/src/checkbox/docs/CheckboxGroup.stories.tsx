@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import { ErrorMessage } from "../../errorMessage/index.ts";
-import { HelperMessage } from "../../helperMessage/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Inline } from "../../layout/index.ts";
 import { Label } from "../../typography/Label/index.ts";
 import { Text } from "../../typography/Text/index.ts";
@@ -21,7 +21,7 @@ import { CheckboxList } from "../src/CheckboxList.tsx";
  * View storybook TODO
  */
 const meta = {
-    title: "Docs/Checkbox/CheckboxGroup",
+    title: "Docs/Form/Checkbox/CheckboxGroup",
     tags: ["autodocs"],
     parameters: {
         // Disables Chromatic's snapshotting on documentation stories

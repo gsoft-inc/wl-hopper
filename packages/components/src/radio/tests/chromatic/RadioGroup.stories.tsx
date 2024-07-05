@@ -1,8 +1,8 @@
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../../errorMessage/index.ts";
-import { HelperMessage } from "../../../helperMessage/index.ts";
+import { ErrorMessage } from "../../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Label } from "../../../typography/Label/index.ts";
@@ -13,7 +13,7 @@ import { RadioGroup } from "../../src/RadioGroup.tsx";
 import { RadioList } from "../../src/RadioList.tsx";
 
 const meta = {
-    title: "Components/Radio/RadioGroup",
+    title: "Components/Form/RadioGroup",
     component: RadioGroup
 } satisfies Meta<typeof RadioGroup>;
 
