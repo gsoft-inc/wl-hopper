@@ -1844,12 +1844,64 @@
         "value": "#bae6ff"
       },
       {
+        "name": "hop-status-caution-border",
+        "value": "#c95109"
+      },
+      {
+        "name": "hop-status-caution-border-disabled",
+        "value": "#ab4104"
+      },
+      {
+        "name": "hop-status-caution-border-hover",
+        "value": "#ba4705"
+      },
+      {
+        "name": "hop-status-caution-border-press",
+        "value": "#c95109"
+      },
+      {
+        "name": "hop-status-caution-border-selected",
+        "value": "#ffd8be"
+      },
+      {
         "name": "hop-status-caution-icon",
+        "value": "#692803"
+      },
+      {
+        "name": "hop-status-caution-icon-disabled",
+        "value": "#ba4705"
+      },
+      {
+        "name": "hop-status-caution-icon-hover",
         "value": "#451a02"
       },
       {
-        "name": "hop-status-caution-surface",
+        "name": "hop-status-caution-icon-press",
+        "value": "#692803"
+      },
+      {
+        "name": "hop-status-caution-icon-selected",
         "value": "#ffd8be"
+      },
+      {
+        "name": "hop-status-caution-surface",
+        "value": "#ffbf92"
+      },
+      {
+        "name": "hop-status-caution-surface-disabled",
+        "value": "#692803"
+      },
+      {
+        "name": "hop-status-caution-surface-hover",
+        "value": "#ff9b3f"
+      },
+      {
+        "name": "hop-status-caution-surface-press",
+        "value": "#e57723"
+      },
+      {
+        "name": "hop-status-caution-surface-selected",
+        "value": "#692803"
       },
       {
         "name": "hop-status-caution-surface-strong",
@@ -1857,31 +1909,167 @@
       },
       {
         "name": "hop-status-caution-text",
+        "value": "#692803"
+      },
+      {
+        "name": "hop-status-caution-text-disabled",
+        "value": "#ba4705"
+      },
+      {
+        "name": "hop-status-caution-text-hover",
         "value": "#451a02"
       },
       {
-        "name": "hop-status-inselected-icon",
-        "value": "#3c3c3c"
+        "name": "hop-status-caution-text-press",
+        "value": "#692803"
       },
       {
-        "name": "hop-status-inselected-surface",
+        "name": "hop-status-caution-text-selected",
+        "value": "#ffd8be"
+      },
+      {
+        "name": "hop-status-inactive-border",
+        "value": "#777775"
+      },
+      {
+        "name": "hop-status-inactive-border-disabled",
+        "value": "#636362"
+      },
+      {
+        "name": "hop-status-inactive-border-hover",
+        "value": "#6c6c6b"
+      },
+      {
+        "name": "hop-status-inactive-border-press",
+        "value": "#777775"
+      },
+      {
+        "name": "hop-status-inactive-border-selected",
         "value": "#e0dfdd"
       },
       {
-        "name": "hop-status-inselected-surface-strong",
-        "value": "#ccccca"
+        "name": "hop-status-inactive-icon",
+        "value": "#3c3c3c"
       },
       {
-        "name": "hop-status-inselected-text",
+        "name": "hop-status-inactive-icon-disabled",
+        "value": "#6c6c6b"
+      },
+      {
+        "name": "hop-status-inactive-icon-hover",
         "value": "#292929"
       },
       {
+        "name": "hop-status-inactive-icon-press",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-inactive-icon-selected",
+        "value": "#e0dfdd"
+      },
+      {
+        "name": "hop-status-inactive-surface",
+        "value": "#e0dfdd"
+      },
+      {
+        "name": "hop-status-inactive-surface-disabled",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-inactive-surface-hover",
+        "value": "#b3b3b1"
+      },
+      {
+        "name": "hop-status-inactive-surface-press",
+        "value": "#959593"
+      },
+      {
+        "name": "hop-status-inactive-surface-selected",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-inactive-surface-strong",
+        "value": "#ccccca"
+      },
+      {
+        "name": "hop-status-inactive-text",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-inactive-text-disabled",
+        "value": "#6c6c6b"
+      },
+      {
+        "name": "hop-status-inactive-text-hover",
+        "value": "#292929"
+      },
+      {
+        "name": "hop-status-inactive-text-press",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-inactive-text-selected",
+        "value": "#e0dfdd"
+      },
+      {
+        "name": "hop-status-negative-border",
+        "value": "#df3236"
+      },
+      {
+        "name": "hop-status-negative-border-disabled",
+        "value": "#ba2d2d"
+      },
+      {
+        "name": "hop-status-negative-border-hover",
+        "value": "#cb2e31"
+      },
+      {
+        "name": "hop-status-negative-border-press",
+        "value": "#df3236"
+      },
+      {
+        "name": "hop-status-negative-border-selected",
+        "value": "#ffd6d3"
+      },
+      {
         "name": "hop-status-negative-icon",
+        "value": "#6c2320"
+      },
+      {
+        "name": "hop-status-negative-icon-disabled",
+        "value": "#cb2e31"
+      },
+      {
+        "name": "hop-status-negative-icon-hover",
         "value": "#431a17"
       },
       {
-        "name": "hop-status-negative-surface",
+        "name": "hop-status-negative-icon-press",
+        "value": "#6c2320"
+      },
+      {
+        "name": "hop-status-negative-icon-selected",
         "value": "#ffd6d3"
+      },
+      {
+        "name": "hop-status-negative-surface",
+        "value": "#ffbcb7"
+      },
+      {
+        "name": "hop-status-negative-surface-disabled",
+        "value": "#6c2320"
+      },
+      {
+        "name": "hop-status-negative-surface-hover",
+        "value": "#ff8e8e"
+      },
+      {
+        "name": "hop-status-negative-surface-press",
+        "value": "#fa4d59"
+      },
+      {
+        "name": "hop-status-negative-surface-selected",
+        "value": "#6c2320"
       },
       {
         "name": "hop-status-negative-surface-strong",
@@ -1889,15 +2077,83 @@
       },
       {
         "name": "hop-status-negative-text",
+        "value": "#6c2320"
+      },
+      {
+        "name": "hop-status-negative-text-disabled",
+        "value": "#cb2e31"
+      },
+      {
+        "name": "hop-status-negative-text-hover",
         "value": "#431a17"
+      },
+      {
+        "name": "hop-status-negative-text-press",
+        "value": "#6c2320"
+      },
+      {
+        "name": "hop-status-negative-text-selected",
+        "value": "#ffd6d3"
+      },
+      {
+        "name": "hop-status-neutral-border",
+        "value": "#f8f6f3"
+      },
+      {
+        "name": "hop-status-neutral-border-disabled",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-neutral-border-hover",
+        "value": "#ecebe8"
+      },
+      {
+        "name": "hop-status-neutral-border-press",
+        "value": "#f8f6f3"
+      },
+      {
+        "name": "hop-status-neutral-border-selected",
+        "value": "#f8f6f3"
       },
       {
         "name": "hop-status-neutral-icon",
         "value": "#f8f6f3"
       },
       {
+        "name": "hop-status-neutral-icon-disabled",
+        "value": "#6c6c6b"
+      },
+      {
+        "name": "hop-status-neutral-icon-hover",
+        "value": "#ecebe8"
+      },
+      {
+        "name": "hop-status-neutral-icon-press",
+        "value": "#f8f6f3"
+      },
+      {
+        "name": "hop-status-neutral-icon-selected",
+        "value": "#f8f6f3"
+      },
+      {
         "name": "hop-status-neutral-surface",
         "value": "#1d1d1c"
+      },
+      {
+        "name": "hop-status-neutral-surface-disabled",
+        "value": "#505050"
+      },
+      {
+        "name": "hop-status-neutral-surface-hover",
+        "value": "#3c3c3c"
+      },
+      {
+        "name": "hop-status-neutral-surface-press",
+        "value": "#505050"
+      },
+      {
+        "name": "hop-status-neutral-surface-selected",
+        "value": "#fef6ef"
       },
       {
         "name": "hop-status-neutral-surface-strong",
@@ -1908,12 +2164,80 @@
         "value": "#f8f6f3"
       },
       {
+        "name": "hop-status-neutral-text-disabled",
+        "value": "#6c6c6b"
+      },
+      {
+        "name": "hop-status-neutral-text-hover",
+        "value": "#ecebe8"
+      },
+      {
+        "name": "hop-status-neutral-text-press",
+        "value": "#f8f6f3"
+      },
+      {
+        "name": "hop-status-neutral-text-selected",
+        "value": "#292929"
+      },
+      {
+        "name": "hop-status-option1-border",
+        "value": "#3a7bb2"
+      },
+      {
+        "name": "hop-status-option1-border-disabled",
+        "value": "#23669f"
+      },
+      {
+        "name": "hop-status-option1-border-hover",
+        "value": "#2e70a8"
+      },
+      {
+        "name": "hop-status-option1-border-press",
+        "value": "#3a7bb2"
+      },
+      {
+        "name": "hop-status-option1-border-selected",
+        "value": "#bae6ff"
+      },
+      {
         "name": "hop-status-option1-icon",
+        "value": "#003d70"
+      },
+      {
+        "name": "hop-status-option1-icon-disabled",
+        "value": "#2e70a8"
+      },
+      {
+        "name": "hop-status-option1-icon-hover",
         "value": "#00274b"
       },
       {
+        "name": "hop-status-option1-icon-press",
+        "value": "#003d70"
+      },
+      {
+        "name": "hop-status-option1-icon-selected",
+        "value": "#bae6ff"
+      },
+      {
         "name": "hop-status-option1-surface",
+        "value": "#9fd2f7"
+      },
+      {
+        "name": "hop-status-option1-surface-disabled",
+        "value": "#003d70"
+      },
+      {
+        "name": "hop-status-option1-surface-hover",
         "value": "#81b9e4"
+      },
+      {
+        "name": "hop-status-option1-surface-press",
+        "value": "#5d9acd"
+      },
+      {
+        "name": "hop-status-option1-surface-selected",
+        "value": "#003d70"
       },
       {
         "name": "hop-status-option1-surface-strong",
@@ -1921,15 +2245,83 @@
       },
       {
         "name": "hop-status-option1-text",
+        "value": "#003d70"
+      },
+      {
+        "name": "hop-status-option1-text-disabled",
+        "value": "#2e70a8"
+      },
+      {
+        "name": "hop-status-option1-text-hover",
         "value": "#00274b"
       },
       {
+        "name": "hop-status-option1-text-press",
+        "value": "#003d70"
+      },
+      {
+        "name": "hop-status-option1-text-selected",
+        "value": "#bae6ff"
+      },
+      {
+        "name": "hop-status-option2-border",
+        "value": "#8d91dc"
+      },
+      {
+        "name": "hop-status-option2-border-disabled",
+        "value": "#5454be"
+      },
+      {
+        "name": "hop-status-option2-border-hover",
+        "value": "#5f61c5"
+      },
+      {
+        "name": "hop-status-option2-border-press",
+        "value": "#8d91dc"
+      },
+      {
+        "name": "hop-status-option2-border-selected",
+        "value": "#322b8d"
+      },
+      {
         "name": "hop-status-option2-icon",
+        "value": "#322b8d"
+      },
+      {
+        "name": "hop-status-option2-icon-disabled",
+        "value": "#5f61c5"
+      },
+      {
+        "name": "hop-status-option2-icon-hover",
         "value": "#1e1c5d"
       },
       {
+        "name": "hop-status-option2-icon-press",
+        "value": "#322b8d"
+      },
+      {
+        "name": "hop-status-option2-icon-selected",
+        "value": "#ddddf7"
+      },
+      {
         "name": "hop-status-option2-surface",
+        "value": "#c8caf0"
+      },
+      {
+        "name": "hop-status-option2-surface-disabled",
+        "value": "#322b8d"
+      },
+      {
+        "name": "hop-status-option2-surface-hover",
         "value": "#aeb3e8"
+      },
+      {
+        "name": "hop-status-option2-surface-press",
+        "value": "#8d91dc"
+      },
+      {
+        "name": "hop-status-option2-surface-selected",
+        "value": "#322b8d"
       },
       {
         "name": "hop-status-option2-surface-strong",
@@ -1937,15 +2329,83 @@
       },
       {
         "name": "hop-status-option2-text",
+        "value": "#322b8d"
+      },
+      {
+        "name": "hop-status-option2-text-disabled",
+        "value": "#5f61c5"
+      },
+      {
+        "name": "hop-status-option2-text-hover",
         "value": "#1e1c5d"
       },
       {
+        "name": "hop-status-option2-text-press",
+        "value": "#322b8d"
+      },
+      {
+        "name": "hop-status-option2-text-selected",
+        "value": "#ddddf7"
+      },
+      {
+        "name": "hop-status-option3-border",
+        "value": "#38836a"
+      },
+      {
+        "name": "hop-status-option3-border-disabled",
+        "value": "#206f54"
+      },
+      {
+        "name": "hop-status-option3-border-hover",
+        "value": "#2b795e"
+      },
+      {
+        "name": "hop-status-option3-border-press",
+        "value": "#38836a"
+      },
+      {
+        "name": "hop-status-option3-border-selected",
+        "value": "#bde8e1"
+      },
+      {
         "name": "hop-status-option3-icon",
+        "value": "#00452d"
+      },
+      {
+        "name": "hop-status-option3-icon-disabled",
+        "value": "#2b795e"
+      },
+      {
+        "name": "hop-status-option3-icon-hover",
         "value": "#002d1c"
       },
       {
+        "name": "hop-status-option3-icon-press",
+        "value": "#00452d"
+      },
+      {
+        "name": "hop-status-option3-icon-selected",
+        "value": "#bde8e1"
+      },
+      {
         "name": "hop-status-option3-surface",
+        "value": "#a3d6cb"
+      },
+      {
+        "name": "hop-status-option3-surface-disabled",
+        "value": "#00452d"
+      },
+      {
+        "name": "hop-status-option3-surface-hover",
         "value": "#83beaf"
+      },
+      {
+        "name": "hop-status-option3-surface-press",
+        "value": "#5da18c"
+      },
+      {
+        "name": "hop-status-option3-surface-selected",
+        "value": "#00452d"
       },
       {
         "name": "hop-status-option3-surface-strong",
@@ -1953,15 +2413,83 @@
       },
       {
         "name": "hop-status-option3-text",
+        "value": "#00452d"
+      },
+      {
+        "name": "hop-status-option3-text-disabled",
+        "value": "#83beaf"
+      },
+      {
+        "name": "hop-status-option3-text-hover",
         "value": "#002d1c"
       },
       {
+        "name": "hop-status-option3-text-press",
+        "value": "#00452d"
+      },
+      {
+        "name": "hop-status-option3-text-selected",
+        "value": "#bde8e1"
+      },
+      {
+        "name": "hop-status-option4-border",
+        "value": "#5e7b84"
+      },
+      {
+        "name": "hop-status-option4-border-disabled",
+        "value": "#4e6770"
+      },
+      {
+        "name": "hop-status-option4-border-hover",
+        "value": "#557079"
+      },
+      {
+        "name": "hop-status-option4-border-press",
+        "value": "#5e7b84"
+      },
+      {
+        "name": "hop-status-option4-border-selected",
+        "value": "#d2e3e7"
+      },
+      {
         "name": "hop-status-option4-icon",
+        "value": "#313e43"
+      },
+      {
+        "name": "hop-status-option4-icon-disabled",
+        "value": "#557079"
+      },
+      {
+        "name": "hop-status-option4-icon-hover",
         "value": "#20282a"
       },
       {
+        "name": "hop-status-option4-icon-press",
+        "value": "#313e43"
+      },
+      {
+        "name": "hop-status-option4-icon-selected",
+        "value": "#d2e3e7"
+      },
+      {
         "name": "hop-status-option4-surface",
+        "value": "#bad0d5"
+      },
+      {
+        "name": "hop-status-option4-surface-disabled",
+        "value": "#4e6770"
+      },
+      {
+        "name": "hop-status-option4-surface-hover",
         "value": "#9cb7be"
+      },
+      {
+        "name": "hop-status-option4-surface-press",
+        "value": "#7c9aa3"
+      },
+      {
+        "name": "hop-status-option4-surface-selected",
+        "value": "#313e43"
       },
       {
         "name": "hop-status-option4-surface-strong",
@@ -1969,15 +2497,83 @@
       },
       {
         "name": "hop-status-option4-text",
+        "value": "#313e43"
+      },
+      {
+        "name": "hop-status-option4-text-disabled",
+        "value": "#557079"
+      },
+      {
+        "name": "hop-status-option4-text-hover",
         "value": "#20282a"
       },
       {
+        "name": "hop-status-option4-text-press",
+        "value": "#20282a"
+      },
+      {
+        "name": "hop-status-option4-text-selected",
+        "value": "#d2e3e7"
+      },
+      {
+        "name": "hop-status-option5-border",
+        "value": "#837463"
+      },
+      {
+        "name": "hop-status-option5-border-disabled",
+        "value": "#6e6151"
+      },
+      {
+        "name": "hop-status-option5-border-hover",
+        "value": "#776a59"
+      },
+      {
+        "name": "hop-status-option5-border-press",
+        "value": "#837463"
+      },
+      {
+        "name": "hop-status-option5-border-selected",
+        "value": "#e5ded6"
+      },
+      {
         "name": "hop-status-option5-icon",
+        "value": "#433b31"
+      },
+      {
+        "name": "hop-status-option5-icon-disabled",
+        "value": "#776a59"
+      },
+      {
+        "name": "hop-status-option5-icon-hover",
         "value": "#2a2620"
       },
       {
+        "name": "hop-status-option5-icon-press",
+        "value": "#433b31"
+      },
+      {
+        "name": "hop-status-option5-icon-selected",
+        "value": "#e5ded6"
+      },
+      {
         "name": "hop-status-option5-surface",
+        "value": "#d4cbc0"
+      },
+      {
+        "name": "hop-status-option5-surface-disabled",
+        "value": "#433b31"
+      },
+      {
+        "name": "hop-status-option5-surface-hover",
         "value": "#bdb1a3"
+      },
+      {
+        "name": "hop-status-option5-surface-press",
+        "value": "#a19382"
+      },
+      {
+        "name": "hop-status-option5-surface-selected",
+        "value": "#433b31"
       },
       {
         "name": "hop-status-option5-surface-strong",
@@ -1985,15 +2581,83 @@
       },
       {
         "name": "hop-status-option5-text",
+        "value": "#433b31"
+      },
+      {
+        "name": "hop-status-option5-text-disabled",
+        "value": "#776a59"
+      },
+      {
+        "name": "hop-status-option5-text-hover",
         "value": "#2a2620"
       },
       {
+        "name": "hop-status-option5-text-press",
+        "value": "#433b31"
+      },
+      {
+        "name": "hop-status-option5-text-selected",
+        "value": "#e5ded6"
+      },
+      {
+        "name": "hop-status-option6-border",
+        "value": "#996f08"
+      },
+      {
+        "name": "hop-status-option6-border-disabled",
+        "value": "#7e5e0a"
+      },
+      {
+        "name": "hop-status-option6-border-hover",
+        "value": "#8b6609"
+      },
+      {
+        "name": "hop-status-option6-border-press",
+        "value": "#996f08"
+      },
+      {
+        "name": "hop-status-option6-border-selected",
+        "value": "#f7e694"
+      },
+      {
         "name": "hop-status-option6-icon",
+        "value": "#4b390f"
+      },
+      {
+        "name": "hop-status-option6-icon-disabled",
+        "value": "#8b6609"
+      },
+      {
+        "name": "hop-status-option6-icon-hover",
         "value": "#2f250d"
       },
       {
-        "name": "hop-status-option6-surface",
+        "name": "hop-status-option6-icon-press",
+        "value": "#4b390f"
+      },
+      {
+        "name": "hop-status-option6-icon-selected",
         "value": "#f7e694"
+      },
+      {
+        "name": "hop-status-option6-surface",
+        "value": "#eac96d"
+      },
+      {
+        "name": "hop-status-option6-surface-disabled",
+        "value": "#4b390f"
+      },
+      {
+        "name": "hop-status-option6-surface-hover",
+        "value": "#e2a934"
+      },
+      {
+        "name": "hop-status-option6-surface-press",
+        "value": "#c28b12"
+      },
+      {
+        "name": "hop-status-option6-surface-selected",
+        "value": "#4b390f"
       },
       {
         "name": "hop-status-option6-surface-strong",
@@ -2001,15 +2665,83 @@
       },
       {
         "name": "hop-status-option6-text",
+        "value": "#4b390f"
+      },
+      {
+        "name": "hop-status-option6-text-disabled",
+        "value": "#8b6609"
+      },
+      {
+        "name": "hop-status-option6-text-hover",
         "value": "#2f250d"
       },
       {
+        "name": "hop-status-option6-text-press",
+        "value": "#4b390f"
+      },
+      {
+        "name": "hop-status-option6-text-selected",
+        "value": "#f7e694"
+      },
+      {
+        "name": "hop-status-positive-border",
+        "value": "#188a71"
+      },
+      {
+        "name": "hop-status-positive-border-disabled",
+        "value": "#16433d"
+      },
+      {
+        "name": "hop-status-positive-border-hover",
+        "value": "#0c796b"
+      },
+      {
+        "name": "hop-status-positive-border-press",
+        "value": "#188a71"
+      },
+      {
+        "name": "hop-status-positive-border-selected",
+        "value": "#cde8ac"
+      },
+      {
         "name": "hop-status-positive-icon",
+        "value": "#16433d"
+      },
+      {
+        "name": "hop-status-positive-icon-disabled",
+        "value": "#7dc291"
+      },
+      {
+        "name": "hop-status-positive-icon-hover",
         "value": "#132a27"
       },
       {
-        "name": "hop-status-positive-surface",
+        "name": "hop-status-positive-icon-press",
+        "value": "#16433d"
+      },
+      {
+        "name": "hop-status-positive-icon-selected",
         "value": "#cde8ac"
+      },
+      {
+        "name": "hop-status-positive-surface",
+        "value": "#aad89d"
+      },
+      {
+        "name": "hop-status-positive-surface-disabled",
+        "value": "#16433d"
+      },
+      {
+        "name": "hop-status-positive-surface-hover",
+        "value": "#7dc291"
+      },
+      {
+        "name": "hop-status-positive-surface-press",
+        "value": "#47a584"
+      },
+      {
+        "name": "hop-status-positive-surface-selected",
+        "value": "#16433d"
       },
       {
         "name": "hop-status-positive-surface-strong",
@@ -2017,15 +2749,83 @@
       },
       {
         "name": "hop-status-positive-text",
+        "value": "#16433d"
+      },
+      {
+        "name": "hop-status-positive-text-disabled",
+        "value": "#0c796b"
+      },
+      {
+        "name": "hop-status-positive-text-hover",
         "value": "#132a27"
       },
       {
+        "name": "hop-status-positive-text-press",
+        "value": "#16433d"
+      },
+      {
+        "name": "hop-status-positive-text-selected",
+        "value": "#cde8ac"
+      },
+      {
+        "name": "hop-status-progress-border",
+        "value": "#4767fe"
+      },
+      {
+        "name": "hop-status-progress-border-disabled",
+        "value": "#2a43e8"
+      },
+      {
+        "name": "hop-status-progress-border-hover",
+        "value": "#3b57ff"
+      },
+      {
+        "name": "hop-status-progress-border-press",
+        "value": "#4767fe"
+      },
+      {
+        "name": "hop-status-progress-border-selected",
+        "value": "#d6e0ff"
+      },
+      {
         "name": "hop-status-progress-icon",
+        "value": "#1b3587"
+      },
+      {
+        "name": "hop-status-progress-icon-disabled",
+        "value": "#3b57ff"
+      },
+      {
+        "name": "hop-status-progress-icon-hover",
         "value": "#152450"
+      },
+      {
+        "name": "hop-status-progress-icon-press",
+        "value": "#1b3587"
+      },
+      {
+        "name": "hop-status-progress-icon-selected",
+        "value": "#d6e0ff"
       },
       {
         "name": "hop-status-progress-surface",
         "value": "#b9cbff"
+      },
+      {
+        "name": "hop-status-progress-surface-disabled",
+        "value": "#1b3587"
+      },
+      {
+        "name": "hop-status-progress-surface-hover",
+        "value": "#95b1ff"
+      },
+      {
+        "name": "hop-status-progress-surface-press",
+        "value": "#6c8ffd"
+      },
+      {
+        "name": "hop-status-progress-surface-selected",
+        "value": "#1b3587"
       },
       {
         "name": "hop-status-progress-surface-strong",
@@ -2033,7 +2833,23 @@
       },
       {
         "name": "hop-status-progress-text",
+        "value": "#1b3587"
+      },
+      {
+        "name": "hop-status-progress-text-disabled",
+        "value": "#3b57ff"
+      },
+      {
+        "name": "hop-status-progress-text-hover",
         "value": "#152450"
+      },
+      {
+        "name": "hop-status-progress-text-press",
+        "value": "#1b3587"
+      },
+      {
+        "name": "hop-status-progress-text-selected",
+        "value": "#d6e0ff"
       },
       {
         "name": "hop-success-border",
