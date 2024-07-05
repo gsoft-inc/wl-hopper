@@ -5,9 +5,9 @@ import { useState } from "react";
 import type { Selection } from "react-aria-components";
 import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
-import { Badge } from "../../badge/index.ts";
-import { ErrorMessage } from "../../errorMessage/index.ts";
-import { HelperMessage } from "../../helperMessage/index.ts";
+import { Badge } from "../../Badge/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
 import { HopperProvider } from "../../HopperProvider/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Stack } from "../../layout/index.ts";

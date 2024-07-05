@@ -1,41 +1,41 @@
 /* Helper class for storybook stories to test styling overrides */
 
 .bg-red {
-    background: red;
+    background: red !important;
 }
 
 .border-red {
-    border: 0.0625rem solid red;
+    border: 0.0625rem solid red !important;
 }
 
 .red {
-    color: red;
+    color: red !important;
 }
 
 .fill-red {
-    fill: red;
+    fill: red !important;
 }
 
 .stroke-red {
-    stroke: red;
+    stroke: red !important;
 }
 
 .bg-blue {
-    background: blue;
+    background: blue !important;
 }
 
 .border-blue {
-    border: 0.0625rem solid blue;
+    border: 0.0625rem solid blue !important;
 }
 
 .fill-blue {
-    fill: blue;
+    fill: blue !important;
 }
 
 .zoom-in {
-    zoom: 120%;
+    zoom: 120% !important;
 }
 
 .zoom-out {
-    zoom: 90%;
+    zoom: 90% !important;
 }

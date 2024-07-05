@@ -16,7 +16,7 @@
                     "patterns": [
                         {
                             "group": ["../**/src/*"],
-                            "message": "Please import from the nearest index.ts file instead. ../../Text/src/Text.tsx -> ../../Text/index.ts"
+                            "message": "Please import from the nearest index.ts file instead. ../../typography/Text/src/Text.tsx -> ../../typography/Text/index.ts"
                         },
                         {
                             "group": ["../../index.ts", "../index.ts", "../../../index.ts", "./index.ts"],
