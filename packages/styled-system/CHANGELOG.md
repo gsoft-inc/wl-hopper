@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.1.0
+
+### Minor Changes
+
+- d689dd8: Added new status tokens - updated some status tokens
+
 ## 2.0.2
 
 ### Patch Changes
