@@ -35,13 +35,14 @@ const formatGroup = (groups: Groups[]) => {
         return {
             [key]: group[key].map(item => {
                 const description = item.description;
+                const containsBraces = /{.*}/.test(description);
 
                 return {
                     ...item,
                     name: <Code>{item.name}</Code>,
                     type: <HighlightCode code={item.type} variant="tiny" />,
                     defaultValue: item.defaultValue.replace(/'/g, "\""),
-                    description: <MDXRemote source={description} />
+                    description: containsBraces ? <p>{item.description}</p> : <MDXRemote source={description} />
                 };
             })
         };
