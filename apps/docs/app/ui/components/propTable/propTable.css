@@ -74,6 +74,10 @@
     border-bottom: var(--hd-props-table-cell-border);
 }
 
+.hd-props-table__col-description {
+    word-break: break-word;
+}
+
 .hd-props-table__col-description * {
     font-size: var(--hd-props-table-cell-description-font-size);
 }
