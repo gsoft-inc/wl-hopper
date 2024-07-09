@@ -1,4 +1,4 @@
-import { Switch, Text } from "@hopper-ui/components";
+import { Switch } from "@hopper-ui/components";
 
 export default function Example() {
     return (
