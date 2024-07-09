@@ -80,5 +80,29 @@ export const Previews: Record<string, Preview> = {
     "HopperProvider/docs/responsive-styles/useResponsiveValue": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/useResponsiveValue.tsx"))
     },
+    "layout/docs/flex/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
+    },
+    "layout/docs/flex/verticalAlignment": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/verticalAlignment.tsx"))
+    },
+    "layout/docs/flex/gap": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/gap.tsx"))
+    },
+    "layout/docs/flex/alignItems": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/alignItems.tsx"))
+    },
+    "layout/docs/flex/justifyContent": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/justifyContent.tsx"))
+    },
+    "layout/docs/flex/reverse": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/reverse.tsx"))
+    },
+    "layout/docs/flex/wrap": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/wrap.tsx"))
+    },
+    "layout/docs/flex/nesting": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/nesting.tsx"))
+    },
 };
     
