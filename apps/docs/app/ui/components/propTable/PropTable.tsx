@@ -35,13 +35,14 @@ const formatGroup = (groups: Groups[]) => {
         return {
             [key]: group[key].map(item => {
                 const description = item.description;
+                const containsBraces = /{.*}/.test(description);
 
                 return {
                     ...item,
                     name: <Code>{item.name}</Code>,
                     type: <HighlightCode code={item.type} variant="tiny" />,
                     defaultValue: item.defaultValue.replace(/'/g, "\""),
-                    description: <MDXRemote source={description} />
+                    description: containsBraces ? <p>{item.description}</p> : <MDXRemote source={description} />
                 };
             })
         };
@@ -56,12 +57,13 @@ export default async function PropTable({ component }: PropTableProps) {
         <>
             {formatedGroups.map(group => {
                 const [key] = Object.keys(group);
+                const isEmpty = group[key].length === 0;
 
                 return (
                     <Fragment key={key}>
                         {key === "default" ?
                             <PropTableRender items={group[key]} /> :
-                            <Collapsible className="hd-props-table__section"
+                            !isEmpty && <Collapsible className="hd-props-table__section"
                                 key={key}
                                 title={<Title as="h3" level={3}>
                                     {capitalize(key)}
@@ -76,3 +78,4 @@ export default async function PropTable({ component }: PropTableProps) {
         </>
     );
 }
+
