@@ -1,0 +1,76 @@
+.hop-NumberField  {
+    --hop-NumberField-gap: var(--hop-space-stack-xs);
+    --hop-NumberField-inline-size: 20rem;
+    --hop-NumberField-inline-size-fluid: 100%;
+    --hop-NumberField-prefix-color: var(--hop-neutral-text-weak);
+    --hop-NumberField-color: var(--hop-neutral-text-weak);
+
+    /* Stepper */
+    --hop-NumberField-stepper-color: var(--hop-neutral-icon);
+    --hop-NumberField-stepper-color-hovered: var(--hop-neutral-icon-hover);
+    --hop-NumberField-stepper-color-pressed: var(--hop-neutral-icon-press);
+    --hop-NumberField-stepper-color-disabled: var(--hop-neutral-icon-disabled);
+    --hop-NumberField-stepper-background-color: transparent;
+    --hop-NumberField-stepper-background-color-hovered: var(--hop-neutral-surface-hover);
+    --hop-NumberField-stepper-background-color-pressed: var(--hop-neutral-surface-press);
+    --hop-NumberField-stepper-background-color-disabled: transparent;
+    --hop-NumberField-stepper-border-radius: calc(var(--hop-shape-rounded-sm) / 2);
+
+    /* Internal Variables */
+    --inline-size: var(--hop-NumberField-inline-size);
+    --stepper-color: var(--hop-NumberField-stepper-color);
+    --stepper-background-color: var(--hop-NumberField-stepper-background-color);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hop-NumberField-gap);
+    inline-size: var(--inline-size);
+}
+
+.hop-NumberField--fluid  {
+    --inline-size: var(--hop-NumberField-inline-size-fluid);
+}
+
+.hop-NumberField__Label {
+    order: 0;
+    color: var(--hop-NumberField-color);
+}
+
+.hop-NumberField__prefix {
+    color: var(--hop-NumberField-prefix-color);
+}
+
+.hop-NumberField__InputGroup {
+    order: 1;
+    inline-size: 100%;
+}
+
+.hop-NumberField__ErrorMessage,
+.hop-NumberField__HelperMessage {
+    order: 3;
+}
+
+.hop-NumberField__stepper-button {
+    color: var(--stepper-color);
+    background-color: var(--stepper-background-color);
+    border: none;
+}
+
+.hop-NumberField__stepper-button[data-hovered] {
+    color: var(--hop-NumberField-stepper-color-hovered);
+    background-color: var(--hop-NumberField-stepper-background-color-hovered);
+}
+
+.hop-NumberField__stepper-button[data-pressed] {
+    color: var(--hop-NumberField-stepper-color-pressed);
+    background-color: var(--hop-NumberField-stepper-background-color-pressed);
+}
+
+.hop-NumberField__stepper-button[data-disabled] {
+    color: var(--hop-NumberField-stepper-color-disabled);
+    background-color: var(--hop-NumberField-stepper-background-color-disabled);
+    border-radius: var(--hop-NumberField-stepper-border-radius);
+}
+
+.hop-NumberField__stepper-button__icon {
+}
