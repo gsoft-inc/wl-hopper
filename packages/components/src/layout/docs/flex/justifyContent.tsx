@@ -7,7 +7,7 @@ function Square(props: DivProps) {
 export default function Example() {
     return (
         <Div width="100%">
-            <Flex justifyContent="center">
+            <Flex justifyContent="space-between">
                 <Square backgroundColor="decorative-option1" />
                 <Square backgroundColor="decorative-option3" />
                 <Square backgroundColor="decorative-option4" />
