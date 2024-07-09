@@ -80,5 +80,41 @@ export const Previews: Record<string, Preview> = {
     "HopperProvider/docs/responsive-styles/useResponsiveValue": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/useResponsiveValue.tsx"))
     },
+    "avatar/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/preview.tsx"))
+    },
+    "avatar/docs/localImage": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/localImage.tsx"))
+    },
+    "avatar/docs/remoteImage": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/remoteImage.tsx"))
+    },
+    "avatar/docs/fallbackImage": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/fallbackImage.tsx"))
+    },
+    "avatar/docs/brokenImage": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/brokenImage.tsx"))
+    },
+    "avatar/docs/brokenImageWithBothFailing": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/brokenImageWithBothFailing.tsx"))
+    },
+    "avatar/docs/brokenImageWithNoFallback": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/brokenImageWithNoFallback.tsx"))
+    },
+    "avatar/docs/anonymous": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/anonymous.tsx"))
+    },
+    "avatar/docs/deleted": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/deleted.tsx"))
+    },
+    "avatar/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/sizes.tsx"))
+    },
+    "avatar/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/disabled.tsx"))
+    },
+    "avatar/docs/customization": {
+        component: lazy(() => import("@/../../packages/components/src/avatar/docs/customization.tsx"))
+    },
 };
     
