@@ -1,48 +1,105 @@
 ---
 title: Avatar (WIP)
-description: TBD
+description: Avatars are used to represent a user, team or another entity. They are often paired with text where room is available. If an image is not provided or fails to load, the initials of the name will be displayed instead.
 category: "content"
 links:
-    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/TBD/src/TBD.tsx
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Avatar/src/index.tsx
 ---
+
+<Example src="avatar/docs/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Avatar" />
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component's usage
 
-### Accessibility ?
+    ### Accessibility ?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
-## Anatomy
+<FeatureFlag flag="rc">
+    ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
-
-### Composed Components
-
-TODO: links to related components (most likely all component which are used by the slots)
+    TODO: links to related concepts
+</FeatureFlag>
 
 ## Examples
 
-## Advanced customization
+### Local image
 
-### Contexts
-TODO: Example of context + content about the context
+It would normally be imported from a file like this: `import Frog from "./hadfield.png";` then used as the src.
 
-### Custom Children
+<Example src="avatar/docs/localImage" />
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Remote image
 
-### Custom Component
+<Example src="avatar/docs/remoteImage" />
 
-TODO: Example of creating a custom version of this component
+### Fallback image
 
-## Migration Notes (WIP)
+<Example src="avatar/docs/fallbackImage" />
+
+### When src fails to load and fallback is not set
+
+A default image will be displayed instead.
+
+<Example src="avatar/docs/brokenImage" />
+
+### When both src and fallback fail to load
+
+A default image will be displayed instead.
+
+<Example src="avatar/docs/brokenImageWithBothFailing" />
+
+### Where the src fails to load and the fallback is bypassed
+
+The initials will be displayed instead.
+
+<Example src="avatar/docs/brokenImageWithNoFallback" />
+
+### Anonymous
+
+<Example src="avatar/docs/anonymous" />
+
+### Deleted
+
+<Example src="avatar/docs/deleted" />
+
+### Sizes
+
+<Example src="avatar/docs/sizes" />
+
+### Disabled
+
+<Example src="avatar/docs/disabled" />
+
+### Customize the image props
+
+In this case, we are using a custom hook to retry loading the image up to 5 times with a 250ms delay.
+
+<Example src="avatar/docs/customization" />
+
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
