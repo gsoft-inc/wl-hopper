@@ -209,5 +209,83 @@ export const Previews: Record<string, Preview> = {
     "switch/docs/switchfield/sizes": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/sizes.tsx"))
     },
+    "layout/docs/flex/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
+    },
+    "layout/docs/flex/verticalAlignment": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/verticalAlignment.tsx"))
+    },
+    "layout/docs/flex/gap": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/gap.tsx"))
+    },
+    "layout/docs/flex/alignItems": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/alignItems.tsx"))
+    },
+    "layout/docs/flex/justifyContent": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/justifyContent.tsx"))
+    },
+    "layout/docs/flex/reverse": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/reverse.tsx"))
+    },
+    "layout/docs/flex/wrap": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/wrap.tsx"))
+    },
+    "layout/docs/flex/nesting": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/nesting.tsx"))
+    },
+    "layout/docs/grid/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/preview.tsx"))
+    },
+    "layout/docs/grid/areas": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/areas.tsx"))
+    },
+    "layout/docs/grid/templateColumns": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/templateColumns.tsx"))
+    },
+    "layout/docs/grid/autoColumns": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/autoColumns.tsx"))
+    },
+    "layout/docs/grid/gap": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/gap.tsx"))
+    },
+    "layout/docs/grid/columnSpanning": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/columnSpanning.tsx"))
+    },
+    "layout/docs/grid/nesting": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/nesting.tsx"))
+    },
+    "layout/docs/grid/repeat": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/repeat.tsx"))
+    },
+    "layout/docs/grid/minMax": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/minMax.tsx"))
+    },
+    "layout/docs/grid/fitContent": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/grid/fitContent.tsx"))
+    },
+    "layout/docs/inline/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/inline/preview.tsx"))
+    },
+    "layout/docs/inline/reverse": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/inline/reverse.tsx"))
+    },
+    "layout/docs/inline/alignX": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/inline/alignX.tsx"))
+    },
+    "layout/docs/inline/alignY": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/inline/alignY.tsx"))
+    },
+    "layout/docs/stack/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/preview.tsx"))
+    },
+    "layout/docs/stack/reverse": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/reverse.tsx"))
+    },
+    "layout/docs/stack/alignX": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/alignX.tsx"))
+    },
+    "layout/docs/stack/alignY": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/alignY.tsx"))
+    },
 };
     

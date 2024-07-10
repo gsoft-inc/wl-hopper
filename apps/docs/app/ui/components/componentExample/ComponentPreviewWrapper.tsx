@@ -44,11 +44,11 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, minHeight = "13re
                     colorMode={localColorMode}
                 />
             </div>
-            <Card className="hd-component-preview-wrapper__card" size="sm" style={{ minHeight: minHeight }}>
-                <HopperProvider colorScheme={localColorMode}>
+            <HopperProvider colorScheme={localColorMode}>
+                <Card className="hd-component-preview-wrapper__card" size="sm" style={{ minHeight: minHeight }}>
                     {preview}
-                </HopperProvider>
-            </Card>
+                </Card>
+            </HopperProvider>
 
         </div>
     );

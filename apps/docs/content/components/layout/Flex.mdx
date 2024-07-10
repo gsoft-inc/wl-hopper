@@ -1,48 +1,85 @@
 ---
-title: Flex (WIP)
-description: TBD
+title: Flex
+description: The Flex component is used to create a flex container and provides some shortcuts for the flex properties.
 category: "layout"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/layout/src/Flex.tsx
 ---
 
+<Example src="layout/docs/flex/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Flex" />
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component&apos;s usage
 
-### Accessibility ?
+    ### Accessibility ?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
-## Anatomy
+<FeatureFlag flag="rc">
+    ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
-
-### Composed Components
-
-TODO: links to related components (most likely all component which are used by the slots)
+    TODO: links to related concepts
+</FeatureFlag>
 
 ## Examples
 
-## Advanced customization
+### Vertical Alignment
+A flex layout can have vertically aligned items.
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="layout/docs/flex/verticalAlignment" />
 
-### Custom Children
+### Gap
+A flex layout can have a gap between his items. `columnGap` and `rowGap` are also available to specify a gap for a single axis.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="layout/docs/flex/gap" />
 
-### Custom Component
+### Align Items
+A flex layout can align its items along the cross-axis. When the direction is "column", this refers to horizontal alignment, and when the direction is "row", it refers to vertical alignment.
 
-TODO: Example of creating a custom version of this component
+<Example src="layout/docs/flex/alignItems" />
 
-## Migration Notes (WIP)
+### Justify Content
+A flex layout can justify its items along the main axis. When the direction is "column", this refers to vertical alignment, and when the direction is "row", it refers to horizontal alignment.
+
+<Example src="layout/docs/flex/justifyContent" />
+
+### Reverse
+A flex layout can show the items in reverse order.
+
+<Example src="layout/docs/flex/reverse" />
+
+### Wrap
+Flex layout items can wrap multiple rows.
+
+<Example src="layout/docs/flex/wrap" />
+
+### Nesting
+Flex layouts can be nested.
+
+<Example src="layout/docs/flex/nesting" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
