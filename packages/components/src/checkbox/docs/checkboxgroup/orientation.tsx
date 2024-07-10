@@ -2,7 +2,7 @@ import { Checkbox, CheckboxGroup, CheckboxList, Inline } from "@hopper-ui/compon
 
 export default function Example() {
     return (
-        <Inline>
+        <Inline gap="inline-xl">
             <CheckboxGroup orientation="horizontal">
                 <CheckboxList>
                     <Checkbox value="option1">Option 1</Checkbox>

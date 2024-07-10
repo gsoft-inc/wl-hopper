@@ -1,5 +1,5 @@
 ---
-title: Checkbox (WIP)
+title: Checkbox
 description: Checkboxes are used when there are multiple items to select in a list. Users can select zero, one, or any number of items.
 category: "forms"
 links:
@@ -10,7 +10,13 @@ links:
 
 ## Props
 
+### Checkbox
+
 <PropTable component="Checkbox" />
+
+### CheckboxField
+
+<PropTable component="CheckboxField" />
 
 <FeatureFlag flag="next">
     ## Guidelines
@@ -22,8 +28,9 @@ links:
     TODO: If we have some guidelines about this component and accessibility
 </FeatureFlag>
 
+## Anatomy
+
 <FeatureFlag flag="rc">
-    ## Anatomy
 
     TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
@@ -38,39 +45,74 @@ links:
 - [IconList](./IconList)
 - [Text](./Text)
 
-## Examples
+## Checkbox Examples
 
-A Checkbox can be checked.
-
-<Example src="checkbox/docs/checkbox/checked"/>
+### No Label
 
 A Checkbox can be rendered without a label.
 
 <Example src="checkbox/docs/checkbox/nolabel"/>
 
-A Checkbox can be disabled.
+### Checked
 
-<Example src="checkbox/docs/checkbox/disabled" />
+A Checkbox can be checked.
 
-A Checkbox can be read-only.
+<Example src="checkbox/docs/checkbox/checked"/>
 
-<Example src="checkbox/docs/checkbox/readonly" />
-
-A Checkbox can be rendered with an icon or an icon list.
-
-<Example src="checkbox/docs/checkbox/icons"/>
-
-A Checkbox can be rendered in different sizes.
-
-<Example src="checkbox/docs/checkbox/size"/>
+### Indeterminate
 
 A Checkbox can be indeterminate.
 
 <Example src="checkbox/docs/checkbox/indeterminate"/>
 
+### Disabled
+
+A Checkbox can be disabled.
+
+<Example src="checkbox/docs/checkbox/disabled" />
+
+### Read-only
+
+A Checkbox can be read-only.
+
+<Example src="checkbox/docs/checkbox/readonly" />
+
+### Invalid
+
 A Checkbox can be invalid.
 
 <Example src="checkbox/docs/checkbox/invalid"/>
+
+### Sizes
+
+A Checkbox can be rendered in different sizes.
+
+<Example src="checkbox/docs/checkbox/size"/>
+### Description
+
+A Checkbox can have a description to provide more information to the user.
+
+<Example src="checkbox/docs/checkbox/description" />
+
+### Icon
+
+A Checkbox can be rendered with an icon or an icon list.
+
+<Example src="checkbox/docs/checkbox/icons"/>
+
+## CheckboxField Examples
+
+### Disabled
+
+A CheckboxField can be disabled.
+
+<Example src="checkbox/docs/checkboxfield/disabled"/>
+
+### Sizes
+
+A CheckboxField can be rendered in a different size.
+
+<Example src="checkbox/docs/checkboxfield/size"/>
 
 <FeatureFlag flag="next">
     ## Advanced customization
@@ -87,6 +129,6 @@ A Checkbox can be invalid.
     TODO: Example of creating a custom version of this component
 </FeatureFlag>
 
-## Migration Notes (WIP)
+## Migration Notes
 
 <MigrateGuide src="checkbox/docs/migration-notes-checkbox" />

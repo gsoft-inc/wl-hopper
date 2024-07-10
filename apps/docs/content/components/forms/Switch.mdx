@@ -1,16 +1,22 @@
 ---
-title: Switch (WIP)
+title: Switch
 description: A switch is used to quickly switch between two possible states. They are commonly used for “on/off” switches.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/switch/src/Switch.tsx
 ---
 
-<Example src="switch/docs/preview" isOpen />
+<Example src="switch/docs/switch/preview" isOpen />
 
 ## Props
 
+### Switch
+
 <PropTable component="Switch" />
+
+### SwitchField
+
+<PropTable component="SwitchField" />
 
 <FeatureFlag flag="next">
     ## Guidelines
@@ -22,8 +28,9 @@ links:
     TODO: If we have some guidelines about this component and accessibility
 </FeatureFlag>
 
+## Anatomy
+
 <FeatureFlag flag="rc">
-    ## Anatomy
 
     TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
@@ -40,27 +47,51 @@ A `Switch` uses the following components.
 - [IconList](./IconList)
 - [Text](./Text)
 
-## Examples
+## Switch Examples
+
+### Selected
 
 A Switch can be selected.
 
-<Example src="switch/docs/selected" />
+<Example src="switch/docs/switch/selected" />
+
+### No label
 
 A Switch can be rendered without a label.
 
-<Example src="switch/docs/nolabel" />
+<Example src="switch/docs/switch/nolabel" />
+
+### Disabled
 
 A Switch can be disabled.
 
-<Example src="switch/docs/disabled" />
+<Example src="switch/docs/switch/disabled" />
 
-A Switch can be rendered with an icon or an icon list.
-
-<Example src="switch/docs/icons" />
+### Sizes
 
 A Switch can be rendered in different sizes.
 
-<Example src="switch/docs/sizes" />
+<Example src="switch/docs/switch/sizes" />
+
+### Icon
+
+A Switch can be rendered with an icon or an icon list.
+
+<Example src="switch/docs/switch/icons" />
+
+## SwitchField Examples
+
+A SwitchField can be disabled.
+
+### Disabled
+
+<Example src="switch/docs/switch/disabled" />
+
+### Sizes
+
+A SwitchField can be rendered in different sizes.
+
+<Example src="switch/docs/switchfield/sizes" />
 
 <FeatureFlag flag="next">
     ## Advanced customization
@@ -77,6 +108,6 @@ A Switch can be rendered in different sizes.
     TODO: Example of creating a custom version of this component
 </FeatureFlag>
 
-## Migration Notes (WIP)
+## Migration Notes
 
 <MigrateGuide src="switch/docs/migration-notes" />

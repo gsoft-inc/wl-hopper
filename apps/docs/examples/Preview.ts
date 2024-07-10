@@ -83,11 +83,14 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkbox/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/preview.tsx"))
     },
+    "checkbox/docs/checkbox/nolabel": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/nolabel.tsx"))
+    },
     "checkbox/docs/checkbox/checked": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/checked.tsx"))
     },
-    "checkbox/docs/checkbox/nolabel": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/nolabel.tsx"))
+    "checkbox/docs/checkbox/indeterminate": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/indeterminate.tsx"))
     },
     "checkbox/docs/checkbox/disabled": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/disabled.tsx"))
@@ -95,17 +98,23 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkbox/readonly": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/readonly.tsx"))
     },
-    "checkbox/docs/checkbox/icons": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/icons.tsx"))
+    "checkbox/docs/checkbox/invalid": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/invalid.tsx"))
     },
     "checkbox/docs/checkbox/size": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/size.tsx"))
     },
-    "checkbox/docs/checkbox/indeterminate": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/indeterminate.tsx"))
+    "checkbox/docs/checkbox/description": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/description.tsx"))
     },
-    "checkbox/docs/checkbox/invalid": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/invalid.tsx"))
+    "checkbox/docs/checkbox/icons": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/icons.tsx"))
+    },
+    "checkbox/docs/checkboxfield/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/disabled.tsx"))
+    },
+    "checkbox/docs/checkboxfield/size": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/size.tsx"))
     },
     "checkbox/docs/checkboxgroup/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/preview.tsx"))
@@ -122,14 +131,29 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxgroup/size": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/size.tsx"))
     },
+    "checkbox/docs/checkboxgroup/label": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/label.tsx"))
+    },
+    "checkbox/docs/checkboxgroup/description": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/description.tsx"))
+    },
     "checkbox/docs/checkboxgroup/variant": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/variant.tsx"))
     },
     "checkbox/docs/checkboxgroup/orientation": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/orientation.tsx"))
     },
+    "checkbox/docs/checkboxgroup/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/controlled.tsx"))
+    },
     "radio/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/preview.tsx"))
+    },
+    "radio/docs/radiogroup/label": {
+        component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/label.tsx"))
+    },
+    "radio/docs/radiogroup/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/disabled.tsx"))
     },
     "radio/docs/radiogroup/size": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/size.tsx"))
@@ -137,8 +161,8 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radiogroup/orientation": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/orientation.tsx"))
     },
-    "radio/docs/radiogroup/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/disabled.tsx"))
+    "radio/docs/radiogroup/description": {
+        component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/description.tsx"))
     },
     "radio/docs/radiogroup/bordered": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/bordered.tsx"))
@@ -146,8 +170,14 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radiogroup/invalid": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/invalid.tsx"))
     },
+    "radio/docs/radiogroup/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/controlled.tsx"))
+    },
     "radio/docs/radio/label": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/label.tsx"))
+    },
+    "radio/docs/radio/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/disabled.tsx"))
     },
     "radio/docs/radio/description": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/description.tsx"))
@@ -155,26 +185,29 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radio/icons": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/icons.tsx"))
     },
-    "radio/docs/radio/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/disabled.tsx"))
+    "switch/docs/switch/preview": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/preview.tsx"))
     },
-    "switch/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/preview.tsx"))
+    "switch/docs/switch/selected": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/selected.tsx"))
     },
-    "switch/docs/selected": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/selected.tsx"))
+    "switch/docs/switch/nolabel": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/nolabel.tsx"))
     },
-    "switch/docs/nolabel": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/nolabel.tsx"))
+    "switch/docs/switch/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/disabled.tsx"))
     },
-    "switch/docs/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/disabled.tsx"))
+    "switch/docs/switch/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/sizes.tsx"))
     },
-    "switch/docs/icons": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/icons.tsx"))
+    "switch/docs/switch/icons": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/icons.tsx"))
     },
-    "switch/docs/sizes": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/sizes.tsx"))
+    "switch/docs/switch/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/disabled.tsx"))
+    },
+    "switch/docs/switchfield/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/sizes.tsx"))
     },
 };
     

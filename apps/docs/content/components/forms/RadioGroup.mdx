@@ -1,6 +1,6 @@
 ---
-title: RadioGroup (WIP)
-description: TBD
+title: RadioGroup
+description: The RadioGroup is used to group related options together and to provide a label for the group. It can also provide validation and helper messages.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/radio/src/RadioGroup.tsx
@@ -28,8 +28,9 @@ links:
     TODO: If we have some guidelines about this component and accessibility
 </FeatureFlag>
 
+## Anatomy
+
 <FeatureFlag flag="rc">
-    ## Anatomy
 
     TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
@@ -49,47 +50,81 @@ A `RadioGroup` uses the following components.
 - [Label](./Label)
 - [Text](./Text)
 
-## Examples
+## RadioGroup Examples
 
-### RadioGroup
+### Label
 
-A RadioGroup differs in appearance based on the size prop.
+A RadioGroup can have a label to provide more context to the user.
 
-<Example src="radio/docs/radiogroup/size" />
+<Example src="radio/docs/radiogroup/label" />
 
-A RadioGroup can be displayed horizontally or vertically.
-
-<Example src="radio/docs/radiogroup/orientation" />
+### Disabled
 
 A RadioGroup can be disabled.
 
 <Example src="radio/docs/radiogroup/disabled" />
 
+### Sizes
+
+A RadioGroup differs in appearance based on the size prop.
+
+<Example src="radio/docs/radiogroup/size" />
+
+### Orientation
+
+A RadioGroup can be displayed horizontally or vertically.
+
+<Example src="radio/docs/radiogroup/orientation" />
+
+### Description
+
+A RadioGroup can have a description to provide more information to the user.
+
+<Example src="radio/docs/radiogroup/description" />
+
+### Variants
+
 A RadioGroup can be `bordered` by using the `variant` prop.
 
 <Example src="radio/docs/radiogroup/bordered" />
+
+### Invalid
 
 A RadioGroup can be invalid.
 
 <Example src="radio/docs/radiogroup/invalid" />
 
-### Radio
+### Controlled
+
+A RadioGroup can handle `value` state in controlled mode.
+
+<Example src="radio/docs/radiogroup/controlled" />
+
+## Radio Examples
+
+### Label
 
 A Radio component can have a Label to provide more context to the user.
 
 <Example src="radio/docs/radio/label" />
 
-A Radio component can have a description to provide more information to the user.
-
-<Example src="radio/docs/radio/description" />
-
-Each Radio can be customized with an icon or an icon list.
-
-<Example src="radio/docs/radio/icons" />
+### Disabled
 
 A Radio component can be disabled.
 
 <Example src="radio/docs/radio/disabled" />
+
+### Description
+
+A Radio component can have a description to provide more information to the user.
+
+<Example src="radio/docs/radio/description" />
+
+### Icon
+
+Each Radio can be customized with an icon or an icon list.
+
+<Example src="radio/docs/radio/icons" />
 
 <FeatureFlag flag="next">
     ## Advanced customization
@@ -106,7 +141,7 @@ A Radio component can be disabled.
     TODO: Example of creating a custom version of this component
 </FeatureFlag>
 
-## Migration Notes (WIP)
+## Migration Notes
 
 ### RadioGroup
 
