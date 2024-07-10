@@ -1,6 +1,6 @@
 ---
 title: Avatar
-description: Avatars are used to represent a user, team or another entity. They are often paired with text where room is available. If an image is not provided or fails to load, the initials of the name will be displayed instead.
+description: Avatars are used to represent a user, team or another entity. They are often paired with text where room is available.
 category: "content"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Avatar/src/index.tsx
@@ -34,7 +34,7 @@ links:
 
 ## Examples
 
-### Local image
+### Local Image
 
 It would normally be imported from a file like this: `import Frog from "./hadfield.png";` then used as the src.
 
@@ -42,9 +42,13 @@ It would normally be imported from a file like this: `import Frog from "./hadfie
 
 ### Remote image
 
+An Avatar can fetch a remote image.
+
 <Example src="avatar/docs/remoteImage" />
 
 ### Fallback image
+
+A fallback image can be set in case the src fails to load.
 
 <Example src="avatar/docs/fallbackImage" />
 
@@ -68,17 +72,25 @@ The initials will be displayed instead.
 
 ### Anonymous
 
+An anonymous avatar can be displayed.
+
 <Example src="avatar/docs/anonymous" />
 
 ### Deleted
+
+A deleted avatar can be displayed.
 
 <Example src="avatar/docs/deleted" />
 
 ### Sizes
 
+The Avatar can be displayed in different sizes.
+
 <Example src="avatar/docs/sizes" />
 
 ### Disabled
+
+The Avatar can be disabled.
 
 <Example src="avatar/docs/disabled" />
 
