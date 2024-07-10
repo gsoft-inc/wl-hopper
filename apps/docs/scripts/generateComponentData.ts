@@ -63,7 +63,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     // Define the groups and their corresponding terms
 
     const groupsConfig: GroupsConfig = {
-        events: "Events",
+        events: ["Events", "DOMAttributes"],
         accessibility: ["Aria", "Focusable"],
         layout: "Slot"
         // Add more groups here as needed
@@ -71,7 +71,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     // Define the exceptions that should be added to a specific group
     // The first element is the prop name and the second is the group key
-    const groupsExceptions = [["type", "default"], ["autoFocus", "default"]];
+    const groupsExceptions = [["type", "default"], ["autoFocus", "default"], ["dangerouslySetInnerHTML", "default"]];
 
     return data.map(component => {
         // Remove the local or server path from the filePath
@@ -89,6 +89,8 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
         Object.entries(props).forEach(([key, prop]) => {
             let added = false;
+
+            // console.log("prop", prop);
 
             // Check each group to see if the prop should be added to it
             Object.entries(groupsConfig).forEach(([group, term]) => {
