@@ -1,13 +1,17 @@
-import { Flex, Div, type DivProps } from "@hopper-ui/components";
+import { Grid, Div, type DivProps, repeat } from "@hopper-ui/components";
 
 function Square(props: DivProps) {
-    return <Div backgroundColor="decorative-option1" height="core_640" width="core_640" {...props} />;
+    return <Div backgroundColor="decorative-option1" minHeight="core_640" minWidth="core_640" {...props} />;
 }
 
 export default function Example() {
     return (
         <Div width="100%" paddingY="core_400">
-            <Flex wrap>
+            <Grid 
+                templateColumns={repeat("auto-fit", "core_640")}
+                autoRows="core_640"
+                gap="stack-sm"
+            >
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square backgroundColor="decorative-option2-weak" />
                 <Square backgroundColor="decorative-option3-weak" />
@@ -35,7 +39,7 @@ export default function Example() {
                 <Square backgroundColor="decorative-option7-strong" />
                 <Square backgroundColor="decorative-option8-strong" />
                 <Square backgroundColor="decorative-option9-strong" />
-            </Flex>
+            </Grid>
         </Div>
     );
 }
