@@ -6,7 +6,7 @@ function Square(props: DivProps) {
 
 export default function Example() {
     return (
-        <Div width="100%" paddingY="core_320">
+        <Div width="100%" paddingY="core_400">
             <Grid templateRows={["1fr", "1fr"]} gap="stack-sm">
                 <Grid templateColumns={["core_800", "auto"]}>
                     <Square backgroundColor="decorative-option1" />
