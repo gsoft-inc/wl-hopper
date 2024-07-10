@@ -80,41 +80,41 @@ export const Previews: Record<string, Preview> = {
     "HopperProvider/docs/responsive-styles/useResponsiveValue": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/useResponsiveValue.tsx"))
     },
-    "avatar/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/preview.tsx"))
+    "Avatar/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/preview.tsx"))
     },
-    "avatar/docs/localImage": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/localImage.tsx"))
+    "Avatar/docs/localImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/localImage.tsx"))
     },
-    "avatar/docs/remoteImage": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/remoteImage.tsx"))
+    "Avatar/docs/remoteImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/remoteImage.tsx"))
     },
-    "avatar/docs/fallbackImage": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/fallbackImage.tsx"))
+    "Avatar/docs/fallbackImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/fallbackImage.tsx"))
     },
-    "avatar/docs/brokenImage": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/brokenImage.tsx"))
+    "Avatar/docs/brokenImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/brokenImage.tsx"))
     },
-    "avatar/docs/brokenImageWithBothFailing": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/brokenImageWithBothFailing.tsx"))
+    "Avatar/docs/brokenImageWithBothFailing": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/brokenImageWithBothFailing.tsx"))
     },
-    "avatar/docs/brokenImageWithNoFallback": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/brokenImageWithNoFallback.tsx"))
+    "Avatar/docs/brokenImageWithNoFallback": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/brokenImageWithNoFallback.tsx"))
     },
-    "avatar/docs/anonymous": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/anonymous.tsx"))
+    "Avatar/docs/anonymous": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/anonymous.tsx"))
     },
-    "avatar/docs/deleted": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/deleted.tsx"))
+    "Avatar/docs/deleted": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/deleted.tsx"))
     },
-    "avatar/docs/sizes": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/sizes.tsx"))
+    "Avatar/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/sizes.tsx"))
     },
-    "avatar/docs/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/disabled.tsx"))
+    "Avatar/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/disabled.tsx"))
     },
-    "avatar/docs/customization": {
-        component: lazy(() => import("@/../../packages/components/src/avatar/docs/customization.tsx"))
+    "Avatar/docs/customization": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
