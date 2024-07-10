@@ -11,7 +11,7 @@ export default function Example() {
                 <Grid templateColumns={["core_800", "auto"]}>
                     <Square backgroundColor="decorative-option1" />
                     <Square backgroundColor="decorative-option3" />
-                </Grid>,
+                </Grid>
                 <Grid templateColumns={["auto", "core_960"]}>
                     <Square backgroundColor="decorative-option1-strong" />
                     <Square backgroundColor="decorative-option3-strong" />

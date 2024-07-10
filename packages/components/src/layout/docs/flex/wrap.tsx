@@ -6,7 +6,7 @@ function Square(props: DivProps) {
 
 export default function Example() {
     return (
-        <Div width="100%" paddingY="core_320">
+        <Div width="100%" paddingY="core_400">
             <Flex wrap>
                 <Square backgroundColor="decorative-option1-weak" />
                 <Square backgroundColor="decorative-option2-weak" />

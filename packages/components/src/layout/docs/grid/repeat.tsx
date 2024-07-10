@@ -6,7 +6,7 @@ function Square(props: DivProps) {
 
 export default function Example() {
     return (
-        <Div width="100%" paddingY="core_320">
+        <Div width="100%" paddingY="core_400">
             <Grid 
                 templateColumns={repeat("auto-fit", "core_640")}
                 autoRows="core_640"
