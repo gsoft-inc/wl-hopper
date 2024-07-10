@@ -1,4 +1,4 @@
-import { Avatar, Div, Stack } from "@hopper-ui/components";
+import { Avatar, Stack, Flex } from "@hopper-ui/components";
 import { type ReactEventHandler, useEffect, useState } from "react";
 
 function useAsyncImage(src: string, retryCount = 5, delay = 250): [string | undefined, ReactEventHandler<HTMLImageElement> | undefined, number] {
@@ -51,20 +51,20 @@ export default function Example() {
 
     return (
         <Stack>
-            <Div>
+            <Flex direction="column" alignItems="center" gap="stack-sm">
                 <Avatar name="John Doe"
                     src={src}
                     imageProps={{ onError: handleError }}
                 />
                 <p>The avatar failed to load <strong>{failureCount}</strong> times.</p>
-            </Div>
-            <Div>
+            </Flex>
+            <Flex direction="column" alignItems="center" gap="stack-sm">
                 <Avatar name="John Doe"
                     src={src2}
                     imageProps={{ onError: handleError2 }}
                 />
                 <p>The avatar failed to load <strong>{failureCount2}</strong> times.</p>
-            </Div>
+            </Flex>
         </Stack>
     );
 }
