@@ -41,6 +41,26 @@ A `Link` uses the following components.
 
 ## Examples
 
+### Disabled
+
+Links can be disabled.
+
+<Example src="Link/docs/disabled" />
+
+### External
+
+An external text link will render by default with `rel="noopener noreferrer"` and `target="_blank"` attributes.
+
+<Example src="Link/docs/external" />
+
+### No Href
+
+When a `<Link>` does not have an href prop, it is rendered as a `<span role="link">` instead of an `<a>`. Events will need to be handled in JavaScript with the `onPress` prop.
+
+Note: this will not behave like a native link. Browser features like context menus and open in a new tab will not apply.
+
+<Example src="Link/docs/noHref" />
+
 ### Variants
 
 Links can be presented in different variants.
@@ -50,6 +70,7 @@ Links can be presented in different variants.
 ### Size
 
 Links can be presented in different sizes.
+
 <Example src="Link/docs/size" />
 
 ### Inherit Size
@@ -57,12 +78,6 @@ Links can be presented in different sizes.
 The size can also be inherited
 
 <Example src="Link/docs/inheritSize" />
-
-### Disabled
-
-Links can be disabled.
-
-<Example src="Link/docs/disabled" />
 
 ### Icon
 
@@ -81,21 +96,6 @@ Links can have an icon.
 A link's content can be a single icon. When using this variant, an accessible name must be provided through the aria-label prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 <Example src="Link/docs/iconOnly" />
-
-### External
-
-An external text link will render by default with `rel="noopener noreferrer"` and `target="_blank"` attributes.
-
-<Example src="Link/docs/external" />
-
-### No Href
-
-When a `<Link>` does not have an href prop, it is rendered as a `<span role="link">` instead of an `<a>`. Events will need to be handled in JavaScript with the `onPress` prop.
-
-Note: this will not behave like a native link. Browser features like context menus and open in a new tab will not apply.
-
-<Example src="Link/docs/noHref" />
-
 
 ### Quiet
 

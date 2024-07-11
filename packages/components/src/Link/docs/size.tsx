@@ -4,7 +4,7 @@ export default function Example() {
     return (
         <Stack>
             <Text size="xs">
-                Would you like to <Link size="inherit" href="#">learn more</Link> about this fine component?
+                Would you like to <Link size="inherit" href="#">learn more</Link> about this role?
             </Text>
             <Link size="xs" href="#">learn more</Link>
             <Link size="sm" href="#">learn more</Link>

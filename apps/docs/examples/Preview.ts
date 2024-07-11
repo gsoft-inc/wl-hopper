@@ -200,26 +200,26 @@ export const Previews: Record<string, Preview> = {
     "Link/docs/variants": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/variants.tsx"))
     },
+    "Link/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/size.tsx"))
+    },
+    "Link/docs/inheritSize": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/inheritSize.tsx"))
+    },
     "Link/docs/disabled": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/disabled.tsx"))
-    },
-    "Link/docs/external": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/external.tsx"))
     },
     "Link/docs/icon": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/icon.tsx"))
     },
+    "Link/docs/startIcon": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/startIcon.tsx"))
+    },
     "Link/docs/iconOnly": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/iconOnly.tsx"))
     },
-    "Link/docs/size": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/size.tsx"))
-    },
-    "Link/docs/image": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/image.tsx"))
-    },
-    "Link/docs/inheritSize": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/inheritSize.tsx"))
+    "Link/docs/external": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/external.tsx"))
     },
     "Link/docs/noHref": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/noHref.tsx"))
@@ -230,11 +230,11 @@ export const Previews: Record<string, Preview> = {
     "Link/docs/reactRouterLink": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/reactRouterLink.tsx"))
     },
-    "Link/docs/startIcon": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/startIcon.tsx"))
-    },
     "Link/docs/staticColor": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/staticColor.tsx"))
+    },
+    "Link/docs/image": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/image.tsx"))
     },
 };
     
