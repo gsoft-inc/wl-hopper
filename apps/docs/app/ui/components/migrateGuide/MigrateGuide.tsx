@@ -11,7 +11,6 @@ const MigrateGuide = async ({ src }: MigrateGuideProps) => {
 
     const { content } = await getMigrationNotes(src);
 
-
     return <article>{content}</article>;
 };
 
