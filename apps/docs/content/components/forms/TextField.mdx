@@ -1,48 +1,115 @@
 ---
-title: TextField (WIP)
-description: TBD
+title: TextField
+description: A text field allows a user to enter a plain text value with a keyboard.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/inputs/src/TextField.tsx
 ---
 
+Specialized text fields are available for different scenarios:
+- If you want a text field with type="search", use the [SearchField](./SearchField) component.
+- If you want a text field that shows/hides a password, use the [PasswordField](./PasswordField) component.
+
+<Example src="inputs/docs/textField/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
-
-## Guidelines
-
-TODO: If we have some guidelines about this component's usage
-
-### Accessibility ?
-
-TODO: If we have some guidelines about this component and accessibility
+<PropTable component="TextField" />
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Concepts
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: links to related concepts
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+A `TextField` uses the following components.
+
+- [Label](./Label)
+- [Helper Message](./HelperMessage)
+- [Error Message](./ErrorMessage)
 
 ## Examples
 
-## Advanced customization
+### Disabled
+A text field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="inputs/docs/textField/disabled" />
 
-### Custom Children
+### ReadOnly
+The `isReadOnly` prop makes the TextField's text content immutable. Unlike `isDisabled`, the TextField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="inputs/docs/textField/readOnly" />
 
-### Custom Component
+### Error
+A text field with an error message.
 
-TODO: Example of creating a custom version of this component
+<Example src="inputs/docs/textField/error" />
 
-## Migration Notes (WIP)
+### Clearable
+The `isClearable` prop can be set to `true` to display a clear button at the end of the input.
+
+<Example src="inputs/docs/textField/clearable" />
+
+### Sizes
+Text fields have multiple sizes to choose from.
+
+<Example src="inputs/docs/textField/sizes" />
+
+### Labeling
+If a visible label isn't specified, an aria-label must be provided to the TextField for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the ID of the labeling element instead.
+
+<Example src="inputs/docs/textField/labeling" />
+
+### Description
+A text field with a helper message.
+
+<Example src="inputs/docs/textField/description" />
+
+### Icon Prefix
+An icon can be displayed at the start of the input.
+
+<Example src="inputs/docs/textField/iconPrefix" />
+
+### Text Prefix
+A short text can be displayed at the start of the input.
+
+<Example src="inputs/docs/textField/textPrefix" />
+
+### Character Count
+A character count can be displayed at the end of the input.
+The character count is based on the `maxLength` prop.
+If the `maxLength` prop is not set, the character count will not be displayed.
+
+<Example src="inputs/docs/textField/characterCount" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>

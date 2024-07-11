@@ -47,6 +47,24 @@ export const Previews: Record<string, Preview> = {
     "buttons/docs/button/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/advancedCustomization.tsx"))
     },
+    "buttons/docs/buttonGroup/preview": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/preview.tsx"))
+    },
+    "buttons/docs/buttonGroup/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/disabled.tsx"))
+    },
+    "buttons/docs/buttonGroup/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/fluid.tsx"))
+    },
+    "buttons/docs/buttonGroup/orientation": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/orientation.tsx"))
+    },
+    "buttons/docs/buttonGroup/alignment": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/alignment.tsx"))
+    },
+    "buttons/docs/buttonGroup/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/sizes.tsx"))
+    },
     "HopperProvider/docs/color-scheme/apply": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply.tsx"))
     },
@@ -115,6 +133,21 @@ export const Previews: Record<string, Preview> = {
     },
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
+    },
+    "typography/Text/docs/text/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/preview.tsx"))
+    },
+    "typography/Text/docs/text/size": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/size.tsx"))
+    },
+    "typography/Text/docs/text/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/inherit.tsx"))
+    },
+    "typography/Text/docs/text/nested": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/nested.tsx"))
+    },
+    "typography/Text/docs/text/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/advancedCustomization.tsx"))
     },
     "checkbox/docs/checkbox/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/preview.tsx"))
@@ -197,6 +230,27 @@ export const Previews: Record<string, Preview> = {
     "HelperMessage/docs/noicon": {
         component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/noicon.tsx"))
     },
+    "inputs/docs/passwordField/preview": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/preview.tsx"))
+    },
+    "inputs/docs/passwordField/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/disabled.tsx"))
+    },
+    "inputs/docs/passwordField/readOnly": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/readOnly.tsx"))
+    },
+    "inputs/docs/passwordField/error": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/error.tsx"))
+    },
+    "inputs/docs/passwordField/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/sizes.tsx"))
+    },
+    "inputs/docs/passwordField/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/labeling.tsx"))
+    },
+    "inputs/docs/passwordField/description": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/description.tsx"))
+    },
     "radio/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/preview.tsx"))
     },
@@ -236,6 +290,30 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radio/icons": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/icons.tsx"))
     },
+    "inputs/docs/searchField/preview": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/preview.tsx"))
+    },
+    "inputs/docs/searchField/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/disabled.tsx"))
+    },
+    "inputs/docs/searchField/readOnly": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/readOnly.tsx"))
+    },
+    "inputs/docs/searchField/error": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/error.tsx"))
+    },
+    "inputs/docs/searchField/hideClearButton": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/hideClearButton.tsx"))
+    },
+    "inputs/docs/searchField/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/sizes.tsx"))
+    },
+    "inputs/docs/searchField/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/labeling.tsx"))
+    },
+    "inputs/docs/searchField/description": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/description.tsx"))
+    },
     "switch/docs/switch/preview": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/preview.tsx"))
     },
@@ -259,6 +337,39 @@ export const Previews: Record<string, Preview> = {
     },
     "switch/docs/switchfield/sizes": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/sizes.tsx"))
+    },
+    "inputs/docs/textField/preview": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/preview.tsx"))
+    },
+    "inputs/docs/textField/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/disabled.tsx"))
+    },
+    "inputs/docs/textField/readOnly": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/readOnly.tsx"))
+    },
+    "inputs/docs/textField/error": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/error.tsx"))
+    },
+    "inputs/docs/textField/clearable": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/clearable.tsx"))
+    },
+    "inputs/docs/textField/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/sizes.tsx"))
+    },
+    "inputs/docs/textField/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/labeling.tsx"))
+    },
+    "inputs/docs/textField/description": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/description.tsx"))
+    },
+    "inputs/docs/textField/iconPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/iconPrefix.tsx"))
+    },
+    "inputs/docs/textField/textPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/textPrefix.tsx"))
+    },
+    "inputs/docs/textField/characterCount": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/characterCount.tsx"))
     },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
