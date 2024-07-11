@@ -116,6 +116,27 @@ export const Previews: Record<string, Preview> = {
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
+    "inputs/docs/passwordField/preview": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/preview.tsx"))
+    },
+    "inputs/docs/passwordField/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/sizes.tsx"))
+    },
+    "inputs/docs/passwordField/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/labeling.tsx"))
+    },
+    "inputs/docs/passwordField/description": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/description.tsx"))
+    },
+    "inputs/docs/passwordField/error": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/error.tsx"))
+    },
+    "inputs/docs/passwordField/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/disabled.tsx"))
+    },
+    "inputs/docs/passwordField/readOnly": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/readOnly.tsx"))
+    },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
     },
