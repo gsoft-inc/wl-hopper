@@ -134,6 +134,21 @@ export const Previews: Record<string, Preview> = {
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
+    "typography/Text/docs/text/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/preview.tsx"))
+    },
+    "typography/Text/docs/text/size": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/size.tsx"))
+    },
+    "typography/Text/docs/text/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/inherit.tsx"))
+    },
+    "typography/Text/docs/text/nested": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/nested.tsx"))
+    },
+    "typography/Text/docs/text/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/advancedCustomization.tsx"))
+    },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
     },
