@@ -194,5 +194,47 @@ export const Previews: Record<string, Preview> = {
     "layout/docs/stack/alignY": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/alignY.tsx"))
     },
+    "Link/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/preview.tsx"))
+    },
+    "Link/docs/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/variants.tsx"))
+    },
+    "Link/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/disabled.tsx"))
+    },
+    "Link/docs/external": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/external.tsx"))
+    },
+    "Link/docs/icon": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/icon.tsx"))
+    },
+    "Link/docs/iconOnly": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/iconOnly.tsx"))
+    },
+    "Link/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/size.tsx"))
+    },
+    "Link/docs/image": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/image.tsx"))
+    },
+    "Link/docs/inheritSize": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/inheritSize.tsx"))
+    },
+    "Link/docs/noHref": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/noHref.tsx"))
+    },
+    "Link/docs/quiet": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/quiet.tsx"))
+    },
+    "Link/docs/reactRouterLink": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/reactRouterLink.tsx"))
+    },
+    "Link/docs/startIcon": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/startIcon.tsx"))
+    },
+    "Link/docs/staticColor": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/staticColor.tsx"))
+    },
 };
     
