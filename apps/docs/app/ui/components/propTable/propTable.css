@@ -27,14 +27,6 @@
     }
 }
 
-.hd-props-table__section {
-    margin-block: var(--hd-space-05);
-}
-
-.hd-props-table + .hd-props-table__section {
-    margin-block-start: var(--hd-space-1);
-}
-
 .hd-props-table [data-rehype-pretty-code-figure] {
     margin: 0;
 }
