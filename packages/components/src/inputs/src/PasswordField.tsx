@@ -91,7 +91,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
             <InputGroup
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                isFluid={isFluid}
+                isFluid
                 size={size}
                 className={styles["hop-PasswordField__InputGroup"]}
             >

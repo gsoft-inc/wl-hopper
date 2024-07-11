@@ -4,7 +4,7 @@ export default function Example() {
     return (
         <PasswordField placeholder="Placeholder">
             <Label>Password:</Label>
-            <HelperMessage>Helper message</HelperMessage>
+            <HelperMessage>Should contain more than 10 characters</HelperMessage>
         </PasswordField>
     );
 }

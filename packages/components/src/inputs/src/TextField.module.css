@@ -37,7 +37,6 @@
 
 .hop-TextField__InputGroup {
     order: 1;
-    inline-size: 100%;
 }
 
 .hop-TextField__ErrorMessage,

@@ -102,7 +102,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
             <InputGroup
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                isFluid={isFluid}
+                isFluid
                 size={size}
                 className={styles["hop-SearchField__InputGroup"]}
             >
