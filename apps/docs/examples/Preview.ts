@@ -80,6 +80,12 @@ export const Previews: Record<string, Preview> = {
     "HopperProvider/docs/responsive-styles/useResponsiveValue": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/useResponsiveValue.tsx"))
     },
+    "helpermessage/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/helpermessage/docs/preview.tsx"))
+    },
+    "helpermessage/docs/noicon": {
+        component: lazy(() => import("@/../../packages/components/src/helpermessage/docs/noicon.tsx"))
+    },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
     },
