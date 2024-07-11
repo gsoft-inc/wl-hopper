@@ -6,7 +6,7 @@
     background-color: transparent;
     color: var(--toggle-button-color);
     border-width: 0;
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
     display: flex;
     gap: var(--hd-space-2);
     justify-content: center;

@@ -1,8 +1,6 @@
 :root {
     --hd-nav-font-size: 0.875rem;
     --hd-nav-line-height: 1;
-    --hd-nav-color: var(--hd-color-text-secondary);
-    --hd-nav-background-color-hover: var(--hd-color-surface-secondary);
 }
 
 .hd-nav {
@@ -25,7 +23,7 @@
 
 .hd-nav__list-item {
     display: flex;
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
     transition: background-color 0.15s ease-in, color 0.05s linear;
 }
 

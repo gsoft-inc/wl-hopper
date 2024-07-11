@@ -13,7 +13,7 @@
     padding-block: var(--hd-space-2);
     padding-inline: var(--hd-space-2);
     border: none;
-    border-radius: 0.5rem;
+    border-radius: var(--hd-border-radius-md);
     background: var(--collapsible-trigger-background);
     box-shadow: none;
     transition: box-shadow 0.15s ease-in-out;
