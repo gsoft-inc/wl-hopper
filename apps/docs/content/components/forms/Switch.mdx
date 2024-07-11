@@ -1,48 +1,122 @@
 ---
-title: Switch (WIP)
-description: TBD
+title: Switch
+description: A switch is used to quickly switch between two possible states. They are commonly used for “on/off” switches.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/switch/src/Switch.tsx
 ---
 
+<Example src="switch/docs/switch/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+### Switch
 
-## Guidelines
+<PropTable component="Switch" />
 
-TODO: If we have some guidelines about this component's usage
+### SwitchField
 
-### Accessibility ?
+<PropTable component="SwitchField" />
 
-TODO: If we have some guidelines about this component and accessibility
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this components usage
+
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
 
-### Concepts
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-TODO: links to related concepts
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+#### Switch
 
-## Examples
+A `Switch` uses the following components.
 
-## Advanced customization
+- [Icon](./Icon)
+- [IconList](./IconList)
+- [Text](./Text)
 
-### Contexts
-TODO: Example of context + content about the context
+#### SwitchField
 
-### Custom Children
+A `SwitchField` uses the following components.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+- [Switch](#switch)
+- [Text](./Text)
 
-### Custom Component
+## Switch Examples
 
-TODO: Example of creating a custom version of this component
+### Selected
 
-## Migration Notes (WIP)
+A Switch can be selected.
+
+<Example src="switch/docs/switch/selected" />
+
+### No label
+
+A Switch can be rendered without a label.
+
+<Example src="switch/docs/switch/nolabel" />
+
+### Disabled
+
+A Switch can be disabled.
+
+<Example src="switch/docs/switch/disabled" />
+
+### Sizes
+
+A Switch can be rendered in different sizes.
+
+<Example src="switch/docs/switch/sizes" />
+
+### Icon
+
+A Switch can be rendered with an icon or an icon list.
+
+<Example src="switch/docs/switch/icons" />
+
+## SwitchField Examples
+
+### Disabled
+
+A SwitchField can be disabled.
+
+<Example src="switch/docs/switchfield/disabled" />
+
+### Sizes
+
+A SwitchField can be rendered in different sizes.
+
+<Example src="switch/docs/switchfield/sizes" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="switch/docs/migration-notes" />

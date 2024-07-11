@@ -1,0 +1,10 @@
+.hd-popover__dialog {
+    --hd-popover-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
+
+    background-color: var(--hd-color-neutral-surface);
+    border: var(--hd-border-size) solid var(--hd-color-neutral-text-weak);
+    border-radius: var(--hd-border-radius-md);
+    box-sizing: border-box;
+    box-shadow: var(--hd-popover-shadow);
+    outline: none;
+}

@@ -1,0 +1,10 @@
+- The `counter` component is no longer allowed as a specialized slot.
+- `reverse` is not currently supported.
+- Values are not auto-generated when missed.
+- `onChange` is only on RadioGroup, not Radio.
+- `onValueChange` deleted, use onChange instead.
+- `checked` renamed to `isSelected`.
+- `disabled` renamed to `isDisabled`.
+- `required` renamed to `isRequired`.
+- `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
+- `value` is required.

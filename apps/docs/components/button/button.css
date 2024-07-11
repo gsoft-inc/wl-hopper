@@ -8,7 +8,7 @@
     width: auto;
     color: var(--hd-color-neutral-text-strong);
     border: none;
-    border-radius: var(--hd-space-1);
+    border-radius: var(--hd-border-radius-md);
     background: var(--hd-color-surface-neutral-gradient);
     box-shadow: var(--hd-color-shadow-neutral-gradient);
 }

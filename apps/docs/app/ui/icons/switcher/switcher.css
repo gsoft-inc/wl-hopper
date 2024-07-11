@@ -6,7 +6,7 @@
 
 .hd-switcher-choice {
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
-    border-radius: var(--hd-space-1);
+    border-radius: var(--hd-border-radius-md);
     cursor: pointer;
     max-width: 11rem;
     padding: calc(var(--hd-space-2) - var(--hd-border-size));
