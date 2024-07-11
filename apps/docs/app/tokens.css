@@ -51,6 +51,9 @@
     --hd-space-9: 4.5rem;
     --hd-space-10: 5rem;
     --hd-border-size: 1px; /* stylelint-disable-line unit-allowed-list */
+    --hd-border-radius-sm: 0.25rem;
+    --hd-border-radius-md: 0.5rem;
+    --hd-border-radius-lg: 1rem;
     --hd-z-index-100: 100;
     --hd-z-index-200: 200;
     --hd-z-index-400: 400;

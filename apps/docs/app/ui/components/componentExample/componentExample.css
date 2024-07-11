@@ -1,6 +1,6 @@
 [data-usage="both"] {
     overflow: hidden;
-    border-radius: var(--hd-space-2);
+    border-radius: var(--hd-border-radius-lg);
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
 
     .hd-component-preview-wrapper__card,
@@ -15,7 +15,7 @@
 
 [data-usage="code"] {
     [data-rehype-pretty-code-figure] .hd-pre {
-        border-radius: var(--hd-space-2);
+        border-radius: var(--hd-border-radius-lg);
     }
 }
 
