@@ -182,14 +182,14 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxgroup/controlled": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/controlled.tsx"))
     },
-    "Errormessage/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/Errormessage/docs/preview.tsx"))
+    "ErrorMessage/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
     },
-    "Errormessage/docs/noicon": {
-        component: lazy(() => import("@/../../packages/components/src/Errormessage/docs/noicon.tsx"))
+    "ErrorMessage/docs/noicon": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/noicon.tsx"))
     },
-    "Errormessage/docs/multipleerrors": {
-        component: lazy(() => import("@/../../packages/components/src/Errormessage/docs/multipleerrors.tsx"))
+    "ErrorMessage/docs/multipleerrors": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/multipleerrors.tsx"))
     },
     "HelperMessage/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/preview.tsx"))
