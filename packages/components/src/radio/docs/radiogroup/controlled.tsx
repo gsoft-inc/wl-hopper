@@ -1,11 +1,14 @@
 import { RadioField, RadioGroup, RadioList, Radio, Text } from "@hopper-ui/components";
+import { useState } from "react";
 
 export default function Example() {
+    const [selected, setSelected] = useState<string>("designer");
+
     return (
         <RadioGroup
             aria-label="Roles"
-            onChange={() => {}}
-            value="designer"
+            value={selected}
+            onChange={setSelected}
         >
             <RadioList>
                 <Radio value="developer">Developer</Radio>

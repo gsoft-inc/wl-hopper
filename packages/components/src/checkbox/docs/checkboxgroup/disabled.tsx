@@ -4,8 +4,8 @@ export default function Example() {
     return (
         <CheckboxGroup isDisabled>
             <CheckboxList>
-                <Checkbox value="option1">Option 1</Checkbox>
-                <Checkbox value="option2">Option 2</Checkbox>
+                <Checkbox value="option1">Developer</Checkbox>
+                <Checkbox value="option2">Designer</Checkbox>
             </CheckboxList>
         </CheckboxGroup>
     );

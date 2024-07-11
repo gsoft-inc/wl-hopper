@@ -2,6 +2,6 @@ import { Checkbox } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Checkbox aria-label="Option 1" />
+        <Checkbox aria-label="Developer" />
     );
 }

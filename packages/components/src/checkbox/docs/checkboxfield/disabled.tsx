@@ -4,8 +4,9 @@ export default function Example() {
     return (
         <CheckboxField isDisabled>
             <Checkbox>
-                <Text>Option 1</Text>
+                <Text>Manager</Text>
             </Checkbox>
+            <Text>Team Manager</Text>
         </CheckboxField>
     );
 }

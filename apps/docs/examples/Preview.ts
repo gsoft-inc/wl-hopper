@@ -104,9 +104,6 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkbox/size": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/size.tsx"))
     },
-    "checkbox/docs/checkbox/description": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/description.tsx"))
-    },
     "checkbox/docs/checkbox/icons": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/icons.tsx"))
     },
@@ -115,6 +112,9 @@ export const Previews: Record<string, Preview> = {
     },
     "checkbox/docs/checkboxfield/size": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/size.tsx"))
+    },
+    "checkbox/docs/checkbox/description": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/description.tsx"))
     },
     "checkbox/docs/checkboxgroup/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/preview.tsx"))
@@ -203,8 +203,8 @@ export const Previews: Record<string, Preview> = {
     "switch/docs/switch/icons": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/icons.tsx"))
     },
-    "switch/docs/switch/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/disabled.tsx"))
+    "switch/docs/switchfield/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/disabled.tsx"))
     },
     "switch/docs/switchfield/sizes": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/sizes.tsx"))

@@ -5,14 +5,14 @@ export default function Example() {
         <Inline gap="inline-xl">
             <CheckboxGroup size="sm">
                 <CheckboxList>
-                    <Checkbox value="option1">Option 1</Checkbox>
-                    <Checkbox value="option2">Option 2</Checkbox>
+                    <Checkbox value="developer">Developer</Checkbox>
+                    <Checkbox value="designer">Designer</Checkbox>
                 </CheckboxList>
             </CheckboxGroup>
             <CheckboxGroup size="md">
                 <CheckboxList>
-                    <Checkbox value="option1">Option 1</Checkbox>
-                    <Checkbox value="option2">Option 2</Checkbox>
+                    <Checkbox value="developer">Designer</Checkbox>
+                    <Checkbox value="designer">Developer</Checkbox>
                 </CheckboxList>
             </CheckboxGroup>
         </Inline>

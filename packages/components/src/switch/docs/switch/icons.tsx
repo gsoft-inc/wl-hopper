@@ -5,11 +5,11 @@ export default function Example() {
     return (
         <Inline>
             <Switch>
-                <Text>Label</Text>
+                <Text>Save</Text>
                 <SparklesIcon />
             </Switch>
             <Switch>
-                <Text>Label</Text>
+                <Text>Save</Text>
                 <IconList>
                     <SparklesIcon />
                     <SparklesIcon />

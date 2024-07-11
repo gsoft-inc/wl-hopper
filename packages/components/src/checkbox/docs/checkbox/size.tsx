@@ -4,10 +4,10 @@ export default function Example() {
     return (
         <Inline>
             <Checkbox size="sm">
-                <Text>Option 1</Text>
+                <Text>Developer</Text>
             </Checkbox>
             <Checkbox size="md">
-                <Text>Option 1</Text>
+                <Text>Designer</Text>
             </Checkbox>
         </Inline>
     );

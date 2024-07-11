@@ -4,9 +4,9 @@ export default function Example() {
     return (
         <CheckboxField>
             <Checkbox>
-                <Text>Option 1</Text>
+                <Text>Manager</Text>
             </Checkbox>
-            <Text slot="description">Description</Text>
+            <Text slot="description">Team Manager</Text>
         </CheckboxField>
     );
 }

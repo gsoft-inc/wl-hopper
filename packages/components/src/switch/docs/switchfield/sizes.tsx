@@ -7,11 +7,13 @@ export default function Example() {
                 <Switch>
                     <Text>Save</Text>
                 </Switch>
+                <Text>This will override your changes.</Text>
             </SwitchField>
             <SwitchField size="md">
                 <Switch>
                     <Text>Save</Text>
                 </Switch>
+                <Text>This will override your changes.</Text>
             </SwitchField>
         </Inline>
     );
