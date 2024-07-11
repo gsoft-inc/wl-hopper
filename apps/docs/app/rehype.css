@@ -1,7 +1,7 @@
 :root {
     --hd-codeblock-background-color: var(--hd-neutral-800);
     --hd-codeblock-border-color: var(--hd-color-neutral-border);
-    --hd-codeblock-border-radius: 0.5rem;
+    --hd-codeblock-border-radius: var(--hd-border-radius-md);
     --hd-codeblock-border-size: 0.125rem;
     --hd-codeblock-padding: var(--hd-space-2);
     --hd-codeblock-line-line-number-color: var(--hd-neutral-400);

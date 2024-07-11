@@ -80,6 +80,42 @@ export const Previews: Record<string, Preview> = {
     "HopperProvider/docs/responsive-styles/useResponsiveValue": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/responsive-styles/useResponsiveValue.tsx"))
     },
+    "Avatar/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/preview.tsx"))
+    },
+    "Avatar/docs/localImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/localImage.tsx"))
+    },
+    "Avatar/docs/remoteImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/remoteImage.tsx"))
+    },
+    "Avatar/docs/fallbackImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/fallbackImage.tsx"))
+    },
+    "Avatar/docs/brokenImage": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/brokenImage.tsx"))
+    },
+    "Avatar/docs/brokenImageWithBothFailing": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/brokenImageWithBothFailing.tsx"))
+    },
+    "Avatar/docs/brokenImageWithNoFallback": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/brokenImageWithNoFallback.tsx"))
+    },
+    "Avatar/docs/anonymous": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/anonymous.tsx"))
+    },
+    "Avatar/docs/deleted": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/deleted.tsx"))
+    },
+    "Avatar/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/sizes.tsx"))
+    },
+    "Avatar/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/disabled.tsx"))
+    },
+    "Avatar/docs/customization": {
+        component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
+    },
     "checkbox/docs/checkbox/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/preview.tsx"))
     },
