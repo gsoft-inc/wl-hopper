@@ -215,6 +215,21 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxgroup/controlled": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/controlled.tsx"))
     },
+    "ErrorMessage/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
+    },
+    "ErrorMessage/docs/noicon": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/noicon.tsx"))
+    },
+    "ErrorMessage/docs/multipleerrors": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/multipleerrors.tsx"))
+    },
+    "HelperMessage/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/preview.tsx"))
+    },
+    "HelperMessage/docs/noicon": {
+        component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/noicon.tsx"))
+    },
     "inputs/docs/passwordField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/preview.tsx"))
     },
