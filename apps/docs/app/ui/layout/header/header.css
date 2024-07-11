@@ -29,13 +29,13 @@
     background-color: var(--hd-header-background-color);
     backdrop-filter: blur(1rem);
     border-block-end: var(--hd-border-size) solid var(--hd-header-border-color);
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0 0 var(--hd-border-radius-md) var(--hd-border-radius-md);
     z-index: var(--hd-z-index-1000);
 }
 
 @media screen and (width >= 37.5rem) {
     .hd-header {
-        border-radius: 0.5rem;
+        border-radius: var(--hd-border-radius-md);
         margin: 1.5rem auto 0;
         width: min(100% - 3rem, var(--layout-width));
     }

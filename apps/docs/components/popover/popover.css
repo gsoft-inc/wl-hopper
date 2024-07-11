@@ -3,7 +3,7 @@
 
     background-color: var(--hd-color-neutral-surface);
     border: var(--hd-border-size) solid var(--hd-color-neutral-text-weak);
-    border-radius: 0.75rem;
+    border-radius: var(--hd-border-radius-md);
     box-sizing: border-box;
     box-shadow: var(--hd-popover-shadow);
     outline: none;

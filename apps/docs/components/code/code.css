@@ -2,9 +2,9 @@
     font-family: var(--hd-mono-font-family);
     font-size: 0.8125rem;
     color: var(--hd-color-accent-text);
-    border-radius: 0.25rem;
-    padding-block: 0.25rem;
-    padding-inline: 0.5rem;
+    border-radius: var(--hd-border-radius-sm);
+    padding-block: var(--hd-space-05);
+    padding-inline: var(--hd-space-1);
     background-color: var(--hd-color-accent-surface);
 }
 
