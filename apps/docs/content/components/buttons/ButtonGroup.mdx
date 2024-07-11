@@ -1,48 +1,84 @@
 ---
-title: ButtonGroup (WIP)
-description: TBD
+title: ButtonGroup
+description: ButtonGroup handles the spacing and orientation for a grouping of buttons whose actions are related to each other.
 category: "buttons"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/buttons/src/ButtonGroup.tsx
 ---
 
+<Example src="buttons/docs/buttonGroup/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
-
-## Guidelines
-
-TODO: If we have some guidelines about this component's usage
-
-### Accessibility ?
-
-TODO: If we have some guidelines about this component and accessibility
+<PropTable component="ButtonGroup" />
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Concepts
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: links to related concepts
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+[Button](./Button)
 
 ## Examples
 
-## Advanced customization
+### Disabled
+A button group can be disabled.
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="buttons/docs/buttonGroup/disabled" />
 
-### Custom Children
+### Fluid
+A button group can be fluid.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="buttons/docs/buttonGroup/fluid" />
 
-### Custom Component
+### Orientation
+A button group can render his items vertically.
 
-TODO: Example of creating a custom version of this component
+<Example src="buttons/docs/buttonGroup/orientation" />
 
-## Migration Notes (WIP)
+### Alignment
+A button group can change the alignment of his items.
+
+<Example src="buttons/docs/buttonGroup/alignment" />
+
+### Sizes
+A button group can be of different sizes.
+
+<Example src="buttons/docs/buttonGroup/sizes" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="buttons/docs/migration-notes-button-group" />

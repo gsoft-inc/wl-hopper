@@ -47,6 +47,24 @@ export const Previews: Record<string, Preview> = {
     "buttons/docs/button/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/advancedCustomization.tsx"))
     },
+    "buttons/docs/buttonGroup/preview": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/preview.tsx"))
+    },
+    "buttons/docs/buttonGroup/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/disabled.tsx"))
+    },
+    "buttons/docs/buttonGroup/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/fluid.tsx"))
+    },
+    "buttons/docs/buttonGroup/orientation": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/orientation.tsx"))
+    },
+    "buttons/docs/buttonGroup/alignment": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/alignment.tsx"))
+    },
+    "buttons/docs/buttonGroup/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/sizes.tsx"))
+    },
     "HopperProvider/docs/color-scheme/apply": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply.tsx"))
     },
@@ -115,6 +133,21 @@ export const Previews: Record<string, Preview> = {
     },
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
+    },
+    "typography/Text/docs/text/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/preview.tsx"))
+    },
+    "typography/Text/docs/text/size": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/size.tsx"))
+    },
+    "typography/Text/docs/text/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/inherit.tsx"))
+    },
+    "typography/Text/docs/text/nested": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/nested.tsx"))
+    },
+    "typography/Text/docs/text/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/advancedCustomization.tsx"))
     },
     "checkbox/docs/checkbox/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/preview.tsx"))

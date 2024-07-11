@@ -1,0 +1,2 @@
+- `fluid` is renamed to `isFluid`.
+- `disabled` is renamed to `isDisabled`.
