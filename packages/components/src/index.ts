@@ -9,6 +9,7 @@ export * from "./Header/index.ts";
 export * from "./HelperMessage/index.ts";
 export * from "./HopperProvider/index.ts";
 export * from "./IconList/index.ts";
+export * from "./inputs/index.ts";
 export * from "./layout/index.ts";
 export * from "./Link/index.ts";
 export * from "./ListBox/index.ts";
