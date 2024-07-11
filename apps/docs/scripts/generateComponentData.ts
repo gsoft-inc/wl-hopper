@@ -90,8 +90,6 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
         Object.entries(props).forEach(([key, prop]) => {
             let added = false;
 
-            // console.log("prop", prop);
-
             // Check each group to see if the prop should be added to it
             Object.entries(groupsConfig).forEach(([group, term]) => {
                 if (Array.isArray(term)) {
