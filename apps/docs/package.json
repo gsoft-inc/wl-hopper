@@ -17,7 +17,8 @@
         "storybook": "storybook dev -p 6010",
         "build:storybook": "storybook build",
         "build:componentData": "tsx scripts/generateComponentData.ts && pnpm run build:previewRef",
-        "build:previewRef": "tsx scripts/generatePreviewRef.ts"
+        "build:previewRef": "tsx scripts/generatePreviewRef.ts",
+        "copy:images": "tsx scripts/copyImages.ts"
     },
     "dependencies": {
         "@tanstack/react-table": "^8.17.3",

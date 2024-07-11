@@ -66,6 +66,10 @@
     border-bottom: var(--hd-props-table-cell-border);
 }
 
+.hd-props-table__col-name {
+    white-space: nowrap;
+}
+
 .hd-props-table__col-description {
     word-break: break-word;
 }
