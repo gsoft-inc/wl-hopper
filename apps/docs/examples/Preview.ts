@@ -134,6 +134,18 @@ export const Previews: Record<string, Preview> = {
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
+    "typography/label/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/preview.tsx"))
+    },
+    "typography/label/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/sizes.tsx"))
+    },
+    "typography/label/docs/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/inherit.tsx"))
+    },
+    "typography/label/docs/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/advancedCustomization.tsx"))
+    },
     "typography/Text/docs/text/preview": {
         component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/preview.tsx"))
     },
@@ -433,6 +445,36 @@ export const Previews: Record<string, Preview> = {
     },
     "layout/docs/stack/alignY": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/alignY.tsx"))
+    },
+    "Badge/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/preview.tsx"))
+    },
+    "Badge/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/disabled.tsx"))
+    },
+    "Badge/docs/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/variants.tsx"))
+    },
+    "Badge/docs/highCount": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/highCount.tsx"))
+    },
+    "Badge/docs/text": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/text.tsx"))
+    },
+    "Spinner/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/preview.tsx"))
+    },
+    "Spinner/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/sizes.tsx"))
+    },
+    "Spinner/docs/label": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/label.tsx"))
+    },
+    "Spinner/docs/overBackground": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/overBackground.tsx"))
+    },
+    "Spinner/docs/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/advancedCustomization.tsx"))
     },
 };
     

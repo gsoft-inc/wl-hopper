@@ -1,48 +1,70 @@
 ---
-title: Label (WIP)
-description: TBD
+title: Label
+description: A primitive label component matching Hopper's typography type scale.
 category: "content"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/typography/Label/src/label.tsx
 ---
+<Example src="typography/label/docs/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Label" />
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component&apos;s usage
 
-### Accessibility ?
+    ### Accessibility?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
-## Anatomy
+<FeatureFlag flag="rc">
+    ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
-
-### Composed Components
-
-TODO: links to related components (most likely all component which are used by the slots)
+    TODO: links to related concepts
+</FeatureFlag>
 
 ## Examples
 
-## Advanced customization
+### Sizes
+You can alter the size of the label by specifying a `size` prop.
+The available sizes match Hopper Typography Type Scale (a type scale is a set of [font-size and line-height](https://hopper.workleap.design/tokens/semantic/typography#body) pairs).
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="typography/label/docs/sizes" />
 
-### Custom Children
+### Inherit
+You can also alter the size to match the parent element's type scale by using the `inherit` size.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="typography/label/docs/inherit" />
 
-### Custom Component
+<FeatureFlag flag="next">
+    ## Advanced customization
 
-TODO: Example of creating a custom version of this component
+    ### Contexts
+    
+    All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+    You can send any prop or ref via context that you could pass to the corresponding component.
+    The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence.
 
-## Migration Notes (WIP)
+    <Example src="typography/label/docs/advancedCustomization" />
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+
+## Migration Notes
+
+<MigrateGuide src="typography/label/docs/migration-notes" />
