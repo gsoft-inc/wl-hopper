@@ -19,7 +19,7 @@ export default function Example() {
                 <span ref={triggerRef}>Popover will be positioned relative to me</span>
             </Flex>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
-                <Heading>Help</Heading>
+                <Heading slot="title">Help</Heading>
                 <Content>
                     For help accessing your account, please contact support.
                 </Content>
