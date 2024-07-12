@@ -134,17 +134,17 @@ export const Previews: Record<string, Preview> = {
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
-    "typography/label/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/preview.tsx"))
+    "typography/Label/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/preview.tsx"))
     },
-    "typography/label/docs/sizes": {
-        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/sizes.tsx"))
+    "typography/Label/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/sizes.tsx"))
     },
-    "typography/label/docs/inherit": {
-        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/inherit.tsx"))
+    "typography/Label/docs/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/inherit.tsx"))
     },
-    "typography/label/docs/advancedCustomization": {
-        component: lazy(() => import("@/../../packages/components/src/typography/label/docs/advancedCustomization.tsx"))
+    "typography/Label/docs/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/advancedCustomization.tsx"))
     },
     "typography/Text/docs/text/preview": {
         component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/preview.tsx"))
