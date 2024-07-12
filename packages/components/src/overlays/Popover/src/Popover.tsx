@@ -29,6 +29,9 @@ import styles from "./Popover.module.css";
 export const GlobalPopoverCssSelector = "hop-Popover";
 
 export interface PopoverProps extends StyledComponentProps<RACPopoverProps> {
+    /**
+     * The minimum distance the trigger edge should be from the edge of the overlay element.
+     */
     boundaryOffset?: number;
 }
 
