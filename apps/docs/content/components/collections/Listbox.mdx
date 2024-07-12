@@ -6,45 +6,168 @@ links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/listbox/src/ListBox.tsx
 ---
 
+<Example src="ListBox/docs/preview" isOpen />
+
 ## Props
 
-<PropTable component="ListBoxItem" />
+[//]: # (<PropTable component="ListBoxItem" />)
 
 TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component's usage
 
-### Accessibility ?
+    ### Accessibility ?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+- [Header](./Header)
+- [Section](./Section)
+- [Divider](./Divider)
+- [ListBoxItem](./ListBoxItem)
 
 ## Examples
 
-## Advanced customization
+### Empty state
 
-### Contexts
-TODO: Example of context + content about the context
+A ListBox can have an empty state.
 
-### Custom Children
+<Example src="ListBox/docs/empty" />
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Disabled
 
-### Custom Component
+A ListBox with a disabled item.
 
-TODO: Example of creating a custom version of this component
+<Example src="ListBox/docs/disabled" />
 
-## Migration Notes (WIP)
+### Invalid
+
+A ListBox that is invalid.
+
+<Example src="ListBox/docs/invalid" />
+
+### Fluid
+
+ListBox that is fluid, meaning the width is 100% of its container.
+
+<Example src="ListBox/docs/fluid" />
+
+### Description
+
+ListBox items with a description.
+
+<Example src="ListBox/docs/description" />
+
+### Divider
+
+Dividers can be added to a ListBox
+
+<Example src="ListBox/docs/divider" />
+
+### Section
+
+A Listbox can have sections and section headers.
+
+<Example src="ListBox/docs/section" />
+
+### Count
+
+A ListBox can contain a count using a badge.
+
+<Example src="ListBox/docs/count" />
+
+### Dynamic Lists
+
+Items and sections can be populated from a hierarchial data structure.
+If a section has a header, the `Collection` component can be used to render the child items.
+
+<Example src="ListBox/docs/dynamicLists" />
+
+### Icons
+
+A ListBox can contain icons.
+
+<Example src="ListBox/docs/icons" />
+
+### End Icons
+
+A ListBox can contain icons at the end of a list item.
+
+<Example src="ListBox/docs/endIcons" />
+
+### Loading
+
+A ListBox can have a loading state.
+
+<Example src="ListBox/docs/loading" />
+
+### Load on scroll
+
+A ListBox can be used to load more items when scrolling.
+
+<Example src="ListBox/docs/loadOnScroll" />
+
+### Single selection
+
+A ListBox can have a single selected item.
+
+<Example src="ListBox/docs/selection" />
+
+### Single selection indicator
+
+A ListBox can have a different selection indicator for single select.
+By default, `disallowEmptySelection` is set to true when the selection indicator is a radio button.
+
+<Example src="ListBox/docs/selectionIndicator" />
+
+### Multiple selection
+
+A ListBox with multiple selected items.
+
+<Example src="ListBox/docs/multipleSelected" />
+
+### Size
+
+ListBoxes can be multiple sizes
+
+<Example src="ListBox/docs/size" />
+
+### Item size
+
+ListBoxItems can be multiple sizes as well
+
+<Example src="ListBox/docs/multipleSize" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="ListBox/docs/migration-notes" />
