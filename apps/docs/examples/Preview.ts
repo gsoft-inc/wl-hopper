@@ -140,6 +140,18 @@ export const Previews: Record<string, Preview> = {
     "Divider/docs/orientation": {
         component: lazy(() => import("@/../../packages/components/src/Divider/docs/orientation.tsx"))
     },
+    "typography/Label/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/preview.tsx"))
+    },
+    "typography/Label/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/sizes.tsx"))
+    },
+    "typography/Label/docs/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/inherit.tsx"))
+    },
+    "typography/Label/docs/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/advancedCustomization.tsx"))
+    },
     "typography/Text/docs/text/preview": {
         component: lazy(() => import("@/../../packages/components/src/typography/Text/docs/text/preview.tsx"))
     },
@@ -496,6 +508,60 @@ export const Previews: Record<string, Preview> = {
     },
     "Link/docs/image": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/image.tsx"))
+    },
+    "overlays/Popover/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/preview.tsx"))
+    },
+    "overlays/Popover/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/disabled.tsx"))
+    },
+    "overlays/Popover/docs/button": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/button.tsx"))
+    },
+    "overlays/Popover/docs/buttons": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/buttons.tsx"))
+    },
+    "overlays/Popover/docs/footer": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/footer.tsx"))
+    },
+    "overlays/Popover/docs/positions": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/positions.tsx"))
+    },
+    "overlays/Popover/docs/context": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/context.tsx"))
+    },
+    "overlays/Popover/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/controlled.tsx"))
+    },
+    "Badge/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/preview.tsx"))
+    },
+    "Badge/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/disabled.tsx"))
+    },
+    "Badge/docs/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/variants.tsx"))
+    },
+    "Badge/docs/highCount": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/highCount.tsx"))
+    },
+    "Badge/docs/text": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/text.tsx"))
+    },
+    "Spinner/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/preview.tsx"))
+    },
+    "Spinner/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/sizes.tsx"))
+    },
+    "Spinner/docs/label": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/label.tsx"))
+    },
+    "Spinner/docs/overBackground": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/overBackground.tsx"))
+    },
+    "Spinner/docs/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/Spinner/docs/advancedCustomization.tsx"))
     },
 };
     

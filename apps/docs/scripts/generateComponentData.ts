@@ -206,7 +206,7 @@ async function generateComponentData() {
             const data = tsConfigParser.parse(component.filePath);
             const { name } = component;
             const formattedData = getFormattedData(data);
-
+            
             await writeFile(name, formattedData);
         }
     }
