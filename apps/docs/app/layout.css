@@ -90,6 +90,12 @@ p {
     text-decoration: underline;
 }
 
+/* reset the underline for the card */
+.hd-content .hd-component-preview-wrapper__card p a,
+.hd-content .hd-component-preview-wrapper__card li a {
+    text-decoration: unset;
+}
+
 .hd-content [data-rehype-pretty-code-figure] {
     margin-block-end: var(--hd-space-3);
 }

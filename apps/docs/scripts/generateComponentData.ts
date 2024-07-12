@@ -35,8 +35,24 @@ const tsConfigParser = docgenTs.withCustomConfig(
     {
         shouldRemoveUndefinedFromOptional: true,
         propFilter: prop => {
+            const alwaysIncludeProps = ["children", "className", "id", "style"];
+
+            // Always include these props
+            if (alwaysIncludeProps.includes(prop.name)) {
+                return true;
+            }
+
+            // Remove props from React
+            if (prop?.parent?.fileName.includes("node_modules/@types/react")) {
+                return false;
+            }
+
             // Remove props from StyledSystemProps
-            return prop?.parent?.name !== "StyledSystemProps";
+            if (prop?.parent?.name === "StyledSystemProps") {
+                return false;
+            }
+
+            return true;
         }
     }
 );
@@ -190,7 +206,7 @@ async function generateComponentData() {
             const data = tsConfigParser.parse(component.filePath);
             const { name } = component;
             const formattedData = getFormattedData(data);
-
+            
             await writeFile(name, formattedData);
         }
     }

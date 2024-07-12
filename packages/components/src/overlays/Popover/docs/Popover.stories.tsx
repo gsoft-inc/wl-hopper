@@ -7,8 +7,9 @@ import { Button, ButtonGroup, ButtonContext } from "../../../buttons/index.ts";
 import { Footer, Inline, Content } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
 import { Heading } from "../../../typography/index.ts";
-import { Popover, PopoverTrigger } from "../src/Popover.tsx";
+import { Popover } from "../src/Popover.tsx";
 import { PopoverContext } from "../src/PopoverContext.ts";
+import { PopoverTrigger } from "../src/PopoverTrigger.tsx";
 
 /**
  * Popovers are small overlays that open on demand.
