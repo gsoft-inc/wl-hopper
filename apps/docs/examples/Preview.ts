@@ -452,6 +452,15 @@ export const Previews: Record<string, Preview> = {
     "Link/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/preview.tsx"))
     },
+    "Link/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/disabled.tsx"))
+    },
+    "Link/docs/external": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/external.tsx"))
+    },
+    "Link/docs/noHref": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/noHref.tsx"))
+    },
     "Link/docs/variants": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/variants.tsx"))
     },
@@ -461,9 +470,6 @@ export const Previews: Record<string, Preview> = {
     "Link/docs/inheritSize": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/inheritSize.tsx"))
     },
-    "Link/docs/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/disabled.tsx"))
-    },
     "Link/docs/icon": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/icon.tsx"))
     },
@@ -472,12 +478,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Link/docs/iconOnly": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/iconOnly.tsx"))
-    },
-    "Link/docs/external": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/external.tsx"))
-    },
-    "Link/docs/noHref": {
-        component: lazy(() => import("@/../../packages/components/src/Link/docs/noHref.tsx"))
     },
     "Link/docs/quiet": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/quiet.tsx"))
@@ -490,6 +490,30 @@ export const Previews: Record<string, Preview> = {
     },
     "Link/docs/image": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/image.tsx"))
+    },
+    "overlays/Popover/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/preview.tsx"))
+    },
+    "overlays/Popover/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/disabled.tsx"))
+    },
+    "overlays/Popover/docs/button": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/button.tsx"))
+    },
+    "overlays/Popover/docs/buttons": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/buttons.tsx"))
+    },
+    "overlays/Popover/docs/footer": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/footer.tsx"))
+    },
+    "overlays/Popover/docs/positions": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/positions.tsx"))
+    },
+    "overlays/Popover/docs/context": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/context.tsx"))
+    },
+    "overlays/Popover/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/controlled.tsx"))
     },
 };
     

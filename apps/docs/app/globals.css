@@ -28,7 +28,7 @@
     box-sizing: border-box;
 }
 
-*:focus-visible {
+*:not([class*="hop-"]):focus-visible {
     outline: var(--hd-neutral-900) auto 0.0625rem;
 }
 
