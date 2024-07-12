@@ -15,7 +15,7 @@ links:
 <FeatureFlag flag="next">
     ## Guidelines
 
-    TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component&apos;s usage
 
     ### Accessibility ?
 
@@ -34,9 +34,56 @@ links:
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+- [Button](./Button)
+- [ButtonGroup](./ButtonGroup)
+- [Content](./Content)
+- [Footer](./Footer)
+- [Heading](./Heading)
+- [Link](./Link)
 
 ## Examples
+
+### Disabled
+
+A popover will not open when its trigger is disabled.
+
+<Example src="overlays/Popover/docs/disabled" />
+
+### Single button
+
+A popover can have a single button.
+
+<Example src="overlays/Popover/docs/button" />
+
+### Multiple buttons
+
+A popover can have a group of buttons.
+
+<Example src="overlays/Popover/docs/buttons" />
+
+### Footer text
+
+A popover can have a footer text.
+
+<Example src="overlays/Popover/docs/footer" />
+
+### Custom position
+
+A popover can be positioned in different ways `top`, `right`, `bottom`, `left`.
+
+<Example src="overlays/Popover/docs/positions" />
+
+### Context
+
+A popover&apos;s isOpen state or close function can be retrieved from `PopoverContext` and `ButtonContext`.
+
+<Example src="overlays/Popover/docs/context" />
+
+### Controlled
+
+A popover&apos;s open state can be handled in controlled mode.
+
+<Example src="overlays/Popover/docs/controlled" />
 
 <FeatureFlag flag="next">
     ## Advanced customization

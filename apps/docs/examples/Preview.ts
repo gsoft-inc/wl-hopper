@@ -494,5 +494,26 @@ export const Previews: Record<string, Preview> = {
     "overlays/Popover/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/preview.tsx"))
     },
+    "overlays/Popover/docs/button": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/button.tsx"))
+    },
+    "overlays/Popover/docs/buttons": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/buttons.tsx"))
+    },
+    "overlays/Popover/docs/footer": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/footer.tsx"))
+    },
+    "overlays/Popover/docs/positions": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/positions.tsx"))
+    },
+    "overlays/Popover/docs/context": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/context.tsx"))
+    },
+    "overlays/Popover/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/disabled.tsx"))
+    },
+    "overlays/Popover/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/controlled.tsx"))
+    },
 };
     
