@@ -1,4 +1,4 @@
-import { Button, PopoverTrigger, Popover, Heading, Content, Footer, Link } from "@hopper-ui/components";
+import { Button, PopoverTrigger, Popover, Heading, Content } from "@hopper-ui/components";
 import { InfoIcon } from "@hopper-ui/icons";
 
 export default function Example() {

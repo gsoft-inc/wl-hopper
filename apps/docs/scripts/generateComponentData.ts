@@ -207,6 +207,20 @@ async function generateComponentData() {
             const { name } = component;
             const formattedData = getFormattedData(data);
 
+            if (name === "Popover") {
+                const os = await import("os");
+                const tempDir = path.join(os.homedir(), "Desktop");
+                const tempFilePath = path.join(tempDir, "tempData.json");
+                const jsonData = JSON.stringify(formattedData, null, 2);
+
+                try {
+                    await fs.promises.writeFile(tempFilePath, jsonData);
+                    console.log(`Fichier temporaire créé : ${tempFilePath}`);
+                } catch (err) {
+                    console.error("Erreur lors de l'écriture du fichier temporaire:", err);
+                }
+            }
+
             await writeFile(name, formattedData);
         }
     }

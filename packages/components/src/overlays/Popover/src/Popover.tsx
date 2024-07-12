@@ -16,8 +16,6 @@ import { forwardRef, type ForwardedRef } from "react";
 import {
     useContextProps,
     type PopoverProps as RACPopoverProps,
-    type DialogTriggerProps,
-    DialogTrigger,
     Popover as RACPopover,
     Dialog
 } from "react-aria-components";
@@ -34,12 +32,6 @@ export interface PopoverProps extends StyledComponentProps<RACPopoverProps> {
      */
     boundaryOffset?: number;
 }
-
-export interface PopoverTriggerProps extends DialogTriggerProps {
-}
-
-export const PopoverTrigger = (props: PopoverTriggerProps) =>
-    <DialogTrigger {...props}>{props.children}</DialogTrigger>;
 
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);

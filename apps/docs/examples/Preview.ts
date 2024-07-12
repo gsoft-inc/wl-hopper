@@ -494,6 +494,9 @@ export const Previews: Record<string, Preview> = {
     "overlays/Popover/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/preview.tsx"))
     },
+    "overlays/Popover/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/disabled.tsx"))
+    },
     "overlays/Popover/docs/button": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/button.tsx"))
     },
@@ -508,9 +511,6 @@ export const Previews: Record<string, Preview> = {
     },
     "overlays/Popover/docs/context": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/context.tsx"))
-    },
-    "overlays/Popover/docs/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/disabled.tsx"))
     },
     "overlays/Popover/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/controlled.tsx"))

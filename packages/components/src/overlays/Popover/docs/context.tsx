@@ -4,8 +4,6 @@ import {
     Popover,
     Heading,
     Content,
-    Footer,
-    Link,
     SlotProvider,
     PopoverContext, ButtonContext
 } from "@hopper-ui/components";
