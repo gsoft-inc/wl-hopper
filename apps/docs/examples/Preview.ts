@@ -140,6 +140,21 @@ export const Previews: Record<string, Preview> = {
     "Divider/docs/orientation": {
         component: lazy(() => import("@/../../packages/components/src/Divider/docs/orientation.tsx"))
     },
+    "typography/Heading/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Heading/docs/preview.tsx"))
+    },
+    "typography/Heading/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Heading/docs/sizes.tsx"))
+    },
+    "typography/Heading/docs/levels": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Heading/docs/levels.tsx"))
+    },
+    "typography/Heading/docs/inherit": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Heading/docs/inherit.tsx"))
+    },
+    "typography/Heading/docs/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Heading/docs/advancedCustomization.tsx"))
+    },
     "typography/Label/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/preview.tsx"))
     },
