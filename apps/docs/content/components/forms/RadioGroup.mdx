@@ -1,48 +1,152 @@
 ---
-title: RadioGroup (WIP)
-description: TBD
+title: RadioGroup
+description: The RadioGroup is used to group related options together and to provide a label for the group. It can also provide validation and helper messages.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/radio/src/RadioGroup.tsx
 ---
 
+<Example src="radio/docs/preview" />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+### RadioGroup
 
-## Guidelines
+<PropTable component="RadioGroup" />
 
-TODO: If we have some guidelines about this component's usage
+### Radio
 
-### Accessibility ?
+<PropTable component="Radio" />
 
-TODO: If we have some guidelines about this component and accessibility
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this components usage
+
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
 
-### Concepts
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-TODO: links to related concepts
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+A `RadioGroup` uses the following components.
 
-## Examples
+- [ErrorMessage](./ErrorMessage)
+- [HelperMessage](./HelperMessage)
+- [Icon](./Icon)
+- [IconList](./IconList)
+- [Label](./Label)
+- [Text](./Text)
 
-## Advanced customization
+## RadioGroup Examples
 
-### Contexts
-TODO: Example of context + content about the context
+### Label
 
-### Custom Children
+A RadioGroup can have a label to provide more context to the user.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="radio/docs/radiogroup/label" />
 
-### Custom Component
+### Disabled
 
-TODO: Example of creating a custom version of this component
+A RadioGroup can be disabled.
 
-## Migration Notes (WIP)
+<Example src="radio/docs/radiogroup/disabled" />
+
+### Sizes
+
+A RadioGroup differs in appearance based on the size prop.
+
+<Example src="radio/docs/radiogroup/size" />
+
+### Orientation
+
+A RadioGroup can be displayed horizontally or vertically.
+
+<Example src="radio/docs/radiogroup/orientation" />
+
+### Description
+
+A RadioGroup can have a description to provide more information to the user.
+
+<Example src="radio/docs/radiogroup/description" />
+
+### Variants
+
+A RadioGroup can be `bordered` by using the `variant` prop.
+
+<Example src="radio/docs/radiogroup/bordered" />
+
+### Invalid
+
+A RadioGroup can be invalid.
+
+<Example src="radio/docs/radiogroup/invalid" />
+
+### Controlled
+
+A RadioGroup can handle `value` state in controlled mode.
+
+<Example src="radio/docs/radiogroup/controlled" />
+
+## Radio Examples
+
+### Label
+
+A Radio component can have a Label to provide more context to the user.
+
+<Example src="radio/docs/radio/label" />
+
+### Disabled
+
+A Radio component can be disabled.
+
+<Example src="radio/docs/radio/disabled" />
+
+### Description
+
+A Radio component can have a description to provide more information to the user.
+
+<Example src="radio/docs/radio/description" />
+
+### Icon
+
+Each Radio can be customized with an icon or an icon list.
+
+<Example src="radio/docs/radio/icons" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+### RadioGroup
+
+<MigrateGuide src="radio/docs/migration-notes-radiogroup" />
+
+### Radio
+
+<MigrateGuide src="radio/docs/migration-notes-radio" />

@@ -35,8 +35,24 @@ const tsConfigParser = docgenTs.withCustomConfig(
     {
         shouldRemoveUndefinedFromOptional: true,
         propFilter: prop => {
+            const alwaysIncludeProps = ["children", "className", "id", "style"];
+
+            // Always include these props
+            if (alwaysIncludeProps.includes(prop.name)) {
+                return true;
+            }
+
+            // Remove props from React
+            if (prop?.parent?.fileName.includes("node_modules/@types/react")) {
+                return false;
+            }
+
             // Remove props from StyledSystemProps
-            return prop?.parent?.name !== "StyledSystemProps";
+            if (prop?.parent?.name === "StyledSystemProps") {
+                return false;
+            }
+
+            return true;
         }
     }
 );
@@ -63,7 +79,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     // Define the groups and their corresponding terms
 
     const groupsConfig: GroupsConfig = {
-        events: "Events",
+        events: ["Events", "DOMAttributes"],
         accessibility: ["Aria", "Focusable"],
         layout: "Slot"
         // Add more groups here as needed
@@ -71,7 +87,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     // Define the exceptions that should be added to a specific group
     // The first element is the prop name and the second is the group key
-    const groupsExceptions = [["type", "default"], ["autoFocus", "default"]];
+    const groupsExceptions = [["type", "default"], ["autoFocus", "default"], ["dangerouslySetInnerHTML", "default"]];
 
     return data.map(component => {
         // Remove the local or server path from the filePath
@@ -190,7 +206,7 @@ async function generateComponentData() {
             const data = tsConfigParser.parse(component.filePath);
             const { name } = component;
             const formattedData = getFormattedData(data);
-
+            
             await writeFile(name, formattedData);
         }
     }

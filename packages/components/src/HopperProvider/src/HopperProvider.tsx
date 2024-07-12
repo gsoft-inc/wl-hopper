@@ -10,7 +10,7 @@ export interface HopperProviderProps extends StyledSystemProviderProps {
     /**
      * The The BCP47 language code for the locale.
      * @example "en-US"
-    */
+     */
     locale?: string;
 
     /**
@@ -50,7 +50,7 @@ export interface HopperProviderProps extends StyledSystemProviderProps {
     useHref?: (href: Href) => string;
 }
 
-const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
+const HopperProvider = (props: HopperProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
     const {
         children,
         locale,
@@ -74,7 +74,13 @@ const HopperProvider = (props:HopperProviderProps, ref: ForwardedRef<HTMLDivElem
     }
 
     return (
-        <StyledSystemProvider ref={ref} withBodyStyle={withBodyStyle} colorScheme={colorScheme} withCssVariables={withCssVariables} className={classNames} {...rest}>
+        <StyledSystemProvider ref={ref}
+            withBodyStyle={withBodyStyle}
+            colorScheme={colorScheme}
+            withCssVariables={withCssVariables}
+            className={classNames}
+            {...rest}
+        >
             <I18nProvider locale={locale}>
                 {content}
             </I18nProvider>
