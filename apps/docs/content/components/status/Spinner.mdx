@@ -1,48 +1,74 @@
 ---
-title: Spinner (WIP)
-description: TBD
+title: Spinner
+description: A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.
 category: "status"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Spinner/src/Spinner.tsx
 ---
+<Example src="Spinner/docs/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Spinner" />
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component&apos;s usage
 
-### Accessibility ?
+    ### Accessibility?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
-## Anatomy
+<FeatureFlag flag="rc">
+    ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
-
-### Composed Components
-
-TODO: links to related components (most likely all component which are used by the slots)
+    TODO: links to related concepts
+</FeatureFlag>
 
 ## Examples
 
-## Advanced customization
+### Sizes
+A spinner can vary in size.
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="Spinner/docs/sizes" />
 
-### Custom Children
+### Label
+A spinner can have a label on the side.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="Spinner/docs/label" />
 
-### Custom Component
+### Over Background
+You can change a spinner style when over a background by setting a color property on the spinner.
 
-TODO: Example of creating a custom version of this component
+<Example src="Spinner/docs/overBackground" />
 
-## Migration Notes (WIP)
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+
+    All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+    You can send any prop or ref via context that you could pass to the corresponding component.
+    The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+
+    <Example src="Spinner/docs/advancedCustomization" />
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+
+## Migration Notes
+
+<MigrateGuide src="Spinner/docs/migration-notes" />
