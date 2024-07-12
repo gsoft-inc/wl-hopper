@@ -1,1 +1,2 @@
-In orbit/orbiter, the color props previously affected the color of the tracks. In the new version, the color props will only affect the spinner's text color. If you want to change the color of the tracks, the variant prop should be used, offering "default", "white" and "black" options.
+- The color props will only affect the spinner's text color and not the color of the tracks.
+- Use the variant prop to change the color of the tracks, which offers "default", "white" and "black" options.
