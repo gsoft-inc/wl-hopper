@@ -1,20 +1,17 @@
 .hd-layout__wrapper {
-    width: min(100% - 2rem, var(--layout-width));
+    width: min(100% - 1rem, var(--layout-width));
     margin-inline: auto;
 }
 
 .hd-layout__fluid {
-    padding-inline: var(--hd-space-2);
+    padding-inline: var(--hd-space-1);
 }
 
 .hd-layout__with-sidebar {
-    @media screen and (width >= 37.5rem) {
-        padding-inline: var(--hd-space-2);
-    }
-
     @media screen and (width >= 48rem) {
         display: grid;
-        grid-template-columns: var(--nav-width) 1fr;
+        grid-template-columns: var(--nav-width) minmax(0, 1fr);
         gap: var(--hd-space-4);
+        padding-inline: var(--hd-space-2);
     }
 }

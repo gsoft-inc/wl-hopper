@@ -22,7 +22,7 @@ interface SubHeaderProps {
 
 const SubHeader = ({ links }: SubHeaderProps) => {
     const { toggleSidebar } = useSidebar();
-    const isMobile = useIsMobile("37.5rem");
+    const isMobile = useIsMobile("48rem");
 
     if (!isMobile) {
         return null;

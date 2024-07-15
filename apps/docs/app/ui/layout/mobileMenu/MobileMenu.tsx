@@ -9,6 +9,7 @@ import IconButton from "@/components/iconButton/IconButton";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { navigation } from "@/configs/navigation";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
 
 import CloseIcon from "./assets/close.svg";
 import GithubLogo from "./assets/github.svg";
@@ -23,6 +24,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
+    const featureFlags = useContext(FeatureFlagContext);
     const pathname = usePathname()!;
     let firstPathLevel: string;
 
@@ -79,7 +81,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
         return (
             <li key={label}>
                 <Link href={path}
-                    className={clsx("hd-mobile-menu-nav-list__link", isActive && "hd-mobile-menu-nav-list__link--active", isReady && "hd-mobile-menu-nav-list__link--disabled")}
+                    className={clsx("hd-mobile-menu-nav-list__link", isActive && "hd-mobile-menu-nav-list__link--active", (!featureFlags.alpha && status !== "ready") && "hd-mobile-menu-nav-list__link--disabled")}
                     onClick={onClose}
                 >
                     {label}

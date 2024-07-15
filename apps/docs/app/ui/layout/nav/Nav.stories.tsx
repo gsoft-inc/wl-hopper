@@ -25,7 +25,7 @@ export const Default: Story = {
             },
             {
                 "label": "Components",
-                "path": "/components/installation",
+                "path": "/components/component-list",
                 "status": "not-ready"
             }
         ]

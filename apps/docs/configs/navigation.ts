@@ -6,6 +6,11 @@ export interface NavItem {
 
 export const navigation: NavItem[] = [
     {
+        "label": "Getting Started",
+        "path": "/getting-started/react",
+        "status": "ready"
+    },
+    {
         "label": "Tokens",
         "path": "/tokens/getting-started/introduction",
         "status": "ready"
@@ -17,7 +22,7 @@ export const navigation: NavItem[] = [
     },
     {
         "label": "Components",
-        "path": "/components/installation",
+        "path": "/components/component-list",
         "status": "not-ready"
     }
 ];

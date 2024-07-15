@@ -9,7 +9,7 @@
     line-height: var(--hd-nav-line-height);
 }
 
-@media screen and (width >= 37.5rem) {
+@media screen and (width >= 48rem) {
     .hd-nav {
         display: block;
     }

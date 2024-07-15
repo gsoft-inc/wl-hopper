@@ -79,7 +79,7 @@ export default function Home() {
                     handpicked for ultimate simplicity and accessibility.</p>
             </div>
             <div className="hd-home__ctas">
-                <Button as="a" href="/components">Get Started</Button>
+                <Button as="a" href="/getting-started/react">Get Started</Button>
                 <Button as="a"
                     href="https://github.com/gsoft-inc/wl-hopper"
                     variant="secondary"
@@ -284,7 +284,7 @@ export default function Home() {
                         </HopperProvider>
                     </a>
                 </div>
-                <a href="/components/installation" className="hd-home-sample__item hd-home-sample__item-components">
+                <a href="/components/component-list" className="hd-home-sample__item hd-home-sample__item-components">
                     <div className="hd-home-sample__title-wrap">
                         <h3 className="hd-home-sample__title">Components <ArrowIcon
                             className="hd-home-sample__title-icon"

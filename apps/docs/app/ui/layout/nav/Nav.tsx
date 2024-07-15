@@ -20,8 +20,9 @@ const Nav = ({ items }: { items: PropsWithoutRef<NavItem[]> }) => {
 
     const navItems = items.map(item => {
         const { path, label, status } = item;
+        const pathShortened = path.split("/")[1].trim();
 
-        const isActive = path.includes(firstPathLevel) && firstPathLevel !== "";
+        const isActive = pathShortened === firstPathLevel && firstPathLevel !== "";
 
         return (
             <li key={label}
