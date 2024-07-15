@@ -1,4 +1,4 @@
-.hop-Divider {
+:where(.hop-Divider) {
     --hop-Divider-border-color: var(--hop-neutral-border-weak);
     --hop-Divider-border-size: 0.0625rem;
 
