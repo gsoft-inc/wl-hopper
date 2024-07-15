@@ -80,9 +80,6 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/fluid": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/fluid.tsx"))
     },
-    "ListBox/docs/description": {
-        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/description.tsx"))
-    },
     "ListBox/docs/divider": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/divider.tsx"))
     },
@@ -119,8 +116,11 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/size": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/size.tsx"))
     },
-    "ListBox/docs/multipleSize": {
-        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSize.tsx"))
+    "ListBox/docs/description": {
+        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/description.tsx"))
+    },
+    "ListBox/docs/multipleSizes": {
+        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSizes.tsx"))
     },
     "HopperProvider/docs/color-scheme/apply": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply.tsx"))
