@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.0.6
+
+### Patch Changes
+
+- 9cf3058: pre-release of the components
+
 ## 1.0.5
 
 ### Patch Changes
