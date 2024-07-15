@@ -146,7 +146,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
-                isFluid={isFluid}
+                isFluid
                 size={size}
                 className={styles["hop-TextField__InputGroup"]}
                 isDisabled={isDisabled}

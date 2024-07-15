@@ -16,8 +16,6 @@ import { forwardRef, type ForwardedRef } from "react";
 import {
     useContextProps,
     type PopoverProps as RACPopoverProps,
-    type DialogTriggerProps,
-    DialogTrigger,
     Popover as RACPopover,
     Dialog
 } from "react-aria-components";
@@ -29,14 +27,11 @@ import styles from "./Popover.module.css";
 export const GlobalPopoverCssSelector = "hop-Popover";
 
 export interface PopoverProps extends StyledComponentProps<RACPopoverProps> {
+    /**
+     * The minimum distance the trigger edge should be from the edge of the overlay element.
+     */
     boundaryOffset?: number;
 }
-
-export interface PopoverTriggerProps extends DialogTriggerProps {
-}
-
-export const PopoverTrigger = (props: PopoverTriggerProps) =>
-    <DialogTrigger {...props}>{props.children}</DialogTrigger>;
 
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);

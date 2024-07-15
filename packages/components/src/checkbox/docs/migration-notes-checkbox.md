@@ -1,0 +1,11 @@
+- The `counter` component is no longer allowed as a specialized slot.
+- `reverse` is not currently supported.
+- Values are not auto-generated when missed.
+- `onChange` signature changed (no event passed).
+- `onValueChange` deleted, use onChange instead.
+- `checked` renamed to `isSelected`.
+- `disabled` renamed to `isDisabled`.
+- `required` renamed to `isRequired`.
+- `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
+- `defaultIndeterminate` prop removed.
+- `indeterminate` renamed to `isIndeterminate`.

@@ -1,5 +1,5 @@
 ---
-title: Button (WIP)
+title: Button
 description: Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
 category: "buttons"
 links:
@@ -17,14 +17,14 @@ links:
 
     TODO: If we have some guidelines about this component&apos;s usage
 
-    ### Accessibility ?
+    ### Accessibility?
 
     TODO: If we have some guidelines about this component and accessibility
 </FeatureFlag>
 
-<FeatureFlag flag="rc">
-    ## Anatomy
+## Anatomy
 
+<FeatureFlag flag="rc">
     TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
     ### Concepts
@@ -50,7 +50,7 @@ A button can use different variants.
 
 **Secondary** - For secondary actions on each page. Secondary buttons can be used in conjunction with a primary button or on its own. Paired with a Primary button, the secondary button usually performs the negative action of the set, such as “Cancel.”
 
-**Upsell** - For upsell actions that relates to upgrading an account or a plan. Use the upsell button to distinguish from an existing primary button. In some case a primary button can be used in its place when the general context of the page is about upselling.
+**Upsell** - For upsell actions that relate to upgrading an account or a plan. Use the upsell button to distinguish it from an existing primary button. In some cases, a primary button can be used in its place when the general context of the page is about upselling.
 
 **Danger** - For actions that could have destructive effects on the user’s data.
 
@@ -88,7 +88,7 @@ A button can contain icons.
 <Example src="buttons/docs/button/icons" />
 
 ### End Icon
-Non standard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go to.
+Nonstandard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go-to.
 
 <Example src="buttons/docs/button/endIcon" />
 
@@ -98,7 +98,7 @@ A button can be rendered as a link by using the href property.
 <Example src="buttons/docs/button/asLink" />
 
 ### As Router Link
-A button can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider
+A button can be rendered as a react router link when using the href property and setting the navigate property on the HopperProvider
 
 <Example src="buttons/docs/button/reactRouterLink" />
 
@@ -107,7 +107,7 @@ A button can be rendered as a react router link when using the href property, an
 
     ### Contexts
 
-    All Hopper Components exports a corresponding context that can be used to send props to them from a parent element.
+    All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
     You can send any prop or ref via context that you could pass to the corresponding component.
     The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
 
@@ -115,13 +115,13 @@ A button can be rendered as a react router link when using the href property, an
 
     ### Custom Children
 
-    TODO: Example of passing custom childrens to the components to fake a slot
+    TODO: Example of passing custom children to the components to fake a slot
 
     ### Custom Component
 
     TODO: Example of creating a custom version of this component
 </FeatureFlag>
 
-## Migration Notes (WIP)
+## Migration Notes
 
 <MigrateGuide src="buttons/docs/migration-notes" />

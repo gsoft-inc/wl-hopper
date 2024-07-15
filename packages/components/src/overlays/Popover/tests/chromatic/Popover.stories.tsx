@@ -1,7 +1,8 @@
 import { Button, Heading, Footer, Content, Link, ButtonGroup, Div } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Popover, PopoverTrigger } from "../../src/Popover.tsx";
+import { Popover } from "../../src/Popover.tsx";
+import { PopoverTrigger } from "../../src/PopoverTrigger.tsx";
 
 const TRIGGER = "Trigger";
 const TITLE = "Engagement score";

@@ -15,7 +15,7 @@ export const GlobalBadgeCssSelector = "hop-Badge";
 export interface BadgeProps extends StyledSystemProps, BaseComponentProps {
     /**
      * The visual style of the badge.
-     * * @default "primary"
+     * @default "primary"
      */
     variant?: "primary" | "secondary";
     /**

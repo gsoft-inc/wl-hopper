@@ -1,48 +1,95 @@
 ---
-title: Grid (WIP)
-description: TBD
+title: Grid
+description: The Grid component is used to create a grid container and provides some shortcuts for the grid properties.
 category: "layout"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/layout/src/Grid.tsx
 ---
 
+<Example src="layout/docs/grid/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Grid" />
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component&apos;s usage
 
-### Accessibility ?
+    ### Accessibility ?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
-## Anatomy
+<FeatureFlag flag="rc">
+    ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
-
-### Composed Components
-
-TODO: links to related components (most likely all component which are used by the slots)
+    TODO: links to related concepts
+</FeatureFlag>
 
 ## Examples
 
-## Advanced customization
+### Areas
+A grid can define explicit sections with areas.
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="layout/docs/grid/areas" />
 
-### Custom Children
+### Template Columns
+A grid can define explicit columns (and rows). A value can be a grid length value or a Hopper spacing scale value.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="layout/docs/grid/templateColumns" />
 
-### Custom Component
+### Auto Columns
+A grid can define the size of implicitly created columns. A value can be a grid length value or a Hopper spacing scale value.
 
-TODO: Example of creating a custom version of this component
+<Example src="layout/docs/grid/autoColumns" />
 
-## Migration Notes (WIP)
+### Gap
+A grid layout can have a gap between its columns and rows. `columnGap` and `rowGap` are also available to specify a gap for a single axis.
+
+<Example src="layout/docs/grid/gap" />
+
+### Column Spanning
+A grid item can span over multiple columns.
+
+<Example src="layout/docs/grid/columnSpanning" />
+
+### Nesting
+Grids can be nested to create complex layouts.
+
+<Example src="layout/docs/grid/nesting" />
+
+### Repeat
+A custom `repeat` function is available to support Hopper spacing scale values. However, if you prefer, you can use the [native CSS repeat function](https://developer.mozilla.org/en-US/docs/Web/CSS/repeat())
+
+<Example src="layout/docs/grid/repeat" />
+
+### Minmax
+A custom `minmax` function is available to support Hopper spacing scale values. However, if you prefer, you can use the [native CSS minmax function](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax())
+
+<Example src="layout/docs/grid/minMax" />
+
+### Fit Content
+A custom `fit-content` function is available to support Hopper spacing scale values. However, if you prefer, you can use the [native CSS fit-content function](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content)
+
+<Example src="layout/docs/grid/fitContent" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>

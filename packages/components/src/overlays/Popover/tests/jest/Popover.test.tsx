@@ -2,7 +2,8 @@ import { Text, Button } from "@hopper-ui/components";
 import { render, screen, fireEvent } from "@hopper-ui/test-utils";
 import { createRef, type RefObject } from "react";
 
-import { Popover, PopoverTrigger, type PopoverProps } from "../../src/Popover.tsx";
+import { Popover, type PopoverProps } from "../../src/Popover.tsx";
+import { PopoverTrigger } from "../../src/PopoverTrigger.tsx";
 
 interface SetupProps extends PopoverProps {
     "data-foo"?: string;

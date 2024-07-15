@@ -114,7 +114,7 @@
     background: linear-gradient(90deg, var(--background) 0.625rem, transparent 1%) 50%, linear-gradient(var(--background) 0.625rem, transparent 1%) 50%, var(--color);
     background-size: 0.75rem 0.75rem;
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
-    border-radius: var(--hd-space-2);
+    border-radius: var(--hd-border-radius-lg);
     padding: var(--hd-space-3);
     position: relative;
 }
@@ -224,7 +224,7 @@ a.hd-home-sample__item:hover::after {
 }
 
 .hd-home-sample__color {
-    border-radius: var(--hd-space-1);
+    border-radius: var(--hd-border-radius-md);
     display: flex;
     height: 1.875rem;
     width: 1.875rem;

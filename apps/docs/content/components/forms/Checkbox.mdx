@@ -1,48 +1,142 @@
 ---
-title: Checkbox (WIP)
-description: TBD
+title: Checkbox
+description: Checkboxes are used when there are multiple items to select in a list. Users can select zero, one, or any number of items.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/checkbox/src/Checkbox.tsx
 ---
 
+<Example src="checkbox/docs/checkbox/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+### Checkbox
 
-## Guidelines
+<PropTable component="Checkbox" />
 
-TODO: If we have some guidelines about this component's usage
+### CheckboxField
 
-### Accessibility ?
+<PropTable component="CheckboxField" />
 
-TODO: If we have some guidelines about this component and accessibility
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this components usage
+
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
 
-### Concepts
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-TODO: links to related concepts
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+#### Checkbox
 
-## Examples
+- [Icon](./Icon)
+- [IconList](./IconList)
+- [Text](./Text)
 
-## Advanced customization
+#### CheckboxField
 
-### Contexts
-TODO: Example of context + content about the context
+- [Checkbox](#checkbox)
+- [Text](./Text)
 
-### Custom Children
+## Checkbox Examples
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### No Label
 
-### Custom Component
+A Checkbox can be rendered without a label.
 
-TODO: Example of creating a custom version of this component
+<Example src="checkbox/docs/checkbox/nolabel"/>
 
-## Migration Notes (WIP)
+### Checked
+
+A Checkbox can be checked.
+
+<Example src="checkbox/docs/checkbox/checked"/>
+
+### Indeterminate
+
+A Checkbox can be indeterminate.
+
+<Example src="checkbox/docs/checkbox/indeterminate"/>
+
+### Disabled
+
+A Checkbox can be disabled.
+
+<Example src="checkbox/docs/checkbox/disabled" />
+
+### Read-only
+
+A Checkbox can be read-only.
+
+<Example src="checkbox/docs/checkbox/readonly" />
+
+### Invalid
+
+A Checkbox can be invalid.
+
+<Example src="checkbox/docs/checkbox/invalid"/>
+
+### Sizes
+
+A Checkbox can be rendered in different sizes.
+
+<Example src="checkbox/docs/checkbox/size"/>
+
+### Icon
+
+A Checkbox can be rendered with an icon or an icon list.
+
+<Example src="checkbox/docs/checkbox/icons"/>
+
+## CheckboxField Examples
+
+### Disabled
+
+A CheckboxField can be disabled.
+
+<Example src="checkbox/docs/checkboxfield/disabled"/>
+
+### Sizes
+
+A CheckboxField can be rendered in a different size.
+
+<Example src="checkbox/docs/checkboxfield/size"/>
+
+### Description
+
+A Checkbox can have a description to provide more information to the user.
+
+<Example src="checkbox/docs/checkbox/description" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="checkbox/docs/migration-notes-checkbox" />

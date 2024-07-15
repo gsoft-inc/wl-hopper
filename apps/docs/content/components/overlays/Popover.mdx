@@ -1,48 +1,108 @@
 ---
-title: Popover (WIP)
-description: TBD
+title: Popover
+description: Popovers are small overlays that open on demand. They let users access additional content and actions without cluttering the page.
 category: "overlays"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/overlays/src/Popover.tsx
 ---
 
+<Example src="overlays/Popover/docs/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Popover" />
 
-## Guidelines
+### PopoverTrigger
+<PropTable component="PopoverTrigger" />
 
-TODO: If we have some guidelines about this component's usage
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Accessibility ?
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: If we have some guidelines about this component and accessibility
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+- [Button](./Button)
+- [ButtonGroup](./ButtonGroup)
+- Content
+- Footer
+- [Heading](./Heading)
+- [Link](./Link)
 
 ## Examples
 
-## Advanced customization
+### Disabled
 
-### Contexts
-TODO: Example of context + content about the context
+A popover will not open when its trigger is disabled.
 
-### Custom Children
+<Example src="overlays/Popover/docs/disabled" />
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Single button
 
-### Custom Component
+A popover can have a single button.
 
-TODO: Example of creating a custom version of this component
+<Example src="overlays/Popover/docs/button" />
 
-## Migration Notes (WIP)
+### Multiple buttons
+
+A popover can have a group of buttons.
+
+<Example src="overlays/Popover/docs/buttons" />
+
+### Footer text
+
+A popover can have a footer text.
+
+<Example src="overlays/Popover/docs/footer" />
+
+### Custom position
+
+A popover can be positioned in different ways `top`, `right`, `bottom`, `left`.
+
+<Example src="overlays/Popover/docs/positions" />
+
+### Context
+
+A popover&apos;s isOpen state or close function can be retrieved from `PopoverContext` and `ButtonContext`.
+
+<Example src="overlays/Popover/docs/context" />
+
+### Controlled
+
+A popover&apos;s open state can be handled in controlled mode.
+
+<Example src="overlays/Popover/docs/controlled" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="overlays/Popover/docs/migration-notes" />
