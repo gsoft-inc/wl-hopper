@@ -39,14 +39,10 @@ async function formatPropTable(data: ComponentDocWithGroups[]) {
 export async function getComponentProps(component: string) {
     const file = await fs.readFile(path.join(filePath, `${component}.json`), "utf8");
     const data = JSON.parse(file);
-
-    if (data.length === 0) {
-        throw new Error("No data found, run the command in docs app `pnpm build:componentData`");
-    }
-
     const [item] = data;
 
     const groups = await formatPropTable(data);
+    const description = item ? item.description : "";
 
-    return ({ description: item.description, groups });
+    return ({ description, groups });
 }
