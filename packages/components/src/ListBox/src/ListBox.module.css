@@ -56,6 +56,7 @@
     padding-block: var(--hop-ListBox-padding-block);
     padding-inline: var(--hop-ListBox-padding-inline);
 
+    background-color: var(--hop-ListBox-background-color);
     border: var(--hop-ListBox-border-size) solid var(--hop-ListBox-border-color);
     border-radius: var(--hop-ListBox-border-radius);
 }
