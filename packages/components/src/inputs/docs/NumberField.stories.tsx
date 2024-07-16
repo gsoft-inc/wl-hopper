@@ -1,8 +1,8 @@
 import { SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../errorMessage/index.ts";
-import { HelperMessage } from "../../helperMessage/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Stack } from "../../layout/index.ts";
 import { Label } from "../../typography/index.ts";
 import { NumberField } from "../src/NumberField.tsx";
@@ -50,6 +50,54 @@ export const Default: Story = {
 };
 
 /**
+ * A number field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
+ */
+export const Disabled: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        isDisabled: true
+    }
+};
+
+/**
+ * The `isReadOnly` prop makes the NumberField's text content immutable. Unlike `isDisabled`, the NumberField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+ */
+export const ReadOnly: Story = {
+    ...Default,
+    args: {
+        isReadOnly: true
+    }
+};
+
+/**
+ * A number field with an error message.
+ */
+export const Error: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        children: [
+            ...meta.args.children,
+            <ErrorMessage key="2">Error message</ErrorMessage>
+        ],
+        isInvalid: true
+    }
+};
+
+/**
+ * A min a max value can be set for the number field.
+ */
+export const MinAndMax: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        minValue: 0,
+        maxValue: 50
+    }
+};
+
+/**
  * If a visible label isn't specified, an aria-label must be provided to the NumberField for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead.
  */
 export const Labeling: Story = {
@@ -84,18 +132,6 @@ export const PrefixText: Story = {
 };
 
 /**
- * A min a max value can be set for the number field.
- */
-export const MinAndMax: Story = {
-    ...Default,
-    args: {
-        ...Default.args,
-        minValue: 0,
-        maxValue: 50
-    }
-};
-
-/**
  * A number field with a helper message.
  */
 export const Description: Story = {
@@ -117,41 +153,5 @@ export const Fluid: Story = {
     args: {
         ...Description.args,
         isFluid: true
-    }
-};
-
-/**
- * A number field with an error message.
- */
-export const Error: Story = {
-    ...Default,
-    args: {
-        ...Default.args,
-        children: [
-            ...meta.args.children,
-            <ErrorMessage key="2">Error message</ErrorMessage>
-        ],
-        isInvalid: true
-    }
-};
-
-/**
- * A number field in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
- */
-export const Disabled: Story = {
-    ...Default,
-    args: {
-        ...Default.args,
-        isDisabled: true
-    }
-};
-
-/**
- * * The `isReadOnly` prop makes the NumberField's text content immutable. Unlike `isDisabled`, the NumberField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
- */
-export const ReadOnly: Story = {
-    ...Default,
-    args: {
-        isReadOnly: true
     }
 };
