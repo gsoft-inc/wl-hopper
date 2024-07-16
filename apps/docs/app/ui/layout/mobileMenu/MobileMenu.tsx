@@ -73,10 +73,10 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
     };
 
     const navItems = navigation.map(item => {
-        const { path, label } = item;
+        const { path, label, status } = item;
+        const pathShortened = path.split("/")[1].trim();
 
-        const isActive = path.includes(firstPathLevel) && firstPathLevel !== "";
-        const isReady = item.status !== "ready" && "hd-nav__link--disabled";
+        const isActive = pathShortened === firstPathLevel && firstPathLevel !== "";
 
         return (
             <li key={label}>

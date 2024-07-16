@@ -1,13 +1,17 @@
+import { flags } from "../context/feature/flags.ts";
+
 export interface NavItem {
     label: string;
     path: string;
     status: "ready" | "not-ready";
 }
 
+const isAlpha = flags.alpha;
+
 export const navigation: NavItem[] = [
     {
         "label": "Getting Started",
-        "path": "/getting-started/react",
+        "path": `/getting-started/${isAlpha ? "react" : "individual-packages"}`,
         "status": "ready"
     },
     {

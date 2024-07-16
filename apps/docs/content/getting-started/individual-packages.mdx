@@ -2,31 +2,34 @@
 title: Individual Packages
 description: An how to guide to install Hopper UI packages individually.
 order: 3
+status: ready
 ---
 
 If you need a particluar installation, you can install Hopper UI packages individually.
 
-## Components
+<FeatureFlag flag="alpha">
+    ## Components
 
-Hopper Components are React Components, if you are using another framework, or React Native, you should use [components tokens](/tokens/getting-started/introduction) directly when developing your own components.
+    Hopper Components are React Components, if you are using another framework, or React Native, you should use [components tokens](/tokens/getting-started/introduction) directly when developing your own components.
 
-### Installation
+    ### Installation
 
-Run one of the following commands in your terminal to install the Hopper Components package.
+    Run one of the following commands in your terminal to install the Hopper Components package.
 
-<PackageInstallation library="components" mod="prod" />
+    <PackageInstallation library="components" mod="prod" />
 
-### Usage
+    ### Usage
 
-A Provider is required to use Hopper Components. Wrap your application with the HopperProvider component to use our components.
+    A Provider is required to use Hopper Components. Wrap your application with the HopperProvider component to use our components.
 
-```jsx
-import { Button } from "@hopper-ui/components";
+    ```jsx
+    import { Button } from "@hopper-ui/components";
 
-<HopperProvider theme="dark">
-    <Button>Hello World</Button>
-</HopperProvider>
-```
+    <HopperProvider theme="dark">
+        <Button>Hello World</Button>
+    </HopperProvider>
+    ```
+</FeatureFlag>
 
 ## Icons
 
