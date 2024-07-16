@@ -1,5 +1,5 @@
-import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue } from "@hopper-ui/components";
-import { useStyledSystem } from "@hopper-ui/styled-system";
+import type { ResponsiveProp, StyledComponentProps } from "@hopper-ui/components";
+import { useStyledSystem, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import {
     forwardRef,

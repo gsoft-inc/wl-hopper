@@ -8,9 +8,9 @@ import {
     FooterContext,
     HeadingContext,
     LinkContext,
-    useColorSchemeContext, HopperProvider, isNil, isFunction
+    HopperProvider, isNil, isFunction
 } from "@hopper-ui/components";
-import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { type StyledComponentProps, useStyledSystem, useColorSchemeContext } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
 import {
