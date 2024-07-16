@@ -1,4 +1,4 @@
-import { type ColorSchemeOrSystem, StyledSystemProvider, type StyledSystemProviderProps } from "@hopper-ui/styled-system";
+import { StyledSystemProvider, type StyledSystemProviderProps } from "@hopper-ui/styled-system";
 import type { Href, RouterOptions } from "@react-types/shared";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
