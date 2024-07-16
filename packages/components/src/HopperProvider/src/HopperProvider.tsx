@@ -6,7 +6,7 @@ import { I18nProvider, RouterProvider } from "react-aria-components";
 
 export const GlobalHopperProviderCssSelector = "hop-HopperProvider";
 
-export interface HopperProviderProps extends Omit<StyledSystemProviderProps, "colorScheme"> {
+export interface HopperProviderProps extends StyledSystemProviderProps {
     /**
      * The The BCP47 language code for the locale.
      * @example "en-US"
@@ -48,11 +48,6 @@ export interface HopperProviderProps extends Omit<StyledSystemProviderProps, "co
      * }
      */
     useHref?: (href: Href) => string;
-    /**
-     * The color scheme to use.
-     * @default "light"
-     */
-    colorScheme?: ColorSchemeOrSystem;
 }
 
 const HopperProvider = (props: HopperProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
