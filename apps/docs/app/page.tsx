@@ -223,7 +223,7 @@ export default function Home() {
                         </div>
                     </div>
                     <a className="hd-home-sample__item hd-home-sample__item-icons"
-                        href="/icons/getting-started/introduction"
+                        href="/icons/overview/introduction"
                     >
                         <h3 className="hd-home-sample__title">Icons <ArrowIcon
                             className="hd-home-sample__title-icon"

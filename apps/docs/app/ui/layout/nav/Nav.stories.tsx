@@ -15,12 +15,12 @@ export const Default: Story = {
         items: [
             {
                 "label": "Tokens",
-                "path": "/tokens/getting-started/introduction",
+                "path": "/tokens/overview/introduction",
                 "status": "ready"
             },
             {
                 "label": "Icons",
-                "path": "/icons/getting-started/introduction",
+                "path": "/icons/overview/introduction",
                 "status": "ready"
             },
             {

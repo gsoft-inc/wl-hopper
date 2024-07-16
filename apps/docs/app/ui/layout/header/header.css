@@ -33,6 +33,10 @@
     z-index: var(--hd-z-index-1000);
 }
 
+.hd-header .hd-layout__fluid {
+    padding-inline: 0;
+}
+
 @media screen and (width >= 48rem) {
     .hd-header {
         border-radius: var(--hd-border-radius-md);

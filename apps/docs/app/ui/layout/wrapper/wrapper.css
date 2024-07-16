@@ -1,10 +1,11 @@
 .hd-layout__wrapper {
-    width: min(100% - 1rem, var(--layout-width));
+    box-sizing: border-box;
+    width: min(100% - 2rem, var(--layout-width));
     margin-inline: auto;
 }
 
 .hd-layout__fluid {
-    padding-inline: var(--hd-space-1);
+    padding-inline: var(--hd-space-2);
 }
 
 .hd-layout__with-sidebar {

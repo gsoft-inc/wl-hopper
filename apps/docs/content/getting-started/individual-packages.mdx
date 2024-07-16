@@ -10,7 +10,7 @@ If you need a particluar installation, you can install Hopper UI packages indivi
 <FeatureFlag flag="alpha">
     ## Components
 
-    Hopper Components are React Components, if you are using another framework, or React Native, you should use [components tokens](/tokens/getting-started/introduction) directly when developing your own components.
+    Hopper Components are React Components, if you are using another framework, or React Native, you should use [components tokens](/tokens/overview/introduction) directly when developing your own components.
 
     ### Installation
 
@@ -30,6 +30,53 @@ If you need a particluar installation, you can install Hopper UI packages indivi
     </HopperProvider>
     ```
 </FeatureFlag>
+
+## Tokens
+
+### Installation
+
+Run the following command to install the tokens package.
+
+<PackageInstallation library="tokens" mod="prod" />
+
+### Usage
+
+Import the tokens in your project by doing the following:
+
+```css title="myfile.css"
+@import "@hopper-ui/tokens/tokens.css";
+```
+
+If your application supports a dark mode, import dark mode tokens as well:
+
+```css title="myfile.css"
+@import "@hopper-ui/tokens/dark/tokens.css";
+```
+
+You can now use the tokens in your project by using the following syntax:
+
+```css title="myfile.css"
+.my-class {
+  background-color: var(--hop-primary-surface-weak);
+}
+```
+#### Fonts
+
+In order to use Hopper fonts in your project, import the following:
+
+```css title="myfile.css"
+@import "@hopper-ui/tokens/fonts.css";
+```
+
+Font-face declarations are now imported in your project.
+
+Failing to do so would prevent you from using [font family tokens](/tokens/semantic/typography) such as `var(--hop-font-family-primary)`.
+
+*Inter* and *ABC Favorit* variable fonts are used. This allows for a more efficient use of font files, only one font is loaded per typeface, covering all font-weights. Resulting in a smaller bundle size for all.
+
+#### Styled System
+
+We will be releasing a styled system package inspired by styled-components that will allow you to use these tokens as Javascript props at a later time.
 
 ## Icons
 

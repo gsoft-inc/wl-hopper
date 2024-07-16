@@ -5,7 +5,7 @@ order: 1
 status: not-ready
 ---
 
-This guide will help you get started with Hopper UI. Hopper UI is a Design System that provides a collection of components, [tokens](/tokens/getting-started/introduction), and [icons](/icons/getting-started/introduction) to help you build applications.
+This guide will help you get started with Hopper UI. Hopper UI is a Design System that provides a collection of components, [tokens](/tokens/overview/introduction), and [icons](/icons/getting-started/introduction) to help you build applications.
 
 Below is the typical installation path, assuming you are using React. If you have particluar needs you can have a look at these pages:
 
@@ -22,7 +22,7 @@ Run the following command in your terminal to install the Hopper packages.
 
 ### Configure your application
 
-After installing Hopper UI packages, you must setup a Provider at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
+After installing Hopper UI packages, you must setup a [Provider](/components/HopperProvider) at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
 
 ```jsx
 import { HopperProvider } from "@hopper-ui/components";
@@ -30,7 +30,7 @@ import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <HopperProvider>
+  <HopperProvider colorScheme="light" withBodyStyle>
     <App />
   </HopperProvider>
 );
@@ -44,6 +44,16 @@ You will also need to import the Hopper styles in your project. You can do this 
 @import "@hopper-ui/components/index.css";
 @import "@hopper-ui/icons/index.css";
 ```
+
+In order to use Hopper fonts in your project, import the following:
+
+```css title="myfile.css"
+@import "@hopper-ui/tokens/fonts.css";
+```
+
+Font-face declarations are now imported in your project.
+
+Failing to do so would prevent you from using [font family tokens](/tokens/semantic/typography) such as `var(--hop-font-family-primary)`.
 
 You are now ready to use Hopper UI in your project! Need more details? Have a look at the [Individual package installation](/getting-started/individual-packages) page.
 
