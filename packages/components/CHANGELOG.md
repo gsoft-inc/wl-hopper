@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.0.7
+
+### Patch Changes
+
+- ab07424: build the `index.ts` file so that the package is correctly resolved
+
 ## 1.0.6
 
 ### Patch Changes
