@@ -1,4 +1,4 @@
-import { StyledSystemProvider, type StyledSystemProviderProps } from "@hopper-ui/styled-system";
+import { type ColorSchemeOrSystem, StyledSystemProvider, type StyledSystemProviderProps } from "@hopper-ui/styled-system";
 import type { Href, RouterOptions } from "@react-types/shared";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
@@ -6,7 +6,7 @@ import { I18nProvider, RouterProvider } from "react-aria-components";
 
 export const GlobalHopperProviderCssSelector = "hop-HopperProvider";
 
-export interface HopperProviderProps extends StyledSystemProviderProps {
+export interface HopperProviderProps extends Omit<StyledSystemProviderProps, "colorScheme"> {
     /**
      * The The BCP47 language code for the locale.
      * @example "en-US"
@@ -48,6 +48,11 @@ export interface HopperProviderProps extends StyledSystemProviderProps {
      * }
      */
     useHref?: (href: Href) => string;
+    /**
+     * The color scheme to use.
+     * @default "light"
+     */
+    colorScheme?: ColorSchemeOrSystem;
 }
 
 const HopperProvider = (props: HopperProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
