@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.0.8
+
+### Patch Changes
+
+- 6e4307e: Added exports to the package.json for the css file like we have in the icons package.
+
 ## 1.0.7
 
 ### Patch Changes
