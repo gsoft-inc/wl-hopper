@@ -1,5 +1,27 @@
 # @hopper-ui/icons
 
+## 2.6.0
+
+### Minor Changes
+
+- cdb7b7c: ### Minor Changes
+
+  **Added**
+
+  | Icon Name    |
+  | ------------ |
+  | BirthdayIcon |
+
+  Added the following SVG icons:
+
+  **Added**
+
+  | SVG Name        |
+  | --------------- |
+  | birthday-16.svg |
+  | birthday-24.svg |
+  | birthday-32.svg |
+
 ## 2.5.0
 
 ### Minor Changes
