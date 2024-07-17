@@ -1,11 +1,20 @@
 import clsx from "clsx";
 import { useCallback, useState, type ReactNode, forwardRef, type ForwardedRef } from "react";
 
-import { ColorSchemeContext, type ColorScheme, type ColorSchemeContextType, type ColorSchemeOrSystem } from "./color-scheme/ColorSchemeContext.ts";
+import {
+    ColorSchemeContext,
+    type ColorScheme,
+    type ColorSchemeContextType,
+    type ColorSchemeOrSystem
+} from "./color-scheme/ColorSchemeContext.ts";
 import { useColorScheme } from "./color-scheme/useColorScheme.ts";
 import { BodyStyleProvider } from "./global-styles/BodyStyleProvider.tsx";
 import { Div, type DivProps } from "./html-wrappers/html.ts";
-import { BreakpointProvider, DefaultUnsupportedMatchMediaBreakpoint, type BreakpointProviderProps } from "./responsive/BreakpointProvider.tsx";
+import {
+    BreakpointProvider,
+    DefaultUnsupportedMatchMediaBreakpoint,
+    type BreakpointProviderProps
+} from "./responsive/BreakpointProvider.tsx";
 import { HopperRootCssClass, StyledSystemRootCssClass } from "./styledSystemRootCssClass.ts";
 import { TokenProvider } from "./tokens/TokenProvider.tsx";
 
@@ -18,14 +27,14 @@ export interface StyledSystemProviderProps extends BreakpointProviderProps, DivP
     /**
      * Determines whether the styles should be added to the document's body
      * By default, it is set to `false`. If set to `true`, it will apply additional styling to the document's body.
-    */
+     */
     withBodyStyle?: boolean;
 
     /**
      * The color scheme to use.
      * @default "light"
      */
-    colorScheme: ColorSchemeOrSystem;
+    colorScheme?: ColorSchemeOrSystem;
 
     /**
      * Default color scheme to use when a user preferred color scheme (system) is not available.
@@ -37,11 +46,11 @@ export interface StyledSystemProviderProps extends BreakpointProviderProps, DivP
      * Determines whether token CSS variables should be added to the document's head
      * By default, it is set to `true`, you should not change it unless you want to manage CSS variables via `.css` files
      * @default true
-    */
+     */
     withCssVariables?: boolean;
 }
 
-const StyledSystemProvider = (props:StyledSystemProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
+const StyledSystemProvider = (props: StyledSystemProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
     const {
         children,
         withBodyStyle = false,
