@@ -39,7 +39,7 @@ async function ComponentsLayout({ children }: { children: ReactNode }) {
     const components = await getComponentDetails();
     const data = formatComponentData(components);
     const links = getPageLinks(data, { order: [
-        "getting-started",
+        "overview",
         "concepts",
         "application",
         "layout",

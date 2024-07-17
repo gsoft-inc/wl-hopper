@@ -3,7 +3,9 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
+
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
 
 import Overlay from "@/components/overlay/Overlay";
@@ -20,6 +22,7 @@ const Sidebar = ({ links }: SidebarProps) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
     const pathName = usePathname();
     const { toggleSidebar, isSidebarOpen } = useSidebar();
+    const featureFlags = useContext(FeatureFlagContext);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -66,21 +69,22 @@ const Sidebar = ({ links }: SidebarProps) => {
                 <li className="hd-sidebar__item hd-sidebar-section">
                     <span className="hd-sidebar__title">{link.title}</span>
                     <ul className="hd-sidebar__nested-list">
-                        {link.linkItems.map(item => {
-                            const linkPath = `/${item.path}`;
-                            const isActive = pathName === linkPath;
+                        {link.linkItems
+                            .filter(item => item.status === "ready" || item.status === undefined || (item.status === "not-ready" && featureFlags.alpha)).map(item => {
+                                const linkPath = `/${item.path}`;
+                                const isActive = pathName === linkPath;
 
-                            return (
-                                <li className={clsx("hd-sidebar__item", isActive && "hd-sidebar__item--active")}
-                                    key={item.id}
-                                >
-                                    <Link href={linkPath}
-                                        className="hd-sidebar__link"
-                                        onClick={handleLinkClick}
-                                    >{item.title}</Link>
-                                </li>
-                            );
-                        })}
+                                return (
+                                    <li className={clsx("hd-sidebar__item", isActive && "hd-sidebar__item--active")}
+                                        key={item.id}
+                                    >
+                                        <Link href={linkPath}
+                                            className="hd-sidebar__link"
+                                            onClick={handleLinkClick}
+                                        >{item.title}</Link>
+                                    </li>
+                                );
+                            })}
                     </ul>
                 </li>
             </ul>

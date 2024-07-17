@@ -22,7 +22,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
 
     const sectionLinks = getSectionLinks(pageContent);
     const allIconLinks = getPageLinks(allIcons, {
-        order: ["getting-started", "react-icons", "svg"]
+        order: ["overview", "react-icons", "svg"]
     });
 
     return (
