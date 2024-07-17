@@ -5,7 +5,7 @@ import { defineDevConfig } from "@workleap/tsup-configs";
 import packageJson from "./package.json";
 
 export default defineDevConfig({
-    entry: ["./src/**/src/**/*.(ts|tsx)"],
+    entry: ["./src/index.(ts|tsx)", "./src/**/src/**/*.(ts|tsx)"],
     esbuildPlugins: [
         createCssModuleEsbuildPlugin({
             generateScopedName: "[name]__[local]___[hash:base64:5]",

@@ -42,6 +42,7 @@ export async function getComponentProps(component: string) {
     const [item] = data;
 
     const groups = await formatPropTable(data);
+    const description = item ? item.description : "";
 
-    return ({ description: item.description, groups });
+    return ({ description, groups });
 }

@@ -7,6 +7,7 @@
 export * from "./ActionListRichIcon.tsx";
 export * from "./AnniversaryRichIcon.tsx";
 export * from "./AnonymousRichIcon.tsx";
+export * from "./ApplauseRichIcon.tsx";
 export * from "./BirthdayRichIcon.tsx";
 export * from "./BrokenImageRichIcon.tsx";
 export * from "./CautionRichIcon.tsx";
@@ -33,6 +34,7 @@ export * from "./OpenRoleRichIcon.tsx";
 export * from "./OpinionScaleRichIcon.tsx";
 export * from "./OrganizationRichIcon.tsx";
 export * from "./PeopleRichIcon.tsx";
+export * from "./ProfileRichIcon.tsx";
 export * from "./QuestionRichIcon.tsx";
 export * from "./ReminderRichIcon.tsx";
 export * from "./ReviewRichIcon.tsx";
@@ -50,4 +52,4 @@ export * from "./TextAnswerRichIcon.tsx";
 export * from "./UpsellRichIcon.tsx";
 export * from "./WhosWhoRichIcon.tsx";
 
-export const richIconNames = ["ActionListRichIcon","AnniversaryRichIcon","AnonymousRichIcon","BirthdayRichIcon","BrokenImageRichIcon","CautionRichIcon","ConversationRichIcon","CustomRichIcon","DecreasingScoreRichIcon","DeletedUserRichIcon","DepartmentRichIcon","DirectoryRichIcon","DiscountRichIcon","EmailRichIcon","FeedbackRichIcon","GoalIndividualRichIcon","GoalTeamRichIcon","GroupRichIcon","GrowthRichIcon","IdeaRichIcon","InfoRichIcon","LikertScaleRichIcon","LocationRichIcon","MultipleChoiceRichIcon","OneOnOneRichIcon","OpenRoleRichIcon","OpinionScaleRichIcon","OrganizationRichIcon","PeopleRichIcon","QuestionRichIcon","ReminderRichIcon","ReviewRichIcon","RisingScoreRichIcon","RocketRichIcon","ScriptRichIcon","SettingsRichIcon","SparklesRichIcon","StarRichIcon","StatusRichIcon","SuccessRichIcon","SupportRichIcon","TemplateRichIcon","TextAnswerRichIcon","UpsellRichIcon","WhosWhoRichIcon"] as const;
+export const richIconNames = ["ActionListRichIcon","AnniversaryRichIcon","AnonymousRichIcon","ApplauseRichIcon","BirthdayRichIcon","BrokenImageRichIcon","CautionRichIcon","ConversationRichIcon","CustomRichIcon","DecreasingScoreRichIcon","DeletedUserRichIcon","DepartmentRichIcon","DirectoryRichIcon","DiscountRichIcon","EmailRichIcon","FeedbackRichIcon","GoalIndividualRichIcon","GoalTeamRichIcon","GroupRichIcon","GrowthRichIcon","IdeaRichIcon","InfoRichIcon","LikertScaleRichIcon","LocationRichIcon","MultipleChoiceRichIcon","OneOnOneRichIcon","OpenRoleRichIcon","OpinionScaleRichIcon","OrganizationRichIcon","PeopleRichIcon","ProfileRichIcon","QuestionRichIcon","ReminderRichIcon","ReviewRichIcon","RisingScoreRichIcon","RocketRichIcon","ScriptRichIcon","SettingsRichIcon","SparklesRichIcon","StarRichIcon","StatusRichIcon","SuccessRichIcon","SupportRichIcon","TemplateRichIcon","TextAnswerRichIcon","UpsellRichIcon","WhosWhoRichIcon"] as const;

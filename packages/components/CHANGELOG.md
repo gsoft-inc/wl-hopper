@@ -1,5 +1,37 @@
 # @hopper-ui/components
 
+## 1.0.10
+
+### Patch Changes
+
+- Updated dependencies [cdb7b7c]
+  - @hopper-ui/icons@2.6.0
+
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies [584339c]
+  - @hopper-ui/icons@2.5.0
+
+## 1.0.8
+
+### Patch Changes
+
+- 6e4307e: Added exports to the package.json for the css file like we have in the icons package.
+
+## 1.0.7
+
+### Patch Changes
+
+- ab07424: build the `index.ts` file so that the package is correctly resolved
+
+## 1.0.6
+
+### Patch Changes
+
+- 9cf3058: pre-release of the components
+
 ## 1.0.5
 
 ### Patch Changes

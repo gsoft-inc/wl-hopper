@@ -34,6 +34,14 @@ const tsConfigParser = docgenTs.withCustomConfig(
     "./tsconfig.json",
     {
         shouldRemoveUndefinedFromOptional: true,
+        componentNameResolver: exp => {
+            const name = exp.getName();
+            if (name.startsWith("_")) {
+                return name.slice(1);
+            }
+
+            return name;
+        },
         propFilter: prop => {
             const alwaysIncludeProps = ["children", "className", "id", "style"];
 
@@ -67,12 +75,26 @@ async function writeFile(filename: string, data: ComponentDocWithGroups[]) {
             console.error(err);
             throw err;
         }
-        console.log(`${filename} api is created!`);
     });
 }
 
 function getComponentName(filePath: string) {
     return path.basename(filePath, path.extname(filePath));
+}
+
+function updatePropsFileName(component: ComponentDoc, originalFilePath: string) {
+    component.filePath = originalFilePath;
+
+    Object.keys(component.props).forEach(propName => {
+        if (component.props[propName].declarations) {
+            component.props[propName]?.declarations?.forEach(declaration => {
+                declaration.fileName = originalFilePath;
+            });
+        }
+        if (component.props[propName].parent) {
+            component.props[propName].parent!.fileName = originalFilePath;
+        }
+    });
 }
 
 function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
@@ -91,7 +113,8 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     return data.map(component => {
         // Remove the local or server path from the filePath
-        component.filePath = component.filePath.split("wl-hopper")[1];
+        const originalFilePath = component.filePath.split("wl-hopper")[1].replace(".temp", "");
+        updatePropsFileName(component, originalFilePath);
 
         // Destructure and ignore id and ref from component.props
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -180,6 +203,25 @@ function toDirectoryPath(partialPath: string) {
     return `${path.sep}${partialPath}${path.sep}`;
 }
 
+function preprocessFileContent(filePath: string) {
+    const content = fs.readFileSync(filePath, "utf8");
+
+    return content.replace(/export\s*{\s*_(\w+)\s*as\s*(\w+)\s*}/g, "export { $1 }");
+}
+
+function createTempFile(content: string, originalFilePath: string) {
+    const tempFilePath = path.join(path.dirname(originalFilePath), path.basename(originalFilePath, ".tsx") + ".temp.tsx");
+    fs.writeFileSync(tempFilePath, content, "utf8");
+
+    return tempFilePath;
+}
+
+function deleteFile(filePath: string) {
+    if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+    }
+}
+
 async function generateComponentData() {
     console.log("Start api generation for components");
     const options = {
@@ -203,11 +245,22 @@ async function generateComponentData() {
 
     for (const component of components) {
         if (component) {
-            const data = tsConfigParser.parse(component.filePath);
-            const { name } = component;
-            const formattedData = getFormattedData(data);
-            
-            await writeFile(name, formattedData);
+            const fileContent = preprocessFileContent(component.filePath);
+            const tempFilePath = createTempFile(fileContent, component.filePath);
+
+            try {
+                const data = tsConfigParser.parse(tempFilePath);
+                const { name } = component;
+
+                const formattedData = getFormattedData(data);
+
+                await writeFile(name, formattedData);
+                console.log(`${name} api is created!`);
+            } catch (error) {
+                console.error(`Error generating documentation for ${component.name}:`, error);
+            } finally {
+                deleteFile(tempFilePath);
+            }
         }
     }
 

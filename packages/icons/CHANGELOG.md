@@ -1,5 +1,57 @@
 # @hopper-ui/icons
 
+## 2.6.0
+
+### Minor Changes
+
+- cdb7b7c: ### Minor Changes
+
+  **Added**
+
+  | Icon Name    |
+  | ------------ |
+  | BirthdayIcon |
+
+  Added the following SVG icons:
+
+  **Added**
+
+  | SVG Name        |
+  | --------------- |
+  | birthday-16.svg |
+  | birthday-24.svg |
+  | birthday-32.svg |
+
+## 2.5.0
+
+### Minor Changes
+
+- 584339c: Added the following icons:
+
+  **Added**
+
+  | Icon Name    |
+  | ------------ |
+  | ApplauseIcon |
+  | BuildIcon    |
+  | ProfileIcon  |
+
+  Added the following SVG icons:
+
+  **Added**
+
+  | SVG Name        |
+  | --------------- |
+  | applause-16.svg |
+  | applause-24.svg |
+  | applause-32.svg |
+  | build-16.svg    |
+  | build-24.svg    |
+  | build-32.svg    |
+  | profile-16.svg  |
+  | profile-24.svg  |
+  | profile-32.svg  |
+
 ## 2.4.0
 
 ### Minor Changes

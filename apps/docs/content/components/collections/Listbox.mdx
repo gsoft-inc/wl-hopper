@@ -1,48 +1,195 @@
 ---
-title: ListBox (WIP)
-description: TBD
+title: ListBox
+description: A ListBox is a disclosure component that appears with a set of actions relevant to a specific control, interface area, data element or application view. Typically, this context is determined by the user’s current selection prior to invoking the menu. Listbox can be opened from components such as Selects or Buttons.
 category: "collections"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/listbox/src/ListBox.tsx
 ---
 
+<Example src="ListBox/docs/preview" isOpen />
+
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="ListBox" />
 
-## Guidelines
+### ListBoxItem
 
-TODO: If we have some guidelines about this component's usage
+<PropTable component="ListBoxItem" />
 
-### Accessibility ?
 
-TODO: If we have some guidelines about this component and accessibility
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this component&apos;s usage
+
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
+    TODO: links to related concepts
+</FeatureFlag>
+
+
+#### Header
+
+The Header component represents a `header` within a Hopper container.
+
+#### Section
+
+The Section component represents a `section` within a Hopper container.
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+#### ListBox
+
+- [Header](./Listbox#header)
+- [Section](./Listbox#section)
+- [Divider](./Divider)
+- [ListBoxItem](./Listbox#listboxitem)
+
+
+#### ListBoxItem
+
+- [Text](./Text)
+- [Icon](./Icon)
+- [Badge](./Badge)
 
 ## Examples
 
-## Advanced customization
+### Empty state
 
-### Contexts
-TODO: Example of context + content about the context
+A ListBox can have an empty state.
 
-### Custom Children
+<Example src="ListBox/docs/empty" />
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Disabled
 
-### Custom Component
+A ListBox with a disabled item.
 
-TODO: Example of creating a custom version of this component
+<Example src="ListBox/docs/disabled" />
 
-## Migration Notes (WIP)
+### Invalid
+
+A ListBox that is invalid.
+
+<Example src="ListBox/docs/invalid" />
+
+### Fluid
+
+A fluid ListBox will take up the full width of its container.
+
+<Example src="ListBox/docs/fluid" />
+
+### Divider
+
+Dividers can be added to a ListBox.
+
+<Example src="ListBox/docs/divider" />
+
+### Section
+
+A Listbox can have sections and section headers.
+
+<Example src="ListBox/docs/section" />
+
+### Count
+
+A ListBox can contain a count using a badge.
+
+<Example src="ListBox/docs/count" />
+
+### Dynamic Lists
+
+Items and sections can be populated from a hierarchial data structure.
+If a section has a header, the `Collection` component can be used to render the child items.
+
+<Example src="ListBox/docs/dynamicLists" />
+
+### Icons
+
+A ListBox can contain icons.
+
+<Example src="ListBox/docs/icons" />
+
+### End Icons
+
+A ListBox can contain icons at the end of a list item.
+
+<Example src="ListBox/docs/endIcons" />
+
+### Loading
+
+A ListBox can have a loading state.
+
+<Example src="ListBox/docs/loading" />
+
+### Load on scroll
+
+A ListBox can be used to load more items when scrolling.
+
+<Example src="ListBox/docs/loadOnScroll" />
+
+### Single selection
+
+A ListBox can have a single selected item.
+
+<Example src="ListBox/docs/selection" />
+
+### Single selection indicator
+
+A ListBox can have a different selection indicator for single select.
+By default, `disallowEmptySelection` is set to true when the selection indicator is a radio button.
+
+<Example src="ListBox/docs/selectionIndicator" />
+
+### Multiple selection
+
+A ListBox with multiple selected items.
+
+<Example src="ListBox/docs/multipleSelected" />
+
+### Sizes
+
+ListBoxes can be multiple sizes.
+
+<Example src="ListBox/docs/size" />
+
+### Description
+
+ListBoxItem can have a description.
+
+<Example src="ListBox/docs/description" />
+
+
+### Item size
+
+ListBoxItems can be multiple sizes as well.
+
+<Example src="ListBox/docs/multipleSizes" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="ListBox/docs/migration-notes" />
