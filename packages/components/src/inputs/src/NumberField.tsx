@@ -9,7 +9,7 @@ import { composeRenderProps, Input, useContextProps, type NumberFieldProps as RA
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { Text, TextContext, LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider, useScale } from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";
 import { NumberFieldContext } from "./NumberFieldContext.ts";
@@ -52,10 +52,15 @@ interface StepperButtonProps {
 
 const StepperButton = ({ direction }: StepperButtonProps) => {
     const StepperIcon = direction === "increment" ? AngleUpIcon : AngleDownIcon;
+    const stepperClasses = cssModule(
+        styles,
+        "hop-NumberField__stepper-button",
+        direction
+    );
 
     return (
         <RACButton
-            className={styles["hop-NumberField__stepper-button"]}
+            className={stepperClasses}
             slot={direction}
         >
             <StepperIcon 
@@ -96,6 +101,8 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
 
     const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const scale = useScale();
+    const isMobile = scale === "large";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -103,7 +110,8 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         cssModule(
             styles,
             "hop-NumberField",
-            isFluid && "fluid"
+            isFluid && "fluid",
+            isMobile && "mobile"
         ),
         stylingProps.className
     );
@@ -139,9 +147,13 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 className={styles["hop-NumberField__InputGroup"]}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
+                inputClassName={styles["hop-NumberField__input"]}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} placeholder={placeholder} />
+                <Input 
+                    ref={inputRef} 
+                    placeholder={placeholder}
+                />
                 <StepperButton direction="increment" />
                 <StepperButton direction="decrement" />
             </InputGroup>
