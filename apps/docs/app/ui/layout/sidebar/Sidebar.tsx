@@ -98,8 +98,10 @@ const Sidebar = ({ links }: SidebarProps) => {
                 aria-label="Sidebar"
                 ref={sidebarRef}
             >
-                <div className="hd-sidebar__container">
-                    {linkItems}
+                <div className="hd-sidebar__wrapper">
+                    <div className="hd-sidebar__container">
+                        {linkItems}
+                    </div>
                 </div>
             </nav>
         </>
