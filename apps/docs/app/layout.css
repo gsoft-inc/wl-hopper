@@ -17,6 +17,8 @@ html {
     --layout-width: 90rem;
     --nav-width: 14.875rem;
     --aside-width: 14.875rem;
+
+    overscroll-behavior-y: contain;
 }
 
 .hd-layout-with-nav {
