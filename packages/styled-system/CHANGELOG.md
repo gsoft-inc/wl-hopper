@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.1.1
+
+### Patch Changes
+
+- 3cbbcf4: Fix mapping of borderColor
+
 ## 2.1.0
 
 ### Minor Changes
