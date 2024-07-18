@@ -41,3 +41,9 @@
 .hd-component-code--expanded {
     grid-template-rows: 1fr;
 }
+
+.hd-component-code--expanded:focus-visible,
+.hd-component-code--expanded pre:focus-visible {
+    border-bottom-left-radius: var(--hd-border-radius-lg);
+    border-bottom-right-radius: var(--hd-border-radius-lg);
+}
