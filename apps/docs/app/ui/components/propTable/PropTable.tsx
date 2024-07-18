@@ -106,11 +106,11 @@ const formatGroup = async (groups: Groups[]) => {
 
 export default async function PropTable({ component }: PropTableProps) {
     const { groups } = await getComponentProps(component);
-    const formatedGroups = await formatGroup(groups);
+    const formattedGroups = await formatGroup(groups);
 
     return (
         <>
-            {formatedGroups.map(group => {
+            {formattedGroups.map(group => {
                 const [key] = Object.keys(group);
                 const isEmpty = group[key].length === 0;
 

@@ -110,8 +110,14 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     // Define the exceptions that should be added to a specific group
     // The first element is the prop name and the second is the group key
     const groupsExceptions = [["type", "default"], ["autoFocus", "default"], ["dangerouslySetInnerHTML", "default"]];
+    const excludedComponentsByDisplayName = ["H1", "H2", "H3", "H4", "H5", "H6"];
 
-    return data.map(component => {
+    const filteredData = data.filter(component => {
+        // Check if the component is excluded
+        return !excludedComponentsByDisplayName.includes(component.displayName);
+    });
+
+    return filteredData.map(component => {
         // Remove the local or server path from the filePath
         const originalFilePath = component.filePath.split("wl-hopper")[1].replace(".temp", "");
         updatePropsFileName(component, originalFilePath);
@@ -251,7 +257,6 @@ async function generateComponentData() {
             try {
                 const data = tsConfigParser.parse(tempFilePath);
                 const { name } = component;
-
                 const formattedData = getFormattedData(data);
 
                 await writeFile(name, formattedData);
