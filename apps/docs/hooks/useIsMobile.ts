@@ -7,7 +7,7 @@ export function useIsMobile(maxWidth: string) {
         const maxWidthInPixels = parseFloat(maxWidth) * 16;
 
         const checkIsMobile = () => {
-            setIsMobile(window.innerWidth <= maxWidthInPixels);
+            setIsMobile(window.innerWidth < maxWidthInPixels);
         };
 
         checkIsMobile();

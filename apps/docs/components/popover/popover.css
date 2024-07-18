@@ -8,3 +8,9 @@
     box-shadow: var(--hd-popover-shadow);
     outline: none;
 }
+
+.hd-popover:focus-visible {
+    outline: 0;
+    box-shadow: var(--hd-focus-ring);
+    border-radius: var(--hd-space-05);
+}
