@@ -49,13 +49,17 @@
     flex-direction: column;
     gap: 0.5rem;
     list-style: none;
-    margin-top: var(--hd-space-3);
+    margin-top: var(--hd-space-2);
 }
 
-.hd-product__item-title {
+.hd-product__title {
     font-size: 0.75rem;
     text-transform: uppercase;
     color: var(--hd-color-neutral-text-weakest);
+}
+
+.hd-product__title + .hd-product__link {
+    margin-top: var(--hd-space-1);
 }
 
 .hd-product__link {

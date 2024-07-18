@@ -18,9 +18,7 @@ import { navigation } from "@/configs/navigation";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
 import HopperLogo from "./assets/hopper-logo.svg";
-
 import "./header.css";
-
 
 const designSystemLinks = [
     {
@@ -61,7 +59,7 @@ const ToggleTrigger = ({ children }: { children: ReactNode }) => {
     );
 };
 
-const LeftNav = () => {
+const ProductMenuAndBrand = () => {
     return (
         <span className="hd-product">
             <ToggleTrigger>
@@ -73,11 +71,12 @@ const LeftNav = () => {
                         className="hd-product__menu"
                         aria-label="product menu link"
                     >
+                        <span className="hd-product__title">Frontend tools</span>
                         <Link className="hd-product__link"
                             href="https://gsoft-inc.github.io/wl-idp-docs-hub/"
-                        >Frontend IDP</Link>
+                        >IDP hub</Link>
                         <ul className="hd-product__items">
-                            <span className="hd-product__item-title">Design System</span>
+                            <span className="hd-product__title">Design System</span>
                             {designSystemLinks.map(link => (
                                 <li className="hd-product__item" key={link.title}>
                                     <Link className="hd-product__link" href={link.url}>{link.title}</Link>
@@ -91,10 +90,8 @@ const LeftNav = () => {
                 </PopoverTrigger>
             </ToggleTrigger>
         </span>
-
     );
 };
-
 
 const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
@@ -132,7 +129,7 @@ const Header = () => {
             <header className="hd-header">
                 <Wrapper className="hd-flex">
                     <div className="hd-header__nav">
-                        <LeftNav />
+                        <ProductMenuAndBrand />
                         <Nav items={navigation} />
                     </div>
                     <div className="hd-header__quick-actions">
