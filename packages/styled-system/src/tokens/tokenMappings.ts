@@ -6,6 +6,7 @@ import { isNil, isObject } from "../utils/assertion.ts";
 
 import {
     BackgroundColors,
+    BorderColors,
     CoreSpace,
     DataVizColors,
     Elevation,
@@ -61,7 +62,7 @@ export const BackgroundColorMapping = {
 };
 
 export const BorderMapping = {
-    ...createMapping(BackgroundColors, createBorderValueTemplate),
+    ...createMapping(BorderColors, createBorderValueTemplate),
     ...createMapping(HopperColors, createBorderValueTemplate),
     ...createMapping(DataVizColors, createBorderValueTemplate)
 };
@@ -153,10 +154,10 @@ export type CssBoxShadow = Globals | "none";
 export type CssBorder = Globals | 0;
 export type CssBorderRadius = Globals | 0;
 export type CssGap = Globals | "normal" | 0;
-export type CSSSizing = "auto" | "fit-content" | "max-content" | "min-content"| Globals | Percentage;
+export type CSSSizing = "auto" | "fit-content" | "max-content" | "min-content" | Globals | Percentage;
 
 export type BackgroundColorValue = keyof typeof BackgroundColorMapping | CssColor;
-export type UNSAFE_BackgroundColorValue = keyof typeof BackgroundColorMapping | Property.BackgroundColor ;
+export type UNSAFE_BackgroundColorValue = keyof typeof BackgroundColorMapping | Property.BackgroundColor;
 
 export type BorderValue = keyof typeof BorderMapping | CssColor | CssBorder;
 export type UNSAFE_BorderValue = keyof typeof BorderMapping | Property.Border;
@@ -196,11 +197,23 @@ export type UNSAFE_GridAutoRowsValue = keyof typeof SizingMapping | Property.Gri
 
 export type GridTemplateAreasValue = Property.GridTemplateAreas | Array<string>;
 
-export type GridTemplateColumnsValue = keyof typeof SizingMapping | CssGridTemplate | Array<keyof typeof SizingMapping | CssGridTemplate>;
-export type UNSAFE_GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns | Array<keyof typeof SizingMapping | Property.GridTemplateColumns>;
+export type GridTemplateColumnsValue =
+    keyof typeof SizingMapping
+    | CssGridTemplate
+    | Array<keyof typeof SizingMapping | CssGridTemplate>;
+export type UNSAFE_GridTemplateColumnsValue =
+    keyof typeof SizingMapping
+    | Property.GridTemplateColumns
+    | Array<keyof typeof SizingMapping | Property.GridTemplateColumns>;
 
-export type GridTemplateRowsValue = keyof typeof SizingMapping | CssGridTemplate | Array<keyof typeof SizingMapping | CssGridTemplate>;
-export type UNSAFE_GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows | Array<keyof typeof SizingMapping | Property.GridTemplateRows>;
+export type GridTemplateRowsValue =
+    keyof typeof SizingMapping
+    | CssGridTemplate
+    | Array<keyof typeof SizingMapping | CssGridTemplate>;
+export type UNSAFE_GridTemplateRowsValue =
+    keyof typeof SizingMapping
+    | Property.GridTemplateRows
+    | Array<keyof typeof SizingMapping | Property.GridTemplateRows>;
 
 export type HeightValue = keyof typeof SizingMapping | CSSSizing;
 export type UNSAFE_HeightValue = keyof typeof SizingMapping | Property.Height;
