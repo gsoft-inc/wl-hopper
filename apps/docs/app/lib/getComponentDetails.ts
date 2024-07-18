@@ -10,7 +10,7 @@ export const COMPONENT_PATH = path.join(process.cwd(), "content", "components");
 export interface ComponentData {
     title: string;
     description: string;
-    status?: string;
+    status?: string | undefined;
     links?: { source: string; npm: string; issue: string };
     order?: number | undefined;
 }
