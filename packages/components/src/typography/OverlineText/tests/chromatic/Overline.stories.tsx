@@ -27,7 +27,7 @@ export const Styling: Story = {
     },
     render: props => (
         <>
-            <OverlineText border="warning-strong" {...props} />
+            <OverlineText border="warning" {...props} />
             <OverlineText className="bg-red" {...props} />
             <OverlineText style={{ backgroundColor: "red" }} {...props} />
         </>

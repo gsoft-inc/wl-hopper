@@ -44,7 +44,7 @@ export const Secondary = {
 export const Styling = {
     render: props => (
         <Inline>
-            <Badge border="warning-strong" {...props} />
+            <Badge border="warning" {...props} />
             <Badge className="border-red" {...props} />
             <Badge style={{ border: "1px solid darkRed" }} {...props}>New</Badge>
         </Inline>

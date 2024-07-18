@@ -42,7 +42,7 @@ export const Styling: Story = {
     },
     render: props => (
         <>
-            <Text border="warning-strong" {...props} />
+            <Text border="warning" {...props} />
             <Text className="bg-red" {...props} />
             <Text style={{ backgroundColor: "red" }} {...props} />
         </>

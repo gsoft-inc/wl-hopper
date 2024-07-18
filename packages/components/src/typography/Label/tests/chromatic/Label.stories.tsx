@@ -42,7 +42,7 @@ export const Styling: Story = {
     },
     render: props => (
         <>
-            <Label border="warning-strong" {...props} />
+            <Label border="warning" {...props} />
             <Label className="bg-red" {...props} />
             <Label style={{ backgroundColor: "red" }} {...props} />
         </>
