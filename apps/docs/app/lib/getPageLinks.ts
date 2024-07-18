@@ -7,6 +7,7 @@ export interface Data {
     _id: string;
     title: string;
     order?: number | undefined;
+    status?: string | undefined;
     section?: string;
     _raw: Raw;
 }
@@ -15,6 +16,7 @@ export interface LinkItem {
     id: string;
     title: string;
     order?: number;
+    status?: string;
     path: string;
 }
 
@@ -51,6 +53,7 @@ function getPageLinks(items: Data[], options?: { order?: string[] }) {
             id: item._id,
             title: item.title,
             order: item.order,
+            status: item.status,
             path: item._raw.flattenedPath
         });
     });

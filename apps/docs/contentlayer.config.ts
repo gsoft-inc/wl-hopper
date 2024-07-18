@@ -137,6 +137,9 @@ export const GettingStarted = defineDocumentType(() => ({
         },
         order: {
             type: "number"
+        },
+        status: {
+            type: "string"
         }
     },
     computedFields: {

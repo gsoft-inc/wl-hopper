@@ -19,7 +19,7 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const isMobile = useIsMobile("37.5rem");
+    const isMobile = useIsMobile("48rem");
 
     useEffect(() => {
         if (isMobileMenuOpen) {

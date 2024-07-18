@@ -9,6 +9,10 @@
     border-top: var(--hd-border-size) solid var(--hd-color-neutral-border);
 }
 
+.hd-sub-header .hd-layout__fluid {
+    padding-inline: 0;
+}
+
 @media screen and (width >= 48rem) {
     .hd-sub-header {
         display: none;

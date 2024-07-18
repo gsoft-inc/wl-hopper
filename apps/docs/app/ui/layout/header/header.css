@@ -33,7 +33,11 @@
     z-index: var(--hd-z-index-1000);
 }
 
-@media screen and (width >= 37.5rem) {
+.hd-header .hd-layout__fluid {
+    padding-inline: 0;
+}
+
+@media screen and (width >= 48rem) {
     .hd-header {
         border-radius: var(--hd-border-radius-md);
         margin: 1.5rem auto 0;
@@ -74,7 +78,7 @@
     gap: var(--hd-space-1);
 }
 
-@media screen and (width >= 37.5rem) {
+@media screen and (width >= 48rem) {
     .hd-header__quick-actions {
         display: flex;
     }
@@ -84,7 +88,7 @@
     display: block;
 }
 
-@media screen and (width >= 37.5rem) {
+@media screen and (width >= 48rem) {
     .hd-header__mobile-menu-trigger {
         display: none;
     }

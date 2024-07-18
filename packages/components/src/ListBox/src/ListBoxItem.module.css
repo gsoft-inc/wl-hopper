@@ -309,9 +309,8 @@
     display: -webkit-box;
     grid-area: description;
     -webkit-box-orient: vertical;
-
-    color: var(--description-text-color);
-
     -webkit-line-clamp: 2;
     line-clamp: 2;
+
+    color: var(--description-text-color);
 }

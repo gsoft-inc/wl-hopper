@@ -5,6 +5,7 @@ export default function Example() {
     return (
         <Div
             // This will center text on mobile, and left align it on screens 768px and wider
+            backgroundColor="primary"
             textAlign={{ base: "center", sm: "left" }}
             UNSAFE_width="30rem"
             maxWidth="100%"
