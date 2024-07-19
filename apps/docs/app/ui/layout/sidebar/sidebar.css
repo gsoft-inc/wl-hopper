@@ -96,6 +96,10 @@
     color: var(--hd-color-primary-text);
 }
 
+.hd-sidebar-section:has(.hd-sidebar__nested-list:empty) {
+    display: none;
+}
+
 .hd-sidebar-section.hd-sidebar__item {
     font-weight: 600;
     font-size: 1rem;

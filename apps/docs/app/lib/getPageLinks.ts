@@ -31,7 +31,7 @@ function capitalizeWords(str: string) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
-function getPageLinks(items: Data[], options?: { order?: string[] }) {
+function getPageLinks(items: Data[], options?: { order?: string[]; status?: string }) {
     if (!items) {
         return [];
     }
