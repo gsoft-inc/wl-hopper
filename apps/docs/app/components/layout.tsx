@@ -55,7 +55,6 @@ async function ComponentsLayout({ children }: { children: ReactNode }) {
         "content"
     ] });
 
-
     return (
         <SidebarProvider>
             <Wrapper type="with-sidebar">
