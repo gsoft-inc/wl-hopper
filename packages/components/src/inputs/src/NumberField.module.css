@@ -3,14 +3,15 @@
     --hop-NumberField-inline-size: 20rem;
     --hop-NumberField-inline-size-fluid: 100%;
     --hop-NumberField-prefix-color: var(--hop-neutral-text-weak);
+    --hop-NumberField-prefix-margin-inline-end: var(--hop-space-inline-sm);
     --hop-NumberField-color: var(--hop-neutral-text-weak);
 
     /* InputGroup */
     --hop-NumberField-input-group-display: grid;
-    --hop-NumberField-input-group-template: "prefix input stepUp" auto
-                                            "prefix input stepDown" auto
+    --hop-NumberField-input-group-template: "prefix input stepup" auto
+                                            "prefix input stepdown" auto
                                             / auto 1fr auto;
-    --hop-NumberField-input-group-template-mobile: "stepDown prefix input stepUp" auto
+    --hop-NumberField-input-group-template-mobile: "stepdown prefix input stepup" auto
                                                          / auto auto 1fr auto;
 
     /* Stepper */
@@ -18,15 +19,16 @@
     --hop-NumberField-stepper-color-hovered: var(--hop-neutral-icon-hover);
     --hop-NumberField-stepper-color-pressed: var(--hop-neutral-icon-press);
     --hop-NumberField-stepper-color-disabled: var(--hop-neutral-icon-disabled);
-    --hop-NumberField-stepper-background-color: transparent;
+    --hop-NumberField-stepper-background-color: var(--hop-neutral-surface);
     --hop-NumberField-stepper-background-color-hovered: var(--hop-neutral-surface-hover);
     --hop-NumberField-stepper-background-color-pressed: var(--hop-neutral-surface-press);
     --hop-NumberField-stepper-background-color-disabled: transparent;
-    --hop-NumberField-stepper-border-radius: calc(var(--hop-shape-rounded-sm) / 2);
-    --hop-NumberField-stepper-border-radius-mobile: var(--hop-NumberField-stepper-border-radius);
+    --hop-NumberField-stepper-border-radius: calc(var(--hop-shape-rounded-sm));
     --hop-NumberField-stepper-border-radius-increment: var(--hop-NumberField-stepper-border-radius) var(--hop-NumberField-stepper-border-radius) 0 0;
     --hop-NumberField-stepper-border-radius-decrement: 0 0 var(--hop-NumberField-stepper-border-radius) var(--hop-NumberField-stepper-border-radius);
-    --hop-NumberField-stepper-height: 0.865rem;
+    --hop-NumberField-stepper-border-radius-mobile-increment: 0 var(--hop-shape-rounded-md) var(--hop-shape-rounded-md) 0;
+    --hop-NumberField-stepper-border-radius-mobile-decrement: var(--hop-shape-rounded-md) 0 0 var(--hop-shape-rounded-md);
+    --hop-NumberField-stepper-height: 0.86rem;
     --hop-NumberField-stepper-height-mobile: 100%;
     --hop-NumberField-stepper-width: 1.5rem;
     --hop-NumberField-stepper-border-color: var(--hop-neutral-border);
@@ -35,23 +37,25 @@
     --hop-NumberField-stepper-align-self-decrement: start;
     --hop-NumberField-stepper-align-self-increment-mobile: center;
     --hop-NumberField-stepper-align-self-decrement-mobile: center;
+    --hop-NumberField-stepper-margin-inline-increment: var(--hop-space-inline-sm) calc(var(--hop-space-inline-sm) * -1);
+    --hop-NumberField-stepper-margin-inline-decrement: var(--hop-space-inline-sm) calc(var(--hop-space-inline-sm) * -1);
+    --hop-NumberField-stepper-margin-inline-increment-mobile: var(--hop-space-inline-sm) calc(var(--hop-space-inline-md) * -1);
+    --hop-NumberField-stepper-margin-inline-decrement-mobile: calc(var(--hop-space-inline-md) * -1) var(--hop-space-inline-sm);
 
     /* Internal Variables */
     --inline-size: var(--hop-NumberField-inline-size);
     --stepper-color: var(--hop-NumberField-stepper-color);
     --stepper-background-color: var(--hop-NumberField-stepper-background-color);
     --stepper-border: var(--hop-NumberField-stepper-border-width) solid var(--hop-NumberField-stepper-border-color);
-    --stepper-increment-border-bottom: none;
-    --stepper-decrement-border-top: none;
-    --stepper-increment-align-self: var(--hop-NumberField-stepper-align-self-increment);
-    --stepper-decrement-align-self: var(--hop-NumberField-stepper-align-self-decrement);
     --stepper-height: var(--hop-NumberField-stepper-height);
     --input-group-display: var(--hop-NumberField-input-group-display);
     --input-group-template: var(--hop-NumberField-input-group-template);
 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: var(--hop-NumberField-gap);
+
     inline-size: var(--inline-size);
 }
 
@@ -61,10 +65,6 @@
 
 .hop-NumberField--mobile {
     --input-group-template: var(--hop-NumberField-input-group-template-mobile);
-    --stepper-increment-border-bottom: var(--stepper-border);
-    --stepper-decrement-border-top: var(--stepper-border);
-    --stepper-increment-align-self: var(--hop-NumberField-stepper-align-self-increment-mobile);
-    --stepper-decrement-align-self: var(--hop-NumberField-stepper-align-self-decrement-mobile);
     --stepper-height: var(--hop-NumberField-stepper-height-mobile);
 }
 
@@ -75,6 +75,7 @@
 
 .hop-NumberField__prefix {
     grid-area: prefix;
+    margin-inline-end: var(--hop-NumberField-prefix-margin-inline-end);
     color: var(--hop-NumberField-prefix-color);
 }
 
@@ -96,35 +97,55 @@
     cursor: pointer;
 
     display: flex;
+    grid-area: var(--grid-area, unset);
     align-items: center;
+    align-self: var(--stepper-align-self);
     justify-content: center;
 
     box-sizing: border-box;
     inline-size: var(--hop-NumberField-stepper-width);
     block-size: var(--stepper-height);
+    margin-inline: var(--stepper-margin-inline);
     padding: 0;
 
     color: var(--stepper-color);
 
     background-color: var(--stepper-background-color);
-    border: var(--stepper-border);
-    border-radius: var(--stepper-border-radius);
+    border-color: var(--hop-NumberField-stepper-border-color);
+    border-style: solid;
+    border-width: var(--stepper-border-width);
+    border-radius: var(--stepper-border-radius, 0);
+    outline: none;
 }
 
 .hop-NumberField__stepper-button--increment {
     --stepper-border-radius: var(--hop-NumberField-stepper-border-radius-increment);
-
-    grid-area: stepUp;
-    align-self: var(--stepper-increment-align-self );
-    border-block-end: var(--stepper-increment-border-bottom);
+    --stepper-border-width: var(--hop-NumberField-stepper-border-width) var(--hop-NumberField-stepper-border-width) 0 var(--hop-NumberField-stepper-border-width);
+    --stepper-align-self: var(--hop-NumberField-stepper-align-self-increment);
+    --stepper-margin-inline: var(--hop-NumberField-stepper-margin-inline-increment);
+    --grid-area: stepup;
 }
 
 .hop-NumberField__stepper-button--decrement {
     --stepper-border-radius: var(--hop-NumberField-stepper-border-radius-decrement);
+    --stepper-border-width: 0 var(--hop-NumberField-stepper-border-width) var(--hop-NumberField-stepper-border-width) var(--hop-NumberField-stepper-border-width);
+    --stepper-align-self: var(--hop-NumberField-stepper-align-self-decrement);
+    --stepper-margin-inline: var(--hop-NumberField-stepper-margin-inline-decrement);
+    --grid-area: stepdown;
+}
 
-    grid-area: stepDown;
-    align-self: var(--stepper-decrement-align-self);
-    border-block-start: var(--stepper-decrement-border-top);
+.hop-NumberField__stepper-button--mobile.hop-NumberField__stepper-button--increment {
+    --stepper-border-width: 0 0 0 var(--hop-NumberField-stepper-border-width);
+    --stepper-align-self: var(--hop-NumberField-stepper-align-self-increment-mobile);
+    --stepper-margin-inline: var(--hop-NumberField-stepper-margin-inline-increment-mobile);
+    --stepper-border-radius: var(--hop-NumberField-stepper-border-radius-mobile-increment);
+}
+
+.hop-NumberField__stepper-button--mobile.hop-NumberField__stepper-button--decrement {
+    --stepper-border-width: 0 var(--hop-NumberField-stepper-border-width) 0 0;
+    --stepper-align-self: var(--hop-NumberField-stepper-align-self-decrement-mobile);
+    --stepper-margin-inline: var(--hop-NumberField-stepper-margin-inline-decrement-mobile);
+    --stepper-border-radius: var(--hop-NumberField-stepper-border-radius-mobile-decrement);
 }
 
 .hop-NumberField__stepper-button[data-hovered] {
@@ -138,12 +159,9 @@
 }
 
 .hop-NumberField__stepper-button[data-disabled] {
+    cursor: not-allowed;
     color: var(--hop-NumberField-stepper-color-disabled);
     background-color: var(--hop-NumberField-stepper-background-color-disabled);
-}
-
-.hop-NumberField--mobile .hop-NumberField__stepper-button {
-    --stepper-border-radius: var(--hop-NumberField-stepper-border-radius-mobile);
 }
 
 .hop-NumberField__stepper-button__icon {

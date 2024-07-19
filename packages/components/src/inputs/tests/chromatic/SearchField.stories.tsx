@@ -177,12 +177,13 @@ export const States: Story = {
                 }
 
                 if (field?.getAttribute("data-chromatic-force-focus-within")) {
-                    input.setAttribute("data-focus-within", "true");
-                    field?.removeAttribute("data-chromatic-force-focus");
+                    inputGroup?.setAttribute("data-focus-within", "true");
+                    field?.removeAttribute("data-chromatic-force-focus-within");
                 }
 
                 if (field?.getAttribute("data-chromatic-force-hover")) {
                     input.setAttribute("data-hovered", "true");
+                    inputGroup?.setAttribute("data-hovered", "true");
                     field?.removeAttribute("data-chromatic-force-hover");
                 }
             }

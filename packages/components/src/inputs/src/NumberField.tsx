@@ -51,11 +51,14 @@ interface StepperButtonProps {
 }
 
 const StepperButton = ({ direction }: StepperButtonProps) => {
+    const scale = useScale();
+    const isMobile = scale === "large";
     const StepperIcon = direction === "increment" ? AngleUpIcon : AngleDownIcon;
     const stepperClasses = cssModule(
         styles,
         "hop-NumberField__stepper-button",
-        direction
+        direction,
+        isMobile && "mobile"
     );
 
     return (

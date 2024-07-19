@@ -1,3 +1,4 @@
+import { MailIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
@@ -6,12 +7,12 @@ import { ErrorMessage } from "../../../ErrorMessage/index.ts";
 import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Label } from "../../../typography/index.ts";
-import { PasswordField, type PasswordFieldProps } from "../../src/PasswordField.tsx";
+import { NumberField, type NumberFieldProps } from "../../src/NumberField.tsx";
 
 const meta = {
-    title: "Components/PasswordField",
-    component: PasswordField
-} satisfies Meta<typeof PasswordField>;
+    title: "Components/NumberField",
+    component: NumberField
+} satisfies Meta<typeof NumberField>;
 
 export default meta;
 
@@ -21,14 +22,15 @@ export const Default: Story = {
     render: args => (
         <Stack>
             <Inline alignY="center">
-                <PasswordField {...args} />
-                <PasswordField size="sm" {...args} />
+                <NumberField {...args} />
+                <NumberField size="sm" {...args} />
             </Inline>
-            <PasswordField isDisabled {...args} />
-            <PasswordField isReadOnly {...args} />
-            <PasswordField isFluid {...args} />
+            <NumberField minValue={0} maxValue={100} {...args} />
+            <NumberField isDisabled {...args} />
+            <NumberField isReadOnly {...args} />
+            <NumberField isFluid {...args} />
             <Div width="10%">
-                <PasswordField isFluid {...args} />
+                <NumberField isFluid {...args} />
             </Div>
         </Stack>
     ),
@@ -36,7 +38,6 @@ export const Default: Story = {
         "aria-label": "Label"
     }
 };
-
 
 export const WithLabel: Story = {
     ...Default,
@@ -61,7 +62,25 @@ export const Value: Story = {
     ...WithLabel,
     args: {
         ...WithLabel.args,
-        defaultValue: "Hop we go!"
+        defaultValue: 10
+    }
+};
+
+export const PrefixIcon: Story = {
+    ...WithLabel,
+    args: {
+        ...WithLabel.args,
+        prefix: <MailIcon />,
+        defaultValue: 50
+    }
+};
+
+export const TextIcon: Story = {
+    ...WithLabel,
+    args: {
+        ...WithLabel.args,
+        prefix: "$",
+        defaultValue: 12
     }
 };
 
@@ -73,7 +92,7 @@ export const HelperText: Story = {
             <HelperMessage key="1">Helper message</HelperMessage>,
             <ErrorMessage key="2">Error message</ErrorMessage>
         ],
-        defaultValue: "Hop we go!"
+        defaultValue: 100
     }
 };
 
@@ -86,7 +105,7 @@ export const Validation: Story = {
             <HelperMessage key="1">Helper message</HelperMessage>,
             <ErrorMessage key="2">Error message</ErrorMessage>
         ],
-        defaultValue: "Hop we go!"
+        defaultValue: 10
     }
 };
 
@@ -95,14 +114,14 @@ export const Zoom: Story = {
         <Stack>
             <Div className="zoom-in">
                 <Inline alignY="center">
-                    <PasswordField placeholder="Where to?" />
-                    <PasswordField placeholder="Where to?" size="sm" />
+                    <NumberField placeholder="Where to?" />
+                    <NumberField placeholder="Where to?" size="sm" />
                 </Inline>
             </Div>
             <Div className="zoom-out">
                 <Inline alignY="center">
-                    <PasswordField placeholder="Where to?" />
-                    <PasswordField placeholder="Where to?" size="sm" />
+                    <NumberField placeholder="Where to?" />
+                    <NumberField placeholder="Where to?" size="sm" />
                 </Inline>
             </Div>
         </Stack>
@@ -112,24 +131,24 @@ export const Zoom: Story = {
 export const Styling: Story = {
     render: () => (
         <Inline>
-            <PasswordField border="core_amanita-600" aria-label="Label" />
-            <PasswordField className="bg-red" aria-label="Label" />
-            <PasswordField style={{ backgroundColor: "red" }} aria-label="Label" />
+            <NumberField border="core_amanita-600" aria-label="Label" />
+            <NumberField className="bg-red" aria-label="Label" />
+            <NumberField style={{ backgroundColor: "red" }} aria-label="Label" />
         </Inline>
     )
 };
 
-const StateTemplate = (args: Partial<PasswordFieldProps>) => (
+const StateTemplate = (args: Partial<NumberFieldProps>) => (
     <Stack>
         <Inline alignY="center">
-            <PasswordField data-testid="passwordField" {...args} />
-            <PasswordField data-testid="passwordField" size="sm" {...args} />
+            <NumberField {...args} />
+            <NumberField size="sm" {...args} />
         </Inline>
-        <PasswordField data-testid="passwordField" isDisabled {...args} />
-        <PasswordField data-testid="passwordField" isReadOnly {...args} />
-        <PasswordField data-testid="passwordField" isFluid {...args} />
+        <NumberField isDisabled {...args} />
+        <NumberField isReadOnly {...args} />
+        <NumberField isFluid {...args} />
         <Div width="10%">
-            <PasswordField data-testid="passwordField" isFluid {...args} />
+            <NumberField isFluid {...args} />
         </Div>
     </Stack>
 );
@@ -137,15 +156,15 @@ const StateTemplate = (args: Partial<PasswordFieldProps>) => (
 export const States: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const inputs = canvas.getAllByLabelText("Label");
+        const inputs = canvas.getAllByRole("textbox");
 
         inputs.forEach(input => {
             if (input.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
-                const inputGroup = input.parentElement!;
+                const inputGroup = input.parentElement;
                 const field = inputGroup?.parentElement;
 
                 if (field?.getAttribute("data-chromatic-force-focus")) {
-                    inputGroup?.setAttribute("data-focus-visible", "true");
+                    input.setAttribute("data-focus-visible", "true");
                     inputGroup?.setAttribute("data-focus-within", "true");
                     field?.removeAttribute("data-chromatic-force-focus");
                 }
@@ -157,6 +176,7 @@ export const States: Story = {
 
                 if (field?.getAttribute("data-chromatic-force-hover")) {
                     inputGroup?.setAttribute("data-hovered", "true");
+                    input.setAttribute("data-hovered", "true");
                     field?.removeAttribute("data-chromatic-force-hover");
                 }
             }
@@ -182,6 +202,6 @@ export const States: Story = {
     },
     args: {
         "aria-label": "Label",
-        defaultValue: "Some random text"
+        defaultValue: 36
     }
 };

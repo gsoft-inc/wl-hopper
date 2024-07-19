@@ -38,7 +38,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- *
+ * A default NumberField.
  */
 export const Default: Story = {
     render: args => (
@@ -146,12 +146,26 @@ export const Description: Story = {
 };
 
 /**
- * A number field can take of the full with of it's container by setting the `isFluid` prop to `true`.
+ * A number field can take up the full width of its container by setting the `isFluid` prop to `true`.
  */
 export const Fluid: Story = {
     ...Description,
     args: {
         ...Description.args,
         isFluid: true
+    }
+};
+
+/**
+ * A number field can be formatted using this [format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+ */
+export const Formatting: Story = {
+    ...Default,
+    args: {
+        ...Default.args,
+        formatOptions: {
+            style: "currency",
+            currency: "USD"
+        }
     }
 };
