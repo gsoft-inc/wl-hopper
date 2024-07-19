@@ -83,8 +83,7 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-RadioGroup__label"],
-                    size: size
+                    className: styles["hop-RadioGroup__label"]
                 }],
                 [RadioContext, {
                     className: styles["hop-RadioGroup__radio"],
