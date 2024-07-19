@@ -74,9 +74,9 @@ const ProductMenuAndBrand = () => {
                         <span className="hd-product__title">Frontend tools</span>
                         <Link className="hd-product__link"
                             href="https://gsoft-inc.github.io/wl-idp-docs-hub/"
-                        >IDP hub</Link>
+                        >IDP Hub</Link>
                         <ul className="hd-product__items">
-                            <span className="hd-product__title">Design System</span>
+                            <span className="hd-product__title">Design Systems</span>
                             {designSystemLinks.map(link => (
                                 <li className="hd-product__item" key={link.title}>
                                     <Link className="hd-product__link" href={link.url}>{link.title}</Link>
