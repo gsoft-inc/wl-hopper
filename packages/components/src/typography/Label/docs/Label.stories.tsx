@@ -74,7 +74,7 @@ export const Inherit: Story = {
 export const AdvancedCustomization: Story = {
     render: props => (
         <SlotProvider values={[
-            [LabelContext, { size: "xl" }]
+            [LabelContext, { color: "decorative-option2" }]
         ]}
         >
             <Label {...props} />
