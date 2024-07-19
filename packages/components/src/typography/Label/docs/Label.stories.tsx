@@ -1,7 +1,5 @@
-import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Stack } from "../../../layout/index.ts";
 import { SlotProvider } from "../../../utils/index.ts";
 import { Label } from "../src/Label.tsx";
 import { LabelContext } from "../src/LabelContext.ts";
@@ -33,37 +31,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * The Label component provides default styling based on it's `size` prop`, but can also receive styling from a parent component
- * when used as a child of a Hopper component.
+ * The default label component.
  */
 export const Default: Story = {};
 
 /**
- * You can alter the size of the label by specifying a `size` prop.
- * The available sizes match Hopper Typography Type Scale (a type scale is a set of [font-size and line-height](https://hopper.workleap.design/tokens/semantic/typography#body) pairs).
+ * The label component does not have a default color. It needs to be set explicitly. However, it will be set by a parent Hopper component.
  */
-export const Size: Story = {
-    render: props => (
-        <Stack>
-            <Label size="xs" {...props} />
-            <Label size="sm" {...props} />
-            <Label size="md" {...props} />
-            <Label size="lg" {...props} />
-            <Label size="xl" {...props} />
-            <Label size="2xl" {...props} />
-        </Stack>
-    )
-};
-
-/**
- * You can also alter the size to match the parent element's type scale by using the `inherit` size.
- */
-export const Inherit: Story = {
-    render: props => (
-        <Div fontSize="body-xs">
-            <Label size="inherit" {...props} />
-        </Div>
-    )
+export const Color: Story = {
+    args: {
+        color: "decorative-option3"
+    }
 };
 
 /**
