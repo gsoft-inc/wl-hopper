@@ -1,5 +1,13 @@
 # @hopper-ui/components
 
+## 1.0.11
+
+### Patch Changes
+
+- 4c517c1: update @hopper-ui/styled-system package
+- Updated dependencies [4c517c1]
+  - @hopper-ui/icons@2.6.1
+
 ## 1.0.10
 
 ### Patch Changes
