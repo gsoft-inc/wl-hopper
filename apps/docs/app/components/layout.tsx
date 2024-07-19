@@ -13,8 +13,6 @@ interface Data {
 
 function formatComponentData(data: Data[]) {
     return data.map((component, index) => {
-        console.log(component);
-
         const { slugs, frontmatter: { title, order, status } } = component;
         let section = "";
 
