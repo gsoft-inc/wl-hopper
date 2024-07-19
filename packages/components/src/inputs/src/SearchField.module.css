@@ -22,7 +22,6 @@
 
 .hop-SearchField__Label {
     order: 0;
-    color: var(--hop-SearchField-color);
 }
 
 .hop-SearchField__prefix {

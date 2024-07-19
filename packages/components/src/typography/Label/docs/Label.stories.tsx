@@ -36,7 +36,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 /**
- * The label component does not have a default color. It needs to be set explicitly. However, it will be set by a parent Hopper component.
+ * The label component has a default color, but it can be easily overridden.
  */
 export const Color: Story = {
     args: {

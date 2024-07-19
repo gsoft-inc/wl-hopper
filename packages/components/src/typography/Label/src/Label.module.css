@@ -6,6 +6,7 @@
     --hop-Label-font-family: var(--hop-heading-xs-font-family);
     --hop-Label-font-weight: var(--hop-heading-xs-font-weight);
     --hop-Label-line-height: var(--hop-heading-xs-line-height);
+    --hop-Label-color: var(--hop-neutral-text-weak);
 }
 
 :where(.hop-Label) {
@@ -13,4 +14,5 @@
     font-size: var(--hop-Label-font-size);
     font-weight: var(--hop-Label-font-weight);
     line-height: var(--hop-Label-line-height);
+    color: var(--hop-Label-color);
 }

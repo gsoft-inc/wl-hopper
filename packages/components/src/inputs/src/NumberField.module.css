@@ -4,7 +4,6 @@
     --hop-NumberField-inline-size-fluid: 100%;
     --hop-NumberField-prefix-color: var(--hop-neutral-text-weak);
     --hop-NumberField-prefix-margin-inline-end: var(--hop-space-inline-sm);
-    --hop-NumberField-color: var(--hop-neutral-text-weak);
 
     /* InputGroup */
     --hop-NumberField-input-group-display: grid;
@@ -70,7 +69,6 @@
 
 .hop-NumberField__Label {
     order: 0;
-    color: var(--hop-NumberField-color);
 }
 
 .hop-NumberField__prefix {
