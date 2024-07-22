@@ -110,7 +110,7 @@ export const Zoom: Story = {
 export const Styling: Story = {
     render: () => (
         <Inline>
-            <PasswordField UNSAFE_border="red" aria-label="Label" />
+            <PasswordField UNSAFE_border="1px solid red" aria-label="Label" />
             <PasswordField className="bg-red" aria-label="Label" />
             <PasswordField style={{ backgroundColor: "red" }} aria-label="Label" />
         </Inline>

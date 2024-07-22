@@ -131,7 +131,7 @@ export const Zoom: Story = {
 export const Styling: Story = {
     render: () => (
         <Inline>
-            <TextField UNSAFE_border="red" aria-label="Label" />
+            <TextField UNSAFE_border="1px solid red" aria-label="Label" />
             <TextField className="bg-red" aria-label="Label" />
             <TextField style={{ backgroundColor: "red" }} aria-label="Label" />
         </Inline>

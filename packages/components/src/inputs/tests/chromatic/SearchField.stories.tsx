@@ -136,7 +136,7 @@ export const Zoom: Story = {
 export const Styling: Story = {
     render: () => (
         <Inline>
-            <SearchField UNSAFE_border="red" aria-label="Label" />
+            <SearchField UNSAFE_border="1px solid red" aria-label="Label" />
             <SearchField className="bg-red" aria-label="Label" />
             <SearchField style={{ backgroundColor: "red" }} aria-label="Label" />
         </Inline>
