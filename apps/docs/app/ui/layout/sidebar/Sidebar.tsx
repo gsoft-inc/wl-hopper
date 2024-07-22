@@ -70,7 +70,7 @@ const Sidebar = ({ links }: SidebarProps) => {
                     <span className="hd-sidebar__title">{link.title}</span>
                     <ul className="hd-sidebar__nested-list">
                         {link.linkItems
-                            .filter(item => item.status === "ready" || item.status === undefined || (item.status === "not-ready" && featureFlags.alpha)).map(item => {
+                            .filter(item => item.status === "ready" || item.status === undefined || (item.status === "alpha" && featureFlags.alpha)).map(item => {
                                 const linkPath = `/${item.path}`;
                                 const isActive = pathName === linkPath;
 
@@ -98,8 +98,10 @@ const Sidebar = ({ links }: SidebarProps) => {
                 aria-label="Sidebar"
                 ref={sidebarRef}
             >
-                <div className="hd-sidebar__container">
-                    {linkItems}
+                <div className="hd-sidebar__wrapper">
+                    <div className="hd-sidebar__container">
+                        {linkItems}
+                    </div>
                 </div>
             </nav>
         </>

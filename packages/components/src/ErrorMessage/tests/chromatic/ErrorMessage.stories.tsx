@@ -46,7 +46,7 @@ export const Styling: Story = {
             }]
         ]}
         >
-            <ErrorMessage border="primary-strong" {...props} />
+            <ErrorMessage border="primary" {...props} />
             <ErrorMessage className="bg-blue" {...props} />
             <ErrorMessage style={{ backgroundColor: "blue" }} {...props} />
         </SlotProvider>

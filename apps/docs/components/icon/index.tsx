@@ -20,6 +20,7 @@ import ErrorIcon from "./assets/error.svg";
 import InfoIcon from "./assets/info.svg";
 import MessageIcon from "./assets/message.svg";
 import WarningIcon from "./assets/warning.svg";
+import ProductMenuIcon from "./assets/product-menu.svg";
 
 import Icon, { type IconProps } from "./Icon.tsx";
 
@@ -46,6 +47,7 @@ export {
     InfoIcon,
     MessageIcon,
     WarningIcon,
+    ProductMenuIcon,
     Icon,
     IconProps
 };

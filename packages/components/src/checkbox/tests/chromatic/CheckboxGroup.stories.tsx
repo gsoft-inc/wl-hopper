@@ -178,7 +178,7 @@ export const Vertical = {
             </Inline>
             <h1>Styling</h1>
             <Inline>
-                <CheckboxGroup border="warning-strong">
+                <CheckboxGroup border="warning">
                     <Label>Numbers</Label>
                     <CheckboxList>
                         <Checkbox value="1">1</Checkbox>

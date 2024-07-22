@@ -30,7 +30,7 @@ export const Styling: Story = {
     },
     render: props => (
         <>
-            <HelperMessage border="warning-strong" {...props} />
+            <HelperMessage border="warning" {...props} />
             <HelperMessage className="bg-red" {...props} />
             <HelperMessage style={{ backgroundColor: "red" }} {...props} />
         </>

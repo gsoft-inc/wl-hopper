@@ -202,7 +202,7 @@ export const Vertical = {
             </Inline>
             <h1>Styling</h1>
             <Inline>
-                <RadioGroup border="warning-strong">
+                <RadioGroup border="warning">
                     <Label>Numbers</Label>
                     <RadioList>
                         <Radio value="1">1</Radio>

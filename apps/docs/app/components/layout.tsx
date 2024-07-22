@@ -13,7 +13,7 @@ interface Data {
 
 function formatComponentData(data: Data[]) {
     return data.map((component, index) => {
-        const { slugs, frontmatter: { title, order } } = component;
+        const { slugs, frontmatter: { title, order, status } } = component;
         let section = "";
 
         if (slugs.length > 1) {
@@ -27,6 +27,7 @@ function formatComponentData(data: Data[]) {
             _id: `component-${index}`,
             title,
             order,
+            status,
             section: section,
             _raw: {
                 flattenedPath: `components/${componentLink}`

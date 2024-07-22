@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/components",
     "author": "Workleap",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "The components package.",
     "license": "Apache-2.0",
     "repository": {
@@ -39,7 +39,7 @@
         "test": "jest"
     },
     "peerDependencies": {
-        "@hopper-ui/styled-system": "^2.0.0",
+        "@hopper-ui/styled-system": "^2.1.0",
         "react": "^18",
         "react-aria": "^3.32",
         "react-aria-components": "^1.1.0",
