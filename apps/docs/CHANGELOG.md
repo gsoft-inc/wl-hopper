@@ -1,5 +1,11 @@
 # docs
 
+## 0.4.1
+
+### Patch Changes
+
+- 60364bd: Added migration notes for text fields. Also update the docs for Label.
+
 ## 0.4.0
 
 ### Minor Changes
