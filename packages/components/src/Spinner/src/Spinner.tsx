@@ -5,9 +5,10 @@ import {
     type StyledSystemProps
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
+import { useId } from "react-aria";
 import { ProgressBar, useContextProps } from "react-aria-components";
 
-import { Label, type LabelProps } from "../../typography/Label/index.ts";
+import { Text, type TextProps } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, type SizeAdapter, type BaseComponentProps } from "../../utils/index.ts";
 
 import { SpinnerContext } from "./SpinnerContext.ts";
@@ -25,7 +26,7 @@ export interface SpinnerProps extends StyledSystemProps, BaseComponentProps {
     size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
-const SpinnerToLabelSizeAdapter: SizeAdapter<SpinnerProps["size"], LabelProps["size"]> = {
+const SpinnerToTextSizeAdapter: SizeAdapter<SpinnerProps["size"], TextProps["size"]> = {
     sm: "xs",
     md: "sm",
     lg: "md"
@@ -59,15 +60,18 @@ const Spinner = (props: SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
         ...stylingProps.style,
         ...style
     };
+    
+    const labelId = useId();
 
     const labelMarkup = children && (
-        <Label
+        <Text
             className={cssModule(
                 styles,
                 "hop-Spinner__label"
             )}
-            size={SpinnerToLabelSizeAdapter[size]}
-        >{children}</Label>
+            size={SpinnerToTextSizeAdapter[size]}
+            id={labelId}
+        >{children}</Text>
     );
 
     return (
@@ -76,6 +80,7 @@ const Spinner = (props: SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
             isIndeterminate
             className={classNames}
             style={mergedStyles}
+            aria-labelledby={labelId}
             {...otherProps}
         >
             <div className={

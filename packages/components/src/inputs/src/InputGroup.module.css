@@ -36,7 +36,9 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color);
     --background: var(--hop-InputGroup-background);
     --block-size: var(--hop-InputGroup-md-block-size);
+}
 
+:where(.hop-InputGroup)  {
     position: relative;
 
     display: inline-flex;

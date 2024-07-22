@@ -215,11 +215,8 @@ export const Previews: Record<string, Preview> = {
     "typography/Label/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/preview.tsx"))
     },
-    "typography/Label/docs/sizes": {
-        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/sizes.tsx"))
-    },
-    "typography/Label/docs/inherit": {
-        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/inherit.tsx"))
+    "typography/Label/docs/color": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/color.tsx"))
     },
     "typography/Label/docs/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/advancedCustomization.tsx"))

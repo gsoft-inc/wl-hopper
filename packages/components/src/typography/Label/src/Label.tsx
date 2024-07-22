@@ -1,8 +1,6 @@
 import {
     type StyledComponentProps,
-    useStyledSystem,
-    type ResponsiveProp,
-    useResponsiveValue
+    useStyledSystem
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
@@ -14,32 +12,22 @@ import { LabelContext } from "./LabelContext.ts";
 
 import styles from "./Label.module.css";
 
-
 export const GlobalLabelCssSelector = "hop-Label";
 
 // TODO: Add necessityIndicator and required Props
-export interface LabelProps extends StyledComponentProps<RACLabelProps> {
-    /**
-     * The Typography Type Scale to use.
-     * @default "md"
-     */
-    size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
-}
+export interface LabelProps extends StyledComponentProps<RACLabelProps> {}
 
 function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, size: sizeProp, children, style, ...otherProps } = ownProps;
-
-    const size = useResponsiveValue(sizeProp) ?? "md";
+    const { className, children, style, ...otherProps } = ownProps;
 
     const classNames = clsx(
         className,
         GlobalLabelCssSelector,
         cssModule(
             styles,
-            "hop-Label",
-            size
+            "hop-Label"
         ),
         stylingProps.className
     );

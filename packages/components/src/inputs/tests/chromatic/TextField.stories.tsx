@@ -44,8 +44,6 @@ export const Default: Story = {
 export const WithLabel: Story = {
     ...Default,
     args: {
-        ...Default.args,
-        "aria-label": undefined,
         children: [
             <Label key="1">Name:</Label>
         ]
@@ -133,7 +131,7 @@ export const Zoom: Story = {
 export const Styling: Story = {
     render: () => (
         <Inline>
-            <TextField border="core_amanita-600" aria-label="Label" />
+            <TextField UNSAFE_border="1px solid red" aria-label="Label" />
             <TextField className="bg-red" aria-label="Label" />
             <TextField style={{ backgroundColor: "red" }} aria-label="Label" />
         </Inline>
@@ -161,7 +159,7 @@ export const States: Story = {
         const inputs = canvas.getAllByRole("textbox");
 
         inputs.forEach(input => {
-            if (input.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
+            if (input.getAttribute("disabled") !== "") {
                 const inputGroup = input.parentElement;
                 const field = inputGroup?.parentElement;
 
@@ -172,12 +170,13 @@ export const States: Story = {
                 }
 
                 if (field?.getAttribute("data-chromatic-force-focus-within")) {
-                    input.setAttribute("data-focus-within", "true");
-                    field?.removeAttribute("data-chromatic-force-focus");
+                    inputGroup?.setAttribute("data-focus-within", "true");
+                    field?.removeAttribute("data-chromatic-force-focus-within");
                 }
 
                 if (field?.getAttribute("data-chromatic-force-hover")) {
                     input.setAttribute("data-hovered", "true");
+                    inputGroup?.setAttribute("data-hovered", "true");
                     field?.removeAttribute("data-chromatic-force-hover");
                 }
             }

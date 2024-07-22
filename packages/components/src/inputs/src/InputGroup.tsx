@@ -21,6 +21,7 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * Whether or not the button takes up the width of its container.
      */
     isFluid?: ResponsiveProp<boolean>;
+    inputClassName?: string;
 }
 
 function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -36,6 +37,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         children,
         size:sizeProp,
         isFluid: isFluidProp,
+        inputClassName,
         onMouseDown,
         ...otherProps
     } = ownProps;
@@ -65,13 +67,13 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     const handleMouseDown: MouseEventHandler<HTMLElement> = useCallback(e => {
         onMouseDown?.(e);
 
-        if (inputRef.current) {
+        // If the input is the one that is clicked, we don't want to focus it.
+        if (inputRef.current && e.target !== inputRef.current) {
             // forwards the focus to the input element when clicking on the input group.
             inputRef.current.focus();
+            // This ensures that the input does not lose focus when clicking on the input group.
+            e.preventDefault();
         }
-
-        // This ensure that the input does not lose focus when clicking on the input group.
-        e.preventDefault();
     }, [onMouseDown]);
 
     return (
@@ -79,7 +81,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
             [InputContext, {
                 ...inputContext,
                 ref: mergedRefs,
-                className: composeClassnameRenderProps(inputContext?.className, styles["hop-InputGroup__input"])
+                className: composeClassnameRenderProps(inputContext?.className, inputClassName, styles["hop-InputGroup__input"])
             }]
         ]}
         >

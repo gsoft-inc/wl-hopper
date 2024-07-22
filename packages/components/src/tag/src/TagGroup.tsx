@@ -72,8 +72,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-TagGroup__label"],
-                    size: size
+                    className: styles["hop-TagGroup__label"]
                 }],
                 [TagListContext, {
                     className: styles["hop-TagGroup__list"]

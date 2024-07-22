@@ -2,88 +2,17 @@
     /** TODO: Should all labels be --hop-font-weight-580 instead of the default text */
 
     /** Component Tokens */
-    --hop-Label-xs-font-size: var(--hop-body-xs-font-size);
-    --hop-Label-xs-font-family: var(--hop-body-xs-font-family);
-    --hop-Label-xs-font-weight: var(--hop-body-xs-font-weight);
-    --hop-Label-xs-line-height: var(--hop-body-xs-line-height);
-    --hop-Label-sm-font-size: var(--hop-body-sm-font-size);
-    --hop-Label-sm-font-family: var(--hop-body-sm-font-family);
-    --hop-Label-sm-font-weight: var(--hop-body-sm-font-weight);
-    --hop-Label-sm-line-height: var(--hop-body-sm-line-height);
-    --hop-Label-md-font-size: var(--hop-body-md-font-size);
-    --hop-Label-md-font-family: var(--hop-body-md-font-family);
-    --hop-Label-md-font-weight: var(--hop-body-md-font-weight);
-    --hop-Label-md-line-height: var(--hop-body-md-line-height);
-    --hop-Label-lg-font-size: var(--hop-body-lg-font-size);
-    --hop-Label-lg-font-family: var(--hop-body-lg-font-family);
-    --hop-Label-lg-font-weight: var(--hop-body-lg-font-weight);
-    --hop-Label-lg-line-height: var(--hop-body-lg-line-height);
-    --hop-Label-xl-font-size: var(--hop-body-xl-font-size);
-    --hop-Label-xl-font-family: var(--hop-body-xl-font-family);
-    --hop-Label-xl-font-weight: var(--hop-body-xl-font-weight);
-    --hop-Label-xl-line-height: var(--hop-body-xl-line-height);
-    --hop-Label-2xl-font-size: var(--hop-body-2xl-font-size);
-    --hop-Label-2xl-font-family: var(--hop-body-2xl-font-family);
-    --hop-Label-2xl-font-weight: var(--hop-body-2xl-font-weight);
-    --hop-Label-2xl-line-height: var(--hop-body-2xl-line-height);
-    --hop-Label-inherit-size-font-size: inherit;
-    --hop-Label-inherit-size-font-family: inherit;
-    --hop-Label-inherit-size-font-weight: inherit;
-    --hop-Label-inherit-size-line-height: inherit;
+    --hop-Label-font-size: var(--hop-heading-xs-font-size);
+    --hop-Label-font-family: var(--hop-heading-xs-font-family);
+    --hop-Label-font-weight: var(--hop-heading-xs-font-weight);
+    --hop-Label-line-height: var(--hop-heading-xs-line-height);
+    --hop-Label-color: var(--hop-neutral-text-weak);
 }
 
 :where(.hop-Label) {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
-    line-height: var(--line-height);
-}
-
-:where(.hop-Label--xs) {
-    --font-size: var(--hop-Label-xs-font-size);
-    --font-family: var(--hop-Label-xs-font-family);
-    --font-weight: var(--hop-Label-xs-font-weight);
-    --line-height: var(--hop-Label-xs-line-height);
-}
-
-:where(.hop-Label--sm) {
-    --font-size: var(--hop-Label-sm-font-size);
-    --font-family: var(--hop-Label-sm-font-family);
-    --font-weight: var(--hop-Label-sm-font-weight);
-    --line-height: var(--hop-Label-sm-line-height);
-}
-
-:where(.hop-Label--md) {
-    --font-size: var(--hop-Label-md-font-size);
-    --font-family: var(--hop-Label-md-font-family);
-    --font-weight: var(--hop-Label-md-font-weight);
-    --line-height: var(--hop-Label-md-line-height);
-}
-
-:where(.hop-Label--lg) {
-    --font-size: var(--hop-Label-lg-font-size);
-    --font-family: var(--hop-Label-lg-font-family);
-    --font-weight: var(--hop-Label-lg-font-weight);
-    --line-height: var(--hop-Label-lg-line-height);
-}
-
-:where(.hop-Label--xl) {
-    --font-size: var(--hop-Label-xl-font-size);
-    --font-family: var(--hop-Label-xl-font-family);
-    --font-weight: var(--hop-Label-xl-font-weight);
-    --line-height: var(--hop-Label-xl-line-height);
-}
-
-:where(.hop-Label--2xl) {
-    --font-size: var(--hop-Label-2xl-font-size);
-    --font-family: var(--hop-Label-2xl-font-family);
-    --font-weight: var(--hop-Label-2xl-font-weight);
-    --line-height: var(--hop-Label-2xl-line-height);
-}
-
-:where(.hop-Label--inherit) {
-    --font-size: var(--hop-Label-inherit-size-font-size);
-    --font-family: var(--hop-Label-inherit-size-font-family);
-    --font-weight: var(--hop-Label-inherit-size-font-weight);
-    --line-height: var(--hop-Label-inherit-size-line-height);
+    font-family: var(--hop-Label-font-family);
+    font-size: var(--hop-Label-font-size);
+    font-weight: var(--hop-Label-font-weight);
+    line-height: var(--hop-Label-line-height);
+    color: var(--hop-Label-color);
 }
