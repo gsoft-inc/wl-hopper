@@ -196,7 +196,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
 }
 
 /**
- * A text field allows a user to enter a plain text value with a keyboard.
+ * A number field allows a user to enter a number value with a keyboard or increment and decrement buttons.
  *
  * [View Documentation](TODO)
  */

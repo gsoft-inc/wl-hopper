@@ -81,7 +81,6 @@
     --cursor: pointer;
     --text-color: var(--hop-Radio-text-color);
     --icon-color: var(--hop-Radio-icon-color);
-    --description-color: var(--hop-Radio-description-color);
     --transition-duration: var(--hop-easing-duration-2);
 
     cursor: var(--cursor);
@@ -103,7 +102,6 @@
     --box-outline: var(--hop-Radio-box-outline-size) solid var(--hop-Radio-box-outline-color);
     --text-color: var(--hop-Radio-text-color-focused);
     --icon-color: var(--hop-Radio-icon-color-focused);
-    --description-color: var(--hop-Radio-description-color-focus);
 }
 
 .hop-Radio[data-hovered],
@@ -112,7 +110,6 @@
     --box-border-color: var(--hop-Radio-box-border-color-hovered);
     --text-color: var(--hop-Radio-text-color-hovered);
     --icon-color: var(--hop-Radio-icon-color-hovered);
-    --description-color: var(--hop-Radio-description-color-hover);
 }
 
 .hop-Radio[data-pressed],
@@ -121,7 +118,6 @@
     --box-border-color: var(--hop-Radio-box-border-color-pressed);
     --text-color: var(--hop-Radio-text-color-pressed);
     --icon-color: var(--hop-Radio-icon-color-pressed);
-    --description-color: var(--hop-Radio-description-color-pressed);
 }
 
 .hop-Radio[data-selected] {
@@ -130,7 +126,6 @@
     --bullet-display: var(--hop-Radio-bullet-display-selected);
     --text-color: var(--hop-Radio-text-color-selected);
     --icon-color: var(--hop-Radio-icon-color-selected);
-    --description-color: var(--hop-Radio-description-color-selected);
 }
 
 .hop-Radio[data-invalid] {
@@ -139,7 +134,6 @@
     --bullet-color: var(--hop-Radio-bullet-color-invalid);
     --text-color: var(--hop-Radio-text-color-invalid);
     --icon-color: var(--hop-Radio-icon-color-invalid);
-    --description-color: var(--hop-Radio-description-color-invalid);
 }
 
 .hop-Radio:where([data-invalid])[data-focus-visible] {
@@ -173,7 +167,6 @@
     --cursor: not-allowed;
     --text-color: var(--hop-Radio-text-color-disabled);
     --icon-color: var(--hop-Radio-icon-color-disabled);
-    --description-color: var(--hop-Radio-description-color-disabled);
 }
 
 .hop-Radio--sm {

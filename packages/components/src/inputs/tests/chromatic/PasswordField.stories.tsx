@@ -41,8 +41,6 @@ export const Default: Story = {
 export const WithLabel: Story = {
     ...Default,
     args: {
-        ...Default.args,
-        "aria-label": undefined,
         children: [
             <Label key="1">Name:</Label>
         ]
@@ -112,7 +110,7 @@ export const Zoom: Story = {
 export const Styling: Story = {
     render: () => (
         <Inline>
-            <PasswordField border="core_amanita-600" aria-label="Label" />
+            <PasswordField UNSAFE_border="red" aria-label="Label" />
             <PasswordField className="bg-red" aria-label="Label" />
             <PasswordField style={{ backgroundColor: "red" }} aria-label="Label" />
         </Inline>
@@ -140,7 +138,7 @@ export const States: Story = {
         const inputs = canvas.getAllByLabelText("Label");
 
         inputs.forEach(input => {
-            if (input.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
+            if (input.getAttribute("disabled") !== "") {
                 const inputGroup = input.parentElement!;
                 const field = inputGroup?.parentElement;
 

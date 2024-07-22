@@ -36,10 +36,10 @@
     --hop-NumberField-stepper-align-self-decrement: start;
     --hop-NumberField-stepper-align-self-increment-mobile: center;
     --hop-NumberField-stepper-align-self-decrement-mobile: center;
-    --hop-NumberField-stepper-margin-inline-increment: var(--hop-space-inline-sm) calc(var(--hop-space-inline-sm) * -1);
-    --hop-NumberField-stepper-margin-inline-decrement: var(--hop-space-inline-sm) calc(var(--hop-space-inline-sm) * -1);
-    --hop-NumberField-stepper-margin-inline-increment-mobile: var(--hop-space-inline-sm) calc(var(--hop-space-inline-md) * -1);
-    --hop-NumberField-stepper-margin-inline-decrement-mobile: calc(var(--hop-space-inline-md) * -1) var(--hop-space-inline-sm);
+    --hop-NumberField-stepper-margin-inline-increment: var(--hop-space-inline-sm) calc(-1 * var(--hop-space-inline-sm));
+    --hop-NumberField-stepper-margin-inline-decrement: var(--hop-space-inline-sm) calc(-1 * var(--hop-space-inline-sm));
+    --hop-NumberField-stepper-margin-inline-increment-mobile: var(--hop-space-inline-sm) calc(-1 * var(--hop-space-inline-md));
+    --hop-NumberField-stepper-margin-inline-decrement-mobile: calc(-1 * var(--hop-space-inline-md)) var(--hop-space-inline-sm);
 
     /* Internal Variables */
     --inline-size: var(--hop-NumberField-inline-size);
