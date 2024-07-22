@@ -1,3 +1,5 @@
+Coming from Orbiter, you should be aware of the following changes:
+
 - The `Counter` component is no longer allowed as a specialized slot.
 - Values are not auto-generated when missed.
 - `onChange` is only supported on `RadioGroup`, not on `Radio`.

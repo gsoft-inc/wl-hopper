@@ -1,3 +1,5 @@
+Coming from Orbiter, you should be aware of the following changes:
+
 - `highlight` is not supported.
 - `pushed` is not supported.
 - `reverse` is not supported, use `flex-direction` or `row-reverse` instead.

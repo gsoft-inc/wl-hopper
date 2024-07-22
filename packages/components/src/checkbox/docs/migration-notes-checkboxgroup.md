@@ -1,3 +1,5 @@
+Coming from Orbiter, you should be aware of the following changes:
+
 - `onChange` signature has been changed (no events are passed).
 - `disabled` has been renamed to `isDisabled`.
 - `required` has been renamed to `isRequired`.

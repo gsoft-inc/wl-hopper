@@ -1,3 +1,5 @@
+Coming from Orbiter, you should be aware of the following changes:
+
 - `disabled` has been renamed to `isDisabled`.
 - `validationState` has been removed, use `isInvalid` instead. `valid` has been removed.
 - `tabbable` has been removed.

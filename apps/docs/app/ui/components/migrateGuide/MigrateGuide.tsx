@@ -1,5 +1,7 @@
 import { getMigrationNotes } from "@/app/components/utils.ts";
 
+import "./migrate-guide.css";
+
 export interface MigrateGuideProps {
     src: string;
 }
@@ -11,7 +13,7 @@ const MigrateGuide = async ({ src }: MigrateGuideProps) => {
 
     const { content } = await getMigrationNotes(src);
 
-    return <article>{content}</article>;
+    return <article className="hd-migrate-guide">{content}</article>;
 };
 
 export default MigrateGuide;
