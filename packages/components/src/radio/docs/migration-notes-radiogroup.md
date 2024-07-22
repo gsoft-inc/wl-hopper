@@ -1,11 +1,11 @@
-- `reverse` is not currently supported.
-- `autofocus` is not supported. You must put `autofocus` on the actual Radio.
-- `onChange` signature changed (no event passed).
-- `disabled` renamed to `isDisabled`.
-- `required` renamed to `isRequired`.
-- `fluid` is removed.
+- `required` has been renamed to `isRequired`.
+- `onChange` signature has changed (no event are passed).
+- `disabled` has been renamed to `isDisabled`.
+- `autofocus` is not supported. You must use `autofocus` on the actual Radio.
+- `fluid` has been removed.
+- `reverse` is not supported, use `flex-direction` or `row-reverse` instead.
 - The default orientation is now vertical instead of horizontal.
-- `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
-- `wrap` is removed. If horizontal, radios will wrap.
+- `validationState` has been removed. Use `isInvalid` instead. There is no `isValid`.
+- `wrap` has been removed. If `horizontal`, radios will wrap.
 - There is no `align` prop. If needed, the styled system can be used.
-- `inline` prop not available.
+- `inline` prop is not available.

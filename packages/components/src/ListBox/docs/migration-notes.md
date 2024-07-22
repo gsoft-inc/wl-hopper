@@ -1,5 +1,5 @@
-- `disabled` renamed to `isDisabled`.
-- `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
-- `tabbable` is removed.
+- `disabled` has been renamed to `isDisabled`.
+- `validationState` has been removed, use `isInvalid` instead. `valid` has been removed.
+- `tabbable` has been removed.
 - `useVirtualFocus` doesn't exist.
-- Listbox is renamed to ListBox to follow RAC.
+- `Listbox` has been renamed to `ListBox` to follow [React Aria Components](https://react-spectrum.adobe.com/react-aria/ListBox.html).
