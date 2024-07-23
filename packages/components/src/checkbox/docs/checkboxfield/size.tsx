@@ -4,15 +4,11 @@ export default function Example() {
     return (
         <Inline>
             <CheckboxField size="sm">
-                <Checkbox>
-                    <Text>Manager</Text>
-                </Checkbox>
+                <Checkbox>Manager</Checkbox>
                 <Text>Team Manager</Text>
             </CheckboxField>
             <CheckboxField size="md">
-                <Checkbox>
-                    <Text>Manager</Text>
-                </Checkbox>
+                <Checkbox>Manager</Checkbox>
                 <Text>Team Manager</Text>
             </CheckboxField>
         </Inline>
