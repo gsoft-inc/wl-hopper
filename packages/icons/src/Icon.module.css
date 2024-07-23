@@ -1,4 +1,4 @@
-.hop-Icon {
+:where(.hop-Icon) {
     --hop-Icon-placeholder-primary-icon: var(--hop-primary-icon);
     --hop-Icon-placeholder-warning-icon-weak: var(--hop-warning-icon-weak);
 

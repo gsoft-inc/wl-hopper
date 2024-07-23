@@ -20,6 +20,7 @@ export * from "./tokens/tokens.ts";
 export * from "./utils/useInsertStyleElement.ts";
 export * from "./utils/useIsomorphicInsertionEffect.ts";
 export * from "./utils/useIsomorphicLayoutEffect.ts";
+export * from "./utils/useMediaQuery.ts";
 export * from "./utils/useThemeComputedStyle.ts";
 export * from "./utils/slot.ts";
 

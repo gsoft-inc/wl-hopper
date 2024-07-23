@@ -2,11 +2,6 @@
     --hop-TextField-gap: var(--hop-space-stack-xs);
     --hop-TextField-inline-size: 20rem;
     --hop-TextField-prefix-color: var(--hop-neutral-text-weak);
-    --hop-TextField-font-family: var(--hop-heading-xs-font-family);
-    --hop-TextField-font-size: var(--hop-heading-xs-font-size);
-    --hop-TextField-font-weight: var(--hop-heading-xs-font-weight);
-    --hop-TextField-line-height: var(--hop-heading-xs-line-height);
-    --hop-TextField-color: var(--hop-neutral-text-weak);
 
     /* Internal Variables */
     --inline-size: var(--hop-TextField-inline-size);
@@ -23,12 +18,6 @@
 
 .hop-TextField__Label {
     order: 0;
-
-    font-family: var(--hop-TextField-font-family);
-    font-size: var(--hop-TextField-font-size);
-    font-weight: var(--hop-TextField-font-weight);
-    line-height: var(--hop-TextField-line-height);
-    color: var(--hop-TextField-color);
 }
 
 .hop-TextField__prefix {

@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.6.1
+
+### Patch Changes
+
+- 4c517c1: update @hopper-ui/styled-system package
+
 ## 2.6.0
 
 ### Minor Changes

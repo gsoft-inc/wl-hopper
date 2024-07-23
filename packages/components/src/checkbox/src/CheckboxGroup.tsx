@@ -83,8 +83,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-CheckboxGroup__label"],
-                    size: size
+                    className: styles["hop-CheckboxGroup__label"]
                 }],
                 [CheckboxContext, {
                     className: styles["hop-CheckboxGroup__checkbox"],
