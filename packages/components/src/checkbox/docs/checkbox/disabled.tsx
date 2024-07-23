@@ -1,9 +1,7 @@
-import { Checkbox, Text } from "@hopper-ui/components";
+import { Checkbox } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Checkbox isDisabled>
-            <Text>Developer</Text>
-        </Checkbox>
+        <Checkbox isDisabled>Developer</Checkbox>
     );
 }
