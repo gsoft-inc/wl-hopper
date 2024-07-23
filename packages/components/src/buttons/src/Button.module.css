@@ -103,9 +103,9 @@
     --hop-Button-ghost-primary-md-padding-y: 0;
 
     /* Ghost Secondary */
-    --hop-Button-ghost-secondary-color: var(--hop-neutral-text-weak);
-    --hop-Button-ghost-secondary-color-hover: var(--hop-neutral-text-weak-hover);
-    --hop-Button-ghost-secondary-color-pressed: var(--hop-neutral-text-weak-press);
+    --hop-Button-ghost-secondary-color: var(--hop-neutral-text);
+    --hop-Button-ghost-secondary-color-hover: var(--hop-neutral-text-hover);
+    --hop-Button-ghost-secondary-color-pressed: var(--hop-neutral-text-press);
     --hop-Button-ghost-secondary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-ghost-secondary-background-color: transparent;
     --hop-Button-ghost-secondary-background-color-hover: var(--hop-neutral-surface-hover);
