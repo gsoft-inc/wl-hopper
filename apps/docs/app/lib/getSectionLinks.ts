@@ -12,13 +12,16 @@ function getSectionLinks(content: {
 
     if (matches) {
         return matches.map(link => {
+            console.log(link);
+
             const title = link.replace("###", "").replace("##", "").trim();
+            const level = link.startsWith("###") ? 3 : 2;
 
             return {
                 title: title,
                 url: `#${formattingTitleId(title.toString())}`,
                 id: title.toLowerCase().replace(/\s+/g, "-"),
-                level: link.startsWith("###") ? 3 : 2
+                level: level
             };
         });
     }
