@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.0.13
+
+### Patch Changes
+
+- 6c2e4bb: Adjusted the ghost secondary text/icon color
+
 ## 1.0.12
 
 ### Patch Changes
