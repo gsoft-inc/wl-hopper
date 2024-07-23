@@ -1,0 +1,9 @@
+.hd-migrate-guide code {
+    font-family: var(--hd-mono-font-family);
+    font-size: 0.8125rem;
+    color: var(--hd-color-accent-text);
+    border-radius: var(--hd-border-radius-sm);
+    padding-block: var(--hd-space-05);
+    padding-inline: var(--hd-space-1);
+    background-color: var(--hd-color-accent-surface);
+}
