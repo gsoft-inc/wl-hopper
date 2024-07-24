@@ -12,6 +12,7 @@
     --hop-InputGroup-background-hover: var(--hop-neutral-surface-hover);
     --hop-InputGroup-border-color-invalid: var(--hop-danger-border-strong);
     --hop-InputGroup-input-color: var(--hop-neutral-text);
+    --hop-InputGroup-input-color-disabled: var(--hop-neutral-text-disabled);
     --hop-InputGroup-input-sm-font-family: var(--hop-body-sm-font-family);
     --hop-InputGroup-input-sm-font-size: var(--hop-body-sm-font-size);
     --hop-InputGroup-input-sm-font-weight: var(--hop-body-sm-font-weight);
@@ -42,6 +43,7 @@
     --input-line-height: var(--hop-InputGroup-input-md-line-height);
     --input-block-size: var(--hop-InputGroup-input-md-block-size);
     --input-inline-size: initial;
+    --input-color: var(--hop-InputGroup-input-color);
     --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
 }
 
@@ -92,6 +94,7 @@
 .hop-InputGroup[data-disabled] {
     --background: var(--hop-InputGroup-background-disabled);
     --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled);
+    --input-color: var(--hop-InputGroup-input-color-disabled);
     --input-placeholder-color: var(--hop-InputGroup-placeholder-color-disabled);
 }
 
@@ -108,7 +111,7 @@
     font-size: var(--input-font-size);
     font-weight: var(--input-font-weight);
     line-height: var(--input-line-height);
-    color: var(--hop-InputGroup-input-color);
+    color: var(--input-color);
 
     background: transparent;
     border: none;
