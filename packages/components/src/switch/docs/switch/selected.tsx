@@ -1,9 +1,7 @@
-import { Switch, Text } from "@hopper-ui/components";
+import { Switch } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Switch defaultSelected>
-            <Text>Save</Text>
-        </Switch>
+        <Switch defaultSelected>Save</Switch>
     );
 }
