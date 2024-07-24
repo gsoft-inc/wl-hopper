@@ -1,5 +1,7 @@
 export * from "./InputGroup.tsx";
 export * from "./InputGroupContext.ts";
+export * from "./TextArea.tsx";
+export * from "./TextAreaContext.ts";
 export * from "./TextField.tsx";
 export * from "./TextFieldContext.ts";
 export * from "./PasswordField.tsx";

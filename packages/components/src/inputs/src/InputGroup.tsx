@@ -1,7 +1,7 @@
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler } from "react";
-import { useContextProps, Group as RACGroup, type GroupProps as RACGroupProps, composeRenderProps, InputContext, useSlottedContext } from "react-aria-components";
+import { useContextProps, Group as RACGroup, type GroupProps as RACGroupProps, composeRenderProps, InputContext, useSlottedContext, TextAreaContext } from "react-aria-components";
 
 import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
@@ -21,6 +21,9 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * Whether or not the button takes up the width of its container.
      */
     isFluid?: ResponsiveProp<boolean>;
+    /**
+     * The class name of the input element.
+     */
     inputClassName?: string;
 }
 
@@ -29,6 +32,9 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     const inputRef = useRef<HTMLInputElement>(null);
     const inputContext = useSlottedContext(InputContext);
     const mergedRefs = inputContext?.ref ? mergeRefs(inputRef, inputContext?.ref) : inputRef;
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    const textAreaContext = useSlottedContext(TextAreaContext);
+    const mergedTextAreaRefs = textAreaContext?.ref ? mergeRefs(textAreaRef, textAreaContext?.ref) : textAreaRef;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -82,6 +88,11 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 ...inputContext,
                 ref: mergedRefs,
                 className: composeClassnameRenderProps(inputContext?.className, inputClassName, styles["hop-InputGroup__input"])
+            }],
+            [TextAreaContext, {
+                ...textAreaContext,
+                ref: mergedTextAreaRefs,
+                className: composeClassnameRenderProps(textAreaContext?.className, inputClassName, styles["hop-InputGroup__textarea"])
             }]
         ]}
         >

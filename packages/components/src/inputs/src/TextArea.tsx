@@ -1,0 +1,294 @@
+import { useIsomorphicLayoutEffect, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { useIsSSR } from "@react-aria/ssr";
+import { mergeRefs } from "@react-aria/utils";
+import { useControlledState } from "@react-stately/utils";
+import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type MutableRefObject } from "react";
+import { useObjectRef } from "react-aria";
+import { composeRenderProps, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField, TextArea as RACTextArea } from "react-aria-components";
+
+import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
+import { HelperMessageContext } from "../../HelperMessage/index.ts";
+import { useLocalizedString } from "../../i18n/index.ts";
+import { Text, LabelContext } from "../../typography/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText } from "../../utils/index.ts";
+
+import { InputGroup } from "./InputGroup.tsx";
+import { TextAreaContext } from "./TextAreaContext.ts";
+
+import styles from "./TextArea.module.css";
+
+export const GlobalTextAreaCssSelector = "hop-TextArea";
+const DefaultMinimumTextAreaRows = 3;
+
+export type ResizeMode = "none" | "vertical";
+
+export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
+    /**
+     * True to display the number of remaining allowed characters on the right of the input. Requires a valid value in the "maxLength" prop.
+     */
+    showCharacterCount?: boolean;
+
+    /**
+     * The maximum number of visible text lines before displaying a scrollbar.
+     */
+    maxRows?: number;
+
+    /**
+     * The placeholder text when the TextArea is empty.
+     */
+    placeholder?: string;
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-rows).
+     */
+    rows?: number;
+
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-cols).
+     */
+    cols?: number;
+
+    /**
+     * The size of the TextArea.
+     * @default "md"
+     */
+    size?: ResponsiveProp<"sm" | "md">;
+
+    /**
+     * If `true`, the TextArea will take all available width.
+     */
+    isFluid?: ResponsiveProp<boolean>;
+
+    /**
+     * The resize mode value of the TextArea. It's equivalent to the CSS resize property.
+     * @default "none"
+     */
+    resizeMode?: ResponsiveProp<ResizeMode>;
+
+    /**
+     * A ref for the HTML textarea element.
+     */
+    inputRef?: MutableRefObject<HTMLTextAreaElement>;
+}
+
+const pxToInt = (value?: string) => {
+    return value ? parseInt(value.replace("px", ""), 10) : 0;
+};
+
+function getBodyElement(isSSR: boolean) {
+    return !isSSR ? document.body : undefined;
+}
+
+function useCalculateRowHeight(input: HTMLTextAreaElement | null) {
+    const isSSR = useIsSSR();
+    const fontsLoaded = useFontFaceReady();
+
+    return useMemo(() => {
+        if (!input || !fontsLoaded) {
+            return 0;
+        }
+
+        const { font, lineHeight } = window.getComputedStyle(input);
+
+        if (lineHeight !== "normal") { return pxToInt(lineHeight); }
+
+        const element = document.createElement("span");
+
+        element.style.visibility = "hidden";
+        element.style.position = "absolute";
+        element.style.font = font;
+        element.innerText = "LineHeightHelper";
+
+        getBodyElement(isSSR)?.appendChild(element);
+
+        const height = element.getBoundingClientRect().height;
+
+        getBodyElement(isSSR)?.removeChild(element);
+
+        return height;
+    }, [input, fontsLoaded, isSSR]);
+}
+
+function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
+    // we extract the inputRef props, since we want to manually merge it with the context props.
+    const {
+        inputRef: userProvidedInputRef = null,
+        ...propsWithoutRef
+    } = props;
+    [props, ref] = useContextProps(propsWithoutRef, ref, TextAreaContext);
+    const { stylingProps, ...ownProps } = useStyledSystem(props);
+
+    const [characterCount, setCharacterCount] = useState(() => props.value?.length ?? props.defaultValue?.length ?? 0);
+
+    const {
+        className,
+        style: styleProp,
+        size,
+        showCharacterCount,
+        maxLength,
+        placeholder,
+        onChange: onChangeProp,
+        children,
+        defaultValue,
+        maxRows,
+        cols,
+        rows: rowsProp,
+        value: valueProp,
+        resizeMode: resizeModeProp,
+        isFluid: isFluidProp,
+        isDisabled,
+        isInvalid,
+        ...otherProps
+    } = ownProps;
+
+    const mergedTextAreaRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
+    const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const resizeMode = useResponsiveValue(resizeModeProp) ?? "none";
+
+    const classNames = composeClassnameRenderProps(
+        className,
+        GlobalTextAreaCssSelector,
+        cssModule(
+            styles,
+            "hop-TextArea",
+            isFluid && "fluid"
+        ),
+        stylingProps.className
+    );
+
+    const style = composeRenderProps(styleProp, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const handleTextChanged = useCallback((value: string) => {
+        setCharacterCount(value.length);
+
+        onChangeProp?.(value);
+    }, [onChangeProp]);
+
+    if (showCharacterCount && !maxLength) {
+        console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextArea.");
+    }
+
+    const rowHeight = useCalculateRowHeight(mergedTextAreaRef.current);
+    const defaultNumberOfRows = maxRows && maxRows < DefaultMinimumTextAreaRows ? maxRows : DefaultMinimumTextAreaRows;
+    const [rows, setRows] = useState(rowsProp ?? defaultNumberOfRows);
+    const truncateText = useTruncatedText();
+    const [value, onChange] = useControlledState<string>(valueProp, defaultValue || "", handleTextChanged);
+
+    const adjustRows = useCallback(() => {
+        if (rowHeight === 0) {
+            // rowHeight is not calculated yet, we can't adjust the height
+            return;
+        }
+
+        const input = mergedTextAreaRef.current;
+        if (!input) {
+            return;
+        }
+        const { paddingBottom, paddingTop } = window.getComputedStyle(input);
+        const originalRows = input.rows;
+        const originalOverflow = input.style.overflow;
+        // Setting rows to 1 allows us to get the actual height of the text and allow the textarea to shrink when removing text.
+        input.rows = 1;
+        input.style.overflow = "hidden";
+        const padding = pxToInt(paddingTop) + pxToInt(paddingBottom);
+        const currentRowsWithText = Math.floor((input.scrollHeight - padding) / rowHeight);
+        input.rows = originalRows;
+        input.style.overflow = originalOverflow;
+        if (!rowsProp && !maxRows) {
+            // if the number of rows is not specified, we don't need to adjust the height.
+            setRows(Math.max(currentRowsWithText, DefaultMinimumTextAreaRows));
+        } else if (rowsProp) {
+            // if a number of rows is specified, we need to adjust the height
+            setRows(rowsProp);
+        } else if (maxRows && currentRowsWithText >= maxRows) {
+            // if the number of rows with text is greater than or equal to the max rows, we need to adjust the height
+            setRows(maxRows);
+        } else {
+            setRows(Math.max(currentRowsWithText, DefaultMinimumTextAreaRows));
+        }
+    }, [mergedTextAreaRef, rowHeight, maxRows, rowsProp]);
+
+    // adjustRows needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
+    // truncateText also needs to be here so that if the default text goes over the maxLength, it is truncated.
+    useIsomorphicLayoutEffect(() => {
+        const newValue = truncateText(value, maxLength);
+        onChange(newValue);
+        adjustRows();
+    }, [value, adjustRows]);
+
+    const inputMarkup = (
+        <ClearContainerSlots>
+            <InputGroup
+                isFluid
+                size={size}
+                className={styles["hop-TextArea__InputGroup"]}
+                isDisabled={isDisabled}
+                isInvalid={isInvalid}
+                inputClassName={styles["hop-TextArea__textarea"]}
+            >
+                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
+
+                {showCharacterCount && maxLength && <CharacterCount charactersLeft={maxLength - characterCount} />}
+            </InputGroup>
+        </ClearContainerSlots>
+    );
+
+    const childrenMarkup = composeRenderProps(children, prev => {
+        return (
+            <>
+                <SlotProvider values={[
+                    [LabelContext, { className: styles["hop-TextArea__Label"] }],
+                    [HelperMessageContext, { className: styles["hop-TextArea__HelperMessage"] }],
+                    [ErrorMessageContext, { className: styles["hop-TextArea__ErrorMessage"] }]
+                ]}
+                >
+                    {prev}
+                </SlotProvider>
+                {inputMarkup}
+            </>
+        );
+    });
+
+    return (
+        <RACTextField
+            ref={ref}
+            value={value}
+            style={style}
+            className={classNames}
+            maxLength={maxLength}
+            onChange={onChange}
+            isDisabled={isDisabled}
+            isInvalid={isInvalid}
+            data-resize-mode={resizeMode}
+            {...otherProps}
+        >
+            {childrenMarkup}
+        </RACTextField>
+    );
+}
+
+interface CharacterCountProps {
+    charactersLeft: number;
+}
+
+function CharacterCount({ charactersLeft }: CharacterCountProps) {
+    const stringFormatter = useLocalizedString();
+
+    const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: charactersLeft });
+
+    return <Text aria-label={accessibilityString} color="neutral-weakest" size="xs" className={styles["hop-TextArea__char-count"]}>{charactersLeft}</Text>;
+}
+
+/**
+ * A textarea field allows a user to enter a plain text value with a keyboard.
+ *
+ * [View Documentation](TODO)
+ */
+const _TextArea = forwardRef<HTMLDivElement, TextAreaProps>(TextArea);
+_TextArea.displayName = "TextArea";
+
+export { _TextArea as TextArea };

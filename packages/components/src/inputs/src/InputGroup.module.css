@@ -36,6 +36,13 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color);
     --background: var(--hop-InputGroup-background);
     --block-size: var(--hop-InputGroup-md-block-size);
+    --input-font-family: var(--hop-InputGroup-input-md-font-family);
+    --input-font-size: var(--hop-InputGroup-input-md-font-size);
+    --input-font-weight: var(--hop-InputGroup-input-md-font-weight);
+    --input-line-height: var(--hop-InputGroup-input-md-line-height);
+    --input-block-size: var(--hop-InputGroup-input-md-block-size);
+    --input-inline-size: initial;
+    --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
 }
 
 :where(.hop-InputGroup)  {
@@ -56,11 +63,17 @@
 }
 
 .hop-InputGroup--fluid {
-    --inline-size: 100%
+    --inline-size: 100%;
+    --input-inline-size: 100%;
 }
 
 .hop-InputGroup--sm {
     --block-size: var(--hop-InputGroup-sm-block-size);
+    --input-font-family: var(--hop-InputGroup-input-sm-font-family);
+    --input-font-size: var(--hop-InputGroup-input-sm-font-size);
+    --input-font-weight: var(--hop-InputGroup-input-sm-font-weight);
+    --input-line-height: var(--hop-InputGroup-input-sm-line-height);
+    --input-block-size: var(--hop-InputGroup-input-sm-block-size);
 }
 
 .hop-InputGroup[data-hovered] {
@@ -78,23 +91,17 @@
 
 .hop-InputGroup[data-disabled] {
     --background: var(--hop-InputGroup-background-disabled);
-    --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled)
+    --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled);
+    --input-placeholder-color: var(--hop-InputGroup-placeholder-color-disabled);
 }
 
-.hop-InputGroup__input {
-    --input-font-family: var(--hop-InputGroup-input-md-font-family);
-    --input-font-size: var(--hop-InputGroup-input-md-font-size);
-    --input-font-weight: var(--hop-InputGroup-input-md-font-weight);
-    --input-line-height: var(--hop-InputGroup-input-md-line-height);
-    --input-block-size: var(--hop-InputGroup-input-md-block-size);
-    --input-inline-size: initial;
-    --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
-
+:where(.hop-InputGroup__input),
+:where(.hop-InputGroup__textarea) {
     flex: 1 1 auto;
 
+    box-sizing: border-box;
     inline-size: var(--input-inline-size);
     min-inline-size: 0;
-    block-size: var(--input-block-size);
     padding: 0;
 
     font-family: var(--input-font-family);
@@ -108,16 +115,8 @@
     outline: none
 }
 
-.hop-InputGroup--fluid .hop-InputGroup__input {
-    --input-inline-size: 100%;
-}
-
-.hop-InputGroup--sm .hop-InputGroup__input {
-    --input-font-family: var(--hop-InputGroup-input-sm-font-family);
-    --input-font-size: var(--hop-InputGroup-input-sm-font-size);
-    --input-font-weight: var(--hop-InputGroup-input-sm-font-weight);
-    --input-line-height: var(--hop-InputGroup-input-sm-line-height);
-    --input-block-size: var(--hop-InputGroup-input-sm-block-size);
+:where(.hop-InputGroup__input) {
+    block-size: var(--input-block-size);
 }
 
 .hop-InputGroup__input::placeholder {
@@ -126,8 +125,4 @@
     font-weight: var(--hop-InputGroup-placeholder-font-weight);
     line-height: var(--hop-InputGroup-placeholder-line-height);
     color: var(--input-placeholder-color);
-}
-
-.hop-InputGroup__input[data-disabled]::placeholder {
-    --input-placeholder-color: var(--hop-InputGroup-placeholder-color-disabled);
 }
