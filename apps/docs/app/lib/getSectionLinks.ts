@@ -5,7 +5,6 @@ type SectionLink = Pick<MDX, "raw">;
 
 function getSectionLinks(content: {
     body: SectionLink;
-    lastLevel2Title: string;
 }) {
     const regex = /(^#{2,3}\s).*?(?=\n)/gm;
     const body = content.body.raw;
