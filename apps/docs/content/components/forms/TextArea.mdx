@@ -37,9 +37,9 @@ links:
 
 A `TextArea` uses the following components.
 
-- [Label](./Label)
-- [Helper Message](./HelperMessage)
-- [Error Message](./ErrorMessage)
+- [Label](Label)
+- [Helper Message](HelperMessage)
+- [Error Message](ErrorMessage)
 
 ## Examples
 
@@ -54,7 +54,7 @@ The `isReadOnly` prop makes the TextArea's text content immutable. Unlike `isDis
 <Example src="inputs/docs/textArea/readOnly" />
 
 ### Error
-A TextArea with an error message.
+A TextArea can be displayed in an error state to indicate that the user input is invalid.
 
 <Example src="inputs/docs/textArea/error" />
 
@@ -64,12 +64,12 @@ TextAreas have multiple sizes to choose from.
 <Example src="inputs/docs/textArea/sizes" />
 
 ### Labeling
-If a visible label isn't specified, an aria-label must be provided to the TextArea for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the ID of the labeling element instead.
+If a visible label isn't specified, an `aria-label` must be provided to the TextArea for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
 
 <Example src="inputs/docs/textArea/labeling" />
 
 ### Description
-A TextArea with a helper message.
+A TextArea can have a description using the `HelperMessage` component to provide additional context to the user.
 
 <Example src="inputs/docs/textArea/description" />
 
@@ -82,6 +82,7 @@ If the `maxLength` prop is not set, the character count will not be displayed.
 
 ### Rows
 The `rows` prop can be used to set the height of the TextArea and should be used in favor of the `height` prop.
+One row is equivalent to the height of one line of text.
 
 <Example src="inputs/docs/textArea/rows" />
 
@@ -92,7 +93,9 @@ It differs from the `rows` prop in that it will not set the initial height of th
 <Example src="inputs/docs/textArea/maxRows" />
 
 ### Vertical Resize
-The `resizeMode` prop can be used to set the resize behavior of the TextArea.
+The `resizeMode` prop can be used to set the resize behavior of the TextArea. 
+The default behavior is `none`, which prevents the user from resizing the TextArea. 
+The `vertical` behavior allows the user to resize the TextArea vertically.
 
 <Example src="inputs/docs/textArea/verticalResize" />
 

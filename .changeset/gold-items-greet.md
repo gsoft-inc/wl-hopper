@@ -1,5 +1,5 @@
 ---
-"@hopper-ui/components": patch
+"@hopper-ui/components": minor
 ---
 
 Added the TextArea component.

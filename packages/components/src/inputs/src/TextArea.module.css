@@ -4,11 +4,14 @@
     --hop-TextArea-prefix-color: var(--hop-neutral-text-weak);
     --hop-TextArea-input-padding: var(--hop-space-inset-xs) calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs));
     --hop-TextArea-char-count-padding: 0 calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs)) var(--hop-space-inset-xs);
+    --hop-TextArea-char-count-color: var(--hop-neutral-text-weakest);
+    --hop-TextArea-char-count-color-disabled: var(--hop-neutral-text-disabled);
     --hop-TextArea-input-group-padding: var(--hop-space-inset-xs);
 
     /* Internal Variables */
     --inline-size: var(--hop-TextArea-inline-size);
     --resize: none;
+    --char-count-color: var(--hop-TextArea-char-count-color);
 
     display: flex;
     flex-direction: column;
@@ -22,6 +25,10 @@
 
 .hop-TextArea[data-resize-mode="vertical"] {
     --resize: vertical;
+}
+
+.hop-TextArea[disabled] {
+    --char-count-color: var(--hop-TextArea-char-count-color-disabled);
 }
 
 .hop-TextArea__Label {
@@ -49,6 +56,7 @@
 
 .hop-TextArea__char-count {
     padding: var(--hop-TextArea-char-count-padding);
+    color: var(--char-count-color);
 }
 
 .hop-TextArea__ErrorMessage,

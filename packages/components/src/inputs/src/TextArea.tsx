@@ -179,35 +179,33 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     const [value, onChange] = useControlledState<string>(valueProp, defaultValue || "", handleTextChanged);
 
     const adjustRows = useCallback(() => {
-        if (rowHeight === 0) {
-            // rowHeight is not calculated yet, we can't adjust the height
-            return;
-        }
-
         const input = mergedTextAreaRef.current;
-        if (!input) {
+        if (rowHeight === 0 || !input) {
+            // rowHeight is not calculated yet or input was not found, we can't adjust the height.
             return;
         }
         const { paddingBottom, paddingTop } = window.getComputedStyle(input);
         const originalRows = input.rows;
         const originalOverflow = input.style.overflow;
+
         // Setting rows to 1 allows us to get the actual height of the text and allow the textarea to shrink when removing text.
         input.rows = 1;
         input.style.overflow = "hidden";
+
         const padding = pxToInt(paddingTop) + pxToInt(paddingBottom);
         const currentRowsWithText = Math.floor((input.scrollHeight - padding) / rowHeight);
+
         input.rows = originalRows;
         input.style.overflow = originalOverflow;
-        if (!rowsProp && !maxRows) {
-            // if the number of rows is not specified, we don't need to adjust the height.
-            setRows(Math.max(currentRowsWithText, DefaultMinimumTextAreaRows));
-        } else if (rowsProp) {
-            // if a number of rows is specified, we need to adjust the height
+
+        if (rowsProp) {
+            // If a number of rows is specified, we need to adjust the height
             setRows(rowsProp);
         } else if (maxRows && currentRowsWithText >= maxRows) {
-            // if the number of rows with text is greater than or equal to the max rows, we need to adjust the height
+            // If the number of rows with text is greater than or equal to the max rows, we need to adjust the height
             setRows(maxRows);
         } else {
+            // If the number of rows is not specified or currentRowsWithText is less than maxRows, we adjust to the default or current text rows
             setRows(Math.max(currentRowsWithText, DefaultMinimumTextAreaRows));
         }
     }, [mergedTextAreaRef, rowHeight, maxRows, rowsProp]);
@@ -280,7 +278,7 @@ function CharacterCount({ charactersLeft }: CharacterCountProps) {
 
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: charactersLeft });
 
-    return <Text aria-label={accessibilityString} color="neutral-weakest" size="xs" className={styles["hop-TextArea__char-count"]}>{charactersLeft}</Text>;
+    return <Text aria-label={accessibilityString} size="xs" className={styles["hop-TextArea__char-count"]}>{charactersLeft}</Text>;
 }
 
 /**
