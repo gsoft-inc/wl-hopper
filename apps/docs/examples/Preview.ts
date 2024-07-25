@@ -449,6 +449,9 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/textArea/characterCount": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/characterCount.tsx"))
     },
+    "inputs/docs/textArea/maxLengthExceeded": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/maxLengthExceeded.tsx"))
+    },
     "inputs/docs/textArea/rows": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/rows.tsx"))
     },

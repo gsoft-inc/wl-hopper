@@ -65,7 +65,7 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
      * @default true
      */
-    isRestrictMaxLength?: boolean;
+    restrictMaxLength?: boolean;
 
     /**
      * The resize mode value of the TextArea. It's equivalent to the CSS resize property.
@@ -146,7 +146,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
-        isRestrictMaxLength = true,
+        restrictMaxLength: isRestrictMaxLength = true,
         ...otherProps
     } = ownProps;
 
