@@ -298,7 +298,8 @@ function CharacterCount({ charactersLeft, isInvalid }: CharacterCountProps) {
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: charactersLeft });
 
     return <Text 
-        aria-label={accessibilityString} 
+        aria-label={accessibilityString}
+        role="status"
         size="xs" 
         className={styles["hop-TextArea__char-count"]}
         data-invalid={isInvalid || undefined}
