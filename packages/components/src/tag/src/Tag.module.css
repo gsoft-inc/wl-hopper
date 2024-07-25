@@ -6,9 +6,17 @@
     --hop-Tag-background-color: var(--hop-neutral-surface-weak);
     --hop-Tag-text-color: var(--hop-neutral-text);
 
+    /* Small */
+    --hop-Tag-sm-block-size: 1.25rem;
+    --hop-Tag-sm-padding-inline-start: var(--hop-space-inset-xs);
+    --hop-Tag-sm-padding-inline-start-text-first: var(--hop-space-inset-sm);
+    --hop-Tag-sm-padding-inline-end: var(--hop-space-inset-xs);
+    --hop-Tag-sm-padding-inline-end-text-last: var(--hop-space-inset-sm);
+    --hop-Tag-sm-column-gap: var(--hop-space-inline-xs);
+
     /* Medium */
     --hop-Tag-md-block-size: 1.5rem;
-    --hop-Tag-md-padding-inline-start: var(--hop-space-inset-xs);
+    --hop-Tag-md-padding-inline-start: var(--hop-space-inset-sm);
     --hop-Tag-md-padding-inline-start-text-first: var(--hop-space-inset-sm);
     --hop-Tag-md-padding-inline-end: var(--hop-space-inset-xs);
     --hop-Tag-md-padding-inline-end-text-last: var(--hop-space-inset-sm);
@@ -16,11 +24,71 @@
 
     /* Large */
     --hop-Tag-lg-block-size: 2rem;
-    --hop-Tag-lg-padding-inline-start: var(--hop-space-inset-xs);
+    --hop-Tag-lg-padding-inline-start: var(--hop-space-inset-sm);
     --hop-Tag-lg-padding-inline-start-text-first: var(--hop-space-inset-md);
     --hop-Tag-lg-padding-inline-end: var(--hop-space-inset-xs);
     --hop-Tag-lg-padding-inline-end-text-last: var(--hop-space-inset-md);
     --hop-Tag-lg-column-gap: var(--hop-space-inline-sm);
+
+    /* Neutral */
+    --hop-Tag-neutral-border-color: var(--hop-neutral-border-weak);
+    --hop-Tag-neutral-background-color: var(--hop-neutral-surface);
+    --hop-Tag-neutral-text-color: var(--hop-neutral-text);
+
+    /* Progress */
+    --hop-Tag-progress-border-color: transparent;
+    --hop-Tag-progress-background-color: var(--hop-status-progress-surface);
+    --hop-Tag-progress-text-color: var(--hop-status-progress-text);
+
+    /* Positive */
+    --hop-Tag-positive-border-color: transparent;
+    --hop-Tag-positive-background-color: var(--hop-status-positive-surface);
+    --hop-Tag-positive-text-color: var(--hop-status-positive-text);
+
+    /* Caution */
+    --hop-Tag-caution-border-color: transparent;
+    --hop-Tag-caution-background-color: var(--hop-status-caution-surface);
+    --hop-Tag-caution-text-color: var(--hop-status-caution-text);
+
+    /* Negative */
+    --hop-Tag-negative-border-color: transparent;
+    --hop-Tag-negative-background-color: var(--hop-status-negative-surface);
+    --hop-Tag-negative-text-color: var(--hop-status-negative-text);
+
+    /* Option 1 */
+    --hop-Tag-option1-border-color: transparent;
+    --hop-Tag-option1-background-color: var(--hop-status-option1-surface);
+    --hop-Tag-option1-text-color: var(--hop-status-option1-text);
+
+    /* Option 2 */
+    --hop-Tag-option2-border-color: transparent;
+    --hop-Tag-option2-background-color: var(--hop-status-option2-surface);
+    --hop-Tag-option2-text-color: var(--hop-status-option2-text);
+
+    /* Option 3 */
+    --hop-Tag-option3-border-color: transparent;
+    --hop-Tag-option3-background-color: var(--hop-status-option3-surface);
+    --hop-Tag-option3-text-color: var(--hop-status-option3-text);
+
+    /* Option 4 */
+    --hop-Tag-option4-border-color: transparent;
+    --hop-Tag-option4-background-color: var(--hop-status-option4-surface);
+    --hop-Tag-option4-text-color: var(--hop-status-option4-text);
+
+    /* Option 5 */
+    --hop-Tag-option5-border-color: transparent;
+    --hop-Tag-option5-background-color: var(--hop-status-option5-surface); 
+    --hop-Tag-option5-text-color: var(--hop-status-option5-text);
+
+    /* Option 6 */
+    --hop-Tag-option6-border-color: transparent;
+    --hop-Tag-option6-background-color: var(--hop-status-option6-surface);
+    --hop-Tag-option6-text-color: var(--hop-status-option6-text);
+
+    /* Inactive */
+    --hop-Tag-inactive-border-color: transparent;
+    --hop-Tag-inactive-background-color: var(--hop-status-inactive-surface);
+    --hop-Tag-inactive-text-color: var(--hop-status-inactive-text);
 
     /* Focus */
     --hop-Tag-background-color-focus: var(--hop-neutral-surface-weak-hover);
@@ -82,6 +150,26 @@
     outline-offset: 0.125rem;
 }
 
+.hop-Tag--sm {
+    --block-size: var(--hop-Tag-sm-block-size);
+    --padding-inline-start: var(--hop-Tag-sm-padding-inline-start);
+    --padding-inline-end: var(--hop-Tag-sm-padding-inline-end);
+    --column-gap: var(--hop-Tag-sm-column-gap);
+    --clear-btn-margin-inline: calc(-1 * var(--hop-space-inline-xs));
+}
+
+.hop-Tag--sm:not(:has(.hop-Tag__icon, .hop-Tag__icon-list)) {
+    --padding-inline-start: var(--hop-Tag-sm-padding-inline-start-text-first);
+}
+
+.hop-Tag--sm:not(:has(.hop-Tag__badge, .hop-Tag__remove-btn, .hop-Tag__Spinner)) {
+    --padding-inline-end: var(--hop-Tag-sm-padding-inline-end-text-last);
+}
+
+.hop-Tag--sm:not(:has(.hop-Tag__remove-btn, .hop-Tag__Spinner)) {
+    --badge-margin-inline-end: calc(-1 * var(--padding-inline-end));
+}
+
 .hop-Tag--md {
     --block-size: var(--hop-Tag-md-block-size);
     --padding-inline-start: var(--hop-Tag-md-padding-inline-start);
@@ -117,6 +205,78 @@
 
 .hop-Tag--lg:not(:has(.hop-Tag__badge, .hop-Tag__remove-btn, .hop-Tag__Spinner)) {
     --padding-inline-end: var(--hop-Tag-lg-padding-inline-end-text-last);
+}
+
+.hop-Tag--neutral {
+    --border-color: var(--hop-Tag-neutral-border-color);
+    --background-color: var(--hop-Tag-neutral-background-color);
+    --text-color: var(--hop-Tag-neutral-text-color);
+}
+
+.hop-Tag--progress {
+    --border-color: var(--hop-Tag-progress-border-color);
+    --background-color: var(--hop-Tag-progress-background-color);
+    --text-color: var(--hop-Tag-progress-text-color);
+}
+
+.hop-Tag--positive {
+    --border-color: var(--hop-Tag-positive-border-color);
+    --background-color: var(--hop-Tag-positive-background-color);
+    --text-color: var(--hop-Tag-positive-text-color);
+}
+
+.hop-Tag--caution {
+    --border-color: var(--hop-Tag-caution-border-color);
+    --background-color: var(--hop-Tag-caution-background-color);
+    --text-color: var(--hop-Tag-caution-text-color);
+}
+
+.hop-Tag--negative {
+    --border-color: var(--hop-Tag-negative-border-color);
+    --background-color: var(--hop-Tag-negative-background-color);
+    --text-color: var(--hop-Tag-negative-text-color);
+}
+
+.hop-Tag--option1 {
+    --border-color: var(--hop-Tag-option1-border-color);
+    --background-color: var(--hop-Tag-option1-background-color);
+    --text-color: var(--hop-Tag-option1-text-color);
+}
+
+.hop-Tag--option2 {
+    --border-color: var(--hop-Tag-option2-border-color);
+    --background-color: var(--hop-Tag-option2-background-color);
+    --text-color: var(--hop-Tag-option2-text-color);
+}
+
+.hop-Tag--option3 {
+    --border-color: var(--hop-Tag-option3-border-color);
+    --background-color: var(--hop-Tag-option3-background-color);
+    --text-color: var(--hop-Tag-option3-text-color);
+}
+
+.hop-Tag--option4 {
+    --border-color: var(--hop-Tag-option4-border-color);
+    --background-color: var(--hop-Tag-option4-background-color);
+    --text-color: var(--hop-Tag-option4-text-color);
+}
+
+.hop-Tag--option5 {
+    --border-color: var(--hop-Tag-option5-border-color);
+    --background-color: var(--hop-Tag-option5-background-color);
+    --text-color: var(--hop-Tag-option5-text-color);
+}
+
+.hop-Tag--option6 {
+    --border-color: var(--hop-Tag-option6-border-color);
+    --background-color: var(--hop-Tag-option6-background-color);
+    --text-color: var(--hop-Tag-option6-text-color);
+}
+
+.hop-Tag--inactive {
+    --border-color: var(--hop-Tag-inactive-border-color);
+    --background-color: var(--hop-Tag-inactive-background-color);
+    --text-color: var(--hop-Tag-inactive-text-color);
 }
 
 .hop-Tag[data-href] {
@@ -189,8 +349,9 @@
     margin-inline-end: var(--badge-margin-inline-end);
 }
 
-.hop-Tag__badge.hop-Badge--secondary {
+.hop-Tag__badge[data-variant="secondary"] {
     margin-inline-start: var(--badge-secondary-inline-margin-start);
+    background: none;
 }
 
 .hop-Tag__remove-btn,

@@ -115,6 +115,13 @@ export const LabelStory = {
 export const Sizes = {
     render: props => (
         <Stack>
+            <TagGroup {...props} aria-label="tag-group" size="sm">
+                <TagList>
+                    <Tag id="1">Tag 1</Tag>
+                    <Tag id="2">Tag 2</Tag>
+                    <Tag id="3">Tag 3</Tag>
+                </TagList>
+            </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
                 <TagList>
                     <Tag id="1">Tag 1</Tag>
@@ -139,11 +146,74 @@ export const Sizes = {
 } satisfies Story;
 
 /**
+ * A Tag supports multiple variants.
+ */
+export const Variants = {
+    render: props => (
+        <TagGroup {...props} aria-label="tag-group" size="md">
+            <TagList>
+                <Tag variant="neutral">
+                    <Text>Neutral</Text>
+                </Tag>
+                <Tag variant="progress">
+                    <Text>Progress</Text>
+                </Tag>
+                <Tag variant="positive">
+                    <Text>Positive</Text>
+                </Tag>
+                <Tag variant="caution">
+                    <Text>Caution</Text>
+                </Tag>
+                <Tag variant="negative">
+                    <Text>Negative</Text>
+                </Tag>
+                <Tag variant="option1">
+                    <Text>Option 1</Text>
+                </Tag>
+                <Tag variant="option2">
+                    <Text>Option 2</Text>
+                </Tag>
+                <Tag variant="option3">
+                    <Text>Option 3</Text>
+                </Tag>
+                <Tag variant="option4">
+                    <Text>Option 4</Text>
+                </Tag>
+                <Tag variant="option5">
+                    <Text>Option 5</Text>
+                </Tag>
+                <Tag variant="option6">
+                    <Text>Option 6</Text>
+                </Tag>
+                <Tag variant="inactive">
+                    <Text>Inactive</Text>
+                </Tag>
+                <Tag variant="disabled">
+                    <Text>Disabled</Text>
+                </Tag>
+            </TagList>
+        </TagGroup>
+    )
+} satisfies Story;
+
+
+/**
  * Tags can have icons.
  */
 export const Icons = {
     render: props => (
         <Stack>
+            <TagGroup {...props} aria-label="tag-group" size="sm">
+                <TagList>
+                    <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                    <Tag id="2" textValue="Designer">
+                        <Text>Designer</Text>
+                        <IconList>
+                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                        </IconList>
+                    </Tag>
+                </TagList>
+            </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
                 <TagList>
                     <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
@@ -182,6 +252,18 @@ export const Icons = {
 export const Count = {
     render: props => (
         <Stack>
+            <TagGroup {...props} aria-label="tag-group" size="sm">
+                <TagList>
+                    <Tag id="1" textValue="Designer">
+                        <Text>Designer</Text>
+                        <Badge>12</Badge>
+                    </Tag>
+                    <Tag id="2" textValue="Developer">
+                        <Text>Developer</Text>
+                        <Badge variant="secondary">100</Badge>
+                    </Tag>
+                </TagList>
+            </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
                 <TagList>
                     <Tag id="1" textValue="Designer">

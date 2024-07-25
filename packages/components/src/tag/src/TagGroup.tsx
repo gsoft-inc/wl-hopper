@@ -35,7 +35,7 @@ export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
      * A tag can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"md" | "lg">;
+    size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
 function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
