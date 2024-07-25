@@ -37,6 +37,8 @@ const FeatureFlag = dynamic(() => import("@/components/featureFlag/FeatureFlag.t
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
+let h2Title = "";
+
 export const components = {
     Card,
     code: InlineCode,
@@ -90,10 +92,12 @@ export const components = {
         return <Title {...props} as="h1" interactive />;
     },
     h2: (props: HeadingProps) => {
+        h2Title = props.children as string;
+
         return <Title {...props} as="h2" interactive level={2} />;
     },
     h3: (props: HeadingProps) => {
-        return <Title {...props} as="h3" interactive level={3} />;
+        return <Title {...props} as="h3" parentHeading={h2Title} interactive level={3} />;
     },
     h4: (props: HeadingProps) => {
         return <Title {...props} as="h4" interactive level={4} />;
