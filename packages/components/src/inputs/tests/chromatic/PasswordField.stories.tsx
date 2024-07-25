@@ -9,7 +9,7 @@ import { Label } from "../../../typography/index.ts";
 import { PasswordField, type PasswordFieldProps } from "../../src/PasswordField.tsx";
 
 const meta = {
-    title: "Components/PasswordField",
+    title: "Components/Forms/PasswordField",
     component: PasswordField
 } satisfies Meta<typeof PasswordField>;
 

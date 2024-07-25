@@ -13,7 +13,7 @@ import { RadioGroup } from "../../src/RadioGroup.tsx";
 import { RadioList } from "../../src/RadioList.tsx";
 
 const meta = {
-    title: "Components/Form/RadioGroup",
+    title: "Components/Forms/RadioGroup",
     component: RadioGroup
 } satisfies Meta<typeof RadioGroup>;
 

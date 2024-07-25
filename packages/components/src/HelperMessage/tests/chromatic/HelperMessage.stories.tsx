@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { HelperMessage } from "../../src/HelperMessage.tsx";
 
 const meta = {
-    title: "Components/HelperMessage",
+    title: "Components/Forms/HelperMessage",
     component: HelperMessage,
     args: {
         children: "Software built for everyone to do their best work."

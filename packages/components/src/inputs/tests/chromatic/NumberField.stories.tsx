@@ -10,7 +10,7 @@ import { Label } from "../../../typography/index.ts";
 import { NumberField, type NumberFieldProps } from "../../src/NumberField.tsx";
 
 const meta = {
-    title: "Components/NumberField",
+    title: "Components/Forms/NumberField",
     component: NumberField
 } satisfies Meta<typeof NumberField>;
 

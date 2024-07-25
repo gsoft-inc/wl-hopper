@@ -9,7 +9,7 @@ import { Switch } from "../../src/Switch.tsx";
 
 
 const meta = {
-    title: "Components/Switch/Switch",
+    title: "Components/Forms/Switch",
     component: Switch
 } satisfies Meta<typeof Switch>;
 
