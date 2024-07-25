@@ -50,6 +50,10 @@ export const Default: Story = {
                 <TextArea showCharacterCount maxLength={200} {...args} />
             </Div>
             <Div>
+                <h1>Character Count Overflow</h1>
+                <TextArea showCharacterCount isRestrictMaxLength={false} maxLength={10} {...args} />
+            </Div>
+            <Div>
                 <h1>Rows</h1>
                 <TextArea rows={10} {...args} />
             </Div>

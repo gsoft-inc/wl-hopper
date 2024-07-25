@@ -77,7 +77,7 @@
     color: var(--hop-NumberField-prefix-color);
 }
 
-.hop-NumberField__InputGroup {
+.hop-NumberField .hop-NumberField__InputGroup {
     display: var(--input-group-display);
     grid-template: var(--input-group-template);
     gap: 0;
@@ -167,6 +167,6 @@
     max-block-size: 100%;
 }
 
-.hop-NumberField__input {
+.hop-NumberField .hop-NumberField__input {
     grid-area: input;
 }

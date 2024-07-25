@@ -37,6 +37,7 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * The placeholder text when the TextArea is empty.
      */
     placeholder?: string;
+
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-rows).
      */
@@ -57,6 +58,14 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * If `true`, the TextArea will take all available width.
      */
     isFluid?: ResponsiveProp<boolean>;
+
+    /**
+     * This should only be used with the `showCharacterCount` prop.
+     * If `true`, the TextArea prevents the text from ever going over the max length.
+     * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
+     * @default true
+     */
+    isRestrictMaxLength?: boolean;
 
     /**
      * The resize mode value of the TextArea. It's equivalent to the CSS resize property.
@@ -137,12 +146,14 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
+        isRestrictMaxLength = true,
         ...otherProps
     } = ownProps;
 
     const mergedTextAreaRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const resizeMode = useResponsiveValue(resizeModeProp) ?? "none";
+    const overMaxLength = !!maxLength && characterCount > maxLength;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -213,8 +224,10 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     // adjustRows needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
     // truncateText also needs to be here so that if the default text goes over the maxLength, it is truncated.
     useIsomorphicLayoutEffect(() => {
-        const newValue = truncateText(value, maxLength);
-        onChange(newValue);
+        if (isRestrictMaxLength) {
+            const newValue = truncateText(value, maxLength);
+            onChange(newValue);
+        }
         adjustRows();
     }, [value, adjustRows]);
 
@@ -230,7 +243,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             >
                 <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
 
-                {showCharacterCount && maxLength && <CharacterCount charactersLeft={maxLength - characterCount} />}
+                {showCharacterCount && maxLength && <CharacterCount charactersLeft={maxLength - characterCount} isInvalid={overMaxLength} />}
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -257,11 +270,12 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={maxLength}
+            maxLength={isRestrictMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             data-resize-mode={resizeMode}
+            data-over-max-length={overMaxLength || undefined}
             {...otherProps}
         >
             {childrenMarkup}
@@ -271,14 +285,22 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
 
 interface CharacterCountProps {
     charactersLeft: number;
+    isInvalid?: boolean;
 }
 
-function CharacterCount({ charactersLeft }: CharacterCountProps) {
+function CharacterCount({ charactersLeft, isInvalid }: CharacterCountProps) {
     const stringFormatter = useLocalizedString();
 
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: charactersLeft });
 
-    return <Text aria-label={accessibilityString} size="xs" className={styles["hop-TextArea__char-count"]}>{charactersLeft}</Text>;
+    return <Text 
+        aria-label={accessibilityString} 
+        size="xs" 
+        className={styles["hop-TextArea__char-count"]}
+        data-invalid={isInvalid || undefined}
+    >
+        {charactersLeft}
+    </Text>;
 }
 
 /**
