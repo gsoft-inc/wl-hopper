@@ -146,7 +146,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
-        restrictMaxLength: isRestrictMaxLength = true,
+        restrictMaxLength = true,
         ...otherProps
     } = ownProps;
 
@@ -181,6 +181,10 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
 
     if (showCharacterCount && !maxLength) {
         console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextArea.");
+    }
+
+    if (restrictMaxLength && !maxLength) {
+        console.warn("If restrictMaxLength is true, maxLength must be set to the maximum number of characters allowed in the TextArea.");
     }
 
     const rowHeight = useCalculateRowHeight(mergedTextAreaRef.current);
@@ -224,7 +228,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     // adjustRows needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
     // truncateText also needs to be here so that if the default text goes over the maxLength, it is truncated.
     useIsomorphicLayoutEffect(() => {
-        if (isRestrictMaxLength) {
+        if (restrictMaxLength) {
             const newValue = truncateText(value, maxLength);
             onChange(newValue);
         }
@@ -270,7 +274,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={isRestrictMaxLength ? maxLength : undefined}
+            maxLength={restrictMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
