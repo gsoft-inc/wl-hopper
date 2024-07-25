@@ -183,10 +183,6 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextArea.");
     }
 
-    if (restrictMaxLength && !maxLength) {
-        console.warn("If restrictMaxLength is true, maxLength must be set to the maximum number of characters allowed in the TextArea.");
-    }
-
     const rowHeight = useCalculateRowHeight(mergedTextAreaRef.current);
     const defaultNumberOfRows = maxRows && maxRows < DefaultMinimumTextAreaRows ? maxRows : DefaultMinimumTextAreaRows;
     const [rows, setRows] = useState(rowsProp ?? defaultNumberOfRows);
