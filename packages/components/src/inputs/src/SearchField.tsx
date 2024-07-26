@@ -1,9 +1,20 @@
 import { IconContext, SearchIcon } from "@hopper-ui/icons";
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import {
+    useResponsiveValue,
+    useStyledSystem,
+    type ResponsiveProp,
+    type StyledComponentProps
+} from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { forwardRef, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, Input, useContextProps, type SearchFieldProps as RACSearchFieldProps, SearchField as RACSearchField } from "react-aria-components";
+import {
+    composeRenderProps,
+    Input,
+    useContextProps,
+    type SearchFieldProps as RACSearchFieldProps,
+    SearchField as RACSearchField
+} from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
@@ -39,6 +50,7 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
 
     /**
      * If `true`, the SearchField will take all available width.
+     * @default false
      */
     isFluid?: ResponsiveProp<boolean>;
 
@@ -53,7 +65,7 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
     inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
-function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
+function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     // we extract the inputRef props, since we want to manually merge it with the context props.
     const {
         inputRef: userProvidedInputRef = null,
@@ -73,6 +85,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
         icon = <SearchIcon />,
         isDisabled,
         isInvalid,
+        isRequired,
         ...otherProps
     } = ownProps;
 
@@ -115,7 +128,8 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
                     {icon}
                 </SlotProvider>
                 <Input ref={inputRef} placeholder={placeholder} />
-                {isClearable && <ClearButton size="lg" isDisabled={isDisabled} className={styles["hop-SearchField__ClearButton"]} />}
+                {isClearable &&
+                    <ClearButton size="lg" isDisabled={isDisabled} className={styles["hop-SearchField__ClearButton"]} />}
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -124,7 +138,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-SearchField__Label"] }],
+                    [LabelContext, { className: styles["hop-SearchField__Label"], isRequired }],
                     [HelperMessageContext, { className: styles["hop-SearchField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-SearchField__ErrorMessage"] }]
                 ]}
@@ -143,6 +157,7 @@ function SearchField(props:SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) 
             className={classNames}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            isRequired={isRequired}
             {...otherProps}
         >
             {childrenMarkup}

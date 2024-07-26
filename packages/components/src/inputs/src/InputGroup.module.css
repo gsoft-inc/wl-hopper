@@ -1,4 +1,4 @@
-.hop-InputGroup  {
+.hop-InputGroup {
     --hop-InputGroup-background: var(--hop-neutral-surface);
     --hop-InputGroup-border-color: var(--hop-neutral-border);
     --hop-InputGroup-border-width: 0.0625rem;
@@ -38,7 +38,7 @@
     --block-size: var(--hop-InputGroup-md-block-size);
 }
 
-:where(.hop-InputGroup)  {
+:where(.hop-InputGroup) {
     position: relative;
 
     display: inline-flex;
@@ -68,10 +68,11 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-hover)
 }
 
-.hop-InputGroup[data-focus-within]  {
+.hop-InputGroup[data-focus-within] {
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-focus)
 }
 
+.hop-InputGroup:has(.hop-InputGroup__input[data-invalid]),
 .hop-InputGroup[data-invalid] {
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-invalid)
 }
@@ -107,6 +108,7 @@
     border: none;
     outline: none
 }
+
 
 .hop-InputGroup--fluid .hop-InputGroup__input {
     --input-inline-size: 100%;

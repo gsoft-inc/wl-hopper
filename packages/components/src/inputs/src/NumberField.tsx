@@ -1,15 +1,34 @@
 import { IconContext, AngleDownIcon, AngleUpIcon } from "@hopper-ui/icons";
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import {
+    useResponsiveValue,
+    useStyledSystem,
+    type ResponsiveProp,
+    type StyledComponentProps
+} from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
 import { forwardRef, useCallback, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, Input, useContextProps, type NumberFieldProps as RACNumberFieldProps, NumberField as RACNumberField, Button as RACButton } from "react-aria-components";
+import {
+    composeRenderProps,
+    Input,
+    useContextProps,
+    type NumberFieldProps as RACNumberFieldProps,
+    NumberField as RACNumberField,
+    Button as RACButton
+} from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { Text, TextContext, LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider, useScale } from "../../utils/index.ts";
+import {
+    ClearContainerSlots,
+    composeClassnameRenderProps,
+    cssModule,
+    isTextOnlyChildren,
+    SlotProvider,
+    useScale
+} from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";
 import { NumberFieldContext } from "./NumberFieldContext.ts";
@@ -37,6 +56,7 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
 
     /**
      * If `true`, the NumberField will take all available width.
+     * @default false
      */
     isFluid?: ResponsiveProp<boolean>;
 
@@ -66,7 +86,7 @@ const StepperButton = ({ direction }: StepperButtonProps) => {
             className={stepperClasses}
             slot={direction}
         >
-            <StepperIcon 
+            <StepperIcon
                 className={styles["hop-NumberField__stepper-button__icon"]}
                 size={{
                     base: "md",
@@ -99,6 +119,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
+        isRequired,
         ...otherProps
     } = ownProps;
 
@@ -153,8 +174,8 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 inputClassName={styles["hop-NumberField__input"]}
             >
                 {prefixMarkup}
-                <Input 
-                    ref={inputRef} 
+                <Input
+                    ref={inputRef}
                     placeholder={placeholder}
                 />
                 <StepperButton direction="increment" />
@@ -167,7 +188,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-NumberField__Label"] }],
+                    [LabelContext, { className: styles["hop-NumberField__Label"], isRequired }],
                     [HelperMessageContext, { className: styles["hop-NumberField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-NumberField__ErrorMessage"] }]
                 ]}
@@ -188,6 +209,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            isRequired={isRequired}
             {...otherProps}
         >
             {childrenMarkup}
