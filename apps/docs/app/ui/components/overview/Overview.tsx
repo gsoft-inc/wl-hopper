@@ -8,6 +8,9 @@ import Card from "@/components/card/Card";
 import { Icon, EmptyComponent } from "@/components/icon";
 import { OverviewComponents } from "@/examples/overview";
 
+import { useContext } from "react";
+import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
+
 import "./overview.css";
 
 const ignoreCategories = ["application"];
@@ -49,6 +52,8 @@ const Overview = () => {
             return null;
         }
 
+        const featureFlags = useContext(FeatureFlagContext);
+
         return (
             <div className="hd-component-overview-category" key={category}>
                 <Title as="h3"
@@ -57,7 +62,13 @@ const Overview = () => {
                     className="hd-component-overview-category__title"
                 >{category}</Title>
                 <div className="hd-component-overview">
-                    {allComponents.filter(component => component.category && component.category === category).map(component => {
+                    {allComponents.filter(component =>
+                        component.category &&
+    component.category === category &&
+    (component.status === "ready" ||
+     component.status === undefined ||
+     (component.status === "alpha" && featureFlags.alpha))
+                    ).map(component => {
                         const ComponentIcon = OverviewComponents[component.title] || EmptyComponent;
 
                         return (
