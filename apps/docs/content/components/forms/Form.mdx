@@ -1,49 +1,104 @@
 ---
 title: Form
-description: TBD
+description: Forms are commonly used to provide user interaction in web applications.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/form/src/Form.tsx
-status: WIP
 ---
+
+<Example src="Form/docs/preview" />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+<PropTable component="Form" />
 
-## Guidelines
+<FeatureFlag flag="next">
+    ## Guidelines
 
-TODO: If we have some guidelines about this component's usage
+    TODO: If we have some guidelines about this component& apos;s usage
 
-### Accessibility ?
+    ### Accessibility ?
 
-TODO: If we have some guidelines about this component and accessibility
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
-## Anatomy
+<FeatureFlag flag="rc">
+    ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-### Concepts
+    ### Concepts
 
-TODO: links to related concepts
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+A `PassworField` uses the following components.
+
+- [Label](./Label)
+- [TextField](./TextField)
+- [NumberField](./NumberField)
+- [PasswordField](./PasswordField)
+- [Button](./Button)
+- [ButtonGroup](./ButtonGroup)
+- [Helper Message](./HelperMessage)
+- [Error Message](./ErrorMessage)
 
 ## Examples
 
-## Advanced customization
+### Disabled
 
-### Contexts
-TODO: Example of context + content about the context
+A disabled form will not allow the user to interact with the form.
 
-### Custom Children
+<Example src="Form/docs/disabled" />
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Validation
 
-### Custom Component
+To provide validation errors, the `validationErrors` prop should be set to an object that maps each field's `name` prop
+to a string or array of strings representing one or more errors. These are displayed to the user as soon as the
+`validationErrors` prop is set, and cleared after the user modifies each field's value.
 
-TODO: Example of creating a custom version of this component
+<Example src="Form/docs/validation" />
 
-## Migration Notes (WIP)
+### Native Behavior validation
+
+By default, native HTML form validation is used to display errors and block form submission. To instead use
+native HTML form validation, set the `validationBehavior` prop to "native".
+
+<Example src="Form/docs/nativeValidation" />
+
+### Aria Behavior validation
+
+By default, native HTML form validation is used to display errors and block form submission. To instead use
+ARIA attributes for form validation, set the `validationBehavior` prop to "aria".
+This will not block form submission, and will display validation errors to the user in realtime as the value is edited.
+
+<Example src="Form/docs/ariaValidation" />
+
+### Sizes
+
+Form have multiple sizes to choose from.
+
+<Example src="Form/docs/size" />
+
+### Fluid
+
+Form fields can take the witdh of their container.
+
+<Example src="Form/docs/fluid" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>

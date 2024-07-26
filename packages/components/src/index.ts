@@ -5,6 +5,7 @@ export * from "./checkbox/index.ts";
 export * from "./Chip/index.ts";
 export * from "./Divider/index.ts";
 export * from "./ErrorMessage/index.ts";
+export * from "./Form/index.ts";
 export * from "./Header/index.ts";
 export * from "./HelperMessage/index.ts";
 export * from "./HopperProvider/index.ts";
