@@ -38,11 +38,16 @@ The label component has a default color, but it can be easily overridden.
 
 <Example src="typography/Label/docs/color" />
 
+### Required
+The label component can be marked as required.
+
+<Example src="typography/Label/docs/required" />
+
 <FeatureFlag flag="next">
     ## Advanced customization
 
     ### Contexts
-    
+
     All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
     You can send any prop or ref via context that you could pass to the corresponding component.
     The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence.
@@ -57,8 +62,3 @@ The label component has a default color, but it can be easily overridden.
 
     TODO: Example of creating a custom version of this component
 </FeatureFlag>
-
-
-## Migration Notes
-
-<MigrateGuide src="typography/Label/docs/migration-notes" />

@@ -218,6 +218,9 @@ export const Previews: Record<string, Preview> = {
     "typography/Label/docs/color": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/color.tsx"))
     },
+    "typography/Label/docs/required": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/required.tsx"))
+    },
     "typography/Label/docs/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/advancedCustomization.tsx"))
     },
@@ -310,6 +313,27 @@ export const Previews: Record<string, Preview> = {
     },
     "ErrorMessage/docs/multipleerrors": {
         component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/multipleerrors.tsx"))
+    },
+    "Form/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/preview.tsx"))
+    },
+    "Form/docs/ariaValidation": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/ariaValidation.tsx"))
+    },
+    "Form/docs/nativeValidation": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/nativeValidation.tsx"))
+    },
+    "Form/docs/validation": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/validation.tsx"))
+    },
+    "Form/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/disabled.tsx"))
+    },
+    "Form/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/size.tsx"))
+    },
+    "Form/docs/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/fluid.tsx"))
     },
     "HelperMessage/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/preview.tsx"))
