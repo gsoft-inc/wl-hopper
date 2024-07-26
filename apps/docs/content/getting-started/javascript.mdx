@@ -5,13 +5,15 @@ order: 2
 status: ready
 ---
 
-If you are a non-React user, you can still benefit from Hopper UI. This guide will help you get started with Hopper UI.
+If you can't use the default React install, you can still benefit from Hopper UI.
 
 ## Tokens
 
-Hopper Tokens are a collection of design tokens that should be used to style your application. [Semantic tokens](/tokens/semantic/color) are available for everyone, where component tokens are designed with non React users in mind.
+Hopper [tokens](/tokens) are a collection of design decisions translated into data, you should used them to style your applications
 
 ### Installation
+
+Run the following command to install Hopper tokens.
 
 <PackageInstallation library="tokens" mod="prod" />
 
@@ -19,13 +21,13 @@ Hopper Tokens are a collection of design tokens that should be used to style you
 
 #### CSS
 
-Import the tokens in your project by doing the following:
+Import the tokens in your project:
 
 ```css
 @import "@hopper-ui/tokens/tokens.css";
 ```
 
-If your application supports a dark mode, import dark mode tokens as well:
+Import dark mode tokens, if your application supports it:
 
 ```css
 @import "@hopper-ui/tokens/dark/tokens.css";
@@ -51,9 +53,15 @@ All the necessary font-face declarations are now imported into your project.
 
 ## SVG Icons
 
-If your project is not using the React framework, you can use the [SVG icons](/icons/svg/icon-library) directly. You can find the SVG icons in the `@hopper-ui/svg-icons` package.
+If your project is not using the React framework, you can use [SVG icons](/icons/svg/icon-library) directly. You can find the SVG icons in the `@hopper-ui/svg-icons` package.
+
+### Installation
+
+Run the following command to install Hopper icons.
 
 <PackageInstallation library="svg-icons" mod="prod" />
+
+### Usage
 
 You can import the SVG directly into your JavaScript file. Keep in mind that if you plan to use SVG icons as components, you'll need to ensure that your bundler is configured to handle SVG parsing appropriately.
 
@@ -61,7 +69,7 @@ You can import the SVG directly into your JavaScript file. Keep in mind that if 
 import alertIcon from "@hopper-ui/svg-icons/alert-24.svg";
 ```
 
-Alternatively, you can utilize SVG icons within your CSS in the following manner:
+You can also use SVG icons directly in your CSS like this::
 
 ```css
 .myComponent {
