@@ -1,49 +1,127 @@
 ---
 title: TextArea
-description: TBD
+description: A TextArea serves as a multi-line, plain-text editing interface, ideal for accommodating substantial amounts of free-form text input from users.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/inputs/src/TextArea.tsx
-status: WIP
 ---
+
+<Example src="inputs/docs/textArea/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
-
-## Guidelines
-
-TODO: If we have some guidelines about this component's usage
-
-### Accessibility ?
-
-TODO: If we have some guidelines about this component and accessibility
+<PropTable component="TextArea" />
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Concepts
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: links to related concepts
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+A `TextArea` uses the following components.
+
+- [Label](Label)
+- [Helper Message](HelperMessage)
+- [Error Message](ErrorMessage)
 
 ## Examples
 
-## Advanced customization
+### Disabled
+A TextArea in a disabled state shows that an input field exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 
-### Contexts
-TODO: Example of context + content about the context
+<Example src="inputs/docs/textArea/disabled" />
 
-### Custom Children
+### ReadOnly
+The `isReadOnly` prop makes the TextArea's text content immutable. Unlike `isDisabled`, the TextArea remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+<Example src="inputs/docs/textArea/readOnly" />
 
-### Custom Component
+### Error
+A TextArea can be displayed in an error state to indicate that the user input is invalid.
 
-TODO: Example of creating a custom version of this component
+<Example src="inputs/docs/textArea/error" />
 
-## Migration Notes (WIP)
+### Sizes
+TextAreas have multiple sizes to choose from.
+The height is determined by the number of rows. Each size has a unique font size, resulting in varying heights across different sizes.
+
+<Example src="inputs/docs/textArea/sizes" />
+
+### Labeling
+If a visible label isn't specified, an `aria-label` must be provided to the TextArea for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
+
+<Example src="inputs/docs/textArea/labeling" />
+
+### Description
+A TextArea can have a description using the [HelperMessage](HelperMessage) component to provide additional context to the user.
+
+<Example src="inputs/docs/textArea/description" />
+
+### Character Count
+A character count can be displayed below the input.
+The character count is based on the `maxLength` prop.
+If the `maxLength` prop is not set, the character count will not be displayed.
+
+<Example src="inputs/docs/textArea/characterCount" />
+
+### Max Length Exceeded
+To exceed the max length, set the `restrictMaxLength` prop to `false` (default is `true`). When the character count is displayed, it turns red if the max length is exceeded. The `data-over-max-length` attribute is added to the TextArea for custom styling when the max length is exceeded. 
+
+Note: It's not recommended to use `restrictMaxLength` without displaying the character count, as there is no default styling.
+
+<Example src="inputs/docs/textArea/maxLengthExceeded" />
+
+### Rows
+The `rows` prop can be used to set the height of the TextArea and should be used in favor of the `height` prop.
+One row is equivalent to the height of one line of text.
+
+<Example src="inputs/docs/textArea/rows" />
+
+### Max Rows
+The `maxRows` prop can be used to set the maximum height of the TextArea and should be used in favor of the `maxHeight` prop.
+It differs from the `rows` prop in that it will not set the initial height of the TextArea.
+
+<Example src="inputs/docs/textArea/maxRows" />
+
+### Vertical Resize
+The `resizeMode` prop can be used to set the resize behavior of the TextArea. 
+The default behavior is `none`, which prevents the user from resizing the TextArea. 
+The `vertical` behavior allows the user to resize the TextArea vertically.
+
+<Example src="inputs/docs/textArea/verticalResize" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="inputs/docs/migration-notes-text-area" />

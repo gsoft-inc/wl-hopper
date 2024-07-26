@@ -425,6 +425,42 @@ export const Previews: Record<string, Preview> = {
     "switch/docs/switchfield/sizes": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/sizes.tsx"))
     },
+    "inputs/docs/textArea/preview": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/preview.tsx"))
+    },
+    "inputs/docs/textArea/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/disabled.tsx"))
+    },
+    "inputs/docs/textArea/readOnly": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/readOnly.tsx"))
+    },
+    "inputs/docs/textArea/error": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/error.tsx"))
+    },
+    "inputs/docs/textArea/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/sizes.tsx"))
+    },
+    "inputs/docs/textArea/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/labeling.tsx"))
+    },
+    "inputs/docs/textArea/description": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/description.tsx"))
+    },
+    "inputs/docs/textArea/characterCount": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/characterCount.tsx"))
+    },
+    "inputs/docs/textArea/maxLengthExceeded": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/maxLengthExceeded.tsx"))
+    },
+    "inputs/docs/textArea/rows": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/rows.tsx"))
+    },
+    "inputs/docs/textArea/maxRows": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/maxRows.tsx"))
+    },
+    "inputs/docs/textArea/verticalResize": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/verticalResize.tsx"))
+    },
     "inputs/docs/textField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/preview.tsx"))
     },
