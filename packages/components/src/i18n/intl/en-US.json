@@ -6,5 +6,7 @@
     "PasswordField.toggleVisibility": "Toggle password visibility",
     "Tag.removeAriaLabel": "Remove",
     "ListBoxItem.loadingTextValue": "Loading Item",
-    "ListBoxItem.indicatorAriaLabel": "List Item Selection Indicator"
+    "ListBoxItem.indicatorAriaLabel": "List Item Selection Indicator",
+    "Label.necessityLabel.required": "Required",
+    "Label.necessityLabel.optional": "Optional"
 }

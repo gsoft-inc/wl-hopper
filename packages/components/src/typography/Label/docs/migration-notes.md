@@ -1,1 +1,0 @@
-- `necessityIndicator` and `isRequired` will be available in a future release.
