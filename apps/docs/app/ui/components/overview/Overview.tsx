@@ -47,12 +47,12 @@ const categories = Array.from(new Set(allComponents.map(component => component.c
 });
 
 const Overview = () => {
+    const featureFlags = useContext(FeatureFlagContext);
+
     const overviewSection = categories.map(category => {
         if (!category) {
             return null;
         }
-
-        const featureFlags = useContext(FeatureFlagContext);
 
         return (
             <div className="hd-component-overview-category" key={category}>
