@@ -18,5 +18,5 @@
 }
 
 :where(.hop-Label__indicator) {
-    padding-left: var(--hop-space-20);
+    padding-inline-start: var(--hop-space-20);
 }
