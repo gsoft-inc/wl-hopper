@@ -240,6 +240,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
                 inputClassName={styles["hop-TextArea__textarea"]}
+                inputType="textarea"
             >
                 <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
 

@@ -25,6 +25,11 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * The class name of the input element.
      */
     inputClassName?: string;
+    /**
+     * The type of the input element.
+     * @default "text"
+     */
+    inputType?: "text" | "password" | "search" | "number" | "textarea";
 }
 
 function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -44,6 +49,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         size:sizeProp,
         isFluid: isFluidProp,
         inputClassName,
+        inputType = "text",
         onMouseDown,
         ...otherProps
     } = ownProps;
@@ -102,6 +108,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 ref={ref}
                 className={classNames}
                 style={style}
+                data-input-type={inputType}
             >
                 {children}
             </RACGroup>

@@ -2,11 +2,25 @@
     --hop-InputGroup-background: var(--hop-neutral-surface);
     --hop-InputGroup-border-color: var(--hop-neutral-border);
     --hop-InputGroup-border-width: 0.0625rem;
+    --hop-InputGroup-display: inline-flex;
+    --hop-InputGroup-display-number: grid;
     --hop-InputGroup-gap: var(--hop-space-inline-sm);
+    --hop-InputGroup-gap-textarea: 0;
+    --hop-InputGroup-gap-number: 0;
+    --hop-InputGroup-flex-direction: row;
+    --hop-InputGroup-flex-direction-textarea: column;
+    --hop-InputGroup-align-items: center;
+    --hop-InputGroup-align-items-textarea: flex-end;
+    --hop-InputGroup-inline-size: fit-content;
+    --hop-InputGroup-inline-size-number: 100%;
     --hop-InputGroup-sm-block-size: 2rem;
     --hop-InputGroup-md-block-size: 2.5rem;
+    --hop-InputGroup-block-size-textarea: auto;
     --hop-InputGroup-border-radius: var(--hop-shape-rounded-md);
     --hop-InputGroup-padding-inline: var(--hop-space-inset-md);
+    --hop-InputGroup-padding-block: 0;
+    --hop-InputGroup-padding-inline-textarea: var(--hop-space-inset-xs);
+    --hop-InputGroup-padding-block-textarea: var(--hop-space-inset-xs);
     --hop-InputGroup-border-color-hover: var(--hop-neutral-border-hover);
     --hop-InputGroup-border-color-focus: var(--hop-primary-border-focus);
     --hop-InputGroup-background-hover: var(--hop-neutral-surface-hover);
@@ -23,6 +37,8 @@
     --hop-InputGroup-input-md-font-weight: var(--hop-body-md-font-weight);
     --hop-InputGroup-input-md-line-height: var(--hop-body-md-line-height);
     --hop-InputGroup-input-md-block-size: 2rem;
+    --hop-InputGroup-input-padding: 0;
+    --hop-InputGroup-textarea-padding: var(--hop-space-inset-xs) calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs));
     --hop-InputGroup-background-disabled: var(--hop-neutral-surface-disabled);
     --hop-InputGroup-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-InputGroup-placeholder-font-family: inherit;
@@ -33,10 +49,16 @@
     --hop-InputGroup-placeholder-color-disabled: var(--hop-neutral-text-disabled);
 
     /* Internal Variables */
-    --inline-size: fit-content;
+    --inline-size: var(--hop-InputGroup-inline-size);
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color);
     --background: var(--hop-InputGroup-background);
     --block-size: var(--hop-InputGroup-md-block-size);
+    --display: var(--hop-InputGroup-display);
+    --gap: var(--hop-InputGroup-gap);
+    --flex-direction: var(--hop-InputGroup-flex-direction);
+    --align-items: var(--hop-InputGroup-align-items);
+    --padding-inline: var(--hop-InputGroup-padding-inline);
+    --padding-block: var(--hop-InputGroup-padding-block);
     --input-font-family: var(--hop-InputGroup-input-md-font-family);
     --input-font-size: var(--hop-InputGroup-input-md-font-size);
     --input-font-weight: var(--hop-InputGroup-input-md-font-weight);
@@ -45,17 +67,19 @@
     --input-inline-size: initial;
     --input-color: var(--hop-InputGroup-input-color);
     --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
-    
+
     position: relative;
 
-    display: inline-flex;
-    gap: var(--hop-InputGroup-gap);
-    align-items: center;
+    display: var(--display);
+    flex-direction: var(--flex-direction);
+    gap: var(--gap);
+    align-items: var(--align-items);
 
     box-sizing: border-box;
     inline-size: var(--inline-size);
     block-size: var(--block-size);
-    padding-inline: var(--hop-InputGroup-padding-inline);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
 
     background: var(--background);
     border: var(--border);
@@ -74,6 +98,21 @@
     --input-font-weight: var(--hop-InputGroup-input-sm-font-weight);
     --input-line-height: var(--hop-InputGroup-input-sm-line-height);
     --input-block-size: var(--hop-InputGroup-input-sm-block-size);
+}
+
+.hop-InputGroup[data-input-type="textarea"] {
+    --gap: var(--hop-InputGroup-gap-textarea);
+    --flex-direction: var(--hop-InputGroup-flex-direction-textarea);
+    --align-items: var(--hop-InputGroup-align-items-textarea);
+    --block-size: var(--hop-InputGroup-block-size-textarea);
+    --padding-inline: var(--hop-InputGroup-padding-inline-textarea);
+    --padding-block: var(--hop-InputGroup-padding-block-textarea);
+}
+
+.hop-InputGroup[data-input-type="number"] {
+    --display: var(--hop-InputGroup-display-number);
+    --gap: var(--hop-InputGroup-gap-number);
+    --inline-size: var(--hop-InputGroup-inline-size-number);
 }
 
 .hop-InputGroup[data-hovered] {
@@ -103,7 +142,6 @@
     box-sizing: border-box;
     inline-size: var(--input-inline-size);
     min-inline-size: 0;
-    padding: 0;
 
     font-family: var(--input-font-family);
     font-size: var(--input-font-size);
@@ -118,6 +156,11 @@
 
 .hop-InputGroup__input {
     block-size: var(--input-block-size);
+    padding: var(--hop-InputGroup-input-padding);
+}
+
+.hop-InputGroup__textarea {
+    padding: var(--hop-InputGroup-textarea-padding);
 }
 
 .hop-InputGroup__input::placeholder {

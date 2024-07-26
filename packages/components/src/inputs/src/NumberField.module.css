@@ -78,12 +78,8 @@
 }
 
 .hop-NumberField .hop-NumberField__InputGroup {
-    display: var(--input-group-display);
     grid-template: var(--input-group-template);
-    gap: 0;
     order: 1;
-
-    inline-size: 100%;
 }
 
 .hop-NumberField__ErrorMessage,
