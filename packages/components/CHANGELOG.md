@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.1.0
+
+### Minor Changes
+
+- 63d9572: Added the TextArea component.
+
 ## 1.0.13
 
 ### Patch Changes

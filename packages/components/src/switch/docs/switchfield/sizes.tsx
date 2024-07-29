@@ -4,15 +4,11 @@ export default function Example() {
     return (
         <Inline>
             <SwitchField size="sm">
-                <Switch>
-                    <Text>Save</Text>
-                </Switch>
+                <Switch>Save</Switch>
                 <Text>This will override your changes.</Text>
             </SwitchField>
             <SwitchField size="md">
-                <Switch>
-                    <Text>Save</Text>
-                </Switch>
+                <Switch>Save</Switch>
                 <Text>This will override your changes.</Text>
             </SwitchField>
         </Inline>

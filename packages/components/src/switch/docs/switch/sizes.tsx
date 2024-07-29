@@ -1,14 +1,10 @@
-import { Inline, Switch, Text } from "@hopper-ui/components";
+import { Inline, Switch } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Inline>
-            <Switch size="sm">
-                <Text>Save</Text>
-            </Switch>
-            <Switch size="md">
-                <Text>Save</Text>
-            </Switch>
+            <Switch size="sm">Save</Switch>
+            <Switch size="md">Save</Switch>
         </Inline>
     );
 }

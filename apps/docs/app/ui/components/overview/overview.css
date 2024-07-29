@@ -56,6 +56,10 @@
     margin-bottom: var(--hd-space-2);
 }
 
+.hd-component-overview-category:not(:has(.hd-component-overview-item)) {
+    display: none;
+}
+
 .hd-component-overview-item__caption {
     background-color: var(--hd-color-neutral-surface);
     padding: var(--hd-space-2);
