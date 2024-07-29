@@ -1525,11 +1525,11 @@
             },
             "text": {
                 "$type": "color",
-                "$value": "{fog.200}"
+                "$value": "{fog.600}"
             },
             "text-disabled": {
                 "$type": "color",
-                "$value": "{fog.700}"
+                "$value": "{fog.200}"
             },
             "text-hover": {
                 "$type": "color",
