@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.6.2
+
+### Patch Changes
+
+- 90401be: lowered the Icon component CSS specificity in order to prevent unwanted overriding
+
 ## 2.6.1
 
 ### Patch Changes

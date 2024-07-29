@@ -22,7 +22,9 @@ interface AsideProps {
 const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
     const titleHeight = 28;
     const { activeId, setNextActiveId } = useHeadsObserver();
-    const activeIndex = links.findIndex(link => link.id === activeId);
+    const activeIndex = links.findIndex(link => {
+        return link.url === `#${activeId}`;
+    });
 
     useEffect(() => {
         window.addEventListener("scroll", setNextActiveId);
@@ -52,7 +54,7 @@ const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
         <li className={clsx("hd-aside__item", {
             "hd-aside__item--active": link.url === `#${activeId}` && "hd-aside__item--active"
         })}
-        key={link.id}
+        key={link.url}
         >
             {/* This has to be an a, not a link: https://github.com/vercel/next.js/issues/49612 */}
             <a href={link.url} className={`hd-aside__link hd-aside__link-level-${link.level}`}>

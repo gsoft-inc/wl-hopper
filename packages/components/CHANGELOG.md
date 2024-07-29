@@ -1,5 +1,24 @@
 # @hopper-ui/components
 
+## 1.1.0
+
+### Minor Changes
+
+- 63d9572: Added the TextArea component.
+
+## 1.0.13
+
+### Patch Changes
+
+- 6c2e4bb: Adjusted the ghost secondary text/icon color
+
+## 1.0.12
+
+### Patch Changes
+
+- Updated dependencies [90401be]
+  - @hopper-ui/icons@2.6.2
+
 ## 1.0.11
 
 ### Patch Changes

@@ -1,3 +1,4 @@
+Coming from Orbiter, you should be aware of the following changes:
 
 # Tag
 - A tag cannot be used without `TagList` and `TagGroup`.

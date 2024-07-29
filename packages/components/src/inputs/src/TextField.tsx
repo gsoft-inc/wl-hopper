@@ -224,7 +224,14 @@ function CharacterCount({ characterLeft }: CharacterCountProps) {
 
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: characterLeft });
 
-    return <Text aria-label={accessibilityString} color="neutral-weakest" size="xs">{characterLeft}</Text>;
+    return <Text 
+        aria-label={accessibilityString} 
+        role="status" 
+        color="neutral-weakest" 
+        size="xs"
+    >
+        {characterLeft}
+    </Text>;
 }
 
 /**

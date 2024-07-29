@@ -6,14 +6,7 @@ import {
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler } from "react";
-import {
-    useContextProps,
-    Group as RACGroup,
-    type GroupProps as RACGroupProps,
-    composeRenderProps,
-    InputContext,
-    useSlottedContext
-} from "react-aria-components";
+import { useContextProps, Group as RACGroup, type GroupProps as RACGroupProps, composeRenderProps, InputContext, useSlottedContext, TextAreaContext } from "react-aria-components";
 
 import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
@@ -40,6 +33,11 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * The class name of the input element.
      */
     inputClassName?: string;
+    /**
+     * The type of the input element.
+     * @default "text"
+     */
+    inputType?: "text" | "password" | "search" | "number" | "textarea";
 }
 
 function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -47,6 +45,9 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     const inputRef = useRef<HTMLInputElement>(null);
     const inputContext = useSlottedContext(InputContext);
     const mergedRefs = inputContext?.ref ? mergeRefs(inputRef, inputContext?.ref) : inputRef;
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    const textAreaContext = useSlottedContext(TextAreaContext);
+    const mergedTextAreaRefs = textAreaContext?.ref ? mergeRefs(textAreaRef, textAreaContext?.ref) : textAreaRef;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -56,6 +57,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         size: sizeProp,
         isFluid: isFluidProp,
         inputClassName,
+        inputType = "text",
         onMouseDown,
         ...otherProps
     } = ownProps;
@@ -100,6 +102,11 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 ...inputContext,
                 ref: mergedRefs,
                 className: composeClassnameRenderProps(inputContext?.className, inputClassName, styles["hop-InputGroup__input"])
+            }],
+            [TextAreaContext, {
+                ...textAreaContext,
+                ref: mergedTextAreaRefs,
+                className: composeClassnameRenderProps(textAreaContext?.className, inputClassName, styles["hop-InputGroup__textarea"])
             }]
         ]}
         >
@@ -109,6 +116,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 ref={ref}
                 className={classNames}
                 style={style}
+                data-input-type={inputType}
             >
                 {children}
             </RACGroup>

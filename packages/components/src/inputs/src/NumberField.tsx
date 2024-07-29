@@ -172,6 +172,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
                 inputClassName={styles["hop-NumberField__input"]}
+                inputType="number"
             >
                 {prefixMarkup}
                 <Input

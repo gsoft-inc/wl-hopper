@@ -9,6 +9,7 @@ export interface TitleProps {
     as?: "h1" | "h2" | "h3" | "h4" | "h5";
     level?: 1 | 2 | 3 | 4 | 5;
     interactive?: boolean;
+    parentHeading?: string;
     className?: string;
 }
 
@@ -18,6 +19,7 @@ const Title = ({
     interactive = false,
     className,
     children,
+    parentHeading,
     ...rest
 }: PropsWithChildren<TitleProps>) => {
     const Component = as;
@@ -27,19 +29,21 @@ const Title = ({
     }
 
     const uniqueId = formattingTitleId(children.toString());
+    const uniqueParentId = parentHeading ? formattingTitleId(parentHeading.toString()) : "";
+    const uniqueConcatId = uniqueParentId ? `${uniqueParentId}-${uniqueId}` : uniqueId ;
 
     return (
         <Component
             className={clsx("hd-title", className, {
                 [`hd-title--level${level}`]: level
             })}
-            id={level > 1 ? uniqueId : undefined}
+            id={level > 1 ? uniqueConcatId : undefined}
             data-section-title={level === 2 ? uniqueId : undefined}
             data-subsection-title={level === 3 ? uniqueId : undefined}
             {...rest}
         >
             {interactive ? (
-                <Link href={`#${uniqueId}`} className="hd-title-link">
+                <Link href={`#${uniqueConcatId}`} className="hd-title-link">
                     {children}
                 </Link>
             ) : (

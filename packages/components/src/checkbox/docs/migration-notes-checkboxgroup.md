@@ -1,9 +1,11 @@
-- `reverse` is not currently supported.
+Coming from Orbiter, you should be aware of the following changes:
+
+- `onChange` signature has been changed (no events are passed).
+- `disabled` has been renamed to `isDisabled`.
+- `required` has been renamed to `isRequired`.
+- `fluid` has been removed.
+- `reverse` is not supported, use `flex-direction` or `row-reverse` instead.
 - `autofocus` is not supported. You must put `autofocus` on the actual Checkbox.
-- `onChange` signature changed (no event passed).
-- `disabled` renamed to `isDisabled`.
-- `required` renamed to `isRequired`.
-- `fluid` is removed.
 - The default orientation is now vertical instead of horizontal.
 - `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
 - `wrap` is removed. If horizontal, radios will wrap.
