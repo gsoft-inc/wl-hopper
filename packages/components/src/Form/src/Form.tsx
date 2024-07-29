@@ -27,7 +27,7 @@ export interface FormProps extends StyledComponentProps<RACFormProps> {
     isDisabled?: boolean;
 
     /**
-     * If `true`, the TextField will take all available width.
+     * If `true`, the Form will take all available width.
      */
     isFluid?: ResponsiveProp<boolean>;
 
