@@ -1,4 +1,13 @@
-import { Label, TextField, Button, Inline, HelperMessage, ErrorMessage, ButtonGroup, Stack } from "@hopper-ui/components";
+import {
+    Label,
+    TextField,
+    Button,
+    Inline,
+    HelperMessage,
+    ErrorMessage,
+    ButtonGroup,
+    Stack, Checkbox, RadioGroup, RadioList, Radio, RadioField, Text, TextArea, PasswordField
+} from "@hopper-ui/components";
 import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within, userEvent, expect } from "@storybook/test";
@@ -18,10 +27,20 @@ type Story = StoryObj<typeof meta>;
 const Template = () => {
     return (
         <>
-            <TextField type="email" placeholder="billings@acme.com" isRequired>
-                <Label>Email adress</Label>
-                <HelperMessage>Invoices will be sent to this email address.</HelperMessage>
-            </TextField>
+            <Inline>
+                <TextField type="email" placeholder="billings@acme.com" isRequired>
+                    <Label>Email adress</Label>
+                    <HelperMessage>Invoices will be sent to this email address.</HelperMessage>
+                </TextField>
+            </Inline>
+            <RadioGroup>
+                <Label>I identify my gender as</Label>
+                <RadioList>
+                    <Radio value="man">Man</Radio>
+                    <Radio value="women">Women</Radio>
+                    <Radio value="non-binary">Non-Binary</Radio>
+                </RadioList>
+            </RadioGroup>
             <Inline>
                 <TextField placeholder="John">
                     <Label>First name</Label>
@@ -44,6 +63,12 @@ const Template = () => {
             <TextField placeholder="Old El Paso">
                 <Label>City</Label>
             </TextField>
+            <TextArea placeholder="Leave a comment">
+                <Label>Comments:</Label>
+            </TextArea>
+            <Checkbox>
+                Agree to terms and conditions
+            </Checkbox>
             <Button>Submit</Button>
         </>);
 };
