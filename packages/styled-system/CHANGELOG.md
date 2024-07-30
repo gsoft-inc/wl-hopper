@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.1.2
+
+### Patch Changes
+
+- a16cf30: Fixed wrong token
+
 ## 2.1.1
 
 ### Patch Changes
