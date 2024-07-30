@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.1.1
+
+### Patch Changes
+
+- a16cf30: Fixed wrong token
+
 ## 4.1.0
 
 ### Minor Changes
