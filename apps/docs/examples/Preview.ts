@@ -122,6 +122,63 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/multipleSizes": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSizes.tsx"))
     },
+    "tag/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/preview.tsx"))
+    },
+    "tag/docs/tagGroup/label": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/label.tsx"))
+    },
+    "tag/docs/tagGroup/description": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/description.tsx"))
+    },
+    "tag/docs/tagGroup/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/disabled.tsx"))
+    },
+    "tag/docs/tagGroup/invalid": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/invalid.tsx"))
+    },
+    "tag/docs/tagGroup/removable": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/removable.tsx"))
+    },
+    "tag/docs/tagGroup/selectable": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/selectable.tsx"))
+    },
+    "tag/docs/tagGroup/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/sizes.tsx"))
+    },
+    "tag/docs/tagGroup/variants": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/variants.tsx"))
+    },
+    "tag/docs/tagList/empty": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagList/empty.tsx"))
+    },
+    "tag/docs/tag/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/disabled.tsx"))
+    },
+    "tag/docs/tag/invalid": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/invalid.tsx"))
+    },
+    "tag/docs/tag/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/sizes.tsx"))
+    },
+    "tag/docs/tag/variants": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/variants.tsx"))
+    },
+    "tag/docs/tag/loading": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/loading.tsx"))
+    },
+    "tag/docs/tag/icons": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/icons.tsx"))
+    },
+    "tag/docs/tag/count": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/count.tsx"))
+    },
+    "tag/docs/tag/links": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/links.tsx"))
+    },
+    "tag/docs/tag/reactRouterLinks": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/reactRouterLinks.tsx"))
+    },
     "HopperProvider/docs/color-scheme/apply": {
         component: lazy(() => import("@/../../packages/components/src/HopperProvider/docs/color-scheme/apply.tsx"))
     },

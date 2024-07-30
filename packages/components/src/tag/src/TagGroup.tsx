@@ -36,6 +36,11 @@ export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
+    /**
+     * The visual style of the TagGroup.
+     * @default "neutral"
+     */
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -47,6 +52,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         isInvalid = false,
         style: styleProp,
         size: sizeProp,
+        variant,
         ...otherProps
     } = ownProps;
 
@@ -80,7 +86,8 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 [TagContext, {
                     className: styles["hop-TagGroup__tag"],
                     isInvalid,
-                    size: size
+                    size: size,
+                    variant: variant
                 }],
                 [ErrorMessageContext, {
                     className: styles["hop-TagGroup__error-message"],

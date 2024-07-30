@@ -2,7 +2,7 @@ import { RadioField, RadioGroup, RadioList, Radio, Text } from "@hopper-ui/compo
 
 export default function Example() {
     return (
-        <RadioGroup>
+        <RadioGroup aria-label="roles">
             <RadioList>
                 <Radio value="developer">Developer</Radio>
                 <Radio value="designer">Designer</Radio>

@@ -7,8 +7,8 @@ import {
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
 import {
-    Button as RACButton,
-    type ButtonProps as RACButtonProps,
+    ToggleButton as RACToggleButton,
+    type ToggleButtonProps as RACToggleButtonProps,
     composeRenderProps,
     useContextProps
 } from "react-aria-components";
@@ -25,12 +25,17 @@ import styles from "./EmbeddedButton.module.css";
 
 export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
-export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
+export interface EmbeddedButtonProps extends StyledComponentProps<RACToggleButtonProps> {
     /**
      * The size of the EmbeddedButton.
      * @default "md"
      */
     size?: ResponsiveProp<"md" | "lg">;
+    /**
+     * The visual style of the EmbeddedButton.
+     * @default "neutral"
+     */
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
@@ -42,8 +47,10 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         className,
         size: sizeProp,
         isDisabled,
+        isSelected = false,
         style: styleProp,
         children,
+        variant = "neutral",
         ...otherProps
     } = ownProps;
 
@@ -55,7 +62,8 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         cssModule(
             styles,
             "hop-EmbeddedButton",
-            size
+            size,
+            variant
         ),
         stylingProps.className
     );
@@ -76,15 +84,16 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
                 }]
             ]}
         >
-            <RACButton
+            <RACToggleButton
                 ref={ref}
                 className={classNames}
                 style={style}
                 isDisabled={isDisabled}
+                isSelected={isSelected}
                 {...otherProps}
             >
                 {children}
-            </RACButton>
+            </RACToggleButton>
         </SlotProvider>
     );
 }

@@ -56,10 +56,10 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
      */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
     /**
-     * The visual style of the Chip.
+     * The visual style of the Tag.
      * @default "neutral"
      */
-    variant?: "neutral" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6" | "inactive" | "disabled";
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -119,7 +119,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
             data-loading={isLoading || undefined}
         >
             {tagProps => {
-                const { allowsRemoving, isDisabled } = tagProps;
+                const { allowsRemoving, isDisabled, isSelected } = tagProps;
 
                 return (
                     <>
@@ -154,6 +154,8 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 className={styles["hop-Tag__remove-btn"]}
                                 aria-label={stringFormatter.format("Tag.removeAriaLabel")}
                                 size={TagToButtonSizeAdapter[size]}
+                                variant={variant}
+                                isSelected={isSelected}
                             />
                         }
                         {isLoading &&

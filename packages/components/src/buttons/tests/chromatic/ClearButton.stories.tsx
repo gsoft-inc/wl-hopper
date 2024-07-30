@@ -17,33 +17,55 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: args => {
         return (
+            <Inline alignY="end">
+                <ClearButton {...args} />
+                <ClearButton {...args} size="lg" />
+            </Inline>
+        );
+    }
+};
+
+export const Variants: Story = {
+    render: args => {
+        return (
+            <Inline alignY="end">
+                <ClearButton {...args} variant="neutral" />
+                <ClearButton {...args} variant="subdued" />
+                <ClearButton {...args} variant="progress" />
+                <ClearButton {...args} variant="positive" />
+                <ClearButton {...args} variant="caution" />
+                <ClearButton {...args} variant="negative" />
+                <ClearButton {...args} variant="option1" />
+                <ClearButton {...args} variant="option2" />
+                <ClearButton {...args} variant="option3" />
+                <ClearButton {...args} variant="option4" />
+                <ClearButton {...args} variant="option5" />
+                <ClearButton {...args} variant="option6" />
+            </Inline>
+        );
+    }
+};
+
+export const Zoom: Story = {
+    render: args => {
+        return (
             <Stack>
-                <Stack>
-                    <h1>Default</h1>
-                    <Inline alignY="end">
+                <Inline alignY="end">
+                    <Div className="zoom-in">
                         <ClearButton {...args} />
+                    </Div>
+                    <Div className="zoom-out'">
+                        <ClearButton {...args} />
+                    </Div>
+                </Inline>
+                <Inline alignY="end">
+                    <Div className="zoom-in">
                         <ClearButton {...args} size="lg" />
-                    </Inline>
-                </Stack>
-                <Stack>
-                    <h1>Zoom</h1>
-                    <Inline alignY="end">
-                        <Div className="zoom-in">
-                            <ClearButton {...args} />
-                        </Div>
-                        <Div className="zoom-out'">
-                            <ClearButton {...args} />
-                        </Div>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Div className="zoom-in">
-                            <ClearButton {...args} size="lg" />
-                        </Div>
-                        <Div className="zoom-out'">
-                            <ClearButton {...args} size="lg" />
-                        </Div>
-                    </Inline>
-                </Stack>
+                    </Div>
+                    <Div className="zoom-out'">
+                        <ClearButton {...args} size="lg" />
+                    </Div>
+                </Inline>
             </Stack>
         );
     }
@@ -51,12 +73,22 @@ export const Default: Story = {
 
 const StateTemplate = (args: Partial<ClearButtonProps>) => (
     <Inline alignY="end">
-        <ClearButton {...args} />
-        <ClearButton {...args} size="lg" />
+        <ClearButton {...args} variant="neutral" />
+        <ClearButton {...args} variant="subdued" />
+        <ClearButton {...args} variant="progress" />
+        <ClearButton {...args} variant="positive" />
+        <ClearButton {...args} variant="caution" />
+        <ClearButton {...args} variant="negative" />
+        <ClearButton {...args} variant="option1" />
+        <ClearButton {...args} variant="option2" />
+        <ClearButton {...args} variant="option3" />
+        <ClearButton {...args} variant="option4" />
+        <ClearButton {...args} variant="option5" />
+        <ClearButton {...args} variant="option6" />
     </Inline>
 );
 
-export const DefaultStates: Story = {
+export const States: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         const buttons = canvas.getAllByRole("button");
@@ -85,16 +117,28 @@ export const DefaultStates: Story = {
             <Stack>
                 <h1>Default</h1>
                 <StateTemplate {...args} />
-                <h1>Disabled</h1>
-                <StateTemplate {...args} isDisabled />
+                <h1>Hovered</h1>
+                <StateTemplate {...args} data-chromatic-force-hover />
                 <h1>Pressed</h1>
                 <StateTemplate {...args} data-chromatic-force-press />
                 <h1>Focus Visible</h1>
                 <StateTemplate {...args} data-chromatic-force-focus />
-                <h1>Hovered</h1>
-                <StateTemplate {...args} data-chromatic-force-hover />
                 <h1>Focus Visible and Hovered</h1>
                 <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
+                <h1>Disabled</h1>
+                <StateTemplate {...args} isDisabled />
+                <h1>Selected</h1>
+                <StateTemplate {...args} isSelected />
+                <h1>Selected and Hovered</h1>
+                <StateTemplate {...args} isSelected data-chromatic-force-hover />
+                <h1>Selected and Pressed</h1>
+                <StateTemplate {...args} isSelected data-chromatic-force-press />
+                <h1>Selected and Focus Visible</h1>
+                <StateTemplate {...args} isSelected data-chromatic-force-focus />
+                <h1>Selected, Focus Visible, and Hovered</h1>
+                <StateTemplate {...args} isSelected data-chromatic-force-focus data-chromatic-force-hover />
+                <h1>Selected and Disabled</h1>
+                <StateTemplate {...args} isSelected isDisabled />
             </Stack>
         );
     }

@@ -22,7 +22,6 @@ import { TagList } from "../src/TagList.tsx";
  * Each tag, representing a label, category, keyword, or filter, is designed to be used within a TagList for groupings.
  *
  * The TagGroup provides a centralized way to manage these tags, including support for keyboard navigation, selection, and removal of individual tags.
- * Unlike some other tag implementations, this Tag component does not support different colors, keeping the UI consistent and focused on the content of the tags themselves.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/Tag/src)
  * -
@@ -155,6 +154,9 @@ export const Variants = {
                 <Tag variant="neutral">
                     <Text>Neutral</Text>
                 </Tag>
+                <Tag variant="subdued">
+                    <Text>Subdued</Text>
+                </Tag>
                 <Tag variant="progress">
                     <Text>Progress</Text>
                 </Tag>
@@ -184,12 +186,6 @@ export const Variants = {
                 </Tag>
                 <Tag variant="option6">
                     <Text>Option 6</Text>
-                </Tag>
-                <Tag variant="inactive">
-                    <Text>Inactive</Text>
-                </Tag>
-                <Tag variant="disabled">
-                    <Text>Disabled</Text>
                 </Tag>
             </TagList>
         </TagGroup>

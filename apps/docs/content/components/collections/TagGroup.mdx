@@ -1,49 +1,211 @@
 ---
 title: TagGroup
-description: TBD
+description: The TagGroup is a dynamic UI component that encapsulates a collection of tags.
+             Each tag, representing a label, category, keyword, or filter, is designed to be used within a TagList for groupings.
 category: "collections"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/tag/src/TagGroup.tsx
-status: WIP
 ---
+
+<Example src="tag/docs/preview" />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+### TagGroup
 
-## Guidelines
+<PropTable component="TagGroup" />
 
-TODO: If we have some guidelines about this component's usage
+### TagList
 
-### Accessibility ?
+<PropTable component="TagList" />
 
-TODO: If we have some guidelines about this component and accessibility
+### Tag
+
+<PropTable component="Tag" />
+
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this component usage
+
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="rc">
 
-### Concepts
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
-TODO: links to related concepts
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+A `TagGroup` uses the following components.
 
-## Examples
+- [Label](Label)
+- [TagList](#props-taglist)
+- [ErrorMessage](ErrorMessage)
+- [HelperMessage](HelperMessage)
 
-## Advanced customization
+A `TagList` uses the following components.
 
-### Contexts
-TODO: Example of context + content about the context
+- [Tag](#props-tag)
 
-### Custom Children
+A `Tag` uses the following components.
 
-TODO: Example of passing custom childrens to the components to fake a slot
+- [Icon](Icon)
+- [IconList](IconList)
+- [Text](Text)
+- [Badge](Badge)
 
-### Custom Component
+## TagGroup Examples
 
-TODO: Example of creating a custom version of this component
+### Label
 
-## Migration Notes (WIP)
+A TagGroup can have a Label to provide more context to the user.
+
+<Example src="tag/docs/tagGroup/label" />
+
+### Description
+
+A TagGroup can have a description to provide more information to the user.
+
+<Example src="tag/docs/tagGroup/description" />
+
+### Disabled
+
+Tags can be disabled using the `disabledKeys` prop.
+
+<Example src="tag/docs/tagGroup/disabled" />
+
+### Invalid
+
+If a TagGroup is invalid, it will display an error message. Displaying this error message will hide the helper message.
+
+<Example src="tag/docs/tagGroup/invalid" />
+
+### Removable
+
+Tags can be removed using the `onRemove` callback.
+If you are using a keyboard, you can press the backspace key to remove a tag.
+
+<Example src="tag/docs/tagGroup/removable" />
+
+### Selectable
+
+Tags can be selected using the `selectionMode` prop.
+Use `defaultSelectedKeys` for initially selected items (uncontrolled) and `selectedKeys` to manage selected items (controlled).
+The selected keys should match the item's `id` prop.
+
+<Example src="tag/docs/tagGroup/selectable" />
+
+### Sizes
+
+TagGroups can be different sizes using the `size` prop.
+
+<Example src="tag/docs/tagGroup/sizes" />
+
+### Variants
+
+Tag groups can have different variants using the `variant` prop. The one seen here is `subdued`.
+
+<Example src="tag/docs/tagGroup/variants" />
+
+## TagList Examples
+
+### Empty List
+
+Using the `renderEmptyState` prop, you can customize the empty state message when there are no tags.
+
+<Example src="tag/docs/tagList/empty" />
+
+## Tag Examples
+
+### Disabled
+
+An individual tag can be disabled using the `isDisabled` prop.
+
+<Example src="tag/docs/tag/disabled" />
+
+### Invalid
+
+An individual Tag can be set as invalid using the `isInvalid` prop.
+
+<Example src="tag/docs/tag/invalid" />
+
+### Sizes
+
+An individual tag can be different sizes using the `size` prop.
+
+<Example src="tag/docs/tag/sizes" />
+
+### Variants
+
+An individual tag can be different variants using the `variant` prop.
+
+<Example src="tag/docs/tag/variants" />
+
+### Loading
+
+Tags can have a loading state using the `isLoading` prop.
+
+<Example src="tag/docs/tag/loading" />
+
+### Icons
+
+Tags can have an icon or an icon list.
+
+<Example src="tag/docs/tag/icons" />
+
+### Count
+
+Tags can have a count using the `Badge` component.
+
+<Example src="tag/docs/tag/count" />
+
+### Links
+
+Tags can be links by using the `href` prop on the Tag component. Tags with an `href` are not selectable.
+
+<Example src="tag/docs/tag/links" />
+
+### React Router Links
+
+A Tag can be rendered as a react router link when using the `href` prop, and setting the `navigate` prop on the `HopperProvider`.
+
+<Example src="tag/docs/tag/reactRouterLinks" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+### TagGroup
+
+<MigrateGuide src="tag/docs/migration-notes-tag-group" />
+
+### TagList
+
+<MigrateGuide src="tag/docs/migration-notes-tag-list" />
+
+### Tag
+
+<MigrateGuide src="tag/docs/migration-notes-tag" />
