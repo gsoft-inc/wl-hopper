@@ -65,6 +65,7 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
                 slot={slot ?? undefined}
                 data-disabled={isDisabled || undefined}
                 aria-disabled={isDisabled || undefined}
+                data-variant={variant}
             >
                 {children}
             </OverlineText>

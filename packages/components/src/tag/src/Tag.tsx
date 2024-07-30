@@ -1,4 +1,4 @@
-import { ClearButton } from "@hopper-ui/components";
+import { ClearButton, type ClearButtonProps } from "@hopper-ui/components";
 import { IconContext } from "@hopper-ui/icons";
 import {
     type StyledComponentProps,
@@ -30,8 +30,15 @@ import styles from "./Tag.module.css";
 export const GlobalTagCssSelector = "hop-Tag";
 
 const TagToTextSizeAdapter: SizeAdapter<TagProps["size"], TextProps["size"]> = {
+    sm: "xs",
     md: "xs",
     lg: "sm"
+};
+
+const TagToButtonSizeAdapter: SizeAdapter<TagProps["size"], ClearButtonProps["size"]> = {
+    sm: "md",
+    md: "md",
+    lg: "lg"
 };
 
 export interface TagProps extends StyledComponentProps<RACTagProps> {
@@ -47,7 +54,12 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
      * The size of the tag.
      * @default "md"
      */
-    size?: ResponsiveProp<"md" | "lg">;
+    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    /**
+     * The visual style of the Tag.
+     * @default "neutral"
+     */
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -58,9 +70,10 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
         children: childrenProp,
         isInvalid,
         isLoading,
-        size: sizeProp = "md",
+        size: sizeProp,
         style: styleProp,
         textValue: textValueProp,
+        variant = "neutral",
         ...otherProps
     } = ownProps;
 
@@ -74,7 +87,8 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
         cssModule(
             styles,
             "hop-Tag",
-            size
+            size,
+            variant
         ),
         stylingProps.className
     );
@@ -105,7 +119,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
             data-loading={isLoading || undefined}
         >
             {tagProps => {
-                const { allowsRemoving, isDisabled } = tagProps;
+                const { allowsRemoving, isDisabled, isSelected } = tagProps;
 
                 return (
                     <>
@@ -139,7 +153,9 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 isDisabled={isDisabled}
                                 className={styles["hop-Tag__remove-btn"]}
                                 aria-label={stringFormatter.format("Tag.removeAriaLabel")}
-                                size={size}
+                                size={TagToButtonSizeAdapter[size]}
+                                variant={variant}
+                                isSelected={isSelected}
                             />
                         }
                         {isLoading &&

@@ -2,7 +2,7 @@ import { HelperMessage, RadioField, RadioGroup, Radio, RadioList } from "@hopper
 
 export default function Example() {
     return (
-        <RadioGroup>
+        <RadioGroup aria-label="roles">
             <RadioList>
                 <Radio value="developer">Developer</Radio>
                 <Radio value="designer">Designer</Radio>

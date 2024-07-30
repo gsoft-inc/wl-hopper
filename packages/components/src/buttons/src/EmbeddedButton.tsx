@@ -27,10 +27,19 @@ export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
+     * Whether the EmbeddedButton should show a selected state.
+     */
+    isSelected?: boolean;
+    /**
      * The size of the EmbeddedButton.
      * @default "md"
      */
     size?: ResponsiveProp<"md" | "lg">;
+    /**
+     * The visual style of the EmbeddedButton.
+     * @default "neutral"
+     */
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
@@ -42,8 +51,10 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         className,
         size: sizeProp,
         isDisabled,
+        isSelected = false,
         style: styleProp,
         children,
+        variant = "neutral",
         ...otherProps
     } = ownProps;
 
@@ -55,7 +66,8 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         cssModule(
             styles,
             "hop-EmbeddedButton",
-            size
+            size,
+            variant
         ),
         stylingProps.className
     );
@@ -81,6 +93,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
                 className={classNames}
                 style={style}
                 isDisabled={isDisabled}
+                data-selected={isSelected || undefined}
                 {...otherProps}
             >
                 {children}

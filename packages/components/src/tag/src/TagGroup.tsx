@@ -35,7 +35,12 @@ export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
      * A tag can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"md" | "lg">;
+    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    /**
+     * The visual style of the TagGroup.
+     * @default "neutral"
+     */
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -47,6 +52,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         isInvalid = false,
         style: styleProp,
         size: sizeProp,
+        variant,
         ...otherProps
     } = ownProps;
 
@@ -80,7 +86,8 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 [TagContext, {
                     className: styles["hop-TagGroup__tag"],
                     isInvalid,
-                    size: size
+                    size: size,
+                    variant: variant
                 }],
                 [ErrorMessageContext, {
                     className: styles["hop-TagGroup__error-message"],
@@ -110,7 +117,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
 }
 
 /**
- * A versatile TagGroup component for categorizing items in a TagGroupList, equipped with a remove button for easy management.
+ * A versatile TagGroup component for categorizing items.
  *
  * [View Documentation](TODO)
  */
