@@ -1,5 +1,17 @@
 # @hopper-ui/styled-system
 
+## 2.2.0
+
+### Minor Changes
+
+- a3ee503: Added two tokens / updated one token
+
+## 2.1.2
+
+### Patch Changes
+
+- a16cf30: Fixed wrong token
+
 ## 2.1.1
 
 ### Patch Changes

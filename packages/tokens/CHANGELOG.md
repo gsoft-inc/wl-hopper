@@ -1,5 +1,17 @@
 # @hopper-ui/tokens
 
+## 4.2.0
+
+### Minor Changes
+
+- a3ee503: Added two tokens / updated one token
+
+## 4.1.1
+
+### Patch Changes
+
+- a16cf30: Fixed wrong token
+
 ## 4.1.0
 
 ### Minor Changes
