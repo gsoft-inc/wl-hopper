@@ -160,7 +160,7 @@
     --hop-EmbeddedButton-option6-effect-background-color-disabled: transparent;
 
     /* Selected */
-    --hop-EmbeddedButton-selected-color: var(--hop-neutral-icon-weak-press); /* Will need to be updated once the select version exists */
+    --hop-EmbeddedButton-selected-color: var(--hop-neutral-icon-weak-selected);
     --hop-EmbeddedButton-selected-effect-background-color: var(--hop-neutral-surface-weak-selected);
 
     /* Internal variable */
