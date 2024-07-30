@@ -12,13 +12,17 @@ export default function Example() {
                 <Tag id="designer" size="md">
                     <Text>Designer</Text>
                     <IconList>
-                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                        <SparklesIcon />
+                        <SparklesIcon />
+                        <SparklesIcon />
                     </IconList>
                 </Tag>
                 <Tag id="dentist" size="lg">
                     <Text>Dentist</Text>
                     <IconList>
-                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                        <SparklesIcon />
+                        <SparklesIcon />
+                        <SparklesIcon />
                     </IconList>
                 </Tag>
             </TagList>

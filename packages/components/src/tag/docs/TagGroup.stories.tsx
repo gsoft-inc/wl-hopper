@@ -201,33 +201,48 @@ export const Icons = {
         <Stack>
             <TagGroup {...props} aria-label="tag-group" size="sm">
                 <TagList>
-                    <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                    <Tag id="1" textValue="Developer">
+                        <SparklesIcon />
+                        <Text>Developer</Text>
+                    </Tag>
                     <Tag id="2" textValue="Designer">
                         <Text>Designer</Text>
                         <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                            <SparklesIcon />
+                            <SparklesIcon />
+                            <SparklesIcon />
                         </IconList>
                     </Tag>
                 </TagList>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
                 <TagList>
-                    <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                    <Tag id="1" textValue="Developer">
+                        <SparklesIcon />
+                        <Text>Developer</Text>
+                    </Tag>
                     <Tag id="2" textValue="Designer">
                         <Text>Designer</Text>
                         <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                            <SparklesIcon />
+                            <SparklesIcon />
+                            <SparklesIcon />
                         </IconList>
                     </Tag>
                 </TagList>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="lg">
                 <TagList>
-                    <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                    <Tag id="1" textValue="Developer">
+                        <SparklesIcon />
+                        <Text>Developer</Text>
+                    </Tag>
                     <Tag id="2" textValue="Designer">
                         <Text>Designer</Text>
                         <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                            <SparklesIcon />
+                            <SparklesIcon />
+                            <SparklesIcon />
                         </IconList>
                     </Tag>
                 </TagList>

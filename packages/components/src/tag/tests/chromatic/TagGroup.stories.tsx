@@ -60,17 +60,24 @@ export const Icons = {
                 <TagGroup {...props} size="sm">
                     <Label>Small</Label>
                     <TagList>
-                        <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                        <Tag id="1" textValue="Developer">
+                            <SparklesIcon />
+                            <Text>Developer</Text>
+                        </Tag>
                         <Tag id="2" textValue="Designer">
                             <Text>Designer</Text>
                             <IconList>
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
                             </IconList>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "8rem" }}>
                             <Text>Executive Officer</Text>
                             <IconList>
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
                             </IconList>
                         </Tag>
                     </TagList>
@@ -78,17 +85,24 @@ export const Icons = {
                 <TagGroup {...props} size="md">
                     <Label>Medium</Label>
                     <TagList>
-                        <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                        <Tag id="1" textValue="Developer">
+                            <SparklesIcon />
+                            <Text>Developer</Text>
+                        </Tag>
                         <Tag id="2" textValue="Designer">
                             <Text>Designer</Text>
                             <IconList>
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
                             </IconList>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "7rem" }}>
                             <Text>Executive Officer</Text>
                             <IconList>
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
                             </IconList>
                         </Tag>
                     </TagList>
@@ -96,17 +110,24 @@ export const Icons = {
                 <TagGroup {...props} size="lg">
                     <Label>Large</Label>
                     <TagList>
-                        <Tag id="1" textValue="Developer"><SparklesIcon /><Text>Developer</Text></Tag>
+                        <Tag id="1" textValue="Developer">
+                            <SparklesIcon />
+                            <Text>Developer</Text>
+                        </Tag>
                         <Tag id="2" textValue="Designer">
                             <Text>Designer</Text>
                             <IconList>
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
                             </IconList>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "8rem" }}>
                             <Text>Executive Officer</Text>
                             <IconList>
-                                <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
+                                <SparklesIcon />
                             </IconList>
                         </Tag>
                     </TagList>
