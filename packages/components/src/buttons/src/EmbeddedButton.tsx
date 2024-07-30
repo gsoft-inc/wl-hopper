@@ -7,8 +7,8 @@ import {
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
 import {
-    ToggleButton as RACToggleButton,
-    type ToggleButtonProps as RACToggleButtonProps,
+    Button as RACButton,
+    type ButtonProps as RACButtonProps,
     composeRenderProps,
     useContextProps
 } from "react-aria-components";
@@ -25,7 +25,11 @@ import styles from "./EmbeddedButton.module.css";
 
 export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
-export interface EmbeddedButtonProps extends StyledComponentProps<RACToggleButtonProps> {
+export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
+    /**
+     * Whether the EmbeddedButton should show a selected state.
+     */
+    isSelected?: boolean;
     /**
      * The size of the EmbeddedButton.
      * @default "md"
@@ -84,16 +88,16 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
                 }]
             ]}
         >
-            <RACToggleButton
+            <RACButton
                 ref={ref}
                 className={classNames}
                 style={style}
                 isDisabled={isDisabled}
-                isSelected={isSelected}
+                data-selected={isSelected || undefined}
                 {...otherProps}
             >
                 {children}
-            </RACToggleButton>
+            </RACButton>
         </SlotProvider>
     );
 }
