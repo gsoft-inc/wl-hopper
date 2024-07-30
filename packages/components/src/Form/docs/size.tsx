@@ -2,7 +2,7 @@ import { Form, Button, TextField, Label, Stack } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Stack gap="stack-sm" margin="core_240">
+        <Stack gap="stack-sm" margin="stack-lg">
             <Form>
                 <TextField name="email" placeholder="Enter your email">
                     <Label>Email:</Label>

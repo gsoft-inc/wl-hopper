@@ -2,7 +2,7 @@ import { Form, TextField, Label, Div, ErrorMessage, Button, ButtonGroup } from "
 
 export default function Example() {
     return (
-        <Div margin="core_240">
+        <Div margin="stack-lg">
             <Form validationBehavior="native">
                 <TextField
                     name="email"

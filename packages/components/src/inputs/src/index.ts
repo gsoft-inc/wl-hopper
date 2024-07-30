@@ -1,5 +1,7 @@
 export * from "./InputGroup.tsx";
 export * from "./InputGroupContext.ts";
+export * from "./NumberField.tsx";
+export * from "./NumberFieldContext.ts";
 export * from "./TextArea.tsx";
 export * from "./TextAreaContext.ts";
 export * from "./TextField.tsx";

@@ -1,6 +1,10 @@
 import {
     ButtonContext,
-    TextFieldContext
+    PasswordFieldContext,
+    SearchFieldContext,
+    TextFieldContext,
+    TextAreaContext,
+    NumberFieldContext, RadioGroupContext, CheckboxContext, CheckboxFieldContext, CheckboxGroupContext
 } from "@hopper-ui/components";
 import {
     useResponsiveValue,
@@ -10,7 +14,12 @@ import {
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
-import { useContextProps, Form as RACForm, type FormProps as RACFormProps } from "react-aria-components";
+import {
+    useContextProps,
+    Form as RACForm,
+    type FormProps as RACFormProps
+
+} from "react-aria-components";
 
 import { cssModule, SlotProvider } from "../../utils/index.ts";
 
@@ -32,7 +41,7 @@ export interface FormProps extends StyledComponentProps<RACFormProps> {
     isFluid?: ResponsiveProp<boolean>;
 
     /**
-     * The size of the TextField.
+     * The size of the fields and buttons within the form.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
@@ -57,8 +66,7 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
         GlobalFormCssSelector,
         cssModule(
             styles,
-            "hop-Form",
-            size
+            "hop-Form"
         ),
         stylingProps.className,
         className
@@ -74,6 +82,42 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
             [TextFieldContext, {
                 isDisabled,
                 isFluid,
+                size
+            }],
+            [PasswordFieldContext, {
+                isDisabled,
+                isFluid,
+                size
+            }],
+            [SearchFieldContext, {
+                isDisabled,
+                isFluid,
+                size
+            }],
+            [NumberFieldContext, {
+                isDisabled,
+                size,
+                isFluid
+            }],
+            [TextAreaContext, {
+                isDisabled,
+                size,
+                isFluid
+            }],
+            [RadioGroupContext, {
+                isDisabled,
+                size
+            }],
+            [CheckboxContext, {
+                isDisabled,
+                size
+            }],
+            [CheckboxFieldContext, {
+                isDisabled,
+                size
+            }],
+            [CheckboxGroupContext, {
+                isDisabled,
                 size
             }],
             [ButtonContext, { isDisabled, size }]

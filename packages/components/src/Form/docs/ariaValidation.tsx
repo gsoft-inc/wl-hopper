@@ -2,7 +2,7 @@ import { Form, TextField, Label, Div, ErrorMessage, Button } from "@hopper-ui/co
 
 export default function Example() {
     return (
-        <Div margin="core_240">
+        <Div margin="stack-lg">
             <Form validationBehavior="aria">
                 <TextField
                     name="username"

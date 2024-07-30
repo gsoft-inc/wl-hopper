@@ -140,7 +140,7 @@ export const Styling = {
     render: () => {
         return (
             <Stack gap="core_320">
-                <Form UNSAFE_border="1px solid blue">
+                <Form UNSAFE_border="1px solid red">
                     <TextField
                         name="email"
                         type="email"
