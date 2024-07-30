@@ -2,7 +2,6 @@ export * from "./Avatar/index.ts";
 export * from "./Badge/index.ts";
 export * from "./buttons/index.ts";
 export * from "./checkbox/index.ts";
-export * from "./Chip/index.ts";
 export * from "./Divider/index.ts";
 export * from "./ErrorMessage/index.ts";
 export * from "./Header/index.ts";
