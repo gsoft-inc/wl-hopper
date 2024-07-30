@@ -1064,6 +1064,10 @@
         "value": "#ecebe8"
       },
       {
+        "name": "hop-neutral-icon-weak-selected",
+        "value": "#e0dfdd"
+      },
+      {
         "name": "hop-neutral-icon-weakest",
         "value": "#777775"
       },
@@ -1154,6 +1158,10 @@
       {
         "name": "hop-neutral-text-weak-press",
         "value": "#ecebe8"
+      },
+      {
+        "name": "hop-neutral-text-weak-selected",
+        "value": "#e0dfdd"
       },
       {
         "name": "hop-neutral-text-weakest",
@@ -2709,7 +2717,7 @@
       },
       {
         "name": "hop-status-positive-icon-disabled",
-        "value": "#7dc291"
+        "value": "#0c796b"
       },
       {
         "name": "hop-status-positive-icon-hover",

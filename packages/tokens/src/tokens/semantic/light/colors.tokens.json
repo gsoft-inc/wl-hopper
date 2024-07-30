@@ -632,6 +632,10 @@
             "$type": "color",
             "$value": "{rock.700}"
         },
+        "icon-weak-selected": {
+            "$type": "color",
+            "$value": "{rock.600}"
+        },
         "icon-weakest": {
             "$type": "color",
             "$value": "{rock.200}"
@@ -723,6 +727,10 @@
         "text-weak-press": {
             "$type": "color",
             "$value": "{rock.700}"
+        },
+        "text-weak-selected": {
+            "$type": "color",
+            "$value": "{rock.600}"
         },
         "text-weakest": {
             "$type": "color",
