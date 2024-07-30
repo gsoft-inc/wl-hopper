@@ -117,7 +117,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
 }
 
 /**
- * A versatile TagGroup component for categorizing items in a TagGroupList, equipped with a remove button for easy management.
+ * A versatile TagGroup component for categorizing items.
  *
  * [View Documentation](TODO)
  */
