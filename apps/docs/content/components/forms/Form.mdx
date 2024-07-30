@@ -62,16 +62,14 @@ to a string or array of strings representing one or more errors. These are displ
 
 ### Native Behavior validation
 
-By default, native HTML form validation is used to display errors and block form submission. To instead use
-native HTML form validation, set the `validationBehavior` prop to "native".
+Native HTML form validation is used to display errors and block form submission.
 
 <Example src="Form/docs/nativeValidation" />
 
 ### Aria Behavior validation
 
-By default, native HTML form validation is used to display errors and block form submission. To instead use
-ARIA attributes for form validation, set the `validationBehavior` prop to "aria".
-This will not block form submission, and will display validation errors to the user in realtime as the value is edited.
+To use form validation via ARIA set the `validationBehavior` property to "aria".
+This will not block form submission and will display validation errors to the user in real time as the value is modified.
 
 <Example src="Form/docs/ariaValidation" />
 
