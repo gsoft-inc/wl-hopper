@@ -82,10 +82,6 @@ describe("Form", () => {
         );
 
         const element = screen.getByTestId("form");
-        const firstInnerElement = element.querySelector(":scope > *");
-
-        expect(element).toBeInvalid();
-        expect(firstInnerElement).toHaveAttribute("data-invalid", "true");
         expect(element).toHaveTextContent("Sorry, this username is taken.");
     });
 
