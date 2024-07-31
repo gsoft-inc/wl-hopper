@@ -21,12 +21,24 @@ export interface LabelProps extends StyledComponentProps<RACLabelProps> {
      * Whether the label shows a required state.
      */
     isRequired?: boolean;
+
+    /**
+     * Whether the required state should be shown as an icon or text.
+     */
+    necessityIndicator?: "icon" | "label";
 }
 
 function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, style, isRequired, ...otherProps } = ownProps;
+    const {
+        className,
+        children,
+        style,
+        isRequired,
+        necessityIndicator = isRequired != null ? "icon" : null,
+        ...otherProps
+    } = ownProps;
 
     const stringFormatter = useLocalizedString();
 
@@ -60,7 +72,8 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
             style={mergedStyles}
         >
             {children}
-            {isRequired && requiredIndicator}
+            {necessityIndicator === "label" && <span> ({necessityLabel})</span>}
+            {necessityIndicator === "icon" && isRequired && requiredIndicator}
         </RACLabel>
     );
 }

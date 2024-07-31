@@ -8,7 +8,6 @@ import {
     ButtonGroup,
     Stack, Checkbox, RadioGroup, RadioList, Radio, TextArea
 } from "@hopper-ui/components";
-import { a11yParameters } from "@hopper-ui/storybook-addon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within, userEvent, expect } from "@storybook/test";
 
@@ -159,9 +158,6 @@ export const ValidationBehaviorNative = {
 };
 
 export const Styling = {
-    parameters: {
-        ...a11yParameters({ disableContrastCheck: true })
-    },
     render: () => {
         return (
             <Stack gap="core_320">
@@ -175,7 +171,7 @@ export const Styling = {
                     <Button type="submit">Submit</Button>
                 </Form>
 
-                <Form className="bg-blue">
+                <Form className="bg-red">
                     <TextField
                         name="password"
                         type="password"
@@ -185,7 +181,7 @@ export const Styling = {
                     <Button type="submit">Submit</Button>
                 </Form>
 
-                <Form style={{ backgroundColor: "blue" }}>
+                <Form style={{ backgroundColor: "red" }}>
                     <TextField
                         name="password"
                         type="password"
