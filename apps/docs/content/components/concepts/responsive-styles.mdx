@@ -1,26 +1,28 @@
 ---
 title: Responsive Styles
-description: This page describes how Hopper style props accept a specialized syntax to support responsive breakpoints. These responsive properties help build adaptive user interfaces.
+description: Hopper style props accept a specialized syntax to support responsive breakpoints. These responsive properties help build adaptive user interfaces.
 order: 3
 ---
 
 ## Introduction
 
-In addition to static values, all style props support object syntax to specify different values for the prop depending on the responsive breakpoint. Breakpoints are named following t-shirt sizing, and correspond to common device resolutions
+In addition to static values, all style props support object syntax to specify different values for the prop depending on a responsive breakpoint. Breakpoints are named following t-shirt sizing, and correspond to common device resolutions.
 
-In this example, the `Div` has a default background color, which is overridden at each breakpoint. Resize your browser window to see this in action.
+### Example
+
+A `Div` with a default background color overridden at each breakpoint. Resize your browser window to see this in action.
 
 <Example src="HopperProvider/docs/responsive-styles/introduction" isOpen />
 
 ## Breakpoints
 
-There are five breakpoints available (+ the base), inspired by common device resolutions:
+There are five breakpoints available (in addition to the base), inspired by typical device resolutions.
 
 <BreakpointTable />
 
-## Working mobile-first
+## Mobile-first
 
-By default, Hopper uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap or Tailwind.
+Hopper uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks such as Bootstrap and Tailwind.
 
 <Callout variant="error">Don&apos;t use `sm:` to target mobile devices</Callout>
 
@@ -30,12 +32,12 @@ By default, Hopper uses a mobile-first breakpoint system, similar to what you mi
 
 <Example src="HopperProvider/docs/responsive-styles/mobile-first-do" isOpen />
 
-For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for sm screens, followed by md screens, etc.
+It's often a good idea to implement the mobile layout for a design first, then gradually add styles as the screen size increases and the design requires, progressing from small screens to wider screens.
 
 ## Utility Methods
 
 ### useResponsiveValue
 
-To resolve a responsive value within a React component, Hopper provides the useResponsiveValue hook.
+To resolve a responsive value within a React component, Hopper provides a `useResponsiveValue` hook.
 
 <Example src="HopperProvider/docs/responsive-styles/useResponsiveValue" isOpen />

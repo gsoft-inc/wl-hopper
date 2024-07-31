@@ -1,7 +1,7 @@
 # @hopper-ui/components
 
 > [!IMPORTANT]
-> Key information: This version of the package is in pre-release; it is not recommended for production use.
+> Key information: This version of the package is in prerelease; it is not recommended for production use.
 
 Hopper is a design system developed by Workleap to help create the best experience for our customers and drive consistency between all our web apps.
 

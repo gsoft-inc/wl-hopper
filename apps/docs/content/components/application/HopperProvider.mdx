@@ -1,6 +1,6 @@
 ---
 title: HopperProvider
-description: HopperProvider is the container for all applications using Hopper. It defines the color scheme, locale, and other application level settings. It is also used to dynamically inject CSS variables and Body styles to your application.
+description: HopperProvider is the container for all applications using Hopper. It defines the color scheme, locale, and other application level settings. It is also used to dynamically inject CSS variables and body styles to your application.
 order: 1
 category: "application"
 links:
@@ -16,21 +16,21 @@ links:
 ## Application provider
 
 A HopperProvider must be the root component of your application. All other Hopper components rely on the Provider to define the color scheme, locale, and other settings that they need in order to render.
-You can also nest multiple HopperProviders to create different themes or locales for different parts of your application.
+You can nest multiple HopperProviders to create different themes or locales for different parts of your application if needed.
 
 ### Color scheme
 
-We recommend supporting both light and dark color schemes in your app, however, if you need to override this with an application specific setting, you can use the colorScheme prop.
+We recommend supporting both light and dark color schemes in your application, however, if you need to override this with an application specific setting, you can use the colorScheme prop.
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/color-scheme" />
 
-See the [styling documentation](/components/concepts/styling) for more information about using Hopper color variables in your  app to ensure it adapts to light and dark mode properly.
+See the [styling documentation](/components/concepts/styling) for more information about using Hopper color variables in your application to ensure it adapts to light and dark mode properly.
 
 See the [color schemes documentation](/components/concepts/color-schemes) for more information on how to apply a color scheme to your application.
 
 ### Locales
 
-Another important setting for your application is the locale. By default, Hopper chooses the locale matching the user's browser/operating system language, but this can be overridden with the locale prop if you have an application specific setting. This prop accepts a [BCP 47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code.
+Another important setting for your application is the locale. By default, Hopper chooses the locale matching the user's browser/operating system language, this can be overridden with the locale prop if you have an application specific setting. This prop accepts a [BCP 47](https://www.ietf.org/rfc/bcp/bcp47.txt) language code.
 Hopper currently supports the following locales: `en-US`, `en-UK`, `fr-CA`, `fr-FR`.
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/locale" />
@@ -56,7 +56,7 @@ The HopperProvider component accepts an optional router prop. This enables Hoppe
 ```css
 body {
     -webkit-font-smoothing: antialiased;
-    font-family: var(--hop-body-md-font-family), Arial, sans-serif;
+    font-family: var(--hop-body-md-font-family);
     line-height: var(--hop-body-md-line-height);
     font-size: var(--hop-body-md-font-size);
     color: var(--hop-neutral-text);
@@ -74,6 +74,6 @@ body {
 
 ### Inject CSS Variables
 
-`withCssVariables` determines whether Hopper's CSS variables should be added to your application. By default, it is set to true, you should not change it unless you want to manage CSS variables via .css file (Note that in this case you will need to add the tokens manually, ideally with the [`@hopper-ui/tokens` package](/tokens/getting-started/usage))
+`withCssVariables` determines whether Hopper's CSS variables should be added to your application. By default, it is set to true, you should not change it unless you want to manage CSS variables via a CSS file. Note that in this case you will need to add the tokens manually, ideally using the `@hopper-ui/tokens` [package](/tokens/getting-started/usage).
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/inject-css-var" />

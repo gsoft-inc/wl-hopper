@@ -1,6 +1,6 @@
 Coming from Orbiter, you should be aware of the following changes:
 
-- `onChange` signature has been changed (no events are passed).
+- `onChange` signature has been changed – no events are passed.
 - `onValueChange` has been deleted, use `onChange` instead.
 - `checked` has been renamed to `isSelected`.
 - `disabled` has been renamed to `isDisabled`.

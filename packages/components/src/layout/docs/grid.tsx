@@ -4,9 +4,9 @@ export default function Example() {
     return (
         <Grid
             areas={[
-                "header  header",
+                "header header",
                 "sidebar content",
-                "footer  footer"
+                "footer footer"
             ]}
             templateColumns={["1fr", "3fr"]}
             templateRows={["core_640", "auto", "core_640"]}

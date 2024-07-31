@@ -1,16 +1,16 @@
 ---
 title: Color Schemes
-description: This page describes how color schemes work in Hopper, including how applications adapt to operating system dark mode.
+description: Learn how color schemes work in Hopper, including how applications can adapt to operating system dark mode.
 order: 5
 ---
 
 ## Introduction
 
-Hopper supports light and dark mode. These correspond to color schemes found in popular operating systems. By default, Hopper defaults to the light color scheme, but the `colorScheme` property on the `HopperProvider` can be used to set the color scheme to `dark` or `system` (which will follow the user's operating system setting).
+Hopper supports a light and a dark mode. These correspond to color schemes found in popular operating systems. Hopper defaults to the light color scheme, but the `colorScheme` property on the `HopperProvider` can be used to set the color scheme to `dark` or `system` (which will follow the user's operating system setting).
 
 We recommend that all Hopper applications support both light and dark mode. It can be very jarring to use a light themed application when the rest of your applications are in dark mode, and visa versa. This can be accomplished by using Hopper color variables rather than hard coded color values. All Hopper components adapt to color scheme out of the box. See the [styling page](./styling.mdx) for details on how to use Hopper color variables in your own custom components.
 
-## Apply a color scheme
+## Applying a color scheme
 
 A color scheme can either be enforced by providing a specific light or dark value to a [HopperProvider](../application/hopper-provider.mdx).
 
@@ -22,11 +22,11 @@ When the `system` value is provided, an additional fallback color scheme must be
 
 <Example src="HopperProvider/docs/color-scheme/apply-system" isOpen />
 
-Color schemes can also be nested. You could have a dark themed dialog inside a light themed application. For example, this might be useful for certain experiences like color scheme previews, where you want to showcase a specific color scheme, regardless of the operating system setting.
+Color schemes can also be nested. You could have a dark themed dialog inside a light themed application. This might be useful for certain experiences such as color scheme previews, where you want to showcase a specific color scheme regardless of the operating system setting.
 
 <Example src="HopperProvider/docs/color-scheme/apply-nested" isOpen />
 
-## Changing the color scheme
+## Context Hooks
 
 To manage the color scheme in your application, Hopper exposes a `ColorSchemeContext` and a `useColorSchemeContext` hook.
 
@@ -39,5 +39,7 @@ To manage the color scheme in your application, Hopper exposes a `ColorSchemeCon
 Some features require the usage of custom colors. Those colors aren't like Hopper tokens and will not support color schemes out of the box.
 
 To help with that, Hopper offers the `useColorSchemeValue` hook which will return the value matching the current color scheme of the closest `HopperProvider`.
+
+You can test this hook by clicking the moon icon in the example below.
 
 <Example src="HopperProvider/docs/color-scheme/useColorSchemeValue" isOpen />

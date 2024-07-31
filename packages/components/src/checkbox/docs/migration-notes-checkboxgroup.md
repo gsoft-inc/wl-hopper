@@ -1,6 +1,6 @@
 Coming from Orbiter, you should be aware of the following changes:
 
-- `onChange` signature has been changed (no events are passed).
+- `onChange` signature has been changed – no events are passed.
 - `disabled` has been renamed to `isDisabled`.
 - `required` has been renamed to `isRequired`.
 - `fluid` has been removed.
@@ -10,4 +10,4 @@ Coming from Orbiter, you should be aware of the following changes:
 - `validationState` is removed. use `isInvalid` instead. There is no `isValid`.
 - `wrap` is removed. If horizontal, radios will wrap.
 - There is no `align` prop. If needed, the styled system can be used.
-- `inline` prop not available.
+- The `inline` prop is not available.
