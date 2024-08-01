@@ -7,7 +7,7 @@ order: 1
 ## Introduction
 
 Hopper includes layout components to help build applications. The [Flex](./Flex) and [Grid](./Grid)
-components are containers, they are responsible for the layout of their children. `Flex` follows the
+components are containers responsible for the layout of their children. `Flex` follows the the
 [CSS flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 algorithm, while `Grid` implements
 [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout).
@@ -16,8 +16,7 @@ These components provide props with predefined Hopper tokens for sizing, spacing
 and other layout options. You can use `Flex` and `Grid` together to build different
 parts of your application, and even nest them to create more complex layouts.
 
-You should prefer using flex and grid over other CSS layout models. Spacing between components
-should be left to parent layout components rather than added directly to the children. This ensures components are composable when reused in different places, and ensures that spacing is consistent.
+You should prefer using flex and grid over other CSS layout models. Spacing between components should be managed by parent layout components rather than added directly to the children. This ensures components are composable when reused in different places and that spacing remains consistent.
 
 In addition to `Flex` and `Grid`, some Hopper components include prebuilt layouts which you can
 insert your content into via slots. You can read more about slots in the [slots](./slots) concept page.
@@ -27,7 +26,7 @@ insert your content into via slots. You can read more about slots in the [slots]
 The [flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 layout model is a simple yet versatile method of laying out components in rows and columns.
 Use it to build vertical or horizontal stacks, simple wrapping grids, and more. The [Flex](./Flex)
-component can be used to create flexbox containers, any Hopper component can be used as a child.
+component can be used to create flexbox containers. Any Hopper component can be used as a child within these containers.
 Flex layouts can be nested to create more complex layouts.
 
 The `gap`, `rowGap` and `columnGap` can be defined with [Hopper space tokens](/tokens/semantic/space)
