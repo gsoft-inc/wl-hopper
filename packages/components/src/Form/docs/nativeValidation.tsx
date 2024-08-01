@@ -10,7 +10,7 @@ export default function Example() {
                     isRequired
                 >
                     <Label>Email</Label>
-                    <ErrorMessage>This field is required</ErrorMessage>
+                    <ErrorMessage />
                 </TextField>
                 <ButtonGroup>
                     <Button type="submit">Submit</Button>
