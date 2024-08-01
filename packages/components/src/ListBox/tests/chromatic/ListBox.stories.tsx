@@ -3,6 +3,7 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@testing-library/react";
 
+import { Avatar } from "../../../Avatar/index.ts";
 import { Badge } from "../../../Badge/index.ts";
 import { Header } from "../../../Header/index.ts";
 import { IconList } from "../../../IconList/index.ts";
@@ -263,6 +264,65 @@ export const Default = {
                         </ListBoxItem>
                     </ListBox>
                 </Inline>
+                <h1>Items with Avatar</h1>
+                <Inline alignY="flex-start">
+                    <ListBox {...args} size="lg">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
+                            <Text>Fred</Text>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Text>Karen</Text>
+                            <Avatar name="Karen Smith" />
+                        </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
+                            <Text>Charles</Text>
+                        </ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="md">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
+                            <Text>Fred</Text>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Text>Karen</Text>
+                            <Avatar name="Karen Smith" />
+                        </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
+                            <Text>Charles</Text>
+                        </ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="sm">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
+                            <Text>Fred</Text>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Text>Karen</Text>
+                            <Avatar name="Karen Smith" />
+                        </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
+                            <Text>Charles</Text>
+                        </ListBoxItem>
+                    </ListBox>
+                    <ListBox {...args} size="xs">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
+                            <Text>Fred</Text>
+                        </ListBoxItem>
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Text>Karen</Text>
+                            <Avatar name="Karen Smith" />
+                        </ListBoxItem>
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
+                            <Text>Charles</Text>
+                        </ListBoxItem>
+                    </ListBox>
+                </Inline>
                 <h1>Items with description</h1>
                 <ListBox {...args}>
                     <ListBoxItem id="1" textValue="Earth">
@@ -319,98 +379,110 @@ export const Default = {
                 <h1>Items with Everything</h1>
                 <Inline alignY="flex-start">
                     <ListBox {...args} size="lg">
-                        <ListBoxItem id="3" textValue="Saturn">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
                             <SparklesIcon />
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Text slot="label">Fred</Text>
+                            <Text slot="description">A good worker</Text>
                             <Badge>1</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Avatar name="Karen Smith" />
                             <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Text slot="label">Karen</Text>
+                            <Text slot="description">Manager</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="1" textValue="Earth">
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
                             <SparklesIcon />
                             <IconList slot="end-icon">
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
-                            <Text slot="label">Earth</Text>
-                            <Text slot="description">The third planet from the sun.</Text>
+                            <Text slot="label">Charles</Text>
+                            <Text slot="description">Employee of the month</Text>
                             <Badge>50</Badge>
                         </ListBoxItem>
                     </ListBox>
                     <ListBox {...args} size="md">
-                        <ListBoxItem id="3" textValue="Saturn">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
                             <SparklesIcon />
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Text slot="label">Fred</Text>
+                            <Text slot="description">A good worker</Text>
                             <Badge>1</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Avatar name="Karen Smith" />
                             <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Text slot="label">Karen</Text>
+                            <Text slot="description">Manager</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="1" textValue="Earth">
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
                             <SparklesIcon />
                             <IconList slot="end-icon">
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
-                            <Text slot="label">Earth</Text>
-                            <Text slot="description">The third planet from the sun.</Text>
+                            <Text slot="label">Charles</Text>
+                            <Text slot="description">Employee of the month</Text>
                             <Badge>50</Badge>
                         </ListBoxItem>
                     </ListBox>
                     <ListBox {...args} size="sm">
-                        <ListBoxItem id="3" textValue="Saturn">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
                             <SparklesIcon />
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Text slot="label">Fred</Text>
+                            <Text slot="description">A good worker</Text>
                             <Badge>1</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Avatar name="Karen Smith" />
                             <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Text slot="label">Karen</Text>
+                            <Text slot="description">Manager</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="1" textValue="Earth">
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
                             <SparklesIcon />
                             <IconList slot="end-icon">
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
-                            <Text slot="label">Earth</Text>
-                            <Text slot="description">The third planet from the sun.</Text>
+                            <Text slot="label">Charles</Text>
+                            <Text slot="description">Employee of the month</Text>
                             <Badge>50</Badge>
                         </ListBoxItem>
                     </ListBox>
                     <ListBox {...args} size="xs">
-                        <ListBoxItem id="3" textValue="Saturn">
+                        <ListBoxItem id="3" textValue="Fred">
+                            <Avatar name="Fred Freeman" />
                             <SparklesIcon />
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Saturn</Text>
-                            <Text slot="description">The sixth planet from the sun.</Text>
+                            <Text slot="label">Fred</Text>
+                            <Text slot="description">A good worker</Text>
                             <Badge>1</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="2" textValue="Mars">
+                        <ListBoxItem id="2" textValue="Karen">
+                            <Avatar name="Karen Smith" />
                             <SparklesIcon />
-                            <Text slot="label">Mars</Text>
-                            <Text slot="description">The fourth planet from the sun.</Text>
+                            <Text slot="label">Karen</Text>
+                            <Text slot="description">Manager</Text>
                             <Badge variant="secondary">99+</Badge>
                         </ListBoxItem>
-                        <ListBoxItem id="1" textValue="Earth">
+                        <ListBoxItem id="1" textValue="Charles">
+                            <Avatar name="Charles Johnson" />
                             <SparklesIcon />
                             <IconList slot="end-icon">
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
-                            <Text slot="label">Earth</Text>
-                            <Text slot="description">The third planet from the sun.</Text>
+                            <Text slot="label">Charles</Text>
+                            <Text slot="description">Employee of the month</Text>
                             <Badge>50</Badge>
                         </ListBoxItem>
                     </ListBox>
@@ -677,12 +749,14 @@ const StateTemplate = (args: StateTemplateProps) => {
                     data-testid="first-item"
                     data-chromatic-force={dataChromaticForce}
                 >
+                    <Avatar name="Earth" />
                     <SparklesIcon />
                     <Text slot="label">Earth</Text>
                     <Text slot="description">The third planet from the sun.</Text>
                     <Badge>50</Badge>
                 </ListBoxItem>
                 <ListBoxItem id="2" textValue="Mars">
+                    <Avatar name="Mars" />
                     <SparklesIcon />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
@@ -695,6 +769,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     data-testid="first-item"
                     data-chromatic-force={dataChromaticForce}
                 >
+                    <Avatar name="Earth" />
                     <SparklesIcon />
                     <Text slot="label">Earth</Text>
                     <Text slot="description">The third planet from the sun.</Text>
@@ -702,6 +777,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                 </ListBoxItem>
                 <ListBoxItem id="2" textValue="Mars">
                     <SparklesIcon />
+                    <Avatar name="Mars" />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
                     <Badge variant="secondary">99+</Badge>
@@ -713,6 +789,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     data-testid="first-item"
                     data-chromatic-force={dataChromaticForce}
                 >
+                    <Avatar name="Earth" />
                     <SparklesIcon />
                     <Text slot="label">Earth</Text>
                     <Text slot="description">The third planet from the sun.</Text>
@@ -720,6 +797,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                 </ListBoxItem>
                 <ListBoxItem id="2" textValue="Mars">
                     <SparklesIcon />
+                    <Avatar name="Mars" />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
                     <Badge variant="secondary">99+</Badge>
@@ -731,6 +809,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     data-testid="first-item"
                     data-chromatic-force={dataChromaticForce}
                 >
+                    <Avatar name="Earth" />
                     <SparklesIcon />
                     <Text slot="label">Earth</Text>
                     <Text slot="description">The third planet from the sun.</Text>
@@ -738,6 +817,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                 </ListBoxItem>
                 <ListBoxItem id="2" textValue="Mars">
                     <SparklesIcon />
+                    <Avatar name="Mars" />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
                     <Badge variant="secondary">99+</Badge>

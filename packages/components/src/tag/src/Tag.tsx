@@ -1,4 +1,3 @@
-import { ClearButton, type ClearButtonProps } from "@hopper-ui/components";
 import { IconContext } from "@hopper-ui/icons";
 import {
     type StyledComponentProps,
@@ -9,7 +8,9 @@ import {
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
 
+import { AvatarContext } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
+import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
@@ -141,6 +142,11 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                     [BadgeContext, {
                                         className: styles["hop-Tag__badge"],
                                         isDisabled: isDisabled
+                                    }],
+                                    [AvatarContext, {
+                                        className: styles["hop-Tag__avatar"],
+                                        isDisabled: isDisabled,
+                                        size: "xs"
                                     }]
                                 ]}
                             >

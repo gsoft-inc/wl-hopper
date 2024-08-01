@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 import type { Selection } from "react-aria-components";
 
+import { Avatar } from "../../../Avatar/index.ts";
 import { Badge } from "../../../Badge/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Stack } from "../../../layout/index.ts";
@@ -137,6 +138,67 @@ export const Icons = {
     }
 } satisfies Story;
 
+export const AvatarStory = {
+    name: "Avatar",
+    render: props => {
+        return (
+            <Stack>
+                <TagGroup {...props} size="sm">
+                    <Label>Small</Label>
+                    <TagList>
+                        <Tag id="1" textValue="Frodo Baggin">
+                            <Avatar name="Frodo Baggins" src="https://i.pravatar.cc/96?img=3" />
+                            <Text>Frodo Baggin</Text>
+                        </Tag>
+                        <Tag id="2" textValue="Karen Smith">
+                            <Avatar name="Karen Smith" />
+                            <Text>Karen Smith</Text>
+                        </Tag>
+                        <Tag id="3" textValue="John Smith" style={{ maxWidth: "6rem" }}>
+                            <Text>John Smith</Text>
+                            <Avatar name="John Smith" />
+                        </Tag>
+                    </TagList>
+                </TagGroup>
+                <TagGroup {...props} size="md">
+                    <Label>Medium</Label>
+                    <TagList>
+                        <Tag id="1" textValue="Frodo Baggin">
+                            <Avatar name="Frodo Baggins" src="https://i.pravatar.cc/96?img=3" />
+                            <Text>Frodo Baggin</Text>
+                        </Tag>
+                        <Tag id="2" textValue="Karen Smith">
+                            <Avatar name="Karen Smith" />
+                            <Text>Karen Smith</Text>
+                        </Tag>
+                        <Tag id="3" textValue="John Smith" style={{ maxWidth: "6rem" }}>
+                            <Text>John Smith</Text>
+                            <Avatar name="John Smith" />
+                        </Tag>
+                    </TagList>
+                </TagGroup>
+                <TagGroup {...props} size="lg">
+                    <Label>Large</Label>
+                    <TagList>
+                        <Tag id="1" textValue="Frodo Baggin">
+                            <Avatar name="Frodo Baggins" src="https://i.pravatar.cc/96?img=3" />
+                            <Text>Frodo Baggin</Text>
+                        </Tag>
+                        <Tag id="2" textValue="Karen Smith">
+                            <Avatar name="Karen Smith" />
+                            <Text>Karen Smith</Text>
+                        </Tag>
+                        <Tag id="3" textValue="John Smith" style={{ maxWidth: "7rem" }}>
+                            <Text>John Smith</Text>
+                            <Avatar name="John Smith" />
+                        </Tag>
+                    </TagList>
+                </TagGroup>
+            </Stack>
+        );
+    }
+} satisfies Story;
+
 export const Count = {
     render: props => {
         return (
@@ -152,7 +214,7 @@ export const Count = {
                             <Text>Designer</Text>
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
-                        <Tag id="3" textValue="Designer" style={{ maxWidth: "7rem" }}>
+                        <Tag id="3" textValue="Designer" style={{ maxWidth: "6rem" }}>
                             <Text>Executive Officer</Text>
                             <Badge>100</Badge>
                         </Tag>
@@ -444,18 +506,21 @@ export const Everything = {
                 <TagGroup {...props} size="sm">
                     <Label>Small</Label>
                     <TagList>
-                        <Tag id="1" textValue="Developer">
+                        <Tag id="1" textValue="Frodo Baggins">
+                            <Avatar name="Frodo Baggins" src="https://i.pravatar.cc/96?img=3" />
                             <Badge>12</Badge>
                             <SparklesIcon />
-                            <Text>Developer</Text>
+                            <Text>Frodo Baggins</Text>
                         </Tag>
-                        <Tag id="2" textValue="Designer">
-                            <Text>Designer</Text>
+                        <Tag id="2" textValue="Karen Smith">
+                            <Avatar name="Karen Smith" />
+                            <Text>Karen Smith</Text>
                             <SparklesIcon />
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
-                        <Tag id="3" textValue="Designer" style={{ maxWidth: "9rem" }}>
-                            <Text>Executive Officer</Text>
+                        <Tag id="3" textValue="John Smith" style={{ maxWidth: "10rem" }}>
+                            <Avatar name="John Smith" />
+                            <Text>John Smith</Text>
                             <SparklesIcon />
                             <Badge>100</Badge>
                         </Tag>
@@ -464,18 +529,21 @@ export const Everything = {
                 <TagGroup {...props} size="md">
                     <Label>Medium</Label>
                     <TagList>
-                        <Tag id="1" textValue="Developer">
+                        <Tag id="1" textValue="Frodo Baggins">
+                            <Avatar name="Frodo Baggins" src="https://i.pravatar.cc/96?img=3" />
                             <Badge>12</Badge>
                             <SparklesIcon />
-                            <Text>Developer</Text>
+                            <Text>Frodo Baggins</Text>
                         </Tag>
-                        <Tag id="2" textValue="Designer">
-                            <Text>Designer</Text>
+                        <Tag id="2" textValue="Karen Smith">
+                            <Avatar name="Karen Smith" />
+                            <Text>Karen Smith</Text>
                             <SparklesIcon />
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
-                        <Tag id="3" textValue="Designer" style={{ maxWidth: "9rem" }}>
-                            <Text>Executive Officer</Text>
+                        <Tag id="3" textValue="John Smith" style={{ maxWidth: "10rem" }}>
+                            <Avatar name="John Smith" />
+                            <Text>John Smith</Text>
                             <SparklesIcon />
                             <Badge>100</Badge>
                         </Tag>
@@ -484,18 +552,21 @@ export const Everything = {
                 <TagGroup {...props} size="lg">
                     <Label>Large</Label>
                     <TagList>
-                        <Tag id="1" textValue="Developer">
+                        <Tag id="1" textValue="Frodo Baggins">
+                            <Avatar name="Frodo Baggins" src="https://i.pravatar.cc/96?img=3" />
                             <Badge>12</Badge>
                             <SparklesIcon />
-                            <Text>Developer</Text>
+                            <Text>Frodo Baggins</Text>
                         </Tag>
-                        <Tag id="2" textValue="Designer">
-                            <Text>Designer</Text>
+                        <Tag id="2" textValue="Karen Smith">
+                            <Avatar name="Karen Smith" />
+                            <Text>Karen Smith</Text>
                             <SparklesIcon />
                             <Badge variant="secondary">99+</Badge>
                         </Tag>
-                        <Tag id="3" textValue="Designer" style={{ maxWidth: "10rem" }}>
-                            <Text>Executive Officer</Text>
+                        <Tag id="3" textValue="John Smith" style={{ maxWidth: "12rem" }}>
+                            <Avatar name="John Smith" />
+                            <Text>John Smith</Text>
                             <SparklesIcon />
                             <Badge>100</Badge>
                         </Tag>
