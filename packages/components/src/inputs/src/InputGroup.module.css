@@ -1,4 +1,4 @@
-.hop-InputGroup  {
+.hop-InputGroup {
     --hop-InputGroup-background: var(--hop-neutral-surface);
     --hop-InputGroup-border-color: var(--hop-neutral-border);
     --hop-InputGroup-border-width: 0.0625rem;
@@ -124,7 +124,6 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-focus)
 }
 
-.hop-InputGroup:has(.hop-InputGroup__input[data-invalid]),
 .hop-InputGroup[data-invalid] {
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-invalid)
 }

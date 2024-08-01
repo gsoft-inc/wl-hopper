@@ -5,8 +5,16 @@ import {
     type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler } from "react";
-import { useContextProps, Group as RACGroup, type GroupProps as RACGroupProps, composeRenderProps, InputContext, useSlottedContext, TextAreaContext } from "react-aria-components";
+import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler, useContext } from "react";
+import {
+    useContextProps,
+    Group as RACGroup,
+    type GroupProps as RACGroupProps,
+    composeRenderProps,
+    InputContext,
+    useSlottedContext,
+    TextAreaContext, FieldErrorContext as RACFieldErrorContext
+} from "react-aria-components";
 
 import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
@@ -56,6 +64,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         children,
         size: sizeProp,
         isFluid: isFluidProp,
+        isInvalid,
         inputClassName,
         inputType = "text",
         onMouseDown,
@@ -77,6 +86,8 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         stylingProps.className
     );
 
+    const validation = useContext(RACFieldErrorContext);
+
     const style = composeRenderProps(styleProp, prev => {
         return {
             ...stylingProps.style,
@@ -96,6 +107,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     }, [onMouseDown]);
 
+
     return (
         <SlotProvider values={[
             [InputContext, {
@@ -112,6 +124,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         >
             <RACGroup
                 {...otherProps}
+                isInvalid={validation?.isInvalid || isInvalid}
                 onMouseDown={handleMouseDown}
                 ref={ref}
                 className={classNames}
