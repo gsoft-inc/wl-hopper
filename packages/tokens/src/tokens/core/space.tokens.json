@@ -4,6 +4,10 @@
             "$type": "size",
             "$value": 0
         },
+        "10": {
+            "$type": "size",
+            "$value": 1
+        },
         "20": {
             "$type": "size",
             "$value": 2
