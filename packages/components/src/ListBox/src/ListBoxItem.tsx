@@ -11,6 +11,7 @@ import {
     type ListBoxItemRenderProps
 } from "react-aria-components";
 
+import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
 import { Checkbox } from "../../checkbox/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
@@ -85,6 +86,13 @@ const ListBoxItemToTextSizeAdapter = {
     md: "sm",
     lg: "md"
 } as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
+
+const ListBoxItemToAvatarSizeAdapter = {
+    xs: "xs",
+    sm: "xs",
+    md: "md",
+    lg: "md"
+} as const satisfies SizeAdapter<ListBoxItemSize, AvatarProps["size"]>;
 
 function ListBoxItemInner(props: ListBoxItemInnerProps) {
     const stringFormatter = useLocalizedString();
@@ -207,6 +215,11 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                     [BadgeContext, {
                         className: styles["hop-ListBoxItem__badge"],
                         isDisabled: isDisabled
+                    }],
+                    [AvatarContext, {
+                        className: styles["hop-ListBoxItem__avatar"],
+                        isDisabled: isDisabled,
+                        size: ListBoxItemToAvatarSizeAdapter[size]
                     }]
                 ]}
             >

@@ -59,6 +59,7 @@ A `TagList` uses the following components.
 
 A `Tag` uses the following components.
 
+- [Avatar](Avatar)
 - [Icon](Icon)
 - [IconList](IconList)
 - [Text](Text)
@@ -68,13 +69,13 @@ A `Tag` uses the following components.
 
 ### Label
 
-A TagGroup can have a label to provide more context to the user.
+A tag group can contain a label to provide more context to the user.
 
 <Example src="tag/docs/tagGroup/label" />
 
 ### Description
 
-A TagGroup can have a description to provide more information to the user.
+A tag group can contain a description to provide more information to the user.
 
 <Example src="tag/docs/tagGroup/description" />
 
@@ -86,7 +87,7 @@ Tags can be disabled using the `disabledKeys` prop.
 
 ### Invalid
 
-If a TagGroup is invalid, it will display an error message. Displaying this error message will hide the helper message.
+If a tag group is invalid, it will display an error message. Displaying this error message will hide the helper message.
 
 <Example src="tag/docs/tagGroup/invalid" />
 
@@ -107,13 +108,13 @@ The selected keys should match the item's `id` prop.
 
 ### Sizes
 
-TagGroups can be different sizes using the `size` prop.
+A tag group can vary in size.
 
 <Example src="tag/docs/tagGroup/sizes" />
 
 ### Variants
 
-TagGroups can have different styles using the `variant` prop. The one seen here is `subdued`.
+A  tag group can vary in style using the `variant` prop. The one seen here is `subdued`.
 
 <Example src="tag/docs/tagGroup/variants" />
 
@@ -129,55 +130,61 @@ Using the `renderEmptyState` prop, you can customize the empty state message whe
 
 ### Disabled
 
-An individual tag can be disabled using the `isDisabled` prop.
+A tag can be disabled using the `isDisabled` prop.
 
 <Example src="tag/docs/tag/disabled" />
 
 ### Invalid
 
-An individual tag can be set as invalid using the `isInvalid` prop.
+A tag can be set as invalid using the `isInvalid` prop.
 
 <Example src="tag/docs/tag/invalid" />
 
 ### Sizes
 
-An individual tag can be different sizes using the `size` prop.
+A tag can vary in size.
 
 <Example src="tag/docs/tag/sizes" />
 
 ### Variants
 
-An individual tag can have different styles using the `variant` prop.
+A tag can vary in style using the `variant` prop.
 
 <Example src="tag/docs/tag/variants" />
 
 ### Loading
 
-Tags can have a loading state using the `isLoading` prop.
+A tag can have a loading state using the `isLoading` prop.
 
 <Example src="tag/docs/tag/loading" />
 
+### Avatar
+
+A tag can contain an avatar.
+
+<Example src="tag/docs/tag/avatar" />
+
 ### Icons
 
-Tags can have an icon or an icon list.
+A tag can contain an icon or an icon list.
 
 <Example src="tag/docs/tag/icons" />
 
 ### Count
 
-Tags can have a count using the `Badge` component.
+A tag can contain a count using the `Badge` component.
 
 <Example src="tag/docs/tag/count" />
 
 ### Links
 
-Tags can be links by using the `href` prop on the Tag component. Tags with an `href` are not selectable.
+A tag can be a link by using the `href` prop on the Tag component. Tags with an `href` are not selectable.
 
 <Example src="tag/docs/tag/links" />
 
 ### React Router Links
 
-A Tag can be rendered as a react router link when using the `href` prop, and setting the `navigate` prop on the `HopperProvider`.
+A tag can be rendered as a react router link when using the `href` prop and setting the `navigate` prop on the `HopperProvider`.
 
 <Example src="tag/docs/tag/reactRouterLinks" />
 

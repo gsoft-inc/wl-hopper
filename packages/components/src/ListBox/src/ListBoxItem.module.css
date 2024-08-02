@@ -13,31 +13,36 @@
     --hop-ListBoxItem-grid-template-areas: "indicator avatar icon label end-icon badge";
     --hop-ListBoxItem-grid-template-areas-with-description:
         "indicator avatar icon label end-icon badge"
-        ". avatar . description description description";
+        ". . . description description description";
     --hop-ListBoxItem-grid-template-areas-loading: "label";
     --hop-ListBoxItem-grid-template-columns: var(--hop-ListBoxItem-indicator-inline-size) auto auto 1fr auto auto;
     --hop-ListBoxItem-grid-template-columns-not-selected: 0 auto auto 1fr auto auto;
     --hop-ListBoxItem-grid-template-columns-loading: 1fr;
+    --hop-ListBoxItem-badge-margin-block: calc(-1 * (var(--hop-space-stack-xs) / 2));
 
     /* xs */
     --hop-ListBoxItem-xs-padding-block: var(--hop-space-inset-xs);
     --hop-ListBoxItem-xs-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-xs-min-height: 2rem;
+    --hop-ListBoxItem-xs-avatar-margin-block: 0;
 
     /* sm */
     --hop-ListBoxItem-sm-padding-block: var(--hop-space-inset-sm);
     --hop-ListBoxItem-sm-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-sm-min-height: 2.5rem;
+    --hop-ListBoxItem-sm-avatar-margin-block: 0;
 
     /* md */
     --hop-ListBoxItem-md-padding-block: var(--hop-space-inset-md);
     --hop-ListBoxItem-md-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-md-min-height: 3.5rem;
+    --hop-ListBoxItem-md-avatar-margin-block: calc(-1 * var(--hop-space-stack-xs));
 
     /* lg */
     --hop-ListBoxItem-lg-padding-block: var(--hop-space-inset-md);
     --hop-ListBoxItem-lg-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-lg-min-height: 4rem;
+    --hop-ListBoxItem-lg-avatar-margin-block: calc(-1 * var(--hop-space-stack-xs));
 
     /* Hovered */
     --hop-ListBoxItem-background-color-hovered: var(--hop-neutral-surface-hover);
@@ -115,24 +120,28 @@
     --padding-block: var(--hop-ListBoxItem-xs-padding-block);
     --padding-inline: var(--hop-ListBoxItem-xs-padding-inline);
     --min-height: var(--hop-ListBoxItem-xs-min-height);
+    --avatar-margin-block: var(--hop-ListBoxItem-xs-avatar-margin-block);
 }
 
 .hop-ListBoxItem--sm {
     --padding-block: var(--hop-ListBoxItem-sm-padding-block);
     --padding-inline: var(--hop-ListBoxItem-sm-padding-inline);
     --min-height: var(--hop-ListBoxItem-sm-min-height);
+    --avatar-margin-block: var(--hop-ListBoxItem-sm-avatar-margin-block);
 }
 
 .hop-ListBoxItem--md {
     --padding-block: var(--hop-ListBoxItem-md-padding-block);
     --padding-inline: var(--hop-ListBoxItem-md-padding-inline);
     --min-height: var(--hop-ListBoxItem-md-min-height);
+    --avatar-margin-block: var(--hop-ListBoxItem-md-avatar-margin-block);
 }
 
 .hop-ListBoxItem--lg {
     --padding-block: var(--hop-ListBoxItem-lg-padding-block);
     --padding-inline: var(--hop-ListBoxItem-lg-padding-inline);
     --min-height: var(--hop-ListBoxItem-lg-min-height);
+    --avatar-margin-block: var(--hop-ListBoxItem-lg-avatar-margin-block);
 }
 
 .hop-ListBoxItem[data-selection-mode] {
@@ -271,6 +280,7 @@
 
 .hop-ListBoxItem__avatar {
     grid-area: avatar;
+    margin-block: var(--avatar-margin-block, 0);
     margin-inline-end: var(--hop-ListBoxItem-column-gap);
 }
 
@@ -301,6 +311,7 @@
 
 .hop-ListBoxItem__badge {
     grid-area: badge;
+    margin-block: var(--hop-ListBoxItem-badge-margin-block);
     margin-inline-start: var(--hop-ListBoxItem-column-gap);
 }
 

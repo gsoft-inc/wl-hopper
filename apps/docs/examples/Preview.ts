@@ -86,6 +86,9 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/section": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/section.tsx"))
     },
+    "ListBox/docs/avatar": {
+        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/avatar.tsx"))
+    },
     "ListBox/docs/count": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/count.tsx"))
     },
@@ -166,6 +169,9 @@ export const Previews: Record<string, Preview> = {
     },
     "tag/docs/tag/loading": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/loading.tsx"))
+    },
+    "tag/docs/tag/avatar": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/avatar.tsx"))
     },
     "tag/docs/tag/icons": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/icons.tsx"))

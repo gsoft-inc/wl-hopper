@@ -8,20 +8,24 @@
     --hop-Tag-sm-padding-inline: var(--hop-space-inset-sm);
     --hop-Tag-sm-column-gap: var(--hop-space-inline-xs);
     --hop-Tag-sm-icon-margin-inline-start: 0;
-    --hop-Tag-sm-element-margin-inline-end-sm: calc(-1 * var(--hop-Tag-sm-padding-inline)); /* Should be touching the Tag edge */
-    --hop-Tag-sm-badge-margin-inline-end: var(--hop-Tag-sm-element-margin-inline-end-sm); /* Should be touching the Tag edge */
-    --hop-Tag-sm-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-sm-column-gap)) var(--hop-Tag-sm-element-margin-inline-end-sm);
-    --hop-Tag-sm-spinner-margin-inline-end: calc(-1 * var(--hop-space-inline-xs));
+    --hop-Tag-sm-element-margin-inline-end-sm: calc(-1 * var(--hop-space-inline-xs)); /* -0.25rem to get 0.25rem of spacing between element & the Tag edge */
+    --hop-Tag-sm-element-margin-inline-end-zero: calc(-1 * var(--hop-Tag-sm-padding-inline)); /* Should be touching the Tag edge */
+    --hop-Tag-sm-badge-margin-inline-end: var(--hop-Tag-sm-element-margin-inline-end-zero);
+    --hop-Tag-sm-avatar-margin-inline-start: calc(var(--hop-Tag-sm-element-margin-inline-end-sm) - (var(--hop-space-inline-xs) / 2));
+    --hop-Tag-sm-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-sm-column-gap)) var(--hop-Tag-sm-element-margin-inline-end-zero);
+    --hop-Tag-sm-spinner-margin-inline-end: var(--hop-Tag-sm-element-margin-inline-end-sm);
 
     /* Medium */
     --hop-Tag-md-block-size: 1.5rem;
     --hop-Tag-md-padding-inline: var(--hop-space-inset-sm);
     --hop-Tag-md-column-gap: var(--hop-space-inline-xs);
     --hop-Tag-md-icon-margin-inline-start: 0;
-    --hop-Tag-md-element-margin-inline-end-sm: calc(-1 * var(--hop-Tag-md-padding-inline)); /* Should be touching the Tag edge */
-    --hop-Tag-md-badge-margin-inline-end: var(--hop-Tag-md-element-margin-inline-end-sm); 
-    --hop-Tag-md-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-md-column-gap)) var(--hop-Tag-md-element-margin-inline-end-sm);
-    --hop-Tag-md-spinner-margin-inline-end: calc(-1 * var(--hop-space-inline-xs));
+    --hop-Tag-md-element-margin-inline-end-sm: calc(-1 * var(--hop-space-inline-xs)); /* -0.25rem to get 0.25rem of spacing between element & the Tag edge */
+    --hop-Tag-md-element-margin-inline-end-zero: calc(-1 * var(--hop-Tag-md-padding-inline)); /* Should be touching the Tag edge */
+    --hop-Tag-md-badge-margin-inline-end: var(--hop-Tag-md-element-margin-inline-end-zero);
+    --hop-Tag-md-avatar-margin-inline-start: var(--hop-Tag-md-element-margin-inline-end-sm);
+    --hop-Tag-md-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-md-column-gap)) var(--hop-Tag-md-element-margin-inline-end-zero);
+    --hop-Tag-md-spinner-margin-inline-end: var(--hop-Tag-md-element-margin-inline-end-sm);
 
     /* Large */
     --hop-Tag-lg-block-size: 2rem;
@@ -30,6 +34,7 @@
     --hop-Tag-lg-icon-margin-inline-start: calc(-1 * var(--hop-space-inline-sm));
     --hop-Tag-lg-element-margin-inline-end-sm: calc(-1 * (var(--hop-Tag-lg-padding-inline) - var(--hop-space-inline-xs))); /* -0.75rem to get 0.25rem of spacing between element & the Tag edge */
     --hop-Tag-lg-badge-margin-inline-end: var(--hop-Tag-lg-element-margin-inline-end-sm);
+    --hop-Tag-lg-avatar-margin-inline-start: var(--hop-Tag-lg-element-margin-inline-end-sm);
     --hop-Tag-lg-clear-btn-margin-inline: 0 var(--hop-Tag-lg-element-margin-inline-end-sm);
     --hop-Tag-lg-spinner-margin-inline-end: var(--hop-Tag-lg-element-margin-inline-end-sm);
 
@@ -287,7 +292,7 @@
     --padding-inline: var(--hop-Tag-sm-padding-inline);
     --column-gap: var(--hop-Tag-sm-column-gap);
     --clear-btn-margin-inline: var(--hop-Tag-sm-clear-btn-margin-inline);
-    --icon-margin-inline-start: var(--hop-Tag-sm-icon-margin-inline-start);
+    --avatar-margin-inline-start: var(--hop-Tag-sm-avatar-margin-inline-start);
     --spinner-margin-inline-end: var(--hop-Tag-sm-spinner-margin-inline-end);
 }
 
@@ -295,12 +300,16 @@
     --badge-margin-inline-end: var(--hop-Tag-sm-badge-margin-inline-end);
 }
 
+.hop-Tag--sm:not(:has(.hop-Tag__avatar)) {
+    --icon-margin-inline-start: var(--hop-Tag-sm-icon-margin-inline-start);
+}
+
 .hop-Tag--md {
     --block-size: var(--hop-Tag-md-block-size);
     --padding-inline: var(--hop-Tag-md-padding-inline);
     --column-gap: var(--hop-Tag-md-column-gap);
     --clear-btn-margin-inline: var(--hop-Tag-md-clear-btn-margin-inline);
-    --icon-margin-inline-start: var(--hop-Tag-md-icon-margin-inline-start);
+    --avatar-margin-inline-start: var(--hop-Tag-md-avatar-margin-inline-start);
     --spinner-margin-inline-end: var(--hop-Tag-md-spinner-margin-inline-end);
 }
 
@@ -308,17 +317,25 @@
     --badge-margin-inline-end:  var(--hop-Tag-md-badge-margin-inline-end);
 }
 
+.hop-Tag--md:not(:has(.hop-Tag__avatar)) {
+    --icon-margin-inline-start: var(--hop-Tag-md-icon-margin-inline-start);
+}
+
 .hop-Tag--lg {
     --block-size: var(--hop-Tag-lg-block-size);
     --padding-inline: var(--hop-Tag-lg-padding-inline);
     --column-gap: var(--hop-Tag-lg-column-gap);
     --clear-btn-margin-inline: var(--hop-Tag-lg-clear-btn-margin-inline);
-    --icon-margin-inline-start: var(--hop-Tag-lg-icon-margin-inline-start);
+    --avatar-margin-inline-start: var(--hop-Tag-lg-avatar-margin-inline-start);
     --spinner-margin-inline-end: var(--hop-Tag-lg-spinner-margin-inline-end);
 }
 
 .hop-Tag--lg:not(:has(.hop-Tag__remove-btn, .hop-Tag__Spinner)) {
     --badge-margin-inline-end:  var(--hop-Tag-lg-badge-margin-inline-end);
+}
+
+.hop-Tag--lg:not(:has(.hop-Tag__avatar)) {
+    --icon-margin-inline-start: var(--hop-Tag-lg-icon-margin-inline-start);
 }
 
 .hop-Tag--neutral {
@@ -711,18 +728,24 @@
     cursor: not-allowed;
 }
 
+.hop-Tag__avatar {
+    flex: 0 0 auto;
+    order: 1;
+    margin-inline-start: var(--avatar-margin-inline-start);
+}
+
 .hop-Tag__icon,
 .hop-Tag__icon-list {
     flex: 0 0 auto;
     flex-wrap: nowrap;
-    order: 1;
-    margin-inline-start: var(--icon-margin-inline-start);
+    order: 2;
+    margin-inline-start: var(--icon-margin-inline-start, 0);
 }
 
 .hop-Tag__text {
     overflow: hidden;
     flex: 1 1 auto;
-    order: 2;
+    order: 3;
 
     min-inline-size: 0;
 
@@ -732,7 +755,7 @@
 
 .hop-Tag__badge {
     flex: 0 0 auto;
-    order: 3;
+    order: 4;
     margin-inline-end: var(--badge-margin-inline-end);
 }
 
@@ -749,7 +772,7 @@
 .hop-Tag__remove-btn,
 .hop-Tag__Spinner {
     flex: 0 0 auto;
-    order: 4;
+    order: 5;
 }
 
 .hop-Tag__Spinner {
