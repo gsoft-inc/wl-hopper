@@ -6,7 +6,7 @@ import { FieldErrorContext } from "react-aria-components";
 import { ErrorMessage } from "../../src/ErrorMessage.tsx";
 
 const meta = {
-    title: "Components/ErrorMessage",
+    title: "Components/Forms/ErrorMessage",
     component: ErrorMessage,
     args: {
         children: "This field is required"

@@ -6,5 +6,7 @@
     "PasswordField.toggleVisibility": "Basculer la visibilité du mot de passe",
     "Tag.removeAriaLabel": "Supprimer",
     "ListBoxItem.loadingTextValue": "Élément en cours de chargement",
-    "ListBoxItem.indicatorAriaLabel": "Indicateur de sélection d'élément de liste"
+    "ListBoxItem.indicatorAriaLabel": "Indicateur de sélection d'élément de liste",
+    "Label.necessityLabel.required": "Obligatoire",
+    "Label.necessityLabel.optional": "Facultatif"
 }

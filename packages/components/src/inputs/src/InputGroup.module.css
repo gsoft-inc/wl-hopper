@@ -1,4 +1,4 @@
-.hop-InputGroup  {
+.hop-InputGroup {
     --hop-InputGroup-background: var(--hop-neutral-surface);
     --hop-InputGroup-border-color: var(--hop-neutral-border);
     --hop-InputGroup-border-width: 0.0625rem;
@@ -120,7 +120,7 @@
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-hover)
 }
 
-.hop-InputGroup[data-focus-within]  {
+.hop-InputGroup[data-focus-within] {
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-focus)
 }
 

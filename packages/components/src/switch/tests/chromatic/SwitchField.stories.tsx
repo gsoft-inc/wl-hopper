@@ -6,7 +6,7 @@ import { Switch } from "../../src/Switch.tsx";
 import { SwitchField } from "../../src/SwitchField.tsx";
 
 const meta = {
-    title: "Components/Switch/SwitchField",
+    title: "Components/Forms/SwitchField",
     component: SwitchField
 } satisfies Meta<typeof SwitchField>;
 

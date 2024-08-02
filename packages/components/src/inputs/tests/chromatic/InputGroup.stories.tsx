@@ -8,7 +8,7 @@ import { Text } from "../../../typography/index.ts";
 import { InputGroup } from "../../src/InputGroup.tsx";
 
 const meta = {
-    title: "Components/InputGroup",
+    title: "Components/Forms/InputGroup",
     component: InputGroup
 } satisfies Meta<typeof InputGroup>;
 

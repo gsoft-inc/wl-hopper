@@ -9,7 +9,7 @@ import { Checkbox } from "../../src/Checkbox.tsx";
 
 
 const meta = {
-    title: "Components/Form/Checkbox/Checkbox",
+    title: "Components/Forms/Checkbox",
     component: Checkbox
 } satisfies Meta<typeof Checkbox>;
 

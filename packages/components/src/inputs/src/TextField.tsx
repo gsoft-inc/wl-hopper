@@ -1,17 +1,34 @@
 import { IconContext } from "@hopper-ui/icons";
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import {
+    useResponsiveValue,
+    useStyledSystem,
+    type ResponsiveProp,
+    type StyledComponentProps
+} from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
 import { forwardRef, useCallback, useState, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
+import {
+    composeRenderProps,
+    Input,
+    useContextProps,
+    type TextFieldProps as RACTextFieldProps,
+    TextField as RACTextField
+} from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { Text, TextContext, LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
+import {
+    ClearContainerSlots,
+    composeClassnameRenderProps,
+    cssModule,
+    isTextOnlyChildren,
+    SlotProvider
+} from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
@@ -28,6 +45,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
 
     /**
      * True to display the number of remaining allowed characters on the right of the input. Requires a valid value in the "maxLength" prop.
+     * @default false
      */
     showCharacterCount?: boolean;
 
@@ -54,6 +72,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
 
     /**
      * If `true`, the TextField will take all available width.
+     * @default false
      */
     isFluid?: ResponsiveProp<boolean>;
 
@@ -63,7 +82,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
     inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
-function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
+function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     // we extract the inputRef props, since we want to manually merge it with the context props.
     const {
         inputRef: userProvidedInputRef = null,
@@ -91,6 +110,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
+        isRequired,
         ...otherProps
     } = ownProps;
 
@@ -165,7 +185,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-TextField__Label"] }],
+                    [LabelContext, { className: styles["hop-TextField__Label"], isRequired }],
                     [HelperMessageContext, { className: styles["hop-TextField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-TextField__ErrorMessage"] }]
                 ]}
@@ -187,6 +207,7 @@ function TextField(props:TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            isRequired={isRequired}
             {...otherProps}
         >
             {childrenMarkup}

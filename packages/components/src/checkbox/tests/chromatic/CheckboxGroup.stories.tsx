@@ -11,7 +11,7 @@ import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
 import { CheckboxList } from "../../src/CheckboxList.tsx";
 
 const meta = {
-    title: "Components/Form/Checkbox/CheckboxGroup",
+    title: "Components/Forms/CheckboxGroup",
     component: CheckboxGroup
 } satisfies Meta<typeof CheckboxGroup>;
 

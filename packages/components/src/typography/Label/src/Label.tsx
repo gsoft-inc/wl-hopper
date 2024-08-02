@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 
+import { useLocalizedString } from "../../../i18n/index.ts";
 import { cssModule } from "../../../utils/index.ts";
 
 import { LabelContext } from "./LabelContext.ts";
@@ -15,12 +16,31 @@ import styles from "./Label.module.css";
 export const GlobalLabelCssSelector = "hop-Label";
 
 // TODO: Add necessityIndicator and required Props
-export interface LabelProps extends StyledComponentProps<RACLabelProps> {}
+export interface LabelProps extends StyledComponentProps<RACLabelProps> {
+    /**
+     * Whether the label shows a required state.
+     */
+    isRequired?: boolean;
+
+    /**
+     * Whether the required state should be shown as an icon or text.
+     */
+    necessityIndicator?: "icon" | "label";
+}
 
 function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, LabelContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, style, ...otherProps } = ownProps;
+    const {
+        className,
+        children,
+        style,
+        isRequired,
+        necessityIndicator = isRequired != null ? "icon" : null,
+        ...otherProps
+    } = ownProps;
+
+    const stringFormatter = useLocalizedString();
 
     const classNames = clsx(
         className,
@@ -37,6 +57,13 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
         ...style
     };
 
+    const necessityLabel = isRequired ? stringFormatter.format("Label.necessityLabel.required") : stringFormatter.format("Label.necessityLabel.optional");
+
+    const requiredIndicator = <span aria-hidden="true"
+        aria-label={necessityLabel}
+        className={styles["hop-Label__indicator"]}
+    >*</span>;
+
     return (
         <RACLabel
             {...otherProps}
@@ -45,6 +72,8 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
             style={mergedStyles}
         >
             {children}
+            {necessityIndicator === "label" && <span> ({necessityLabel})</span>}
+            {necessityIndicator === "icon" && isRequired && requiredIndicator}
         </RACLabel>
     );
 }

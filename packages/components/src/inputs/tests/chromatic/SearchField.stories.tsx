@@ -10,7 +10,7 @@ import { Label } from "../../../typography/index.ts";
 import { SearchField, type SearchFieldProps } from "../../src/SearchField.tsx";
 
 const meta = {
-    title: "Components/SearchField",
+    title: "Components/Forms/SearchField",
     component: SearchField
 } satisfies Meta<typeof SearchField>;
 

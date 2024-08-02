@@ -1,9 +1,20 @@
 import { EyeHiddenIcon, EyeVisibleIcon } from "@hopper-ui/icons";
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import {
+    useResponsiveValue,
+    useStyledSystem,
+    type ResponsiveProp,
+    type StyledComponentProps
+} from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { forwardRef, useState, type ForwardedRef, type MutableRefObject } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, Input, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField } from "react-aria-components";
+import {
+    composeRenderProps,
+    Input,
+    useContextProps,
+    type TextFieldProps as RACTextFieldProps,
+    TextField as RACTextField
+} from "react-aria-components";
 
 import { EmbeddedButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
@@ -33,6 +44,7 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
 
     /**
      * If `true`, the PasswordField will take all available width.
+     * @default false
      */
     isFluid?: ResponsiveProp<boolean>;
 
@@ -42,7 +54,7 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
     inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
-function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElement>) {
+function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     // we extract the inputRef props, since we want to manually merge it with the context props.
     const {
         inputRef: userProvidedInputRef = null,
@@ -62,6 +74,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
+        isRequired,
         ...otherProps
     } = ownProps;
 
@@ -99,7 +112,9 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
                 <EmbeddedButton
                     isDisabled={isDisabled}
                     aria-label={stringFormatter.format("PasswordField.toggleVisibility")}
-                    onPress={() => { setShowPassword(x => !x);}}
+                    onPress={() => {
+                        setShowPassword(x => !x);
+                    }}
                     size="lg"
                 >
                     {showPassword ? <EyeVisibleIcon /> : <EyeHiddenIcon />}
@@ -112,7 +127,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-PasswordField__Label"] }],
+                    [LabelContext, { className: styles["hop-PasswordField__Label"], isRequired }],
                     [HelperMessageContext, { className: styles["hop-PasswordField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-PasswordField__ErrorMessage"] }]
                 ]}
@@ -131,6 +146,7 @@ function PasswordField(props:PasswordFieldProps, ref: ForwardedRef<HTMLDivElemen
             className={classNames}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            isRequired={isRequired}
             {...otherProps}
         >
             {childrenMarkup}

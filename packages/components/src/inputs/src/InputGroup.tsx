@@ -1,7 +1,20 @@
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import {
+    useResponsiveValue,
+    useStyledSystem,
+    type ResponsiveProp,
+    type StyledComponentProps
+} from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler } from "react";
-import { useContextProps, Group as RACGroup, type GroupProps as RACGroupProps, composeRenderProps, InputContext, useSlottedContext, TextAreaContext } from "react-aria-components";
+import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler, useContext } from "react";
+import {
+    useContextProps,
+    Group as RACGroup,
+    type GroupProps as RACGroupProps,
+    composeRenderProps,
+    InputContext,
+    useSlottedContext,
+    TextAreaContext, FieldErrorContext as RACFieldErrorContext
+} from "react-aria-components";
 
 import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
@@ -17,10 +30,13 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
+
     /**
-     * Whether or not the button takes up the width of its container.
+     * Whether the button takes up the width of its container.
+     * @default false
      */
     isFluid?: ResponsiveProp<boolean>;
+
     /**
      * The class name of the input element.
      */
@@ -46,8 +62,9 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         className,
         style: styleProp,
         children,
-        size:sizeProp,
+        size: sizeProp,
         isFluid: isFluidProp,
+        isInvalid,
         inputClassName,
         inputType = "text",
         onMouseDown,
@@ -69,6 +86,8 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         stylingProps.className
     );
 
+    const validation = useContext(RACFieldErrorContext);
+
     const style = composeRenderProps(styleProp, prev => {
         return {
             ...stylingProps.style,
@@ -88,6 +107,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     }, [onMouseDown]);
 
+
     return (
         <SlotProvider values={[
             [InputContext, {
@@ -104,6 +124,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         >
             <RACGroup
                 {...otherProps}
+                isInvalid={validation?.isInvalid || isInvalid}
                 onMouseDown={handleMouseDown}
                 ref={ref}
                 className={classNames}
