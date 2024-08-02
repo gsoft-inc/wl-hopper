@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.3.0
+
+### Minor Changes
+
+- 47cb86f: Added space-10 token (1px)
+
 ## 4.2.0
 
 ### Minor Changes

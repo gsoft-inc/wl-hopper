@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.3.0
+
+### Minor Changes
+
+- 47cb86f: Added space-10 token (1px)
+
 ## 2.2.0
 
 ### Minor Changes
