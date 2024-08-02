@@ -2,7 +2,7 @@ import { Link, Stack, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Stack padding="core_320">
+        <Stack padding="space-inset-xl">
             <Text size="xs">
                 Would you like to <Link size="inherit" href="#">learn more</Link> about this role?
             </Text>
