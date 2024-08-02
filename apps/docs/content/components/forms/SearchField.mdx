@@ -1,6 +1,6 @@
 ---
 title: SearchField
-description: A specialized text input for searching.
+description: A search field is a specialized text input allowing the user to perform a search.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/inputs/src/SearchField.tsx
@@ -49,12 +49,12 @@ A search field in a disabled state shows that an input field exists, but is not 
 <Example src="inputs/docs/searchField/disabled" />
 
 ### ReadOnly
-The `isReadOnly` prop makes the SearchField's text content immutable. Unlike `isDisabled`, the SearchField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+The `isReadOnly` prop makes the SearchField's text content immutable. Unlike `isDisabled`, the search field remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
 
 <Example src="inputs/docs/searchField/readOnly" />
 
 ### Error
-A search field with an error message.
+A search field can be displayed in an error state to indicate that the user input is invalid.
 
 <Example src="inputs/docs/searchField/error" />
 
@@ -69,7 +69,7 @@ Search fields have multiple sizes to choose from.
 <Example src="inputs/docs/searchField/sizes" />
 
 ### Labeling
-If a visible label isn't specified, an aria-label must be provided to the SearchField for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the ID of the labeling element instead.
+If a visible label isn't specified, an `aria-label` must be provided to the search field for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
 
 <Example src="inputs/docs/searchField/labeling" />
 

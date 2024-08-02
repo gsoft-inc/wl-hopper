@@ -4,7 +4,7 @@ description: Getting started with Workleap Design Tokens
 order: 1
 ---
 
-At the heart of Workleap Design language are tokens, which drive its functionality. They are the key ingredients to everything UI. Workleap brand is dissected into design tokens, they live in the Hopper Design System.
+Design tokens are central to Workleap's design language, underpinning all UI elements. These tokens encapsulate the Workleap brand and are maintained within the Hopper Design System.
 
 A design token can store any of the following elements:
 
@@ -13,7 +13,7 @@ A design token can store any of the following elements:
 
 ## Definitions
 
-Hopper aims to provide a three tier token system, where each tier has their specific purpose.
+Hopper aims to provide a three-tier token system, with each tier serving a specific purpose.
 
 <Card>
     <Image src="https://cdn.platform.workleap.com/hopper/webdoc/token-details.png" width="654" height="45" alt="Token tiers diagram" />
@@ -21,7 +21,7 @@ Hopper aims to provide a three tier token system, where each tier has their spec
 
 ### Core tokens
 
-These tokens are referring to raw values such as a hexadecimal color code, border-width, or font-size. They are the building blocks of the design system.
+These tokens represent fundamental values like hexadecimal color codes, border widths, or font sizes. They serve as the building blocks of the design system.
 
 <TokenTable category="color" data={[{
     "name": "hop-sapphire-200",
@@ -30,7 +30,7 @@ These tokens are referring to raw values such as a hexadecimal color code, borde
 
 ### Semantic tokens
 
-Semantic tokens carry design intent and are design context aware. They are the tokens that should be used in most cases.
+Semantic tokens convey design intent and are context-aware. They should be used in most scenarios.
 
 #### Light
 
@@ -48,9 +48,9 @@ Semantic tokens carry design intent and are design context aware. They are the t
 
 ### Component tokens
 
-Refers to the nuts and bolts of the components and their implementation details; they are the tokens exposed by components. They are tied to their respective component. These should not be used directly, unless you are building a component in a different stack than React.
+These tokens cover the essential details of component implementation and are provided by the components themselves. They are linked to their specific components and should only be used when building components with a technology other than React.
 
-_Note: As no components are currently available, these tokens are not yet available._
+_Note: These tokens will be available in a future release._
 
 #### Light
 
@@ -70,10 +70,10 @@ _Note: As no components are currently available, these tokens are not yet availa
 
 ### For Developers
 
-Tokens should be used whenever Hopper components do not suit your current use case or if you can't use Hopper React components. They are also useful for situations where using a component does not make sense, such as adding a color for a background.
+Tokens should be used whenever Hopper components do not suit your current use case or if you can't use Hopper React components. They are also useful for situations such as setting a background color on an element.
 
-It should be noted that if your current stack prevents you from directly using Hopper components, it is recommended to use component tokens in priority as they are mapped 1:1 with Hopper implementation.
+It should be noted that if your current stack prevents you from directly using Hopper components, it is recommended to use component tokens, once released, in priority as they are mapped 1:1 with Hopper implementation.
 
 ### For Designers
 
-While developing features for Workleap, you might need to create new components or add new features to existing ones. In this case, you should use semantic tokens to create your components. This will ensure that your components are consistent with the rest of the design system. Only semantic tokens are available in Figma.
+When developing features for Workleap, you may need to create new components or enhance existing ones. In this case, you should use semantic tokens to create your components. This ensures consistency with the rest of the design system. Only semantic tokens are available in Figma.

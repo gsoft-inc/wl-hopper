@@ -5,24 +5,24 @@ order: 1
 status: alpha
 ---
 
-This guide will help you get started with Hopper UI. Hopper UI is a Design System that provides a collection of [components](components/component-list), [tokens](/tokens/overview/introduction), and [icons](/icons/overview/introduction) to help you build applications.
+Hopper UI is a Design System that provides a collection of [components](components/component-list), [tokens](/tokens/overview/introduction), and [icons](/icons/overview/introduction) to help you build applications.
 
-Below is the typical installation path, assuming you are using React(version 18 and up). If you have particluar needs you can have a look at these pages:
+Below is the typical installation path, assuming you are using React 18. If you have particular needs, have a look at these alternatives:
 
 - [Javascript installation](/getting-started/javascript)
 - [Individual package installation](/getting-started/individual-packages)
 
 ## Installation
 
-### Install packages
+### Packages
 
-Run the following command in your terminal to install the Hopper packages.
+Run the following command to install Hopper packages.
 
 <PackageInstallation library="components @hopper-ui/icons @hopper-ui/tokens @hopper-ui/styled-system react-aria react-aria-components" mod="prod" />
 
-### Configure your application
+### Configuration
 
-After installing Hopper UI packages, you must setup a [Provider](/components/HopperProvider) at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
+Setup a [Provider](/components/HopperProvider) at the root of your application. This is typically in your _index.tsx_ or _app.tsx_, but can vary based on your specific setup.
 
 ```jsx
 import { HopperProvider } from "@hopper-ui/components";
@@ -36,9 +36,9 @@ root.render(
 );
 ```
 
-### Import styles
+### Styling
 
-You will also need to import the Hopper styles in your project. You can do this by importing the following CSS files:
+Add Hopper styles to your project by importing the following CSS files:
 
 ```css
 @import "@hopper-ui/styled-system/index.css";
@@ -46,9 +46,9 @@ You will also need to import the Hopper styles in your project. You can do this 
 @import "@hopper-ui/icons/index.css";
 ```
 
-In order to use Hopper fonts in your project, import the following:
+Add Hopper fonts to your project by importing the following CSS file:
 
-```css title="myfile.css"
+```css
 @import "@hopper-ui/tokens/fonts.css";
 ```
 
@@ -60,4 +60,4 @@ You are now ready to use Hopper UI in your project! Need more details? Have a lo
 
 ## Contribute
 
-Pull requests are welcome. For major changes, please open a [discussion](https://github.com/gsoft-inc/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested in contributing, check out our [Contributing Guide](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md).
+Pull requests are welcome. For major changes, please open a [discussion](https://github.com/gsoft-inc/wl-hopper/discussions/new/choose) to detail your proposed changes. If you're interested in contributing, check out our [Contributing Guide](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md).

@@ -1,6 +1,6 @@
 ---
 title: Button
-description: Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+description: A button allows a user to initiate an action.
 category: "buttons"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/buttons/src/Button.tsx
@@ -46,15 +46,15 @@ A button can use different variants.
 
 <Example src="buttons/docs/button/variant" />
 
-**Primary** - For the principal call to action on the page. Primary buttons should only appear once per screen (not including the application header, modal or side panel).
+**Primary** - For the principal call to action on the page. Primary buttons should only appear once per screen — not including the application header, modal or side panel.
 
 **Secondary** - For secondary actions on each page. Secondary buttons can be used in conjunction with a primary button or on its own. Paired with a Primary button, the secondary button usually performs the negative action of the set, such as “Cancel.”
 
-**Upsell** - For upsell actions that relate to upgrading an account or a plan. Use the upsell button to distinguish it from an existing primary button. In some cases, a primary button can be used in its place when the general context of the page is about upselling.
+**Upsell** - For upsell actions that relate to upgrading an account or a plan. Use the upsell button to distinguish it from an existing primary button. In some cases, a primary button can be used instead when the general context of the page is about upselling.
 
 **Danger** - For actions that could have destructive effects on the user’s data.
 
-**Ghost ** -[primary|secondary|danger]** - For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Ghost buttons can also be used for sub-tasks on a
+**Ghost-[primary|secondary|danger]** - For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary button when there are multiple calls to action. Ghost buttons can also be used for subtasks on a
 page where a primary button for the main and final action is present.
 
 ### Sizes
@@ -98,7 +98,7 @@ A button can be rendered as a link by using the href property.
 <Example src="buttons/docs/button/asLink" />
 
 ### As Router Link
-A button can be rendered as a react router link when using the href property and setting the navigate property on the HopperProvider
+A button can be rendered as a react router link when using the href property and setting the navigate property on the [HopperProvider](./HopperProvider).
 
 <Example src="buttons/docs/button/reactRouterLink" />
 

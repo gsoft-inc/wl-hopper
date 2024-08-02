@@ -1,13 +1,13 @@
 ---
 title: TextField
-description: A text field allows a user to enter a plain text value with a keyboard.
+description: A text field allows a user to enter a plain text value.
 category: "forms"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/inputs/src/TextField.tsx
 ---
 
 Specialized text fields are available for different scenarios:
-- If you want a text field with type="search", use the [SearchField](./SearchField) component.
+- If you want a text field with `type="search"`, use the [SearchField](./SearchField) component.
 - If you want a text field that shows/hides a password, use the [PasswordField](./PasswordField) component.
 
 <Example src="inputs/docs/textField/preview" isOpen />
@@ -53,12 +53,12 @@ A text field in a disabled state shows that an input field exists, but is not av
 <Example src="inputs/docs/textField/disabled" />
 
 ### ReadOnly
-The `isReadOnly` prop makes the TextField's text content immutable. Unlike `isDisabled`, the TextField remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+The `isReadOnly` prop makes the text field's text content immutable. Unlike `isDisabled`, the text field remains focusable and the contents can still be copied. See [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
 
 <Example src="inputs/docs/textField/readOnly" />
 
 ### Error
-A text field with an error message.
+A text field can be displayed in an error state to indicate that the user input is invalid.
 
 <Example src="inputs/docs/textField/error" />
 
@@ -73,7 +73,7 @@ Text fields have multiple sizes to choose from.
 <Example src="inputs/docs/textField/sizes" />
 
 ### Labeling
-If a visible label isn't specified, an aria-label must be provided to the TextField for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the ID of the labeling element instead.
+If a visible label isn't specified, an `aria-label` must be provided to the text field for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
 
 <Example src="inputs/docs/textField/labeling" />
 

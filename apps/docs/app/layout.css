@@ -83,8 +83,10 @@ p {
 }
 
 .hd-content ul li:not([class]) {
-    list-style-position: inside;
+    line-height: 1.5;
+    list-style-position: outside;
     margin-block-end: var(--hd-space-1);
+    margin-inline-start: var(--hd-space-2);
 }
 
 .hd-content p a,

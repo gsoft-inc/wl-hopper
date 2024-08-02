@@ -1,6 +1,6 @@
 ---
 title: Avatar
-description: Avatars are used to represent a user, team or another entity. They are often paired with text where room is available.
+description: An avatar is used to represent a user, team or another entity.
 category: "content"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Avatar/src/index.tsx
@@ -36,37 +36,37 @@ links:
 
 ### Local Image
 
-An Avatar can display a local image.
+An avatar can display a local image.
 
 <Example src="Avatar/docs/localImage" />
 
 ### Remote image
 
-An Avatar can fetch a remote image.
+An avatar can fetch a remote image.
 
 <Example src="Avatar/docs/remoteImage" />
 
 ### Fallback image
 
-A fallback image can be set in case the src fails to load.
+A fallback image can be set in case the `src` fails to load.
 
 <Example src="Avatar/docs/fallbackImage" />
 
 ### Loading Failure
 
-A default image will be displayed instead.
+When an image fails to load, a default image will be displayed.
 
 <Example src="Avatar/docs/brokenImage" />
 
 ### Double Failure
 
-A default image will be displayed instead.
+When the fallback image fails to load, a default image will be displayed.
 
 <Example src="Avatar/docs/brokenImageWithBothFailing" />
 
 ### Src and Fallback Bypass
 
-The initials will be displayed instead.
+If no fallback image is provided and the image fails to load, the initials will be displayed instead.
 
 <Example src="Avatar/docs/brokenImageWithNoFallback" />
 
@@ -84,19 +84,19 @@ A deleted avatar can be displayed.
 
 ### Sizes
 
-The Avatar can be displayed in different sizes.
+An avatar can be displayed in different sizes.
 
 <Example src="Avatar/docs/sizes" />
 
 ### Disabled
 
-The Avatar can be disabled.
+An avatar can be disabled.
 
 <Example src="Avatar/docs/disabled" />
 
 ### Customize the image props
 
-In this case, we are using a custom hook to retry loading the image up to 5 times with a 250ms delay.
+Using a custom hook to retry loading the image up to 5 times with a 250ms delay.
 
 <Example src="Avatar/docs/customization" />
 
