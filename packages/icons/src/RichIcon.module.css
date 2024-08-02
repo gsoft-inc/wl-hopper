@@ -55,3 +55,33 @@
     --hop-RichIcon-placeholder-shadow: var(--hop-decorative-option8-icon);
     --hop-RichIcon-placeholder-fill: var(--hop-samoyed);
 }
+
+.hop-RichIcon--success {
+    --hop-RichIcon-placeholder-background: var(--hop-success-icon-weakest);
+    --hop-RichIcon-placeholder-shadow: var(--hop-success-icon);
+    --hop-RichIcon-placeholder-fill: var(--hop-samoyed);
+}
+
+.hop-RichIcon--warning {
+    --hop-RichIcon-placeholder-background: var(--hop-warning-icon-weakest);
+    --hop-RichIcon-placeholder-shadow: var(--hop-warning-icon);
+    --hop-RichIcon-placeholder-fill: var(--hop-samoyed);
+}
+
+.hop-RichIcon--danger {
+    --hop-RichIcon-placeholder-background: var(--hop-danger-surface-weak);
+    --hop-RichIcon-placeholder-shadow: var(--hop-danger-icon);
+    --hop-RichIcon-placeholder-fill: var(--hop-samoyed);
+}
+
+.hop-RichIcon--information {
+    --hop-RichIcon-placeholder-background: var(--hop-information-icon-weakest);
+    --hop-RichIcon-placeholder-shadow: var(--hop-information-icon);
+    --hop-RichIcon-placeholder-fill: var(--hop-samoyed);
+}
+
+.hop-RichIcon--upsell {
+    --hop-RichIcon-placeholder-background: var(--hop-upsell-icon-weakest);
+    --hop-RichIcon-placeholder-shadow: var(--hop-upsell-icon);
+    --hop-RichIcon-placeholder-fill: var(--hop-samoyed);
+}
