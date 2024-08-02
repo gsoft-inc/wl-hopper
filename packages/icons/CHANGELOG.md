@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.7.0
+
+### Minor Changes
+
+- 58de004: Added status variants to the RichIcon.
+
 ## 2.6.2
 
 ### Patch Changes
