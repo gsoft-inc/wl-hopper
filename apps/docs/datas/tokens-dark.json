@@ -744,6 +744,10 @@
         "value": 0
       },
       {
+        "name": "hop-space-10",
+        "value": "0.0625rem"
+      },
+      {
         "name": "hop-space-20",
         "value": "0.125rem"
       },

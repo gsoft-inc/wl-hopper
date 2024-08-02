@@ -184,6 +184,7 @@ export const CoreTokens = {
     "--hop-border-radius-4": "1.5rem",
     "--hop-border-radius-9999": "624.9375rem",
     "--hop-space-0": "0",
+    "--hop-space-10": "0.0625rem",
     "--hop-space-20": "0.125rem",
     "--hop-space-40": "0.25rem",
     "--hop-space-80": "0.5rem",

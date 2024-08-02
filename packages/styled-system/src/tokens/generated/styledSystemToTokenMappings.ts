@@ -1155,6 +1155,7 @@ export const Shape = {
 
 export const CoreSpace = {
     "core_0": "space-0",
+    "core_10": "space-10",
     "core_20": "space-20",
     "core_40": "space-40",
     "core_80": "space-80",
