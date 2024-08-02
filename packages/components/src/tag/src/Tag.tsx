@@ -8,7 +8,7 @@ import {
 import { forwardRef, type ForwardedRef } from "react";
 import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
 
-import { AvatarContext } from "../../Avatar/index.ts";
+import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
 import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
@@ -31,6 +31,12 @@ import styles from "./Tag.module.css";
 export const GlobalTagCssSelector = "hop-Tag";
 
 const TagToTextSizeAdapter: SizeAdapter<TagProps["size"], TextProps["size"]> = {
+    sm: "xs",
+    md: "xs",
+    lg: "sm"
+};
+
+const TagToAvatarSizeAdapter: SizeAdapter<TagProps["size"], AvatarProps["size"]> = {
     sm: "xs",
     md: "xs",
     lg: "sm"
@@ -146,7 +152,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                     [AvatarContext, {
                                         className: styles["hop-Tag__avatar"],
                                         isDisabled: isDisabled,
-                                        size: "xs"
+                                        size: TagToAvatarSizeAdapter[size]
                                     }]
                                 ]}
                             >

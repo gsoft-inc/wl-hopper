@@ -7,32 +7,34 @@
     --hop-Tag-sm-block-size: 1.25rem;
     --hop-Tag-sm-padding-inline: var(--hop-space-inset-sm);
     --hop-Tag-sm-column-gap: var(--hop-space-inline-xs);
-    --hop-Tag-sm-avatar-margin-inline-start: 0;
     --hop-Tag-sm-icon-margin-inline-start: 0;
-    --hop-Tag-sm-element-margin-inline-end-sm: calc(-1 * var(--hop-Tag-sm-padding-inline)); /* Should be touching the Tag edge */
-    --hop-Tag-sm-badge-margin-inline-end: var(--hop-Tag-sm-element-margin-inline-end-sm); /* Should be touching the Tag edge */
-    --hop-Tag-sm-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-sm-column-gap)) var(--hop-Tag-sm-element-margin-inline-end-sm);
-    --hop-Tag-sm-spinner-margin-inline-end: calc(-1 * var(--hop-space-inline-xs));
+    --hop-Tag-sm-element-margin-inline-end-sm: calc(-1 * var(--hop-space-inline-xs)); /* -0.25rem to get 0.25rem of spacing between element & the Tag edge */
+    --hop-Tag-sm-element-margin-inline-end-zero: calc(-1 * var(--hop-Tag-sm-padding-inline)); /* Should be touching the Tag edge */
+    --hop-Tag-sm-badge-margin-inline-end: var(--hop-Tag-sm-element-margin-inline-end-zero);
+    --hop-Tag-sm-avatar-margin-inline-start: calc(var(--hop-Tag-sm-element-margin-inline-end-sm) - (var(--hop-space-inline-xs) / 2));
+    --hop-Tag-sm-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-sm-column-gap)) var(--hop-Tag-sm-element-margin-inline-end-zero);
+    --hop-Tag-sm-spinner-margin-inline-end: var(--hop-Tag-sm-element-margin-inline-end-sm);
 
     /* Medium */
     --hop-Tag-md-block-size: 1.5rem;
     --hop-Tag-md-padding-inline: var(--hop-space-inset-sm);
     --hop-Tag-md-column-gap: var(--hop-space-inline-xs);
-    --hop-Tag-md-avatar-margin-inline-start: 0;
     --hop-Tag-md-icon-margin-inline-start: 0;
-    --hop-Tag-md-element-margin-inline-end-sm: calc(-1 * var(--hop-Tag-md-padding-inline)); /* Should be touching the Tag edge */
-    --hop-Tag-md-badge-margin-inline-end: var(--hop-Tag-md-element-margin-inline-end-sm); 
-    --hop-Tag-md-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-md-column-gap)) var(--hop-Tag-md-element-margin-inline-end-sm);
-    --hop-Tag-md-spinner-margin-inline-end: calc(-1 * var(--hop-space-inline-xs));
+    --hop-Tag-md-element-margin-inline-end-sm: calc(-1 * var(--hop-space-inline-xs)); /* -0.25rem to get 0.25rem of spacing between element & the Tag edge */
+    --hop-Tag-md-element-margin-inline-end-zero: calc(-1 * var(--hop-Tag-md-padding-inline)); /* Should be touching the Tag edge */
+    --hop-Tag-md-badge-margin-inline-end: var(--hop-Tag-md-element-margin-inline-end-zero);
+    --hop-Tag-md-avatar-margin-inline-start: var(--hop-Tag-md-element-margin-inline-end-sm);
+    --hop-Tag-md-clear-btn-margin-inline: calc(-1 * var(--hop-Tag-md-column-gap)) var(--hop-Tag-md-element-margin-inline-end-zero);
+    --hop-Tag-md-spinner-margin-inline-end: var(--hop-Tag-md-element-margin-inline-end-sm);
 
     /* Large */
     --hop-Tag-lg-block-size: 2rem;
     --hop-Tag-lg-padding-inline: var(--hop-space-inset-md);
     --hop-Tag-lg-column-gap: var(--hop-space-inline-sm);
     --hop-Tag-lg-icon-margin-inline-start: calc(-1 * var(--hop-space-inline-sm));
-    --hop-Tag-lg-avatar-margin-inline-start: calc(-1 * var(--hop-space-inline-sm));
     --hop-Tag-lg-element-margin-inline-end-sm: calc(-1 * (var(--hop-Tag-lg-padding-inline) - var(--hop-space-inline-xs))); /* -0.75rem to get 0.25rem of spacing between element & the Tag edge */
     --hop-Tag-lg-badge-margin-inline-end: var(--hop-Tag-lg-element-margin-inline-end-sm);
+    --hop-Tag-lg-avatar-margin-inline-start: var(--hop-Tag-lg-element-margin-inline-end-sm);
     --hop-Tag-lg-clear-btn-margin-inline: 0 var(--hop-Tag-lg-element-margin-inline-end-sm);
     --hop-Tag-lg-spinner-margin-inline-end: var(--hop-Tag-lg-element-margin-inline-end-sm);
 
