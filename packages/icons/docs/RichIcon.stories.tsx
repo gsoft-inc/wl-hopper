@@ -1,4 +1,4 @@
-import { Stack, SlotProvider } from "@hopper-ui/components";
+import { Stack, SlotProvider, Inline } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SparklesRichIcon } from "../src/generated-rich-icon-components/index.ts";
@@ -48,16 +48,25 @@ export const Sizing: Story = {
  */
 export const Variants: Story = {
     render: props => (
-        <Stack>
-            <SparklesRichIcon variant="option1" {...props} />
-            <SparklesRichIcon variant="option2" {...props} />
-            <SparklesRichIcon variant="option3" {...props} />
-            <SparklesRichIcon variant="option4" {...props} />
-            <SparklesRichIcon variant="option5" {...props} />
-            <SparklesRichIcon variant="option6" {...props} />
-            <SparklesRichIcon variant="option7" {...props} />
-            <SparklesRichIcon variant="option8" {...props} />
-        </Stack>
+        <Inline alignY="flex-start">
+            <Stack>
+                <SparklesRichIcon variant="option1" {...props} />
+                <SparklesRichIcon variant="option2" {...props} />
+                <SparklesRichIcon variant="option3" {...props} />
+                <SparklesRichIcon variant="option4" {...props} />
+                <SparklesRichIcon variant="option5" {...props} />
+                <SparklesRichIcon variant="option6" {...props} />
+                <SparklesRichIcon variant="option7" {...props} />
+                <SparklesRichIcon variant="option8" {...props} />
+            </Stack>
+            <Stack>
+                <SparklesRichIcon variant="success" {...props} />
+                <SparklesRichIcon variant="warning" {...props} />
+                <SparklesRichIcon variant="danger" {...props} />
+                <SparklesRichIcon variant="information" {...props} />
+                <SparklesRichIcon variant="upsell" {...props} />
+            </Stack>
+        </Inline>
     )
 };
 
