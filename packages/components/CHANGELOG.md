@@ -1,5 +1,16 @@
 # @hopper-ui/components
 
+## 1.2.0
+
+### Minor Changes
+
+- 58de004: Added an avatar slot to ListBox and Tag components.
+
+### Patch Changes
+
+- Updated dependencies [58de004]
+  - @hopper-ui/icons@2.7.0
+
 ## 1.1.0
 
 ### Minor Changes
