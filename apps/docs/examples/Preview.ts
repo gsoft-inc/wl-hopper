@@ -380,17 +380,17 @@ export const Previews: Record<string, Preview> = {
     "Form/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Form/docs/preview.tsx"))
     },
-    "Form/docs/ariaValidation": {
-        component: lazy(() => import("@/../../packages/components/src/Form/docs/ariaValidation.tsx"))
-    },
-    "Form/docs/nativeValidation": {
-        component: lazy(() => import("@/../../packages/components/src/Form/docs/nativeValidation.tsx"))
+    "Form/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/disabled.tsx"))
     },
     "Form/docs/validation": {
         component: lazy(() => import("@/../../packages/components/src/Form/docs/validation.tsx"))
     },
-    "Form/docs/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/Form/docs/disabled.tsx"))
+    "Form/docs/nativeValidation": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/nativeValidation.tsx"))
+    },
+    "Form/docs/ariaValidation": {
+        component: lazy(() => import("@/../../packages/components/src/Form/docs/ariaValidation.tsx"))
     },
     "Form/docs/size": {
         component: lazy(() => import("@/../../packages/components/src/Form/docs/size.tsx"))
@@ -403,6 +403,42 @@ export const Previews: Record<string, Preview> = {
     },
     "HelperMessage/docs/noicon": {
         component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/noicon.tsx"))
+    },
+    "inputs/docs/numberField/preview": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/preview.tsx"))
+    },
+    "inputs/docs/numberField/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/disabled.tsx"))
+    },
+    "inputs/docs/numberField/readOnly": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/readOnly.tsx"))
+    },
+    "inputs/docs/numberField/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/sizes.tsx"))
+    },
+    "inputs/docs/numberField/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/labeling.tsx"))
+    },
+    "inputs/docs/numberField/description": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/description.tsx"))
+    },
+    "inputs/docs/numberField/iconPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/iconPrefix.tsx"))
+    },
+    "inputs/docs/numberField/textPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/textPrefix.tsx"))
+    },
+    "inputs/docs/numberField/error": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/error.tsx"))
+    },
+    "inputs/docs/numberField/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/fluid.tsx"))
+    },
+    "inputs/docs/numberField/formatting": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/formatting.tsx"))
+    },
+    "inputs/docs/numberField/minmax": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/minmax.tsx"))
     },
     "inputs/docs/passwordField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/preview.tsx"))
@@ -577,6 +613,9 @@ export const Previews: Record<string, Preview> = {
     },
     "inputs/docs/textField/textPrefix": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/textPrefix.tsx"))
+    },
+    "inputs/docs/textField/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },
     "inputs/docs/textField/characterCount": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/characterCount.tsx"))
