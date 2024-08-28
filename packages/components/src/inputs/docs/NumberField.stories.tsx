@@ -8,7 +8,7 @@ import { Label } from "../../typography/index.ts";
 import { NumberField } from "../src/NumberField.tsx";
 
 /**
- * A Number Field enables users to input numbers directly or navigate through them using arrow buttons, 
+ * A Number Field enables users to input numbers directly or navigate through them using arrow buttons,
  * serving as a refined iteration of the TextField component.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/NumberField/src)
@@ -86,7 +86,7 @@ export const Error: Story = {
 };
 
 /**
- * A min a max value can be set for the number field.
+ * A min and a max value can be set for the number field.
  */
 export const MinAndMax: Story = {
     ...Default,

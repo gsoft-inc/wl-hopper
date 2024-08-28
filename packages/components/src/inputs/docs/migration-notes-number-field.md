@@ -1,6 +1,6 @@
 - Boolean props are now prefixed by `is`.
 - There is no longer a loading state.
-- `icon` prop have been renamed to `prefix`.
+- `icon` prop has been renamed to `prefix`.
 - `wrapperProps` is not supported.
 - `validationState` was renamed to `isInvalid`.
 - `min` and `max` props have been renamed to `minValue` and `maxValue`.
