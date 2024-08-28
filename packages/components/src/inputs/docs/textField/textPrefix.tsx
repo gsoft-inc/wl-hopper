@@ -2,8 +2,8 @@ import { TextField, Label } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <TextField placeholder="Enter a price" prefix="$">
-            <Label>Price:</Label>
+        <TextField placeholder="(000) 000-0000" prefix="+1">
+            <Label>Phone number:</Label>
         </TextField>
     );
 }
