@@ -16,6 +16,7 @@ export * from "./ListBox/index.ts";
 export * from "./overlays/Popover/index.ts";
 export * from "./radio/index.ts";
 export * from "./Section/index.ts";
+export * from "./Select/index.ts";
 export * from "./Spinner/index.ts";
 export * from "./switch/index.ts";
 export * from "./tag/index.ts";

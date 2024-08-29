@@ -25,24 +25,32 @@
     --hop-ListBoxItem-xs-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-xs-min-height: 2rem;
     --hop-ListBoxItem-xs-avatar-margin-block: 0;
+    --hop-ListBoxItem-xs-label-font-weight: var(--hop-body-sm-font-weight);
+    --hop-ListBoxItem-xs-label-font-weight-selected: var(--hop-body-sm-medium-font-weight);
 
     /* sm */
     --hop-ListBoxItem-sm-padding-block: var(--hop-space-inset-sm);
     --hop-ListBoxItem-sm-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-sm-min-height: 2.5rem;
     --hop-ListBoxItem-sm-avatar-margin-block: 0;
+    --hop-ListBoxItem-sm-label-font-weight: var(--hop-body-sm-font-weight);
+    --hop-ListBoxItem-sm-label-font-weight-selected: var(--hop-body-sm-medium-font-weight);
 
     /* md */
     --hop-ListBoxItem-md-padding-block: var(--hop-space-inset-md);
     --hop-ListBoxItem-md-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-md-min-height: 3.5rem;
     --hop-ListBoxItem-md-avatar-margin-block: calc(-1 * var(--hop-space-stack-xs));
+    --hop-ListBoxItem-md-label-font-weight: var(--hop-body-sm-font-weight);
+    --hop-ListBoxItem-md-label-font-weight-selected: var(--hop-body-sm-medium-font-weight);
 
     /* lg */
     --hop-ListBoxItem-lg-padding-block: var(--hop-space-inset-md);
     --hop-ListBoxItem-lg-padding-inline: var(--hop-space-inset-md);
     --hop-ListBoxItem-lg-min-height: 4rem;
     --hop-ListBoxItem-lg-avatar-margin-block: calc(-1 * var(--hop-space-stack-xs));
+    --hop-ListBoxItem-lg-label-font-weight: var(--hop-body-md-font-weight);
+    --hop-ListBoxItem-lg-label-font-weight-selected: var(--hop-body-md-medium-font-weight);
 
     /* Hovered */
     --hop-ListBoxItem-background-color-hovered: var(--hop-neutral-surface-hover);
@@ -121,6 +129,7 @@
     --padding-inline: var(--hop-ListBoxItem-xs-padding-inline);
     --min-height: var(--hop-ListBoxItem-xs-min-height);
     --avatar-margin-block: var(--hop-ListBoxItem-xs-avatar-margin-block);
+    --label-font-weight: var(--hop-ListBoxItem-xs-label-font-weight);
 }
 
 .hop-ListBoxItem--sm {
@@ -128,6 +137,7 @@
     --padding-inline: var(--hop-ListBoxItem-sm-padding-inline);
     --min-height: var(--hop-ListBoxItem-sm-min-height);
     --avatar-margin-block: var(--hop-ListBoxItem-sm-avatar-margin-block);
+    --label-font-weight: var(--hop-ListBoxItem-sm-label-font-weight);
 }
 
 .hop-ListBoxItem--md {
@@ -135,6 +145,7 @@
     --padding-inline: var(--hop-ListBoxItem-md-padding-inline);
     --min-height: var(--hop-ListBoxItem-md-min-height);
     --avatar-margin-block: var(--hop-ListBoxItem-md-avatar-margin-block);
+    --label-font-weight: var(--hop-ListBoxItem-md-label-font-weight);
 }
 
 .hop-ListBoxItem--lg {
@@ -142,6 +153,7 @@
     --padding-inline: var(--hop-ListBoxItem-lg-padding-inline);
     --min-height: var(--hop-ListBoxItem-lg-min-height);
     --avatar-margin-block: var(--hop-ListBoxItem-lg-avatar-margin-block);
+    --label-font-weight: var(--hop-ListBoxItem-lg-label-font-weight);
 }
 
 .hop-ListBoxItem[data-selection-mode] {
@@ -165,6 +177,22 @@
     --text-color: var(--hop-ListBoxItem-text-color-selected);
     --icon-color: var(--hop-ListBoxItem-icon-color-selected);
     --checkmark-opacity: 1;
+}
+
+.hop-ListBoxItem--xs[data-selected] {
+    --label-font-weight: var(--hop-ListBoxItem-xs-label-font-weight-selected);
+}
+
+.hop-ListBoxItem--sm[data-selected] {
+    --label-font-weight: var(--hop-ListBoxItem-sm-label-font-weight-selected);
+}
+
+.hop-ListBoxItem--md[data-selected] {
+    --label-font-weight: var(--hop-ListBoxItem-md-label-font-weight-selected);
+}
+
+.hop-ListBoxItem--lg[data-selected] {
+    --label-font-weight: var(--hop-ListBoxItem-lg-label-font-weight-selected);
 }
 
 .hop-ListBoxItem[data-focus-visible] {
@@ -298,6 +326,7 @@
 
     min-inline-size: 0;
 
+    font-weight: var(--label-font-weight);
     text-overflow: ellipsis;
     white-space: nowrap;
 }

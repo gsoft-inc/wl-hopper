@@ -23,6 +23,7 @@
     --hop-ListBox-section-border-color: var(--hop-ListBox-border-color); 
 
     /* Section Header */
+    --hop-ListBox-section-header-color: var(--hop-neutral-text-weak);
     --hop-ListBox-section-header-font-family: var(--hop-overline-font-family);
     --hop-ListBox-section-header-font-size: var(--hop-overline-font-size);
     --hop-ListBox-section-header-font-weight: var(--hop-overline-font-weight);
@@ -104,6 +105,7 @@
     font-size: var(--hop-ListBox-section-header-font-size);
     font-weight: var(--hop-ListBox-section-header-font-weight);
     line-height: var(--hop-ListBox-section-header-line-height);
+    color: var(--hop-ListBox-section-header-color);
     text-transform: var(--hop-ListBox-section-header-text-transform);
     letter-spacing: var(--hop-ListBox-section-header-letter-spacing);
 }

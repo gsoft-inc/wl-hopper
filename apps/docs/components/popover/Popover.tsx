@@ -21,8 +21,7 @@ export interface PopoverProps extends RACPopoverProps {
     boundaryOffset?: number;
 }
 
-export interface PopoverTriggerProps extends DialogTriggerProps {
-}
+export interface PopoverTriggerProps extends DialogTriggerProps {}
 
 export const PopoverTrigger = (props: PopoverTriggerProps) =>
     <DialogTrigger {...props}>{props.children}</DialogTrigger>;

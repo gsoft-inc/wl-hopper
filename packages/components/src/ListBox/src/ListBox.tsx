@@ -1,7 +1,7 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ReactNode, type ForwardedRef, type NamedExoticComponent } from "react";
-import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection, type ListBoxRenderProps } from "react-aria-components";
+import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection, type ListBoxRenderProps, type Selection } from "react-aria-components";
 
 import { DividerContext } from "../../Divider/index.ts";
 import { HeaderContext } from "../../Header/index.ts";
@@ -19,6 +19,7 @@ import styles from "./ListBox.module.css";
 
 export const GlobalListBoxCssSelector = "hop-ListBox";
 export const GlobalListBoxEmptyItemCssSelector = "hop-ListBox__empty-item";
+export type ListBoxSelection = Selection;
 
 export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxProps<T>, "orientation | layout">> {
     /**

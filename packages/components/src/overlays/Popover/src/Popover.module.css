@@ -7,13 +7,62 @@
     outline: none;
 }
 
-.hop-Popover__dialog {
+.hop-Popover {
+    --hop-Popover-max-inline-width: calc(100% - (var(--container-padding) * 2)); /* --container-padding is set in Popover.tsx */
+    --hop-Popover-inline-width: 25rem;
+    --hop-Popover-dropdown-inline-width: var(--trigger-width);
+    --hop-Popover-dropdown-auto-inline-width: auto;
+
+    /* Internal Variables */
+    --width: var(--hop-Popover-inline-width);
+    --max-width: var(--hop-Popover-max-inline-width);
+    
+    inline-size: var(--width);
+    max-inline-size: var(--max-width);
+}
+
+.hop-Popover[data-trigger="Select"] {
+    --width: var(--hop-Popover-dropdown-inline-width);
+}
+
+.hop-Popover[data-auto-width] {
+    --width: var(--hop-Popover-dropdown-auto-inline-width);
+}
+
+.hop-Popover[data-entering] {
+    animation: fade 0.25s;
+}
+
+.hop-Popover[data-exiting] {
+    animation: fade 0.25s reverse;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hop-Popover__dialog,
+.hop-Popover__dropdown {
     --hop-Popover-background: var(--hop-neutral-surface);
     --hop-Popover-font-family: var(--hop-body-sm-font-family);
     --hop-Popover-font-size: var(--hop-body-sm-font-size);
     --hop-Popover-font-weight: var(--hop-body-sm-font-weight);
     --hop-Popover-line-height: var(--hop-body-sm-line-height);
     --hop-Popover-color: var(--hop-neutral-text);
+    --hop-Popover-grid-template: 
+                            "header header"
+                            "content content" 1fr
+                            "footer action"
+                            / auto auto;
+    --hop-Popover-column-gap: var(--hop-space-inset-sm);
+    --hop-Popover-row-gap: var(--hop-space-stack-sm);
+    --hop-Popover-dialog-padding: var(--hop-space-inset-md);
     --hop-Popover-title-font-family: var(--hop-body-sm-font-family);
     --hop-Popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
     --hop-Popover-content-font-size: var(--hop-body-sm-font-size);
@@ -22,51 +71,55 @@
     --hop-Popover-footer-font-size: var(--hop-body-sm-font-size);
     --hop-Popover-footer-line-height: var(--hop-body-sm-line-height);
     --hop-Popover-footer-link-color: var(--hop-primary-text);
+    --hop-Popover-footer-margin-block-start: var(--hop-space-stack-md);
     --hop-Popover-border: 0.0625rem solid var(--hop-neutral-border-weak);
     --hop-Popover-border-radius: var(--hop-shape-rounded-md);
     --hop-Popover-box-shadow: var(--hop-elevation-lifted);
-    --hop-Popover-max-inline-width: calc(100% - var(--hop-space-inline-md));
+
+    /* Dropdown Variables */
+    --hop-Popover-dropdown-grid-template: 
+                                        "header" 
+                                        "content" 1fr
+                                        "footer"
+                                        / auto;
+    --hop-Popover-list-box-dropdown-max-height: 18.75rem;
+    --hop-Popover-footer-dropdown-margin-block-start: 0;
+    --hop-Popover-footer-dropdown-footer-padding: var(--hop-space-inset-sm);
+    --hop-Popover-footer-dropdown-footer-border-top: 0.0625rem solid var(--hop-neutral-border-weak);
 
     /* Internal variables */
     --font-family: var(--hop-Popover-font-family);
     --font-size: var(--hop-Popover-font-size);
     --font-weight: var(--hop-Popover-font-weight);
     --line-height: var(--hop-Popover-line-height);
-    --width: var(--hop-Popover-max-inline-width);
-
+    --grid-template: var(--hop-Popover-grid-template);
+    --footer-margin-block-start: var(--hop-Popover-footer-margin-block-start);
+    --footer-place-self: center start;
+    
     display: grid;
-    grid-template-areas:
-        "header header"
-        "content content"
-        "footer action";
-    grid-template-columns: repeat(2, auto);
-    column-gap: var(--hop-space-inset-sm);
+    grid-template: var(--grid-template);
 
     box-sizing: border-box;
-    inline-size: var(--width);
-    max-inline-size: var(--width);
-    padding: var(--hop-space-inset-md);
 
     background-color: var(--hop-Popover-background);
     border: var(--hop-Popover-border);
     border-radius: var(--hop-Popover-border-radius);
     box-shadow: var(--hop-Popover-box-shadow);
+}
 
-    @media (width >= 40rem) {
-        --width: 25rem;
-    }
+.hop-Popover__dropdown {
+    --hop-Popover-footer-margin-block-start: var(--hop-Popover-footer-dropdown-margin-block-start);
+    --footer-place-self: stretch;
+    --grid-template: var(--hop-Popover-dropdown-grid-template);
+}
+
+.hop-Popover__dialog {
+    padding: var(--hop-Popover-dialog-padding);
 }
 
 .hop-Popover__title {
     grid-area: header;
     color: var(--hop-Popover-color);
-}
-
-.hop-Popover__actions,
-.hop-Popover__action {
-    grid-area: action;
-    justify-self: end;
-    margin-block-start: var(--hop-space-stack-sm);
 }
 
 .hop-Popover__content {
@@ -75,11 +128,22 @@
 
     grid-area: content;
 
-    margin-block: var(--hop-space-stack-sm) 0;
+    margin-block: var(--hop-Popover-row-gap) 0;
     margin-inline: 0;
     padding: 0;
 
     color: var(--hop-Popover-content-color);
+}
+
+.hop-Popover__dropdown .hop-Popover__list-box {
+    grid-area: content;
+
+    inline-size: auto;
+    min-inline-size: auto;
+    max-inline-size: none;
+    max-block-size: var(--hop-Popover-list-box-dropdown-max-height);
+
+    border: none;
 }
 
 .hop-Popover__footer {
@@ -87,7 +151,23 @@
     --line-height: var(--hop-Popover-footer-line-height);
 
     grid-area: footer;
-    place-self: center start;
-    margin-block-start: var(--hop-space-stack-sm);
+    place-self: var(--footer-place-self);
+    margin-block-start: var(--footer-margin-block-start);
     color: var(--hop-Popover-color);
+}
+
+.hop-Popover__dropdown .hop-Popover__footer {
+    padding: var(--hop-Popover-footer-dropdown-footer-padding);
+    border-block-start: var(--hop-Popover-footer-dropdown-footer-border-top);
+}
+
+.hop-Popover__actions,
+.hop-Popover__action {
+    grid-area: action;
+    justify-self: end;
+    margin-block-start: var(--hop-Popover-row-gap);
+}
+
+.hop-Popover:has(.hop-Popover__actions, .hop-Popover__action) .hop-Popover__footer {
+    margin-inline-end: var(--hop-Popover-column-gap);
 }

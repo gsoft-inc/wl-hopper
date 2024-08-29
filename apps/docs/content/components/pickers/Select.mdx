@@ -1,49 +1,214 @@
 ---
 title: Select
-description: TBD
+description: A select displays a collapsible list of options from which the user can select one.
 category: "pickers"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/TBD/src/TBD.tsx
-status: WIP
 ---
+
+<Example src="Select/docs/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
-
-## Guidelines
-
-TODO: If we have some guidelines about this component's usage
-
-### Accessibility ?
-
-TODO: If we have some guidelines about this component and accessibility
+<PropTable component="TextField" />
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Concepts
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: links to related concepts
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
+
+#### Header
+
+The Header component represents a `header` within a Hopper container.
+
+#### Section
+
+The Section component represents a `section` within a Hopper container.
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+#### Select
 
-## Examples
+- [Label](./Label)
+- [Helper Message](./HelperMessage)
+- [Error Message](./ErrorMessage)
+- [Header](./Select#header)
+- [Section](./Select#section)
+- [Divider](./Divider)
+- [Select.Option](./Select#selectoption)
 
-## Advanced customization
+#### Select.Option
 
-### Contexts
-TODO: Example of context + content about the context
+- [Text](./Text)
+- [Avatar](Avatar)
+- [Icon](./Icon)
+- [Badge](./Badge)
 
-### Custom Children
+## Select Examples
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Disabled
+A select in a disabled state shows that it exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 
-### Custom Component
+<Example src="Select/docs/disabled" />
 
-TODO: Example of creating a custom version of this component
+### Error
+A select can be displayed in an error state to indicate that the selection is invalid.
 
-## Migration Notes (WIP)
+<Example src="Select/docs/error" />
+
+### Sizes
+A select has multiple sizes to choose from.
+The select menu also changes size based on the size of the select.
+
+<Example src="Select/docs/sizes" />
+
+### Labeling
+If a visible label isn't specified, an `aria-label` must be provided to the select for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
+
+<Example src="Select/docs/labeling" />
+
+### Icon Prefix
+An icon can be displayed at the start of the select trigger.
+
+<Example src="Select/docs/iconPrefix" />
+
+### Text Prefix
+A short text can be displayed at the start of the select trigger.
+
+<Example src="Select/docs/textPrefix" />
+
+### Fluid
+A select can take the width of its container.
+
+<Example src="Select/docs/fluid" />
+
+### Custom Value
+A select's trigger value can be customized using the `renderValue` function to allow other elements such as an avatar or icon inside the trigger value.
+
+<Example src="Select/docs/customValue" />
+
+### Controlled
+A select can have a controlled selected value. In this example, it shows how it is possible to deselect an option.
+
+<Example src="Select/docs/controlled" />
+
+### Form
+A select can be part of a form. To submit the value of a select, make sure you specify the `name` property.
+
+<Example src="Select/docs/form" />
+
+## Select Menu Examples
+
+### Disabled
+
+A select with a disabled item.
+
+<Example src="Select/docs/selectMenu/disabled" />
+
+### Auto Menu Width
+
+A select can have a menu that automatically adjusts its width based on the longest item.
+
+<Example src="Select/docs/selectMenu/autoMenuWidth" />
+
+### Divider
+
+Dividers can be added to a select.
+
+<Example src="Select/docs/selectMenu/divider" />
+
+### Section
+
+A select can have sections and section headers.
+
+<Example src="Select/docs/selectMenu/section" />
+
+### Avatar
+
+A select option can contain an avatar.
+
+<Example src="Select/docs/selectMenu/avatar" />
+
+### Count
+
+A select option can contain a count using a badge.
+
+<Example src="Select/docs/selectMenu/count" />
+
+### Dynamic Lists
+
+Options and sections can be populated from a hierarchial data structure.
+If a section has a header, the `Collection` component can be used to render the child items.
+
+<Example src="Select/docs/selectMenu/dynamicLists" />
+
+### Icons
+
+A select option can contain icons.
+
+<Example src="Select/docs/selectMenu/icons" />
+
+### End Icons
+
+A select can contain icons at the end of an option.
+
+<Example src="Select/docs/selectMenu/endIcons" />
+
+### Loading
+
+A select can have a loading state.
+
+<Example src="Select/docs/selectMenu/loading" />
+
+### Load on scroll
+
+A select can load more items when scrolling within.
+
+<Example src="Select/docs/selectMenu/loadOnScroll" />
+
+### Selection indicator
+
+A select can have a different selection indicator.
+
+<Example src="Select/docs/selectMenu/selectionIndicator" />
+
+### Description
+
+A select item can have a description.
+
+<Example src="Select/docs/selectMenu/description" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Migration Notes
+
+<MigrateGuide src="select/docs/migration-notes" />

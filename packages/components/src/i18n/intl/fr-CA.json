@@ -8,5 +8,6 @@
     "ListBoxItem.loadingTextValue": "Élément en cours de chargement",
     "ListBoxItem.indicatorAriaLabel": "Indicateur de sélection d'élément de liste",
     "Label.necessityLabel.required": "Obligatoire",
-    "Label.necessityLabel.optional": "Facultatif"
+    "Label.necessityLabel.optional": "Facultatif",
+    "Select.placeholder": "Sélectionner un élément"
 }
