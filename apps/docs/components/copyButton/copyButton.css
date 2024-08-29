@@ -18,6 +18,11 @@
     background-color: var(--hd-neutral-800);
 }
 
+.hd-copy-button:not([disabled]):focus-visible {
+    box-shadow: var(--hd-focus-ring);
+    outline: none;
+}
+
 .hd-copy-button__icon {
     stroke: currentcolor;
 }
