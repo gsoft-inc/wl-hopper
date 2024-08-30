@@ -5,7 +5,7 @@
     justify-content: center;
     border: none;
     aspect-ratio: 1/1;
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
     width: var(--hd-space-4);
     background-color: transparent;
 }
@@ -16,6 +16,11 @@
 
 .hd-copy-button.hd-copy-button--on-dark:not([disabled]):hover {
     background-color: var(--hd-neutral-800);
+}
+
+.hd-copy-button:not([disabled]):focus-visible {
+    box-shadow: var(--hd-focus-ring);
+    outline: none;
 }
 
 .hd-copy-button__icon {

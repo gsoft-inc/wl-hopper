@@ -12,5 +12,5 @@
 .hd-popover:focus-visible {
     outline: 0;
     box-shadow: var(--hd-focus-ring);
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
 }

@@ -49,7 +49,6 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, minHeight = "13re
                     {preview}
                 </Card>
             </HopperProvider>
-
         </div>
     );
 });

@@ -38,6 +38,10 @@
     background-color: transparent;
 }
 
+.hd-pre__code code ::selection {
+    background-color: var(--hd-color-surface-code-selection);
+}
+
 /* !* pre HEADER *! */
 .hd-pre-header {
     display: flex;

@@ -30,6 +30,15 @@
     }
 }
 
+.hd-component-code ::selection {
+    background-color: var(--hd-color-surface-code-selection);
+}
+
+/* Let's prevent focusing on the copy button if it's being hidden */
+.hd-component-code:not(.hd-component-code--expanded) .hd-copy-button {
+    display: none;
+}
+
 .hd-component-example__skeleton {
     height: 13rem;
 }
