@@ -56,7 +56,12 @@ export default async function ComponentPage({ params }: PageProps) {
             name: "issue",
             src: "https://github.com/gsoft-inc/wl-hopper/issues/new",
             label: "Report an issue"
-        }
+        },
+        ...(links.aria ? [{
+            name: "wai-aria",
+            src: links.aria,
+            label: "WAI-ARIA"
+        }] : [])
     ];
 
     const sectionLinks = getSectionLinks({ body: { raw: component.raw } });

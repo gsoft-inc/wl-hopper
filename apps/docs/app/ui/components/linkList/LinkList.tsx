@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Button from "@/components/button/Button.tsx";
-import { Icon, GithubIcon, NpmIcon, ExternalLinkIcon, type IconProps } from "@/components/icon";
+import { Icon, GithubIcon, NpmIcon, ExternalLinkIcon, WaiAriaIcon, type IconProps } from "@/components/icon";
 
 import "./linkList.css";
 
@@ -31,6 +31,9 @@ export default function LinkList({ links, className }: LinkListProps) {
                         break;
                     case "issue":
                         icon = ExternalLinkIcon;
+                        break;
+                    case "wai-aria":
+                        icon = WaiAriaIcon;
                         break;
                 }
 
