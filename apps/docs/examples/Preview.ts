@@ -803,6 +803,9 @@ export const Previews: Record<string, Preview> = {
     "Select/docs/selectMenu/autoMenuWidth": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/autoMenuWidth.tsx"))
     },
+    "Select/docs/selectMenu/menuPlacement": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/menuPlacement.tsx"))
+    },
     "Select/docs/selectMenu/divider": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/divider.tsx"))
     },

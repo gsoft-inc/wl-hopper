@@ -119,6 +119,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         style: triggerStyleProp,
         ...otherTriggerProps
     } = triggerOwnProps;
+    const { placement = "bottom start", ...otherPopoverProps } = popoverProps ?? {};
     
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
@@ -210,7 +211,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             </SelectValue>
                             <ButtonIcon size="sm" className={styles["hop-Select__button-icon"]} />
                         </Button>
-                        <Popover {...popoverProps} isNonDialog autoWidth={isAutoMenuWidth}>
+                        <Popover {...otherPopoverProps} placement={placement} isNonDialog autoWidth={isAutoMenuWidth}>
                             <SlotProvider values={[
                                 [BadgeContext, {
                                     variant: "secondary"

@@ -4,9 +4,6 @@ export default function Example() {
     return (
         <Select isAutoMenuWidth
             aria-label="list of options with a description"
-            popoverProps={{
-                placement: "bottom start"
-            }}
         >
             <Select.Option textValue="Item 1">
                 <Text>Item 1</Text>
