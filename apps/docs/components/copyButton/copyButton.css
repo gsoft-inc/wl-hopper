@@ -5,7 +5,7 @@
     justify-content: center;
     border: none;
     aspect-ratio: 1/1;
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
     width: var(--hd-space-4);
     background-color: transparent;
 }

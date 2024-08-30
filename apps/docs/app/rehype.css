@@ -60,7 +60,7 @@ code[data-theme*=' '] span {
 }
 
 [data-rehype-pretty-code-figure] .word {
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
     background-color: var(--hd-codeblock-word-selection-background-color);
     box-shadow: 0 0 0 var(--hd-space-05) var(--hd-codeblock-word-selection-background-color);
 }
