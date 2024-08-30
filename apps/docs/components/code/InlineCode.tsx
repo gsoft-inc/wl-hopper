@@ -10,7 +10,7 @@ export type InlineCodeProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTM
 
 const InlineCode = ({ children, variant = "default", ...props }: InlineCodeProps) => {
     return (
-        <code {...props} className={clsx("hd-code", { "hd-code--ghost": variant === "ghost" })}>{children}</code>
+        <code {...props} className={clsx("hd-code", { "hd-code--ghost": variant === "ghost" })} tabIndex={-1}>{children}</code>
     );
 };
 
