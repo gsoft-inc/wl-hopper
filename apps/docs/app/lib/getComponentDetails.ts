@@ -11,7 +11,7 @@ export interface ComponentData {
     title: string;
     description: string;
     status?: string | undefined;
-    links?: { source: string; npm: string; issue: string, aria: string };
+    links?: { source: string; npm: string; issue: string; aria: string };
     order?: number | undefined;
 }
 
