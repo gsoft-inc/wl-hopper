@@ -3,7 +3,7 @@
     --hd-icon-button-color: var(--hd-color-neutral-icon);
     --hd-icon-button-background-color: transparent;
     --hd-icon-button-background-color-hover: var(--hd-color-neutral-surface-weak);
-    --hd-icon-button-border-radius: var(--hd-space-05);
+    --hd-icon-button-border-radius: var(--hd-border-radius-sm);
     --hd-icon-button-fill: var(--hd-color-neutral-icon);
     --hd-icon-button-fill-hover: var(--hd-color-neutral-icon-hover);
 }

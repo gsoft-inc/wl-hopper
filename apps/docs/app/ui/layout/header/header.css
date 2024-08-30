@@ -6,7 +6,7 @@
     --hd-header-shadow-1-block-color: rgba(175 182 225 / 80%);
     --hd-header-shadow-2-block-color: #FECD94;
     --hd-header-shadow-3-block-color: #A9F1D6;
-    --hd-header-shadow-1-top-position: -2.75rem;
+    --hd-header-shadow-1-top-position: -18.75rem;
     --hd-header-shadow-2-top-position: -21.25rem;
     --hd-header-shadow-3-top-position: -10.5rem;
 }
@@ -41,7 +41,7 @@
 .hd-product__menu [role="dialog"]:focus-visible {
     outline: 0;
     box-shadow: var(--hd-focus-ring);
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
 }
 
 .hd-product__items {
@@ -123,7 +123,7 @@
 .hd-brand:focus-visible {
     outline: 0;
     box-shadow: var(--hd-focus-ring);
-    border-radius: var(--hd-space-05);
+    border-radius: var(--hd-border-radius-sm);
 }
 
 .hd-brand__logo {

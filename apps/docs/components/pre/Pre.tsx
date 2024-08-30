@@ -32,7 +32,7 @@ const Pre = ({ children, className, title, "data-language": dataLanguage, raw, t
     const copyButton = raw && <CopyButton onDark={isOnDark} text={raw} />;
 
     return (
-        <pre {...props} data-theme={theme} className={classes}>
+        <pre {...props} data-theme={theme} className={classes} tabIndex={-1}>
             {title &&
                 <div className="hd-pre-header">
                     <div className="hd-pre-header__info">
