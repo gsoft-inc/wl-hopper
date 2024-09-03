@@ -66,8 +66,8 @@
     --hd-color-white-surface: var(--hd-white);
     --hd-color-neutral-surface: var(--hd-neutral-20);
     --hd-color-neutral-surface-weak: var(--hd-neutral-50);
-    --hd-color-surface-neutral-selection: #405675;
-    --hd-color-surface-code-selection: var(--hd-neutral-75);
+    --hd-color-surface-neutral-selection: var(--hd-neutral-75);
+    --hd-color-surface-code-selection: #405675;
     --hd-color-neutral-text: var(--hd-neutral-900);
     --hd-color-neutral-text-strong: var(--hd-neutral-0);
     --hd-color-neutral-text-weak: var(--hd-neutral-700);
@@ -113,7 +113,7 @@
     --hd-color-white-surface: var(--hd-neutral-800);
     --hd-color-neutral-surface: var(--hd-neutral-900);
     --hd-color-neutral-surface-weak: var(--hd-neutral-800);
-    --hd-color-surface-neutral-selection: var(--hd-neutral-300);
+    --hd-color-surface-neutral-selection: var(--hd-neutral-700);
     --hd-color-surface-code-selection: #405675;
     --hd-color-neutral-text: var(--hd-neutral-0);
     --hd-color-neutral-text-strong: var(--hd-neutral-900);

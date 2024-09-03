@@ -7,6 +7,8 @@ import Title from "@/components/title/Title";
 import Card from "@/components/card/Card";
 import { Icon, EmptyComponent } from "@/components/icon";
 import { OverviewComponents } from "@/examples/overview";
+import { HopperProvider } from "@hopper-ui/components";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
 import { useContext } from "react";
 import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
@@ -48,6 +50,8 @@ const categories = Array.from(new Set(allComponents.map(component => component.c
 
 const Overview = () => {
     const featureFlags = useContext(FeatureFlagContext);
+    const { colorMode } = useContext(ThemeContext);
+    const theme = colorMode as ColorScheme;
 
     const overviewSection = categories.map(category => {
         if (!category) {
@@ -61,36 +65,40 @@ const Overview = () => {
                     interactive
                     className="hd-component-overview-category__title"
                 >{category}</Title>
-                <div className="hd-component-overview">
-                    {allComponents.filter(component =>
-                        component.category &&
+                <HopperProvider colorScheme={theme} >
+                    <div className="hd-component-overview">
+                        {allComponents.filter(component =>
+                            component.category &&
     component.category === category &&
     (component.status === "ready" ||
      component.status === undefined ||
      (component.status === "alpha" && featureFlags.alpha))
-                    ).map(component => {
-                        const ComponentIcon = OverviewComponents[component.title] || EmptyComponent;
+                        ).map(component => {
+                            const ComponentIcon = OverviewComponents[component.title] || EmptyComponent;
 
-                        return (
-                            <Card key={component._id} align="start" ghost className="hd-component-overview-item">
-                                <Link
-                                    className="hd-component-overview-item__link"
-                                    href={`/components/${component.slug}`}
-                                >
-                                    <div className="hd-component-overview-item__img">
-                                        <Icon src={ComponentIcon} />
-                                    </div>
-                                    <div className="hd-component-overview-item__caption">
-                                        <Title as="h3"
-                                            level={3}
-                                            className="hd-component-overview-item__title"
-                                        >{component.title}</Title>
-                                        <p className="hd-component-overview-item__description">{component.description}</p>
-                                    </div>
-                                </Link>
-                            </Card>);
-                    })}
-                </div>
+                            return (
+
+                                <Card align="start" ghost className="hd-component-overview-item" key={component._id}>
+                                    <Link
+                                        className="hd-component-overview-item__link"
+                                        href={`/components/${component.slug}`}
+                                    >
+                                        <div className="hd-component-overview-item__img">
+                                            <Icon src={ComponentIcon} />
+                                        </div>
+                                        <div className="hd-component-overview-item__caption">
+                                            <Title as="h3"
+                                                level={3}
+                                                className="hd-component-overview-item__title"
+                                            >{component.title}</Title>
+                                            <p className="hd-component-overview-item__description">{component.description}</p>
+                                        </div>
+                                    </Link>
+                                </Card>
+                            );
+                        })}
+                    </div>
+                </HopperProvider>
             </div>
         );
     });
