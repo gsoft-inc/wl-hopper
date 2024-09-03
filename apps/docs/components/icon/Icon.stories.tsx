@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { NpmIcon, ComponentIcon, ExternalLinkIcon, GithubIcon, TokenIcon } from "./index.tsx";
+import { NpmIcon, ComponentIcon, ExternalLinkIcon, GithubIcon, WaiAriaIcon, TokenIcon } from "./index.tsx";
 
 import Icon from "./Icon";
 
@@ -18,6 +18,7 @@ export const Default: Story = {
         <Icon src={NpmIcon} />
         <Icon src={ExternalLinkIcon} />
         <Icon src={GithubIcon} />
+        <Icon src={WaiAriaIcon} />
         <Icon src={ComponentIcon} />
         <Icon src={TokenIcon} />
     </div>
