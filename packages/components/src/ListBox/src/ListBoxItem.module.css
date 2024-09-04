@@ -122,6 +122,7 @@
     background-color: var(--background-color);
     border-radius: var(--hop-ListBoxItem-border-radius);
     outline: var(--outline);
+    outline-offset: calc(-1 * var(--hop-ListBoxItem-outline-size));
 }
 
 .hop-ListBoxItem--xs {
