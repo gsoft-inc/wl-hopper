@@ -51,7 +51,7 @@ const Sidebar = ({ links }: SidebarProps) => {
         }
 
         return () => {
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = "unset";
             document.removeEventListener("click", handleClickOutside);
             window.removeEventListener("resize", handleWindowResize);
         };
