@@ -63,6 +63,7 @@
     --hop-Popover-column-gap: var(--hop-space-inset-sm);
     --hop-Popover-row-gap: var(--hop-space-stack-sm);
     --hop-Popover-dialog-padding: var(--hop-space-inset-md);
+    --hop-Popover-dropdown-padding: var(--hop-space-inset-sm);
     --hop-Popover-title-font-family: var(--hop-body-sm-font-family);
     --hop-Popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
     --hop-Popover-content-font-size: var(--hop-body-sm-font-size);
@@ -71,7 +72,7 @@
     --hop-Popover-footer-font-size: var(--hop-body-sm-font-size);
     --hop-Popover-footer-line-height: var(--hop-body-sm-line-height);
     --hop-Popover-footer-link-color: var(--hop-primary-text);
-    --hop-Popover-footer-margin-block-start: var(--hop-space-stack-md);
+    --hop-Popover-footer-margin: var(--hop-space-stack-md) 0 0;
     --hop-Popover-border: 0.0625rem solid var(--hop-neutral-border-weak);
     --hop-Popover-border-radius: var(--hop-shape-rounded-md);
     --hop-Popover-box-shadow: var(--hop-elevation-lifted);
@@ -83,7 +84,7 @@
                                         "footer"
                                         / auto;
     --hop-Popover-list-box-dropdown-max-height: 18.75rem;
-    --hop-Popover-footer-dropdown-margin-block-start: 0;
+    --hop-Popover-footer-dropdown-margin: var(--hop-Popover-dropdown-padding) calc(-1 * var(--hop-Popover-dropdown-padding)) calc(-1 * var(--hop-Popover-dropdown-padding));
     --hop-Popover-footer-dropdown-footer-padding: var(--hop-space-inset-sm);
     --hop-Popover-footer-dropdown-footer-border-top: 0.0625rem solid var(--hop-neutral-border-weak);
 
@@ -93,13 +94,14 @@
     --font-weight: var(--hop-Popover-font-weight);
     --line-height: var(--hop-Popover-line-height);
     --grid-template: var(--hop-Popover-grid-template);
-    --footer-margin-block-start: var(--hop-Popover-footer-margin-block-start);
+    --footer-margin: var(--hop-Popover-footer-margin);
     --footer-place-self: center start;
     
     display: grid;
     grid-template: var(--grid-template);
 
     box-sizing: border-box;
+    padding: var(--padding);
 
     background-color: var(--hop-Popover-background);
     border: var(--hop-Popover-border);
@@ -108,13 +110,14 @@
 }
 
 .hop-Popover__dropdown {
-    --hop-Popover-footer-margin-block-start: var(--hop-Popover-footer-dropdown-margin-block-start);
+    --footer-margin: var(--hop-Popover-footer-dropdown-margin);
     --footer-place-self: stretch;
     --grid-template: var(--hop-Popover-dropdown-grid-template);
+    --padding: var(--hop-Popover-dropdown-padding);
 }
 
 .hop-Popover__dialog {
-    padding: var(--hop-Popover-dialog-padding);
+    --padding: var(--hop-Popover-dialog-padding);
 }
 
 .hop-Popover__title {
@@ -142,6 +145,7 @@
     min-inline-size: auto;
     max-inline-size: none;
     max-block-size: var(--hop-Popover-list-box-dropdown-max-height);
+    padding: 0;
 
     border: none;
 }
@@ -152,7 +156,7 @@
 
     grid-area: footer;
     place-self: var(--footer-place-self);
-    margin-block-start: var(--footer-margin-block-start);
+    margin: var(--footer-margin);
     color: var(--hop-Popover-color);
 }
 

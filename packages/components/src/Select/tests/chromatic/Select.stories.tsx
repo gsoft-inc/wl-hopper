@@ -1,10 +1,11 @@
-import { SparklesIcon } from "@hopper-ui/icons";
+import { AddIcon, SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj, StoryFn } from "@storybook/react";
 import { within } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { Label } from "react-aria-components";
 
+import { Button } from "../../../buttons/index.ts";
 import { Header } from "../../../Header/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Section } from "../../../Section/index.ts";
@@ -24,13 +25,30 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const marginBottomDecorator = [
+const marginBottomDecoratorSM = [
+    (Story: StoryFn) => (
+        <Div UNSAFE_marginBottom="10rem">
+            <Story />
+        </Div>
+    )
+];
+
+const marginBottomDecoratorMD = [
     (Story: StoryFn) => (
         <Div UNSAFE_marginBottom="20rem">
             <Story />
         </Div>
     )
 ];
+
+const marginBottomDecoratorLG = [
+    (Story: StoryFn) => (
+        <Div UNSAFE_marginBottom="23rem">
+            <Story />
+        </Div>
+    )
+];
+
 
 export const OnlyItems = {
     render: args => (
@@ -43,7 +61,7 @@ export const OnlyItems = {
     args: {
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const Sections = {
@@ -67,7 +85,16 @@ export const Sections = {
     args: {
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorMD
+} satisfies Story;
+
+export const Footer = {
+    ...Sections,
+    args: {
+        isOpen: true,
+        footer: <Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>
+    },
+    decorators: marginBottomDecoratorLG
 } satisfies Story;
 
 export const Sizes = {
@@ -109,7 +136,7 @@ export const Sizes = {
         defaultSelectedKey: "2",
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 export const OpenWithSelectedItem = {
@@ -118,7 +145,7 @@ export const OpenWithSelectedItem = {
         defaultSelectedKey: "cat",
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const SelectedItem = {
@@ -352,7 +379,7 @@ export const ScrollingWithSelectedItemOutsideVisibleScope = {
         const selectTrigger = canvas.getAllByRole("button")[0];
         await userEvent.click(selectTrigger);
     },
-    decorators: marginBottomDecorator 
+    decorators: marginBottomDecoratorMD 
 } satisfies Story;
 
 export const CustomTriggerWidth = {
@@ -361,7 +388,7 @@ export const CustomTriggerWidth = {
         UNSAFE_width: "30rem",
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const CustomMenuWidth = {
@@ -372,7 +399,7 @@ export const CustomMenuWidth = {
         },
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const MenuAutoWidth = {
@@ -381,7 +408,7 @@ export const MenuAutoWidth = {
         isAutoMenuWidth: true,
         isOpen: true
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const Direction = {
@@ -425,7 +452,7 @@ export const Invalid = {
         isInvalid: true,
         defaultSelectedKey: "raccoon"
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 const StateTemplate = (args: Partial<SelectProps<object>>) => (
@@ -521,7 +548,7 @@ export const TriggerStates = {
     args: {
         defaultSelectedKey: "cat"
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const Zoom = {
@@ -546,7 +573,7 @@ export const Zoom = {
     args: {
         defaultSelectedKey: "2"
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const Styling = {
@@ -584,5 +611,5 @@ export const Styling = {
     args: {
         defaultSelectedKey: "2"
     },
-    decorators: marginBottomDecorator
+    decorators: marginBottomDecoratorSM
 } satisfies Story;

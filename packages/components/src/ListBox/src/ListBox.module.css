@@ -48,7 +48,7 @@
     --section-border-block-start: 0;
     --section-border-block-end: var(--hop-ListBox-section-border-size) solid var(--hop-ListBox-section-border-color);
 
-    overflow-y: auto;
+    overflow: hidden auto;
 
     box-sizing: border-box;
     inline-size: var(--width);
