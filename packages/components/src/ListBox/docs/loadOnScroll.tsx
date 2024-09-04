@@ -1,5 +1,4 @@
-import { ListBox, ListBoxItem } from "@hopper-ui/components";
-import { useAsyncList } from "react-stately";
+import { ListBox, ListBoxItem, useAsyncList } from "@hopper-ui/components";
 
 interface Character {
     name: string;

@@ -1,8 +1,8 @@
-import { Select, Text, type SelectKey } from "@hopper-ui/components";
+import { Select, Text, type Key } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
-    const [selectedKey, setSelectedKey] = useState<SelectKey>("1");
+    const [selectedKey, setSelectedKey] = useState<Key>("1");
 
     return (
         <Select

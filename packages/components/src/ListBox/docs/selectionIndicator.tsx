@@ -1,8 +1,8 @@
-import { ListBox, ListBoxItem, Text, type ListBoxSelection } from "@hopper-ui/components";
+import { ListBox, ListBoxItem, Text, type Selection } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
-    const [selectedKeys, setSelectedKeys] = useState<ListBoxSelection>(new Set(["1"]));
+    const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(["1"]));
 
     return (
         <ListBox

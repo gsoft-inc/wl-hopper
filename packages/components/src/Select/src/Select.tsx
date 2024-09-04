@@ -10,8 +10,7 @@ import { composeRenderProps,
     ButtonContext as RACButtonContext, 
     type ContextValue, 
     type SelectValueRenderProps, 
-    type ButtonProps as RACButtonProps, 
-    type Key
+    type ButtonProps as RACButtonProps
 } from "react-aria-components";
 
 import { BadgeContext } from "../../Badge/index.ts";
@@ -33,7 +32,6 @@ export const GlobalSelectCssSelector = "hop-Select";
 export type ValueRenderProps = SelectValueRenderProps<object> & { defaultChildren: ReactNode };
 export type SelectSize = "sm" | "md";
 export type SelectTriggerProps = StyledComponentProps<RACButtonProps>;
-export type SelectKey = Key;
 
 export interface SelectProps<T extends object> extends StyledComponentProps<Omit<RACSelectProps<T>, "children">> {
     /**

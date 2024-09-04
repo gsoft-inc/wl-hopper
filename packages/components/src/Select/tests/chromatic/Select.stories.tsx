@@ -16,12 +16,7 @@ const meta = {
     component: Select,
     args: {
         children: [],
-        "aria-label": "Animals",
-        popoverProps: {
-            containerProps: {
-                UNSAFE_maxHeight: "10rem"
-            }
-        }
+        "aria-label": "Animals"
     }  
 } satisfies Meta<typeof Select>;
 
@@ -31,7 +26,7 @@ type Story = StoryObj<typeof meta>;
 
 const marginBottomDecorator = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="12rem">
+        <Div UNSAFE_marginBottom="20rem">
             <Story />
         </Div>
     )
@@ -350,7 +345,7 @@ export const TriggerIcon = {
 export const ScrollingWithSelectedItemOutsideVisibleScope = {
     ...Sections,
     args: {
-        selectedKey: "7"
+        defaultSelectedKey: "7"
     },
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
