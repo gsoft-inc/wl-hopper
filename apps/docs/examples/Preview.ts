@@ -812,6 +812,9 @@ export const Previews: Record<string, Preview> = {
     "Select/docs/selectMenu/section": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/section.tsx"))
     },
+    "Select/docs/selectMenu/footer": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/footer.tsx"))
+    },
     "Select/docs/selectMenu/avatar": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/avatar.tsx"))
     },
