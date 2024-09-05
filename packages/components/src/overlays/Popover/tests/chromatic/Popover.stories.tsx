@@ -107,7 +107,13 @@ export const Styling = {
     render: args => (
         <PopoverTrigger>
             <Button>{TRIGGER}</Button>
-            <Popover {...args} borderRadius={0} border="transparent" boxShadow="none">
+            <Popover {...args}
+                borderRadius={0}
+                containerProps={{
+                    border: "transparent",
+                    boxShadow: "none"
+                }}
+            >
                 <Heading>{TITLE}</Heading>
                 <Content>{CONTENT}</Content>
             </Popover>
