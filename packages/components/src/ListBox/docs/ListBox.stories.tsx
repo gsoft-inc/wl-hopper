@@ -334,7 +334,7 @@ export const Count = {
                     <Badge>50</Badge>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 2">
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                     <Text slot="label">Item 2</Text>
                 </ListBoxItem>
                 <ListBoxItem>Item 3</ListBoxItem>

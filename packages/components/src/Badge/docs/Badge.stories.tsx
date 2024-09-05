@@ -40,6 +40,7 @@ export const Variants = {
         <Inline>
             <Badge {...props} variant="primary" />
             <Badge {...props} variant="secondary" />
+            <Badge {...props} variant="subdued" />
         </Inline>
     )
 } satisfies Story;

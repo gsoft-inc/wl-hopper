@@ -6,7 +6,7 @@ import { useContextProps } from "react-aria-components";
 import { OverlineText } from "../../typography/OverlineText/index.ts";
 import { ClearContainerSlots, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
-import { BadgeContext } from "./BadgeContext.ts";
+import { BadgeContext, type BadgeContextValue } from "./BadgeContext.ts";
 
 import styles from "./Badge.module.css";
 
@@ -17,7 +17,7 @@ export interface BadgeProps extends StyledSystemProps, BaseComponentProps {
      * The visual style of the badge.
      * @default "primary"
      */
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "subdued";
     /**
      * Whether or not the badge is disabled.
      */
@@ -26,6 +26,7 @@ export interface BadgeProps extends StyledSystemProps, BaseComponentProps {
 
 function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, BadgeContext);
+    const { isHovered, isPressed, isSelected } = props as BadgeContextValue;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -44,7 +45,9 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
         cssModule(
             styles,
             "hop-Badge",
-            variant
+            isHovered && "hovered",
+            isPressed && "pressed",
+            isSelected && "selected"
         ),
         stylingProps.className
     );

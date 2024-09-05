@@ -41,6 +41,13 @@ export const Secondary = {
     }
 } satisfies Story;
 
+export const Subdued = {
+    ...Primary,
+    args: {
+        variant: "subdued"
+    }
+} satisfies Story;
+
 export const Styling = {
     render: props => (
         <Inline>

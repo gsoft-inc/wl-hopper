@@ -271,7 +271,7 @@ export const Count = {
                     </Tag>
                     <Tag id="2" textValue="Developer">
                         <Text>Developer</Text>
-                        <Badge variant="secondary">100</Badge>
+                        <Badge variant="subdued">100</Badge>
                     </Tag>
                 </TagList>
             </TagGroup>
@@ -283,7 +283,7 @@ export const Count = {
                     </Tag>
                     <Tag id="2" textValue="Developer">
                         <Text>Developer</Text>
-                        <Badge variant="secondary">100</Badge>
+                        <Badge variant="subdued">100</Badge>
                     </Tag>
                 </TagList>
             </TagGroup>
@@ -295,7 +295,7 @@ export const Count = {
                     </Tag>
                     <Tag id="2" textValue="Developer">
                         <Text>Developer</Text>
-                        <Badge variant="secondary">100</Badge>
+                        <Badge variant="subdued">100</Badge>
                     </Tag>
                 </TagList>
             </TagGroup>

@@ -431,14 +431,14 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/numberField/error": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/error.tsx"))
     },
-    "inputs/docs/numberField/fluid": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/fluid.tsx"))
+    "inputs/docs/numberField/minmax": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/minmax.tsx"))
     },
     "inputs/docs/numberField/formatting": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/formatting.tsx"))
     },
-    "inputs/docs/numberField/minmax": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/minmax.tsx"))
+    "inputs/docs/numberField/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/fluid.tsx"))
     },
     "inputs/docs/passwordField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/passwordField/preview.tsx"))
@@ -614,11 +614,11 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/textField/textPrefix": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/textPrefix.tsx"))
     },
-    "inputs/docs/textField/fluid": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
-    },
     "inputs/docs/textField/characterCount": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/characterCount.tsx"))
+    },
+    "inputs/docs/textField/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
