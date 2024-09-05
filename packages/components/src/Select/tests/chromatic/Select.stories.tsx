@@ -1,8 +1,7 @@
 import { AddIcon, SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj, StoryFn } from "@storybook/react";
-import { within } from "@testing-library/react";
-import { userEvent } from "@testing-library/user-event";
+import { within, userEvent } from "@storybook/test";
 import { Label } from "react-aria-components";
 
 import { Button } from "../../../buttons/index.ts";
