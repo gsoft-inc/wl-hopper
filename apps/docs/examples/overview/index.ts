@@ -22,6 +22,7 @@ import PasswordField from "./PasswordField.svg";
 import Popover from "./Popover.svg";
 import RadioGroup from "./RadioGroup.svg";
 import SearchField from "./SearchField.svg";
+import Select from "./Select.svg";
 import Spinner from "./Spinner.svg";
 import Stack from "./Stack.svg";
 import Switch from "./Switch.svg";
@@ -59,6 +60,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Popover,
     RadioGroup,
     SearchField,
+    Select,
     Spinner,
     Stack,
     Switch,

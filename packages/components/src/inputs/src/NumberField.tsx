@@ -166,7 +166,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
-                isFluid={isFluid}
+                isFluid
                 size={size}
                 className={styles["hop-NumberField__InputGroup"]}
                 isDisabled={isDisabled}

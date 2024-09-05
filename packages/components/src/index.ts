@@ -16,6 +16,7 @@ export * from "./ListBox/index.ts";
 export * from "./overlays/Popover/index.ts";
 export * from "./radio/index.ts";
 export * from "./Section/index.ts";
+export * from "./Select/index.ts";
 export * from "./Spinner/index.ts";
 export * from "./switch/index.ts";
 export * from "./tag/index.ts";
@@ -25,7 +26,7 @@ export * from "./typography/OverlineText/index.ts";
 export * from "./typography/Text/index.ts";
 export * from "./utils/index.ts";
 
-export { Collection, type Selection } from "react-aria-components";
+export { Collection, type Selection, type Key } from "react-aria-components";
 export { useAsyncList } from "react-stately";
 
 export * from "@hopper-ui/styled-system";

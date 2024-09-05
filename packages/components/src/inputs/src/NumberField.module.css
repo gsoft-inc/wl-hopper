@@ -98,6 +98,7 @@
 
     box-sizing: border-box;
     inline-size: var(--hop-NumberField-stepper-width);
+    max-inline-size: 100%;
     block-size: var(--stepper-height);
     margin-inline: var(--stepper-margin-inline);
     padding: 0;

@@ -1,4 +1,5 @@
 import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import { useLoadMore } from "@react-aria/utils";
 import clsx from "clsx";
 import { forwardRef, type ReactNode, type ForwardedRef, type NamedExoticComponent } from "react";
 import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection, type ListBoxRenderProps } from "react-aria-components";
@@ -13,7 +14,6 @@ import { composeClassnameRenderProps, SlotProvider, cssModule, isFunction, type 
 import { ListBoxContext } from "./ListBoxContext.ts";
 import { ListBoxItem, type ListBoxItemSize } from "./ListBoxItem.tsx";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
-import { useLoadOnScroll } from "./useLoadOnScroll.ts";
 
 import styles from "./ListBox.module.css";
 
@@ -109,7 +109,8 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         };
     });
 
-    const onScroll = useLoadOnScroll({ isLoading, onLoadMore }, ref);
+    useLoadMore({ isLoading, onLoadMore }, ref);
+    
     const renderChildren = (): ReactNode => {
         if (props.items) {
             return (
@@ -163,7 +164,6 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 renderEmptyState={handleRenderEmptyState}
                 selectionMode={selectionMode}
                 style={style}
-                onScroll={onScroll}
                 data-loading={isLoading}
                 // @ts-expect-error It's not defined, but it is used in RAC
                 shouldSelectOnPressUp

@@ -8,5 +8,6 @@
     "ListBoxItem.loadingTextValue": "Loading Item",
     "ListBoxItem.indicatorAriaLabel": "List Item Selection Indicator",
     "Label.necessityLabel.required": "Required",
-    "Label.necessityLabel.optional": "Optional"
+    "Label.necessityLabel.optional": "Optional",
+    "Select.placeholder": "Select an item"
 }
