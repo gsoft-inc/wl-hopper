@@ -144,8 +144,7 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                             className={styles["hop-ListBoxItem__radio"]}
                             value="radio"
                             isDisabled={isDisabled}
-                            isFocused={isFocusVisible}
-                            isHovered={isHovered}
+                            isHovered={isHovered || isFocusVisible}
                             isPressed={isPressed}
                         />
                     </RadioList>
@@ -158,8 +157,7 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                     aria-hidden="true"
                     className={styles["hop-ListBoxItem__checkbox"]}
                     isDisabled={isDisabled}
-                    isFocused={isFocusVisible}
-                    isHovered={isHovered}
+                    isHovered={isHovered || isFocusVisible}
                     isPressed={isPressed}
                     isSelected={isSelected}
                     isInvalid={isInvalid}

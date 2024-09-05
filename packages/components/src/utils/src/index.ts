@@ -4,6 +4,7 @@ export * from "./sizeAdapter.ts";
 export * from "./types.ts";
 export * from "./isTextOnlyChildren.ts";
 export * from "./SlotProvider.ts";
+export * from "./useIsOverflow.ts";
 export * from "./useFontFaceReady.ts";
 export * from "./useScale.ts";
 export * from "./useSlot.ts";

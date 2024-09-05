@@ -1,5 +1,4 @@
-import { Header, Inline, ListBox, ListBoxItem, Section } from "@hopper-ui/components";
-import { Collection } from "react-aria-components";
+import { Header, Inline, ListBox, ListBoxItem, Section, Collection } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;

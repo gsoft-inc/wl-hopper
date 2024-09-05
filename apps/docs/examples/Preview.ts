@@ -764,6 +764,84 @@ export const Previews: Record<string, Preview> = {
     "overlays/Popover/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/controlled.tsx"))
     },
+    "Select/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/preview.tsx"))
+    },
+    "Select/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/disabled.tsx"))
+    },
+    "Select/docs/error": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/error.tsx"))
+    },
+    "Select/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/sizes.tsx"))
+    },
+    "Select/docs/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/labeling.tsx"))
+    },
+    "Select/docs/iconPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/iconPrefix.tsx"))
+    },
+    "Select/docs/textPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/textPrefix.tsx"))
+    },
+    "Select/docs/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/fluid.tsx"))
+    },
+    "Select/docs/customValue": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/customValue.tsx"))
+    },
+    "Select/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/controlled.tsx"))
+    },
+    "Select/docs/form": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/form.tsx"))
+    },
+    "Select/docs/selectMenu/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/disabled.tsx"))
+    },
+    "Select/docs/selectMenu/autoMenuWidth": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/autoMenuWidth.tsx"))
+    },
+    "Select/docs/selectMenu/menuPlacement": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/menuPlacement.tsx"))
+    },
+    "Select/docs/selectMenu/divider": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/divider.tsx"))
+    },
+    "Select/docs/selectMenu/section": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/section.tsx"))
+    },
+    "Select/docs/selectMenu/footer": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/footer.tsx"))
+    },
+    "Select/docs/selectMenu/avatar": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/avatar.tsx"))
+    },
+    "Select/docs/selectMenu/count": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/count.tsx"))
+    },
+    "Select/docs/selectMenu/dynamicLists": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/dynamicLists.tsx"))
+    },
+    "Select/docs/selectMenu/icons": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/icons.tsx"))
+    },
+    "Select/docs/selectMenu/endIcons": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/endIcons.tsx"))
+    },
+    "Select/docs/selectMenu/loading": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/loading.tsx"))
+    },
+    "Select/docs/selectMenu/loadOnScroll": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/loadOnScroll.tsx"))
+    },
+    "Select/docs/selectMenu/selectionIndicator": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/selectionIndicator.tsx"))
+    },
+    "Select/docs/selectMenu/description": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/description.tsx"))
+    },
     "Badge/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/preview.tsx"))
     },

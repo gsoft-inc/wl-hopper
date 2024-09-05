@@ -1,0 +1,38 @@
+.hop-SelectValue {
+    --hop-SelectValue-display: flex;
+    --hop-SelectValue-column-gap: var(--hop-space-inline-sm);
+
+    overflow: hidden;
+    display: var(--hop-SelectValue-display);
+    flex: 1 1 auto;
+    column-gap: var(--hop-SelectValue-column-gap);
+    align-items: center;
+
+    box-sizing: border-box;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hop-SelectValue__avatar {
+    order: 1;
+}
+
+.hop-SelectValue__icon {
+    order: 2;
+}
+
+.hop-SelectValue__text {
+    overflow: hidden;
+    flex: 1 1 auto;
+    order: 3;
+
+    min-inline-size: 0;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hop-SelectValue__end-icon {
+    order: 4;
+}

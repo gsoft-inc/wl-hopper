@@ -33,7 +33,7 @@ const Sidebar = ({ links }: SidebarProps) => {
 
         const handleLockScroll = () => {
             const shouldLockScroll = window.innerWidth <= 768 && isSidebarOpen;
-            document.body.style.overflow = shouldLockScroll ? "hidden" : "visible";
+            document.body.style.overflow = shouldLockScroll ? "hidden" : "";
         };
 
         const handleWindowResize = () => {
@@ -51,7 +51,7 @@ const Sidebar = ({ links }: SidebarProps) => {
         }
 
         return () => {
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = "";
             document.removeEventListener("click", handleClickOutside);
             window.removeEventListener("resize", handleWindowResize);
         };

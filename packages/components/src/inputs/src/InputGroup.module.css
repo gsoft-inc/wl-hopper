@@ -12,7 +12,6 @@
     --hop-InputGroup-align-items: center;
     --hop-InputGroup-align-items-textarea: flex-end;
     --hop-InputGroup-inline-size: fit-content;
-    --hop-InputGroup-inline-size-number: 100%;
     --hop-InputGroup-sm-block-size: 2rem;
     --hop-InputGroup-md-block-size: 2.5rem;
     --hop-InputGroup-block-size-textarea: auto;
@@ -112,7 +111,6 @@
 .hop-InputGroup[data-input-type="number"] {
     --display: var(--hop-InputGroup-display-number);
     --gap: var(--hop-InputGroup-gap-number);
-    --inline-size: var(--hop-InputGroup-inline-size-number);
 }
 
 .hop-InputGroup[data-hovered] {
