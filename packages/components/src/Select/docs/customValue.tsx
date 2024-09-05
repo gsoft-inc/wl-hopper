@@ -18,12 +18,14 @@ const renderValue = ({ defaultChildren, selectedItem }: ValueRenderProps) => {
 };
 
 export default function Example() {
+    const [firstUser] = users;
+
     return (
         <Select 
             fieldChildren={<Label>Users</Label>}
             items={users}
             renderValue={renderValue}
-            defaultSelectedKey={users[0].id}
+            defaultSelectedKey={firstUser.id}
         >
             {({ id, name, avatar, role }: User) => {
                 return (

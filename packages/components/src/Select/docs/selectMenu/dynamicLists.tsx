@@ -43,20 +43,24 @@ export default function Example() {
                 items={options}
                 fieldChildren={<Label>Items</Label>}
             >
-                {({ name }: ListItemProps) => {
-                    return <Select.Option id={name}>{name}</Select.Option>;
+                {item => {
+                    const { id, name } = item;
+
+                    return <Select.Option id={id}>{name}</Select.Option>;
                 }}
             </Select>
             <Select
                 items={optionsWithSections}
                 fieldChildren={<Label>Section</Label>}
             >
-                {({ name: sectionName, children }: ListSectionProps) => {
+                {section => {
+                    const { name: sectionName, children } = section;
+
                     return (
                         <Section id={sectionName}>
                             <Header>{sectionName}</Header>
                             <Collection items={children}>
-                                {({ name }) => <Select.Option id={name}>{name}</Select.Option>}
+                                {item => <Select.Option id={item.id}>{item.name}</Select.Option>}
                             </Collection>
                         </Section>
                     );
