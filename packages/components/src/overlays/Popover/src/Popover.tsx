@@ -130,7 +130,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                 
                 if (isNonDialog) {
                     return (
-                        <HopperProvider colorScheme={colorScheme}>
+                        <HopperProvider colorScheme={colorScheme} className={styles["hop-Popover__wrapper"]}>
                             <div 
                                 {...containerOtherProps}
                                 className={containerClassNames}

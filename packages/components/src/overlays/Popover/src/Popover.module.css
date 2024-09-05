@@ -16,7 +16,9 @@
     /* Internal Variables */
     --width: var(--hop-Popover-inline-width);
     --max-width: var(--hop-Popover-max-inline-width);
-    
+
+    display: flex;
+    flex-direction: column;
     inline-size: var(--width);
     max-inline-size: var(--max-width);
 }
@@ -45,6 +47,13 @@
     to {
         opacity: 1;
     }
+}
+
+.hop-Popover__wrapper {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-block-size: 0;
 }
 
 .hop-Popover__dialog,
@@ -101,6 +110,7 @@
     grid-template: var(--grid-template);
 
     box-sizing: border-box;
+    min-block-size: 0;
     padding: var(--padding);
 
     background-color: var(--hop-Popover-background);
