@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.0
+
+### Minor Changes
+
+- e503a1f: Added the select component and made fixes to other components.
+
 ## 1.2.1
 
 ### Patch Changes
