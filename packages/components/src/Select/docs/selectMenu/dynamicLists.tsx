@@ -1,4 +1,4 @@
-import { Header, Inline, Select, Section, Collection } from "@hopper-ui/components";
+import { Header, Inline, Select, Section, Collection, Label } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -40,27 +40,23 @@ export default function Example() {
     return (
         <Inline alignY="flex-start">
             <Select
-                aria-label="Names"
                 items={options}
+                fieldChildren={<Label>Items</Label>}
             >
-                {item => {
-                    const listItem = item as ListItemProps;
-
-                    return <Select.Option id={listItem.name}>{listItem.name}</Select.Option>;
+                {({ name }: ListItemProps) => {
+                    return <Select.Option id={name}>{name}</Select.Option>;
                 }}
             </Select>
             <Select
-                aria-label="Names"
                 items={optionsWithSections}
+                fieldChildren={<Label>Section</Label>}
             >
-                {section => {
-                    const listSection = section as ListSectionProps;
-
+                {({ name: sectionName, children }: ListSectionProps) => {
                     return (
-                        <Section id={listSection.name}>
-                            <Header>{listSection.name}</Header>
-                            <Collection items={listSection.children}>
-                                {item => <Select.Option id={item.name}>{item.name}</Select.Option>}
+                        <Section id={sectionName}>
+                            <Header>{sectionName}</Header>
+                            <Collection items={children}>
+                                {({ name }) => <Select.Option id={name}>{name}</Select.Option>}
                             </Collection>
                         </Section>
                     );

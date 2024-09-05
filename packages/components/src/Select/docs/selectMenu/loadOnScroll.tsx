@@ -30,10 +30,8 @@ export default function Example() {
                 onLoadMore: list.loadMore
             }}
         >
-            {item => {
-                const listItem = item as Character;
-
-                return <Select.Option id={listItem.name}>{listItem.name}</Select.Option>;
+            {({ name }: Character) => {
+                return <Select.Option id={name}>{name}</Select.Option>;
             }}
         </Select>
     );

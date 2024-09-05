@@ -200,7 +200,7 @@ export const SelectedItemWithIcon = {
                 <Div>
                     <h1>Default Selected Key</h1>
                     <Select {...args} defaultSelectedKey="raccoon">
-                        <Select.Option id="dog" textValue="dog">
+                        <Select.Option id="dog" textValue="Dog">
                             <SparklesIcon />
                             <Text slot="label">Dog</Text>
                         </Select.Option>
@@ -214,7 +214,7 @@ export const SelectedItemWithIcon = {
                 <Div>
                     <h1>Selected Key</h1>
                     <Select {...args} selectedKey="raccoon">
-                        <Select.Option id="dog" textValue="dog">
+                        <Select.Option id="dog" textValue="Dog">
                             <SparklesIcon />
                             <Text slot="label">Dog</Text>
                         </Select.Option>
@@ -228,7 +228,7 @@ export const SelectedItemWithIcon = {
             </Inline>
             <h1>Disabled</h1>
             <Select {...args} defaultSelectedKey="raccoon" isDisabled>
-                <Select.Option id="dog" textValue="dog">
+                <Select.Option id="dog" textValue="Dog">
                     <SparklesIcon />
                     <Text slot="label">Dog</Text>
                 </Select.Option>
@@ -240,7 +240,7 @@ export const SelectedItemWithIcon = {
             </Select>
             <h1>Fluid</h1>
             <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                <Select.Option id="dog" textValue="dog">
+                <Select.Option id="dog" textValue="Dog">
                     <SparklesIcon />
                     <Text slot="label">Dog</Text>
                 </Select.Option>
@@ -253,7 +253,7 @@ export const SelectedItemWithIcon = {
             <h1>Limited Width</h1>  
             <Div width="12%">
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                    <Select.Option id="dog" textValue="dog">
+                    <Select.Option id="dog" textValue="Dog">
                         <SparklesIcon />
                         <Text slot="label">Dog</Text>
                     </Select.Option>
@@ -275,7 +275,7 @@ export const SelectedItemWithEndIcon = {
                 <Div>
                     <h1>Default Selected Key</h1>
                     <Select {...args} defaultSelectedKey="raccoon">
-                        <Select.Option id="dog" textValue="dog">
+                        <Select.Option id="dog" textValue="Dog">
                             <SparklesIcon slot="end-icon" />
                             <Text slot="label">Dog</Text>
                         </Select.Option>
@@ -289,7 +289,7 @@ export const SelectedItemWithEndIcon = {
                 <Div>
                     <h1>Selected Key</h1>
                     <Select {...args} selectedKey="raccoon">
-                        <Select.Option id="dog" textValue="dog">
+                        <Select.Option id="dog" textValue="Dog">
                             <SparklesIcon slot="end-icon" />
                             <Text slot="label">Dog</Text>
                         </Select.Option>
@@ -303,7 +303,7 @@ export const SelectedItemWithEndIcon = {
             </Inline>
             <h1>Disabled</h1>
             <Select {...args} defaultSelectedKey="raccoon" isDisabled>
-                <Select.Option id="dog" textValue="dog">
+                <Select.Option id="dog" textValue="Dog">
                     <SparklesIcon slot="end-icon" />
                     <Text slot="label">Dog</Text>
                 </Select.Option>
@@ -315,7 +315,7 @@ export const SelectedItemWithEndIcon = {
             </Select>
             <h1>Fluid</h1>
             <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                <Select.Option id="dog" textValue="dog">
+                <Select.Option id="dog" textValue="Dog">
                     <SparklesIcon slot="end-icon" />
                     <Text slot="label">Dog</Text>
                 </Select.Option>
@@ -328,7 +328,7 @@ export const SelectedItemWithEndIcon = {
             <h1>Limited Width</h1>  
             <Div width="12%">
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                    <Select.Option id="dog" textValue="dog">
+                    <Select.Option id="dog" textValue="Dog">
                         <SparklesIcon slot="end-icon" />
                         <Text slot="label">Dog</Text>
                     </Select.Option>
@@ -346,13 +346,13 @@ export const SelectedItemWithEndIcon = {
 export const SelectItemWithDescription = {
     render: args => (
         <Select {...args}>
-            <Select.Option id="dog" textValue="dog">
+            <Select.Option id="dog" textValue="Dog">
                 <Text slot="label">Dog</Text>
-                <Text slot="description">I go woof</Text>
+                <Text slot="description">I come in many different breeds</Text>
             </Select.Option>
             <Select.Option id="raccoon" textValue="Raccoon">
                 <Text slot="label">Raccoon</Text>
-                <Text slot="description">I'm a trash panda</Text>
+                <Text slot="description">I am nocturnal</Text>
             </Select.Option>
             <Select.Option id="frog">Frog</Select.Option>
         </Select>

@@ -2,7 +2,7 @@ import { Select, type Key, Section, Header } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
-    const [selectedKey, setSelectedKey] = useState<Key | null>(null);
+    const [selectedKey, setSelectedKey] = useState<Key | null>();
 
     function handleSelectionChange(key: Key) {
         if (selectedKey === key) {

@@ -1,14 +1,16 @@
 import { Select, Label, ErrorMessage } from "@hopper-ui/components";
 
+const fieldChildren = (
+    <>
+        <Label>Animals</Label>
+        <ErrorMessage>This field is required</ErrorMessage>
+    </>
+);
+
 export default function Example() {
     return (
         <Select 
-            fieldChildren={
-                <>
-                    <Label>Animals</Label>
-                    <ErrorMessage>This field is required</ErrorMessage>
-                </>
-            }
+            fieldChildren={fieldChildren}
             isInvalid
         >
             <Select.Option id="dog">Dog</Select.Option>

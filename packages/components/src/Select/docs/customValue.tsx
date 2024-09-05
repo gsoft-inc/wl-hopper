@@ -1,36 +1,36 @@
-import { Select, Label, Avatar, Text } from "@hopper-ui/components";
+import { Select, Label, Avatar, Text, type ValueRenderProps } from "@hopper-ui/components";
 
 import { users, type User } from "./data.ts";
+
+const renderValue = ({ defaultChildren, selectedItem }: ValueRenderProps) => {
+    if (selectedItem) {
+        const { id, name, avatar } = selectedItem as User;
+
+        return (
+            <>
+                <Avatar key={`avatar_${id}`} name={name} src={avatar} />
+                <Text slot="label">{name}</Text>
+            </>
+        );
+    }
+
+    return defaultChildren;
+};
 
 export default function Example() {
     return (
         <Select 
             fieldChildren={<Label>Users</Label>}
             items={users}
-            renderValue={({ defaultChildren, selectedItem }) => {
-                if (selectedItem) {
-                    const user = selectedItem as User;
-
-                    return (
-                        <>
-                            <Avatar key={`avatar_${user.id}`} name={user.name} src={user.avatar} />
-                            <Text slot="label">{user.name}</Text>
-                        </>
-                    );
-                }
-
-                return defaultChildren;
-            }}
+            renderValue={renderValue}
             defaultSelectedKey={users[0].id}
         >
-            {item => {
-                const user = item as User;
-
+            {({ id, name, avatar, role }: User) => {
                 return (
-                    <Select.Option id={user.id} textValue={user.name}>
-                        <Avatar name={user.name} src={user.avatar} />
-                        <Text slot="label">{user.name}</Text>
-                        <Text slot="description">{user.role}</Text>
+                    <Select.Option id={id} textValue={name}>
+                        <Avatar name={name} src={avatar} />
+                        <Text slot="label">{name}</Text>
+                        <Text slot="description">{role}</Text>
                     </Select.Option>
                 );
             }}
