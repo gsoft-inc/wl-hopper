@@ -98,7 +98,7 @@ function FloatingBadge(props: FloatingBadgeProps, ref: ForwardedRef<HTMLDivEleme
 }
 
 /**
- * A badge, displaying either text or a count, serves to present notices or notifications associated with a parent component.
+ * A floating badge serves to present notices or notifications associated with a parent component.
  *
  * [View Documentation](TODO)
  */

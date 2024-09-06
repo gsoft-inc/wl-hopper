@@ -85,7 +85,7 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
 }
 
 /**
- * A badge, displaying either text or a count, serves to present notices or notifications associated with a parent component.
+ * A badge displays either a number, text or a dot to indicate the status of an element.
  *
  * [View Documentation](TODO)
  */
