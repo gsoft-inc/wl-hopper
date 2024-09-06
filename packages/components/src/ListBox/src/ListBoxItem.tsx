@@ -212,7 +212,10 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                     }],
                     [BadgeContext, {
                         className: styles["hop-ListBoxItem__badge"],
-                        isDisabled: isDisabled
+                        isDisabled: isDisabled,
+                        isHovered: isHovered,
+                        isPressed: isPressed,
+                        isSelected: isSelected
                     }],
                     [AvatarContext, {
                         className: styles["hop-ListBoxItem__avatar"],

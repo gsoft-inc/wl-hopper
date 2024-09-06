@@ -1,0 +1,114 @@
+.hop-FloatingBadge  {
+    /* % is needed on the 0 inside the calc for it to work properly */
+    --hop-FloatingBadge-badge-x: calc(0% + var(--hop-FloatingBadge-offset-x));
+    --hop-FloatingBadge-badge-circular-x: calc(10% + var(--hop-FloatingBadge-offset-x));
+    --hop-FloatingBadge-badge-y: calc(0% + var(--hop-FloatingBadge-offset-y));
+    --hop-FloatingBadge-badge-circular-y: calc(10% + var(--hop-FloatingBadge-offset-y));
+
+    /* Top Right */
+    --hop-FloatingBadge-badge-topright-top: var(--hop-FloatingBadge-badge-y);
+    --hop-FloatingBadge-badge-topright-right: var(--hop-FloatingBadge-badge-x);
+    --hop-FloatingBadge-badge-topright-circular-top: var(--hop-FloatingBadge-badge-circular-y);
+    --hop-FloatingBadge-badge-topright-circular-right: var(--hop-FloatingBadge-badge-circular-x);
+    --hop-FloatingBadge-badge-topright-bottom: auto;
+    --hop-FloatingBadge-badge-topright-left: auto;
+    --hop-FloatingBadge-badge-topright-transform: translate(50%, -50%);
+    --hop-FloatingBadge-badge-topright-transform-origin: 100% 0;
+
+    /* Top Left */
+    --hop-FloatingBadge-badge-topleft-top: var(--hop-FloatingBadge-badge-y);
+    --hop-FloatingBadge-badge-topleft-circular-top: var(--hop-FloatingBadge-badge-circular-y);
+    --hop-FloatingBadge-badge-topleft-right: auto;
+    --hop-FloatingBadge-badge-topleft-bottom: auto;
+    --hop-FloatingBadge-badge-topleft-left: var(--hop-FloatingBadge-badge-x);
+    --hop-FloatingBadge-badge-topleft-circular-left: var(--hop-FloatingBadge-badge-circular-x);
+    --hop-FloatingBadge-badge-topleft-transform: translate(-50%, -50%);
+    --hop-FloatingBadge-badge-topleft-transform-origin: 0 0;
+
+    /* Bottom Right */
+    --hop-FloatingBadge-badge-bottomright-top: auto;
+    --hop-FloatingBadge-badge-bottomright-right: var(--hop-FloatingBadge-badge-x);
+    --hop-FloatingBadge-badge-bottomright-circular-right: var(--hop-FloatingBadge-badge-circular-x);
+    --hop-FloatingBadge-badge-bottomright-bottom: var(--hop-FloatingBadge-badge-y);
+    --hop-FloatingBadge-badge-bottomright-circular-bottom: var(--hop-FloatingBadge-badge-circular-y);
+    --hop-FloatingBadge-badge-bottomright-left: auto;
+    --hop-FloatingBadge-badge-bottomright-transform: translate(50%, 50%);
+    --hop-FloatingBadge-badge-bottomright-transform-origin: 100% 100%;
+
+    /* Bottom Left */
+    --hop-FloatingBadge-badge-bottomleft-top: auto;
+    --hop-FloatingBadge-badge-bottomleft-right: auto;
+    --hop-FloatingBadge-badge-bottomleft-bottom: var(--hop-FloatingBadge-badge-y);
+    --hop-FloatingBadge-badge-bottomleft-circular-bottom: var(--hop-FloatingBadge-badge-circular-y);
+    --hop-FloatingBadge-badge-bottomleft-left: var(--hop-FloatingBadge-badge-x);
+    --hop-FloatingBadge-badge-bottomleft-circular-left: var(--hop-FloatingBadge-badge-circular-x);
+    --hop-FloatingBadge-badge-bottomleft-transform: translate(-50%, 50%);
+    --hop-FloatingBadge-badge-bottomleft-transform-origin: 0 100%;
+
+    position: relative;
+    box-sizing: border-box;
+    inline-size: max-content;
+}
+
+.hop-FloatingBadge[data-placement="top right"] {
+    --badge-top: var(--hop-FloatingBadge-badge-topright-top);
+    --badge-right: var(--hop-FloatingBadge-badge-topright-right);
+    --badge-bottom: var(--hop-FloatingBadge-badge-topright-bottom);
+    --badge-left: var(--hop-FloatingBadge-badge-topright-left);
+    --badge-transform: var(--hop-FloatingBadge-badge-topright-transform);
+    --badge-transform-origin: var(--hop-FloatingBadge-badge-topright-transform-origin);
+}
+
+.hop-FloatingBadge[data-placement="top right"][data-overlap="circular"] {
+    --badge-top: var(--hop-FloatingBadge-badge-topright-circular-top);
+    --badge-right: var(--hop-FloatingBadge-badge-topright-circular-right);
+}
+
+.hop-FloatingBadge[data-placement="top left"] {
+    --badge-top: var(--hop-FloatingBadge-badge-topleft-top);
+    --badge-right: var(--hop-FloatingBadge-badge-topleft-right);
+    --badge-bottom: var(--hop-FloatingBadge-badge-topleft-bottom);
+    --badge-left: var(--hop-FloatingBadge-badge-topleft-left);
+    --badge-transform: var(--hop-FloatingBadge-badge-topleft-transform);
+    --badge-transform-origin: var(--hop-FloatingBadge-badge-topleft-transform-origin);
+}
+
+.hop-FloatingBadge[data-placement="top left"][data-overlap="circular"] {
+    --badge-top: var(--hop-FloatingBadge-badge-topleft-circular-top);
+    --badge-left: var(--hop-FloatingBadge-badge-topleft-circular-left);
+}
+
+.hop-FloatingBadge[data-placement="bottom right"] {
+    --badge-top: var(--hop-FloatingBadge-badge-bottomright-top);
+    --badge-right: var(--hop-FloatingBadge-badge-bottomright-right);
+    --badge-bottom: var(--hop-FloatingBadge-badge-bottomright-bottom);
+    --badge-left: var(--hop-FloatingBadge-badge-bottomright-left);
+    --badge-transform: var(--hop-FloatingBadge-badge-bottomright-transform);
+    --badge-transform-origin: var(--hop-FloatingBadge-badge-bottomright-transform-origin);
+}
+
+.hop-FloatingBadge[data-placement="bottom right"][data-overlap="circular"] {
+    --badge-right: var(--hop-FloatingBadge-badge-bottomright-circular-right);
+    --badge-bottom: var(--hop-FloatingBadge-badge-bottomright-circular-bottom);
+}
+
+.hop-FloatingBadge[data-placement="bottom left"] {
+    --badge-top: var(--hop-FloatingBadge-badge-bottomleft-top);
+    --badge-right: var(--hop-FloatingBadge-badge-bottomleft-right);
+    --badge-bottom: var(--hop-FloatingBadge-badge-bottomleft-bottom);
+    --badge-left: var(--hop-FloatingBadge-badge-bottomleft-left);
+    --badge-transform: var(--hop-FloatingBadge-badge-bottomleft-transform);
+    --badge-transform-origin: var(--hop-FloatingBadge-badge-bottomleft-transform-origin);
+}
+
+.hop-FloatingBadge[data-placement="bottom left"][data-overlap="circular"] {
+    --badge-bottom: var(--hop-FloatingBadge-badge-bottomleft-circular-bottom);
+    --badge-left: var(--hop-FloatingBadge-badge-bottomleft-circular-left);
+}
+
+.hop-FloatingBadge__badge {
+    position: absolute;
+    inset: var(--badge-top) var(--badge-right) var(--badge-bottom) var(--badge-left);
+    transform-origin: var(--badge-transform-origin);
+    transform: var(--badge-transform);
+}

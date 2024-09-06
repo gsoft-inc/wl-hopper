@@ -1,16 +1,45 @@
 .hop-Badge  {
     /* Default */
     --hop-Badge-height: 1.5rem;
+    --hop-Badge-width: max-content;
     --hop-Badge-padding-inline: var(--hop-space-inset-sm);
     --hop-Badge-border-radius: var(--hop-shape-pill);
+
+    /* Indeterminate */
+    --hop-Badge-indeterminate-border-radius: var(--hop-shape-circle);
+    --hop-Badge-indeterminate-height: 1rem;
+    --hop-Badge-indeterminate-width: 1rem;
+    --hop-Badge-indeterminate-padding-inline: 0;
 
     /* Primary */
     --hop-Badge-primary-text-color: var(--hop-primary-text-strong);
     --hop-Badge-primary-background-color: var(--hop-primary-surface-strong);
+    --hop-Badge-primary-text-color-hovered: var(--hop-primary-text-strong-hover);
+    --hop-Badge-primary-background-color-hovered: var(--hop-primary-surface-strong-hover);
+    --hop-Badge-primary-text-color-pressed: var(--hop-primary-text-strong);
+    --hop-Badge-primary-background-color-pressed: var(--hop-primary-surface-strong-press);
+    --hop-Badge-primary-text-color-selected: var(--hop-primary-text-selected);
+    --hop-Badge-primary-background-color-selected: var(--hop-primary-surface-selected);
 
     /* Secondary */
-    --hop-Badge-secondary-text-color: var(--hop-neutral-text);
-    --hop-Badge-secondary-background-color: var(--hop-neutral-surface-weak);
+    --hop-Badge-secondary-text-color: var(--hop-neutral-text-strong);
+    --hop-Badge-secondary-background-color: var(--hop-neutral-surface-strong);
+    --hop-Badge-secondary-text-color-hovered: var(--hop-neutral-text-strong);
+    --hop-Badge-secondary-background-color-hovered: var(--hop-neutral-surface-strong);
+    --hop-Badge-secondary-text-color-pressed: var(--hop-neutral-text-strong);
+    --hop-Badge-secondary-background-color-pressed: var(--hop-neutral-surface-strong);
+    --hop-Badge-secondary-text-color-selected: var(--hop-neutral-text-selected);
+    --hop-Badge-secondary-background-color-selected: var(--hop-neutral-surface-selected);
+    
+    /* Subdued */
+    --hop-Badge-subdued-text-color: var(--hop-neutral-text);
+    --hop-Badge-subdued-background-color: var(--hop-neutral-surface-weak);
+    --hop-Badge-subdued-text-color-hovered: var(--hop-neutral-text-weak-hover);
+    --hop-Badge-subdued-background-color-hovered: var(--hop-neutral-surface-weak-hover);
+    --hop-Badge-subdued-text-color-pressed: var(--hop-neutral-text-weak-press);
+    --hop-Badge-subdued-background-color-pressed: var(--hop-neutral-surface-weak-press);
+    --hop-Badge-subdued-text-color-selected: var(--hop-neutral-text-weak-selected);
+    --hop-Badge-subdued-background-color-selected: var(--hop-neutral-surface-weak-selected);
 
     /* Disabled */
     --hop-Badge-text-color-disabled: var(--hop-neutral-text-disabled);
@@ -18,6 +47,7 @@
 
     /* Internal Variables */
     --height: var(--hop-Badge-height);
+    --width: var(--hop-Badge-width);
     --padding-inline: var(--hop-Badge-padding-inline);
     --border-radius: var(--hop-Badge-border-radius);
 
@@ -26,7 +56,7 @@
     justify-content: center;
 
     box-sizing: border-box;
-    inline-size: max-content;
+    inline-size: var(--width);
     block-size: var(--height);
     padding-inline: var(--padding-inline);
 
@@ -36,14 +66,71 @@
     border-radius: var(--border-radius);
 }
 
-.hop-Badge--primary {
+.hop-Badge[data-variant="primary"] {
     --background-color: var(--hop-Badge-primary-background-color);
     --text-color: var(--hop-Badge-primary-text-color);
 }
 
-.hop-Badge--secondary {
+.hop-Badge[data-hovered][data-variant="primary"] {
+    --background-color: var(--hop-Badge-primary-background-color-hovered);
+    --text-color: var(--hop-Badge-primary-text-color-hovered);
+}
+
+.hop-Badge[data-pressed][data-variant="primary"] {
+    --background-color: var(--hop-Badge-primary-background-color-pressed);
+    --text-color: var(--hop-Badge-primary-text-color-pressed);
+}
+
+.hop-Badge[data-selected][data-variant="primary"] {
+    --background-color: var(--hop-Badge-primary-background-color-selected);
+    --text-color: var(--hop-Badge-primary-text-color-selected);
+}
+
+.hop-Badge[data-variant="secondary"] {
     --background-color: var(--hop-Badge-secondary-background-color);
     --text-color: var(--hop-Badge-secondary-text-color);
+}
+
+.hop-Badge[data-hovered][data-variant="secondary"] {
+    --background-color: var(--hop-Badge-secondary-background-color-hovered);
+    --text-color: var(--hop-Badge-secondary-text-color-hovered);
+}
+
+.hop-Badge[data-pressed][data-variant="secondary"] {
+    --background-color: var(--hop-Badge-secondary-background-color-pressed);
+    --text-color: var(--hop-Badge-secondary-text-color-pressed);
+}
+
+.hop-Badge[data-selected][data-variant="secondary"] {
+    --background-color: var(--hop-Badge-secondary-background-color-selected);
+    --text-color: var(--hop-Badge-secondary-text-color-selected);
+}
+
+.hop-Badge[data-variant="subdued"] {
+    --background-color: var(--hop-Badge-subdued-background-color);
+    --text-color: var(--hop-Badge-subdued-text-color);
+}
+
+.hop-Badge[data-hovered][data-variant="subdued"] {
+    --background-color: var(--hop-Badge-subdued-background-color-hovered);
+    --text-color: var(--hop-Badge-subdued-text-color-hovered);
+}
+
+.hop-Badge[data-pressed][data-variant="subdued"] {
+    --background-color: var(--hop-Badge-subdued-background-color-pressed);
+    --text-color: var(--hop-Badge-subdued-text-color-pressed);
+}
+
+.hop-Badge[data-selected][data-variant="subdued"] {
+    --background-color: var(--hop-Badge-subdued-background-color-selected);
+    --text-color: var(--hop-Badge-subdued-text-color-selected);
+}
+
+.hop-Badge[data-indeterminate] {
+    --border-radius: var(--hop-Badge-indeterminate-border-radius);
+    --height: var(--hop-Badge-indeterminate-height);
+    --width: var(--hop-Badge-indeterminate-width);
+    --padding-inline: var(--hop-Badge-indeterminate-padding-inline);
 }
 
 .hop-Badge[data-disabled] {

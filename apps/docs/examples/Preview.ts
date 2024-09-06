@@ -848,6 +848,9 @@ export const Previews: Record<string, Preview> = {
     "Badge/docs/disabled": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/disabled.tsx"))
     },
+    "Badge/docs/indeterminate": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/indeterminate.tsx"))
+    },
     "Badge/docs/variants": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/variants.tsx"))
     },

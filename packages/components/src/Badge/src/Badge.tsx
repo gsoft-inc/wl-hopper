@@ -6,7 +6,7 @@ import { useContextProps } from "react-aria-components";
 import { OverlineText } from "../../typography/OverlineText/index.ts";
 import { ClearContainerSlots, cssModule, type BaseComponentProps } from "../../utils/index.ts";
 
-import { BadgeContext } from "./BadgeContext.ts";
+import { BadgeContext, type BadgeContextValue } from "./BadgeContext.ts";
 
 import styles from "./Badge.module.css";
 
@@ -17,34 +17,41 @@ export interface BadgeProps extends StyledSystemProps, BaseComponentProps {
      * The visual style of the badge.
      * @default "primary"
      */
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "subdued";
     /**
      * Whether or not the badge is disabled.
      */
     isDisabled?: boolean;
+    /**
+     * Whether or not the badge is indeterminate and should just be a dot. This will ignore any children.
+    */
+    isIndeterminate?: boolean;
 }
 
 function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, BadgeContext);
+    const { isHovered, isPressed, isSelected } = props as BadgeContextValue;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         children,
         className,
         isDisabled,
+        isIndeterminate,
         style,
         slot,
         variant = "primary",
         ...otherProps
     } = ownProps;
 
+    const isDot = isIndeterminate || !children;
+
     const classNames = clsx(
         className,
         GlobalBadgeCssSelector,
         cssModule(
             styles,
-            "hop-Badge",
-            variant
+            "hop-Badge"
         ),
         stylingProps.className
     );
@@ -65,16 +72,20 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
                 slot={slot ?? undefined}
                 data-disabled={isDisabled || undefined}
                 aria-disabled={isDisabled || undefined}
+                data-indeterminate={isDot || undefined}
+                data-hovered={isHovered || undefined}
+                data-pressed={isPressed || undefined}
+                data-selected={isSelected || undefined}
                 data-variant={variant}
             >
-                {children}
+                {!isDot && children}
             </OverlineText>
         </ClearContainerSlots>
     );
 }
 
 /**
- * A badge, displaying either text or a count, serves to present notices or notifications associated with a parent component.
+ * A badge displays either a number, text or a dot to indicate the status of an element.
  *
  * [View Documentation](TODO)
  */

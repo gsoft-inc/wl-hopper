@@ -10,7 +10,7 @@ export default function Example() {
                 </Tag>
                 <Tag id="developer" size="md">
                     <Text>Designer</Text>
-                    <Badge variant="secondary">100</Badge>
+                    <Badge variant="subdued">100</Badge>
                 </Tag>
                 <Tag id="dentist" size="lg">
                     <Text>Dentist</Text>

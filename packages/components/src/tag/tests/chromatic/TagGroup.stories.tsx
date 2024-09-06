@@ -210,9 +210,9 @@ export const Count = {
                             <Badge>12</Badge>
                             <Text>Developer</Text>
                         </Tag>
-                        <Tag id="2" textValue="Designer">
+                        <Tag id="2" textValue="Designer" isDisabled>
                             <Text>Designer</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "6rem" }}>
                             <Text>Executive Officer</Text>
@@ -229,7 +229,7 @@ export const Count = {
                         </Tag>
                         <Tag id="2" textValue="Designer">
                             <Text>Designer</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "6rem" }}>
                             <Text>Executive Officer</Text>
@@ -246,7 +246,7 @@ export const Count = {
                         </Tag>
                         <Tag id="2" textValue="Designer">
                             <Text>Designer</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="Designer" style={{ maxWidth: "7rem" }}>
                             <Text>Executive Officer</Text>
@@ -256,6 +256,9 @@ export const Count = {
                 </TagGroup>
             </Stack>
         );
+    },
+    args: {
+        selectionMode: "multiple"
     }
 } satisfies Story;
 
@@ -268,62 +271,62 @@ export const Loading = {
                     <TagList><Tag id="1" textValue="Neutral" variant="neutral" isLoading>
                         <Text>Neutral</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="2" textValue="Subdued" variant="subdued" isLoading>
                         <Text>Subdued</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="3" textValue="Progress" variant="progress" isLoading>
                         <Text>Progress</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="4" textValue="Positive" variant="positive" isLoading>
                         <Text>Positive</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="5" textValue="Caution" variant="caution" isLoading>
                         <Text>Caution</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="6" textValue="Negative" variant="negative" isLoading>
                         <Text>Negative</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="7" textValue="Option1" variant="option1" isLoading>
                         <Text>Option1</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="8" textValue="Option2" variant="option2" isLoading>
                         <Text>Option2</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="9" textValue="Option3" variant="option3" isLoading>
                         <Text>Option3</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="10" textValue="Option4" variant="option4" isLoading>
                         <Text>Option4</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="11" textValue="Option5" variant="option5" isLoading>
                         <Text>Option5</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="12" textValue="Option6" variant="option6" isLoading>
                         <Text>Option6</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     </TagList>
                 </TagGroup>
@@ -332,62 +335,62 @@ export const Loading = {
                     <TagList><Tag id="1" textValue="Neutral" variant="neutral" isLoading>
                         <Text>Neutral</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="2" textValue="Subdued" variant="subdued" isLoading>
                         <Text>Subdued</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="3" textValue="Progress" variant="progress" isLoading>
                         <Text>Progress</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="4" textValue="Positive" variant="positive" isLoading>
                         <Text>Positive</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="5" textValue="Caution" variant="caution" isLoading>
                         <Text>Caution</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="6" textValue="Negative" variant="negative" isLoading>
                         <Text>Negative</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="7" textValue="Option1" variant="option1" isLoading>
                         <Text>Option1</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="8" textValue="Option2" variant="option2" isLoading>
                         <Text>Option2</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="9" textValue="Option3" variant="option3" isLoading>
                         <Text>Option3</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="10" textValue="Option4" variant="option4" isLoading>
                         <Text>Option4</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="11" textValue="Option5" variant="option5" isLoading>
                         <Text>Option5</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="12" textValue="Option6" variant="option6" isLoading>
                         <Text>Option6</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     </TagList>
                 </TagGroup>
@@ -396,62 +399,62 @@ export const Loading = {
                     <TagList><Tag id="1" textValue="Neutral" variant="neutral" isLoading>
                         <Text>Neutral</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="2" textValue="Subdued" variant="subdued" isLoading>
                         <Text>Subdued</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="3" textValue="Progress" variant="progress" isLoading>
                         <Text>Progress</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="4" textValue="Positive" variant="positive" isLoading>
                         <Text>Positive</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="5" textValue="Caution" variant="caution" isLoading>
                         <Text>Caution</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="6" textValue="Negative" variant="negative" isLoading>
                         <Text>Negative</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="7" textValue="Option1" variant="option1" isLoading>
                         <Text>Option1</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="8" textValue="Option2" variant="option2" isLoading>
                         <Text>Option2</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="9" textValue="Option3" variant="option3" isLoading>
                         <Text>Option3</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="10" textValue="Option4" variant="option4" isLoading>
                         <Text>Option4</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="11" textValue="Option5" variant="option5" isLoading>
                         <Text>Option5</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     <Tag id="12" textValue="Option6" variant="option6" isLoading>
                         <Text>Option6</Text>
                         <SparklesIcon />
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </Tag>
                     </TagList>
                 </TagGroup>
@@ -516,7 +519,7 @@ export const Everything = {
                             <Avatar name="Karen Smith" />
                             <Text>Karen Smith</Text>
                             <SparklesIcon />
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="John Smith" style={{ maxWidth: "10rem" }}>
                             <Avatar name="John Smith" />
@@ -539,7 +542,7 @@ export const Everything = {
                             <Avatar name="Karen Smith" />
                             <Text>Karen Smith</Text>
                             <SparklesIcon />
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="John Smith" style={{ maxWidth: "10rem" }}>
                             <Avatar name="John Smith" />
@@ -562,7 +565,7 @@ export const Everything = {
                             <Avatar name="Karen Smith" />
                             <Text>Karen Smith</Text>
                             <SparklesIcon />
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </Tag>
                         <Tag id="3" textValue="John Smith" style={{ maxWidth: "12rem" }}>
                             <Avatar name="John Smith" />
@@ -589,62 +592,62 @@ const StateTemplate = (args: Partial<TagGroupProps>) => (
                 <Tag id="1" textValue="Neutral" variant="neutral">
                     <Text>Neutral</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="2" textValue="Subdued" variant="subdued">
                     <Text>Subdued</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="3" textValue="Progress" variant="progress">
                     <Text>Progress</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="4" textValue="Positive" variant="positive">
                     <Text>Positive</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="5" textValue="Caution" variant="caution">
                     <Text>Caution</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="6" textValue="Negative" variant="negative">
                     <Text>Negative</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="7" textValue="Option1" variant="option1">
                     <Text>Option1</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="8" textValue="Option2" variant="option2">
                     <Text>Option2</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="9" textValue="Option3" variant="option3">
                     <Text>Option3</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="10" textValue="Option4" variant="option4">
                     <Text>Option4</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="11" textValue="Option5" variant="option5">
                     <Text>Option5</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
                 <Tag id="12" textValue="Option6" variant="option6">
                     <Text>Option6</Text>
                     <SparklesIcon />
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </Tag>
             </TagList>
         </TagGroup>

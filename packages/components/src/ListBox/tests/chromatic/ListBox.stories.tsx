@@ -214,7 +214,7 @@ export const Default = {
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <Text>Earth</Text>
@@ -228,7 +228,7 @@ export const Default = {
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <Text>Earth</Text>
@@ -242,7 +242,7 @@ export const Default = {
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <Text>Earth</Text>
@@ -256,7 +256,7 @@ export const Default = {
                         </ListBoxItem>
                         <ListBoxItem id="2" textValue="Mars">
                             <Text>Mars</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Earth">
                             <Text>Earth</Text>
@@ -368,7 +368,7 @@ export const Default = {
                     <ListBoxItem id="2" textValue="Mars">
                         <Text slot="label">Mars</Text>
                         <Text slot="description">The fourth planet from the sun.</Text>
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </ListBoxItem>
                     <ListBoxItem id="3" textValue="Saturn">
                         <Text slot="label">Saturn</Text>
@@ -392,7 +392,7 @@ export const Default = {
                             <SparklesIcon />
                             <Text slot="label">Karen</Text>
                             <Text slot="description">Manager</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Charles">
                             <Avatar name="Charles Johnson" />
@@ -419,7 +419,7 @@ export const Default = {
                             <SparklesIcon />
                             <Text slot="label">Karen</Text>
                             <Text slot="description">Manager</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Charles">
                             <Avatar name="Charles Johnson" />
@@ -446,7 +446,7 @@ export const Default = {
                             <SparklesIcon />
                             <Text slot="label">Karen</Text>
                             <Text slot="description">Manager</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Charles">
                             <Avatar name="Charles Johnson" />
@@ -473,7 +473,7 @@ export const Default = {
                             <SparklesIcon />
                             <Text slot="label">Karen</Text>
                             <Text slot="description">Manager</Text>
-                            <Badge variant="secondary">99+</Badge>
+                            <Badge variant="subdued">99+</Badge>
                         </ListBoxItem>
                         <ListBoxItem id="1" textValue="Charles">
                             <Avatar name="Charles Johnson" />
@@ -546,7 +546,7 @@ export const Default = {
                             Lorem Ipsum is simply dummy text of the printing and typesetting
                             industry.
                         </Text>
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </ListBoxItem>
                     <ListBoxItem id="3" textValue="Saturn">
                         <SparklesIcon />
@@ -577,7 +577,7 @@ export const Default = {
                             Lorem Ipsum is simply dummy text of the printing and typesetting
                             industry.
                         </Text>
-                        <Badge variant="secondary">99+</Badge>
+                        <Badge variant="subdued">99+</Badge>
                     </ListBoxItem>
                     <ListBoxItem id="3" textValue="Saturn">
                         <SparklesIcon />
@@ -612,7 +612,7 @@ export const Default = {
                                 <SparklesIcon />
                                 <Text slot="label">Mars</Text>
                                 <Text slot="description">The fourth planet from the sun.</Text>
-                                <Badge variant="secondary">99+</Badge>
+                                <Badge variant="subdued">99+</Badge>
                             </ListBoxItem>
                             <ListBoxItem id="3" textValue="Saturn">
                                 <SparklesIcon />
@@ -638,7 +638,7 @@ export const Default = {
                                 <SparklesIcon />
                                 <Text slot="label">Mars</Text>
                                 <Text slot="description">The fourth planet from the sun.</Text>
-                                <Badge variant="secondary">99+</Badge>
+                                <Badge variant="subdued">99+</Badge>
                             </ListBoxItem>
                             <ListBoxItem id="3" textValue="Saturn">
                                 <SparklesIcon />
@@ -760,7 +760,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     <SparklesIcon />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </ListBoxItem>
             </ListBox>
             <ListBox {...rest} size="sm">
@@ -780,7 +780,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     <Avatar name="Mars" />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </ListBoxItem>
             </ListBox>
             <ListBox {...rest} size="md">
@@ -800,7 +800,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     <Avatar name="Mars" />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </ListBoxItem>
             </ListBox>
             <ListBox {...rest} size="lg">
@@ -820,7 +820,7 @@ const StateTemplate = (args: StateTemplateProps) => {
                     <Avatar name="Mars" />
                     <Text slot="label">Mars</Text>
                     <Text slot="description">The fourth planet from the sun.</Text>
-                    <Badge variant="secondary">99+</Badge>
+                    <Badge variant="subdued">99+</Badge>
                 </ListBoxItem>
             </ListBox>
         </Inline>

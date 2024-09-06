@@ -3,8 +3,9 @@ import { Badge, Inline } from "@hopper-ui/components";
 export default function Example() {
     return (
         <Inline>
-            <Badge variant="primary">12</Badge>
-            <Badge variant="secondary">50</Badge>
+            <Badge variant="primary">BETA</Badge>
+            <Badge variant="secondary">NEW</Badge>
+            <Badge variant="subdued">50</Badge>
         </Inline>
     );
 }

@@ -3,6 +3,11 @@ import type { ContextValue } from "react-aria-components";
 
 import type { BadgeProps } from "./Badge.tsx";
 
-export const BadgeContext = createContext<ContextValue<BadgeProps, HTMLSpanElement>>({});
+export interface BadgeContextValue extends BadgeProps {
+    isHovered?: boolean;
+    isPressed?: boolean;
+    isSelected?: boolean;
+}
+export const BadgeContext = createContext<ContextValue<BadgeContextValue, HTMLSpanElement>>({});
 
 BadgeContext.displayName = "BadgeContext";
