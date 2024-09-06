@@ -28,10 +28,16 @@ type Story = StoryObj<typeof meta>;
 
 export const RectangularOverlap = {
     render: props => (
-        <FloatingBadge {...props} overlap="rectangular">
-            <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-            <Badge>NEW</Badge>
-        </FloatingBadge>
+        <Inline gap="inline-xl">
+            <FloatingBadge {...props} overlap="rectangular">
+                <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                <Badge>NEW</Badge>
+            </FloatingBadge>
+            <FloatingBadge {...props} overlap="rectangular">
+                <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                <Badge />
+            </FloatingBadge>
+        </Inline>
     )
 } satisfies Story;
 
@@ -79,21 +85,59 @@ export const Placement = {
             </Inline>
         
             <Inline gap="inline-xl">
-                <FloatingBadge {...props} placement="top right">
+                <FloatingBadge {...props} placement="top right" overlap="circular">
                     <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
                     <Badge>12</Badge>
+                </FloatingBadge>
+                <FloatingBadge {...props} placement="bottom right" overlap="circular">
+                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
+                    <Badge>12</Badge>
+                </FloatingBadge>
+                <FloatingBadge {...props} placement="top left" overlap="circular">
+                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
+                    <Badge>12</Badge>
+                </FloatingBadge>
+                <FloatingBadge {...props} placement="bottom left" overlap="circular">
+                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
+                    <Badge>12</Badge>
+                </FloatingBadge>
+            </Inline>
+
+            <Inline gap="inline-xl">
+                <FloatingBadge {...props} placement="top right">
+                    <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                    <Badge isIndeterminate />
                 </FloatingBadge>
                 <FloatingBadge {...props} placement="bottom right">
-                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
-                    <Badge>12</Badge>
+                    <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                    <Badge isIndeterminate />
                 </FloatingBadge>
                 <FloatingBadge {...props} placement="top left">
-                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
-                    <Badge>12</Badge>
+                    <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                    <Badge isIndeterminate />
                 </FloatingBadge>
                 <FloatingBadge {...props} placement="bottom left">
+                    <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                    <Badge isIndeterminate />
+                </FloatingBadge>
+            </Inline>
+        
+            <Inline gap="inline-xl">
+                <FloatingBadge {...props} placement="top right" overlap="circular">
                     <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
-                    <Badge>12</Badge>
+                    <Badge isIndeterminate />
+                </FloatingBadge>
+                <FloatingBadge {...props} placement="bottom right" overlap="circular">
+                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
+                    <Badge isIndeterminate />
+                </FloatingBadge>
+                <FloatingBadge {...props} placement="top left" overlap="circular">
+                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
+                    <Badge isIndeterminate />
+                </FloatingBadge>
+                <FloatingBadge {...props} placement="bottom left" overlap="circular">
+                    <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="John Doe" />
+                    <Badge isIndeterminate />
                 </FloatingBadge>
             </Inline>
         </Stack>

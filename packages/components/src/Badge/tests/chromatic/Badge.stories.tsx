@@ -45,10 +45,18 @@ export const Subdued = {
 export const indeterminate = {
     render: props => (
         <Stack>
-            <h1>Default</h1>
-            <Badge {...props} />
+            <h1>Variants</h1>
+            <Inline>
+                <Badge {...props} />
+                <Badge {...props} variant="secondary" />
+                <Badge {...props} variant="subdued" />
+            </Inline>
             <h1>Disabled</h1>
-            <Badge {...props} isDisabled />
+            <Inline>
+                <Badge {...props} isDisabled />
+                <Badge {...props} variant="secondary" isDisabled />
+                <Badge {...props} variant="subdued" isDisabled />
+            </Inline>
         </Stack>
     ),
     args: {
