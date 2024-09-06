@@ -109,10 +109,19 @@ export const Offset = {
 
 export const Styling = {
     render: props => (
-        <Inline>
-            <FloatingBadge border="warning" {...props} />
-            <FloatingBadge className="border-red" {...props} />
-            <FloatingBadge style={{ border: "1px solid darkRed" }} {...props}>New</FloatingBadge>
+        <Inline gap="inline-xl">
+            <FloatingBadge {...props} border="warning">
+                <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                <Badge border="warning">NEW</Badge>
+            </FloatingBadge>
+            <FloatingBadge {...props} className="border-red">
+                <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                <Badge className="border-red">NEW</Badge>
+            </FloatingBadge>
+            <FloatingBadge {...props} style={{ border: "1px solid darkRed" }}>
+                <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
+                <Badge style={{ border: "1px solid darkRed" }}>NEW</Badge>
+            </FloatingBadge>
         </Inline>
     )
 } satisfies Story;
