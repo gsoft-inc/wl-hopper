@@ -3,6 +3,9 @@
     --hop-EmbeddedButton-focus-ring-color: var(--hop-primary-border-focus);
     --hop-EmbeddedButton-effect-border-radius: var(--hop-shape-circle);
 
+    /* Square */
+    --hop-EmbeddedButton-effect-square-border-radius: var(--hop-shape-rounded-sm);
+
     /* Medium */
     --hop-EmbeddedButton-md-height: 1.5rem;
     --hop-EmbeddedButton-md-width: 1.5rem;
@@ -219,6 +222,10 @@
     border-radius: var(--effect-border-radius);
 
     transition: background-color var(--transition);
+}
+
+.hop-EmbeddedButton[data-square] {
+    --effect-border-radius: var(--hop-EmbeddedButton-effect-square-border-radius);
 }
 
 .hop-EmbeddedButton--md {

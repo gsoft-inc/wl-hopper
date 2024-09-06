@@ -36,6 +36,10 @@ export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps
      */
     size?: ResponsiveProp<"md" | "lg">;
     /**
+     * Whether the EmbeddedButton is square in shape.
+     */
+    isSquare?: boolean;
+    /**
      * The visual style of the EmbeddedButton.
      * @default "neutral"
      */
@@ -52,6 +56,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         size: sizeProp,
         isDisabled,
         isSelected = false,
+        isSquare,
         style: styleProp,
         children,
         variant = "neutral",
@@ -94,6 +99,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
                 style={style}
                 isDisabled={isDisabled}
                 data-selected={isSelected || undefined}
+                data-square={isSquare || undefined}
                 {...otherProps}
             >
                 {children}
