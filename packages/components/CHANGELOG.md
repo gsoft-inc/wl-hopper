@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.1
+
+### Patch Changes
+
+- 2e845a1: Added FloatingBadge component.
+
 ## 1.3.0
 
 ### Minor Changes
