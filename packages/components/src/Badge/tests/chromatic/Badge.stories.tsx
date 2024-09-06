@@ -19,17 +19,11 @@ export const Primary = {
     render: props => (
         <Stack>
             <h1>Default</h1>
-            <Inline>
-                <Badge {...props} />
-            </Inline>
+            <Badge {...props} />
             <h1>Text</h1>
-            <Inline>
-                <Badge {...props}>New</Badge>
-            </Inline>
+            <Badge {...props}>New</Badge>
             <h1>Disabled</h1>
-            <Inline>
-                <Badge {...props} isDisabled />
-            </Inline>
+            <Badge {...props} isDisabled />
         </Stack>
     )
 } satisfies Story;
@@ -45,6 +39,20 @@ export const Subdued = {
     ...Primary,
     args: {
         variant: "subdued"
+    }
+} satisfies Story;
+
+export const indeterminate = {
+    render: props => (
+        <Stack>
+            <h1>Default</h1>
+            <Badge {...props} />
+            <h1>Disabled</h1>
+            <Badge {...props} isDisabled />
+        </Stack>
+    ),
+    args: {
+        isIndeterminate: true
     }
 } satisfies Story;
 

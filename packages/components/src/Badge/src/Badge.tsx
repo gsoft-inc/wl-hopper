@@ -22,6 +22,10 @@ export interface BadgeProps extends StyledSystemProps, BaseComponentProps {
      * Whether or not the badge is disabled.
      */
     isDisabled?: boolean;
+    /**
+     * Whether or not the badge is indeterminate and should just be a dot. This will ignore any children.
+    */
+    isIndeterminate?: boolean;
 }
 
 function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
@@ -33,21 +37,21 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
         children,
         className,
         isDisabled,
+        isIndeterminate,
         style,
         slot,
         variant = "primary",
         ...otherProps
     } = ownProps;
 
+    const isDot = isIndeterminate || !children;
+
     const classNames = clsx(
         className,
         GlobalBadgeCssSelector,
         cssModule(
             styles,
-            "hop-Badge",
-            isHovered && "hovered",
-            isPressed && "pressed",
-            isSelected && "selected"
+            "hop-Badge"
         ),
         stylingProps.className
     );
@@ -68,9 +72,13 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
                 slot={slot ?? undefined}
                 data-disabled={isDisabled || undefined}
                 aria-disabled={isDisabled || undefined}
+                data-indeterminate={isDot || undefined}
+                data-hovered={isHovered || undefined}
+                data-pressed={isPressed || undefined}
+                data-selected={isSelected || undefined}
                 data-variant={variant}
             >
-                {children}
+                {!isDot && children}
             </OverlineText>
         </ClearContainerSlots>
     );
