@@ -26,7 +26,7 @@
     --char-count-color: var(--hop-TextField-char-count-color-invalid);
 }
 
-.hop-TextArea[data-disabled] {
+.hop-TextField[data-disabled] {
     --char-count-color: var(--hop-TextField-char-count-color-disabled);
 }
 
