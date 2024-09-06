@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.2
+
+### Patch Changes
+
+- d1f29f2: Added character count overflow option to TextField.
+
 ## 1.3.1
 
 ### Patch Changes
