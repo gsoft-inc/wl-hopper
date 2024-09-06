@@ -33,6 +33,7 @@ export const Default: Story = {
             </Div>
             <TextField showCharacterCount maxLength={20} {...args} />
             <TextField showCharacterCount maxLength={20} isClearable {...args} />
+            <TextField showCharacterCount maxLength={8} restrictMaxLength={false} {...args} />
             <TextField isClearable {...args} />
         </Stack>
     ),

@@ -617,6 +617,9 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/textField/characterCount": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/characterCount.tsx"))
     },
+    "inputs/docs/textField/maxLengthExceeded": {
+        component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/maxLengthExceeded.tsx"))
+    },
     "inputs/docs/textField/fluid": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },

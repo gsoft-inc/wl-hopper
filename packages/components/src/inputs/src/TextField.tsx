@@ -1,5 +1,6 @@
 import { IconContext } from "@hopper-ui/icons";
 import {
+    useIsomorphicLayoutEffect,
     useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
@@ -27,7 +28,8 @@ import {
     composeClassnameRenderProps,
     cssModule,
     isTextOnlyChildren,
-    SlotProvider
+    SlotProvider,
+    useTruncatedText
 } from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";
@@ -58,6 +60,14 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * The placeholder text when the TextField is empty.
      */
     placeholder?: string;
+
+    /**
+     * This should only be used with the `showCharacterCount` prop.
+     * If `true`, the TextArea prevents the text from ever going over the max length.
+     * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
+     * @default true
+     */
+    restrictMaxLength?: boolean;
 
     /**
      * The size of the TextField.
@@ -111,11 +121,13 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isDisabled,
         isInvalid,
         isRequired,
+        restrictMaxLength = true,
         ...otherProps
     } = ownProps;
 
     const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const overMaxLength = !!maxLength && characterCount > maxLength;
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -142,6 +154,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         onChangeProp?.(value);
     }, [onChangeProp]);
 
+    const truncateText = useTruncatedText();
     const [value, onChange] = useControlledState<string>(valueProp, defaultValue || "", handleTextChanged);
 
     const handleClear = useCallback(() => {
@@ -163,6 +176,16 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
         </SlotProvider>
     ) : null;
+
+    // truncateText needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
+    // If the default text goes over the maxLength, it is truncated.
+    useIsomorphicLayoutEffect(() => {
+        if (restrictMaxLength) {
+            const newValue = truncateText(value, maxLength);
+            onChange(newValue);
+        }
+    }, [value]);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
@@ -203,11 +226,12 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={maxLength}
+            maxLength={restrictMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             isRequired={isRequired}
+            data-over-max-length={overMaxLength || undefined}
             {...otherProps}
         >
             {childrenMarkup}
@@ -226,8 +250,8 @@ function CharacterCount({ characterLeft }: CharacterCountProps) {
 
     return <Text 
         aria-label={accessibilityString} 
-        role="status" 
-        color="neutral-weakest" 
+        className={styles["hop-TextField__char-count"]}
+        role="status"
         size="xs"
     >
         {characterLeft}

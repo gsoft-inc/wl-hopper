@@ -9,7 +9,7 @@ import { Label } from "../../../typography/index.ts";
 import { TextArea, type TextAreaProps } from "../../src/TextArea.tsx";
 
 const meta = {
-    title: "Components/TextArea",
+    title: "Components/Forms/TextArea",
     component: TextArea
 } satisfies Meta<typeof TextArea>;
 

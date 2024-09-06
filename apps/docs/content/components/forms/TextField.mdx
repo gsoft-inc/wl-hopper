@@ -99,6 +99,13 @@ If the `maxLength` prop is not set, the character count will not be displayed.
 
 <Example src="inputs/docs/textField/characterCount" />
 
+### Max Length Exceeded
+To exceed the max length, set the `restrictMaxLength` prop to `false` – default is `true`. When the character count is displayed, it turns red if the max length is exceeded. The `data-over-max-length` attribute is added to the text area to allow custom styling when the max length is exceeded.
+
+Note: It is not recommended to use `restrictMaxLength` without displaying the character count, as there is no default styling.
+
+<Example src="inputs/docs/textField/maxLengthExceeded" />
+
 ### Fluid
 A text field can take the width of its container.
 
