@@ -46,6 +46,7 @@
     --hop-InputGroup-placeholder-line-height: inherit;
     --hop-InputGroup-placeholder-color: var(--hop-neutral-text-weakest);
     --hop-InputGroup-placeholder-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-InputGroup-embedded-button-margin-inline-end: calc(-1 * var(--hop-space-inline-sm));
 
     /* Internal Variables */
     --inline-size: var(--hop-InputGroup-inline-size);
@@ -167,4 +168,8 @@
     font-weight: var(--hop-InputGroup-placeholder-font-weight);
     line-height: var(--hop-InputGroup-placeholder-line-height);
     color: var(--input-placeholder-color);
+}
+
+.hop-InputGroup__embedded-button {
+    margin-inline-end: var(--hop-InputGroup-embedded-button-margin-inline-end)
 }

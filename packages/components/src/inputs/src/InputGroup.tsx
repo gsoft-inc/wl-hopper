@@ -16,6 +16,7 @@ import {
     TextAreaContext, FieldErrorContext as RACFieldErrorContext
 } from "react-aria-components";
 
+import { EmbeddedButtonContext } from "../../buttons/index.ts";
 import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { InputGroupContext } from "./InputGroupContext.ts";
@@ -119,6 +120,10 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 ...textAreaContext,
                 ref: mergedTextAreaRefs,
                 className: composeClassnameRenderProps(textAreaContext?.className, inputClassName, styles["hop-InputGroup__textarea"])
+            }],
+            [EmbeddedButtonContext, {
+                className: styles["hop-InputGroup__embedded-button"],
+                isSquare: true
             }]
         ]}
         >
