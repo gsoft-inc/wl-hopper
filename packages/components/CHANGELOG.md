@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.3
+
+### Patch Changes
+
+- 46406ef: Added isSquare for EmbeddButton & Used it in InputGroup.
+
 ## 1.3.2
 
 ### Patch Changes
