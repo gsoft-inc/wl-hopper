@@ -2,7 +2,7 @@
     --hop-TextField-gap: var(--hop-space-stack-xs);
     --hop-TextField-inline-size: 20rem;
     --hop-TextField-prefix-color: var(--hop-neutral-text-weak);
-    --hop-TextField-char-count-color: var(--hop-neutral-text-weakest);
+    --hop-TextField-char-count-color: var(--hop-neutral-text-weak);
     --hop-TextField-char-count-color-disabled: var(--hop-neutral-text-disabled);
     --hop-TextField-char-count-color-invalid: var(--hop-danger-text-weak);
 
