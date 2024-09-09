@@ -55,7 +55,7 @@ export const DarkSemanticTokens = {
     "--hop-neutral-border-selected": "var(--hop-toad-25)",
     "--hop-neutral-border-disabled": "var(--hop-rock-800)",
     "--hop-neutral-border-hover": "var(--hop-rock-300)",
-    "--hop-neutral-border-press": "var(--hop-rock-700)",
+    "--hop-neutral-border-press": "var(--hop-rock-200)",
     "--hop-neutral-border-strong": "var(--hop-samoyed)",
     "--hop-neutral-border-strong-hover": "var(--hop-samoyed)",
     "--hop-neutral-border-weakest": "var(--hop-rock-800)",

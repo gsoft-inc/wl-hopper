@@ -574,7 +574,7 @@
         },
         "border-press": {
             "$type": "color",
-            "$value": "{rock.700}"
+            "$value": "{rock.200}"
         },
         "border-strong": {
             "$type": "color",
