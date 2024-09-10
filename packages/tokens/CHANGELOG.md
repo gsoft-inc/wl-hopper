@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.3.1
+
+### Patch Changes
+
+- 2f8f383: Patched neutral-border-press token color
+
 ## 4.3.0
 
 ### Minor Changes

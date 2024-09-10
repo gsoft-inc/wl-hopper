@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.3.4
+
+### Patch Changes
+
+- 8ca74b4: Fixed an accesibility issue with input char count contrast
+  - @hopper-ui/icons@2.8.0
+
 ## 1.3.3
 
 ### Patch Changes
