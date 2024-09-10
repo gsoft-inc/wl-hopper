@@ -1,0 +1,68 @@
+---
+title: FloatingBadge
+description: A floating badge allows the user to position a badge relative to another component.
+category: "status"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/badge/src/FloatingBadge.tsx
+---
+
+<Example src="Badge/docs/floatingbadge/preview" isOpen />
+
+## Props
+
+<PropTable component="FloatingBadge" />
+
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this component&apos;s usage
+
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+    ## Anatomy
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
+
+## Examples
+
+### Placement
+
+A floating badge can be positioned relative to another component using the `placement` prop. This allows the badge to be placed in any of the 4 positions around the target component.
+
+<Example src="Badge/docs/floatingbadge/placement" />
+
+### Overlap
+
+Allows to specify if the badge is overlaping a rectangular or circular component.
+
+<Example src="Badge/docs/floatingbadge/overlap" />
+
+### Offset
+
+The position of the badge can be adjusted using the `offset` prop. This prop accepts an object with `x` and `y` properties that will be used to adjust the badge's position.
+
+<Example src="Badge/docs/floatingbadge/offset" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
