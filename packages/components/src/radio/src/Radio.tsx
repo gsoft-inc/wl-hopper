@@ -20,8 +20,7 @@ import {
     SlotProvider,
     cssModule,
     isTextOnlyChildren,
-    ClearContainerSlots,
-    type InteractionProps
+    ClearContainerSlots
 } from "../../utils/index.ts";
 
 import { RadioContext } from "./RadioContext.ts";
@@ -30,7 +29,7 @@ import styles from "./Radio.module.css";
 
 export const GlobalRadioCssSelector = "hop-Radio";
 
-export interface RadioProps extends StyledComponentProps<RACRadioProps>, InteractionProps {
+export interface RadioProps extends StyledComponentProps<RACRadioProps> {
     /**
      * A radio can vary in size.
      * @default "md"
@@ -46,9 +45,6 @@ function Radio(props: RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
         children: childrenProp,
         size: sizeProp = "md",
         style: styleProp,
-        isPressed,
-        isHovered,
-        isFocused,
         ...otherProps
     } = ownProps;
 
@@ -60,10 +56,7 @@ function Radio(props: RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
         cssModule(
             styles,
             "hop-Radio",
-            size,
-            isPressed && "pressed",
-            isHovered && "hovered",
-            isFocused && "focused"
+            size
         ),
         stylingProps.className
     );

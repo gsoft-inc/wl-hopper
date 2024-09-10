@@ -6,3 +6,4 @@ export * from "./CheckboxGroup.tsx";
 export * from "./CheckboxGroupContext.ts";
 export * from "./CheckboxList.tsx";
 export * from "./CheckboxListContext.ts";
+export * from "./DecorativeCheckbox.tsx";

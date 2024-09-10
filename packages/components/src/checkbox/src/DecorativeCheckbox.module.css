@@ -1,0 +1,34 @@
+/* stylelint-disable value-keyword-case */
+
+.hop-DecorativeCheckbox {
+    composes: hop-Checkbox from "./Checkbox.module.css";
+}
+
+.hop-DecorativeCheckbox--sm {
+    composes: hop-Checkbox--sm from "./Checkbox.module.css";
+}
+
+.hop-DecorativeCheckbox--md {
+    composes: hop-Checkbox--md from "./Checkbox.module.css";
+}
+
+/* Icons */
+.hop-DecorativeCheckbox__icon,
+.hop-DecorativeCheckbox__icon-list {
+    composes: hop-Checkbox__icon from "./Checkbox.module.css";
+}
+
+/* Box */
+.hop-DecorativeCheckbox__box {
+    composes: hop-Checkbox__box from "./Checkbox.module.css";
+}
+
+/* Check */
+.hop-DecorativeCheckbox__check {
+    composes: hop-Checkbox__check from "./Checkbox.module.css";
+}
+
+/* Text */
+.hop-DecorativeCheckbox__text {    
+    composes: hop-Checkbox__text from "./Checkbox.module.css";
+}

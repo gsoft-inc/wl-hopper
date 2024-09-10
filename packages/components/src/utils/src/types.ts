@@ -45,15 +45,39 @@ export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotPro
 /** Added these for when we need to force an interactive state like for radios inside list box items */
 export interface InteractionProps {
     /**
-     * @ignore
+     * Whether or not the component is currently pressed.
      */
     isPressed?: boolean;
     /**
-     * @ignore
+     * Whether or not the component is currently focused.
      */
     isFocused?: boolean;
     /**
-     * @ignore
+     * Whether or not the component is currently focus visible.
+     */
+    isFocusVisible?: boolean;
+    /**
+     * Whether or not the component is currently hovered.
      */
     isHovered?: boolean;
+    /**
+     * Whether or not the component is currently selected.
+     */
+    isSelected?: boolean;
+    /**
+     * Whether or not the component is currently disabled.
+     */
+    isDisabled?: boolean;
+    /**
+     * Whether or not the component is currently read-only.
+     */
+    isReadOnly?: boolean;
+    /**
+     * Whether or not the component is currently invalid.
+     */
+    isInvalid?: boolean;
+    /**
+     * Whether or not the component is currently required.
+     */
+    isRequired?: boolean;
 }
