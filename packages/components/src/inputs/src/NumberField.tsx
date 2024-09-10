@@ -44,11 +44,6 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
     prefix?: ReactNode;
 
     /**
-     * The placeholder text when the NumberField is empty.
-     */
-    placeholder?: string;
-
-    /**
      * The size of the NumberField.
      * @default "md"
      */
@@ -111,7 +106,6 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         style: styleProp,
         size,
         prefix,
-        placeholder,
         onChange: onChangeProp,
         children,
         defaultValue,
@@ -175,10 +169,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 inputType="number"
             >
                 {prefixMarkup}
-                <Input
-                    ref={inputRef}
-                    placeholder={placeholder}
-                />
+                <Input ref={inputRef} />
                 <StepperButton direction="increment" />
                 <StepperButton direction="decrement" />
             </InputGroup>

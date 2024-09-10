@@ -26,7 +26,6 @@ const meta = {
     },
     component: NumberField,
     args: {
-        placeholder: "Placeholder",
         children: [
             <Label key="1">NumberField Label</Label>
         ]
