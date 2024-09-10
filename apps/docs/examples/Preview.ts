@@ -845,23 +845,35 @@ export const Previews: Record<string, Preview> = {
     "Select/docs/selectMenu/description": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/description.tsx"))
     },
-    "Badge/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/Badge/docs/preview.tsx"))
+    "Badge/docs/badge/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))
     },
-    "Badge/docs/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/Badge/docs/disabled.tsx"))
+    "Badge/docs/badge/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/disabled.tsx"))
     },
-    "Badge/docs/indeterminate": {
-        component: lazy(() => import("@/../../packages/components/src/Badge/docs/indeterminate.tsx"))
+    "Badge/docs/badge/indeterminate": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/indeterminate.tsx"))
     },
-    "Badge/docs/variants": {
-        component: lazy(() => import("@/../../packages/components/src/Badge/docs/variants.tsx"))
+    "Badge/docs/badge/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/variants.tsx"))
     },
-    "Badge/docs/highCount": {
-        component: lazy(() => import("@/../../packages/components/src/Badge/docs/highCount.tsx"))
+    "Badge/docs/badge/highCount": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/highCount.tsx"))
     },
-    "Badge/docs/text": {
-        component: lazy(() => import("@/../../packages/components/src/Badge/docs/text.tsx"))
+    "Badge/docs/badge/text": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/text.tsx"))
+    },
+    "Badge/docs/floatingbadge/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/floatingbadge/preview.tsx"))
+    },
+    "Badge/docs/floatingbadge/placement": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/floatingbadge/placement.tsx"))
+    },
+    "Badge/docs/floatingbadge/overlap": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/floatingbadge/overlap.tsx"))
+    },
+    "Badge/docs/floatingbadge/offset": {
+        component: lazy(() => import("@/../../packages/components/src/Badge/docs/floatingbadge/offset.tsx"))
     },
     "Spinner/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Spinner/docs/preview.tsx"))
