@@ -1,6 +1,3 @@
-/* stylelint-disable property-no-unknown */
-/* stylelint-disable value-keyword-case */
-
 .hop-DecorativeRadio {
     composes: hop-Radio from "./Radio.module.css";
 }
