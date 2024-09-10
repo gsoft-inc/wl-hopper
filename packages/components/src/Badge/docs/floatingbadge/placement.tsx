@@ -5,19 +5,19 @@ export default function Example() {
         <Inline gap={32}>
             <FloatingBadge placement="top left">
                 <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
             <FloatingBadge placement="bottom left">
                 <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
             <FloatingBadge placement="bottom right">
                 <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
             <FloatingBadge placement="top right">
                 <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
         </Inline>
     );

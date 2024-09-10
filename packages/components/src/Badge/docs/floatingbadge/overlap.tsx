@@ -13,11 +13,11 @@ export default function Example() {
             </FloatingBadge>
             <FloatingBadge overlap="rectangular">
                 <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
             <FloatingBadge overlap="circular">
                 <Div height="core_320" width="core_320" borderRadius={999} backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
         </Inline>
     );

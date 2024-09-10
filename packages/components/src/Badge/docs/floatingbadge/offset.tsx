@@ -9,7 +9,7 @@ export default function Example() {
             </FloatingBadge>
             <FloatingBadge offset={[10, "-5%"]}>
                 <Div height="core_320" width="core_320" backgroundColor="primary-weak" />
-                <Badge indeterminate></Badge>
+                <Badge isIndeterminate></Badge>
             </FloatingBadge>
         </Inline>
     );
