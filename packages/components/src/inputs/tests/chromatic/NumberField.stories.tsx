@@ -48,14 +48,6 @@ export const WithLabel: Story = {
     }
 };
 
-export const Placeholder: Story = {
-    ...WithLabel,
-    args: {
-        ...WithLabel.args,
-        placeholder: "Where to?"
-    }
-};
-
 export const Value: Story = {
     ...WithLabel,
     args: {
@@ -112,14 +104,14 @@ export const Zoom: Story = {
         <Stack>
             <Div className="zoom-in">
                 <Inline alignY="center">
-                    <NumberField placeholder="Where to?" />
-                    <NumberField placeholder="Where to?" size="sm" />
+                    <NumberField />
+                    <NumberField size="sm" />
                 </Inline>
             </Div>
             <Div className="zoom-out">
                 <Inline alignY="center">
-                    <NumberField placeholder="Where to?" />
-                    <NumberField placeholder="Where to?" size="sm" />
+                    <NumberField />
+                    <NumberField size="sm" />
                 </Inline>
             </Div>
         </Stack>
