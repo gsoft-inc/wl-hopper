@@ -1,0 +1,43 @@
+{
+    "search.exclude": {
+        "**/node_modules*": true,
+        "**/dist*": true
+    },
+
+    // Formatters settings
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.sortImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.formatOnSave": false
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+
+    // Languages
+    "typescript.format.enable": false, // Disables the default formatter to use ESLint instead
+    "typescript.preferences.useAliasesForRenames": false,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+
+    "javascript.format.enable": false, // Disables the default formatter to use ESLint instead
+    "javascript.preferences.useAliasesForRenames": false,
+
+    "json.format.enable": false, // Disables the default formatter to use ESLint instead
+
+    "css.validate": false, // Disables the default formatter to use Stylelint instead
+
+    // Settings for third parties that are frequently used
+    "files.associations": {
+        "*.snap": "javascriptreact"
+    },
+
+    // ESLint extension
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "yaml"
+    ]
+}
