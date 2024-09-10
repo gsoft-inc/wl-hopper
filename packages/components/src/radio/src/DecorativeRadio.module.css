@@ -1,0 +1,32 @@
+.hop-DecorativeRadio {
+    composes: hop-Radio from "./Radio.module.css";
+}
+
+.hop-DecorativeRadio--sm {
+    composes: hop-Radio--sm from "./Radio.module.css";
+}
+
+.hop-DecorativeRadio--md {
+    composes: hop-Radio--md from "./Radio.module.css";
+}
+
+/* Icons */
+.hop-DecorativeRadio__icon,
+.hop-DecorativeRadio__icon-list {
+    composes: hop-Radio__icon from "./Radio.module.css";
+}
+
+/* Box */
+.hop-DecorativeRadio__box {
+    composes: hop-Radio__box from "./Radio.module.css";
+}
+
+/* Check */
+.hop-DecorativeRadio__bullet {
+    composes: hop-Radio__bullet from "./Radio.module.css";
+}
+
+/* Text */
+.hop-DecorativeRadio__text {    
+    composes: hop-Radio__text from "./Radio.module.css";
+}

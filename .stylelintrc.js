@@ -32,6 +32,18 @@ const config = {
                     {
                         "message": "Expected css variables to be kebab-case or hop-ComponentName-kebab-case"
                     }
+                ],
+                "property-no-unknown": [
+                    true,
+                    {
+                        ignoreProperties: ["/composes/"]
+                    }
+                ],
+                "value-keyword-case": [
+                    "lower",
+                    {
+                        ignoreKeywords: ["/^hop-.*$/"]
+                    }
                 ]
             }
         }

@@ -13,10 +13,9 @@ import {
 
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
-import { Checkbox } from "../../checkbox/index.ts";
-import { useLocalizedString } from "../../i18n/index.ts";
+import { DecorativeCheckbox } from "../../checkbox/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { Radio, RadioGroup, RadioList } from "../../radio/index.ts";
+import { DecorativeRadio } from "../../radio/index.ts";
 import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, type SizeAdapter, SlotProvider, cssModule, isTextOnlyChildren } from "../../utils/index.ts";
 
@@ -95,7 +94,6 @@ const ListBoxItemToAvatarSizeAdapter = {
 } as const satisfies SizeAdapter<ListBoxItemSize, AvatarProps["size"]>;
 
 function ListBoxItemInner(props: ListBoxItemInnerProps) {
-    const stringFormatter = useLocalizedString();
     const listStateContext = useContext(ListStateContext);
     
     const { selectionMode, 
@@ -131,30 +129,21 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
             onTransitionEnd={handleTransitionEnd}
         >
             {isRadio && (
-                <RadioGroup 
+                <DecorativeRadio
+                    className={styles["hop-ListBoxItem__radio"]}
+                    value="radio"
                     size="sm"
-                    aria-hidden="true"
-                    aria-label={stringFormatter.format("ListBoxItem.indicatorAriaLabel")}
-                    value={isSelected ? "radio" : null} 
-                    className={styles["hop-ListBoxItem__radio-group"]}
+                    isDisabled={isDisabled}
+                    isHovered={isHovered || isFocusVisible}
+                    isPressed={isPressed}
+                    isSelected={isSelected}
                     isInvalid={isInvalid}
-                >
-                    <RadioList>
-                        <Radio
-                            className={styles["hop-ListBoxItem__radio"]}
-                            value="radio"
-                            isDisabled={isDisabled}
-                            isHovered={isHovered || isFocusVisible}
-                            isPressed={isPressed}
-                        />
-                    </RadioList>
-                </RadioGroup>
+                />
             )}
             {isCheckbox && (
-                <Checkbox
+                <DecorativeCheckbox
                     size="sm"
                     value="checkbox"
-                    aria-hidden="true"
                     className={styles["hop-ListBoxItem__checkbox"]}
                     isDisabled={isDisabled}
                     isHovered={isHovered || isFocusVisible}

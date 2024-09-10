@@ -299,7 +299,7 @@
     transition: var(--checkmark-transition);
 }
 
-.hop-ListBoxItem__radio-group,
+.hop-ListBoxItem__radio,
 .hop-ListBoxItem__checkbox {
     pointer-events: none;
     user-select: none;

@@ -96,8 +96,7 @@
     max-inline-size: 100%;
 }
 
-.hop-Checkbox[data-focus-visible],
-.hop-Checkbox--focused {
+.hop-Checkbox[data-focus-visible] {
     --box-background-color: var(--hop-Checkbox-box-background-color-focused);
     --box-border-color: var(--hop-Checkbox-box-border-color-focused);
     --box-outline: var(--hop-Checkbox-box-outline-size) solid var(--hop-Checkbox-box-outline-color);
@@ -105,16 +104,14 @@
     --icon-color: var(--hop-Checkbox-icon-color-focused);
 }
 
-.hop-Checkbox[data-hovered],
-.hop-Checkbox--hovered {
+.hop-Checkbox[data-hovered] {
     --box-background-color: var(--hop-Checkbox-box-background-color-hovered);
     --box-border-color: var(--hop-Checkbox-box-border-color-hovered);
     --text-color: var(--hop-Checkbox-text-color-hovered);
     --icon-color: var(--hop-Checkbox-icon-color-hovered);
 }
 
-.hop-Checkbox[data-pressed],
-.hop-Checkbox--pressed {
+.hop-Checkbox[data-pressed] {
     --box-background-color: var(--hop-Checkbox-box-background-color-pressed);
     --box-border-color: var(--hop-Checkbox-box-border-color-pressed);
     --text-color: var(--hop-Checkbox-text-color-pressed);
@@ -137,19 +134,19 @@
     --icon-color: var(--hop-Checkbox-icon-color-invalid);
 }
 
-.hop-Checkbox[data-invalid]:where([data-focus-visible], .hop-Checkbox--focused) {
+.hop-Checkbox[data-invalid]:where([data-focus-visible]) {
     --box-background-color: var(--hop-Checkbox-box-background-color-focused-invalid);
     --box-border-color: var(--hop-Checkbox-box-border-color-focused-invalid);
 }
 
-.hop-Checkbox[data-invalid]:where([data-hovered], .hop-Checkbox--hovered) {
+.hop-Checkbox[data-invalid]:where([data-hovered]) {
     --box-background-color: var(--hop-Checkbox-box-background-color-hovered-invalid);
     --box-border-color: var(--hop-Checkbox-box-border-color-hovered-invalid);
     --text-color: var(--hop-Checkbox-text-color-hovered-invalid);
     --icon-color: var(--hop-Checkbox-icon-color-hovered-invalid);
 }
 
-.hop-Checkbox[data-invalid]:where([data-pressed], .hop-Checkbox--pressed){
+.hop-Checkbox[data-invalid]:where([data-pressed]){
     --box-background-color: var(--hop-Checkbox-box-background-color-pressed-invalid);
     --box-border-color: var(--hop-Checkbox-box-border-color-pressed-invalid);
     --text-color: var(--hop-Checkbox-text-color-pressed-invalid);

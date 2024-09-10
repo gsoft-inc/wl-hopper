@@ -6,3 +6,4 @@ export * from "./RadioGroup.tsx";
 export * from "./RadioGroupContext.ts";
 export * from "./RadioList.tsx";
 export * from "./RadioListContext.ts";
+export * from "./DecorativeRadio.tsx";
