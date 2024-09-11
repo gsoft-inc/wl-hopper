@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState, useRef, type ReactNode } from "react";
+import { useContext, useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { SlotProvider } from "@hopper-ui/components";
 
@@ -36,7 +36,6 @@ const designSystemLinks = [
 ];
 
 const ToggleTrigger = ({ children }: { children: ReactNode }) => {
-    const triggerRef = useRef(null);
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
     return (
@@ -49,7 +48,6 @@ const ToggleTrigger = ({ children }: { children: ReactNode }) => {
             }],
             [ToggleButtonContext, {
                 onPress: () => setIsPopoverOpen(!isPopoverOpen),
-                ref: triggerRef,
                 isSelected: isPopoverOpen
             }]
         ]}
