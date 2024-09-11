@@ -70,10 +70,10 @@ const ComponentExample = memo(({
         return (
             <ToggleButton isSelected={showCode}
                 className="hd-component-preview-wrapper__action"
+                aria-label="Show code"
                 onPress={toggleShowCode}
             >
                 <CodeIcon />
-                <span>Show code</span>
             </ToggleButton>
         );
     };

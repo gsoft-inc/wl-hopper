@@ -1,3 +1,8 @@
+.hd-section-popover {
+    --header-height: calc(calc(var(--hd-space-2) * 2) + var(--hd-space-4));
+    --subheader-height: calc(var(--hd-space-3) + calc(var(--hd-space-2) * 2) + 0.125rem);
+}
+
 .hd-section-popover__button {
     display: flex;
     cursor: pointer;
@@ -45,7 +50,10 @@
 }
 
 .hd-section-popover__popover--open {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - (calc(var(--hd-space-4) + calc(var(--subheader-height) + var(--header-height)))));
+    z-index: 200;
 }
 
 /* list */
@@ -76,4 +84,13 @@
     margin-bottom: var(--hd-space-05);
     color: var(--hd-color-primary-text);
     padding: 0.375rem 0;
+}
+
+
+.hd-section-popover__container {
+    overflow-y: scroll;
+    scroll-margin-top: var(--hd-space-8);
+    scrollbar-width: thin;
+    scrollbar-color: #eaeaea transparent;
+    scrollbar-gutter: stable;
 }

@@ -84,15 +84,17 @@ const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
                             />
                         </svg>
                     </button>
-                    <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
-                        {activeIndex !== -1 && (
-                            <span
-                                className={clsx("hd-aside__marker", activeIndex === -1 && "hd-aside__marker--hide")}
-                                style={{ top: activeIndex * titleHeight + "px" }}
-                            ></span>
-                        )}
-                        {listItems}
-                    </ul>
+                    <div className="hd-aside__container">
+                        <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
+                            {activeIndex !== -1 && (
+                                <span
+                                    className={clsx("hd-aside__marker", activeIndex === -1 && "hd-aside__marker--hide")}
+                                    style={{ top: activeIndex * titleHeight + "px" }}
+                                ></span>
+                            )}
+                            {listItems}
+                        </ul>
+                    </div>
                 </>
             )}
         </aside>

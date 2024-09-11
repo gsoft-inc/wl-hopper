@@ -12,7 +12,7 @@ import MobileMenu from "@/app/ui/layout/mobileMenu/MobileMenu";
 import MobileMenuTrigger from "@/app/ui/layout/mobileMenu/MobileMenuTrigger";
 import Nav from "@/app/ui/layout/nav/Nav";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import { Popover, PopoverTrigger, PopoverContext } from "@/components/popover/Popover";
+import { Popover, PopoverTrigger, PopoverContext } from "@/components/popover/Popover.tsx";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { navigation } from "@/configs/navigation";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";

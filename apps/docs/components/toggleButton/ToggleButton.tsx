@@ -9,7 +9,6 @@ import clsx from "clsx";
 
 import "./toggleButton.css";
 
-
 interface ToggleButtonProps extends RACToggleButtonProps {
 }
 

@@ -33,6 +33,14 @@
     }
 }
 
+.hd-aside__container {
+    overflow-y: scroll;
+    scroll-margin-top: var(--hd-space-8);
+    scrollbar-width: thin;
+    scrollbar-color: #eaeaea transparent;
+    scrollbar-gutter: stable;
+}
+
 .hd-aside__list {
     display: flex;
     list-style-type: none;

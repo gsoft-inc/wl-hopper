@@ -54,9 +54,11 @@ const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
                     </Button>
                     <div className={clsx("hd-section-popover__popover", isOpen && "hd-section-popover__popover--open")}>
                         <a className="hd-section-popover__top-section" href="#top" onClick={togglePopover}>Return to top</a>
-                        <ul className="hd-section-popover__list">
-                            {listItems}
-                        </ul>
+                        <div className="hd-section-popover__container">
+                            <ul className="hd-section-popover__list">
+                                {listItems}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             )}
