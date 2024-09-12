@@ -1,9 +1,9 @@
 import {
-    type StyledComponentProps,
-    useStyledSystem
+    useStyledSystem,
+    type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 
 import { useLocalizedString } from "../../../i18n/index.ts";
