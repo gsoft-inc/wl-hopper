@@ -24,19 +24,24 @@ const SwitchToDescriptionSizeAdapter: SizeAdapter<SwitchFieldProps["size"], Text
     md: "sm"
 };
 
-interface SwitchFieldRenderProps extends StyledSystemProps {
+interface SwitchFieldRenderProps {
     /**
      * Whether the switch field is disabled.
      */
     isDisabled?: boolean;
+}
+
+export interface SwitchFieldProps extends RenderComponentProps<SwitchFieldRenderProps>, StyledSystemProps {
     /**
      * A switch field can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
+    /**
+     * Whether the switch field is disabled.
+     */
+    isDisabled?: boolean;
 }
-
-export interface SwitchFieldProps extends SwitchFieldRenderProps, RenderComponentProps<SwitchFieldRenderProps> {}
 
 function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, SwitchFieldContext);
@@ -70,7 +75,7 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
     };
 
     const renderProps = useRenderProps({
-        ...props,
+        ...otherProps,
         className: classNames,
         style: mergedStyles,
         values: {
@@ -101,7 +106,9 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 ref={ref}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled}
-            />
+            >
+                {renderProps.children}
+            </div>
         </SlotProvider>
     );
 }
