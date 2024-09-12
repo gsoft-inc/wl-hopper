@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.3.5
+
+### Patch Changes
+
+- 2a87664: Added DecorativeCheckbox and DecorativeRadio to be used as visual checkboxes and radio buttons inside other interactive components.
+- 9d2abdd: Remove placeholder from NumberField
+
 ## 1.3.4
 
 ### Patch Changes
