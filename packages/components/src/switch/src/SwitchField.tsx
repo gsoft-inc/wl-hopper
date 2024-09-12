@@ -10,7 +10,7 @@ import { mergeProps, useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { cssModule, SlotProvider, useRenderProps, type RenderComponentProps, type SizeAdapter } from "../../utils/index.ts";
+import { cssModule, SlotProvider, useRenderProps, type SizeAdapter, type TempBaseComponentProps } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
 import { SwitchFieldContext } from "./SwitchFieldContext.ts";
@@ -31,7 +31,7 @@ interface SwitchFieldRenderProps {
     isDisabled?: boolean;
 }
 
-export interface SwitchFieldProps extends RenderComponentProps<SwitchFieldRenderProps>, StyledSystemProps {
+export interface SwitchFieldProps extends TempBaseComponentProps<SwitchFieldRenderProps>, StyledSystemProps {
     /**
      * A switch field can vary in size.
      * @default "md"

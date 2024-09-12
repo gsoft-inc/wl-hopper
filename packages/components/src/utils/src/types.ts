@@ -42,8 +42,8 @@ export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotPro
 
 }
 
-// TODO: For a incremental transition, we can start with this
-export interface RenderComponentProps<T> extends RenderProps<T>, AriaLabelingProps, SlotProps {
+// TODO: For a incremental transition, we can start with TempBaseComponentProps, will rename to BaseComponentProps when migration is complete
+export interface TempBaseComponentProps<T> extends RenderProps<T>, AriaLabelingProps, SlotProps {
 
 }
 
