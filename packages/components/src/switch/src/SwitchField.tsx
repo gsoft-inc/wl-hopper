@@ -1,16 +1,16 @@
 import {
-    type StyledSystemProps,
+    useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledSystemProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
-import { useId } from "react-aria";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
+import { mergeProps, useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import { cssModule, SlotProvider, useRenderProps, type RenderComponentProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
 import { SwitchFieldContext } from "./SwitchFieldContext.ts";
@@ -24,7 +24,7 @@ const SwitchToDescriptionSizeAdapter: SizeAdapter<SwitchFieldProps["size"], Text
     md: "sm"
 };
 
-export interface SwitchFieldProps extends StyledSystemProps, BaseComponentProps {
+interface SwitchFieldRenderProps extends StyledSystemProps {
     /**
      * Whether the switch field is disabled.
      */
@@ -36,12 +36,14 @@ export interface SwitchFieldProps extends StyledSystemProps, BaseComponentProps 
     size?: ResponsiveProp<"sm" | "md">;
 }
 
+export interface SwitchFieldProps extends SwitchFieldRenderProps, RenderComponentProps<SwitchFieldRenderProps> {}
+
 function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, SwitchFieldContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+
     const {
         className,
-        children,
         isDisabled,
         size: sizeProp = "md",
         style,
@@ -67,6 +69,15 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         ...style
     };
 
+    const renderProps = useRenderProps({
+        ...props,
+        className: classNames,
+        style: mergedStyles,
+        values: {
+            isDisabled: isDisabled || false
+        }
+    });
+
     const descriptionId = useId();
 
     return (
@@ -86,15 +97,11 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
             ]}
         >
             <div
-                {...otherProps}
+                {...mergeProps(otherProps, renderProps)}
                 ref={ref}
-                className={classNames}
-                style={mergedStyles}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled}
-            >
-                {children}
-            </div>
+            />
         </SlotProvider>
     );
 }
