@@ -1,3 +1,8 @@
+.hd-section-popover {
+    width: calc(100% - (var(--hd-space-2) * 2));
+    transform: translateX(calc(-1 * calc(var(--hd-space-2) / 2)));
+}
+
 .hd-section-popover__wrapper {
     padding: var(--hd-space-1) var(--hd-space-3) var(--hd-space-2) var(--hd-space-3);
 }
@@ -13,16 +18,6 @@
     color: var(--hd-color-neutral-text-weak);
     padding-inline: var(--hd-space-2) var(--hd-space-1);
     padding-block: var(--hd-space-05);
-}
-
-.hd-section-popover__button-icon {
-    stroke: var(--hd-color-neutral-icon);
-    transition: rotate .1s ease-in;
-    rotate: -90deg;
-}
-
-.hd-section-popover__button--open svg {
-    rotate: 0deg;
 }
 
 @media screen and (width >= 48rem) {

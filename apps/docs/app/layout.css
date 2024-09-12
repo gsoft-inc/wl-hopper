@@ -39,7 +39,7 @@ html {
 }
 
 .hd-layout__wrapper .hd-sub-header {
-    margin-inline: calc(var(--hd-space-2) * -1);
+    margin-inline: calc(-1 * var(--hd-space-2));
 }
 
 main {
