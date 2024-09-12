@@ -106,6 +106,7 @@
     --hd-focus-ring: 0 0 0 0.125rem var(--hd-neutral-20), 0 0 0 0.25rem var(--hd-neutral-900);
     --hd-color-shadow-neutral-gradient: 0 0.0625 0 0 rgb(255 255 255 / 15%) inset, 0 0 0 0.0625 rgb(11 11 11 / 60%) inset;
     --hd-color-dotted-surface: var(--hd-neutral-50);
+    --hd-scrollbar-color: #eaeaea;
 }
 
 /* Dark Theme Overrides */

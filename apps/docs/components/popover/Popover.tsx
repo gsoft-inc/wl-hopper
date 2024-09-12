@@ -1,16 +1,17 @@
 "use client";
 
-import { createContext, type ForwardedRef, forwardRef } from "react";
+import { isFunction, isNil } from "@hopper-ui/components";
+import clsx from "clsx";
+import { createContext, forwardRef, type ForwardedRef } from "react";
 import {
-    useContextProps,
-    type PopoverProps as RACPopoverProps,
-    type DialogTriggerProps,
+    Dialog,
     DialogTrigger,
     Popover as RACPopover,
-    Dialog, type ContextValue
+    useContextProps,
+    type ContextValue,
+    type DialogTriggerProps,
+    type PopoverProps as RACPopoverProps
 } from "react-aria-components";
-import clsx from "clsx";
-import { isFunction, isNil } from "@hopper-ui/components";
 
 import "./popover.css";
 

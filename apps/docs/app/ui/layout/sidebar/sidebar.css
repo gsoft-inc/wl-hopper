@@ -51,7 +51,7 @@
     overflow-y: scroll;
     scroll-margin-top: var(--hd-space-8);
     scrollbar-width: thin;
-    scrollbar-color: #eaeaea transparent;
+    scrollbar-color: var(--hd-scrollbar-color) transparent;
     scrollbar-gutter: stable;
     height: calc(100vh - calc(var(--hd-space-8) * 2));
     width: 100%;
