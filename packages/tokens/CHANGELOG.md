@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.3.2
+
+### Patch Changes
+
+- 41cbec0: Fixed a token typo
+
 ## 4.3.1
 
 ### Patch Changes
