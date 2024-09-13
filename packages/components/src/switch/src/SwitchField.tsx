@@ -45,45 +45,48 @@ export interface SwitchFieldProps extends TempBaseComponentProps<SwitchFieldRend
 
 function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, SwitchFieldContext);
+
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const {
-        className,
         isDisabled,
         size: sizeProp = "md",
-        style,
         slot,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
 
-    const classNames = clsx(
-        className,
-        GlobalSwitchFieldCssSelector,
-        cssModule(
-            styles,
-            "hop-SwitchField",
-            size
-        ),
-        stylingProps.className
-    );
-
-    const mergedStyles: CSSProperties = {
-        ...stylingProps.style,
-        ...style
-    };
-
     const renderProps = useRenderProps({
         ...otherProps,
-        className: classNames,
-        style: mergedStyles,
         values: {
             isDisabled: isDisabled || false
         }
     });
 
     const descriptionId = useId();
+
+    const className = clsx(
+        GlobalSwitchFieldCssSelector,
+        cssModule(
+            styles,
+            "hop-SwitchField",
+            size
+        ),
+        stylingProps.className,
+        renderProps.className
+    );
+
+    const style: CSSProperties = {
+        ...stylingProps.style,
+        ...renderProps.style
+    };
+
+    const divProps = {
+        ...mergeProps(otherProps, renderProps),
+        className,
+        style
+    };
 
     return (
         <SlotProvider
@@ -102,7 +105,7 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
             ]}
         >
             <div
-                {...mergeProps(otherProps, renderProps)}
+                {...divProps}
                 ref={ref}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled}

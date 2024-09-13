@@ -90,7 +90,7 @@ export const Zoom: Story = {
 export const AccessToDisabledState: Story = {
     render: props => (
         <Inline alignY="end">
-            <SwitchField {...props} size="sm" isDisabled>
+            <SwitchField {...props} size="sm">
                 {({ isDisabled }) => (
                     <>
                         <Switch>
@@ -109,6 +109,27 @@ export const AccessToDisabledState: Story = {
                         <Text slot="description">Is disabled: {String(isDisabled)}</Text>
                     </>
                 )}
+            </SwitchField>
+            <SwitchField
+                {...props}
+                size="sm"
+                style={({ isDisabled }) => !isDisabled ? { backgroundColor: "red" } : {}}
+            >
+                <Switch>
+                    <Text>Enabled and red</Text>
+                </Switch>
+                <Text slot="description">Background is red when not disabled</Text>
+            </SwitchField>
+            <SwitchField
+                {...props}
+                size="sm"
+                isDisabled
+                style={({ isDisabled }) => isDisabled ? { backgroundColor: "blue" } : {}}
+            >
+                <Switch>
+                    <Text>Disabled and blue</Text>
+                </Switch>
+                <Text slot="description">Background is blue when disabled</Text>
             </SwitchField>
         </Inline>
     )
