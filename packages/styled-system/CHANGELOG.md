@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.3.2
+
+### Patch Changes
+
+- 41cbec0: Fixed a token typo
+
 ## 2.3.1
 
 ### Patch Changes
