@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { screen, render } from "@hopper-ui/test-utils";
+import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
 import { Text } from "../../../typography/Text/src/Text.tsx";
@@ -98,14 +98,21 @@ describe("Switch", () => {
     });
 
     it("should be disabled and pass it to the switch", () => {
-        render(<SwitchField data-testid={testId} isDisabled><Switch>option 1</Switch><Text
-            slot="description"
-        >description</Text></SwitchField>);
+        render(
+            <SwitchField
+                data-testid={testId}
+                isDisabled
+                className={({ isDisabled }) => (isDisabled ? "disabled" : "")}
+            >
+                <Switch>option 1</Switch>
+                <Text slot="description">description</Text>
+            </SwitchField>);
 
         const element = screen.getByTestId(testId);
         const switchElem = screen.getByRole("switch");
 
         expect(element).toHaveAttribute("data-disabled", "true");
         expect(switchElem).toBeDisabled();
+        expect(element).toHaveClass("disabled");
     });
 });

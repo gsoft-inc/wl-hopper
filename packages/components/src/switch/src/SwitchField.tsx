@@ -1,16 +1,16 @@
 import {
-    type StyledSystemProps,
+    useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledSystemProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { SlotProvider, type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import { cssModule, SlotProvider, useRenderProps, type SizeAdapter, type TempBaseComponentProps } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
 import { SwitchFieldContext } from "./SwitchFieldContext.ts";
@@ -24,50 +24,63 @@ const SwitchToDescriptionSizeAdapter: SizeAdapter<SwitchFieldProps["size"], Text
     md: "sm"
 };
 
-export interface SwitchFieldProps extends StyledSystemProps, BaseComponentProps {
+interface SwitchFieldRenderProps {
     /**
      * Whether the switch field is disabled.
      */
     isDisabled?: boolean;
+}
+
+export interface SwitchFieldProps extends TempBaseComponentProps<SwitchFieldRenderProps>, StyledSystemProps {
     /**
      * A switch field can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
+    /**
+     * Whether the switch field is disabled.
+     */
+    isDisabled?: boolean;
 }
 
 function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, SwitchFieldContext);
+
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+
     const {
-        className,
-        children,
         isDisabled,
         size: sizeProp = "md",
-        style,
         slot,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
 
-    const classNames = clsx(
-        className,
+    const renderProps = useRenderProps({
+        ...otherProps,
+        values: {
+            isDisabled: isDisabled || false
+        }
+    });
+
+    const descriptionId = useId();
+
+    const className = clsx(
         GlobalSwitchFieldCssSelector,
         cssModule(
             styles,
             "hop-SwitchField",
             size
         ),
-        stylingProps.className
+        stylingProps.className,
+        renderProps.className
     );
 
-    const mergedStyles: CSSProperties = {
+    const style: CSSProperties = {
         ...stylingProps.style,
-        ...style
+        ...renderProps.style
     };
-
-    const descriptionId = useId();
 
     return (
         <SlotProvider
@@ -87,13 +100,13 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         >
             <div
                 {...otherProps}
+                className={className}
+                style={style}
                 ref={ref}
-                className={classNames}
-                style={mergedStyles}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled}
             >
-                {children}
+                {renderProps.children}
             </div>
         </SlotProvider>
     );

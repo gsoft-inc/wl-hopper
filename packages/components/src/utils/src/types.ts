@@ -1,4 +1,4 @@
-import type { DOMProps as SharedDOMProps, AriaLabelingProps } from "@react-types/shared";
+import type { AriaLabelingProps, DOMProps as SharedDOMProps } from "@react-types/shared";
 import type { CSSProperties, ReactNode } from "react";
 import type { SlotProps } from "react-aria-components";
 
@@ -39,6 +39,11 @@ export interface RenderPropsHookOptions<T> extends RenderProps<T>, SharedDOMProp
 
 // TODO: i added this, not sure if it will make sense
 export interface BaseComponentProps extends DOMProps, AriaLabelingProps, SlotProps {
+
+}
+
+// TODO: For a incremental transition, we can start with TempBaseComponentProps, will rename to BaseComponentProps when migration is complete
+export interface TempBaseComponentProps<T> extends RenderProps<T>, AriaLabelingProps, SlotProps {
 
 }
 

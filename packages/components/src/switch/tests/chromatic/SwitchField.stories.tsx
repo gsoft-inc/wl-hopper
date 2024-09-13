@@ -86,3 +86,31 @@ export const Zoom: Story = {
         </Stack>
     )
 };
+
+export const AccessToDisabledState: Story = {
+    render: props => (
+        <Inline alignY="end">
+            <SwitchField {...props} size="sm" isDisabled>
+                {({ isDisabled }) => (
+                    <>
+                        <Switch>
+                            <Text>Disabled</Text>
+                        </Switch>
+                        <Text slot="description">Is disabled: {String(isDisabled)}</Text>
+                    </>
+                )}
+            </SwitchField>
+            <SwitchField
+                {...props}
+                size="sm"
+                isDisabled
+                style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+            >
+                <Switch>
+                    <Text>Disable and red border</Text>
+                </Switch>
+                <Text slot="description">Border is red when disabled</Text>
+            </SwitchField>
+        </Inline>
+    )
+};
