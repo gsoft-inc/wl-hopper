@@ -1,16 +1,18 @@
 "use client";
 
-import { createContext, type ForwardedRef, forwardRef } from "react";
+import { isFunction, isNil } from "@hopper-ui/components";
+import clsx from "clsx";
+import { createContext, forwardRef, type CSSProperties, type ForwardedRef } from "react";
+
 import {
-    useContextProps,
-    type PopoverProps as RACPopoverProps,
-    type DialogTriggerProps,
+    Dialog,
     DialogTrigger,
     Popover as RACPopover,
-    Dialog, type ContextValue
+    useContextProps,
+    type ContextValue,
+    type DialogTriggerProps,
+    type PopoverProps as RACPopoverProps
 } from "react-aria-components";
-import clsx from "clsx";
-import { isFunction, isNil } from "@hopper-ui/components";
 
 import "./popover.css";
 
@@ -21,6 +23,10 @@ export interface PopoverProps extends RACPopoverProps {
     boundaryOffset?: number;
 }
 
+export interface PopoverCSSProperties extends CSSProperties {
+    "--container-padding": number | string;
+}
+
 export interface PopoverTriggerProps extends DialogTriggerProps {}
 
 export const PopoverTrigger = (props: PopoverTriggerProps) =>
@@ -28,21 +34,31 @@ export const PopoverTrigger = (props: PopoverTriggerProps) =>
 
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
+
     const {
         children,
         className,
         offset = 4,
         boundaryOffset,
+        style,
+        containerPadding = 16,
         ...otherProps
     } = props;
+
+    const mergedStyles: PopoverCSSProperties = {
+        ...style,
+        "--container-padding": `${containerPadding}px`
+    };
 
     return (
         <RACPopover
             {...otherProps}
             offset={offset}
             ref={ref}
+            containerPadding={containerPadding}
             className={clsx("hd-popover", className)}
             arrowBoundaryOffset={boundaryOffset}
+            style={mergedStyles}
         >
             {state => (
                 <Dialog className={clsx("hd-popover__dialog")}>

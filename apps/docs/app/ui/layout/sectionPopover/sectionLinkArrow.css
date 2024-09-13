@@ -1,0 +1,9 @@
+.hd-section-link-arrow {
+    stroke: var(--hd-color-neutral-icon);
+    transition: rotate .1s ease-in;
+    rotate: -90deg;
+}
+
+.hd-section-link-arrow--open {
+    rotate: 0deg;
+}

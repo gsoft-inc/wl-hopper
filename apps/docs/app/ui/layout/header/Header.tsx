@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState, useRef, type ReactNode } from "react";
+import { useContext, useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { SlotProvider } from "@hopper-ui/components";
 
@@ -12,7 +12,7 @@ import MobileMenu from "@/app/ui/layout/mobileMenu/MobileMenu";
 import MobileMenuTrigger from "@/app/ui/layout/mobileMenu/MobileMenuTrigger";
 import Nav from "@/app/ui/layout/nav/Nav";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import { Popover, PopoverTrigger, PopoverContext } from "@/components/popover/Popover";
+import { Popover, PopoverTrigger, PopoverContext } from "@/components/popover/Popover.tsx";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { navigation } from "@/configs/navigation";
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
@@ -36,7 +36,6 @@ const designSystemLinks = [
 ];
 
 const ToggleTrigger = ({ children }: { children: ReactNode }) => {
-    const triggerRef = useRef(null);
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
     return (
@@ -49,7 +48,6 @@ const ToggleTrigger = ({ children }: { children: ReactNode }) => {
             }],
             [ToggleButtonContext, {
                 onPress: () => setIsPopoverOpen(!isPopoverOpen),
-                ref: triggerRef,
                 isSelected: isPopoverOpen
             }]
         ]}

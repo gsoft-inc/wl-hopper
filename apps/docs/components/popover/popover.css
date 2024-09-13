@@ -1,16 +1,12 @@
-.hd-popover__dialog {
+.hd-popover {
     --hd-popover-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
 
     background-color: var(--hd-color-neutral-surface);
-    border: var(--hd-border-size) solid var(--hd-color-neutral-text-weak);
+    border: var(--hd-border-size) solid var(--hd-color-neutral-border);
     border-radius: var(--hd-border-radius-md);
-    box-sizing: border-box;
     box-shadow: var(--hd-popover-shadow);
-    outline: none;
-}
-
-.hd-popover:focus-visible {
-    outline: 0;
-    box-shadow: var(--hd-focus-ring);
-    border-radius: var(--hd-border-radius-sm);
+    overflow-y: auto;
+    scroll-margin-top: var(--hd-space-8);
+    scrollbar-width: thin;
+    scrollbar-color: var(--hd-scrollbar-color) transparent;
 }
