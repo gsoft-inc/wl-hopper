@@ -1,14 +1,14 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
-import { forwardRef, type ReactNode, useContext, type ForwardedRef, useState, type TransitionEventHandler, type NamedExoticComponent } from "react";
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode, type TransitionEventHandler, useContext, useState } from "react";
 import {
-    useContextProps, 
-    ListBoxItem as RACListBoxItem, 
-    type ListBoxItemProps as RACListBoxItemProps, 
     composeRenderProps,
     DEFAULT_SLOT,
+    type ListBoxItemRenderProps,
     ListStateContext,
-    type ListBoxItemRenderProps
+    ListBoxItem as RACListBoxItem,
+    type ListBoxItemProps as RACListBoxItemProps,
+    useContextProps
 } from "react-aria-components";
 
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
@@ -17,7 +17,7 @@ import { DecorativeCheckbox } from "../../checkbox/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { DecorativeRadio } from "../../radio/index.ts";
 import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, type SizeAdapter, SlotProvider, cssModule, isTextOnlyChildren } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, isTextOnlyChildren, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 import { ListBoxItemSkeleton } from "./ListBoxItemSkeleton.tsx";
