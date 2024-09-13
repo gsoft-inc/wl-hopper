@@ -82,12 +82,6 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         ...renderProps.style
     };
 
-    const divProps = {
-        ...mergeProps(otherProps, renderProps),
-        className,
-        style
-    };
-
     return (
         <SlotProvider
             values={[
@@ -105,7 +99,9 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
             ]}
         >
             <div
-                {...divProps}
+                {...mergeProps(otherProps, renderProps)}
+                className={className}
+                style={style}
                 ref={ref}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled}
