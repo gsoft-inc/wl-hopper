@@ -499,7 +499,7 @@ a.hd-home-sample__item:hover::after {
     grid-template-columns: 1fr;
 }
 
-@media screen and (width >= 37.5rem) {
+@media screen and (width >= 44rem) {
     .hd-home-sample-components {
         grid-template-columns: repeat(2, 1fr);
     }
