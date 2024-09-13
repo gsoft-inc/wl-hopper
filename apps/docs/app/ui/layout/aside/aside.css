@@ -34,7 +34,7 @@
 }
 
 .hd-aside__container {
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-margin-top: var(--hd-space-8);
     scrollbar-width: thin;
     scrollbar-color: var(--hd-scrollbar-color) transparent;

@@ -5,9 +5,8 @@
     border: var(--hd-border-size) solid var(--hd-color-neutral-border);
     border-radius: var(--hd-border-radius-md);
     box-shadow: var(--hd-popover-shadow);
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-margin-top: var(--hd-space-8);
     scrollbar-width: thin;
     scrollbar-color: var(--hd-scrollbar-color) transparent;
-    scrollbar-gutter: stable;
 }
