@@ -1,6 +1,5 @@
 .hd-section-popover {
-    width: calc(100% - (var(--hd-space-2) * 2));
-    transform: translateX(calc(-1 * calc(var(--hd-space-2) / 2)));
+    width: calc(100% - (var(--container-padding) * 2));
 }
 
 .hd-section-popover__wrapper {

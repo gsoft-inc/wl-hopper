@@ -2,7 +2,8 @@
 
 import { isFunction, isNil } from "@hopper-ui/components";
 import clsx from "clsx";
-import { createContext, forwardRef, type ForwardedRef } from "react";
+import { createContext, forwardRef, type CSSProperties, type ForwardedRef } from "react";
+
 import {
     Dialog,
     DialogTrigger,
@@ -22,6 +23,10 @@ export interface PopoverProps extends RACPopoverProps {
     boundaryOffset?: number;
 }
 
+export interface PopoverCSSProperties extends CSSProperties {
+    "--container-padding": number | string;
+}
+
 export interface PopoverTriggerProps extends DialogTriggerProps {}
 
 export const PopoverTrigger = (props: PopoverTriggerProps) =>
@@ -29,21 +34,31 @@ export const PopoverTrigger = (props: PopoverTriggerProps) =>
 
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
+
     const {
         children,
         className,
         offset = 4,
         boundaryOffset,
+        style,
+        containerPadding = 16,
         ...otherProps
     } = props;
+
+    const mergedStyles: PopoverCSSProperties = {
+        ...style,
+        "--container-padding": `${containerPadding}px`
+    };
 
     return (
         <RACPopover
             {...otherProps}
             offset={offset}
             ref={ref}
+            containerPadding={containerPadding}
             className={clsx("hd-popover", className)}
             arrowBoundaryOffset={boundaryOffset}
+            style={mergedStyles}
         >
             {state => (
                 <Dialog className={clsx("hd-popover__dialog")}>
