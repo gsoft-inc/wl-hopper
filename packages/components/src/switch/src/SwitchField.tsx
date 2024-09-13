@@ -6,7 +6,7 @@ import {
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
-import { mergeProps, useId } from "react-aria";
+import { useId } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
@@ -99,7 +99,7 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
             ]}
         >
             <div
-                {...mergeProps(otherProps, renderProps)}
+                {...otherProps}
                 className={className}
                 style={style}
                 ref={ref}
