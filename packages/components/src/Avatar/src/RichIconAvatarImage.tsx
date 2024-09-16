@@ -1,10 +1,10 @@
 import { RichIconContext, type RichIconProps } from "@hopper-ui/icons";
-import { type ResponsiveProp, useResponsiveValue, useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
-import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
-import { useContextProps } from "react-aria-components";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
+import { mergeProps } from "react-aria";
+import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { type SizeAdapter, SlotProvider, cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import { SlotProvider, composeClassnameRenderProps, cssModule, useRenderProps, type SizeAdapter, type TempBaseComponentProps } from "../../utils/index.ts";
 
 import type { AvatarProps, AvatarSize } from "./Avatar.tsx";
 import { RichIconAvatarImageContext } from "./RichIconAvatarImageContext.ts";
@@ -13,7 +13,16 @@ import styles from "./RichIconAvatarImage.module.css";
 
 export const GlobalRichIconAvatarImageCssSelector = "hop-RichIconAvatarImage";
 
-export interface RichIconAvatarImageProps extends StyledSystemProps, BaseComponentProps, Omit<HTMLAttributes<HTMLDivElement>, "slot" | "content" | "color"> {
+interface RichIconAvatarImageRenderProps {
+    /**
+     * Whether or not the avatar is disabled.
+     */
+    isDisabled?: boolean;
+}
+
+type OmittedDivProps = "slot" | "content" | "color" | "children" | "className" | "style";
+
+export interface RichIconAvatarImageProps extends StyledSystemProps, TempBaseComponentProps<RichIconAvatarImageRenderProps>, Omit<HTMLAttributes<HTMLDivElement>, OmittedDivProps> {
     /**
      * Whether or not the avatar image is disabled.
      */
@@ -38,7 +47,6 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
     [props, ref] = useContextProps(props, ref, RichIconAvatarImageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
-        children,
         className,
         isDisabled,
         style,
@@ -46,10 +54,10 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
         size: sizeValue,
         ...otherProps
     } = ownProps;
-    
+
     const size = useResponsiveValue(sizeValue) ?? "md";
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         className,
         GlobalRichIconAvatarImageCssSelector,
         cssModule(
@@ -60,10 +68,21 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
         stylingProps.className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...stylingProps.style,
-        ...style
-    };
+    const mergedStyles = composeRenderProps(style, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const renderProps = useRenderProps<RichIconAvatarImageRenderProps>({
+        ...props,
+        className: classNames,
+        style: mergedStyles,
+        values: {
+            isDisabled: isDisabled || false
+        }
+    });
 
     if (!props["aria-label"] && !props["aria-labelledby"]) {
         console.warn("An aria-label or aria-labelledby prop is required for accessibility.");
@@ -71,10 +90,8 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
 
     return (
         <div
-            {...otherProps}
+            {...mergeProps(otherProps, renderProps)}
             ref={ref}
-            className={classNames}
-            style={mergedStyles}
             slot={slot ?? undefined}
             role="img"
             data-disabled={isDisabled || undefined}
@@ -87,7 +104,7 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
                     }]
                 ]}
             >
-                {children}
+                {renderProps.children}
             </SlotProvider>
         </div>
     );
