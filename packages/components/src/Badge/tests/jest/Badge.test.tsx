@@ -54,11 +54,30 @@ describe("Badge", () => {
         expect(ref.current instanceof HTMLSpanElement).toBeTruthy();
     });
 
-    it("should add proper attributes when disabled", () => {
-        render(<Badge data-testid="badge" isDisabled>12</Badge>);
+    it("should support disabled state", () => {
+        render(<Badge
+            data-testid="badge"
+            isDisabled
+            className={({ isDisabled }) => (isDisabled ? "disabled" : "")}
+        >12</Badge>);
 
         const element = screen.getByTestId("badge");
+
         expect(element).toHaveAttribute("data-disabled");
         expect(element).toHaveAttribute("aria-disabled");
+        expect(element).toHaveClass("disabled");
+    });
+
+    it("should support indeterminate state", () => {
+        render(<Badge
+            data-testid="badge"
+            isIndeterminate
+            className={({ isIndeterminate }) => (isIndeterminate ? "indeterminate" : "")}
+        >12</Badge>);
+
+        const element = screen.getByTestId("badge");
+
+        expect(element).toHaveAttribute("data-indeterminate");
+        expect(element).toHaveClass("indeterminate");
     });
 });
