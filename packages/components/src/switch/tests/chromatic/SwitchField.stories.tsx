@@ -94,7 +94,7 @@ export const AccessToDisabledState: Story = {
                 {({ isDisabled }) => (
                     <>
                         <Switch>
-                            <Text>Disabled</Text>
+                            <Text>Should be true</Text>
                         </Switch>
                         <Text slot="description">Is disabled: {String(isDisabled)}</Text>
                     </>
@@ -109,7 +109,7 @@ export const AccessToDisabledState: Story = {
                 <Switch>
                     <Text>Disable and red border</Text>
                 </Switch>
-                <Text slot="description">Border is red when disabled</Text>
+                <Text slot="description">Border should be red</Text>
             </SwitchField>
         </Inline>
     )

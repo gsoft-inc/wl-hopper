@@ -1,21 +1,22 @@
 import {
-    type StyledSystemProps,
+    useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledSystemProps
 } from "@hopper-ui/styled-system";
-import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
-import { useId } from "react-aria";
-import { useContextProps } from "react-aria-components";
+import { forwardRef, type ForwardedRef } from "react";
+import { mergeProps, useId } from "react-aria";
+import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
 import {
-    SlotProvider,
-    type SizeAdapter,
+    ClearContainerSlots,
+    composeClassnameRenderProps,
     cssModule,
-    type BaseComponentProps,
-    ClearContainerSlots
+    SlotProvider,
+    useRenderProps,
+    type SizeAdapter,
+    type TempBaseComponentProps
 } from "../../utils/index.ts";
 
 import { RadioContext } from "./RadioContext.ts";
@@ -30,7 +31,14 @@ const RadioToDescriptionSizeAdapter: SizeAdapter<RadioFieldProps["size"], TextPr
     md: "sm"
 };
 
-export interface RadioFieldProps extends StyledSystemProps, BaseComponentProps {
+interface RadioFieldRenderProps {
+    /**
+     * Whether the radio field is disabled.
+     */
+    isDisabled?: boolean;
+}
+
+export interface RadioFieldProps extends StyledSystemProps, TempBaseComponentProps<RadioFieldRenderProps> {
     /**
      * Whether the radio field is disabled.
      */
@@ -47,7 +55,6 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        children,
         isDisabled,
         size: sizeProp = "md",
         style,
@@ -57,7 +64,7 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const size = useResponsiveValue(sizeProp) ?? "md";
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         className,
         GlobalRadioFieldCssSelector,
         cssModule(
@@ -68,10 +75,21 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         stylingProps.className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...stylingProps.style,
-        ...style
-    };
+    const mergedStyles = composeRenderProps(style, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const renderProps = useRenderProps<RadioFieldRenderProps>({
+        ...props,
+        className: classNames,
+        style: mergedStyles,
+        values: {
+            isDisabled: isDisabled || false
+        }
+    });
 
     const descriptionId = useId();
 
@@ -93,14 +111,12 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                 ]}
             >
                 <div
-                    {...otherProps}
+                    {...mergeProps(otherProps, renderProps)}
                     ref={ref}
-                    className={classNames}
-                    style={mergedStyles}
                     slot={slot ?? undefined}
                     data-disabled={isDisabled}
                 >
-                    {children}
+                    {renderProps.children}
                 </div>
             </SlotProvider>
         </ClearContainerSlots>
