@@ -1,15 +1,15 @@
 import { WarningIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
-import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
+import { type ForwardedRef, forwardRef, useContext } from "react";
 import {
-    useContextProps,
     type FieldErrorProps as RACFieldErrorProps,
-    FieldErrorContext as RACFieldErrorContext
+    FieldErrorContext as RACFieldErrorContext,
+    composeRenderProps,
+    useContextProps
 } from "react-aria-components";
 
 import { type TextProps, Text } from "../../typography/Text/index.ts";
-import { cssModule, useRenderProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, useRenderProps } from "../../utils/index.ts";
 
 import { ErrorMessageContext } from "./ErrorMessageContext.ts";
 
@@ -48,9 +48,9 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
     const validation = useContext(RACFieldErrorContext)!;
     [props, ref] = useContextProps(props, ref, ErrorMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, hideIcon = false, style, slot = "errorMessage", ...otherProps } = ownProps;
+    const { className, children, hideIcon = false, style: styleProp, slot = "errorMessage", ...otherProps } = ownProps;
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         GlobalErrorMessageCssSelector,
         cssModule(
             styles,
@@ -60,15 +60,18 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
         className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...stylingProps.style,
-        ...style
-    };
+    const style = composeRenderProps(styleProp, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
 
     const warningIcon = !hideIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
 
     const renderProps = useRenderProps({
         className: classNames,
+        style,
         children: children ? <>{warningIcon} {children}</> : null,
         defaultChildren: <>{warningIcon} {validation.validationErrors.join(" ")}</>,
         values: validation
@@ -80,7 +83,6 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
             {...renderProps}
             slot={slot}
             ref={ref}
-            style={mergedStyles}
         />
     );
 });
