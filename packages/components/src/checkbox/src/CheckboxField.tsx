@@ -9,7 +9,7 @@ import { mergeProps, useId } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type SizeAdapter, type TempBaseComponentProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type BaseComponentRenderProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
 import { CheckboxFieldContext } from "./CheckboxFieldContext.ts";
@@ -30,7 +30,7 @@ interface CheckboxFieldRenderProps {
     isDisabled?: boolean;
 }
 
-export interface CheckboxFieldProps extends StyledSystemProps, TempBaseComponentProps<CheckboxFieldRenderProps> {
+export interface CheckboxFieldProps extends StyledSystemProps, BaseComponentRenderProps<CheckboxFieldRenderProps> {
     /**
      * Whether the checkbox field is disabled.
      */

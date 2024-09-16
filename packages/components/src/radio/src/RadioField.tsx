@@ -15,8 +15,8 @@ import {
     cssModule,
     SlotProvider,
     useRenderProps,
-    type SizeAdapter,
-    type TempBaseComponentProps
+    type BaseComponentRenderProps,
+    type SizeAdapter
 } from "../../utils/index.ts";
 
 import { RadioContext } from "./RadioContext.ts";
@@ -38,7 +38,7 @@ interface RadioFieldRenderProps {
     isDisabled?: boolean;
 }
 
-export interface RadioFieldProps extends StyledSystemProps, TempBaseComponentProps<RadioFieldRenderProps> {
+export interface RadioFieldProps extends StyledSystemProps, BaseComponentRenderProps<RadioFieldRenderProps> {
     /**
      * Whether the radio field is disabled.
      */

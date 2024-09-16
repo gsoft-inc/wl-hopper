@@ -4,7 +4,7 @@ import { type ForwardedRef, forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { composeClassnameRenderProps, type TempBaseComponentProps, useRenderProps } from "../../utils/index.ts";
+import { type BaseComponentRenderProps, composeClassnameRenderProps, useRenderProps } from "../../utils/index.ts";
 
 import type { AvatarSize } from "./Avatar.tsx";
 import { AvatarContext } from "./AvatarContext.ts";
@@ -20,7 +20,7 @@ interface DeletedAvatarRenderProps {
 }
 
 
-export interface DeletedAvatarProps extends StyledSystemProps, Omit<TempBaseComponentProps<DeletedAvatarRenderProps>, "children"> {
+export interface DeletedAvatarProps extends StyledSystemProps, Omit<BaseComponentRenderProps<DeletedAvatarRenderProps>, "children"> {
     /**
      * Whether or not the avatar is disabled.
      */
