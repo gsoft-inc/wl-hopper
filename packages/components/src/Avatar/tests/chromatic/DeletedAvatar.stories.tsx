@@ -28,3 +28,16 @@ export const Default = {
     }
 } satisfies Story;
 
+export const AccessToDisabledState = {
+    render: props => (
+        <DeletedAvatar
+            {...props}
+            isDisabled
+            style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+        />
+    ),
+    args: {
+        "aria-label": "deleted"
+    }
+} satisfies Story;
+

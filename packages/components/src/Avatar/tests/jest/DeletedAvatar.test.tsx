@@ -58,10 +58,10 @@ describe("DeletedAvatar", () => {
         render(
             <DeletedAvatar aria-label="Maye Musk" />
         );
-    
+
         expect(await screen.findByLabelText("Maye Musk")).not.toBeNull();
     });
-    
+
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
         render(<DeletedAvatar aria-label="John Doe" ref={ref} />);
@@ -72,12 +72,17 @@ describe("DeletedAvatar", () => {
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
         expect(ref.current?.tagName.toUpperCase()).toBe("DIV");
     });
-    
-    it("should add data-disabled when isDisabled is true", () => {
-        render(<DeletedAvatar aria-label="John Doe" isDisabled />);
+
+    it("should support disabled state", () => {
+        render(<DeletedAvatar
+            aria-label="John Doe"
+            isDisabled
+            className={({ isDisabled }) => (isDisabled ? "disabled" : "")}
+        />);
 
         const element = screen.getByRole("img", { name: "John Doe" });
 
         expect(element).toHaveAttribute("data-disabled");
+        expect(element).toHaveClass("disabled");
     });
 });
