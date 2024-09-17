@@ -26,7 +26,9 @@ export * from "./typography/OverlineText/index.ts";
 export * from "./typography/Text/index.ts";
 export * from "./utils/index.ts";
 
-export { Collection, type Selection, type Key } from "react-aria-components";
+export { Collection, type Key, type Selection } from "react-aria-components";
 export { useAsyncList } from "react-stately";
 
 export * from "@hopper-ui/styled-system";
+
+import "./index.css";
