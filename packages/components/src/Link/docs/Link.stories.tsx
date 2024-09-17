@@ -1,3 +1,4 @@
+import { useColorSchemeContext } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -36,6 +37,12 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+function GetColorScheme() {
+    const colorScheme = useColorSchemeContext();
+
+    return colorScheme;
+}
 
 /**
  * A default link
@@ -205,9 +212,10 @@ export const ReactRouterLink: Story = {
     render: props => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const navigate = useNavigate();
+        const { colorScheme: parentColorScheme } = GetColorScheme();
 
         return (
-            <HopperProvider colorScheme="light" navigate={navigate}>
+            <HopperProvider colorScheme={parentColorScheme} navigate={navigate}>
                 <Link {...props} />
             </HopperProvider>
         );
