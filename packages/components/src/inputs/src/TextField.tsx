@@ -13,16 +13,15 @@ import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
     Input,
+    TextField as RACTextField,
     useContextProps,
-    type TextFieldProps as RACTextFieldProps,
-    TextField as RACTextField
+    type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { useLocalizedString } from "../../i18n/index.ts";
-import { Text, TextContext, LabelContext } from "../../typography/index.ts";
+import { LabelContext, Text, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
@@ -32,6 +31,7 @@ import {
     useTruncatedText
 } from "../../utils/index.ts";
 
+import { CharacterCount } from "./CharacterCount.tsx";
 import { InputGroup } from "./InputGroup.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
 
@@ -198,7 +198,13 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                 {prefixMarkup}
                 <Input ref={inputRef} placeholder={placeholder} />
 
-                {showCharacterCount && maxLength && <CharacterCount characterLeft={maxLength - characterCount} />}
+                {showCharacterCount && maxLength &&
+                    <CharacterCount
+                        charactersLeft={maxLength - characterCount}
+                        isInvalid={overMaxLength}
+                        isDisabled={isDisabled}
+                    />
+                }
                 {showClearButton && <ClearButton isDisabled={isDisabled} size="lg" onPress={handleClear} />}
             </InputGroup>
         </ClearContainerSlots>
@@ -231,31 +237,11 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             isRequired={isRequired}
-            data-over-max-length={overMaxLength || undefined}
             {...otherProps}
         >
             {childrenMarkup}
         </RACTextField>
     );
-}
-
-interface CharacterCountProps {
-    characterLeft: number;
-}
-
-function CharacterCount({ characterLeft }: CharacterCountProps) {
-    const stringFormatter = useLocalizedString();
-
-    const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: characterLeft });
-
-    return <Text 
-        aria-label={accessibilityString} 
-        className={styles["hop-TextField__char-count"]}
-        role="status"
-        size="xs"
-    >
-        {characterLeft}
-    </Text>;
 }
 
 /**
