@@ -1,8 +1,7 @@
 import Header from "@/app/ui/layout/header/Header";
 import { FeatureFlagProvider } from "@/context/feature/FeatureFlagProvider";
 import { ThemeProvider } from "@/context/theme/ThemeProvider";
-import LogRocket from "logrocket";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import "./globals.css";
 import "./layout.css";
@@ -11,8 +10,6 @@ export const metadata = {
     title: "Hopper Documentation",
     description: "The Hopper Design System Documentation Hub"
 };
-
-const logrocketAppId = process.env.LOGROCKET_APP_ID;
 
 export default function RootLayout({ children }: {
     children: ReactNode;
@@ -28,12 +25,6 @@ export default function RootLayout({ children }: {
     }
     document.documentElement.dataset.theme = getUserPreference();
   `;
-
-    useEffect(() => {
-        if (logrocketAppId) {
-            LogRocket.init(logrocketAppId);
-        }
-    }, []);
 
     return (
         <html lang="en" suppressHydrationWarning>
