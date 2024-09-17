@@ -38,7 +38,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-function RenderComponent() {
+function GetColorScheme() {
     const colorScheme = useColorSchemeContext();
 
     return colorScheme;
@@ -212,7 +212,7 @@ export const ReactRouterLink: Story = {
     render: props => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const navigate = useNavigate();
-        const { colorScheme: parentColorScheme } = RenderComponent();
+        const { colorScheme: parentColorScheme } = GetColorScheme();
 
         return (
             <HopperProvider colorScheme={parentColorScheme} navigate={navigate}>
