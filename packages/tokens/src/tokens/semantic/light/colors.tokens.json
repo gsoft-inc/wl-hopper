@@ -734,7 +734,7 @@
         },
         "text-weakest": {
             "$type": "color",
-            "$value": "{rock.200}"
+            "$value": "{rock.400}"
         }
     },
     "primary": {
