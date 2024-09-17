@@ -95,23 +95,23 @@ const ListBoxItemToAvatarSizeAdapter = {
 
 function ListBoxItemInner(props: ListBoxItemInnerProps) {
     const listStateContext = useContext(ListStateContext);
-    
-    const { selectionMode, 
-        isDisabled, 
-        isFocusVisible, 
-        isPressed, 
-        isHovered, 
-        isSelected, 
-        selectionIndicator, 
-        isInvalid, 
-        size, 
+
+    const { selectionMode,
+        isDisabled,
+        isFocusVisible,
+        isPressed,
+        isHovered,
+        isSelected,
+        selectionIndicator,
+        isInvalid,
+        size,
         children
     } = props;
-    
+
     const isRadio = selectionIndicator === "input" && selectionMode === "single";
     const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
     const isCheck = selectionIndicator === "check" && selectionMode !== "none";
-    
+
     const isListHasSelection = listStateContext.selectionManager.selectedKeys.size > 0;
     const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(isListHasSelection);
 
@@ -122,7 +122,7 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
     };
 
     return (
-        <div 
+        <div
             className={styles["hop-ListBoxItem__inner"]}
             data-list-has-selection={isListHasSelection || undefined}
             data-list-has-selection-end={isListHasSelectionEnd || undefined}
@@ -275,11 +275,13 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             isDisabled={isLoading || isDisabled}
             data-invalid={isInvalid || undefined}
             data-loading={isLoading || undefined}
+            aria-label={isLoading ? "Loading" : undefined}
+            aria-live={isLoading ? "polite" : undefined}
         >
             {listBoxItemProps => {
                 if (isLoading) {
                     return (
-                        <div 
+                        <div
                             className={styles["hop-ListBoxItem__inner"]}
                         >
                             <ListBoxItemSkeleton
@@ -291,10 +293,10 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
                 }
 
                 return (
-                    <ListBoxItemInner 
-                        {...listBoxItemProps} 
-                        selectionIndicator={selectionIndicator} 
-                        isInvalid={isInvalid} 
+                    <ListBoxItemInner
+                        {...listBoxItemProps}
+                        selectionIndicator={selectionIndicator}
+                        isInvalid={isInvalid}
                         size={size}
                     >
                         {children(listBoxItemProps)}
