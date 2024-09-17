@@ -18,10 +18,9 @@ import { ThemeContext, type ColorScheme } from "@/context/theme/ThemeProvider.ts
 import { useIsMobile } from "@/hooks/useIsMobile";
 import LogRocket from "logrocket";
 
+import { useEnvironmentContext } from "@/context/env/EnvironmentProvider";
 import HopperLogo from "./assets/hopper-logo.svg";
 import "./header.css";
-
-const logrocketAppId = process.env.LOGROCKET_APP_ID;
 
 const designSystemLinks = [
     {
@@ -98,12 +97,13 @@ const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isMobile = useIsMobile("48rem");
+    const { logRocketAppId } = useEnvironmentContext();
 
     useEffect(() => {
-        if (logrocketAppId) {
-            LogRocket.init(logrocketAppId);
+        if (logRocketAppId) {
+            LogRocket.init(logRocketAppId);
         }
-    }, []);
+    }, [logRocketAppId]);
 
     useEffect(() => {
         if (isMobileMenuOpen) {
