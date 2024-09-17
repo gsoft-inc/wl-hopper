@@ -28,3 +28,13 @@ export const Default = {
     }
 } satisfies Story;
 
+export const AccessToDisabledState: Story = {
+    render: props => (
+        <AnonymousAvatar
+            {...props}
+            isDisabled
+            style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+        />
+    )
+};
+

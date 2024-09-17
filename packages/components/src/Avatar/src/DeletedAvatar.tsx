@@ -1,10 +1,10 @@
 import { DeletedUserRichIcon } from "@hopper-ui/icons";
-import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
-import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
-import { useContextProps } from "react-aria-components";
+import { type ResponsiveProp, type StyledSystemProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { type ForwardedRef, forwardRef } from "react";
+import { mergeProps } from "react-aria";
+import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import type { BaseComponentProps } from "../../utils/index.ts";
+import { type AccessibleSlotProps, type RenderProps, composeClassnameRenderProps, useRenderProps } from "../../utils/index.ts";
 
 import type { AvatarSize } from "./Avatar.tsx";
 import { AvatarContext } from "./AvatarContext.ts";
@@ -12,7 +12,15 @@ import { RichIconAvatarImage } from "./RichIconAvatarImage.tsx";
 
 export const GlobalDeletedAvatarCssSelector = "hop-DeletedAvatar";
 
-export interface DeletedAvatarProps extends StyledSystemProps, BaseComponentProps {
+interface DeletedAvatarRenderProps {
+    /**
+     * Whether or not the avatar is disabled.
+     */
+    isDisabled?: boolean;
+}
+
+
+export interface DeletedAvatarProps extends StyledSystemProps, AccessibleSlotProps, Omit<RenderProps<DeletedAvatarRenderProps>, "children"> {
     /**
      * Whether or not the avatar is disabled.
      */
@@ -31,29 +39,40 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
         className,
         size: sizeValue,
         style,
+        isDisabled,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeValue) ?? "md";
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         className,
         GlobalDeletedAvatarCssSelector,
         stylingProps.className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...stylingProps.style,
-        ...style
-    };
+    const mergedStyles = composeRenderProps(style, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
 
-    return (        
+    const renderProps = useRenderProps<DeletedAvatarRenderProps>({
+        ...props,
+        className: classNames,
+        style: mergedStyles,
+        values: {
+            isDisabled: isDisabled || false
+        }
+    });
+
+    return (
         <RichIconAvatarImage
-            {...otherProps}
-            className={classNames}
+            {...mergeProps(otherProps, renderProps)}
+            isDisabled={isDisabled}
             ref={ref}
             size={size}
-            style={mergedStyles}
         >
             <DeletedUserRichIcon />
         </RichIconAvatarImage>

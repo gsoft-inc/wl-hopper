@@ -58,18 +58,18 @@ describe("Avatar", () => {
         render(
             <Avatar name="Elon Musk" aria-label="Maye Musk" />
         );
-    
+
         expect(await screen.findByLabelText("Maye Musk")).not.toBeNull();
     });
-    
+
     it("should have the name as the aria-label if no aria-label is provided", async () => {
         render(
             <Avatar name="Elon Musk" />
         );
-    
+
         expect(await screen.findByLabelText("Elon Musk")).not.toBeNull();
     });
-    
+
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
         render(<Avatar name="John Doe" ref={ref} />);
@@ -80,8 +80,8 @@ describe("Avatar", () => {
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
         expect(ref.current?.tagName.toUpperCase()).toBe("DIV");
     });
-    
-    
+
+
     it("should render the correct initials when no src is set", () => {
         const initials = "JD";
         render(<Avatar name="John Doe" />);
@@ -100,12 +100,17 @@ describe("Avatar", () => {
         expect(element).toHaveTextContent(initials);
     });
 
-    it("should add data-disabled when isDisabled is true", () => {
-        render(<Avatar name="John Doe" isDisabled />);
+    it("should support disabled state", () => {
+        render(<Avatar
+            name="John Doe"
+            isDisabled
+            className={({ isDisabled }) => (isDisabled ? "disabled" : "")}
+        />);
 
         const element = screen.getByRole("img", { name: "John Doe" });
 
         expect(element).toHaveAttribute("data-disabled");
+        expect(element).toHaveClass("disabled");
     });
 });
 
@@ -113,7 +118,7 @@ describe("Avatar - fallback + loading strategy", () => {
     beforeEach(() => {
         jest.useFakeTimers();
     });
-  
+
     afterEach(() => {
         jest.useRealTimers();
         mocks.image().restore();
@@ -123,7 +128,7 @@ describe("Avatar - fallback + loading strategy", () => {
         const mock = mocks.image();
         mock.simulate(["error"]);
         const ref = createRef<HTMLDivElement>();
-        
+
         const src = "https://example.com/image.jpg";
         const name = "John Doe";
         const onErrorFn = jest.fn();
