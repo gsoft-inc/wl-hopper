@@ -111,7 +111,7 @@ const Header = () => {
         } else {
             document.body.style.overflow = "";
         }
-    });
+    }, [isMobileMenuOpen]);
 
     const toggleTheme = () => {
         const theme: ColorScheme = colorMode === "dark"
