@@ -4,7 +4,7 @@ import { type ForwardedRef, forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { type BaseComponentRenderProps, composeClassnameRenderProps, useRenderProps } from "../../utils/index.ts";
+import { type AccessibleSlotProps, type RenderProps, composeClassnameRenderProps, useRenderProps } from "../../utils/index.ts";
 
 import type { AvatarSize } from "./Avatar.tsx";
 import { AvatarContext } from "./AvatarContext.ts";
@@ -19,7 +19,7 @@ interface AnonymousAvatarRenderProps {
     isDisabled?: boolean;
 }
 
-export interface AnonymousAvatarProps extends StyledSystemProps, Omit<BaseComponentRenderProps<AnonymousAvatarRenderProps>, "children"> {
+export interface AnonymousAvatarProps extends StyledSystemProps, AccessibleSlotProps, Omit<RenderProps<AnonymousAvatarRenderProps>, "children"> {
     /**
      * Whether or not the avatar is disabled.
      */

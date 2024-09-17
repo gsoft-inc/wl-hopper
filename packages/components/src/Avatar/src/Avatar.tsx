@@ -5,7 +5,7 @@ import { type ForwardedRef, forwardRef, type HTMLProps, type ReactElement, useMe
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { Text, type TextProps } from "../../typography/Text/index.ts";
-import { type BaseComponentRenderProps, composeClassnameRenderProps, cssModule, type SizeAdapter, useRenderProps } from "../../utils/index.ts";
+import { type AccessibleSlotProps, composeClassnameRenderProps, cssModule, type RenderProps, type SizeAdapter, useRenderProps } from "../../utils/index.ts";
 
 import { AvatarContext } from "./AvatarContext.ts";
 import { RichIconAvatarImage } from "./RichIconAvatarImage.tsx";
@@ -25,7 +25,7 @@ interface AvatarRenderProps {
     isDisabled?: boolean;
 }
 
-export interface AvatarProps extends StyledSystemProps, Omit<BaseComponentRenderProps<AvatarRenderProps>, "children"> {
+export interface AvatarProps extends StyledSystemProps, AccessibleSlotProps, Omit<RenderProps<AvatarRenderProps>, "children"> {
     /**
     * The src of the image to display if the image fails to load. If set to null, the initials will be displayed instead.
     * * @default "BrokenImageRichIcon"

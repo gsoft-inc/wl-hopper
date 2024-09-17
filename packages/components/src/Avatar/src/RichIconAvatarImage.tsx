@@ -4,7 +4,7 @@ import { forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { SlotProvider, composeClassnameRenderProps, cssModule, useRenderProps, type BaseComponentRenderProps, type SizeAdapter } from "../../utils/index.ts";
+import { SlotProvider, composeClassnameRenderProps, cssModule, useRenderProps, type AccessibleSlotProps, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
 
 import type { AvatarProps, AvatarSize } from "./Avatar.tsx";
 import { RichIconAvatarImageContext } from "./RichIconAvatarImageContext.ts";
@@ -22,7 +22,7 @@ interface RichIconAvatarImageRenderProps {
 
 type OmittedDivProps = "slot" | "content" | "color" | "children" | "className" | "style";
 
-export interface RichIconAvatarImageProps extends StyledSystemProps, BaseComponentRenderProps<RichIconAvatarImageRenderProps>, Omit<HTMLAttributes<HTMLDivElement>, OmittedDivProps> {
+export interface RichIconAvatarImageProps extends StyledSystemProps, AccessibleSlotProps, RenderProps<RichIconAvatarImageRenderProps>, Omit<HTMLAttributes<HTMLDivElement>, OmittedDivProps> {
     /**
      * Whether or not the avatar image is disabled.
      */

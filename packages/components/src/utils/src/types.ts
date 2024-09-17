@@ -18,6 +18,8 @@ export interface DOMProps extends StyleProps, SharedDOMProps {
     children?: ReactNode;
 }
 
+export type AccessibleSlotProps = AriaLabelingProps & SlotProps;
+
 export interface StyleRenderProps<T> {
     /** The CSS [className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) for the element. A function may be provided to compute the class based on component state. */
     className?: string | ((values: T & { defaultClassName: string | undefined }) => string);
@@ -38,13 +40,7 @@ export interface RenderPropsHookOptions<T> extends RenderProps<T>, SharedDOMProp
 }
 
 // TODO: i added this, not sure if it will make sense
-export interface BaseComponentDOMProps extends DOMProps, AriaLabelingProps, SlotProps {
-
-}
-
-export interface BaseComponentRenderProps<T> extends RenderProps<T>, AriaLabelingProps, SlotProps {
-
-}
+export type BaseComponentDOMProps = DOMProps & AccessibleSlotProps;
 
 /** Added these for when we need to force an interactive state like for radios inside list box items */
 export interface InteractionProps {

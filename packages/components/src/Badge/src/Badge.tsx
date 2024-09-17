@@ -4,7 +4,7 @@ import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { OverlineText } from "../../typography/OverlineText/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, useRenderProps, type BaseComponentRenderProps } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, useRenderProps, type AccessibleSlotProps, type RenderProps } from "../../utils/index.ts";
 
 import { BadgeContext, type BadgeContextValue } from "./BadgeContext.ts";
 
@@ -35,7 +35,7 @@ interface BadgeRenderProps {
     isSelected?: boolean;
 }
 
-export interface BadgeProps extends StyledSystemProps, BaseComponentRenderProps<BadgeRenderProps> {
+export interface BadgeProps extends StyledSystemProps, AccessibleSlotProps, RenderProps<BadgeRenderProps> {
     /**
      * The visual style of the badge.
      * @default "primary"
