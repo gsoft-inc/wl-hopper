@@ -1,6 +1,6 @@
 import Header from "@/app/ui/layout/header/Header";
-import { ThemeProvider } from "@/context/theme/ThemeProvider";
 import { FeatureFlagProvider } from "@/context/feature/FeatureFlagProvider";
+import { ThemeProvider } from "@/context/theme/ThemeProvider";
 import type { ReactNode } from "react";
 
 import "./globals.css";

@@ -66,6 +66,7 @@
         "eslint": "8.57.0",
         "eslint-config-next": "14.2.4",
         "eslint-plugin-storybook": "0.8.0",
+        "logrocket": "9.0.0",
         "react-docgen-typescript": "^2.2.2",
         "shiki": "^1.6.2",
         "storybook": "8.2.4",
