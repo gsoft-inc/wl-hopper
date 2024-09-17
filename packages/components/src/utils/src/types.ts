@@ -39,7 +39,6 @@ export interface RenderPropsHookOptions<T> extends RenderProps<T>, SharedDOMProp
     defaultStyle?: CSSProperties;
 }
 
-// TODO: i added this, not sure if it will make sense
 export type BaseComponentDOMProps = DOMProps & AccessibleSlotProps;
 
 /** Added these for when we need to force an interactive state like for radios inside list box items */
