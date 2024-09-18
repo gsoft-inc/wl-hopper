@@ -20,7 +20,7 @@
     --hop-ListBox-section-margin-block: var(--hop-space-stack-sm);
     --hop-ListBox-section-margin-inline: calc(-1 * var(--hop-ListBox-padding-inline));
     --hop-ListBox-section-border-size: var(--hop-ListBox-border-size);
-    --hop-ListBox-section-border-color: var(--hop-ListBox-border-color); 
+    --hop-ListBox-section-border-color: var(--hop-ListBox-border-color);
 
     /* Section Header */
     --hop-ListBox-section-header-color: var(--hop-neutral-text-weak);
@@ -33,10 +33,6 @@
     --hop-ListBox-section-header-padding: var(--hop-space-inset-stretch-sm);
     --hop-ListBox-section-header-top-offset: var(--hop-overline-top-offset);
     --hop-ListBox-section-header-bottom-offset: var(--hop-overline-bottom-offset);
-
-    /* Divider */
-    --hop-ListBox-divider-margin-block: var(--hop-space-stack-sm);
-    --hop-ListBox-divider-margin-inline: calc(-1 * var(--hop-ListBox-padding-inline));
 
     /* Internal Variables */
     --max-width: var(--hop-ListBox-max-width);
@@ -80,7 +76,7 @@
 /* Select section that follows an item */
 .hop-ListBox__item + .hop-ListBox__section {
     --section-margin-block-start: var(--hop-ListBox-section-margin-block);
-    --section-border-block-start: var(--hop-ListBox-section-border-size) solid var(--hop-ListBox-section-border-color); 
+    --section-border-block-start: var(--hop-ListBox-section-border-size) solid var(--hop-ListBox-section-border-color);
 }
 
 /* Select section that has an item right after */
@@ -129,9 +125,4 @@
 .hop-ListBox__section-header::after {
     /* -0.25rem */
     margin-block-start: var(--hop-ListBox-section-header-top-offset);
-}
-
-.hop-ListBox__divider {
-    margin-block: var(--hop-ListBox-divider-margin-block);
-    margin-inline: var(--hop-ListBox-divider-margin-inline);
 }
