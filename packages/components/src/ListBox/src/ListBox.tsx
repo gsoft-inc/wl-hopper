@@ -1,15 +1,14 @@
-import { type StyledComponentProps, useStyledSystem, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { useLoadMore } from "@react-aria/utils";
 import clsx from "clsx";
-import { forwardRef, type ReactNode, type ForwardedRef, type NamedExoticComponent } from "react";
-import { useContextProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, composeRenderProps, Collection, type ListBoxRenderProps } from "react-aria-components";
+import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode } from "react";
+import { Collection, composeRenderProps, type ListBoxRenderProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, useContextProps } from "react-aria-components";
 
-import { DividerContext } from "../../Divider/index.ts";
 import { HeaderContext } from "../../Header/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { SectionContext } from "../../Section/index.ts";
 import { Text, type TextProps } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule, isFunction, type SizeAdapter } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
 import { ListBoxItem, type ListBoxItemSize } from "./ListBoxItem.tsx";
@@ -144,9 +143,6 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 }],
                 [SectionContext, {
                     className: styles["hop-ListBox__section"]
-                }],
-                [DividerContext, {
-                    className: styles["hop-ListBox__divider"]
                 }],
                 [ListBoxItemContext, {
                     className: styles["hop-ListBox__item"],

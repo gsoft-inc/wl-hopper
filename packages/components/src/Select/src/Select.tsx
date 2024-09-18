@@ -1,25 +1,26 @@
 import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
-import { type ResponsiveProp, useResponsiveValue, useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type NamedExoticComponent, type ForwardedRef, type ReactNode, type Context } from "react";
-import { composeRenderProps, 
-    useContextProps, 
-    Select as RACSelect, 
-    type SelectProps as RACSelectProps, 
-    Button, 
-    TextContext as RACTextContext, 
-    ButtonContext as RACButtonContext, 
-    type ContextValue, 
-    type SelectValueRenderProps, 
-    type ButtonProps as RACButtonProps
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
+import {
+    Button,
+    composeRenderProps,
+    ButtonContext as RACButtonContext,
+    Select as RACSelect,
+    TextContext as RACTextContext,
+    useContextProps,
+    type ContextValue,
+    type ButtonProps as RACButtonProps,
+    type SelectProps as RACSelectProps,
+    type SelectValueRenderProps
 } from "react-aria-components";
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
-import { ListBox, type ListBoxProps, ListBoxItem } from "../../ListBox/index.ts";
+import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
-import { LabelContext, TextContext, Text } from "../../typography/index.ts";
+import { LabelContext, Text, TextContext } from "../../typography/index.ts";
 import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
@@ -151,10 +152,12 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         };
     });
 
-    const triggerStyle = {
-        ...triggerStylingProps.style,
-        ...triggerStyleProp
-    };
+    const triggerStyle = composeRenderProps(triggerStyleProp, prev => {
+        return {
+            ...triggerStylingProps.style,
+            ...prev
+        };
+    });
 
     const prefixMarkup = prefix ? (
         <SlotProvider values={[

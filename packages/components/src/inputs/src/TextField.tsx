@@ -13,16 +13,16 @@ import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
     Input,
+    TextField as RACTextField,
     useContextProps,
-    type TextFieldProps as RACTextFieldProps,
-    TextField as RACTextField
+    type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
-import { Text, TextContext, LabelContext } from "../../typography/index.ts";
+import { LabelContext, Text, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
