@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.7
+
+### Patch Changes
+
+- 1e29a8e: Removed support for dividers in Listbox as this is not accessible
+
 ## 1.3.6
 
 ### Patch Changes
