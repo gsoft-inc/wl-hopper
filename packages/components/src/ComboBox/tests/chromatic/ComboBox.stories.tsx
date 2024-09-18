@@ -97,51 +97,61 @@ export const Footer = {
     decorators: marginBottomDecoratorLG
 } satisfies Story;
 
-export const Sizes = {
+export const Small = {
     play: playFn,
     render: args => (
-        <Inline>
-            <ComboBox {...args}>
-                <Section>
-                    <Header>Cats</Header>
-                    <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                    <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                    <ComboBox.Option id="3">Dusty</ComboBox.Option>
-                    <ComboBox.Option id="4">Rengar</ComboBox.Option>
-                </Section>
-                <Section>
-                    <Header>Dogs</Header>
-                    <ComboBox.Option id="5">Teemo</ComboBox.Option>
-                    <ComboBox.Option id="6">Scooter</ComboBox.Option>
-                    <ComboBox.Option id="7">Prince</ComboBox.Option>
-                </Section>
-            </ComboBox>
-            <ComboBox {...args} size="md">
-                <Section>
-                    <Header>Cats</Header>
-                    <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                    <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                    <ComboBox.Option id="3">Dusty</ComboBox.Option>
-                    <ComboBox.Option id="4">Rengar</ComboBox.Option>
-                </Section>
-                <Section>
-                    <Header>Dogs</Header>
-                    <ComboBox.Option id="5">Teemo</ComboBox.Option>
-                    <ComboBox.Option id="6">Scooter</ComboBox.Option>
-                    <ComboBox.Option id="7">Prince</ComboBox.Option>
-                </Section>
-            </ComboBox>
-        </Inline>
+        <ComboBox {...args}>
+            <Section>
+                <Header>Cats</Header>
+                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
+                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
+                <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                <ComboBox.Option id="4">Rengar</ComboBox.Option>
+            </Section>
+            <Section>
+                <Header>Dogs</Header>
+                <ComboBox.Option id="5">Teemo</ComboBox.Option>
+                <ComboBox.Option id="6">Scooter</ComboBox.Option>
+                <ComboBox.Option id="7">Prince</ComboBox.Option>
+            </Section>
+        </ComboBox>
     ),
     args: {
-        defaultSelectedKey: "2"
+        defaultSelectedKey: "2",
+        size: "sm"
+    },
+    decorators: marginBottomDecoratorMD
+} satisfies Story;
+
+
+export const Medium = {
+    play: playFn,
+    render: args => (
+        <ComboBox {...args}>
+            <Section>
+                <Header>Cats</Header>
+                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
+                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
+                <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                <ComboBox.Option id="4">Rengar</ComboBox.Option>
+            </Section>
+            <Section>
+                <Header>Dogs</Header>
+                <ComboBox.Option id="5">Teemo</ComboBox.Option>
+                <ComboBox.Option id="6">Scooter</ComboBox.Option>
+                <ComboBox.Option id="7">Prince</ComboBox.Option>
+            </Section>
+        </ComboBox>
+    ),
+    args: {
+        defaultSelectedKey: "2",
+        size: "md"
     },
     decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 export const placeholder = {
     ...OnlyItems,
-    play: playFn,
     args: {
         placeholder: "Name an animal"
     },
@@ -150,7 +160,6 @@ export const placeholder = {
 
 export const OpenWithInputValue = {
     ...OnlyItems,
-    play: playFn,
     args: {
         defaultInputValue: "cat"
     },
@@ -159,7 +168,6 @@ export const OpenWithInputValue = {
 
 export const OpenWithSelectedItem = {
     ...OnlyItems,
-    play: playFn,
     args: {
         defaultSelectedKey: "cat"
     },
@@ -381,7 +389,7 @@ export const ComboBoxItemWithDescription = {
 } satisfies Story;
 
 export const TriggerIcon = {
-    ...OnlyItems,
+    ...OnlyItems.render,
     args: {
         prefix: <SparklesIcon />
     }
@@ -518,10 +526,10 @@ const StateTemplate = (args: Partial<ComboBoxProps<object>>) => (
 export const TriggerStates = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const triggers = canvas.getAllByRole("button");
+        const triggers = canvas.getAllByRole("group");
 
         triggers.forEach(trigger => {
-            if (trigger.getAttribute("disabled") !== "") {
+            if (!trigger.getAttribute("data-disabled")) {
                 const select = trigger.parentElement;
 
                 if (select?.getAttribute("data-chromatic-force-focus")) {
@@ -529,9 +537,9 @@ export const TriggerStates = {
                     select?.removeAttribute("data-chromatic-force-focus");
                 }
 
-                if (select?.getAttribute("data-chromatic-force-press")) {
-                    trigger?.setAttribute("data-pressed", "true");
-                    select?.removeAttribute("data-chromatic-force-press");
+                if (select?.getAttribute("data-chromatic-force-selected")) {
+                    trigger?.setAttribute("data-selected", "true");
+                    select?.removeAttribute("data-chromatic-force-selected");
                 }
 
                 if (select?.getAttribute("data-chromatic-force-hover")) {
@@ -552,11 +560,11 @@ export const TriggerStates = {
             <h1>Hovered</h1>
             <StateTemplate {...args} data-chromatic-force-hover />
             <h1>Active</h1>
-            <StateTemplate {...args} data-chromatic-force-press />
+            <StateTemplate {...args} data-chromatic-force-selected />
             <h1>Focus Visible & Hovered</h1>
             <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
             <h1>Focus Visible, Hovered & Active</h1>
-            <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover data-chromatic-force-press />
+            <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover data-chromatic-force-selected />
         </Stack>
     ),
     args: {

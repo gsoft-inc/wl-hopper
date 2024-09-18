@@ -1,17 +1,26 @@
 .hop-SelectValue {
-    --hop-SelectValue-display: flex;
+    --hop-SelectValue-display: inline-block;
+    --hop-SelectValue-slots-display: flex;
     --hop-SelectValue-column-gap: var(--hop-space-inline-sm);
 
+    /* Internal Variables */
+    --display: var(--hop-SelectValue-display);
+
     overflow: hidden;
-    display: var(--hop-SelectValue-display);
+    display: var(--display);
     flex: 1 1 auto;
     column-gap: var(--hop-SelectValue-column-gap);
     align-items: center;
 
     box-sizing: border-box;
+    min-inline-size: 0;
 
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.hop-SelectValue:has(.hop-SelectValue__text) {
+    --display: var(--hop-SelectValue-slots-display);
 }
 
 .hop-SelectValue__avatar {
