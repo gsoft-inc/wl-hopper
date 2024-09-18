@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.3.6
+
+### Patch Changes
+
+- aad6ff0: Accessibility fix
+- 9daeca0: Simplify import of CSS
+
 ## 1.3.5
 
 ### Patch Changes
