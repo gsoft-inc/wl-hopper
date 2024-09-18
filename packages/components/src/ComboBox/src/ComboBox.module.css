@@ -12,7 +12,7 @@
     --hop-ComboBox-trigger-border-color: var(--hop-neutral-border);
     --hop-ComboBox-trigger-border-radius: var(--hop-shape-rounded-md);
     --hop-ComboBox-trigger-border-size: var(--hop-space-10);
-    --hop-ComboBox-trigger-outline-size: calc(-1 * var(--hop-space-20));
+    --hop-ComboBox-trigger-outline-offset: calc(-1 * var(--hop-space-20));
     --hop-ComboBox-trigger-column-gap: var(--hop-space-inline-sm);
     --hop-ComboBox-trigger-cursor: pointer;
     --hop-ComboBox-trigger-color: var(--hop-neutral-text);
@@ -155,7 +155,7 @@
     --button-icon-color: var(--hop-ComboBox-button-icon-color-focused);
 
     outline: var(--hop-ComboBox-trigger-border-size) solid var(--hop-ComboBox-trigger-outline-color-focused);
-    outline-offset: var(--hop-ComboBox-trigger-outline-size);
+    outline-offset: var(--hop-ComboBox-trigger-outline-offset);
 }
 
 .hop-ComboBox__trigger[data-disabled] {

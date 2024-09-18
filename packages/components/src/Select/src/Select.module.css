@@ -10,6 +10,7 @@
     --hop-Select-button-border-color: var(--hop-neutral-border);
     --hop-Select-button-border-radius: var(--hop-shape-rounded-md);
     --hop-Select-button-border-size: var(--hop-space-10);
+    --hop-Select-button-outline-offset: calc(-1 * var(--hop-space-20));
     --hop-Select-button-color: var(--hop-neutral-text);
     --hop-Select-button-cursor: pointer;
     --hop-Select-button-padding-inline: var(--hop-space-inset-md);
@@ -138,7 +139,7 @@
     --button-icon-color: var(--hop-Select-button-icon-color-focused);
 
     outline: var(--hop-Select-button-border-size) solid var(--hop-Select-button-outline-color-focused);
-    outline-offset: -0.125rem;
+    outline-offset: var(--hop-Select-button-outline-offset);
 }
 
 .hop-Select__button:has([data-placeholder]) {
