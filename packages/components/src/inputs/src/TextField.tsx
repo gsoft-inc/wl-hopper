@@ -31,8 +31,8 @@ import {
     useTruncatedText
 } from "../../utils/index.ts";
 
-import { CharacterCount } from "./CharacterCount.tsx";
 import { InputGroup } from "./InputGroup.tsx";
+import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
 
 import styles from "./TextField.module.css";
@@ -199,8 +199,8 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                 <Input ref={inputRef} placeholder={placeholder} />
 
                 {showCharacterCount && maxLength &&
-                    <CharacterCount
-                        charactersLeft={maxLength - characterCount}
+                    <RemainingCharacterCount
+                        count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
                     />

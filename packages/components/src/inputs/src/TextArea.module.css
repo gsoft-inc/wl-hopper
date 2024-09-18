@@ -36,6 +36,10 @@
     order: 1;
 }
 
+.hop-TextArea__RemainingCharacterCount {
+    padding: 0 calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs)) var(--hop-space-inset-xs);
+}
+
 .hop-TextArea__textarea {
     resize: var(--resize);
     min-block-size: var(--hop-TextArea-input-min-height);

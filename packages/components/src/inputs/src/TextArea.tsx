@@ -11,8 +11,8 @@ import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText } from "../../utils/index.ts";
 
-import { CharacterCount } from "./CharacterCount.tsx";
 import { InputGroup } from "./InputGroup.tsx";
+import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
 import { TextAreaContext } from "./TextAreaContext.ts";
 
 import styles from "./TextArea.module.css";
@@ -245,8 +245,9 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
                 <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
 
                 {showCharacterCount && maxLength &&
-                    <CharacterCount
-                        charactersLeft={maxLength - characterCount}
+                    <RemainingCharacterCount
+                        className={styles["hop-TextArea__RemainingCharacterCount"]}
+                        count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
                     />
