@@ -5,7 +5,6 @@ import { type Selection, Collection } from "react-aria-components";
 import { useAsyncList } from "react-stately";
 
 import { Badge } from "../../Badge/index.ts";
-import { Divider } from "../../Divider/index.ts";
 import { Header } from "../../Header/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Inline } from "../../layout/index.ts";
@@ -14,8 +13,8 @@ import { Text } from "../../typography/Text/index.ts";
 import { ListBox, ListBoxItem } from "../src/index.ts";
 
 /**
- * A ListBox is a disclosure component that appears with a set of actions relevant to a specific control, interface area, data element or application view. 
- * Typically, this context is determined by the user’s current selection prior to invoking the menu. 
+ * A ListBox is a disclosure component that appears with a set of actions relevant to a specific control, interface area, data element or application view.
+ * Typically, this context is determined by the user’s current selection prior to invoking the menu.
  * Listbox can be opened from components such as Selects or Buttons.
  *
  * [View repository](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components/src/ListBox/src)
@@ -130,7 +129,7 @@ export const SingleSelection = {
     }
 } satisfies Story;
 
-/** 
+/**
  * A ListBox can have a different selection indicator for single select.
  * By default, disallowEmptySelection is set to true when the selection indicator is a radio button.
  */
@@ -150,7 +149,7 @@ export const MultipleSelection = {
         const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(["1"]));
 
         return (
-            <ListBox {...args} 
+            <ListBox {...args}
                 aria-label="list of options"
                 selectedKeys={selectedKeys}
                 onSelectionChange={setSelectedKeys}
@@ -175,7 +174,7 @@ export const MultipleSelection = {
     }
 } satisfies Story;
 
-/** 
+/**
  * A ListBox can have a different selection indicator for multiple select .
  */
 export const MultipleSelectionIndicator = {
@@ -358,7 +357,7 @@ export const Sections = {
                 <ListBoxItem>Item 3</ListBoxItem>
                 <ListBoxItem>Item 4</ListBoxItem>
                 <ListBoxItem>Item 5</ListBoxItem>
-                <Section>
+                <Section >
                     <Header>More Items</Header>
                     <ListBoxItem>Item 6</ListBoxItem>
                     <ListBoxItem>Item 7</ListBoxItem>
@@ -383,33 +382,8 @@ export const Sections = {
     }
 } satisfies Story;
 
-/** 
- * Dividers can be added to a ListBox 
- */
-export const Dividers = {
-    render: args => {
-        return (
-            <ListBox {...args} aria-label="list of options">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-                <ListBoxItem>Item 4</ListBoxItem>
-                <ListBoxItem>Item 5</ListBoxItem>
-                <Divider />
-                <ListBoxItem>Item 7</ListBoxItem>
-                <ListBoxItem>Item 8</ListBoxItem>
-                <ListBoxItem>Item 9</ListBoxItem>
-                <ListBoxItem>Item 10</ListBoxItem>
-            </ListBox>
-        );
-    },
-    args: {
-        selectionMode: "single"
-    }
-} satisfies Story;
-
 /**
- * Items and sections can be populated from a hierarchial data structure. 
+ * Items and sections can be populated from a hierarchial data structure.
  * If a section has a header, the `Collection` component can be used to render the child items.
  */
 export const DynamicLists = {
@@ -445,7 +419,7 @@ export const DynamicLists = {
                 >
                     {item => {
                         const listItem = item as ListItemProps;
-                    
+
                         return <ListBoxItem id={listItem.name}>{listItem.name}</ListBoxItem>;
                     }}
                 </ListBox>

@@ -1,4 +1,4 @@
-import { withHopperProvider, viewport } from "@hopper-ui/storybook-addon";
+import { viewport, withHopperProvider } from "@hopper-ui/storybook-addon";
 import {
     Description,
     Stories,
@@ -7,8 +7,8 @@ import {
 } from "@storybook/blocks";
 import type { Preview } from "@storybook/react";
 
-import "./stories.css";
 import "@hopper-ui/tokens/fonts.css";
+import "./stories.css";
 
 const preview: Preview = {
     parameters: {
