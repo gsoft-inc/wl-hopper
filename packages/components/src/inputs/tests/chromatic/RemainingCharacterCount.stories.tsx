@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Inline } from "../../../layout/index.ts";
 import { RemainingCharacterCount } from "../../src/RemainingCharacterCount.tsx";
 
 const meta = {
@@ -36,6 +37,20 @@ export const Invalid = {
     ),
     args: {
         count: 3,
+        isInvalid: true
+    }
+} satisfies Story;
+
+export const AccessToStates = {
+    render: args => (
+        <Inline alignY="end">
+            <RemainingCharacterCount {...args} style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}} />
+            <RemainingCharacterCount {...args} style={({ isInvalid }) => isInvalid ? { border: "1px solid red" } : {}} />
+        </Inline>
+    ),
+    args: {
+        count: 3,
+        isDisabled: true,
         isInvalid: true
     }
 } satisfies Story;

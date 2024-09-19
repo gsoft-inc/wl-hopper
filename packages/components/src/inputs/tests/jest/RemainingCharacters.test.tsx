@@ -55,16 +55,32 @@ describe("RemainingCharacterCount", () => {
     });
 
     it("should support disabled", () => {
-        render(<RemainingCharacterCount count={3} data-testid="char-count" isDisabled />);
+        render(
+            <RemainingCharacterCount
+                count={3}
+                data-testid="char-count"
+                isDisabled
+                className={({ isDisabled }) => (isDisabled ? "disabled" : "")}
+            />
+        );
 
         const element = screen.getByTestId("char-count");
         expect(element).toHaveAttribute("data-disabled", "true");
+        expect(element).toHaveClass("disabled");
     });
 
     it("should support invalid", () => {
-        render(<RemainingCharacterCount count={3} data-testid="char-count" isInvalid />);
+        render(
+            <RemainingCharacterCount
+                count={3}
+                data-testid="char-count"
+                isInvalid
+                className={({ isInvalid }) => (isInvalid ? "invalid" : "")}
+            />
+        );
 
         const element = screen.getByTestId("char-count");
         expect(element).toHaveAttribute("data-invalid", "true");
+        expect(element).toHaveClass("invalid");
     });
 });

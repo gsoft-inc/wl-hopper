@@ -3,6 +3,7 @@
     --hop-TextArea-inline-size: 20rem;
     --hop-TextArea-prefix-color: var(--hop-neutral-text-weak);
     --hop-TextArea-input-min-height: 2rem;
+    --hop-TextArea-remaining-character-count-padding: 0 calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs)) var(--hop-space-inset-xs);
 
     /* Internal Variables */
     --inline-size: var(--hop-TextArea-inline-size);
@@ -37,7 +38,7 @@
 }
 
 .hop-TextArea__RemainingCharacterCount {
-    padding: 0 calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs)) var(--hop-space-inset-xs);
+    padding: var(--hop-TextArea-remaining-character-count-padding);
 }
 
 .hop-TextArea__textarea {
