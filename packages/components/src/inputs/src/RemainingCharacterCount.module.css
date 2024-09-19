@@ -1,0 +1,18 @@
+.hop-RemainingCharacterCount {
+    --hop-RemainingCharacterCount-color: var(--hop-neutral-text-weak);
+    --hop-RemainingCharacterCount-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-RemainingCharacterCount-color-invalid: var(--hop-danger-text-weak);
+
+    /* Internal Variables */
+    --char-count-color: var(--hop-RemainingCharacterCount-color);
+
+    color: var(--char-count-color);
+}
+
+.hop-RemainingCharacterCount[data-invalid] {
+    --char-count-color: var(--hop-RemainingCharacterCount-color-invalid);
+}
+
+.hop-RemainingCharacterCount[data-disabled] {
+    --char-count-color: var(--hop-RemainingCharacterCount-color-disabled);
+}

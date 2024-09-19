@@ -4,15 +4,15 @@ import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
 import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type MutableRefObject } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, useContextProps, type TextFieldProps as RACTextFieldProps, TextField as RACTextField, TextArea as RACTextArea } from "react-aria-components";
+import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { useLocalizedString } from "../../i18n/index.ts";
-import { Text, LabelContext } from "../../typography/index.ts";
+import { LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText } from "../../utils/index.ts";
 
 import { InputGroup } from "./InputGroup.tsx";
+import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
 import { TextAreaContext } from "./TextAreaContext.ts";
 
 import styles from "./TextArea.module.css";
@@ -244,7 +244,14 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             >
                 <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
 
-                {showCharacterCount && maxLength && <CharacterCount charactersLeft={maxLength - characterCount} isInvalid={overMaxLength} />}
+                {showCharacterCount && maxLength &&
+                    <RemainingCharacterCount
+                        className={styles["hop-TextArea__RemainingCharacterCount"]}
+                        count={maxLength - characterCount}
+                        isInvalid={overMaxLength}
+                        isDisabled={isDisabled}
+                    />
+                }
             </InputGroup>
         </ClearContainerSlots>
     );
@@ -276,33 +283,11 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             data-resize-mode={resizeMode}
-            data-over-max-length={overMaxLength || undefined}
             {...otherProps}
         >
             {childrenMarkup}
         </RACTextField>
     );
-}
-
-interface CharacterCountProps {
-    charactersLeft: number;
-    isInvalid?: boolean;
-}
-
-function CharacterCount({ charactersLeft, isInvalid }: CharacterCountProps) {
-    const stringFormatter = useLocalizedString();
-
-    const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: charactersLeft });
-
-    return <Text 
-        aria-label={accessibilityString}
-        role="status"
-        size="xs" 
-        className={styles["hop-TextArea__char-count"]}
-        data-invalid={isInvalid || undefined}
-    >
-        {charactersLeft}
-    </Text>;
 }
 
 /**

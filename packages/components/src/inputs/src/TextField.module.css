@@ -2,13 +2,9 @@
     --hop-TextField-gap: var(--hop-space-stack-xs);
     --hop-TextField-inline-size: 20rem;
     --hop-TextField-prefix-color: var(--hop-neutral-text-weak);
-    --hop-TextField-char-count-color: var(--hop-neutral-text-weak);
-    --hop-TextField-char-count-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-TextField-char-count-color-invalid: var(--hop-danger-text-weak);
 
     /* Internal Variables */
     --inline-size: var(--hop-TextField-inline-size);
-    --char-count-color: var(--hop-TextField-char-count-color);
 
     display: flex;
     flex-direction: column;
@@ -22,24 +18,12 @@
     --inline-size: 100%;
 }
 
-.hop-TextField[data-over-max-length] {
-    --char-count-color: var(--hop-TextField-char-count-color-invalid);
-}
-
-.hop-TextField[data-disabled] {
-    --char-count-color: var(--hop-TextField-char-count-color-disabled);
-}
-
 .hop-TextField__Label {
     order: 0;
 }
 
 .hop-TextField__prefix {
     color: var(--hop-TextField-prefix-color);
-}
-
-.hop-TextField__char-count {
-    color: var(--char-count-color);
 }
 
 .hop-TextField__InputGroup {
