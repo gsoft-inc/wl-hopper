@@ -17,7 +17,7 @@ const meta = {
     args: {
         children: [],
         "aria-label": "Animals"
-    }  
+    }
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -180,7 +180,7 @@ export const SelectedItem = {
                 <Select.Option id="raccoon">Raccoon</Select.Option>
                 <Select.Option id="frog">Frog</Select.Option>
             </Select>
-            <h1>Limited Width</h1>  
+            <h1>Limited Width</h1>
             <Div width="11%">
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
                     <Select.Option id="dog">Dog</Select.Option>
@@ -249,7 +249,7 @@ export const SelectedItemWithIcon = {
                 </Select.Option>
                 <Select.Option id="frog">Frog</Select.Option>
             </Select>
-            <h1>Limited Width</h1>  
+            <h1>Limited Width</h1>
             <Div width="11%">
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
                     <Select.Option id="dog" textValue="Dog">
@@ -324,7 +324,7 @@ export const SelectedItemWithEndIcon = {
                 </Select.Option>
                 <Select.Option id="frog">Frog</Select.Option>
             </Select>
-            <h1>Limited Width</h1>  
+            <h1>Limited Width</h1>
             <Div width="11%">
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
                     <Select.Option id="dog" textValue="Dog">
@@ -378,7 +378,7 @@ export const ScrollingWithSelectedItemOutsideVisibleScope = {
         const selectTrigger = canvas.getAllByRole("button")[0];
         await userEvent.click(selectTrigger);
     },
-    decorators: marginBottomDecoratorMD 
+    decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 export const CustomTriggerWidth = {
@@ -424,7 +424,7 @@ export const Direction = {
                 <Story />
             </Div>
         )
-    ] 
+    ]
 } satisfies Story;
 
 export const DirectionTop = {
@@ -441,7 +441,7 @@ export const DirectionTop = {
                 <Story />
             </Div>
         )
-    ] 
+    ]
 } satisfies Story;
 
 export const Invalid = {
@@ -587,7 +587,7 @@ export const Styling = {
                 <Select.Option id="2">Voodoo</Select.Option>
                 <Select.Option id="3">Dusty</Select.Option>
             </Select>
-            <Select {...args} 
+            <Select {...args}
                 triggerProps={
                     { className: "border-red" }
                 }
@@ -596,7 +596,7 @@ export const Styling = {
                 <Select.Option id="2">Voodoo</Select.Option>
                 <Select.Option id="3">Dusty</Select.Option>
             </Select>
-            <Select {...args} 
+            <Select {...args}
                 triggerProps={
                     { style: { border: "1px solid red" } }
                 }

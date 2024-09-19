@@ -312,7 +312,7 @@ export const SemanticTokens = {
     "--hop-neutral-text-weak-hover": "var(--hop-rock-600)",
     "--hop-neutral-text-weak-press": "var(--hop-rock-700)",
     "--hop-neutral-text-weak-selected": "var(--hop-rock-600)",
-    "--hop-neutral-text-weakest": "var(--hop-rock-200)",
+    "--hop-neutral-text-weakest": "var(--hop-rock-300)",
     "--hop-primary-border-active": "var(--hop-sapphire-300)",
     "--hop-primary-icon-active": "var(--hop-sapphire-700)",
     "--hop-primary-surface-active": "var(--hop-sapphire-300)",

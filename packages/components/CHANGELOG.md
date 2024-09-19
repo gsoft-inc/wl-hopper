@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.3.8
+
+### Patch Changes
+
+- 7f8b609: Adjusted text-neutral-weakest color
+  - @hopper-ui/icons@2.8.0
+
 ## 1.3.7
 
 ### Patch Changes
