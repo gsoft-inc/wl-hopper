@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.9
+
+### Patch Changes
+
+- 396605b: Added the ComboBox single select component.
+
 ## 1.3.8
 
 ### Patch Changes
