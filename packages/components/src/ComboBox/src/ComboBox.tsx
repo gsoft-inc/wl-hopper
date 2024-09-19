@@ -24,8 +24,8 @@ import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
-import { LabelContext, Text, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
+import { LabelContext, TextContext } from "../../typography/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider } from "../../utils/index.ts";
 
 import { ComboBoxContext } from "./ComboBoxContext.ts";
 
@@ -120,10 +120,10 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         triggerProps,
         ...otherProps
     } = ownProps;
-    const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
+    const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef ?? null));
     const inputContext = useSlottedContext(InputContext);
     // Make sure to merge the input ref with the context ref from the InputContext.
-    const mergedInputRefs = inputContext?.ref ? mergeRefs(inputRef, inputContext?.ref) : inputRef;
+    const mergedInputRefs = inputContext?.ref ? mergeRefs(inputRef, inputContext.ref) : inputRef;
     const triggerRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -185,6 +185,11 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         )
     );
 
+    const inputClassNames = composeClassnameRenderProps(
+        inputContext?.className, 
+        styles["hop-ComboBox__input"]
+    );
+
     const style = composeRenderProps(styleProp, prev => {
         return {
             ...stylingProps.style,
@@ -207,7 +212,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         };
     });
     
-    const handleMouseDown: MouseEventHandler<HTMLElement> = useCallback(e => {
+    const handleMouseDown: MouseEventHandler<HTMLDivElement> = useCallback(e => {
         // If the input or button is the one that is clicked, we don't want to focus it since it's already done.
         if (inputRef.current && e.target !== inputRef.current && buttonRef.current && e.target !== buttonRef.current) {
             // forwards the focus to the input element when clicking on the input group.
@@ -224,15 +229,28 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         ]}
         >
             <ClearContainerSlots>
-                {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
+                <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
             </ClearContainerSlots>
         </SlotProvider>
     ) : null;
 
     const footerMarkup = footer ? (
-        <Footer>{isTextOnlyChildren(footer) ? <Text>{footer}</Text> : footer}</Footer>
+        <SlotProvider values={[
+            [TextContext, { size, className: styles["hop-ComboBox__footer-text"] }]
+        ]}
+        >
+            <ClearProviders
+                values={[
+                    RACTextContext,
+                    TextContext,
+                    RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
+                ]}
+            >
+                <Footer><EnsureTextWrapper>{footer}</EnsureTextWrapper></Footer>
+            </ClearProviders>
+        </SlotProvider>
     ) : null;
-
+    
     return (
         <RACComboBox
             {...otherProps}
@@ -273,7 +291,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                             {prefixMarkup}
                             <Input
                                 ref={mergedInputRefs}
-                                className={composeClassnameRenderProps(inputContext?.className, styles["hop-ComboBox__input"])}
+                                className={inputClassNames}
                                 placeholder={placeholder}
                             />
                             <Button className={buttonClassNames} ref={buttonRef}>
@@ -299,15 +317,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 </ListBox>
                             </SlotProvider>
                         
-                            <ClearProviders
-                                values={[
-                                    RACTextContext,
-                                    TextContext,
-                                    RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
-                                ]}
-                            >
-                                {footerMarkup}
-                            </ClearProviders>
+                            {footerMarkup}
                         </Popover>
                     </>
                 );
