@@ -71,6 +71,10 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      */
     listBoxProps?: ListBoxProps<T>;
     /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
+    /**
      * The placeholder text when the select is empty.
      */
     placeholder?: string;
@@ -109,9 +113,11 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         isAutoMenuWidth,
         isFluid: isFluidProp,
         isInvalid,
+        isRequired,
         items,
         menuTrigger = "focus",
         listBoxProps,
+        necessityIndicator,
         placeholder,
         popoverProps,
         prefix,
@@ -258,6 +264,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             className={classNames}
             style={style}
             isInvalid={isInvalid}
+            isRequired={isRequired}
             menuTrigger={menuTrigger}
         >
             {comboBoxRenderProps => {
@@ -268,7 +275,9 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                     <>
                         <SlotProvider values={[
                             [LabelContext, {
-                                className: styles["hop-ComboBox__label"]
+                                className: styles["hop-ComboBox__label"],
+                                isRequired,
+                                necessityIndicator
                             }],
                             [HelperMessageContext, {
                                 className: styles["hop-ComboBox__helper-message"]

@@ -1,26 +1,26 @@
-import { IconContext, CheckmarkIcon, MinusIcon } from "@hopper-ui/icons";
+import { CheckmarkIcon, IconContext, MinusIcon } from "@hopper-ui/icons";
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { type ForwardedRef, forwardRef } from "react";
 import {
-    useContextProps,
     Checkbox as RACCheckbox,
     type CheckboxProps as RACCheckboxProps,
-    composeRenderProps
+    composeRenderProps,
+    useContextProps
 } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
 import { Text, TextContext } from "../../typography/Text/index.ts";
 import {
-    composeClassnameRenderProps,
+    ClearContainerSlots,
     SlotProvider,
+    composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
-    ClearContainerSlots
+    isTextOnlyChildren
 } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";

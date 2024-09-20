@@ -11,9 +11,9 @@ import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
     Input,
+    SearchField as RACSearchField,
     useContextProps,
-    type SearchFieldProps as RACSearchFieldProps,
-    SearchField as RACSearchField
+    type SearchFieldProps as RACSearchFieldProps
 } from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
@@ -63,6 +63,11 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
+    
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
 }
 
 function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -86,6 +91,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isDisabled,
         isInvalid,
         isRequired,
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -138,7 +144,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-SearchField__Label"], isRequired }],
+                    [LabelContext, { className: styles["hop-SearchField__Label"], isRequired, necessityIndicator }],
                     [HelperMessageContext, { className: styles["hop-SearchField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-SearchField__ErrorMessage"] }]
                 ]}

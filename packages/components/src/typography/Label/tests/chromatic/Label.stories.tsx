@@ -22,7 +22,15 @@ export const Default: Story = {
 export const Required: Story = {
     args: {
         children: "Username",
-        isRequired: true
+        isRequired: true,
+        necessityIndicator: "asterisk"
+    }
+};
+
+export const Optional: Story = {
+    args: {
+        children: "Username",
+        necessityIndicator: "label"
     }
 };
 

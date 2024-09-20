@@ -11,9 +11,9 @@ import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
     Input,
+    TextField as RACTextField,
     useContextProps,
-    type TextFieldProps as RACTextFieldProps,
-    TextField as RACTextField
+    type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
 import { EmbeddedButton } from "../../buttons/index.ts";
@@ -52,6 +52,11 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
+    
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
 }
 
 function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -75,6 +80,7 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         isDisabled,
         isInvalid,
         isRequired,
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -127,7 +133,7 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-PasswordField__Label"], isRequired }],
+                    [LabelContext, { className: styles["hop-PasswordField__Label"], isRequired, necessityIndicator }],
                     [HelperMessageContext, { className: styles["hop-PasswordField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-PasswordField__ErrorMessage"] }]
                 ]}

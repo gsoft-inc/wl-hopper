@@ -1,22 +1,22 @@
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { type ForwardedRef, forwardRef } from "react";
 import {
-    useContextProps,
     RadioGroup as RACRadioGroup,
     type RadioGroupProps as RACRadioGroupProps,
-    composeRenderProps
+    composeRenderProps,
+    useContextProps
 } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { RadioContext, RadioFieldContext, RadioListContext } from "../../radio/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
+import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { RadioGroupContext } from "./RadioGroupContext.ts";
 
@@ -25,6 +25,10 @@ import styles from "./RadioGroup.module.css";
 export const GlobalRadioGroupCssSelector = "hop-RadioGroup";
 
 export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroupProps, "orientation">> {
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
     /**
      * A RadioGroup can be displayed horizontally or vertically.
      * @default "vertical"
@@ -50,10 +54,12 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         children,
         isDisabled,
         isInvalid,
+        isRequired,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
         variant = "borderless",
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -83,7 +89,9 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-RadioGroup__label"]
+                    className: styles["hop-RadioGroup__label"],
+                    isRequired,
+                    necessityIndicator
                 }],
                 [RadioContext, {
                     className: styles["hop-RadioGroup__radio"],
@@ -113,6 +121,7 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 style={style}
                 isInvalid={isInvalid}
                 isDisabled={isDisabled}
+                isRequired={isRequired}
                 orientation={orientation}
                 {...otherProps}
             >

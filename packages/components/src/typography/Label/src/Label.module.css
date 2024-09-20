@@ -1,6 +1,4 @@
 .hop-Label {
-    /** TODO: Should all labels be --hop-font-weight-580 instead of the default text */
-
     /** Component Tokens */
     --hop-Label-font-size: var(--hop-heading-xs-font-size);
     --hop-Label-font-family: var(--hop-heading-xs-font-family);
