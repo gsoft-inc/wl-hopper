@@ -861,7 +861,7 @@ export const DataVizColors = {
     "dataviz_categorical-sequence-category10": "dataviz-categorical-sequence-category10",
     "dataviz_categorical-sequence-category10-hover": "dataviz-categorical-sequence-category10-hover",
     "dataviz_categorical-sequence-category11": "dataviz-categorical-sequence-category11",
-    "dataviz_categorical-sequence-category-11-hover": "dataviz-categorical-sequence-category-11-hover",
+    "dataviz_categorical-sequence-category11-hover": "dataviz-categorical-sequence-category11-hover",
     "dataviz_categorical-sequence-category12": "dataviz-categorical-sequence-category12",
     "dataviz_categorical-sequence-category12-hover": "dataviz-categorical-sequence-category12-hover",
     "dataviz_categorical-sequence-category13": "dataviz-categorical-sequence-category13",
