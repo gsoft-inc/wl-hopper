@@ -1,16 +1,16 @@
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
 import {
-    useContextProps,
+    FieldErrorContext as RACFieldErrorContext,
     TagGroup as RACTagGroup,
     type TagGroupProps as RACTagGroupProps,
-    FieldErrorContext as RACFieldErrorContext
+    useContextProps
 } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
@@ -32,6 +32,10 @@ export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
      */
     isInvalid?: boolean;
     /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
+    /**
      * A tag can vary in size.
      * @default "md"
      */
@@ -50,6 +54,7 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         className,
         children,
         isInvalid = false,
+        necessityIndicator,
         style: styleProp,
         size: sizeProp,
         variant,
@@ -78,7 +83,8 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-TagGroup__label"]
+                    className: styles["hop-TagGroup__label"],
+                    necessityIndicator
                 }],
                 [TagListContext, {
                     className: styles["hop-TagGroup__list"]

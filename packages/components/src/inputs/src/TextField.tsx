@@ -90,6 +90,11 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
+
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
 }
 
 function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -122,6 +127,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isInvalid,
         isRequired,
         restrictMaxLength = true,
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -214,7 +220,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-TextField__Label"], isRequired }],
+                    [LabelContext, { className: styles["hop-TextField__Label"], isRequired, necessityIndicator }],
                     [HelperMessageContext, { className: styles["hop-TextField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-TextField__ErrorMessage"] }]
                 ]}

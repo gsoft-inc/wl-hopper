@@ -1,22 +1,22 @@
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { type ForwardedRef, forwardRef } from "react";
 import {
-    useContextProps,
     CheckboxGroup as RACCheckboxGroup,
     type CheckboxGroupProps as RACCheckboxGroupProps,
-    composeRenderProps
+    composeRenderProps,
+    useContextProps
 } from "react-aria-components";
 
 import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../../checkbox/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { composeClassnameRenderProps, SlotProvider, cssModule } from "../../utils/index.ts";
+import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
 
@@ -25,6 +25,10 @@ import styles from "./CheckboxGroup.module.css";
 export const GlobalCheckboxGroupCssSelector = "hop-CheckboxGroup";
 
 export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
     /**
      * A CheckboxGroup can be displayed horizontally or vertically.
      * @default "vertical"
@@ -50,6 +54,8 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         children,
         isDisabled,
         isInvalid,
+        isRequired,
+        necessityIndicator,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
@@ -83,7 +89,9 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         <SlotProvider
             values={[
                 [LabelContext, {
-                    className: styles["hop-CheckboxGroup__label"]
+                    className: styles["hop-CheckboxGroup__label"],
+                    isRequired,
+                    necessityIndicator
                 }],
                 [CheckboxContext, {
                     className: styles["hop-CheckboxGroup__checkbox"],
@@ -113,6 +121,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                 style={style}
                 isInvalid={isInvalid}
                 isDisabled={isDisabled}
+                isRequired={isRequired}
                 data-orientation={orientation}
                 {...otherProps}
             >

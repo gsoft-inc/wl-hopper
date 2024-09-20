@@ -65,6 +65,10 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
      */
     listBoxProps?: ListBoxProps<T>;
     /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
+    /**
      * The placeholder text when the select is empty.
      */
     placeholder?: string;
@@ -102,8 +106,10 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         isAutoMenuWidth,
         isFluid: isFluidProp,
         isInvalid,
+        isRequired,
         items,
         listBoxProps,
+        necessityIndicator,
         popoverProps,
         prefix,
         renderValue,
@@ -195,6 +201,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
             className={classNames}
             style={style}
             isInvalid={isInvalid}
+            isRequired={isRequired}
         >
             {selectRenderProps => {
                 const { isOpen } = selectRenderProps;
@@ -204,7 +211,9 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                     <>
                         <SlotProvider values={[
                             [LabelContext, {
-                                className: styles["hop-Select__label"]
+                                className: styles["hop-Select__label"],
+                                isRequired,
+                                necessityIndicator
                             }],
                             [HelperMessageContext, {
                                 className: styles["hop-Select__helper-message"]
