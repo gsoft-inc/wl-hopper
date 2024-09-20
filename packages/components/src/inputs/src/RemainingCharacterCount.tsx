@@ -25,6 +25,8 @@ export interface RemainingCharacterCountProps extends
     isInvalid?: boolean;
 }
 
+export const GlobalRemainingCharacterCountCssSelector = "hop-RemainingCharacterCount";
+
 function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: ForwardedRef<HTMLElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, style, count, isDisabled, isInvalid, ...textProps } = ownProps;
@@ -32,7 +34,11 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
 
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: count });
 
-    const classNames = composeClassnameRenderProps(className, cssModule(styles, "hop-RemainingCharacterCount"));
+    const classNames = composeClassnameRenderProps(
+        className,
+        GlobalRemainingCharacterCountCssSelector,
+        cssModule(styles, "hop-RemainingCharacterCount")
+    );
 
     const mergedStyles = composeRenderProps(style, prev => {
         return {
