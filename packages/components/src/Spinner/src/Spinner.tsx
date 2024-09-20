@@ -1,15 +1,15 @@
 import {
+    useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue,
     type StyledSystemProps
 } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useId } from "react-aria";
 import { ProgressBar, useContextProps } from "react-aria-components";
 
 import { Text, type TextProps } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, type SizeAdapter, type BaseComponentProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, type BaseComponentDOMProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { SpinnerContext } from "./SpinnerContext.ts";
 
@@ -18,7 +18,7 @@ import styles from "./Spinner.module.css";
 export const GlobalSpinnerCssSelector = "hop-Spinner";
 
 // We don't extends RACProgressBarProps here, since we don't want to expose any of the progress bar props.
-export interface SpinnerProps extends StyledSystemProps, BaseComponentProps {
+export interface SpinnerProps extends StyledSystemProps, BaseComponentDOMProps {
     /**
      * What the Spinner's diameter should be.
      * @default "md"
@@ -60,7 +60,7 @@ const Spinner = (props: SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
         ...stylingProps.style,
         ...style
     };
-    
+
     const labelId = useId();
 
     const labelMarkup = children && (

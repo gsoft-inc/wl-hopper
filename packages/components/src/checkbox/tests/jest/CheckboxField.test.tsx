@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { screen, render } from "@hopper-ui/test-utils";
+import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
 import { Text } from "../../../typography/Text/src/Text.tsx";
@@ -97,15 +97,23 @@ describe("Checkbox", () => {
         expect(checkbox).toHaveAttribute("aria-describedby", descriptionId);
     });
 
-    it("should be disabled and pass it to the checkbox", () => {
-        render(<CheckboxField data-testid={testId} isDisabled><Checkbox>option 1</Checkbox><Text
-            slot="description"
-        >description</Text></CheckboxField>);
+    it("should support disabled state", () => {
+        render(
+            <CheckboxField
+                data-testid={testId}
+                isDisabled
+                className={({ isDisabled }) => (isDisabled ? "disabled" : "")}
+            >
+                <Checkbox>option 1</Checkbox>
+                <Text slot="description">description</Text>
+            </CheckboxField>
+        );
 
         const element = screen.getByTestId(testId);
         const checkbox = screen.getByRole("checkbox");
 
         expect(element).toHaveAttribute("data-disabled", "true");
+        expect(element).toHaveClass("disabled");
         expect(checkbox).toBeDisabled();
     });
 });

@@ -1,9 +1,9 @@
-import { useStyledSystem, type ResponsiveProp, useResponsiveValue, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import { cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { ListBoxItemSkeletonContext } from "./ListBoxItemSkeletonContext.ts";
 
@@ -13,7 +13,7 @@ export const GlobalListBoxItemSkeletonCssSelector = "hop-ListBoxItemSkeleton";
 
 export type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
 
-export interface ListBoxItemSkeletonProps extends StyledSystemProps, BaseComponentProps {
+export interface ListBoxItemSkeletonProps extends StyledSystemProps, BaseComponentDOMProps {
     /**
      * A ListBoxItem can vary in size.
      * @default "sm"

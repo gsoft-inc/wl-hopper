@@ -1,5 +1,31 @@
 # @hopper-ui/components
 
+## 1.3.9
+
+### Patch Changes
+
+- 396605b: Added the ComboBox single select component.
+
+## 1.3.8
+
+### Patch Changes
+
+- 7f8b609: Adjusted text-neutral-weakest color
+  - @hopper-ui/icons@2.8.0
+
+## 1.3.7
+
+### Patch Changes
+
+- 1e29a8e: Removed support for dividers in Listbox as this is not accessible
+
+## 1.3.6
+
+### Patch Changes
+
+- aad6ff0: Accessibility fix
+- 9daeca0: Simplify import of CSS
+
 ## 1.3.5
 
 ### Patch Changes

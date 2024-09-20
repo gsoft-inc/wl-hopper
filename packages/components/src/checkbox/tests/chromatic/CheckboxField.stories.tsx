@@ -105,3 +105,30 @@ export const Zoom: Story = {
         </Stack>
     )
 };
+
+export const AccessToDisabledState: Story = {
+    render: props => (
+        <Inline alignY="end">
+            <CheckboxField {...props} isDisabled>
+                {({ isDisabled }) => (
+                    <>
+                        <Checkbox>
+                            <Text>Value should be true</Text>
+                        </Checkbox>
+                        <Text slot="description">Is disabled: {String(isDisabled)}</Text>
+                    </>
+                )}
+            </CheckboxField>
+            <CheckboxField
+                {...props}
+                isDisabled
+                style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+            >
+                <Checkbox>
+                    <Text>Disabled</Text>
+                </Checkbox>
+                <Text slot="description">Border should be red</Text>
+            </CheckboxField>
+        </Inline>
+    )
+};

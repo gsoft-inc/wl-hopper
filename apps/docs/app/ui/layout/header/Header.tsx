@@ -1,22 +1,24 @@
 "use client";
 
-import { useContext, useEffect, useState, type ReactNode } from "react";
-import Link from "next/link";
 import { SlotProvider } from "@hopper-ui/components";
+import Link from "next/link";
+import { useContext, useEffect, useState, type ReactNode } from "react";
 
-import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
-import IconButton from "@/components/iconButton/IconButton";
-import { Icon, ProductMenuIcon } from "@/components/icon";
-import { ToggleButton, ToggleButtonContext } from "@/components/toggleButton/ToggleButton.tsx";
 import MobileMenu from "@/app/ui/layout/mobileMenu/MobileMenu";
 import MobileMenuTrigger from "@/app/ui/layout/mobileMenu/MobileMenuTrigger";
 import Nav from "@/app/ui/layout/nav/Nav";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import { Popover, PopoverTrigger, PopoverContext } from "@/components/popover/Popover.tsx";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { Icon, ProductMenuIcon } from "@/components/icon";
+import IconButton from "@/components/iconButton/IconButton";
+import { Popover, PopoverContext, PopoverTrigger } from "@/components/popover/Popover.tsx";
+import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
+import { ToggleButton, ToggleButtonContext } from "@/components/toggleButton/ToggleButton.tsx";
 import { navigation } from "@/configs/navigation";
-import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { ThemeContext, type ColorScheme } from "@/context/theme/ThemeProvider.tsx";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import LogRocket from "logrocket";
 
+import { useEnvironmentContext } from "@/context/env/EnvironmentProvider";
 import HopperLogo from "./assets/hopper-logo.svg";
 import "./header.css";
 
@@ -95,6 +97,13 @@ const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isMobile = useIsMobile("48rem");
+    const { logRocketAppId } = useEnvironmentContext();
+
+    useEffect(() => {
+        if (logRocketAppId) {
+            LogRocket.init(logRocketAppId);
+        }
+    }, [logRocketAppId]);
 
     useEffect(() => {
         if (isMobileMenuOpen) {
@@ -102,7 +111,7 @@ const Header = () => {
         } else {
             document.body.style.overflow = "";
         }
-    });
+    }, [isMobileMenuOpen]);
 
     const toggleTheme = () => {
         const theme: ColorScheme = colorMode === "dark"

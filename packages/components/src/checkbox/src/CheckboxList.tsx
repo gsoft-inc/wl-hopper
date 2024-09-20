@@ -1,15 +1,15 @@
-import { type StyledSystemProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import type { BaseComponentProps } from "../../utils/index.ts";
+import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { CheckboxListContext } from "./CheckboxListContext.ts";
 
 export const GlobalCheckboxListCssSelector = "hop-CheckboxList";
 
-export interface CheckboxListProps extends StyledSystemProps, BaseComponentProps {}
+export interface CheckboxListProps extends StyledSystemProps, BaseComponentDOMProps {}
 
 function CheckboxList(props:CheckboxListProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, CheckboxListContext);

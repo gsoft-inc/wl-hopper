@@ -1,12 +1,11 @@
 import { BrokenImageRichIcon } from "@hopper-ui/icons";
-import { type ResponsiveProp, useStyledSystem, type StyledSystemProps, useResponsiveValue } from "@hopper-ui/styled-system";
-import { filterDOMProps } from "@react-aria/utils";
-import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef, useMemo, type HTMLProps, type ReactElement } from "react";
-import { useContextProps } from "react-aria-components";
+import { type ResponsiveProp, type StyledSystemProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { filterDOMProps, mergeProps } from "@react-aria/utils";
+import { type ForwardedRef, forwardRef, type HTMLProps, type ReactElement, useMemo } from "react";
+import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { Text, type TextProps } from "../../typography/Text/index.ts";
-import { type SizeAdapter, cssModule, type BaseComponentProps } from "../../utils/index.ts";
+import { type AccessibleSlotProps, composeClassnameRenderProps, cssModule, type RenderProps, type SizeAdapter, useRenderProps } from "../../utils/index.ts";
 
 import { AvatarContext } from "./AvatarContext.ts";
 import { RichIconAvatarImage } from "./RichIconAvatarImage.tsx";
@@ -18,7 +17,15 @@ export const GlobalAvatarCssSelector = "hop-Avatar";
 export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
 type AvatarImageBaseProps = HTMLProps<HTMLImageElement>;
-export interface AvatarProps extends StyledSystemProps, BaseComponentProps {
+
+interface AvatarRenderProps {
+    /**
+     * Whether or not the avatar is disabled.
+     */
+    isDisabled?: boolean;
+}
+
+export interface AvatarProps extends StyledSystemProps, AccessibleSlotProps, Omit<RenderProps<AvatarRenderProps>, "children"> {
     /**
     * The src of the image to display if the image fails to load. If set to null, the initials will be displayed instead.
     * * @default "BrokenImageRichIcon"
@@ -87,11 +94,11 @@ export interface AvatarInitialsProps {
 }
 
 function AvatarInitials(props: AvatarInitialsProps) {
-    const { 
+    const {
         name,
         size: sizeValue
     } = props;
-    
+
     const size = useResponsiveValue(sizeValue) ?? "md";
 
     const initials = useMemo(() => {
@@ -119,7 +126,6 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         "aria-label": ariaLabel,
-        className,
         fallbackSrc,
         imageProps,
         isDisabled,
@@ -127,11 +133,12 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         size: sizeValue,
         slot,
         src,
+        className,
         style,
         ...otherProps
     } = ownProps;
     const domProps = filterDOMProps(otherProps);
-    
+
     const { onError, onLoad, ...otherImageProps } = imageProps ?? {};
     const { imageUrl, status } = useImageFallback({ src, fallbackSrc, onError, onLoad });
     const imageLoaded = status === "loaded";
@@ -142,7 +149,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const isImage = src && !imageFailed;
     const isInitials = !src || (src && imageFailed && fallbackSrc === null);
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         className,
         GlobalAvatarCssSelector,
         cssModule(
@@ -156,22 +163,31 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         stylingProps.className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...stylingProps.style,
-        ...style
-    };
+    const mergedStyles = composeRenderProps(style, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const renderProps = useRenderProps<AvatarRenderProps>({
+        ...props,
+        className: classNames,
+        style: mergedStyles,
+        values: {
+            isDisabled: isDisabled || false
+        }
+    });
 
     if (imageFailed && fallbackSrc !== null) {
         return (
             <RichIconAvatarImage
-                {...domProps}
+                {...mergeProps(domProps, renderProps)}
                 aria-label={ariaLabel ?? name}
-                className={classNames}
                 isDisabled={isDisabled}
                 ref={ref}
                 size={size}
                 slot={slot}
-                style={mergedStyles}
             >
                 <BrokenImageRichIcon />
             </RichIconAvatarImage>
@@ -187,7 +203,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
             size={size}
         />;
     }
-    
+
     if (imageLoaded) {
         content = <img
             {...filterDOMProps(otherImageProps)}
@@ -198,17 +214,15 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
             src={imageUrl}
         />;
     }
-    
+
     return (
         <div
-            {...domProps}
+            {...mergeProps(domProps, renderProps)}
             aria-label={ariaLabel ?? name}
-            className={classNames}
             data-disabled={isDisabled || undefined}
             role="img"
             slot={slot ?? undefined}
             ref={ref}
-            style={mergedStyles}
         >
             {content}
         </div>

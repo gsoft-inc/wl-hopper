@@ -1,9 +1,9 @@
-import { type ResponsiveProp, useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import { ClearContainerSlots, cssModule, SlotProvider, type BaseComponentProps } from "../../utils/index.ts";
+import { ClearContainerSlots, cssModule, SlotProvider, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { BadgeContext } from "./BadgeContext.ts";
 import { FloatingBadgeContext } from "./FloatingBadgeContext.ts";
@@ -15,7 +15,7 @@ export const GlobalFloatingBadgeCssSelector = "hop-FloatingBadge";
 export type FloatingBadgePlacement = "top right" | "bottom right" | "bottom left" | "top left";
 export type FloatingBadgeOverlap = "circular" | "rectangular";
 
-export interface FloatingBadgeProps extends StyledSystemProps, BaseComponentProps {
+export interface FloatingBadgeProps extends StyledSystemProps, BaseComponentDOMProps {
     /**
      * The offset of the badge from the anchor component. [horizontal, vertical]
      */

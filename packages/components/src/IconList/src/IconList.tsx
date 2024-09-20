@@ -1,10 +1,10 @@
 import { IconContext } from "@hopper-ui/icons";
-import { useStyledSystem, type StyledSystemProps, type ResponsiveProp } from "@hopper-ui/styled-system";
+import { useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import type { BaseComponentProps } from "../../utils/index.ts";
+import type { BaseComponentDOMProps } from "../../utils/index.ts";
 import { SlotProvider } from "../../utils/index.ts";
 
 import { IconListContext } from "./IconListContext.ts";
@@ -13,7 +13,7 @@ import styles from "./IconList.module.css";
 
 export const GlobalIconListCssSelector = "hop-IconList";
 
-export interface IconListProps extends StyledSystemProps, BaseComponentProps {
+export interface IconListProps extends StyledSystemProps, BaseComponentDOMProps {
     /**
     * The size of the icon.
     */

@@ -1,15 +1,15 @@
-import { type StyledSystemProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import type { BaseComponentProps } from "../../utils/index.ts";
+import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { RadioListContext } from "./RadioListContext.ts";
 
 export const GlobalRadioListCssSelector = "hop-RadioList";
 
-export interface RadioListProps extends StyledSystemProps, BaseComponentProps {}
+export interface RadioListProps extends StyledSystemProps, BaseComponentDOMProps {}
 
 function RadioList(props:RadioListProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, RadioListContext);

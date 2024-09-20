@@ -1,15 +1,15 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Header as RACHeader, useContextProps } from "react-aria-components";
 
-import type { BaseComponentProps } from "../../utils/index.ts";
+import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { HeaderContext } from "./HeaderContext.ts";
 
 export const GlobalHeaderCssSelector = "hop-Header";
 
-export interface HeaderProps extends StyledComponentProps<BaseComponentProps> {}
+export interface HeaderProps extends StyledComponentProps<BaseComponentDOMProps> {}
 
 function Header(props: HeaderProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, HeaderContext);

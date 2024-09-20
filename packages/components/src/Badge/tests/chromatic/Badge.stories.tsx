@@ -73,3 +73,30 @@ export const Styling = {
         </Inline>
     )
 } satisfies Story;
+
+export const AccessToDisabledState = {
+    render: props => (
+        <Inline>
+            <Badge
+                {...props}
+                isDisabled
+                style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+            />
+            <Badge {...props} isDisabled>
+                {({ isDisabled }) => (
+                    isDisabled ? "Disabled" : ""
+                )}
+            </Badge>
+        </Inline>
+    )
+} satisfies Story;
+
+export const AccessToIndeterminateState = {
+    render: props => (
+        <Badge
+            {...props}
+            isIndeterminate
+            style={({ isIndeterminate }) => isIndeterminate ? { border: "1px solid red" } : {}}
+        />
+    )
+} satisfies Story;

@@ -1,27 +1,29 @@
 import {
-    composeClassnameRenderProps,
-    SlotProvider,
-    cssModule,
     ButtonContext,
     ButtonGroupContext,
+    composeClassnameRenderProps,
     ContentContext,
+    cssModule,
     FooterContext,
     HeadingContext,
+    HopperProvider,
+    isFunction,
+    isNil,
     LinkContext,
-    HopperProvider, isNil, isFunction,
     ListBoxContext,
-    type BaseComponentProps
+    SlotProvider,
+    type BaseComponentDOMProps
 } from "@hopper-ui/components";
-import { type StyledComponentProps, useStyledSystem, useColorSchemeContext, type StyledSystemProps, type ResponsiveProp, useResponsiveValue } from "@hopper-ui/styled-system";
+import { useColorSchemeContext, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
 import type { Placement } from "react-aria";
 import {
-    useContextProps,
-    type PopoverProps as RACPopoverProps,
-    Popover as RACPopover,
+    composeRenderProps,
     Dialog,
-    composeRenderProps
+    Popover as RACPopover,
+    useContextProps,
+    type PopoverProps as RACPopoverProps
 } from "react-aria-components";
 
 import { PopoverContext } from "./PopoverContext.ts";
@@ -29,7 +31,7 @@ import { PopoverContext } from "./PopoverContext.ts";
 import styles from "./Popover.module.css";
 
 export const GlobalPopoverCssSelector = "hop-Popover";
-export type PopoverContainerProps = BaseComponentProps & StyledSystemProps;
+export type PopoverContainerProps = BaseComponentDOMProps & StyledSystemProps;
 export type PopoverPlacement = Placement;
 export type PopoverPlacementProp = ResponsiveProp<PopoverPlacement>;
 
@@ -73,7 +75,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         style: styleProp,
         ...otherProps
     } = ownProps;
-    
+
     const placement = useResponsiveValue(placementProp) ?? "bottom";
     const { stylingProps: containerStylingProps, ...containerOwnProps } = useStyledSystem(containerProps ?? {});
     const {
@@ -127,11 +129,11 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         >
             {state => {
                 const content = (isFunction(children) && !isNil(children)) ? children(state) : children;
-                
+
                 if (isNonDialog) {
                     return (
                         <HopperProvider colorScheme={colorScheme} className={styles["hop-Popover__wrapper"]}>
-                            <div 
+                            <div
                                 {...containerOtherProps}
                                 className={containerClassNames}
                                 style={containerStyle}

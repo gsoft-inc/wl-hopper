@@ -1,15 +1,15 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import type { BaseComponentProps } from "../../utils/index.ts";
+import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { ContentContext } from "./ContentContext.ts";
 
 export const GlobalContentCssSelector = "hop-Content";
 
-export interface ContentProps extends StyledComponentProps<BaseComponentProps> {
+export interface ContentProps extends StyledComponentProps<BaseComponentDOMProps> {
 }
 
 function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {

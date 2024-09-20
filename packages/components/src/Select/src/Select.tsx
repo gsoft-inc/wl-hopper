@@ -1,26 +1,27 @@
 import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
-import { type ResponsiveProp, useResponsiveValue, useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type NamedExoticComponent, type ForwardedRef, type ReactNode, type Context } from "react";
-import { composeRenderProps, 
-    useContextProps, 
-    Select as RACSelect, 
-    type SelectProps as RACSelectProps, 
-    Button, 
-    TextContext as RACTextContext, 
-    ButtonContext as RACButtonContext, 
-    type ContextValue, 
-    type SelectValueRenderProps, 
-    type ButtonProps as RACButtonProps
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
+import {
+    Button,
+    composeRenderProps,
+    ButtonContext as RACButtonContext,
+    Select as RACSelect,
+    TextContext as RACTextContext,
+    useContextProps,
+    type ContextValue,
+    type ButtonProps as RACButtonProps,
+    type SelectProps as RACSelectProps,
+    type SelectValueRenderProps
 } from "react-aria-components";
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
-import { ListBox, type ListBoxProps, ListBoxItem } from "../../ListBox/index.ts";
+import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
-import { LabelContext, TextContext, Text } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, isTextOnlyChildren, SlotProvider } from "../../utils/index.ts";
+import { LabelContext, TextContext } from "../../typography/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
 import { SelectValue } from "./SelectValue.tsx";
@@ -151,10 +152,12 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         };
     });
 
-    const triggerStyle = {
-        ...triggerStylingProps.style,
-        ...triggerStyleProp
-    };
+    const triggerStyle = composeRenderProps(triggerStyleProp, prev => {
+        return {
+            ...triggerStylingProps.style,
+            ...prev
+        };
+    });
 
     const prefixMarkup = prefix ? (
         <SlotProvider values={[
@@ -163,13 +166,26 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         ]}
         >
             <ClearContainerSlots>
-                {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
+                <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
             </ClearContainerSlots>
         </SlotProvider>
     ) : null;
 
     const footerMarkup = footer ? (
-        <Footer>{isTextOnlyChildren(footer) ? <Text>{footer}</Text> : footer}</Footer>
+        <SlotProvider values={[
+            [TextContext, { size, className: styles["hop-Select__footer-text"] }]
+        ]}
+        >
+            <ClearProviders
+                values={[
+                    RACTextContext,
+                    TextContext,
+                    RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
+                ]}
+            >
+                <Footer><EnsureTextWrapper>{footer}</EnsureTextWrapper></Footer>
+            </ClearProviders>
+        </SlotProvider>
     ) : null;
 
     return (
@@ -221,15 +237,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 </ListBox>
                             </SlotProvider>
                         
-                            <ClearProviders
-                                values={[
-                                    RACTextContext,
-                                    TextContext,
-                                    RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
-                                ]}
-                            >
-                                {footerMarkup}
-                            </ClearProviders>
+                            {footerMarkup}
                         </Popover>
                     </>
                 );
