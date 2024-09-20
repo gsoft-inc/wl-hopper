@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.10
+
+### Patch Changes
+
+- 9f9c735: Updated the necessityIndicator logic for Label and added it to all the fields.
+
 ## 1.3.9
 
 ### Patch Changes
