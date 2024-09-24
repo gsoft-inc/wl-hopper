@@ -1,49 +1,189 @@
 ---
-title: ComboBox
-description: TBD
+title: Combobox
+description: A combo box allows the user to make a selection from a list of suggested, likely or desired values.
 category: "pickers"
 links:
-    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/TBD/src/TBD.tsx
-status: WIP
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/checkbox/src/Checkbox.tsx
+    aria: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
 ---
+
+<Example src="Combobox/docs/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
-
-## Guidelines
-
-TODO: If we have some guidelines about this component's usage
-
-### Accessibility ?
-
-TODO: If we have some guidelines about this component and accessibility
+<PropTable component="ComboBox" />
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Concepts
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: links to related concepts
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+#### ComboBox
 
-## Examples
+- [Label](./Label)
+- [Helper Message](./HelperMessage)
+- [Error Message](./ErrorMessage)
 
-## Advanced customization
+#### ComboBox.Option
 
-### Contexts
-TODO: Example of context + content about the context
+- [Text](./Text)
+- [Avatar](Avatar)
+- [Icon](./Icon)
 
-### Custom Children
+## ComboBox Examples
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Disabled
+A combo box in a disabled state shows that it exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 
-### Custom Component
+<Example src="Combobox/docs/disabled" />
 
-TODO: Example of creating a custom version of this component
+### Error
+A combo box can be displayed in an error state to indicate that the selection is invalid.
 
-## Migration Notes (WIP)
+<Example src="Combobox/docs/error" />
+
+### Sizes
+A combo box has multiple sizes to choose from.
+The combo box option also changes size based on the size of the combo box.
+
+<Example src="Combobox/docs/sizes" />
+
+### Labeling
+If a visible label isn't specified, an `aria-label` must be provided to the select for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
+
+<Example src="Combobox/docs/labeling" />
+
+### Icon Prefix
+An icon can be displayed at the start of the select trigger.
+
+<Example src="Combobox/docs/iconPrefix" />
+
+### Text Prefix
+A short text can be displayed at the start of the select trigger.
+
+<Example src="Combobox/docs/textPrefix" />
+
+### Fluid
+A combo box can take the width of its container.
+
+<Example src="Combobox/docs/fluid" />
+
+### Custom Value
+A combo box's trigger value can be customized using the `renderValue` function to allow other elements such as an avatar or icon inside the trigger value.
+
+<Example src="Combobox/docs/customValue" />
+
+### Controlled
+A combo box can have a controlled selected value. In this example, it shows how it is possible to deselect an option.
+
+<Example src="Combobox/docs/controlled" />
+
+### Form
+A combo box can be part of a form. To submit the value of a combo box, make sure you specify the `name` property.
+
+<Example src="Combobox/docs/form" />
+
+## ComboBox Item Examples
+
+### Disabled Item
+
+A combo box with a disabled item.
+
+<Example src="Combobox/docs/comboboxOption/disabled" />
+
+### Auto Menu Width
+
+A combo box can have a menu that automatically adjusts its width based on the longest item.
+
+<Example src="Combobox/docs/comboboxOption/autoMenuWidth" />
+
+### Menu placement
+
+A combo box's menu can have a customized menu placement using the `placement` prop inside `popoverProps`.
+
+<Example src="Combobox/docs/comboboxOption/menuPlacement" />
+
+### Section
+
+A combo box can have sections and section headers.
+
+<Example src="Combobox/docs/comboboxOption/section" />
+
+### Footer
+
+A combo box can have a footer.
+
+<Example src="Combobox/docs/comboboxOption/footer" />
+
+### Avatar
+
+A combo box item can contain an avatar.
+
+<Example src="Combobox/docs/comboboxOption/avatar" />
+
+### Count
+
+A combo box item can contain a count using a badge.
+
+<Example src="Combobox/docs/comboboxOption/count" />
+
+### Dynamic Lists
+
+Options and sections can be populated from a hierarchial data structure.
+If a section has a header, the `Collection` component can be used to render the child items.
+
+<Example src="Combobox/docs/comboboxOption/dynamicLists" />
+
+### Icons
+
+A combobox item can contain icons.
+
+<Example src="Combobox/docs/comboboxOption/icons" />
+
+### End Icons
+
+A combo box can contain icons at the end of an option.
+
+<Example src="Combobox/docs/comboboxOption/endIcons" />
+
+### Loading
+
+A combo box can have a loading state.
+
+<Example src="Combobox/docs/comboboxOption/loading" />
+
+### Load on scroll
+
+A combo box can load more items when scrolling within.
+
+<Example src="Combobox/docs/comboboxOption/loadOnScroll" />
+
+### Selection indicator
+
+A combo box can have a different selection indicator.
+
+<Example src="Combobox/docs/comboboxOption/selectionIndicator" />
+
+### Description
+
+A combo box item can have a description.
+
+<Example src="Combobox/docs/comboboxOption/description" />
