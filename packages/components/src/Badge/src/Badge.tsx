@@ -99,7 +99,7 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     });
 
     const isDot = isIndeterminate || !renderProps.children;
-    const filteredProps = filterDOMProps(otherProps);
+    const filteredProps = filterDOMProps(otherProps, { labelable: true });
 
     return (
 
