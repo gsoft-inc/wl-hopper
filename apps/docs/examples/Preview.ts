@@ -788,9 +788,6 @@ export const Previews: Record<string, Preview> = {
     "Combobox/docs/fluid": {
         component: lazy(() => import("@/../../packages/components/src/Combobox/docs/fluid.tsx"))
     },
-    "Combobox/docs/customValue": {
-        component: lazy(() => import("@/../../packages/components/src/Combobox/docs/customValue.tsx"))
-    },
     "Combobox/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/Combobox/docs/controlled.tsx"))
     },
