@@ -1,5 +1,5 @@
 import { IconContext } from "@hopper-ui/icons";
-import { useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { slot, useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
@@ -63,7 +63,7 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
  *
  * [View Documentation](TODO)
  */
-const _IconList = forwardRef<HTMLSpanElement, IconListProps>(IconList);
+const _IconList = slot("icon", forwardRef<HTMLSpanElement, IconListProps>(IconList));
 _IconList.displayName = "IconList";
 
 export { _IconList as IconList };

@@ -1,5 +1,5 @@
 import { BrokenImageRichIcon } from "@hopper-ui/icons";
-import { type ResponsiveProp, type StyledSystemProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, slot as slotFn, type StyledSystemProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { filterDOMProps, mergeProps } from "@react-aria/utils";
 import { type ForwardedRef, forwardRef, type HTMLProps, type ReactElement, useMemo } from "react";
 import { composeRenderProps, useContextProps } from "react-aria-components";
@@ -234,7 +234,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Avatar = forwardRef<HTMLDivElement, AvatarProps>(Avatar);
+const _Avatar = slotFn("avatar", forwardRef<HTMLDivElement, AvatarProps>(Avatar));
 _Avatar.displayName = "Avatar";
 
 export { _Avatar as Avatar };

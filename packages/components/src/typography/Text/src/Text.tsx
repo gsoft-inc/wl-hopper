@@ -1,14 +1,15 @@
 import {
-    type StyledComponentProps,
+    slot,
+    useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Text as RACText, useContextProps, type TextProps as RACTextProps } from "react-aria-components";
 
-import { cssModule, SlotProvider, ClearContainerSlots } from "../../../utils/index.ts";
+import { ClearContainerSlots, cssModule, SlotProvider } from "../../../utils/index.ts";
 
 import { TextContext } from "./TextContext.ts";
 
@@ -75,7 +76,7 @@ function Text(props: TextProps, ref: ForwardedRef<HTMLSpanElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Text = forwardRef<HTMLSpanElement, TextProps>(Text);
+const _Text = slot("text", forwardRef<HTMLSpanElement, TextProps>(Text));
 _Text.displayName = "Text";
 
 export { _Text as Text };

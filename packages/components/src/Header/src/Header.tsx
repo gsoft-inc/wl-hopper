@@ -1,4 +1,4 @@
-import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Header as RACHeader, useContextProps } from "react-aria-components";
@@ -51,7 +51,7 @@ function Header(props: HeaderProps, ref: ForwardedRef<HTMLElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Header = forwardRef<HTMLElement, HeaderProps>(Header);
+const _Header = slotFn("header", forwardRef<HTMLElement, HeaderProps>(Header));
 _Header.displayName = "Header";
 
 export { _Header as Header };
