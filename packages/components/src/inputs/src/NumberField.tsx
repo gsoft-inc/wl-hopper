@@ -1,4 +1,4 @@
-import { IconContext, AngleDownIcon, AngleUpIcon } from "@hopper-ui/icons";
+import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
 import {
     useResponsiveValue,
     useStyledSystem,
@@ -12,15 +12,15 @@ import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
     Input,
-    useContextProps,
-    type NumberFieldProps as RACNumberFieldProps,
+    Button as RACButton,
     NumberField as RACNumberField,
-    Button as RACButton
+    useContextProps,
+    type NumberFieldProps as RACNumberFieldProps
 } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { Text, TextContext, LabelContext } from "../../typography/index.ts";
+import { LabelContext, Text, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
@@ -59,6 +59,11 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
+    
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
 }
 
 interface StepperButtonProps {
@@ -114,6 +119,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isDisabled,
         isInvalid,
         isRequired,
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -180,7 +186,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-NumberField__Label"], isRequired }],
+                    [LabelContext, { className: styles["hop-NumberField__Label"], isRequired, necessityIndicator }],
                     [HelperMessageContext, { className: styles["hop-NumberField__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-NumberField__ErrorMessage"] }]
                 ]}

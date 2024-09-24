@@ -77,6 +77,11 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * A ref for the HTML textarea element.
      */
     inputRef?: MutableRefObject<HTMLTextAreaElement>;
+    
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: "asterisk" | "label";
 }
 
 const pxToInt = (value?: string) => {
@@ -146,7 +151,9 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
+        isRequired,
         restrictMaxLength = true,
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -260,7 +267,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         return (
             <>
                 <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-TextArea__Label"] }],
+                    [LabelContext, { className: styles["hop-TextArea__Label"], isRequired, necessityIndicator }],
                     [HelperMessageContext, { className: styles["hop-TextArea__HelperMessage"] }],
                     [ErrorMessageContext, { className: styles["hop-TextArea__ErrorMessage"] }]
                 ]}
@@ -282,6 +289,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
+            isRequired={isRequired}
             data-resize-mode={resizeMode}
             {...otherProps}
         >

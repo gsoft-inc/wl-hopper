@@ -1,15 +1,24 @@
 import {
-    Label,
-    TextField,
     Button,
-    Inline,
-    HelperMessage,
-    ErrorMessage,
     ButtonGroup,
-    Stack, Checkbox, RadioGroup, RadioList, Radio, TextArea
+    Checkbox,
+    ComboBox,
+    ErrorMessage,
+    HelperMessage,
+    Inline,
+    Label,
+    Radio,
+    RadioGroup, RadioList,
+    Select,
+    Stack,
+    Tag,
+    TagGroup,
+    TagList,
+    TextArea,
+    TextField
 } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
-import { within, userEvent, expect } from "@storybook/test";
+import { expect, userEvent, within } from "@storybook/test";
 
 import { Form } from "../../src/Form.tsx";
 
@@ -68,6 +77,30 @@ const Template = () => {
             <Checkbox>
                 Agree to terms and conditions
             </Checkbox>
+            <Select isRequired
+                fieldChildren={
+                    <Label>Choose an animal</Label>
+                }
+            >
+                <Select.Option id="dog">Dog</Select.Option>
+                <Select.Option id="cat">Cat</Select.Option>
+                <Select.Option id="frog">Frog</Select.Option>
+            </Select>
+            <ComboBox fieldChildren={
+                <Label>Choose an animal</Label>
+            }
+            >
+                <ComboBox.Option id="dog">Dog</ComboBox.Option>
+                <ComboBox.Option id="cat">Cat</ComboBox.Option>
+                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            </ComboBox>
+            <TagGroup selectionMode="single">
+                <Label>Choose a place</Label>
+                <TagList>
+                    <Tag id="1">Canada</Tag>
+                    <Tag id="2">US</Tag>
+                </TagList>
+            </TagGroup>
             <Button>Submit</Button>
         </>);
 };
@@ -96,6 +129,20 @@ export const Fluid = {
     args: {
         ...Default.args,
         isFluid: true
+    }
+};
+
+export const LabelNecessityIndicator = {
+    args: {
+        ...Default.args,
+        necessityIndicator: "label"
+    }
+};
+
+export const AsteriskNecessityIndicator = {
+    args: {
+        ...Default.args,
+        necessityIndicator: "asterisk"
     }
 };
 

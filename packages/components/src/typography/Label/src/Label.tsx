@@ -1,9 +1,9 @@
 import {
-    type StyledComponentProps,
-    useStyledSystem
+    useStyledSystem,
+    type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type ForwardedRef, forwardRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 
 import { useLocalizedString } from "../../../i18n/index.ts";
@@ -23,9 +23,9 @@ export interface LabelProps extends StyledComponentProps<RACLabelProps> {
     isRequired?: boolean;
 
     /**
-     * Whether the required state should be shown as an icon or text.
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "icon" | "label";
+    necessityIndicator?: "asterisk" | "label";
 }
 
 function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
@@ -36,7 +36,7 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
         children,
         style,
         isRequired,
-        necessityIndicator = isRequired != null ? "icon" : null,
+        necessityIndicator,
         ...otherProps
     } = ownProps;
 
@@ -72,8 +72,8 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
             style={mergedStyles}
         >
             {children}
-            {necessityIndicator === "label" && <span> ({necessityLabel})</span>}
-            {necessityIndicator === "icon" && isRequired && requiredIndicator}
+            {(necessityIndicator === "label" && !isRequired) && <span className={styles["hop-Label__label-indicator"]}> ({necessityLabel})</span>}
+            {necessityIndicator === "asterisk" && isRequired && requiredIndicator}
         </RACLabel>
     );
 }

@@ -926,7 +926,7 @@ export const SemanticTokens = {
     "--hop-dataviz-categorical-sequence-category10": "#aecdd5",
     "--hop-dataviz-categorical-sequence-category10-hover": "#93bdc8",
     "--hop-dataviz-categorical-sequence-category11": "#ffbf92",
-    "--hop-dataviz-categorical-sequence-category-11-hover": "#ffac70",
+    "--hop-dataviz-categorical-sequence-category11-hover": "#ffac70",
     "--hop-dataviz-categorical-sequence-category12": "#a0b8fa",
     "--hop-dataviz-categorical-sequence-category12-hover": "#779af8",
     "--hop-dataviz-categorical-sequence-category13": "#69bfa0",

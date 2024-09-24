@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.4.0
+
+### Minor Changes
+
+- 6b443bd: Added hop-dataviz-categorical-sequence-category11-hover token
+
 ## 4.3.3
 
 ### Patch Changes
