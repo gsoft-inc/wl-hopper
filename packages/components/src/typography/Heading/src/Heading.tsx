@@ -1,11 +1,11 @@
 import type { ResponsiveProp, StyledComponentProps } from "@hopper-ui/components";
-import { useStyledSystem, useResponsiveValue } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import {
     forwardRef,
     type CSSProperties, type ForwardedRef
 } from "react";
-import { useContextProps, Heading as RACHeading, type HeadingProps as RACHeadingProps } from "react-aria-components";
+import { Heading as RACHeading, useContextProps, type HeadingProps as RACHeadingProps } from "react-aria-components";
 
 import { cssModule } from "../../../utils/index.ts";
 
@@ -64,7 +64,7 @@ function Heading(props: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Heading = forwardRef<HTMLHeadingElement, HeadingProps>(Heading);
+const _Heading = slotFn("heading", forwardRef<HTMLHeadingElement, HeadingProps>(Heading));
 _Heading.displayName = "Heading";
 
 export { _Heading as Heading };

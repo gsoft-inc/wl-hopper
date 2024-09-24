@@ -1,35 +1,35 @@
 import { IconContext } from "@hopper-ui/icons";
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
+    slot as slotFn,
+    type StyledComponentProps,
     useResponsiveValue,
-    slot
+    useStyledSystem
 } from "@hopper-ui/styled-system";
-import { useRouter, shouldClientNavigate, filterDOMProps, chain } from "@react-aria/utils";
+import { chain, filterDOMProps, shouldClientNavigate, useRouter } from "@react-aria/utils";
 import type { RouterOptions } from "@react-types/shared";
 import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject } from "react";
-import { useButton, useHover, useFocusRing, mergeProps } from "react-aria";
+import { mergeProps, useButton, useFocusRing, useHover } from "react-aria";
 import {
-    useContextProps,
-    composeRenderProps,
-    type ButtonProps as RACButtonProps,
     type ButtonRenderProps,
+    composeRenderProps,
+    DEFAULT_SLOT,
     ButtonContext as RACButtonContext,
-    DEFAULT_SLOT
+    type ButtonProps as RACButtonProps,
+    useContextProps
 } from "react-aria-components";
 
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
-import { TextContext, Text } from "../../typography/Text/index.ts";
+import { Text, TextContext } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
-    SlotProvider,
     cssModule,
-    useSlot,
     isTextOnlyChildren,
-    useRenderProps
+    SlotProvider,
+    useRenderProps,
+    useSlot
 } from "../../utils/index.ts";
 
 import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
@@ -277,7 +277,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
  */
 
 
-const _Button = slot("button", forwardRef(Button));
+const _Button = slotFn("button", forwardRef(Button));
 
 _Button.displayName = "Button";
 

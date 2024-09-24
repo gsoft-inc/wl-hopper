@@ -1,12 +1,13 @@
 import { IconContext } from "@hopper-ui/icons";
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps,
+    slot as slotFn,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, Tag as RACTag, type TagProps as RACTagProps, composeRenderProps } from "react-aria-components";
+import { type ForwardedRef, forwardRef } from "react";
+import { Tag as RACTag, type TagProps as RACTagProps, composeRenderProps, useContextProps } from "react-aria-components";
 
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
@@ -16,12 +17,12 @@ import { IconListContext } from "../../IconList/index.ts";
 import { Spinner } from "../../Spinner/index.ts";
 import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
 import {
-    composeClassnameRenderProps,
-    SlotProvider,
-    cssModule,
-    isTextOnlyChildren,
     ClearContainerSlots,
-    type SizeAdapter
+    type SizeAdapter,
+    SlotProvider,
+    composeClassnameRenderProps,
+    cssModule,
+    isTextOnlyChildren
 } from "../../utils/index.ts";
 
 import { TagContext } from "./TagContext.ts";
@@ -192,7 +193,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Tag = forwardRef<HTMLDivElement, TagProps>(Tag);
+const _Tag = slotFn("tag", forwardRef<HTMLDivElement, TagProps>(Tag));
 _Tag.displayName = "Tag";
 
 export { _Tag as Tag };

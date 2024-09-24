@@ -1,7 +1,7 @@
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
-import { forwardRef, type ElementType, type RefAttributes, type SVGProps, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ElementType, type RefAttributes, type SVGProps } from "react";
 import { useContextProps, type SlotProps } from "react-aria-components";
 
 import { cssModule } from "../../components/src/utils/src/cssModule.ts";
@@ -32,7 +32,7 @@ export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     src32: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
 }
 
-export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     [props, ref] = useContextProps(props, ref, IconContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
@@ -86,4 +86,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     );
 });
 
-Icon.displayName = "Icon";
+const _Icon = slotFn("icon", Icon);
+_Icon.displayName = "Icon";
+
+export { _Icon as Icon };

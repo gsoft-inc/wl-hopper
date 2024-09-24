@@ -1,4 +1,4 @@
-import { slot } from "@hopper-ui/styled-system";
+import { slot as slotFn } from "@hopper-ui/styled-system";
 import { forwardRef, type ComponentProps, type ElementType, type RefAttributes, type SVGProps } from "react";
 
 import { Icon, type IconProps } from "./Icon.tsx";
@@ -21,7 +21,7 @@ export function createIcon(
 
     iconComponent.displayName = displayName;
 
-    return slot("icon", iconComponent);
+    return slotFn("icon", iconComponent);
 }
 
 export type CreatedIconProps = ComponentProps<ReturnType<typeof createIcon>>;

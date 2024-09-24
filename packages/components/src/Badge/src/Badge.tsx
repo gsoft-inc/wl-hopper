@@ -1,4 +1,5 @@
-import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { filterDOMProps } from "@react-aria/utils";
 import { forwardRef, type ForwardedRef } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
@@ -98,12 +99,13 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     });
 
     const isDot = isIndeterminate || !renderProps.children;
+    const filteredProps = filterDOMProps(otherProps, { labelable: true });
 
     return (
 
         <ClearContainerSlots>
             <OverlineText
-                {...mergeProps(otherProps, renderProps)}
+                {...mergeProps(filteredProps, renderProps)}
                 ref={ref}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled || undefined}
@@ -125,7 +127,7 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Badge = forwardRef<HTMLSpanElement, BadgeProps>(Badge);
+const _Badge = slotFn("badge", forwardRef<HTMLSpanElement, BadgeProps>(Badge));
 _Badge.displayName = "Badge";
 
 export { _Badge as Badge };
