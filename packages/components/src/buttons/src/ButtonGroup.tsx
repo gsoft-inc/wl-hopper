@@ -1,4 +1,4 @@
-import { slot, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef, type HTMLAttributes } from "react";
@@ -117,7 +117,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
  *
  * [View Documentation](TODO)
  */
-const _ButtonGroup = slot("button-group", forwardRef(ButtonGroup));
+const _ButtonGroup = slotFn("button-group", forwardRef(ButtonGroup));
 
 _ButtonGroup.displayName = "ButtonGroup";
 

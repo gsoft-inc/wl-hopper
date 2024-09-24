@@ -1,5 +1,5 @@
 import type { ResponsiveProp, StyledComponentProps } from "@hopper-ui/components";
-import { slot, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import {
     forwardRef,
@@ -64,7 +64,7 @@ function Heading(props: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Heading = slot("heading", forwardRef<HTMLHeadingElement, HeadingProps>(Heading));
+const _Heading = slotFn("heading", forwardRef<HTMLHeadingElement, HeadingProps>(Heading));
 _Heading.displayName = "Heading";
 
 export { _Heading as Heading };

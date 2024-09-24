@@ -1,5 +1,5 @@
 import {
-    slot,
+    slot as slotFn,
     useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
@@ -76,7 +76,7 @@ function Text(props: TextProps, ref: ForwardedRef<HTMLSpanElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Text = slot("text", forwardRef<HTMLSpanElement, TextProps>(Text));
+const _Text = slotFn("text", forwardRef<HTMLSpanElement, TextProps>(Text));
 _Text.displayName = "Text";
 
 export { _Text as Text };

@@ -1,7 +1,7 @@
 import { IconContext } from "@hopper-ui/icons";
 import {
     type ResponsiveProp,
-    slot,
+    slot as slotFn,
     type StyledComponentProps,
     useResponsiveValue,
     useStyledSystem
@@ -277,7 +277,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
  */
 
 
-const _Button = slot("button", forwardRef(Button));
+const _Button = slotFn("button", forwardRef(Button));
 
 _Button.displayName = "Button";
 

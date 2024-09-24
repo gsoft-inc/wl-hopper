@@ -2,7 +2,7 @@ import { IconContext } from "@hopper-ui/icons";
 import {
     type ResponsiveProp,
     type StyledComponentProps,
-    slot,
+    slot as slotFn,
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
@@ -193,7 +193,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Tag = slot("tag", forwardRef<HTMLDivElement, TagProps>(Tag));
+const _Tag = slotFn("tag", forwardRef<HTMLDivElement, TagProps>(Tag));
 _Tag.displayName = "Tag";
 
 export { _Tag as Tag };

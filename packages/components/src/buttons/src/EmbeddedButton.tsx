@@ -2,7 +2,7 @@ import { IconContext } from "@hopper-ui/icons";
 import {
     type ResponsiveProp,
     type StyledComponentProps,
-    slot,
+    slot as slotFn,
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
@@ -114,7 +114,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
  *
  * [View Documentation](TODO)
  */
-const _EmbeddedButton = slot("button", forwardRef<HTMLButtonElement, EmbeddedButtonProps>(EmbeddedButton));
+const _EmbeddedButton = slotFn("button", forwardRef<HTMLButtonElement, EmbeddedButtonProps>(EmbeddedButton));
 
 _EmbeddedButton.displayName = "EmbeddedButton";
 

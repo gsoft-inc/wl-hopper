@@ -1,4 +1,4 @@
-import { slot, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ElementType, type RefAttributes, type SVGProps } from "react";
@@ -86,7 +86,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     );
 });
 
-const _Icon = slot("avatar", Icon);
+const _Icon = slotFn("icon", Icon);
 _Icon.displayName = "Icon";
 
 export { _Icon as Icon };
