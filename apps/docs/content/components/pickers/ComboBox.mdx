@@ -94,6 +94,23 @@ A combo box can have a controlled selected value. In this example, it shows how 
 
 <Example src="ComboBox/docs/controlled" />
 
+### Custom Filtering
+A combo box can overridde the default [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) function from RAC. This can be overridden using the `defaultFilter` prop, or by using the items prop to control the filtered list. When items is provided rather than `defaultItems`, ComboBox does no filtering of its own.
+
+<Example src="ComboBox/docs/customFiltering" />
+
+### Allow Empty Collection
+
+A combo box can be rendered with an empty collection.
+
+<Example src="ComboBox/docs/allowEmptyCollection" />
+
+### Allow Custom Value
+
+A combo box can allow the user to enter a custom value that does not match the list.
+
+<Example src="ComboBox/docs/allowCustomValue" />
+
 ### Form
 A combo box can be part of a form. To submit the value of a combo box, make sure you specify the `name` property.
 

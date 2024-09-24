@@ -791,6 +791,15 @@ export const Previews: Record<string, Preview> = {
     "ComboBox/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/controlled.tsx"))
     },
+    "ComboBox/docs/customFiltering": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/customFiltering.tsx"))
+    },
+    "ComboBox/docs/allowEmptyCollection": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/allowEmptyCollection.tsx"))
+    },
+    "ComboBox/docs/allowCustomValue": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/allowCustomValue.tsx"))
+    },
     "ComboBox/docs/form": {
         component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/form.tsx"))
     },
