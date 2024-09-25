@@ -145,8 +145,8 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const imageFailed = status === "failed";
 
     const size = useResponsiveValue(sizeValue) ?? "md";
-    const isBrokenImage = src && imageFailed && fallbackSrc !== null;
-    const isImage = src && !imageFailed;
+    const isBrokenImage = imageFailed && fallbackSrc !== null;
+    const isImage = src && !imageFailed && imageLoaded;
     const isInitials = !src || (src && imageFailed && fallbackSrc === null);
 
     const classNames = composeClassnameRenderProps(
@@ -179,7 +179,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     });
 
-    if (imageFailed && fallbackSrc !== null) {
+    if (isBrokenImage) {
         return (
             <RichIconAvatarImage
                 {...mergeProps(domProps, renderProps)}
@@ -196,7 +196,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
 
     let content: ReactElement | null = null;
 
-    if (isInitials || imageLoaded) {
+    if (isInitials) {
         content = <AvatarInitials
             {...otherProps}
             name={name}
