@@ -45,7 +45,7 @@ export function useImageFallback(props: ImageFallbackProps): ImageFallbackReturn
 
     useEffect(() => {
         setStatus(src ? "loading" : "pending");
-      }, [src]);
+    }, [src]);
 
     const imageRef = useRef<HTMLImageElement | null>();
 

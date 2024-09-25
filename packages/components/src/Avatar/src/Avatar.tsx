@@ -147,7 +147,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
     const size = useResponsiveValue(sizeValue) ?? "md";
     const isBrokenImage = imageFailed && fallbackSrc !== null;
     const isImage = src && !imageFailed && imageLoaded;
-    const isInitials = !src || (src && imageFailed && fallbackSrc === null);
+    const isInitials = !src || (!isImage && fallbackSrc === null);
 
     const classNames = composeClassnameRenderProps(
         className,
