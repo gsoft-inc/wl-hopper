@@ -1,5 +1,13 @@
 # @hopper-ui/components
 
+## 1.3.11
+
+### Patch Changes
+
+- 578eccf: Added the slot function to add support to be able to use Hopper components inside Orbiter.
+- Updated dependencies [578eccf]
+  - @hopper-ui/icons@2.8.1
+
 ## 1.3.10
 
 ### Patch Changes
