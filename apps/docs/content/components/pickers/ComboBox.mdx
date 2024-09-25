@@ -34,6 +34,14 @@ links:
     TODO: links to related concepts
 </FeatureFlag>
 
+#### Header
+
+The Header component represents a `header` within a Hopper container.
+
+#### Section
+
+The Section component represents a `section` within a Hopper container.
+
 ### Composed Components
 
 #### ComboBox
@@ -41,8 +49,8 @@ links:
 - [Label](./Label)
 - [Helper Message](./HelperMessage)
 - [Error Message](./ErrorMessage)
-- [Header](./Select#header)
-- [Section](./Select#section)
+- [Header](./ComboBox#header)
+- [Section](./ComboBox#section)
 
 #### ComboBox.Option
 
@@ -70,7 +78,7 @@ The combo box option also changes size based on the size of the combo box.
 <Example src="ComboBox/docs/sizes" />
 
 ### Labeling
-If a visible label isn't specified, an `aria-label` must be provided to the select for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
+If a visible label isn't specified, an `aria-label` must be provided to the combo box for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
 
 <Example src="ComboBox/docs/labeling" />
 
@@ -95,7 +103,7 @@ A combo box can have a controlled selected value. In this example, it shows how 
 <Example src="ComboBox/docs/controlled" />
 
 ### Custom Filtering
-A combo box can overridde the default [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) function from RAC. This can be overridden using the `defaultFilter` prop, or by using the items prop to control the filtered list. When items is provided rather than `defaultItems`, ComboBox does no filtering of its own.
+A combo box can overridde the default [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) function from RAC. This can be overridden using the `defaultFilter` prop, or by using the `items` prop to control the filtered list. When `items` is provided rather than `defaultItems`, combo box does no filtering of its own.
 
 <Example src="ComboBox/docs/customFiltering" />
 
@@ -169,7 +177,7 @@ If a section has a header, the `Collection` component can be used to render the 
 
 ### Icons
 
-A combobox item can contain icons.
+A combo box item can contain icons.
 
 <Example src="ComboBox/docs/ComboBoxOption/icons" />
 
