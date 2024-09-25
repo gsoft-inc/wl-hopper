@@ -9,7 +9,7 @@ export default function Example() {
             </Select.Option>
             <Select.Option textValue="Karen Smith">
                 <Avatar name="Karen Smith" />
-                <Text slot="label">Item 2</Text>
+                <Text slot="label">Karen Smith</Text>
             </Select.Option>
             <Select.Option textValue="John Doe">
                 <Avatar name="John Doe" />

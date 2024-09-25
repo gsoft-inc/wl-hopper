@@ -6,6 +6,7 @@ import Button from "./Button.svg";
 import ButtonGroup from "./ButtonGroup.svg";
 import Checkbox from "./Checkbox.svg";
 import CheckboxGroup from "./CheckboxGroup.svg";
+import Combobox from "./Combobox.svg";
 import Divider from "./Divider.svg";
 import ErrorMessage from "./ErrorMessage.svg";
 import Flex from "./Flex.svg";
@@ -45,6 +46,7 @@ export const OverviewComponents: OverviewComponentsType = {
     ButtonGroup,
     Checkbox,
     CheckboxGroup,
+    Combobox,
     Divider,
     ErrorMessage,
     Flex,

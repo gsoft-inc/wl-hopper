@@ -80,9 +80,6 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/fluid": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/fluid.tsx"))
     },
-    "ListBox/docs/divider": {
-        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/divider.tsx"))
-    },
     "ListBox/docs/section": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/section.tsx"))
     },
@@ -767,6 +764,87 @@ export const Previews: Record<string, Preview> = {
     "overlays/Popover/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/controlled.tsx"))
     },
+    "ComboBox/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/preview.tsx"))
+    },
+    "ComboBox/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/disabled.tsx"))
+    },
+    "ComboBox/docs/error": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/error.tsx"))
+    },
+    "ComboBox/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/sizes.tsx"))
+    },
+    "ComboBox/docs/labeling": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/labeling.tsx"))
+    },
+    "ComboBox/docs/iconPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/iconPrefix.tsx"))
+    },
+    "ComboBox/docs/textPrefix": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/textPrefix.tsx"))
+    },
+    "ComboBox/docs/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/fluid.tsx"))
+    },
+    "ComboBox/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/controlled.tsx"))
+    },
+    "ComboBox/docs/customFiltering": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/customFiltering.tsx"))
+    },
+    "ComboBox/docs/allowEmptyCollection": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/allowEmptyCollection.tsx"))
+    },
+    "ComboBox/docs/allowCustomValue": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/allowCustomValue.tsx"))
+    },
+    "ComboBox/docs/form": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/form.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/disabled.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/autoMenuWidth": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/autoMenuWidth.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/menuPlacement": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/menuPlacement.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/section": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/section.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/footer": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/footer.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/avatar": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/avatar.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/count": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/count.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/dynamicLists": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/dynamicLists.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/icons": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/icons.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/endIcons": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/endIcons.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/loading": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/loading.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/loadOnScroll": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/loadOnScroll.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/selectionIndicator": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/selectionIndicator.tsx"))
+    },
+    "ComboBox/docs/ComboBoxOption/description": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/description.tsx"))
+    },
     "Select/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/preview.tsx"))
     },
@@ -808,9 +886,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Select/docs/selectMenu/menuPlacement": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/menuPlacement.tsx"))
-    },
-    "Select/docs/selectMenu/divider": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/divider.tsx"))
     },
     "Select/docs/selectMenu/section": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/section.tsx"))

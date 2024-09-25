@@ -1,49 +1,212 @@
 ---
-title: ComboBox
-description: TBD
+title: Combobox
+description: A combo box allows the user to make a selection from a list of suggested, likely or desired values.
 category: "pickers"
 links:
-    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/TBD/src/TBD.tsx
-status: WIP
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/checkbox/src/Checkbox.tsx
+    aria: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
 ---
+
+<Example src="ComboBox/docs/preview" isOpen />
 
 ## Props
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
-
-## Guidelines
-
-TODO: If we have some guidelines about this component's usage
-
-### Accessibility ?
-
-TODO: If we have some guidelines about this component and accessibility
+<PropTable component="ComboBox" />
 
 ## Anatomy
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+<FeatureFlag flag="next">
+    ## Guidelines
 
-### Concepts
+    TODO: If we have some guidelines about this component&apos;s usage
 
-TODO: links to related concepts
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
+
+#### Header
+
+The Header component represents a `header` within a Hopper container.
+
+#### Section
+
+The Section component represents a `section` within a Hopper container.
 
 ### Composed Components
 
-TODO: links to related components (most likely all component which are used by the slots)
+#### ComboBox
 
-## Examples
+- [Label](./Label)
+- [Helper Message](./HelperMessage)
+- [Error Message](./ErrorMessage)
+- [Header](./ComboBox#header)
+- [Section](./ComboBox#section)
 
-## Advanced customization
+#### ComboBox.Option
 
-### Contexts
-TODO: Example of context + content about the context
+- [Text](./Text)
+- [Avatar](Avatar)
+- [Icon](./Icon)
+- [Badge](./Badge)
 
-### Custom Children
+## ComboBox Examples
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Disabled
+A combo box in a disabled state shows that it exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 
-### Custom Component
+<Example src="ComboBox/docs/disabled" />
 
-TODO: Example of creating a custom version of this component
+### Error
+A combo box can be displayed in an error state to indicate that the selection is invalid.
 
-## Migration Notes (WIP)
+<Example src="ComboBox/docs/error" />
+
+### Sizes
+A combo box has multiple sizes to choose from.
+The combo box option also changes size based on the size of the combo box.
+
+<Example src="ComboBox/docs/sizes" />
+
+### Labeling
+If a visible label isn't specified, an `aria-label` must be provided to the combo box for accessibility. If the field is labeled by a separate element, an `aria-labelledby` prop must be provided using the ID of the labeling element instead.
+
+<Example src="ComboBox/docs/labeling" />
+
+### Icon Prefix
+An icon can be displayed at the start of the select trigger.
+
+<Example src="ComboBox/docs/iconPrefix" />
+
+### Text Prefix
+A short text can be displayed at the start of the select trigger.
+
+<Example src="ComboBox/docs/textPrefix" />
+
+### Fluid
+A combo box can take the width of its container.
+
+<Example src="ComboBox/docs/fluid" />
+
+### Controlled
+A combo box can have a controlled selected value. In this example, it shows how it is possible to deselect an option.
+
+<Example src="ComboBox/docs/controlled" />
+
+### Custom Filtering
+A combo box can overridde the default [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) function from RAC. This can be overridden using the `defaultFilter` prop, or by using the `items` prop to control the filtered list. When `items` is provided rather than `defaultItems`, combo box does no filtering of its own.
+
+<Example src="ComboBox/docs/customFiltering" />
+
+### Allow Empty Collection
+
+A combo box can be rendered with an empty collection.
+
+<Example src="ComboBox/docs/allowEmptyCollection" />
+
+### Allow Custom Value
+
+A combo box can allow the user to enter a custom value that does not match the list.
+
+<Example src="ComboBox/docs/allowCustomValue" />
+
+### Form
+A combo box can be part of a form. To submit the value of a combo box, make sure you specify the `name` property.
+
+<Example src="ComboBox/docs/form" />
+
+## ComboBox Item Examples
+
+### Disabled Item
+
+A combo box with a disabled item.
+
+<Example src="ComboBox/docs/ComboBoxOption/disabled" />
+
+### Auto Menu Width
+
+A combo box can have a menu that automatically adjusts its width based on the longest item.
+
+<Example src="ComboBox/docs/ComboBoxOption/autoMenuWidth" />
+
+### Menu placement
+
+A combo box's menu can have a customized menu placement using the `placement` prop inside `popoverProps`.
+
+<Example src="ComboBox/docs/ComboBoxOption/menuPlacement" />
+
+### Section
+
+A combo box can have sections and section headers.
+
+<Example src="ComboBox/docs/ComboBoxOption/section" />
+
+### Footer
+
+A combo box can have a footer.
+
+<Example src="ComboBox/docs/ComboBoxOption/footer" />
+
+### Avatar
+
+A combo box item can contain an avatar.
+
+<Example src="ComboBox/docs/ComboBoxOption/avatar" />
+
+### Count
+
+A combo box item can contain a count using a badge.
+
+<Example src="ComboBox/docs/ComboBoxOption/count" />
+
+### Dynamic Lists
+
+Options and sections can be populated from a hierarchial data structure.
+If a section has a header, the `Collection` component can be used to render the child items.
+
+<Example src="ComboBox/docs/ComboBoxOption/dynamicLists" />
+
+### Icons
+
+A combo box item can contain icons.
+
+<Example src="ComboBox/docs/ComboBoxOption/icons" />
+
+### End Icons
+
+A combo box can contain icons at the end of an option.
+
+<Example src="ComboBox/docs/ComboBoxOption/endIcons" />
+
+### Loading
+
+A combo box can have a loading state.
+
+<Example src="ComboBox/docs/ComboBoxOption/loading" />
+
+### Load on scroll
+
+A combo box can load more items when scrolling within.
+
+<Example src="ComboBox/docs/ComboBoxOption/loadOnScroll" />
+
+### Selection indicator
+
+A combo box can have a different selection indicator.
+
+<Example src="ComboBox/docs/ComboBoxOption/selectionIndicator" />
+
+### Description
+
+A combo box item can have a description.
+
+<Example src="ComboBox/docs/ComboBoxOption/description" />

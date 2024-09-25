@@ -3,7 +3,7 @@ import { AddIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
-        <Select 
+        <Select
             footer={<Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>}
             aria-label="list of options with a description"
         >
