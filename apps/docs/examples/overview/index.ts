@@ -6,6 +6,7 @@ import Button from "./Button.svg";
 import ButtonGroup from "./ButtonGroup.svg";
 import Checkbox from "./Checkbox.svg";
 import CheckboxGroup from "./CheckboxGroup.svg";
+import Combobox from "./Combobox.svg";
 import Divider from "./Divider.svg";
 import ErrorMessage from "./ErrorMessage.svg";
 import Flex from "./Flex.svg";
@@ -22,6 +23,7 @@ import NumberField from "./NumberField.svg";
 import PasswordField from "./PasswordField.svg";
 import Popover from "./Popover.svg";
 import RadioGroup from "./RadioGroup.svg";
+import RemainingCharacterCount from "./RemainingCharacterCount.svg";
 import SearchField from "./SearchField.svg";
 import Select from "./Select.svg";
 import Spinner from "./Spinner.svg";
@@ -45,6 +47,7 @@ export const OverviewComponents: OverviewComponentsType = {
     ButtonGroup,
     Checkbox,
     CheckboxGroup,
+    Combobox,
     Divider,
     ErrorMessage,
     Flex,
@@ -61,6 +64,7 @@ export const OverviewComponents: OverviewComponentsType = {
     PasswordField,
     Popover,
     RadioGroup,
+    RemainingCharacterCount,
     SearchField,
     Select,
     Spinner,

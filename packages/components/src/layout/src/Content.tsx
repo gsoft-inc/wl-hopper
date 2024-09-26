@@ -1,4 +1,4 @@
-import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
@@ -52,7 +52,7 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Content = forwardRef<HTMLDivElement, ContentProps>(Content);
+const _Content = slotFn("content", forwardRef<HTMLDivElement, ContentProps>(Content));
 _Content.displayName = "Content";
 
 export { _Content as Content };

@@ -1,4 +1,4 @@
-import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
@@ -51,7 +51,7 @@ function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
  *
  * [View Documentation](TODO)
  */
-const _Footer = forwardRef<HTMLElement, FooterProps>(Footer);
+const _Footer = slotFn("footer", forwardRef<HTMLElement, FooterProps>(Footer));
 _Footer.displayName = "Footer";
 
 export { _Footer as Footer };

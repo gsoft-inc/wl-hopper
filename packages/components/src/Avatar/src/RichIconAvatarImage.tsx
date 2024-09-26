@@ -1,5 +1,5 @@
 import { RichIconContext, type RichIconProps } from "@hopper-ui/icons";
-import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
@@ -115,7 +115,7 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
  *
  * [View Documentation](TODO)
  */
-const _RichIconAvatarImage = forwardRef<HTMLDivElement, RichIconAvatarImageProps>(RichIconAvatarImage);
+const _RichIconAvatarImage = slotFn("avatar", forwardRef<HTMLDivElement, RichIconAvatarImageProps>(RichIconAvatarImage));
 _RichIconAvatarImage.displayName = "RichIconAvatarImage";
 
 export { _RichIconAvatarImage as RichIconAvatarImage };
