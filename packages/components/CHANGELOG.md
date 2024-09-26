@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.3.12
+
+### Patch Changes
+
+- 0cf5bc0: Removed option to support size in remainingCharacterCount
+- 4636333: Update avatar's fallback logic. The avatar image is now loaded if the src changes from undefined to a functional src.
+
 ## 1.3.11
 
 ### Patch Changes
