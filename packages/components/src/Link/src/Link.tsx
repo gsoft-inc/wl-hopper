@@ -1,22 +1,22 @@
 import { IconContext, type IconProps } from "@hopper-ui/icons";
+import type { ResponsiveProp, StyledComponentProps } from "@hopper-ui/styled-system";
 import { useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
-import type { StyledComponentProps, ResponsiveProp } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import {
-    useContextProps,
-    type LinkProps as RACLinkProps,
     composeRenderProps,
+    DEFAULT_SLOT,
     Link as RACLink,
-    DEFAULT_SLOT
+    useContextProps,
+    type LinkProps as RACLinkProps
 } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../typography/Text/index.ts";
+import { TextContext } from "../../typography/Text/index.ts";
 import {
-    SlotProvider,
     composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
+    EnsureTextWrapper,
+    SlotProvider,
     type SizeAdapter
 } from "../../utils/index.ts";
 
@@ -99,11 +99,7 @@ function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
     const iconSize = LinkToIconSizeAdapter[size];

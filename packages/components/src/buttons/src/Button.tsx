@@ -21,12 +21,12 @@ import {
 
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { Spinner } from "../../Spinner/index.ts";
-import { Text, TextContext } from "../../typography/Text/index.ts";
+import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
+import { TextContext } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
+    EnsureTextWrapper,
     SlotProvider,
     useRenderProps,
     useSlot
@@ -70,6 +70,9 @@ export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
 
     /** Options for the configured client side router. */
     routerOptions?: RouterOptions;
+
+    /** The props for the Spinner. */
+    spinnerProps?: SpinnerProps;
 }
 
 /**
@@ -153,6 +156,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
         variant = "primary",
         isLoading,
         style: styleProp,
+        spinnerProps,
         ...otherProps
     } = ownProps;
 
@@ -184,11 +188,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
     const renderProps = useRenderProps<ButtonRenderProps>({
@@ -263,6 +263,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                         aria-label={stringFormatter.format("Button.spinnerAriaLabel")}
                         size={size}
                         className={styles["hop-Button__Spinner"]}
+                        {...spinnerProps}
                     />
                 )}
             </As>

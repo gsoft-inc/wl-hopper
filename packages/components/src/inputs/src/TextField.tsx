@@ -15,24 +15,25 @@ import {
     Input,
     TextField as RACTextField,
     useContextProps,
+    type InputProps,
     type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
 import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext, Text, TextContext } from "../../typography/index.ts";
+import { LabelContext, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
+    EnsureTextWrapper,
     SlotProvider,
     useTruncatedText
 } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
-import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
+import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
 
 import styles from "./TextField.module.css";
@@ -95,6 +96,21 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+     * The props for the TextArea.
+     */
+    inputProps?: InputProps;
+
+    /**
+     * The props for the RemainingCharacterCount.
+     */
+    remainingCharacterCountProps?: RemainingCharacterCountProps;
 }
 
 function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -128,6 +144,9 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isRequired,
         restrictMaxLength = true,
         necessityIndicator,
+        inputGroupProps,
+        inputProps,
+        remainingCharacterCountProps,
         ...otherProps
     } = ownProps;
 
@@ -179,7 +198,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             [IconContext, { size, className: styles["hop-TextField__prefix"] }]
         ]}
         >
-            {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
+            <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
         </SlotProvider>
     ) : null;
 
@@ -200,15 +219,17 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                 className={styles["hop-TextField__InputGroup"]}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
+                {...inputGroupProps}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} placeholder={placeholder} />
+                <Input ref={inputRef} placeholder={placeholder} {...inputProps} />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount
                         count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
+                        {...remainingCharacterCountProps}
                     />
                 }
                 {showClearButton && <ClearButton isDisabled={isDisabled} size="lg" onPress={handleClear} />}

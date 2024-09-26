@@ -13,17 +13,18 @@ import {
     Input,
     TextField as RACTextField,
     useContextProps,
+    type InputProps,
     type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
-import { EmbeddedButton } from "../../buttons/index.ts";
+import { EmbeddedButton, type EmbeddedButtonProps } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { PasswordFieldContext } from "./PasswordFieldContext.ts";
 
 import styles from "./PasswordField.module.css";
@@ -52,11 +53,26 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
-    
+
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+     * The props for the Input.
+     */
+    inputProps?: InputProps;
+
+    /**
+     * The props for the EmbeddedButton.
+     */
+    embeddedButtonProps?: EmbeddedButtonProps;
 }
 
 function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -81,6 +97,9 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         isInvalid,
         isRequired,
         necessityIndicator,
+        inputGroupProps,
+        inputProps,
+        embeddedButtonProps,
         ...otherProps
     } = ownProps;
 
@@ -113,8 +132,9 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
                 isFluid
                 size={size}
                 className={styles["hop-PasswordField__InputGroup"]}
+                {...inputGroupProps}
             >
-                <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} />
+                <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} {...inputProps} />
                 <EmbeddedButton
                     isDisabled={isDisabled}
                     aria-label={stringFormatter.format("PasswordField.toggleVisibility")}
@@ -122,6 +142,7 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
                         setShowPassword(x => !x);
                     }}
                     size="lg"
+                    {...embeddedButtonProps}
                 >
                     {showPassword ? <EyeVisibleIcon /> : <EyeHiddenIcon />}
                 </EmbeddedButton>

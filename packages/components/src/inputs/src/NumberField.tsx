@@ -15,22 +15,23 @@ import {
     Button as RACButton,
     NumberField as RACNumberField,
     useContextProps,
+    type InputProps,
     type NumberFieldProps as RACNumberFieldProps
 } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext, Text, TextContext } from "../../typography/index.ts";
+import { LabelContext, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
+    EnsureTextWrapper,
     SlotProvider,
     useScale
 } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { NumberFieldContext } from "./NumberFieldContext.ts";
 
 import styles from "./NumberField.module.css";
@@ -59,11 +60,21 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
-    
+
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+     * The props for the Input.
+     */
+    inputProps?: InputProps;
 }
 
 interface StepperButtonProps {
@@ -120,6 +131,8 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isInvalid,
         isRequired,
         necessityIndicator,
+        inputGroupProps,
+        inputProps,
         ...otherProps
     } = ownProps;
 
@@ -159,7 +172,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
             [IconContext, { size, className: styles["hop-NumberField__prefix"] }]
         ]}
         >
-            {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
+            <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
         </SlotProvider>
     ) : null;
 
@@ -173,9 +186,10 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 isInvalid={isInvalid}
                 inputClassName={styles["hop-NumberField__input"]}
                 inputType="number"
+                {...inputGroupProps}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} />
+                <Input ref={inputRef} {...inputProps} />
                 <StepperButton direction="increment" />
                 <StepperButton direction="decrement" />
             </InputGroup>

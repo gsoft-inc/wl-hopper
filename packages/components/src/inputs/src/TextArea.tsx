@@ -4,15 +4,15 @@ import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
 import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type MutableRefObject } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
+import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextAreaProps as RACTextAreaProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
-import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
+import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
 import { TextAreaContext } from "./TextAreaContext.ts";
 
 import styles from "./TextArea.module.css";
@@ -77,11 +77,26 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * A ref for the HTML textarea element.
      */
     inputRef?: MutableRefObject<HTMLTextAreaElement>;
-    
+
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+     * The props for the TextArea.
+     */
+    textAreaProps?: RACTextAreaProps;
+
+    /**
+     * The props for the  RemainingCharacterCount.
+     */
+    remainingCharacterCountProps?: RemainingCharacterCountProps;
 }
 
 const pxToInt = (value?: string) => {
@@ -154,6 +169,9 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isRequired,
         restrictMaxLength = true,
         necessityIndicator,
+        inputGroupProps,
+        textAreaProps,
+        remainingCharacterCountProps,
         ...otherProps
     } = ownProps;
 
@@ -248,8 +266,9 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
                 isInvalid={isInvalid}
                 inputClassName={styles["hop-TextArea__textarea"]}
                 inputType="textarea"
+                {...inputGroupProps}
             >
-                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
+                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} {...textAreaProps} />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount
@@ -257,6 +276,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
                         count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
+                        {...remainingCharacterCountProps}
                     />
                 }
             </InputGroup>

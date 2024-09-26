@@ -14,15 +14,15 @@ import { BadgeContext } from "../../Badge/index.ts";
 import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { Spinner } from "../../Spinner/index.ts";
-import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
+import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
+import { TextContext, type TextProps } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
+    EnsureTextWrapper,
     type SizeAdapter,
     SlotProvider,
     composeClassnameRenderProps,
-    cssModule,
-    isTextOnlyChildren
+    cssModule
 } from "../../utils/index.ts";
 
 import { TagContext } from "./TagContext.ts";
@@ -68,6 +68,14 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
      * @default "neutral"
      */
     variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
+    /**
+     * The props of the ClearButton.
+     */
+    clearButtonProps?: ClearButtonProps;
+    /**
+     * The props of the Spinner.
+     */
+    spinnerProps?: SpinnerProps;
 }
 
 function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -82,6 +90,8 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
         style: styleProp,
         textValue: textValueProp,
         variant = "neutral",
+        clearButtonProps,
+        spinnerProps,
         ...otherProps
     } = ownProps;
 
@@ -109,11 +119,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
     return (
@@ -172,6 +178,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 size={TagToButtonSizeAdapter[size]}
                                 variant={variant}
                                 isSelected={isSelected}
+                                {...clearButtonProps}
                             />
                         }
                         {isLoading &&
@@ -179,6 +186,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                 aria-label={stringFormatter.format("Tag.spinnerAriaLabel")}
                                 size="sm"
                                 className={styles["hop-Tag__Spinner"]}
+                                {...spinnerProps}
                             />
                         }
                     </>
