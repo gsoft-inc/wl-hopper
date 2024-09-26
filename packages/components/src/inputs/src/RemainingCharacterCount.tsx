@@ -22,6 +22,7 @@ export interface RemainingCharacterCountProps extends
     count: number;
     isDisabled?: boolean;
     isInvalid?: boolean;
+    slot?: string;
 }
 
 export const GlobalRemainingCharacterCountCssSelector = "hop-RemainingCharacterCount";
