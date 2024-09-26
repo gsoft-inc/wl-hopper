@@ -5,7 +5,7 @@ import { composeRenderProps } from "react-aria-components";
 
 import { useLocalizedString } from "../../i18n/index.ts";
 import { Text } from "../../typography/index.ts";
-import { composeClassnameRenderProps, cssModule, useRenderProps, type RenderProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, useRenderProps, type AccessibleSlotProps, type RenderProps } from "../../utils/index.ts";
 
 import styles from "./RemainingCharacterCount.module.css";
 
@@ -17,12 +17,12 @@ interface RemainingCharacterCountRenderProps {
 
 export interface RemainingCharacterCountProps extends
     StyledSystemProps,
-    Omit<RenderProps<RemainingCharacterCountRenderProps>, "children">
+    Omit<RenderProps<RemainingCharacterCountRenderProps>, "children">,
+    AccessibleSlotProps
 {
     count: number;
     isDisabled?: boolean;
     isInvalid?: boolean;
-    slot?: string;
 }
 
 export const GlobalRemainingCharacterCountCssSelector = "hop-RemainingCharacterCount";
