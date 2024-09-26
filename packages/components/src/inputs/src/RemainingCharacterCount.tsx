@@ -17,8 +17,8 @@ interface RemainingCharacterCountRenderProps {
 
 export interface RemainingCharacterCountProps extends
     StyledSystemProps,
-    Omit<RenderProps<RemainingCharacterCountRenderProps>, "children">,
-    AccessibleSlotProps
+    AccessibleSlotProps,
+    Omit<RenderProps<RemainingCharacterCountRenderProps>, "children">
 {
     count: number;
     isDisabled?: boolean;
@@ -29,7 +29,7 @@ export const GlobalRemainingCharacterCountCssSelector = "hop-RemainingCharacterC
 
 function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: ForwardedRef<HTMLElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, style, count, isDisabled, isInvalid, ...textProps } = ownProps;
+    const { className, style, slot, count, isDisabled, isInvalid, ...textProps } = ownProps;
     const stringFormatter = useLocalizedString();
 
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: count });
@@ -65,6 +65,7 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
             data-disabled={isDisabled || undefined}
             data-invalid={isInvalid || undefined}
             role="status"
+            slot={slot || undefined}
             size="xs"
         >
             {count}
