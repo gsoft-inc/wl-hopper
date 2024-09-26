@@ -1,5 +1,5 @@
 import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ComponentProps, type ForwardedRef } from "react";
+import { forwardRef, type ForwardedRef } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps } from "react-aria-components";
 
@@ -16,7 +16,6 @@ interface RemainingCharacterCountRenderProps {
 }
 
 export interface RemainingCharacterCountProps extends
-    Omit<ComponentProps<typeof Text>, "children" | "className" | "style">,
     StyledSystemProps,
     Omit<RenderProps<RemainingCharacterCountRenderProps>, "children">
 {
@@ -73,11 +72,11 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
 }
 
 /**
- * The RemainingCharacterCount component displays the number of characters remaining within a Text component.
+ * The RemainingCharacterCount component displays the number of characters remaining.
  *
  * [View Documentation](TODO)
  */
 const _RemainingCharacterCount = forwardRef<HTMLElement, RemainingCharacterCountProps>(RemainingCharacterCount);
-_RemainingCharacterCount.displayName = "Footer";
+_RemainingCharacterCount.displayName = "RemainingCharacterCount";
 
 export { _RemainingCharacterCount as RemainingCharacterCount };
