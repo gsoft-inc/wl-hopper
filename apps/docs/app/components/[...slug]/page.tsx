@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 
 import Heading from "@/app/ui/components/heading/Heading.tsx";
-import SubHeader from "@/app/ui/layout/subHeader/SubHeader.tsx";
 import Aside from "@/app/ui/layout/aside/Aside.tsx";
+import SubHeader from "@/app/ui/layout/subHeader/SubHeader.tsx";
 
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
@@ -54,7 +54,8 @@ export default async function ComponentPage({ params }: PageProps) {
         },
         {
             name: "issue",
-            src: "https://github.com/gsoft-inc/wl-hopper/issues/new",
+            // eslint-disable-next-line max-len
+            src: `https://github.com/gsoft-inc/wl-hopper/issues/new?title=🐛%20[${title}]%20-%20<TITLE>&body=Component:%20Button%0A%0AIssue%20Summary:%0A_Describe%20the%20issue%20or%20enhancement%20you're%20experiencing%20with%20the%20component._%0A%0ASteps%20to%20Reproduce:%0A1.%20_Step%20one..._%0A2.%20_Step%20two..._%0A%0AExpected%20Behaviour:%0A_What%20did%20you%20expect%20to%20happen?_%0A%0AActual%20Behaviour:%0A_What%20actually%20happened?_%0A%0AScreenshots%20or%20Code%20Snippet:%0A_Include%20any%20screenshots,%20GIFs,%20or%20code%20snippets%20that%20help%20explain%20the%20issue._%0A%0AEnvironment:%0A-%20Design%20System%20Version:%20_Version%20number_%0A-%20Browser%20and%20Version:%20_Browser%20and%20version%20where%20the%20issue%20occurs_%0A-%20Operating%20System:%20_OS%20and%20version_%0A%0AAdditional%20Context:%0A_Any%20other%20details%20or%20context%20related%20to%20the%20issue._`,
             label: "Report an issue"
         },
         ...(links.aria ? [{
