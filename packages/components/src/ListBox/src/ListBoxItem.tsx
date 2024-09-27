@@ -1,5 +1,6 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode, type TransitionEventHandler, useContext, useState } from "react";
 import {
     composeRenderProps,
@@ -123,6 +124,12 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
         }
     };
 
+    const { className: radioClassName, ...otherRadioProps } = radioProps || {};
+    const radioClassNames = clsx(styles["hop-ListBoxItem__radio"], radioClassName);
+
+    const { className: checkboxClassName, ...otherCheckboxProps } = checkboxProps || {};
+    const checkboxClassNames = clsx(styles["hop-ListBoxItem__checkbox"], checkboxClassName);
+
     return (
         <div
             className={styles["hop-ListBoxItem__inner"]}
@@ -132,7 +139,7 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
         >
             {isRadio && (
                 <DecorativeRadio
-                    className={styles["hop-ListBoxItem__radio"]}
+                    className={radioClassNames}
                     value="radio"
                     size="sm"
                     isDisabled={isDisabled}
@@ -140,20 +147,20 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                     isPressed={isPressed}
                     isSelected={isSelected}
                     isInvalid={isInvalid}
-                    {...radioProps}
+                    {...otherRadioProps}
                 />
             )}
             {isCheckbox && (
                 <DecorativeCheckbox
                     size="sm"
                     value="checkbox"
-                    className={styles["hop-ListBoxItem__checkbox"]}
+                    className={checkboxClassNames}
                     isDisabled={isDisabled}
                     isHovered={isHovered || isFocusVisible}
                     isPressed={isPressed}
                     isSelected={isSelected}
                     isInvalid={isInvalid}
-                    {...checkboxProps}
+                    {...otherCheckboxProps}
                 />
             )}
             {isCheck && (

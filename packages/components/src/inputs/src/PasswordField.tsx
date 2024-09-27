@@ -6,6 +6,7 @@ import {
     type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
+import clsx from "clsx";
 import { forwardRef, useState, type ForwardedRef, type MutableRefObject } from "react";
 import { useObjectRef } from "react-aria";
 import {
@@ -124,6 +125,9 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         };
     });
 
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
+    const inputGroupClassNames = clsx(styles["hop-PasswordField__InputGroup"], inputGroupClassName);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
@@ -131,8 +135,8 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
                 isInvalid={isInvalid}
                 isFluid
                 size={size}
-                className={styles["hop-PasswordField__InputGroup"]}
-                {...inputGroupProps}
+                className={inputGroupClassNames}
+                {...otherInputGroupProps}
             >
                 <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} {...inputProps} />
                 <EmbeddedButton

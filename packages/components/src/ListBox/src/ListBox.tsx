@@ -51,7 +51,7 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
     /**
      * The props of the ListBoxItem.
      */
-    listBoxItemProps?: ListBoxItemProps<T>;
+    loadingListBoxItemProps?: ListBoxItemProps<T>;
 }
 
 const ListBoxToTextSizeAdapter = {
@@ -77,7 +77,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         style: styleProp,
         selectionIndicator = "check",
         selectionMode,
-        listBoxItemProps,
+        loadingListBoxItemProps,
         ...otherProps
     } = ownProps;
 
@@ -159,7 +159,6 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             ]}
         >
             <RACListBox
-                {...otherProps}
                 ref={ref}
                 className={classNames}
                 disallowEmptySelection={disallowEmptySelection}
@@ -169,6 +168,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 data-loading={isLoading}
                 // @ts-expect-error It's not defined, but it is used in RAC
                 shouldSelectOnPressUp
+                {...otherProps}
             >
                 {renderChildren()}
                 {isLoading && Array.from({ length: 5 }).map((_, index) => {
@@ -179,7 +179,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                             isLoading={isLoading}
                             size={size}
                             textValue={stringFormatter.format("ListBoxItem.loadingTextValue")}
-                            {...listBoxItemProps}
+                            {...loadingListBoxItemProps}
                         />
                     );
                 })}

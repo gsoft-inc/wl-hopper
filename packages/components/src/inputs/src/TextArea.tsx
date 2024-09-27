@@ -2,9 +2,10 @@ import { useIsomorphicLayoutEffect, useResponsiveValue, useStyledSystem, type Re
 import { useIsSSR } from "@react-aria/ssr";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
+import clsx from "clsx";
 import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type MutableRefObject } from "react";
 import { useObjectRef } from "react-aria";
-import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextAreaProps as RACTextAreaProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
+import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
@@ -89,11 +90,6 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
     inputGroupProps?: InputGroupProps;
 
     /**
-     * The props for the TextArea.
-     */
-    textAreaProps?: RACTextAreaProps;
-
-    /**
      * The props for the  RemainingCharacterCount.
      */
     remainingCharacterCountProps?: RemainingCharacterCountProps;
@@ -170,7 +166,6 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         restrictMaxLength = true,
         necessityIndicator,
         inputGroupProps,
-        textAreaProps,
         remainingCharacterCountProps,
         ...otherProps
     } = ownProps;
@@ -256,27 +251,34 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         adjustRows();
     }, [value, adjustRows]);
 
+    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const inputGroupClassNames = clsx(styles["hop-TextArea__InputGroup"], inputGroupClassName);
+    const inputGroupInputClassNames = clsx(styles["hop-TextArea__textarea"], inputGroupInputClassName);
+
+    const { className: remainingCharacterCountClassName, ...otherRemainingCharacterCountProps } = remainingCharacterCountProps ?? {};
+    const remainingCharacterCountClassNames = clsx(styles["hop-TextArea__RemainingCharacterCount"], remainingCharacterCountClassName);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
                 size={size}
-                className={styles["hop-TextArea__InputGroup"]}
+                className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={styles["hop-TextArea__textarea"]}
+                inputClassName={inputGroupInputClassNames}
                 inputType="textarea"
-                {...inputGroupProps}
+                {...otherInputGroupProps}
             >
-                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} {...textAreaProps} />
+                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount
-                        className={styles["hop-TextArea__RemainingCharacterCount"]}
+                        className={remainingCharacterCountClassNames}
                         count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
-                        {...remainingCharacterCountProps}
+                        {...otherRemainingCharacterCountProps}
                     />
                 }
             </InputGroup>

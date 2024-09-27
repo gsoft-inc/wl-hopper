@@ -13,9 +13,7 @@ import {
     TextContext as RACTextContext,
     useContextProps,
     useSlottedContext,
-    type ButtonProps,
     type ContextValue,
-    type InputProps,
     type ComboBoxProps as RACComboBoxProps,
     type GroupProps as RACGroupProps
 } from "react-aria-components";
@@ -98,14 +96,6 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      */
     triggerProps?: ComboBoxTriggerProps;
     /**
-     * The props for the select's Input.
-     */
-    inputProps?: InputProps;
-    /**
-     * The props for the select's Button.
-     */
-    buttonProps?: ButtonProps;
-    /**
      * The props for the Footer.
      */
     footerProps?: FooterProps;
@@ -138,8 +128,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         size: sizeProp,
         style: styleProp,
         triggerProps,
-        inputProps,
-        buttonProps,
         footerProps,
         ...otherProps
     } = ownProps;
@@ -278,13 +266,13 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
 
     return (
         <RACComboBox
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             isInvalid={isInvalid}
             isRequired={isRequired}
             menuTrigger={menuTrigger}
+            {...otherProps}
         >
             {comboBoxRenderProps => {
                 const { isOpen } = comboBoxRenderProps;
@@ -309,31 +297,30 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                             {fieldChildren}
                         </SlotProvider>
                         <Group
-                            {...otherTriggerProps}
                             ref={triggerRef}
                             className={triggerClassNames}
                             style={triggerStyle}
                             onMouseDown={handleMouseDown}
                             data-selected={isOpen || undefined}
+                            {...otherTriggerProps}
                         >
                             {prefixMarkup}
                             <Input
                                 ref={mergedInputRefs}
                                 className={inputClassNames}
                                 placeholder={placeholder}
-                                {...inputProps}
                             />
-                            <Button className={buttonClassNames} ref={buttonRef} {...buttonProps}>
+                            <Button className={buttonClassNames} ref={buttonRef}>
                                 <ButtonIcon size="sm" className={styles["hop-ComboBox__button-icon"]} />
                             </Button>
                         </Group>
                         <Popover
-                            {...otherPopoverProps}
                             placement={placement}
                             isNonDialog
                             autoWidth={isAutoMenuWidth}
                             style={popoverStyle}
                             triggerRef={triggerRef}
+                            {...otherPopoverProps}
                         >
                             <SlotProvider values={[
                                 [BadgeContext, {
@@ -341,7 +328,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 }]
                             ]}
                             >
-                                <ListBox {...listBoxProps} items={items} size={size} isInvalid={isInvalid}>
+                                <ListBox items={items} size={size} isInvalid={isInvalid} {...listBoxProps}>
                                     {children}
                                 </ListBox>
                             </SlotProvider>

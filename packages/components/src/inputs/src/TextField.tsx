@@ -8,6 +8,7 @@ import {
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
+import clsx from "clsx";
 import { forwardRef, useCallback, useState, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
 import {
@@ -15,7 +16,6 @@ import {
     Input,
     TextField as RACTextField,
     useContextProps,
-    type InputProps,
     type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
@@ -103,11 +103,6 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
     inputGroupProps?: InputGroupProps;
 
     /**
-     * The props for the TextArea.
-     */
-    inputProps?: InputProps;
-
-    /**
      * The props for the RemainingCharacterCount.
      */
     remainingCharacterCountProps?: RemainingCharacterCountProps;
@@ -145,7 +140,6 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         restrictMaxLength = true,
         necessityIndicator,
         inputGroupProps,
-        inputProps,
         remainingCharacterCountProps,
         ...otherProps
     } = ownProps;
@@ -211,18 +205,21 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     }, [value]);
 
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const inputGroupClassNames = clsx(styles["hop-TextField__InputGroup"], inputGroupClassName);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
                 size={size}
-                className={styles["hop-TextField__InputGroup"]}
+                className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                {...inputGroupProps}
+                {...otherInputGroupProps}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} placeholder={placeholder} {...inputProps} />
+                <Input ref={inputRef} placeholder={placeholder} />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount

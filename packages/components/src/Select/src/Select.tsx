@@ -232,7 +232,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                         >
                             {fieldChildren}
                         </SlotProvider>
-                        <Button {...otherTriggerProps} className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined}>
+                        <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
                             {prefixMarkup}
                             <SelectValue size={size}>
                                 {valueRenderProps => {
@@ -248,7 +248,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 }]
                             ]}
                             >
-                                <ListBox {...listBoxProps} items={items} size={size} isInvalid={isInvalid}>
+                                <ListBox items={items} size={size} isInvalid={isInvalid} {...listBoxProps}>
                                     {children}
                                 </ListBox>
                             </SlotProvider>

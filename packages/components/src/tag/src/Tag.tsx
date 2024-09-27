@@ -6,6 +6,7 @@ import {
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef } from "react";
 import { Tag as RACTag, type TagProps as RACTagProps, composeRenderProps, useContextProps } from "react-aria-components";
 
@@ -122,6 +123,12 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
         return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
+    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
+    const spinnerClassNames = clsx(styles["hop-Tag__Spinner"], spinnerClassName);
+
+    const { className: clearButtonClassName, ...otherClearButtonProps } = clearButtonProps || {};
+    const clearButtonClassNames = clsx(styles["hop-Tag__remove-btn"], clearButtonClassName);
+
     return (
         <RACTag
             {...otherProps}
@@ -173,20 +180,20 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                             <ClearButton
                                 slot="remove"
                                 isDisabled={isDisabled}
-                                className={styles["hop-Tag__remove-btn"]}
+                                className={clearButtonClassNames}
                                 aria-label={stringFormatter.format("Tag.removeAriaLabel")}
                                 size={TagToButtonSizeAdapter[size]}
                                 variant={variant}
                                 isSelected={isSelected}
-                                {...clearButtonProps}
+                                {...otherClearButtonProps}
                             />
                         }
                         {isLoading &&
                             <Spinner
                                 aria-label={stringFormatter.format("Tag.spinnerAriaLabel")}
                                 size="sm"
-                                className={styles["hop-Tag__Spinner"]}
-                                {...spinnerProps}
+                                className={spinnerClassNames}
+                                {...otherSpinnerProps}
                             />
                         }
                     </>

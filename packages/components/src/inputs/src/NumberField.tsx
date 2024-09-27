@@ -7,6 +7,7 @@ import {
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
+import clsx from "clsx";
 import { forwardRef, useCallback, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
 import {
@@ -15,7 +16,6 @@ import {
     Button as RACButton,
     NumberField as RACNumberField,
     useContextProps,
-    type InputProps,
     type NumberFieldProps as RACNumberFieldProps
 } from "react-aria-components";
 
@@ -70,11 +70,6 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * The props for the InputGroup.
      */
     inputGroupProps?: InputGroupProps;
-
-    /**
-     * The props for the Input.
-     */
-    inputProps?: InputProps;
 }
 
 interface StepperButtonProps {
@@ -132,7 +127,6 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isRequired,
         necessityIndicator,
         inputGroupProps,
-        inputProps,
         ...otherProps
     } = ownProps;
 
@@ -176,20 +170,24 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         </SlotProvider>
     ) : null;
 
+    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const inputGroupClassNames = clsx(styles["hop-NumberField__InputGroup"], inputGroupClassName);
+    const inputGroupInputClassNames = clsx(styles["hop-NumberField__input"], inputGroupInputClassName);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
                 size={size}
-                className={styles["hop-NumberField__InputGroup"]}
+                className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={styles["hop-NumberField__input"]}
+                inputClassName={inputGroupInputClassNames}
                 inputType="number"
-                {...inputGroupProps}
+                {...otherInputGroupProps}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} {...inputProps} />
+                <Input ref={inputRef} />
                 <StepperButton direction="increment" />
                 <StepperButton direction="decrement" />
             </InputGroup>

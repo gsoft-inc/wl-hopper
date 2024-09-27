@@ -8,6 +8,7 @@ import {
 } from "@hopper-ui/styled-system";
 import { chain, filterDOMProps, shouldClientNavigate, useRouter } from "@react-aria/utils";
 import type { RouterOptions } from "@react-types/shared";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type MouseEvent, type MutableRefObject } from "react";
 import { mergeProps, useButton, useFocusRing, useHover } from "react-aria";
 import {
@@ -211,6 +212,9 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
 
     const As = props.href ? "a" : "button";
 
+    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
+    const spinnerClassNames = clsx(styles["hop-Button__Spinner"], spinnerClassName);
+
     return (
         <SlotProvider
             values={[
@@ -262,8 +266,8 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLElement>) {
                     <Spinner
                         aria-label={stringFormatter.format("Button.spinnerAriaLabel")}
                         size={size}
-                        className={styles["hop-Button__Spinner"]}
-                        {...spinnerProps}
+                        className={spinnerClassNames}
+                        {...otherSpinnerProps}
                     />
                 )}
             </As>
