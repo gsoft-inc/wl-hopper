@@ -1,11 +1,11 @@
 import { useStyledSystem, type StyledSystemProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ComponentProps, type ForwardedRef } from "react";
+import { forwardRef, type ForwardedRef } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps } from "react-aria-components";
 
 import { useLocalizedString } from "../../i18n/index.ts";
 import { Text } from "../../typography/index.ts";
-import { composeClassnameRenderProps, cssModule, useRenderProps, type RenderProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, useRenderProps, type AccessibleSlotProps, type RenderProps } from "../../utils/index.ts";
 
 import styles from "./RemainingCharacterCount.module.css";
 
@@ -16,8 +16,8 @@ interface RemainingCharacterCountRenderProps {
 }
 
 export interface RemainingCharacterCountProps extends
-    Omit<ComponentProps<typeof Text>, "children" | "className" | "style">,
     StyledSystemProps,
+    AccessibleSlotProps,
     Omit<RenderProps<RemainingCharacterCountRenderProps>, "children">
 {
     count: number;
@@ -29,7 +29,7 @@ export const GlobalRemainingCharacterCountCssSelector = "hop-RemainingCharacterC
 
 function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: ForwardedRef<HTMLElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, style, count, isDisabled, isInvalid, ...textProps } = ownProps;
+    const { className, style, slot, count, isDisabled, isInvalid, ...textProps } = ownProps;
     const stringFormatter = useLocalizedString();
 
     const accessibilityString = stringFormatter.format("Input.charactersLeft", { charLeft: count });
@@ -65,6 +65,7 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
             data-disabled={isDisabled || undefined}
             data-invalid={isInvalid || undefined}
             role="status"
+            slot={slot || undefined}
             size="xs"
         >
             {count}
@@ -73,11 +74,11 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
 }
 
 /**
- * The RemainingCharacterCount component displays the number of characters remaining within a Text component.
+ * The RemainingCharacterCount component displays the number of characters remaining.
  *
  * [View Documentation](TODO)
  */
 const _RemainingCharacterCount = forwardRef<HTMLElement, RemainingCharacterCountProps>(RemainingCharacterCount);
-_RemainingCharacterCount.displayName = "Footer";
+_RemainingCharacterCount.displayName = "RemainingCharacterCount";
 
 export { _RemainingCharacterCount as RemainingCharacterCount };
