@@ -64,9 +64,9 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * This should only be used with the `showCharacterCount` prop.
      * If `true`, the TextArea prevents the text from ever going over the max length.
      * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
-     * @default true
+     * @default false
      */
-    restrictMaxLength?: boolean;
+    allowExceedingMaxLength?: boolean;
 
     /**
      * The resize mode value of the TextArea. It's equivalent to the CSS resize property.
@@ -163,7 +163,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isDisabled,
         isInvalid,
         isRequired,
-        restrictMaxLength = true,
+        allowExceedingMaxLength,
         necessityIndicator,
         inputGroupProps,
         remainingCharacterCountProps,
@@ -244,7 +244,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     // adjustRows needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
     // truncateText also needs to be here so that if the default text goes over the maxLength, it is truncated.
     useIsomorphicLayoutEffect(() => {
-        if (restrictMaxLength) {
+        if (!allowExceedingMaxLength) {
             const newValue = truncateText(value, maxLength);
             onChange(newValue);
         }
@@ -307,7 +307,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={restrictMaxLength ? maxLength : undefined}
+            maxLength={!allowExceedingMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
