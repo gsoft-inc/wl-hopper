@@ -11,7 +11,7 @@ import { Text, type TextProps } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
-import { ListBoxItem, type ListBoxItemSize } from "./ListBoxItem.tsx";
+import { ListBoxItem, type ListBoxItemProps, type ListBoxItemSize } from "./ListBoxItem.tsx";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 
 import styles from "./ListBox.module.css";
@@ -47,6 +47,11 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
      * @default "sm"
      */
     size?: ResponsiveProp<ListBoxItemSize>;
+
+    /**
+     * The props of the ListBoxItem.
+     */
+    loadingListBoxItemProps?: ListBoxItemProps<T>;
 }
 
 const ListBoxToTextSizeAdapter = {
@@ -72,6 +77,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         style: styleProp,
         selectionIndicator = "check",
         selectionMode,
+        loadingListBoxItemProps,
         ...otherProps
     } = ownProps;
 
@@ -109,7 +115,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
     });
 
     useLoadMore({ isLoading, onLoadMore }, ref);
-    
+
     const renderChildren = (): ReactNode => {
         if (props.items) {
             return (
@@ -126,7 +132,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         let result = null;
         if (renderEmptyState && isFunction(renderEmptyState)) {
             result = renderEmptyState(renderProps);
-            
+
             if (result) {
                 return <Text className={emptyItemClassNames} size={ListBoxToTextSizeAdapter[size]}>{result}</Text>;
             }
@@ -153,7 +159,6 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             ]}
         >
             <RACListBox
-                {...otherProps}
                 ref={ref}
                 className={classNames}
                 disallowEmptySelection={disallowEmptySelection}
@@ -163,10 +168,20 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 data-loading={isLoading}
                 // @ts-expect-error It's not defined, but it is used in RAC
                 shouldSelectOnPressUp
+                {...otherProps}
             >
                 {renderChildren()}
                 {isLoading && Array.from({ length: 5 }).map((_, index) => {
-                    return <ListBoxItem key={`loadingListItem_${index.toString()}`} id={`loadingListItem_${index.toString()}`} isLoading={isLoading} size={size} textValue={stringFormatter.format("ListBoxItem.loadingTextValue")} />;
+                    return (
+                        <ListBoxItem
+                            key={`loadingListItem_${index.toString()}`}
+                            id={`loadingListItem_${index.toString()}`}
+                            isLoading={isLoading}
+                            size={size}
+                            textValue={stringFormatter.format("ListBoxItem.loadingTextValue")}
+                            {...loadingListBoxItemProps}
+                        />
+                    );
                 })}
             </RACListBox>
         </SlotProvider>

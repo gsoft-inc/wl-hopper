@@ -14,13 +14,13 @@ import {
 } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../typography/Text/index.ts";
+import { TextContext } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
+    EnsureTextWrapper,
     SlotProvider,
     composeClassnameRenderProps,
-    cssModule,
-    isTextOnlyChildren
+    cssModule
 } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
@@ -69,11 +69,7 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
     return (

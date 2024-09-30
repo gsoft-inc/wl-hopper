@@ -102,7 +102,6 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
     const filteredProps = filterDOMProps(otherProps, { labelable: true });
 
     return (
-
         <ClearContainerSlots>
             <OverlineText
                 {...mergeProps(filteredProps, renderProps)}

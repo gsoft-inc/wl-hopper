@@ -9,5 +9,5 @@ interface EnsureTextWrapperProps {
 }
 
 export const EnsureTextWrapper = ({ children }: EnsureTextWrapperProps) => {
-    return isTextOnlyChildren(children) ? <Text>{children}</Text> : <>{children}</>;
+    return children && isTextOnlyChildren(children) ? <Text>{children}</Text> : <>{children}</>;
 };
