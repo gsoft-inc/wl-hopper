@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.13
+
+### Patch Changes
+
+- 5537941: Added props to customize their DOM elements
+
 ## 1.3.12
 
 ### Patch Changes

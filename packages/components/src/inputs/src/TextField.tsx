@@ -8,6 +8,7 @@ import {
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
+import clsx from "clsx";
 import { forwardRef, useCallback, useState, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
 import {
@@ -21,18 +22,18 @@ import {
 import { ClearButton } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext, Text, TextContext } from "../../typography/index.ts";
+import { LabelContext, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
+    EnsureTextWrapper,
     SlotProvider,
     useTruncatedText
 } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
-import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
+import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
 
 import styles from "./TextField.module.css";
@@ -63,11 +64,9 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
 
     /**
      * This should only be used with the `showCharacterCount` prop.
-     * If `true`, the TextArea prevents the text from ever going over the max length.
-     * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
-     * @default true
+     * If `true`, the TextField will allow the text to go over the max length, but it will add an error look to the character count.
      */
-    restrictMaxLength?: boolean;
+    allowExceedingMaxLength?: boolean;
 
     /**
      * The size of the TextField.
@@ -95,6 +94,16 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+     * The props for the RemainingCharacterCount.
+     */
+    remainingCharacterCountProps?: RemainingCharacterCountProps;
 }
 
 function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -126,8 +135,10 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isDisabled,
         isInvalid,
         isRequired,
-        restrictMaxLength = true,
+        allowExceedingMaxLength,
         necessityIndicator,
+        inputGroupProps,
+        remainingCharacterCountProps,
         ...otherProps
     } = ownProps;
 
@@ -169,8 +180,13 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     }, [onChange, onClear]);
 
     const showClearButton = isClearable && characterCount !== 0;
+
     if (showCharacterCount && !maxLength) {
         console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextField.");
+    }
+
+    if (allowExceedingMaxLength && !showCharacterCount) {
+        console.warn("If allowExceedingMaxLength is true, showCharacterCount must also be true.");
     }
 
     const prefixMarkup = prefix ? (
@@ -179,27 +195,31 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             [IconContext, { size, className: styles["hop-TextField__prefix"] }]
         ]}
         >
-            {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
+            <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
         </SlotProvider>
     ) : null;
 
     // truncateText needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
     // If the default text goes over the maxLength, it is truncated.
     useIsomorphicLayoutEffect(() => {
-        if (restrictMaxLength) {
+        if (!allowExceedingMaxLength) {
             const newValue = truncateText(value, maxLength);
             onChange(newValue);
         }
     }, [value]);
+
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const inputGroupClassNames = clsx(styles["hop-TextField__InputGroup"], inputGroupClassName);
 
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
                 size={size}
-                className={styles["hop-TextField__InputGroup"]}
+                className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
+                {...otherInputGroupProps}
             >
                 {prefixMarkup}
                 <Input ref={inputRef} placeholder={placeholder} />
@@ -209,6 +229,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                         count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
+                        {...remainingCharacterCountProps}
                     />
                 }
                 {showClearButton && <ClearButton isDisabled={isDisabled} size="lg" onPress={handleClear} />}
@@ -238,7 +259,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={restrictMaxLength ? maxLength : undefined}
+            maxLength={!allowExceedingMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}

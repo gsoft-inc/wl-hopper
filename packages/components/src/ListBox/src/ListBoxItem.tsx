@@ -1,5 +1,6 @@
 import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode, type TransitionEventHandler, useContext, useState } from "react";
 import {
     composeRenderProps,
@@ -13,11 +14,11 @@ import {
 
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
-import { DecorativeCheckbox } from "../../checkbox/index.ts";
+import { DecorativeCheckbox, type DecorativeCheckboxProps } from "../../checkbox/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { DecorativeRadio } from "../../radio/index.ts";
-import { Text, TextContext, type TextProps } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, isTextOnlyChildren, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
+import { DecorativeRadio, type DecorativeRadioProps } from "../../radio/index.ts";
+import { TextContext, type TextProps } from "../../typography/Text/index.ts";
+import { composeClassnameRenderProps, cssModule, EnsureTextWrapper, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 import { ListBoxItemSkeleton } from "./ListBoxItemSkeleton.tsx";
@@ -28,21 +29,31 @@ export const GlobalListBoxItemCssSelector = "hop-ListBoxItem";
 
 export type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
 
-export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBoxItemProps<T>, "orientation | layout">> {
+interface ListBoxItemSharedProps {
     /**
      * Whether or not the ListBoxItem is in an invalid state.
      */
     isInvalid?: boolean;
-    /**
-     * Whether the item is loading.
-     * */
-    isLoading?: boolean;
     /**
      * The selection indicator to use. Only available if the selection mode is not "none".
      * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
      * @default "check"
      */
     selectionIndicator?: "check" | "input";
+    /**
+     * The props for the Radio.
+     */
+    radioProps?: DecorativeRadioProps;
+    /**
+     * The props for the Checkbox.
+     */
+    checkboxProps?: DecorativeCheckboxProps;
+}
+export interface ListBoxItemProps<T> extends ListBoxItemSharedProps, StyledComponentProps<Omit<RACListBoxItemProps<T>, "orientation | layout">> {
+    /**
+     * Whether the item is loading.
+     * */
+    isLoading?: boolean;
     /**
      * A ListBoxItem can vary in size.
      * @default "sm"
@@ -50,17 +61,7 @@ export interface ListBoxItemProps<T> extends StyledComponentProps<Omit<RACListBo
     size?: ResponsiveProp<ListBoxItemSize>;
 }
 
-interface ListBoxItemInnerProps extends ListBoxItemRenderProps {
-    /**
-     * The selection indicator to use. Only available if the selection mode is not "none".
-     * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
-     * @default "check"
-     */
-    selectionIndicator?: "check" | "input";
-    /**
-     * Whether or not the ListBoxItem is in an invalid state.
-     */
-    isInvalid?: boolean;
+interface ListBoxItemInnerProps extends ListBoxItemSharedProps, ListBoxItemRenderProps {
     /**
      * A ListBoxItem can vary in size.
      * @default "sm"
@@ -105,7 +106,9 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
         selectionIndicator,
         isInvalid,
         size,
-        children
+        children,
+        radioProps,
+        checkboxProps
     } = props;
 
     const isRadio = selectionIndicator === "input" && selectionMode === "single";
@@ -121,6 +124,12 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
         }
     };
 
+    const { className: radioClassName, ...otherRadioProps } = radioProps || {};
+    const radioClassNames = clsx(styles["hop-ListBoxItem__radio"], radioClassName);
+
+    const { className: checkboxClassName, ...otherCheckboxProps } = checkboxProps || {};
+    const checkboxClassNames = clsx(styles["hop-ListBoxItem__checkbox"], checkboxClassName);
+
     return (
         <div
             className={styles["hop-ListBoxItem__inner"]}
@@ -130,7 +139,7 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
         >
             {isRadio && (
                 <DecorativeRadio
-                    className={styles["hop-ListBoxItem__radio"]}
+                    className={radioClassNames}
                     value="radio"
                     size="sm"
                     isDisabled={isDisabled}
@@ -138,18 +147,20 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                     isPressed={isPressed}
                     isSelected={isSelected}
                     isInvalid={isInvalid}
+                    {...otherRadioProps}
                 />
             )}
             {isCheckbox && (
                 <DecorativeCheckbox
                     size="sm"
                     value="checkbox"
-                    className={styles["hop-ListBoxItem__checkbox"]}
+                    className={checkboxClassNames}
                     isDisabled={isDisabled}
                     isHovered={isHovered || isFocusVisible}
                     isPressed={isPressed}
                     isSelected={isSelected}
                     isInvalid={isInvalid}
+                    {...otherCheckboxProps}
                 />
             )}
             {isCheck && (
@@ -258,11 +269,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text slot="label">{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
     return (
@@ -281,9 +288,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             {listBoxItemProps => {
                 if (isLoading) {
                     return (
-                        <div
-                            className={styles["hop-ListBoxItem__inner"]}
-                        >
+                        <div className={styles["hop-ListBoxItem__inner"]}>
                             <ListBoxItemSkeleton
                                 size={size}
                                 slot="label"

@@ -1,26 +1,26 @@
 import { IconContext } from "@hopper-ui/icons";
 import {
-    type StyledComponentProps,
-    useStyledSystem,
     type ResponsiveProp,
-    useResponsiveValue
+    type StyledComponentProps,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { type ForwardedRef, forwardRef } from "react";
 import {
-    useContextProps,
     Switch as RACSwitch,
     type SwitchProps as RACSwitchProps,
-    composeRenderProps
+    composeRenderProps,
+    useContextProps
 } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../typography/Text/index.ts";
+import { TextContext } from "../../typography/Text/index.ts";
 import {
-    composeClassnameRenderProps,
+    ClearContainerSlots,
+    EnsureTextWrapper,
     SlotProvider,
-    cssModule,
-    isTextOnlyChildren,
-    ClearContainerSlots
+    composeClassnameRenderProps,
+    cssModule
 } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
@@ -69,11 +69,7 @@ function Switch(props: SwitchProps, ref: ForwardedRef<HTMLLabelElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
     return (

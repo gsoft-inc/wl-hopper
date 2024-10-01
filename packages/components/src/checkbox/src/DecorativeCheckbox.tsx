@@ -1,7 +1,7 @@
-import { IconContext, MinusIcon, CheckmarkIcon } from "@hopper-ui/icons";
+import { CheckmarkIcon, IconContext, MinusIcon } from "@hopper-ui/icons";
 import {
-    useStyledSystem,
-    useResponsiveValue
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import { mergeProps } from "react-aria";
@@ -11,15 +11,15 @@ import {
 } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../typography/Text/index.ts";
+import { TextContext } from "../../typography/Text/index.ts";
 import {
-    SlotProvider,
-    cssModule,
-    isTextOnlyChildren,
     ClearContainerSlots,
-    type InteractionProps,
+    composeClassnameRenderProps,
+    cssModule,
+    EnsureTextWrapper,
+    SlotProvider,
     useRenderProps,
-    composeClassnameRenderProps
+    type InteractionProps
 } from "../../utils/index.ts";
 
 import type { CheckboxProps } from "./Checkbox.tsx";
@@ -56,13 +56,9 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
-    
+
     const classNames = composeClassnameRenderProps(
         className,
         GlobalDecorativeCheckboxCssSelector,
@@ -99,7 +95,7 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
             isIndeterminate: isIndeterminate || false
         }
     });
-    
+
     const checkboxIconClassName = styles["hop-DecorativeCheckbox__check"];
     const icon = isIndeterminate ?
         <MinusIcon size="sm" className={checkboxIconClassName} /> :
