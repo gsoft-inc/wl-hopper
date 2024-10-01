@@ -1,6 +1,9 @@
 .hop-Button {
     --hop-Button-border-radius: var(--hop-shape-rounded-md);
-    --hop-Button-focus-ring-color: var(--hop-primary-border-focus); /* TODO: replace with a token */
+    --hop-Button-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-Button-column-gap: var(--hop-space-inline-xs);
+    --hop-Button-icon-only-column-gap: 0;
+    --hop-Button-outline-size: var(--hop-space-20);
 
     /* Sizes */
     --hop-Button-icon-only-padding: 0; /* Since the content is centered, no need for padding */
@@ -145,6 +148,7 @@
     --block-size: var(--hop-Button-md-height);
     --background-color: var(--hop-primary-surface-strong);
     --color: var(--hop-primary-text-strong);
+    --column-gap: var(--hop-Button-column-gap);
     --spinner: var(--hop-primary-icon-strong);
     --border: 0;
     --padding-inline: 0;
@@ -156,11 +160,10 @@
     position: relative;
 
     overflow: hidden;
-    display: grid;
-    grid-template-areas:"start-icon content end-icon";
-    grid-template-columns: auto min-content auto;
-    column-gap: var(--hop-space-inline-xs);
+    display: flex;
+    column-gap: var(--column-gap);
     align-items: center;
+    justify-content: center;
 
     box-sizing: border-box;
     inline-size: var(--inline-size);
@@ -176,7 +179,7 @@
     border: var(--border);
     border-radius: var(--hop-Button-border-radius);
     outline: none;
-    outline-offset: 0.125rem;
+    outline-offset: var(--hop-Button-outline-size);
 
     transition:
         color var(--hop-easing-duration-2) var(--hop-easing-productive),
@@ -186,15 +189,15 @@
 
 /** Focus Ring */
 .hop-Button[data-focus-visible] {
-    outline: 0.125rem solid var(--hop-Button-focus-ring-color);
+    outline: var(--hop-Button-outline-size) solid var(--hop-Button-focus-ring-color);
 }
 
 /** Modifier */
 .hop-Button--icon-only {
     --padding-block: var(--hop-Button-icon-only-padding);
     --padding-inline: var(--hop-Button-icon-only-padding);
+    --column-gap: var(--hop-Button-icon-only-column-gap);
 
-    column-gap: 0;
     aspect-ratio: 1;
 }
 
@@ -469,21 +472,22 @@
 /** Elements */
 .hop-Button__Spinner {
     position: absolute;
-    justify-self: center;
     color: var(--spinner-color)
 }
 
 .hop-Button__icon,
 .hop-Button__icon-list {
-    grid-area: start-icon;
+    flex: 0 0 auto;
     justify-self: end;
+    order: 1;
 }
 
 .hop-Button__text {
     user-select: none;
 
     overflow: visible;
-    grid-area: content;
+    flex: 0 1 auto;
+    order: 2;
 
     font-weight: var(--hop-font-weight-505);
     text-wrap: nowrap;
@@ -504,7 +508,8 @@
 
 .hop-Button__end-icon,
 .hop-Button__end-icon-list {
-    grid-area: end-icon;
+    flex: 0 0 auto;
+    order: 3;
 }
 
 .hop-Button .hop-Button__icon-list,
