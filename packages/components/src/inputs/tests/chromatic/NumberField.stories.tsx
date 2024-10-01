@@ -104,14 +104,14 @@ export const Zoom: Story = {
         <Stack>
             <Div className="zoom-in">
                 <Inline alignY="center">
-                    <NumberField />
-                    <NumberField size="sm" />
+                    <NumberField aria-label="Label" />
+                    <NumberField size="sm" aria-label="Label" />
                 </Inline>
             </Div>
             <Div className="zoom-out">
                 <Inline alignY="center">
-                    <NumberField />
-                    <NumberField size="sm" />
+                    <NumberField aria-label="Label" />
+                    <NumberField size="sm" aria-label="Label" />
                 </Inline>
             </Div>
         </Stack>
