@@ -5,6 +5,7 @@ import {
     useStyledSystem
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
+import type { Orientation } from "react-aria";
 import {
     RadioGroup as RACRadioGroup,
     type RadioGroupProps as RACRadioGroupProps,
@@ -16,7 +17,7 @@ import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { RadioContext, RadioFieldContext, RadioListContext } from "../../radio/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { type InputGroupVariant, type InputSize, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { RadioGroupContext } from "./RadioGroupContext.ts";
 
@@ -28,22 +29,22 @@ export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroup
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
     /**
      * A RadioGroup can be displayed horizontally or vertically.
      * @default "vertical"
      */
-    orientation?: ResponsiveProp<"horizontal" | "vertical">;
+    orientation?: ResponsiveProp<Orientation>;
     /**
      * A RadioGroup can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<InputSize>;
     /**
      * A RadioGroup has two variants: borderless and bordered.
      * @default "borderless"
      */
-    variant?: "borderless" | "bordered";
+    variant?: InputGroupVariant;
 }
 
 function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {

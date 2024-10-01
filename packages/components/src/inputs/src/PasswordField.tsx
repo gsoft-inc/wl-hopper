@@ -23,7 +23,7 @@ import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, type InputSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { PasswordFieldContext } from "./PasswordFieldContext.ts";
@@ -42,7 +42,7 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
      * The size of the PasswordField.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<InputSize>;
 
     /**
      * If `true`, the PasswordField will take all available width.
@@ -58,7 +58,7 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.

@@ -12,6 +12,7 @@ import { BadgeContext, type BadgeContextValue } from "./BadgeContext.ts";
 import styles from "./Badge.module.css";
 
 export const GlobalBadgeCssSelector = "hop-Badge";
+export type BadgeVariant = "primary" | "secondary" | "subdued";
 
 interface BadgeRenderProps {
     /**
@@ -41,7 +42,7 @@ export interface BadgeProps extends StyledSystemProps, AccessibleSlotProps, Rend
      * The visual style of the badge.
      * @default "primary"
      */
-    variant?: "primary" | "secondary" | "subdued";
+    variant?: BadgeVariant;
     /**
      * Whether or not the badge is disabled.
      */

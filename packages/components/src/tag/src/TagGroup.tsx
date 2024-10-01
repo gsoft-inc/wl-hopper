@@ -16,8 +16,9 @@ import {
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { SlotProvider, cssModule } from "../../utils/index.ts";
+import { type NecessityIndicator, SlotProvider, cssModule } from "../../utils/index.ts";
 
+import type { TagSize, TagVariant } from "./Tag.tsx";
 import { TagContext } from "./TagContext.ts";
 import { TagGroupContext } from "./TagGroupContext.ts";
 import { TagListContext } from "./TagListContext.ts";
@@ -34,17 +35,17 @@ export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
     /**
      * A tag can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    size?: ResponsiveProp<TagSize>;
     /**
      * The visual style of the TagGroup.
      * @default "neutral"
      */
-    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
+    variant?: TagVariant;
 }
 
 function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {

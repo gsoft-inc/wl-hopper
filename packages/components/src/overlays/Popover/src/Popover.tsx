@@ -32,8 +32,6 @@ import styles from "./Popover.module.css";
 
 export const GlobalPopoverCssSelector = "hop-Popover";
 export type PopoverContainerProps = BaseComponentDOMProps & StyledSystemProps;
-export type PopoverPlacement = Placement;
-export type PopoverPlacementProp = ResponsiveProp<PopoverPlacement>;
 
 export interface PopoverProps extends StyledComponentProps<Omit<RACPopoverProps, "placement">> {
     /**
@@ -56,7 +54,7 @@ export interface PopoverProps extends StyledComponentProps<Omit<RACPopoverProps,
      * The placement of the popover with respect to its anchor element.
      * @default "bottom"
      */
-    placement?: PopoverPlacementProp;
+    placement?: ResponsiveProp<Placement>;
 }
 
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {

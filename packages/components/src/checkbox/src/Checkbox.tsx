@@ -18,6 +18,7 @@ import { TextContext } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
     EnsureTextWrapper,
+    type InputSize,
     SlotProvider,
     composeClassnameRenderProps,
     cssModule
@@ -34,7 +35,7 @@ export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
      * A checkbox can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<InputSize>;
 }
 
 function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {

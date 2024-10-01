@@ -1,4 +1,4 @@
-import { CheckmarkIcon, IconContext, type IconProps } from "@hopper-ui/icons";
+import { CheckmarkIcon, IconContext, type IconSize } from "@hopper-ui/icons";
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode, type TransitionEventHandler, useContext, useState } from "react";
@@ -12,12 +12,12 @@ import {
     useContextProps
 } from "react-aria-components";
 
-import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
+import { AvatarContext, type AvatarSize } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
 import { DecorativeCheckbox, type DecorativeCheckboxProps } from "../../checkbox/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { DecorativeRadio, type DecorativeRadioProps } from "../../radio/index.ts";
-import { TextContext, type TextProps } from "../../typography/Text/index.ts";
+import { TextContext, type TextSize } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, EnsureTextWrapper, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
@@ -28,6 +28,7 @@ import styles from "./ListBoxItem.module.css";
 export const GlobalListBoxItemCssSelector = "hop-ListBoxItem";
 
 export type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
+export type SelectionIndicator = "check" | "input";
 
 interface ListBoxItemSharedProps {
     /**
@@ -39,7 +40,7 @@ interface ListBoxItemSharedProps {
      * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
      * @default "check"
      */
-    selectionIndicator?: "check" | "input";
+    selectionIndicator?: SelectionIndicator;
     /**
      * The props for the Radio.
      */
@@ -78,21 +79,21 @@ const ListBoxItemToIconSizeAdapter = {
     sm: "sm",
     md: "md",
     lg: "md"
-} as const satisfies SizeAdapter<ListBoxItemSize, IconProps["size"]>;
+} as const satisfies SizeAdapter<ListBoxItemSize, IconSize>;
 
 const ListBoxItemToTextSizeAdapter = {
     xs: "sm",
     sm: "sm",
     md: "sm",
     lg: "md"
-} as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
+} as const satisfies SizeAdapter<ListBoxItemSize, TextSize>;
 
 const ListBoxItemToAvatarSizeAdapter = {
     xs: "xs",
     sm: "xs",
     md: "md",
     lg: "md"
-} as const satisfies SizeAdapter<ListBoxItemSize, AvatarProps["size"]>;
+} as const satisfies SizeAdapter<ListBoxItemSize, AvatarSize>;
 
 function ListBoxItemInner(props: ListBoxItemInnerProps) {
     const listStateContext = useContext(ListStateContext);

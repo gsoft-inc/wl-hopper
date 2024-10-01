@@ -1,4 +1,4 @@
-import { IconContext } from "@hopper-ui/icons";
+import { IconContext, type IconSize } from "@hopper-ui/icons";
 import { slot as slotFn, useStyledSystem, type ResponsiveProp, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
@@ -17,7 +17,7 @@ export interface IconListProps extends StyledSystemProps, BaseComponentDOMProps 
     /**
     * The size of the icon.
     */
-    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    size?: ResponsiveProp<IconSize>;
 }
 
 function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {

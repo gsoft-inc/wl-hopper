@@ -16,7 +16,7 @@ import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
-import { TextContext, type TextProps } from "../../typography/Text/index.ts";
+import { TextContext, type TextSize } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
     EnsureTextWrapper,
@@ -32,19 +32,22 @@ import styles from "./Tag.module.css";
 
 export const GlobalTagCssSelector = "hop-Tag";
 
-const TagToTextSizeAdapter: SizeAdapter<TagProps["size"], TextProps["size"]> = {
+export type TagSize = "sm" | "md" | "lg";
+export type TagVariant = "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
+
+const TagToTextSizeAdapter: SizeAdapter<TagSize, TextSize> = {
     sm: "xs",
     md: "xs",
     lg: "sm"
 };
 
-const TagToAvatarSizeAdapter: SizeAdapter<TagProps["size"], AvatarProps["size"]> = {
+const TagToAvatarSizeAdapter: SizeAdapter<TagSize, AvatarProps["size"]> = {
     sm: "xs",
     md: "xs",
     lg: "sm"
 };
 
-const TagToButtonSizeAdapter: SizeAdapter<TagProps["size"], ClearButtonProps["size"]> = {
+const TagToButtonSizeAdapter: SizeAdapter<TagSize, ClearButtonProps["size"]> = {
     sm: "md",
     md: "md",
     lg: "lg"
@@ -63,12 +66,12 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
      * The size of the tag.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    size?: ResponsiveProp<TagSize>;
     /**
      * The visual style of the Tag.
      * @default "neutral"
      */
-    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
+    variant?: TagVariant;
     /**
      * The props of the ClearButton.
      */

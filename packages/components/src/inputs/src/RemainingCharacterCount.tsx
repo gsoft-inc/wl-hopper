@@ -9,7 +9,6 @@ import { composeClassnameRenderProps, cssModule, useRenderProps, type Accessible
 
 import styles from "./RemainingCharacterCount.module.css";
 
-
 interface RemainingCharacterCountRenderProps {
     isDisabled: boolean;
     isInvalid: boolean;

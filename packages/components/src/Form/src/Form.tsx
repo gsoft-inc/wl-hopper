@@ -28,7 +28,7 @@ import {
     type FormProps as RACFormProps
 } from "react-aria-components";
 
-import { cssModule, SlotProvider } from "../../utils/index.ts";
+import { cssModule, SlotProvider, type InputSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { FormContext } from "./FormContext.ts";
 
@@ -50,13 +50,13 @@ export interface FormProps extends StyledComponentProps<RACFormProps> {
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
 
     /**
      * The size of the fields and buttons within the form.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<InputSize>;
 }
 
 function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {

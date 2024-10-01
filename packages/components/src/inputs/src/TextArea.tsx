@@ -10,7 +10,7 @@ import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField,
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText, type InputSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
@@ -53,7 +53,7 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * The size of the TextArea.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<InputSize>;
 
     /**
      * If `true`, the TextArea will take all available width.
@@ -80,7 +80,7 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.

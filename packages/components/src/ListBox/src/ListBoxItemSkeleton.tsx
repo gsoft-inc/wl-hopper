@@ -5,13 +5,12 @@ import { useContextProps } from "react-aria-components";
 
 import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
+import type { ListBoxItemSize } from "./ListBoxItem.tsx";
 import { ListBoxItemSkeletonContext } from "./ListBoxItemSkeletonContext.ts";
 
 import styles from "./ListBoxItemSkeleton.module.css";
 
 export const GlobalListBoxItemSkeletonCssSelector = "hop-ListBoxItemSkeleton";
-
-export type ListBoxItemSize = "xs" | "sm" | "md" | "lg";
 
 export interface ListBoxItemSkeletonProps extends StyledSystemProps, BaseComponentDOMProps {
     /**

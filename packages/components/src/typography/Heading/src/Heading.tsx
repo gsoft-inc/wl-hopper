@@ -13,15 +13,16 @@ import { HeadingContext } from "./HeadingContext.ts";
 
 import styles from "./Heading.module.css";
 
-
 export const GlobalHeadingCssSelector = "hop-Heading";
+
+export type HeadingSize = "inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
 export interface HeadingProps extends StyledComponentProps<RACHeadingProps> {
     /**
      * The Typography Type Scale to use.
      * @default "md"
      */
-    size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl">;
+    size?: ResponsiveProp<HeadingSize>;
 }
 
 function Heading(props: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) {

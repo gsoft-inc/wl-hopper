@@ -5,6 +5,7 @@ import {
     useStyledSystem
 } from "@hopper-ui/styled-system";
 import { type ForwardedRef, forwardRef } from "react";
+import type { Orientation } from "react-aria";
 import {
     CheckboxGroup as RACCheckboxGroup,
     type CheckboxGroupProps as RACCheckboxGroupProps,
@@ -16,7 +17,7 @@ import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../.
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { type InputGroupVariant, type InputSize, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
 
@@ -28,22 +29,22 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
     /**
      * A CheckboxGroup can be displayed horizontally or vertically.
      * @default "vertical"
      */
-    orientation?: ResponsiveProp<"horizontal" | "vertical">;
+    orientation?: ResponsiveProp<Orientation>;
     /**
      * A CheckboxGroup can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<InputSize>;
     /**
      * A CheckboxGroup has two variants: borderless and bordered.
      * @default "borderless"
      */
-    variant?: "borderless" | "bordered";
+    variant?: InputGroupVariant;
 }
 
 function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
