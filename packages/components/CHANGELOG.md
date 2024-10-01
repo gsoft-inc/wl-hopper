@@ -1,5 +1,13 @@
 # @hopper-ui/components
 
+## 1.3.15
+
+### Patch Changes
+
+- c258cc1: Made react aria types as well as internal types available to the users.
+- Updated dependencies [c258cc1]
+  - @hopper-ui/icons@2.8.2
+
 ## 1.3.14
 
 ### Patch Changes
