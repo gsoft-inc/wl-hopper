@@ -64,11 +64,9 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
 
     /**
      * This should only be used with the `showCharacterCount` prop.
-     * If `true`, the TextArea prevents the text from ever going over the max length.
-     * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
-     * @default true
+     * If `true`, the TextField will allow the text to go over the max length, but it will add an error look to the character count.
      */
-    restrictMaxLength?: boolean;
+    allowExceedingMaxLength?: boolean;
 
     /**
      * The size of the TextField.
@@ -137,7 +135,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         isDisabled,
         isInvalid,
         isRequired,
-        restrictMaxLength = true,
+        allowExceedingMaxLength,
         necessityIndicator,
         inputGroupProps,
         remainingCharacterCountProps,
@@ -182,8 +180,13 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     }, [onChange, onClear]);
 
     const showClearButton = isClearable && characterCount !== 0;
+
     if (showCharacterCount && !maxLength) {
         console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextField.");
+    }
+
+    if (allowExceedingMaxLength && !showCharacterCount) {
+        console.warn("If allowExceedingMaxLength is true, showCharacterCount must also be true.");
     }
 
     const prefixMarkup = prefix ? (
@@ -199,7 +202,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     // truncateText needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
     // If the default text goes over the maxLength, it is truncated.
     useIsomorphicLayoutEffect(() => {
-        if (restrictMaxLength) {
+        if (!allowExceedingMaxLength) {
             const newValue = truncateText(value, maxLength);
             onChange(newValue);
         }
@@ -256,7 +259,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={restrictMaxLength ? maxLength : undefined}
+            maxLength={!allowExceedingMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
