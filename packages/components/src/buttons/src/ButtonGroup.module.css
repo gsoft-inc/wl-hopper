@@ -5,13 +5,13 @@
 }
 
 .hop-ButtonGroup--horizontal {
-    justify-content: center;
+    align-items: center;
 }
 
 .hop-ButtonGroup--vertical {
     flex-direction: column;
     gap: var(--hop-space-stack-md);
-    align-items: center;
+    justify-content: center;
 }
 
 .hop-ButtonGroup--start.hop-ButtonGroup--vertical {

@@ -64,7 +64,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
         ...otherProps
     } = ownProps;
 
-    const align = useResponsiveValue(alignProp) ?? "start";
+    const align = useResponsiveValue(alignProp);
     const size = useResponsiveValue(sizeProp) ?? "md";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const wrap = useResponsiveValue(wrapProp) ?? true;
