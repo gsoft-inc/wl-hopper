@@ -182,8 +182,13 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     }, [onChange, onClear]);
 
     const showClearButton = isClearable && characterCount !== 0;
+
     if (showCharacterCount && !maxLength) {
         console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextField.");
+    }
+
+    if (allowExceedingMaxLength && !showCharacterCount) {
+        console.warn("If allowExceedingMaxLength is true, showCharacterCount must also be true.");
     }
 
     const prefixMarkup = prefix ? (
