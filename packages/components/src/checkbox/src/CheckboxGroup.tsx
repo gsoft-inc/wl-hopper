@@ -17,7 +17,7 @@ import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../.
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { type InputGroupVariant, type InputSize, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { type FieldSize, type InputGroupVariant, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
 
@@ -39,7 +39,7 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
      * A CheckboxGroup can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
     /**
      * A CheckboxGroup has two variants: borderless and bordered.
      * @default "borderless"

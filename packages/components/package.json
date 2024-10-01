@@ -36,7 +36,8 @@
     "scripts": {
         "dev": "tsup --config ./tsup.dev.ts",
         "build": "tsup --config ./tsup.build.ts",
-        "test": "jest"
+        "test": "jest",
+        "find-types": "tsx scripts/findImportedTypes.ts"
     },
     "peerDependencies": {
         "@hopper-ui/styled-system": "^2.1.0",

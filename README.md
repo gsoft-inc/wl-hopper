@@ -23,6 +23,7 @@ pnpm build
 - `pnpm doc:storybook`: run Storybook
 - `pnpm test`: run tests
 - `pnpm lint`: check if the JS, TS and style correspond on standard
+- `pnpm find-types`: Find used exported types from react-aria and list them. This will give us an idea of which types we need to make available to users. 
 
 ## 🤝 Contributing
 

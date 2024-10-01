@@ -9,7 +9,7 @@ import { mergeProps, useId } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { TextContext, type TextSize } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type InputSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type FieldSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
 import { SwitchFieldContext } from "./SwitchFieldContext.ts";
@@ -18,7 +18,7 @@ import styles from "./SwitchField.module.css";
 
 export const GlobalSwitchFieldCssSelector = "hop-SwitchField";
 
-const SwitchToDescriptionSizeAdapter: SizeAdapter<InputSize, TextSize> = {
+const SwitchToDescriptionSizeAdapter: SizeAdapter<FieldSize, TextSize> = {
     sm: "xs",
     md: "sm"
 };
@@ -35,7 +35,7 @@ export interface SwitchFieldProps extends RenderProps<SwitchFieldRenderProps>, S
      * A switch field can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
     /**
      * Whether the switch field is disabled.
      */

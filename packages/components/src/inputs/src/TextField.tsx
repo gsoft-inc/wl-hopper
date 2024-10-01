@@ -30,7 +30,7 @@ import {
     EnsureTextWrapper,
     SlotProvider,
     useTruncatedText,
-    type InputSize,
+    type FieldSize,
     type NecessityIndicator
 } from "../../utils/index.ts";
 
@@ -74,7 +74,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * The size of the TextField.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 
     /**
      * Handler that is called when the clear button is pressed.

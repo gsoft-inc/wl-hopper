@@ -15,7 +15,7 @@ import {
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { Text, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, type InputSize, type SizeAdapter, SlotProvider, useIsOverflow, useRenderProps } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, type FieldSize, type SizeAdapter, SlotProvider, useIsOverflow, useRenderProps } from "../../utils/index.ts";
 
 import styles from "./SelectValue.module.css";
 
@@ -26,13 +26,13 @@ export interface SelectValueProps<T extends object> extends StyledComponentProps
      * The size of the select value.
      * @default "sm"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 const SelectValueToAvatarSizeAdapter = {
     sm: "xs",
     md: "md"
-} as const satisfies SizeAdapter<InputSize, AvatarProps["size"]>;
+} as const satisfies SizeAdapter<FieldSize, AvatarProps["size"]>;
 
 function SelectValue<T extends object>(props: SelectValueProps<T>, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, RACSelectValueContext);

@@ -16,7 +16,7 @@ import {
     SlotProvider,
     useRenderProps,
     type AccessibleSlotProps,
-    type InputSize,
+    type FieldSize,
     type RenderProps,
     type SizeAdapter
 } from "../../utils/index.ts";
@@ -28,7 +28,7 @@ import styles from "./RadioField.module.css";
 
 export const GlobalRadioFieldCssSelector = "hop-RadioField";
 
-const RadioToDescriptionSizeAdapter: SizeAdapter<InputSize, TextSize> = {
+const RadioToDescriptionSizeAdapter: SizeAdapter<FieldSize, TextSize> = {
     sm: "xs",
     md: "sm"
 };
@@ -49,7 +49,7 @@ export interface RadioFieldProps extends StyledSystemProps, AccessibleSlotProps,
      * A radio can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {

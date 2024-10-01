@@ -18,7 +18,7 @@ import { TextContext } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
     EnsureTextWrapper,
-    type InputSize,
+    type FieldSize,
     SlotProvider,
     composeClassnameRenderProps,
     cssModule
@@ -35,7 +35,7 @@ export interface RadioProps extends StyledComponentProps<RACRadioProps> {
      * A radio can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 function Radio(props: RadioProps, ref: ForwardedRef<HTMLLabelElement>) {

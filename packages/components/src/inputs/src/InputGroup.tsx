@@ -18,7 +18,7 @@ import {
 } from "react-aria-components";
 
 import { EmbeddedButtonContext } from "../../buttons/index.ts";
-import { type InputSize, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { type FieldSize, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { InputGroupContext } from "./InputGroupContext.ts";
 
@@ -33,7 +33,7 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * The size of the input group.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 
     /**
      * Whether the button takes up the width of its container.

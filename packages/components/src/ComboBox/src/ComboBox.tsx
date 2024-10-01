@@ -25,7 +25,7 @@ import { Footer, type FooterProps } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { LabelContext, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type InputSize, type NecessityIndicator } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { ComboBoxContext } from "./ComboBoxContext.ts";
 
@@ -89,7 +89,7 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      * The size of the select.
      * @default "sm"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
     /**
      * The props for the select's trigger.
      */

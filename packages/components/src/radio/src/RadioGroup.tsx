@@ -17,7 +17,7 @@ import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { RadioContext, RadioFieldContext, RadioListContext } from "../../radio/index.ts";
 import { LabelContext } from "../../typography/Label/index.ts";
-import { type InputGroupVariant, type InputSize, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { type FieldSize, type InputGroupVariant, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { RadioGroupContext } from "./RadioGroupContext.ts";
 
@@ -39,7 +39,7 @@ export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroup
      * A RadioGroup can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
     /**
      * A RadioGroup has two variants: borderless and bordered.
      * @default "borderless"

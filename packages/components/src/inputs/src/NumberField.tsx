@@ -29,7 +29,7 @@ import {
     EnsureTextWrapper,
     SlotProvider,
     useScale,
-    type InputSize,
+    type FieldSize,
     type NecessityIndicator
 } from "../../utils/index.ts";
 
@@ -50,7 +50,7 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * The size of the NumberField.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 
     /**
      * If `true`, the NumberField will take all available width.

@@ -82,6 +82,6 @@ export interface InteractionProps {
 }
 
 export type Align = "start" | "end" | "center";
-export type InputSize = "sm" | "md";
+export type FieldSize = "sm" | "md";
 export type NecessityIndicator = "asterisk" | "label";
 export type InputGroupVariant = "borderless" | "bordered";

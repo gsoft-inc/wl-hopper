@@ -28,7 +28,7 @@ import {
     type FormProps as RACFormProps
 } from "react-aria-components";
 
-import { cssModule, SlotProvider, type InputSize, type NecessityIndicator } from "../../utils/index.ts";
+import { cssModule, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { FormContext } from "./FormContext.ts";
 
@@ -56,7 +56,7 @@ export interface FormProps extends StyledComponentProps<RACFormProps> {
      * The size of the fields and buttons within the form.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {

@@ -9,7 +9,7 @@ import { mergeProps, useId } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { TextContext, type TextSize } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type InputSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type FieldSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
 import { CheckboxFieldContext } from "./CheckboxFieldContext.ts";
@@ -18,7 +18,7 @@ import styles from "./CheckboxField.module.css";
 
 export const GlobalCheckboxFieldCssSelector = "hop-CheckboxField";
 
-const CheckboxToDescriptionSizeAdapter: SizeAdapter<InputSize, TextSize> = {
+const CheckboxToDescriptionSizeAdapter: SizeAdapter<FieldSize, TextSize> = {
     sm: "xs",
     md: "sm"
 };
@@ -39,7 +39,7 @@ export interface CheckboxFieldProps extends StyledSystemProps, AccessibleSlotPro
      * A checkbox field can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<InputSize>;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 function CheckboxField(props: CheckboxFieldProps, ref: ForwardedRef<HTMLDivElement>) {
