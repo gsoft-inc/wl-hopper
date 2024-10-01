@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.14
+
+### Patch Changes
+
+- c490240: Updated primary badge selected color
+
 ## 1.3.13
 
 ### Patch Changes
