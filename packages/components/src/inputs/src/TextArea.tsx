@@ -62,8 +62,7 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
 
     /**
      * This should only be used with the `showCharacterCount` prop.
-     * If `true`, the TextArea prevents the text from ever going over the max length.
-     * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look to the character count.
+     * If `true`, the TextArea will allow the text to go over the max length, but it will add an error look to the character count.
      */
     allowExceedingMaxLength?: boolean;
 
