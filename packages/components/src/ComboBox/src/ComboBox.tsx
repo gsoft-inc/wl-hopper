@@ -21,7 +21,7 @@ import {
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { Footer } from "../../layout/index.ts";
+import { Footer, type FooterProps } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { LabelContext, TextContext } from "../../typography/index.ts";
@@ -95,6 +95,10 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      * The props for the select's trigger.
      */
     triggerProps?: ComboBoxTriggerProps;
+    /**
+     * The props for the Footer.
+     */
+    footerProps?: FooterProps;
 }
 
 function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
@@ -124,6 +128,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         size: sizeProp,
         style: styleProp,
         triggerProps,
+        footerProps,
         ...otherProps
     } = ownProps;
     const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef ?? null));
@@ -145,20 +150,20 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         ref: triggerRef,
         onResize: onResize
     });
-    
+
     const { stylingProps: triggerStylingProps, ...triggerOwnProps } = useStyledSystem(triggerProps ?? {});
-    const { 
+    const {
         className: triggerClassName,
         style: triggerStyleProp,
         ...otherTriggerProps
     } = triggerOwnProps;
     const { stylingProps: popoverStylingProps, ...popoverOwnProps } = useStyledSystem(popoverProps ?? {});
-    const { 
+    const {
         placement = "bottom start",
         style: popoverStyleProp,
-        ...otherPopoverProps 
+        ...otherPopoverProps
     } = popoverOwnProps;
-    
+
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
@@ -192,7 +197,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
     );
 
     const inputClassNames = composeClassnameRenderProps(
-        inputContext?.className, 
+        inputContext?.className,
         styles["hop-ComboBox__input"]
     );
 
@@ -217,7 +222,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             "--custom-trigger-width": triggerWidth
         };
     });
-    
+
     const handleMouseDown: MouseEventHandler<HTMLDivElement> = useCallback(e => {
         // If the input or button is the one that is clicked, we don't want to focus it since it's already done.
         if (inputRef.current && e.target !== inputRef.current && buttonRef.current && e.target !== buttonRef.current) {
@@ -252,20 +257,22 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                     RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
                 ]}
             >
-                <Footer><EnsureTextWrapper>{footer}</EnsureTextWrapper></Footer>
+                <Footer {...footerProps}>
+                    <EnsureTextWrapper>{footer}</EnsureTextWrapper>
+                </Footer>
             </ClearProviders>
         </SlotProvider>
     ) : null;
-    
+
     return (
         <RACComboBox
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             isInvalid={isInvalid}
             isRequired={isRequired}
             menuTrigger={menuTrigger}
+            {...otherProps}
         >
             {comboBoxRenderProps => {
                 const { isOpen } = comboBoxRenderProps;
@@ -289,13 +296,13 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                         >
                             {fieldChildren}
                         </SlotProvider>
-                        <Group 
-                            {...otherTriggerProps}
+                        <Group
                             ref={triggerRef}
                             className={triggerClassNames}
                             style={triggerStyle}
                             onMouseDown={handleMouseDown}
                             data-selected={isOpen || undefined}
+                            {...otherTriggerProps}
                         >
                             {prefixMarkup}
                             <Input
@@ -307,13 +314,13 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 <ButtonIcon size="sm" className={styles["hop-ComboBox__button-icon"]} />
                             </Button>
                         </Group>
-                        <Popover 
-                            {...otherPopoverProps} 
-                            placement={placement} 
-                            isNonDialog 
+                        <Popover
+                            placement={placement}
+                            isNonDialog
                             autoWidth={isAutoMenuWidth}
                             style={popoverStyle}
                             triggerRef={triggerRef}
+                            {...otherPopoverProps}
                         >
                             <SlotProvider values={[
                                 [BadgeContext, {
@@ -321,11 +328,11 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 }]
                             ]}
                             >
-                                <ListBox {...listBoxProps} items={items} size={size} isInvalid={isInvalid}>
+                                <ListBox items={items} size={size} isInvalid={isInvalid} {...listBoxProps}>
                                     {children}
                                 </ListBox>
                             </SlotProvider>
-                        
+
                             {footerMarkup}
                         </Popover>
                     </>

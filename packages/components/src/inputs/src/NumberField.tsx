@@ -7,6 +7,7 @@ import {
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
+import clsx from "clsx";
 import { forwardRef, useCallback, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
 import {
@@ -20,17 +21,17 @@ import {
 
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext, Text, TextContext } from "../../typography/index.ts";
+import { LabelContext, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    isTextOnlyChildren,
+    EnsureTextWrapper,
     SlotProvider,
     useScale
 } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { NumberFieldContext } from "./NumberFieldContext.ts";
 
 import styles from "./NumberField.module.css";
@@ -59,11 +60,16 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
-    
+
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
 }
 
 interface StepperButtonProps {
@@ -120,6 +126,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isInvalid,
         isRequired,
         necessityIndicator,
+        inputGroupProps,
         ...otherProps
     } = ownProps;
 
@@ -159,20 +166,25 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
             [IconContext, { size, className: styles["hop-NumberField__prefix"] }]
         ]}
         >
-            {isTextOnlyChildren(prefix) ? <Text>{prefix}</Text> : prefix}
+            <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
         </SlotProvider>
     ) : null;
+
+    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const inputGroupClassNames = clsx(styles["hop-NumberField__InputGroup"], inputGroupClassName);
+    const inputGroupInputClassNames = clsx(styles["hop-NumberField__input"], inputGroupInputClassName);
 
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
                 size={size}
-                className={styles["hop-NumberField__InputGroup"]}
+                className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={styles["hop-NumberField__input"]}
+                inputClassName={inputGroupInputClassNames}
                 inputType="number"
+                {...otherInputGroupProps}
             >
                 {prefixMarkup}
                 <Input ref={inputRef} />

@@ -2,6 +2,7 @@ import { useIsomorphicLayoutEffect, useResponsiveValue, useStyledSystem, type Re
 import { useIsSSR } from "@react-aria/ssr";
 import { mergeRefs } from "@react-aria/utils";
 import { useControlledState } from "@react-stately/utils";
+import clsx from "clsx";
 import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type MutableRefObject } from "react";
 import { useObjectRef } from "react-aria";
 import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
@@ -11,8 +12,8 @@ import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
-import { RemainingCharacterCount } from "./RemainingCharacterCount.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
+import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
 import { TextAreaContext } from "./TextAreaContext.ts";
 
 import styles from "./TextArea.module.css";
@@ -61,11 +62,9 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
 
     /**
      * This should only be used with the `showCharacterCount` prop.
-     * If `true`, the TextArea prevents the text from ever going over the max length.
-     * If `false`, the TextArea will allow the text to go over the max length, but it will add an error look tot he character count.
-     * @default true
+     * If `true`, the TextArea will allow the text to go over the max length, but it will add an error look to the character count.
      */
-    restrictMaxLength?: boolean;
+    allowExceedingMaxLength?: boolean;
 
     /**
      * The resize mode value of the TextArea. It's equivalent to the CSS resize property.
@@ -77,11 +76,21 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * A ref for the HTML textarea element.
      */
     inputRef?: MutableRefObject<HTMLTextAreaElement>;
-    
+
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+     * The props for the  RemainingCharacterCount.
+     */
+    remainingCharacterCountProps?: RemainingCharacterCountProps;
 }
 
 const pxToInt = (value?: string) => {
@@ -152,8 +161,10 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         isDisabled,
         isInvalid,
         isRequired,
-        restrictMaxLength = true,
+        allowExceedingMaxLength,
         necessityIndicator,
+        inputGroupProps,
+        remainingCharacterCountProps,
         ...otherProps
     } = ownProps;
 
@@ -188,6 +199,10 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
 
     if (showCharacterCount && !maxLength) {
         console.warn("If showCharacterCount is true, maxLength must be set to the maximum number of characters allowed in the TextArea.");
+    }
+
+    if (allowExceedingMaxLength && !showCharacterCount) {
+        console.warn("If allowExceedingMaxLength is true, showCharacterCount must also be true.");
     }
 
     const rowHeight = useCalculateRowHeight(mergedTextAreaRef.current);
@@ -231,32 +246,41 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     // adjustRows needs to be called here instead of in handleTextChanged because handleTextChanged is not called when there is a defaultValue on load.
     // truncateText also needs to be here so that if the default text goes over the maxLength, it is truncated.
     useIsomorphicLayoutEffect(() => {
-        if (restrictMaxLength) {
+        if (!allowExceedingMaxLength) {
             const newValue = truncateText(value, maxLength);
             onChange(newValue);
         }
         adjustRows();
     }, [value, adjustRows]);
 
+    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const inputGroupClassNames = clsx(styles["hop-TextArea__InputGroup"], inputGroupClassName);
+    const inputGroupInputClassNames = clsx(styles["hop-TextArea__textarea"], inputGroupInputClassName);
+
+    const { className: remainingCharacterCountClassName, ...otherRemainingCharacterCountProps } = remainingCharacterCountProps ?? {};
+    const remainingCharacterCountClassNames = clsx(styles["hop-TextArea__RemainingCharacterCount"], remainingCharacterCountClassName);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
                 size={size}
-                className={styles["hop-TextArea__InputGroup"]}
+                className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={styles["hop-TextArea__textarea"]}
+                inputClassName={inputGroupInputClassNames}
                 inputType="textarea"
+                {...otherInputGroupProps}
             >
                 <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount
-                        className={styles["hop-TextArea__RemainingCharacterCount"]}
+                        className={remainingCharacterCountClassNames}
                         count={maxLength - characterCount}
                         isInvalid={overMaxLength}
                         isDisabled={isDisabled}
+                        {...otherRemainingCharacterCountProps}
                     />
                 }
             </InputGroup>
@@ -285,7 +309,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
             value={value}
             style={style}
             className={classNames}
-            maxLength={restrictMaxLength ? maxLength : undefined}
+            maxLength={!allowExceedingMaxLength ? maxLength : undefined}
             onChange={onChange}
             isDisabled={isDisabled}
             isInvalid={isInvalid}

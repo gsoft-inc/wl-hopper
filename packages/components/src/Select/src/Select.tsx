@@ -17,7 +17,7 @@ import {
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { Footer } from "../../layout/index.ts";
+import { Footer, type FooterProps } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { LabelContext, TextContext } from "../../typography/index.ts";
@@ -93,6 +93,10 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
      * The props for the select's trigger.
      */
     triggerProps?: SelectTriggerProps;
+    /**
+     * The props for the Footer
+     */
+    footerProps?: FooterProps;
 }
 
 function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLDivElement>) {
@@ -116,16 +120,17 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         size: sizeProp,
         style: styleProp,
         triggerProps,
+        footerProps,
         ...otherProps
     } = ownProps;
     const { stylingProps: triggerStylingProps, ...triggerOwnProps } = useStyledSystem(triggerProps ?? {});
-    const { 
+    const {
         className: triggerClassName,
         style: triggerStyleProp,
         ...otherTriggerProps
     } = triggerOwnProps;
     const { placement = "bottom start", ...otherPopoverProps } = popoverProps ?? {};
-    
+
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
@@ -189,7 +194,9 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                     RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
                 ]}
             >
-                <Footer><EnsureTextWrapper>{footer}</EnsureTextWrapper></Footer>
+                <Footer {...footerProps}>
+                    <EnsureTextWrapper>{footer}</EnsureTextWrapper>
+                </Footer>
             </ClearProviders>
         </SlotProvider>
     ) : null;
@@ -225,7 +232,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                         >
                             {fieldChildren}
                         </SlotProvider>
-                        <Button {...otherTriggerProps} className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined}>
+                        <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
                             {prefixMarkup}
                             <SelectValue size={size}>
                                 {valueRenderProps => {
@@ -241,11 +248,11 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 }]
                             ]}
                             >
-                                <ListBox {...listBoxProps} items={items} size={size} isInvalid={isInvalid}>
+                                <ListBox items={items} size={size} isInvalid={isInvalid} {...listBoxProps}>
                                     {children}
                                 </ListBox>
                             </SlotProvider>
-                        
+
                             {footerMarkup}
                         </Popover>
                     </>

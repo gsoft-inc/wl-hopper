@@ -6,6 +6,7 @@ import {
     type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
+import clsx from "clsx";
 import { forwardRef, type ForwardedRef, type MutableRefObject, type ReactNode } from "react";
 import { useObjectRef } from "react-aria";
 import {
@@ -16,13 +17,13 @@ import {
     type SearchFieldProps as RACSearchFieldProps
 } from "react-aria-components";
 
-import { ClearButton } from "../../buttons/index.ts";
+import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
 import { LabelContext } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
 
-import { InputGroup } from "./InputGroup.tsx";
+import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { SearchFieldContext } from "./SearchFieldContext.ts";
 
 import styles from "./SearchField.module.css";
@@ -63,11 +64,21 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
-    
+
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: "asterisk" | "label";
+
+    /**
+     * The props for the InputGroup.
+     */
+    inputGroupProps?: InputGroupProps;
+
+    /**
+         * The props for the EmbeddedButton.
+         */
+    clearButtonProps?: ClearButtonProps;
 }
 
 function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -92,6 +103,8 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isInvalid,
         isRequired,
         necessityIndicator,
+        inputGroupProps,
+        clearButtonProps,
         ...otherProps
     } = ownProps;
 
@@ -116,6 +129,12 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         };
     });
 
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
+    const inputGroupClassNames = clsx(styles["hop-SearchField__InputGroup"], inputGroupClassName);
+
+    const { className: clearButtonClassName, ...otherClearButtonProps } = clearButtonProps ?? {};
+    const clearButtonClassNames = clsx(styles["hop-SearchField__ClearButton"], clearButtonClassName);
+
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
@@ -123,7 +142,8 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 isInvalid={isInvalid}
                 isFluid
                 size={size}
-                className={styles["hop-SearchField__InputGroup"]}
+                className={inputGroupClassNames}
+                {...otherInputGroupProps}
             >
                 <SlotProvider values={[
                     [IconContext, {
@@ -135,7 +155,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 </SlotProvider>
                 <Input ref={inputRef} placeholder={placeholder} />
                 {isClearable &&
-                    <ClearButton size="lg" isDisabled={isDisabled} className={styles["hop-SearchField__ClearButton"]} />}
+                    <ClearButton size="lg" isDisabled={isDisabled} className={clearButtonClassNames} {...otherClearButtonProps} />}
             </InputGroup>
         </ClearContainerSlots>
     );

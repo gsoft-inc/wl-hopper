@@ -1,7 +1,7 @@
-import { IconContext, BulletIcon } from "@hopper-ui/icons";
+import { BulletIcon, IconContext } from "@hopper-ui/icons";
 import {
-    useStyledSystem,
-    useResponsiveValue
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
 import { mergeProps } from "react-aria";
@@ -11,15 +11,15 @@ import {
 } from "react-aria-components";
 
 import { IconListContext } from "../../IconList/index.ts";
-import { Text, TextContext } from "../../typography/Text/index.ts";
+import { TextContext } from "../../typography/Text/index.ts";
 import {
-    SlotProvider,
-    cssModule,
-    isTextOnlyChildren,
     ClearContainerSlots,
-    type InteractionProps,
+    composeClassnameRenderProps,
+    cssModule,
+    EnsureTextWrapper,
+    SlotProvider,
     useRenderProps,
-    composeClassnameRenderProps
+    type InteractionProps
 } from "../../utils/index.ts";
 
 import type { RadioProps } from "./Radio.tsx";
@@ -55,13 +55,9 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const children = composeRenderProps(childrenProp, prev => {
-        if (prev && isTextOnlyChildren(prev)) {
-            return <Text>{prev}</Text>;
-        }
-
-        return prev;
+        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
-    
+
     const classNames = composeClassnameRenderProps(
         className,
         GlobalDecorativeRadioCssSelector,
@@ -97,7 +93,7 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
             isRequired: isRequired || false
         }
     });
-    
+
     const radioIconClassName = styles["hop-DecorativeRadio__bullet"];
 
     return (
