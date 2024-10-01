@@ -18,8 +18,8 @@
     --hop-Badge-primary-background-color-hovered: var(--hop-primary-surface-strong-hover);
     --hop-Badge-primary-text-color-pressed: var(--hop-primary-text-strong);
     --hop-Badge-primary-background-color-pressed: var(--hop-primary-surface-strong-press);
-    --hop-Badge-primary-text-color-selected: var(--hop-primary-text-selected);
-    --hop-Badge-primary-background-color-selected: var(--hop-primary-surface-selected);
+    --hop-Badge-primary-text-color-selected: var(--hop-neutral-text-selected);
+    --hop-Badge-primary-background-color-selected: var(--hop-neutral-surface-selected);
 
     /* Secondary */
     --hop-Badge-secondary-text-color: var(--hop-neutral-text-strong);
@@ -30,7 +30,7 @@
     --hop-Badge-secondary-background-color-pressed: var(--hop-neutral-surface-strong);
     --hop-Badge-secondary-text-color-selected: var(--hop-neutral-text-selected);
     --hop-Badge-secondary-background-color-selected: var(--hop-neutral-surface-selected);
-    
+
     /* Subdued */
     --hop-Badge-subdued-text-color: var(--hop-neutral-text);
     --hop-Badge-subdued-background-color: var(--hop-neutral-surface-weak);
