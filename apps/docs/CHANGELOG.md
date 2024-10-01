@@ -1,5 +1,11 @@
 # docs
 
+## 0.4.2
+
+### Patch Changes
+
+- d81acf1: Change to proper PropsTable for Select
+
 ## 0.4.1
 
 ### Patch Changes
