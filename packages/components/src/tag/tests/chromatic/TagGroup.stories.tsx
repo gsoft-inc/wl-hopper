@@ -1,14 +1,14 @@
+import type { Selection } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
-import type { Selection } from "react-aria-components";
 
 import { Avatar } from "../../../Avatar/index.ts";
 import { Badge } from "../../../Badge/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Stack } from "../../../layout/index.ts";
 import { Label, Text } from "../../../typography/index.ts";
-import { TagGroup, TagList, Tag, type TagGroupProps } from "../../src/index.ts";
+import { Tag, TagGroup, TagList, type TagGroupProps } from "../../src/index.ts";
 
 const meta = {
     title: "Components/TagGroup",

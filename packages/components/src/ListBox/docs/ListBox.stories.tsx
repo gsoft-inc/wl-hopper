@@ -1,7 +1,7 @@
+import { Collection, type Selection } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { type Selection, Collection } from "react-aria-components";
 import { useAsyncList } from "react-stately";
 
 import { Badge } from "../../Badge/index.ts";

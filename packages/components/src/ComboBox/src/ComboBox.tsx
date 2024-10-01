@@ -25,7 +25,7 @@ import { Footer, type FooterProps } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { LabelContext, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { ComboBoxContext } from "./ComboBoxContext.ts";
 
@@ -33,7 +33,6 @@ import styles from "./ComboBox.module.css";
 
 export const GlobalComboBoxCssSelector = "hop-ComboBox";
 
-export type ComboBoxSize = "sm" | "md";
 export type ComboBoxTriggerProps = StyledComponentProps<RACGroupProps>;
 
 export interface ComboBoxProps<T extends object> extends StyledComponentProps<Omit<RACComboBoxProps<T>, "children">> {
@@ -73,7 +72,7 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
     /**
      * The placeholder text when the select is empty.
      */
@@ -90,7 +89,7 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      * The size of the select.
      * @default "sm"
      */
-    size?: ResponsiveProp<ComboBoxSize>;
+    size?: ResponsiveProp<FieldSize>;
     /**
      * The props for the select's trigger.
      */

@@ -1,23 +1,24 @@
 import {
-    useResponsiveValue,
-    useStyledSystem,
     type ResponsiveProp,
-    type StyledComponentProps
+    type StyledComponentProps,
+    useResponsiveValue,
+    useStyledSystem
 } from "@hopper-ui/styled-system";
 import { mergeRefs } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, type ForwardedRef, type MouseEventHandler, useContext } from "react";
+import { type ForwardedRef, type MouseEventHandler, forwardRef, useCallback, useContext, useRef } from "react";
 import {
-    useContextProps,
+    InputContext,
+    FieldErrorContext as RACFieldErrorContext,
     Group as RACGroup,
     type GroupProps as RACGroupProps,
+    TextAreaContext,
     composeRenderProps,
-    InputContext,
-    useSlottedContext,
-    TextAreaContext, FieldErrorContext as RACFieldErrorContext
+    useContextProps,
+    useSlottedContext
 } from "react-aria-components";
 
 import { EmbeddedButtonContext } from "../../buttons/index.ts";
-import { SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { type FieldSize, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { InputGroupContext } from "./InputGroupContext.ts";
 
@@ -25,12 +26,14 @@ import styles from "./InputGroup.module.css";
 
 export const GlobalInputGroupCssSelector = "hop-InputGroup";
 
+export type InputType = "text" | "password" | "search" | "number" | "textarea";
+
 export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
     /**
      * The size of the input group.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<FieldSize>;
 
     /**
      * Whether the button takes up the width of its container.
@@ -46,7 +49,7 @@ export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
      * The type of the input element.
      * @default "text"
      */
-    inputType?: "text" | "password" | "search" | "number" | "textarea";
+    inputType?: InputType;
 }
 
 function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {

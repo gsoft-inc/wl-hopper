@@ -12,12 +12,14 @@ import styles from "./Icon.module.css";
 
 export const GlobalIconCssSelector = "hop-Icon";
 
+export type IconSize = "sm" | "md" | "lg";
+
 export interface IconProps extends SlotProps, StyledComponentProps<"svg"> {
     /**
     * The size of the icon.
     * @default "md"
     */
-    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    size?: ResponsiveProp<IconSize>;
     /**
      * The source of the icon with a size of 16px.
      */

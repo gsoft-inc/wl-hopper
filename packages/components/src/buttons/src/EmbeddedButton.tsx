@@ -14,6 +14,7 @@ import {
     useContextProps
 } from "react-aria-components";
 
+import type { TagVariant } from "../../tag/index.ts";
 import {
     SlotProvider,
     composeClassnameRenderProps,
@@ -26,6 +27,9 @@ import styles from "./EmbeddedButton.module.css";
 
 export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
+export type EmbeddedButtonSize = "md" | "lg";
+export type EmbeddedButtonVariant = TagVariant;
+
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * Whether the EmbeddedButton should show a selected state.
@@ -35,7 +39,7 @@ export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps
      * The size of the EmbeddedButton.
      * @default "md"
      */
-    size?: ResponsiveProp<"md" | "lg">;
+    size?: ResponsiveProp<EmbeddedButtonSize>;
     /**
      * Whether the EmbeddedButton is square in shape.
      */
@@ -44,7 +48,7 @@ export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps
      * The visual style of the EmbeddedButton.
      * @default "neutral"
      */
-    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
+    variant?: EmbeddedButtonVariant;
 }
 
 function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButtonElement>) {

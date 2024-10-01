@@ -1,22 +1,21 @@
 import { IconContext } from "@hopper-ui/icons";
-import { type ResponsiveProp, useResponsiveValue, useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
 import { type ForwardedRef, forwardRef, type NamedExoticComponent, useContext, useRef } from "react";
-import { SelectStateContext, 
-    SelectValueContext as RACSelectValueContext, 
-    type SelectValueProps as RACSelectValueProps, 
-    useContextProps, useSlottedContext,
-    composeRenderProps, 
+import {
+    composeRenderProps,
+    DEFAULT_SLOT,
+    SelectValueContext as RACSelectValueContext,
+    type SelectValueProps as RACSelectValueProps,
     SelectContext,
-    DEFAULT_SLOT
+    SelectStateContext,
+    useContextProps, useSlottedContext
 } from "react-aria-components";
 
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { Text, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, type SizeAdapter, SlotProvider, useIsOverflow, useRenderProps } from "../../utils/index.ts";
-
-import type { SelectSize } from "./Select.tsx";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, type FieldSize, type SizeAdapter, SlotProvider, useIsOverflow, useRenderProps } from "../../utils/index.ts";
 
 import styles from "./SelectValue.module.css";
 
@@ -27,13 +26,13 @@ export interface SelectValueProps<T extends object> extends StyledComponentProps
      * The size of the select value.
      * @default "sm"
      */
-    size?: ResponsiveProp<SelectSize>;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 const SelectValueToAvatarSizeAdapter = {
     sm: "xs",
     md: "md"
-} as const satisfies SizeAdapter<SelectSize, AvatarProps["size"]>;
+} as const satisfies SizeAdapter<FieldSize, AvatarProps["size"]>;
 
 function SelectValue<T extends object>(props: SelectValueProps<T>, ref: ForwardedRef<HTMLSpanElement>) {
     [props, ref] = useContextProps(props, ref, RACSelectValueContext);

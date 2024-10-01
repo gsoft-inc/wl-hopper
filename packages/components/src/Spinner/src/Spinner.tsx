@@ -8,7 +8,7 @@ import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useId } from "react-aria";
 import { ProgressBar, useContextProps } from "react-aria-components";
 
-import { Text, type TextProps } from "../../typography/Text/index.ts";
+import { Text, type TextSize } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, type BaseComponentDOMProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { SpinnerContext } from "./SpinnerContext.ts";
@@ -17,16 +17,18 @@ import styles from "./Spinner.module.css";
 
 export const GlobalSpinnerCssSelector = "hop-Spinner";
 
+export type SpinnerSize = "sm" | "md" | "lg";
+
 // We don't extends RACProgressBarProps here, since we don't want to expose any of the progress bar props.
 export interface SpinnerProps extends StyledSystemProps, BaseComponentDOMProps {
     /**
      * What the Spinner's diameter should be.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md" | "lg">;
+    size?: ResponsiveProp<SpinnerSize>;
 }
 
-const SpinnerToTextSizeAdapter: SizeAdapter<SpinnerProps["size"], TextProps["size"]> = {
+const SpinnerToTextSizeAdapter: SizeAdapter<SpinnerSize, TextSize> = {
     sm: "xs",
     md: "sm",
     lg: "md"

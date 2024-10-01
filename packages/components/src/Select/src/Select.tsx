@@ -21,7 +21,7 @@ import { Footer, type FooterProps } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { LabelContext, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
 import { SelectValue } from "./SelectValue.tsx";
@@ -31,7 +31,6 @@ import styles from "./Select.module.css";
 export const GlobalSelectCssSelector = "hop-Select";
 
 export type ValueRenderProps = SelectValueRenderProps<object> & { defaultChildren: ReactNode };
-export type SelectSize = "sm" | "md";
 export type SelectTriggerProps = StyledComponentProps<RACButtonProps>;
 
 export interface SelectProps<T extends object> extends StyledComponentProps<Omit<RACSelectProps<T>, "children">> {
@@ -67,7 +66,7 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
     /**
      * The placeholder text when the select is empty.
      */
@@ -88,7 +87,7 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
      * The size of the select.
      * @default "sm"
      */
-    size?: ResponsiveProp<SelectSize>;
+    size?: ResponsiveProp<FieldSize>;
     /**
      * The props for the select's trigger.
      */

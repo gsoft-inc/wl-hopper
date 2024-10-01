@@ -7,7 +7,7 @@ import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 
 import { useLocalizedString } from "../../../i18n/index.ts";
-import { cssModule } from "../../../utils/index.ts";
+import { cssModule, type NecessityIndicator } from "../../../utils/index.ts";
 
 import { LabelContext } from "./LabelContext.ts";
 
@@ -25,7 +25,7 @@ export interface LabelProps extends StyledComponentProps<RACLabelProps> {
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
 }
 
 function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
