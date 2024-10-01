@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.3.16
+
+### Patch Changes
+
+- 82d23a2: Updated Button css to remove unwanted gaps when icons are not there.
+- ebe9268: Fixed buttonGroup default alignments
+
 ## 1.3.15
 
 ### Patch Changes
