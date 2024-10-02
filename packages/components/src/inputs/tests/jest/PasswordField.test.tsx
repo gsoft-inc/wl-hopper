@@ -25,7 +25,7 @@ describe("PasswordField", () => {
             </PasswordField>
         );
 
-        const element = screen.getByLabelText("Label:");
+        const element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "password");
     });
 
@@ -37,17 +37,17 @@ describe("PasswordField", () => {
             </PasswordField>
         );
 
-        let element = screen.getByLabelText("Label:");
+        let element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "password");
 
         await user.click(screen.getByRole("button"));
 
-        element = screen.getByLabelText("Label:");
+        element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "text");
 
         await user.click(screen.getByRole("button"));
 
-        element = screen.getByLabelText("Label:");
+        element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "password");
     });
 
@@ -119,7 +119,7 @@ describe("PasswordField", () => {
             </PasswordField>
         );
 
-        expect(ref.current).toBe(screen.getByLabelText("Label:"));
+        expect(ref.current).toBe(screen.getByLabelText("Label"));
         expect(ref.current instanceof HTMLInputElement).toBeTruthy();
     });
 
@@ -134,7 +134,7 @@ describe("PasswordField", () => {
             </PasswordFieldContext.Provider>
         );
 
-        const element = screen.getByLabelText("Label:");
+        const element = screen.getByLabelText("Label");
         expect(inputRef.current).toBe(element);
         expect(contextInputRef.current).toBe(element);
     });
