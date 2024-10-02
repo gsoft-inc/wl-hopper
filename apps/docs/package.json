@@ -1,6 +1,6 @@
 {
     "name": "docs",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "private": true,
     "type": "module",
     "sideEffects": [
@@ -16,8 +16,9 @@
         "lint:types": "tsc --noEmit",
         "storybook": "storybook dev -p 6010",
         "build:storybook": "storybook build",
-        "build:componentData": "tsx scripts/generateComponentData.ts && pnpm run build:previewRef",
-        "build:previewRef": "tsx scripts/generatePreviewRef.ts",
+        "generate": "pnpm run \"/^generate:.*/\"",
+        "generate:componentData": "tsx scripts/generateComponentData.ts",
+        "generate:previewRef": "tsx scripts/generatePreviewRef.ts",
         "copy:images": "tsx scripts/copyImages.ts"
     },
     "peerDependencies": {
