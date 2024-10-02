@@ -10,7 +10,7 @@ describe("TextField", () => {
     it("should render with default class", () => {
         render(
             <TextField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -21,7 +21,7 @@ describe("TextField", () => {
     it("should support custom class", () => {
         render(
             <TextField className="test" data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -33,7 +33,7 @@ describe("TextField", () => {
     it("should support custom style", () => {
         render(
             <TextField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -44,7 +44,7 @@ describe("TextField", () => {
     it("should support DOM props", () => {
         render(
             <TextField data-testid="field" data-foo="bar">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -69,7 +69,7 @@ describe("TextField", () => {
         const ref = createRef<HTMLDivElement>();
         render(
             <TextField ref={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -81,7 +81,7 @@ describe("TextField", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <TextField inputRef={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -95,7 +95,7 @@ describe("TextField", () => {
         render(
             <TextFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <TextField inputRef={inputRef}>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             </TextFieldContext.Provider>
         );
@@ -108,7 +108,7 @@ describe("TextField", () => {
     it("should only show clear button when the field contains text", async () => {
         render(
             <TextField isClearable>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -121,7 +121,7 @@ describe("TextField", () => {
         const handleClear = jest.fn();
         render(
             <TextField isClearable onClear={handleClear} defaultValue="There is some text in the input">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -138,7 +138,7 @@ describe("TextField", () => {
 
         render(
             <TextField defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -151,7 +151,7 @@ describe("TextField", () => {
 
         render(
             <TextField defaultValue={defaultValue} showCharacterCount maxLength={defaultValue.length}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 
@@ -166,7 +166,7 @@ describe("TextField", () => {
 
         render(
             <TextField defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextField>
         );
 

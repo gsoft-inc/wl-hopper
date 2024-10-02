@@ -72,7 +72,7 @@ const Template = () => {
                 <Label>City</Label>
             </TextField>
             <TextArea placeholder="Leave a comment">
-                <Label>Comments:</Label>
+                <Label>Comments</Label>
             </TextArea>
             <Checkbox>
                 Agree to terms and conditions
@@ -82,9 +82,9 @@ const Template = () => {
                     <Label>Choose an animal</Label>
                 }
             >
-                <Select.Option id="dog">Dog</Select.Option>
-                <Select.Option id="cat">Cat</Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
+                <Select.Option id="designer">Designer</Select.Option>
+                <Select.Option id="developer">Developer</Select.Option>
+                <Select.Option id="manager">Manager</Select.Option>
             </Select>
             <ComboBox fieldChildren={
                 <Label>Choose an animal</Label>

@@ -15,7 +15,7 @@ describe("TextArea", () => {
     it("should render with default class", async () => {
         render(
             <TextArea data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -26,7 +26,7 @@ describe("TextArea", () => {
     it("should support custom class", async () => {
         render(
             <TextArea className="test" data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -38,7 +38,7 @@ describe("TextArea", () => {
     it("should support custom style", async () => {
         render(
             <TextArea data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -49,7 +49,7 @@ describe("TextArea", () => {
     it("should support DOM props", async () => {
         render(
             <TextArea data-testid="field" data-foo="bar">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -74,7 +74,7 @@ describe("TextArea", () => {
         const ref = createRef<HTMLDivElement>();
         render(
             <TextArea ref={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -86,7 +86,7 @@ describe("TextArea", () => {
         const ref = createRef<HTMLTextAreaElement>() as MutableRefObject<HTMLTextAreaElement>;
         render(
             <TextArea inputRef={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -100,7 +100,7 @@ describe("TextArea", () => {
         render(
             <TextAreaContext.Provider value={{ inputRef: contextInputRef }}>
                 <TextArea inputRef={inputRef}>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextArea>
             </TextAreaContext.Provider>
         );
@@ -117,7 +117,7 @@ describe("TextArea", () => {
 
         render(
             <TextArea defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -130,7 +130,7 @@ describe("TextArea", () => {
 
         render(
             <TextArea defaultValue={defaultValue} showCharacterCount maxLength={defaultValue.length}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 
@@ -145,7 +145,7 @@ describe("TextArea", () => {
 
         render(
             <TextArea defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </TextArea>
         );
 

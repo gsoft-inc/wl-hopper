@@ -1,10 +1,10 @@
-import { ErrorMessage, NumberField, Label } from "@hopper-ui/components";
+import { ErrorMessage, Label, NumberField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <NumberField value={42} isInvalid>
-            <Label>Weight:</Label>
-            <ErrorMessage>Please enter a value under 42.</ErrorMessage>
+            <Label>Training hours completed</Label>
+            <ErrorMessage>You cannot enter more than 40 training hours for this period.</ErrorMessage>
         </NumberField>
     );
 }

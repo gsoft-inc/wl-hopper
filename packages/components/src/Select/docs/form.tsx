@@ -1,15 +1,15 @@
-import { Select, Label, Form } from "@hopper-ui/components";
+import { Form, Label, Select } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Form>
             <Select
-                fieldChildren={<Label>Animals</Label>}
-                name="animals"
+                fieldChildren={<Label>Roles</Label>}
+                name="roles"
             >
-                <Select.Option id="dog">Dog</Select.Option>
-                <Select.Option id="cat">Cat</Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
+                <Select.Option id="designer">Designer</Select.Option>
+                <Select.Option id="developer">Developer</Select.Option>
+                <Select.Option id="manager">Manager</Select.Option>
             </Select>
         </Form>
     );

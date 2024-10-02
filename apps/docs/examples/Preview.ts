@@ -890,47 +890,47 @@ export const Previews: Record<string, Preview> = {
     "Select/docs/form": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/form.tsx"))
     },
-    "Select/docs/selectMenu/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/disabled.tsx"))
+    "Select/docs/selectDropdown/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/disabled.tsx"))
     },
-    "Select/docs/selectMenu/autoMenuWidth": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/autoMenuWidth.tsx"))
+    "Select/docs/selectDropdown/autoMenuWidth": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/autoMenuWidth.tsx"))
     },
-    "Select/docs/selectMenu/menuPlacement": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/menuPlacement.tsx"))
+    "Select/docs/selectDropdown/menuPlacement": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/menuPlacement.tsx"))
     },
-    "Select/docs/selectMenu/section": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/section.tsx"))
+    "Select/docs/selectDropdown/section": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/section.tsx"))
     },
-    "Select/docs/selectMenu/footer": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/footer.tsx"))
+    "Select/docs/selectDropdown/footer": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/footer.tsx"))
     },
-    "Select/docs/selectMenu/avatar": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/avatar.tsx"))
+    "Select/docs/selectDropdown/avatar": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/avatar.tsx"))
     },
-    "Select/docs/selectMenu/count": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/count.tsx"))
+    "Select/docs/selectDropdown/count": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/count.tsx"))
     },
-    "Select/docs/selectMenu/dynamicLists": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/dynamicLists.tsx"))
+    "Select/docs/selectDropdown/dynamicLists": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/dynamicLists.tsx"))
     },
-    "Select/docs/selectMenu/icons": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/icons.tsx"))
+    "Select/docs/selectDropdown/icons": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/icons.tsx"))
     },
-    "Select/docs/selectMenu/endIcons": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/endIcons.tsx"))
+    "Select/docs/selectDropdown/endIcons": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/endIcons.tsx"))
     },
-    "Select/docs/selectMenu/loading": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/loading.tsx"))
+    "Select/docs/selectDropdown/loading": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/loading.tsx"))
     },
-    "Select/docs/selectMenu/loadOnScroll": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/loadOnScroll.tsx"))
+    "Select/docs/selectDropdown/loadOnScroll": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/loadOnScroll.tsx"))
     },
-    "Select/docs/selectMenu/selectionIndicator": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/selectionIndicator.tsx"))
+    "Select/docs/selectDropdown/selectionIndicator": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/selectionIndicator.tsx"))
     },
-    "Select/docs/selectMenu/description": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectMenu/description.tsx"))
+    "Select/docs/selectDropdown/description": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/description.tsx"))
     },
     "Badge/docs/badge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))

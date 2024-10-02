@@ -11,7 +11,7 @@ describe("PasswordField", () => {
         const renderOnServer = () =>
             renderToString(
                 <PasswordField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </PasswordField>
             );
 

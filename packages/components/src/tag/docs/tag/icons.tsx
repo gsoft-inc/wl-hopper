@@ -1,4 +1,4 @@
-import { TagGroup, Tag, TagList, Text, IconList } from "@hopper-ui/components";
+import { IconList, Tag, TagGroup, TagList, Text } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 
 export default function Example() {
@@ -17,8 +17,8 @@ export default function Example() {
                         <SparklesIcon />
                     </IconList>
                 </Tag>
-                <Tag id="dentist" size="lg">
-                    <Text>Dentist</Text>
+                <Tag id="manager" size="lg">
+                    <Text>Manager</Text>
                     <IconList>
                         <SparklesIcon />
                         <SparklesIcon />

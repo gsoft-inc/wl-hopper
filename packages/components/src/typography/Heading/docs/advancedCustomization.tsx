@@ -6,7 +6,7 @@ export default function Example() {
             [HeadingContext, { size: "3xl" }]
         ]}
         >
-            <Heading>Hello, World!</Heading>
+            <Heading>Great work!</Heading>
         </SlotProvider>
     );
 }

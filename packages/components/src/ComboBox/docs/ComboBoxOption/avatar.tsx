@@ -2,7 +2,7 @@ import { Avatar, ComboBox, Label, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <ComboBox fieldChildren={<Label>Animals</Label>}>
+        <ComboBox fieldChildren={<Label>Username</Label>}>
             <ComboBox.Option id="fred-smith" textValue="Fred Smith" >
                 <Avatar src="https://i.pravatar.cc/96?img=3" name="Fred Smith" />
                 <Text slot="label">Fred Smith</Text>

@@ -1,13 +1,13 @@
-import { TagGroup, Tag, TagList, Label } from "@hopper-ui/components";
+import { Label, Tag, TagGroup, TagList } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <TagGroup>
             <Label>Jobs</Label>
             <TagList>
-                <Tag id="dentist">Dentist</Tag>
+                <Tag id="designer">Designer</Tag>
                 <Tag id="developer">Developer</Tag>
-                <Tag id="doctor">Doctor</Tag>
+                <Tag id="manager">Manager</Tag>
             </TagList>
         </TagGroup>
     );

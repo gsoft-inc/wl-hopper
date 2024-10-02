@@ -11,7 +11,7 @@ export default function Example() {
             </ListBoxItem>
             <ListBoxItem textValue="Karen Smith">
                 <Avatar name="Karen Smith" />
-                <Text slot="label">Item 2</Text>
+                <Text slot="label">Karen Smith</Text>
             </ListBoxItem>
             <ListBoxItem textValue="John Doe">
                 <Avatar name="John Doe" />

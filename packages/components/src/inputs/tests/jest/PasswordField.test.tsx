@@ -10,7 +10,7 @@ describe("PasswordField", () => {
     it("should render with default class", () => {
         render(
             <PasswordField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -21,7 +21,7 @@ describe("PasswordField", () => {
     it("should have password type", () => {
         render(
             <PasswordField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -33,7 +33,7 @@ describe("PasswordField", () => {
         const user = userEvent.setup();
         render(
             <PasswordField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -54,7 +54,7 @@ describe("PasswordField", () => {
     it("should support custom class", () => {
         render(
             <PasswordField className="test" data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -66,7 +66,7 @@ describe("PasswordField", () => {
     it("should support custom style", () => {
         render(
             <PasswordField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -77,7 +77,7 @@ describe("PasswordField", () => {
     it("should support DOM props", () => {
         render(
             <PasswordField data-testid="field" data-foo="bar">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -103,7 +103,7 @@ describe("PasswordField", () => {
         const ref = createRef<HTMLDivElement>();
         render(
             <PasswordField ref={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -115,7 +115,7 @@ describe("PasswordField", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <PasswordField inputRef={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -129,7 +129,7 @@ describe("PasswordField", () => {
         render(
             <PasswordFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <PasswordField inputRef={inputRef}>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </PasswordField>
             </PasswordFieldContext.Provider>
         );

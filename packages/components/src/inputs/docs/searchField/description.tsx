@@ -1,10 +1,10 @@
-import { SearchField, Label, HelperMessage } from "@hopper-ui/components";
+import { HelperMessage, Label, SearchField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <SearchField placeholder="Enter a keyword">
-            <Label>Search:</Label>
-            <HelperMessage>Type keywords and press Enter to search</HelperMessage>
+        <SearchField placeholder="New York, NY">
+            <Label>Filter by location</Label>
+            <HelperMessage>Search by city, state, or postal code</HelperMessage>
         </SearchField>
     );
 }

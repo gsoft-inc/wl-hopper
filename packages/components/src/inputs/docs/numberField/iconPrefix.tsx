@@ -1,10 +1,10 @@
-import { NumberField, Label } from "@hopper-ui/components";
+import { Label, NumberField } from "@hopper-ui/components";
 import { UserIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
         <NumberField prefix={<UserIcon />}>
-            <Label>Number of users:</Label>
+            <Label>Training hours completed</Label>
         </NumberField>
     );
 }

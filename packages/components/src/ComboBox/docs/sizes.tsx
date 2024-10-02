@@ -3,15 +3,15 @@ import { ComboBox, Label, Stack } from "@hopper-ui/components";
 export default function Example() {
     return (
         <Stack>
-            <ComboBox size="sm" fieldChildren={<Label>Animals</Label>}>
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            <ComboBox size="sm" fieldChildren={<Label>Roles</Label>}>
+                <ComboBox.Option id="designer">Designer</ComboBox.Option>
+                <ComboBox.Option id="developer">Developer</ComboBox.Option>
+                <ComboBox.Option id="manager">Manager</ComboBox.Option>
             </ComboBox>
             <ComboBox size="md">
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBox.Option id="designer">Designer</ComboBox.Option>
+                <ComboBox.Option id="developer">Developer</ComboBox.Option>
+                <ComboBox.Option id="manager">Manager</ComboBox.Option>
             </ComboBox>
         </Stack>
     );

@@ -1,9 +1,9 @@
-import { TextArea, Label } from "@hopper-ui/components";
+import { Label, TextArea } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <TextArea placeholder="Enter an address" resizeMode="vertical">
-            <Label>Address:</Label>
+        <TextArea placeholder="123 Main St, City, State" resizeMode="vertical">
+            <Label>Address</Label>
         </TextArea>
     );
 }

@@ -1,7 +1,7 @@
 import { Heading, Stack } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = { children: "Hello, World!" };
+    const props = { children: "Great work!" };
 
     return (
         <Stack>

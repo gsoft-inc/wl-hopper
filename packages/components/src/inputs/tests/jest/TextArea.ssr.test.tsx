@@ -11,7 +11,7 @@ describe("TextArea", () => {
         const renderOnServer = () =>
             renderToString(
                 <TextArea>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextArea>
             );
 
