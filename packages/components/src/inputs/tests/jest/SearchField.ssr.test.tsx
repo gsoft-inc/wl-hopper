@@ -11,7 +11,7 @@ describe("SearchField", () => {
         const renderOnServer = () =>
             renderToString(
                 <SearchField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </SearchField>
             );
 

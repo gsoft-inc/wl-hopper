@@ -2,6 +2,6 @@ import { PasswordField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <PasswordField placeholder="Placeholder" aria-label="Label" />
+        <PasswordField aria-label="Label" />
     );
 }

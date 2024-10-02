@@ -80,3 +80,8 @@ export interface InteractionProps {
      */
     isRequired?: boolean;
 }
+
+export type Align = "start" | "end" | "center";
+export type FieldSize = "sm" | "md";
+export type NecessityIndicator = "asterisk" | "label";
+export type InputGroupVariant = "borderless" | "bordered";

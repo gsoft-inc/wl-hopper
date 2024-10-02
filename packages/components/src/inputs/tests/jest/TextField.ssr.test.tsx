@@ -11,7 +11,7 @@ describe("TextField", () => {
         const renderOnServer = () =>
             renderToString(
                 <TextField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             );
 

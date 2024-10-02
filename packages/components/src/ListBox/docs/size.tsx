@@ -4,24 +4,24 @@ export default function Example() {
     return (
         <Inline alignY="flex-start">
             <ListBox size="lg" selectionMode="single" aria-label="list of options">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
+                <ListBoxItem>Developer</ListBoxItem>
+                <ListBoxItem>Designer</ListBoxItem>
+                <ListBoxItem>Manager</ListBoxItem>
             </ListBox>
             <ListBox size="md" selectionMode="single" aria-label="list of options">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
+                <ListBoxItem>Developer</ListBoxItem>
+                <ListBoxItem>Designer</ListBoxItem>
+                <ListBoxItem>Manager</ListBoxItem>
             </ListBox>
             <ListBox size="sm" selectionMode="single" aria-label="list of options">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
+                <ListBoxItem>Developer</ListBoxItem>
+                <ListBoxItem>Designer</ListBoxItem>
+                <ListBoxItem>Manager</ListBoxItem>
             </ListBox>
             <ListBox size="xs" selectionMode="single" aria-label="list of options">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
+                <ListBoxItem>Developer</ListBoxItem>
+                <ListBoxItem>Designer</ListBoxItem>
+                <ListBoxItem>Manager</ListBoxItem>
             </ListBox>
         </Inline>
     );

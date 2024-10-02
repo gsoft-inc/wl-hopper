@@ -29,7 +29,9 @@ import {
     cssModule,
     EnsureTextWrapper,
     SlotProvider,
-    useTruncatedText
+    useTruncatedText,
+    type FieldSize,
+    type NecessityIndicator
 } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
@@ -72,7 +74,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
      * The size of the TextField.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<FieldSize>;
 
     /**
      * Handler that is called when the clear button is pressed.
@@ -93,7 +95,7 @@ export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps> 
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.

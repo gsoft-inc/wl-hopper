@@ -1,9 +1,9 @@
-import { PasswordField, Label } from "@hopper-ui/components";
+import { Label, PasswordField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <PasswordField placeholder="Placeholder" isDisabled>
-            <Label>Password:</Label>
+        <PasswordField isDisabled>
+            <Label>Password</Label>
         </PasswordField>
     );
 }

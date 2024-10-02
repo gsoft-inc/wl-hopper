@@ -5,8 +5,9 @@ import { forwardRef, type CSSProperties, type ForwardedRef, type HTMLAttributes 
 import type { Orientation } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
-import { SlotProvider, cssModule } from "../../utils/index.ts";
+import { SlotProvider, cssModule, type Align } from "../../utils/index.ts";
 
+import type { ButtonSize } from "./Button.ts";
 import { ButtonContext } from "./ButtonContext.ts";
 import { ButtonGroupContext } from "./ButtonGroupContext.ts";
 
@@ -29,7 +30,7 @@ export interface ButtonGroupProps extends StyledComponentProps<HTMLAttributes<HT
      * The size of the buttons in the ButtonGroup.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<ButtonSize>;
 
     /**
      * Whether elements are forced onto one line or can wrap onto multiple rows.
@@ -41,7 +42,7 @@ export interface ButtonGroupProps extends StyledComponentProps<HTMLAttributes<HT
    * The alignment of the buttons within the ButtonGroup.
    * @default 'start'
    */
-    align?: ResponsiveProp<"start" | "end" | "center">;
+    align?: ResponsiveProp<Align>;
 }
 
 export const GlobalButtonGroupCssSelector = "hop-ButtonGroup";
@@ -64,7 +65,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
         ...otherProps
     } = ownProps;
 
-    const align = useResponsiveValue(alignProp) ?? "start";
+    const align = useResponsiveValue(alignProp);
     const size = useResponsiveValue(sizeProp) ?? "md";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const wrap = useResponsiveValue(wrapProp) ?? true;

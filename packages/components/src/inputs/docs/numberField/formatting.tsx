@@ -1,4 +1,4 @@
-import { NumberField, Label } from "@hopper-ui/components";
+import { Label, NumberField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
@@ -9,7 +9,7 @@ export default function Example() {
             }
         }
         >
-            <Label>Price:</Label>
+            <Label>Training Budget Allocated</Label>
         </NumberField>
     );
 }

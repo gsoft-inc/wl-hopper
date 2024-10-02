@@ -462,9 +462,9 @@ const StateTemplate = (args: Partial<SelectProps<object>>) => (
                     <Label>Small</Label>
                 }
             >
-                <Select.Option id="dog">Dog</Select.Option>
-                <Select.Option id="cat">Cat</Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
+                <Select.Option id="designer">Designer</Select.Option>
+                <Select.Option id="developer">Developer</Select.Option>
+                <Select.Option id="manager">Manager</Select.Option>
             </Select>
             <Select {...args}
                 size="md"
@@ -472,9 +472,9 @@ const StateTemplate = (args: Partial<SelectProps<object>>) => (
                     <Label>Medium</Label>
                 }
             >
-                <Select.Option id="dog">Dog</Select.Option>
-                <Select.Option id="cat">Cat</Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
+                <Select.Option id="designer">Designer</Select.Option>
+                <Select.Option id="developer">Developer</Select.Option>
+                <Select.Option id="manager">Manager</Select.Option>
             </Select>
         </Inline>
         <Select {...args}

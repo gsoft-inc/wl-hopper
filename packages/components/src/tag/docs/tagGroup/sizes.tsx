@@ -1,4 +1,4 @@
-import { TagGroup, Tag, TagList, Stack, type Selection } from "@hopper-ui/components";
+import { Stack, Tag, TagGroup, TagList, type Selection } from "@hopper-ui/components";
 
 export default function Example() {
     const props = {
@@ -9,9 +9,9 @@ export default function Example() {
         children: [
             (
                 <TagList key="1">
-                    <Tag id="dentist">Dentist</Tag>
+                    <Tag id="designer">Designer</Tag>
                     <Tag id="developer">Developer</Tag>
-                    <Tag id="doctor">Doctor</Tag>
+                    <Tag id="manager">Manager</Tag>
                 </TagList>
             )]
     };

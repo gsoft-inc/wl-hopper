@@ -18,6 +18,7 @@ import { TextContext } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
     EnsureTextWrapper,
+    type FieldSize,
     SlotProvider,
     composeClassnameRenderProps,
     cssModule
@@ -34,7 +35,7 @@ export interface SwitchProps extends StyledComponentProps<RACSwitchProps> {
      * A Switch can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<FieldSize>;
 }
 
 function Switch(props: SwitchProps, ref: ForwardedRef<HTMLLabelElement>) {

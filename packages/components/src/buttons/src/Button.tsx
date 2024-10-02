@@ -39,18 +39,21 @@ import styles from "./Button.module.css";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
+export type ButtonVariant = "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
+export type ButtonSize = "sm" | "md";
+
 export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * The visual style of the button.
      * @default "primary"
      */
-    variant?: "primary" | "secondary" | "danger" | "upsell" | "ghost-primary" | "ghost-secondary" | "ghost-danger";
+    variant?: ButtonVariant;
 
     /**
      * A button can vary in size.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<ButtonSize>;
 
     /**
      * Whether or not the button takes up the width of its container.

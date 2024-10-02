@@ -1,5 +1,4 @@
-import { Button, Popover, Heading, Content, Flex } from "@hopper-ui/components";
-import { InfoIcon } from "@hopper-ui/icons";
+import { Button, Content, Flex, Heading, Popover } from "@hopper-ui/components";
 import { useRef, useState } from "react";
 
 export default function Example() {
@@ -12,16 +11,15 @@ export default function Example() {
                 <Button
                     onPress={() => setOpen(!isOpen)}
                     variant="secondary"
-                    aria-label="information"
                 >
-                    <InfoIcon />
+                    Company Profile
                 </Button>
                 <span ref={triggerRef}>Popover will be positioned relative to me</span>
             </Flex>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
-                <Heading slot="title">Help</Heading>
+                <Heading slot="title">ACME</Heading>
                 <Content>
-                    For help accessing your account, please contact support.
+                    A tech company focusing on the development of software and hardware solutions.
                 </Content>
             </Popover>
         </>

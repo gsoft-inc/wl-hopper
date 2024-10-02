@@ -9,7 +9,7 @@ describe("Form", () => {
         render(
             <Form data-testid="form">
                 <TextField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             </Form>
         );
@@ -22,7 +22,7 @@ describe("Form", () => {
         render(
             <Form data-testid="form" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
                 <TextField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             </Form>
         );
@@ -35,7 +35,7 @@ describe("Form", () => {
         render(
             <Form data-testid="form" data-foo="bar">
                 <TextField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             </Form>
         );
@@ -49,7 +49,7 @@ describe("Form", () => {
         render(
             <Form data-testid="form" ref={ref}>
                 <TextField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             </Form>
         );
@@ -62,7 +62,7 @@ describe("Form", () => {
         render(
             <Form isDisabled>
                 <TextField>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </TextField>
             </Form>
         );

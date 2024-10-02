@@ -33,7 +33,7 @@ const meta = {
     args: {
         placeholder: "Placeholder",
         children: [
-            <Label key="1">Password:</Label>
+            <Label key="1">Password</Label>
         ]
     }
 } satisfies Meta<typeof PasswordField>;

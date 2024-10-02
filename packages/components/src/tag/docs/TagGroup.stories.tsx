@@ -1,8 +1,8 @@
+import type { Selection } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import type { Selection } from "react-aria-components";
 import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
 import { Badge } from "../../Badge/index.ts";

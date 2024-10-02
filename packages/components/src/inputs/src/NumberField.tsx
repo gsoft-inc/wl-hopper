@@ -28,7 +28,9 @@ import {
     cssModule,
     EnsureTextWrapper,
     SlotProvider,
-    useScale
+    useScale,
+    type FieldSize,
+    type NecessityIndicator
 } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
@@ -48,7 +50,7 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * The size of the NumberField.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md">;
+    size?: ResponsiveProp<FieldSize>;
 
     /**
      * If `true`, the NumberField will take all available width.
@@ -64,7 +66,7 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
-    necessityIndicator?: "asterisk" | "label";
+    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.

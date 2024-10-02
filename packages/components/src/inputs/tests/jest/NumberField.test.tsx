@@ -9,7 +9,7 @@ describe("NumberField", () => {
     it("should render with default class", () => {
         render(
             <NumberField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </NumberField>
         );
 
@@ -20,7 +20,7 @@ describe("NumberField", () => {
     it("should support custom class", () => {
         render(
             <NumberField className="test" data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </NumberField>
         );
 
@@ -32,7 +32,7 @@ describe("NumberField", () => {
     it("should support custom style", () => {
         render(
             <NumberField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </NumberField>
         );
 
@@ -43,7 +43,7 @@ describe("NumberField", () => {
     it("should support DOM props", () => {
         render(
             <NumberField data-testid="field" data-foo="bar">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </NumberField>
         );
 
@@ -68,7 +68,7 @@ describe("NumberField", () => {
         const ref = createRef<HTMLDivElement>();
         render(
             <NumberField ref={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </NumberField>
         );
 
@@ -80,7 +80,7 @@ describe("NumberField", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <NumberField inputRef={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </NumberField>
         );
 
@@ -94,7 +94,7 @@ describe("NumberField", () => {
         render(
             <NumberFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <NumberField inputRef={inputRef}>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </NumberField>
             </NumberFieldContext.Provider>
         );

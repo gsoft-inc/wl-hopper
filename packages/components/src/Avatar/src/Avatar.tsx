@@ -4,7 +4,7 @@ import { filterDOMProps, mergeProps } from "@react-aria/utils";
 import { type ForwardedRef, forwardRef, type HTMLProps, type ReactElement, useMemo } from "react";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { Text, type TextProps } from "../../typography/Text/index.ts";
+import { Text, type TextSize } from "../../typography/Text/index.ts";
 import { type AccessibleSlotProps, composeClassnameRenderProps, cssModule, type RenderProps, type SizeAdapter, useRenderProps } from "../../utils/index.ts";
 
 import { AvatarContext } from "./AvatarContext.ts";
@@ -54,7 +54,7 @@ export interface AvatarProps extends StyledSystemProps, AccessibleSlotProps, Omi
     src?: string;
 }
 
-export const AvatarToTextSizeAdapter: SizeAdapter<AvatarProps["size"], TextProps["size"]> = {
+export const AvatarToTextSizeAdapter: SizeAdapter<AvatarSize, TextSize> = {
     xs: "xs",
     sm: "xs",
     md: "md",

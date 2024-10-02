@@ -1,38 +1,38 @@
-import { Header, Inline, Select, Section, Collection, Label } from "@hopper-ui/components";
+import { Collection, Header, Inline, Label, Section, Select } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
-    name: string;
+    role: string;
 }
 
 interface ListSectionProps {
-    name: string;
+    role: string;
     children: ListItemProps[];
 }
 
 export default function Example() {
     const options = [
-        { id: 2, name: "Fred" },
-        { id: 3, name: "Bob" },
-        { id: 4, name: "Gabriel" },
-        { id: 6, name: "Sarah" },
-        { id: 7, name: "Louise" },
-        { id: 8, name: "Karen" }
+        { id: 2, role: "Designer" },
+        { id: 3, role: "Developer" },
+        { id: 4, role: "Manager" },
+        { id: 6, role: "QA Engineer" },
+        { id: 7, role: "Product Owner" },
+        { id: 8, role: "Scrum Master" }
     ] satisfies ListItemProps[];
 
     const optionsWithSections = [
         {
-            name: "Boy Names", children: [
-                { id: 2, name: "Fred" },
-                { id: 3, name: "Bob" },
-                { id: 4, name: "Gabriel" }
+            role: "Operations", children: [
+                { id: 2, role: "Project Coordinator" },
+                { id: 3, role: "QA Specialist" },
+                { id: 4, role: "System Administrator" }
             ]
         },
         {
-            name: "Girl Names", children: [
-                { id: 6, name: "Sarah" },
-                { id: 7, name: "Louise" },
-                { id: 8, name: "Karen" }
+            role: "Creative Department", children: [
+                { id: 6, role: "Designer" },
+                { id: 7, role: "Designer" },
+                { id: 8, role: "UX Researcher" }
             ]
         }
     ] satisfies ListSectionProps[];
@@ -44,9 +44,9 @@ export default function Example() {
                 fieldChildren={<Label>Items</Label>}
             >
                 {item => {
-                    const { id, name } = item;
+                    const { id, role } = item;
 
-                    return <Select.Option id={id}>{name}</Select.Option>;
+                    return <Select.Option id={id}>{role}</Select.Option>;
                 }}
             </Select>
             <Select
@@ -54,13 +54,13 @@ export default function Example() {
                 fieldChildren={<Label>Section</Label>}
             >
                 {section => {
-                    const { name: sectionName, children } = section;
+                    const { role: sectionName, children } = section;
 
                     return (
                         <Section id={sectionName}>
                             <Header>{sectionName}</Header>
                             <Collection items={children}>
-                                {item => <Select.Option id={item.id}>{item.name}</Select.Option>}
+                                {item => <Select.Option id={item.id}>{item.role}</Select.Option>}
                             </Collection>
                         </Section>
                     );

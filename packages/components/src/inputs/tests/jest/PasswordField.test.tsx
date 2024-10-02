@@ -10,7 +10,7 @@ describe("PasswordField", () => {
     it("should render with default class", () => {
         render(
             <PasswordField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -21,11 +21,11 @@ describe("PasswordField", () => {
     it("should have password type", () => {
         render(
             <PasswordField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
-        const element = screen.getByLabelText("Label:");
+        const element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "password");
     });
 
@@ -33,28 +33,28 @@ describe("PasswordField", () => {
         const user = userEvent.setup();
         render(
             <PasswordField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
-        let element = screen.getByLabelText("Label:");
+        let element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "password");
 
         await user.click(screen.getByRole("button"));
 
-        element = screen.getByLabelText("Label:");
+        element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "text");
 
         await user.click(screen.getByRole("button"));
 
-        element = screen.getByLabelText("Label:");
+        element = screen.getByLabelText("Label");
         expect(element).toHaveAttribute("type", "password");
     });
 
     it("should support custom class", () => {
         render(
             <PasswordField className="test" data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -66,7 +66,7 @@ describe("PasswordField", () => {
     it("should support custom style", () => {
         render(
             <PasswordField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -77,7 +77,7 @@ describe("PasswordField", () => {
     it("should support DOM props", () => {
         render(
             <PasswordField data-testid="field" data-foo="bar">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -103,7 +103,7 @@ describe("PasswordField", () => {
         const ref = createRef<HTMLDivElement>();
         render(
             <PasswordField ref={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
@@ -115,11 +115,11 @@ describe("PasswordField", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <PasswordField inputRef={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </PasswordField>
         );
 
-        expect(ref.current).toBe(screen.getByLabelText("Label:"));
+        expect(ref.current).toBe(screen.getByLabelText("Label"));
         expect(ref.current instanceof HTMLInputElement).toBeTruthy();
     });
 
@@ -129,12 +129,12 @@ describe("PasswordField", () => {
         render(
             <PasswordFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <PasswordField inputRef={inputRef}>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </PasswordField>
             </PasswordFieldContext.Provider>
         );
 
-        const element = screen.getByLabelText("Label:");
+        const element = screen.getByLabelText("Label");
         expect(inputRef.current).toBe(element);
         expect(contextInputRef.current).toBe(element);
     });

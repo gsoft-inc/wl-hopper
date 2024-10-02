@@ -7,9 +7,9 @@ export default function Example() {
             disabledKeys={["2"]}
             aria-label="list of options"
         >
-            <ListBoxItem id="1">Item 1</ListBoxItem>
-            <ListBoxItem id="2">Item 2</ListBoxItem>
-            <ListBoxItem id="3">Item 3</ListBoxItem>
+            <ListBoxItem id="1">Developer</ListBoxItem>
+            <ListBoxItem id="2">Designer</ListBoxItem>
+            <ListBoxItem id="3">Manager</ListBoxItem>
         </ListBox>
     );
 }

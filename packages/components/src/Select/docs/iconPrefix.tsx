@@ -1,15 +1,15 @@
-import { Select, Label } from "@hopper-ui/components";
-import { CatIcon } from "@hopper-ui/icons";
+import { Label, Select } from "@hopper-ui/components";
+import { OrgChartIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
         <Select
-            fieldChildren={<Label>Animals</Label>}
-            prefix={<CatIcon />}
+            fieldChildren={<Label>Roles</Label>}
+            prefix={<OrgChartIcon />}
         >
-            <Select.Option id="dog">Dog</Select.Option>
-            <Select.Option id="cat">Cat</Select.Option>
-            <Select.Option id="frog">Frog</Select.Option>
+            <Select.Option id="designer">Designer</Select.Option>
+            <Select.Option id="developer">Developer</Select.Option>
+            <Select.Option id="manager">Manager</Select.Option>
         </Select>
     );
 }

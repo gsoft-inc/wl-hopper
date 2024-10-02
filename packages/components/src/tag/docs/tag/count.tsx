@@ -1,4 +1,4 @@
-import { TagGroup, Tag, TagList, Text, Badge } from "@hopper-ui/components";
+import { Badge, Tag, TagGroup, TagList, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
@@ -9,11 +9,11 @@ export default function Example() {
                     <Badge>12</Badge>
                 </Tag>
                 <Tag id="developer" size="md">
-                    <Text>Designer</Text>
+                    <Text>Developer</Text>
                     <Badge variant="subdued">100</Badge>
                 </Tag>
-                <Tag id="dentist" size="lg">
-                    <Text>Dentist</Text>
+                <Tag id="manager" size="lg">
+                    <Text>Manager</Text>
                     <Badge>99+</Badge>
                 </Tag>
             </TagList>

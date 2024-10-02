@@ -7,11 +7,11 @@ import { Collection, composeRenderProps, type ListBoxRenderProps, ListBox as RAC
 import { HeaderContext } from "../../Header/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { SectionContext } from "../../Section/index.ts";
-import { Text, type TextProps } from "../../typography/Text/index.ts";
+import { Text, type TextSize } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
-import { ListBoxItem, type ListBoxItemProps, type ListBoxItemSize } from "./ListBoxItem.tsx";
+import { ListBoxItem, type ListBoxItemProps, type ListBoxItemSize, type SelectionIndicator } from "./ListBoxItem.tsx";
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 
 import styles from "./ListBox.module.css";
@@ -41,7 +41,7 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
      * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
      * @default "check"
      */
-    selectionIndicator?: "check" | "input";
+    selectionIndicator?: SelectionIndicator;
     /**
      * A ListBox can vary in size.
      * @default "sm"
@@ -59,7 +59,7 @@ const ListBoxToTextSizeAdapter = {
     sm: "sm",
     md: "sm",
     lg: "md"
-} as const satisfies SizeAdapter<ListBoxItemSize, TextProps["size"]>;
+} as const satisfies SizeAdapter<ListBoxItemSize, TextSize>;
 
 function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, ListBoxContext);

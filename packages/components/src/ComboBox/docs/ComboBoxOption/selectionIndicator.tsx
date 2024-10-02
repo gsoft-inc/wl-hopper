@@ -8,21 +8,21 @@ export default function Example() {
         <ComboBox
             aria-label="list of options"
             selectedKey={selectedKey}
-            fieldChildren={<Label>Animals</Label>}
+            fieldChildren={<Label>Roles</Label>}
             onSelectionChange={setSelectedKey}
             listBoxProps={{ selectionIndicator: "input" }}
         >
-            <ComboBox.Option textValue="Item 1" id="1">
-                <Text slot="label">Item 1</Text>
-                <Text slot="description">Description of item 1</Text>
+            <ComboBox.Option textValue="Developer" id="1">
+                <Text slot="label">Developer</Text>
+                <Text slot="description">Builds and maintains software.</Text>
             </ComboBox.Option>
-            <ComboBox.Option textValue="Item 2" id="2">
-                <Text slot="label">Item 2</Text>
-                <Text slot="description">Description of item 2</Text>
+            <ComboBox.Option textValue="Designer" id="2">
+                <Text slot="label">Designer</Text>
+                <Text slot="description">Creates visual design solutions.</Text>
             </ComboBox.Option>
-            <ComboBox.Option textValue="Item 3" id="3">
-                <Text slot="label">Item 3</Text>
-                <Text slot="description">Description of item 3</Text>
+            <ComboBox.Option textValue="Manager" id="3">
+                <Text slot="label">Manager</Text>
+                <Text slot="description">Leads teams and projects.</Text>
             </ComboBox.Option>
         </ComboBox>
     );

@@ -1,4 +1,4 @@
-import { IconContext, type IconProps } from "@hopper-ui/icons";
+import { IconContext, type IconSize } from "@hopper-ui/icons";
 import type { ResponsiveProp, StyledComponentProps } from "@hopper-ui/styled-system";
 import { useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { forwardRef, type ForwardedRef } from "react";
@@ -26,18 +26,21 @@ import styles from "./Link.module.css";
 
 export const GlobalLinkCssSelector = "hop-Link";
 
+export type LinkVariant = "primary" | "secondary";
+export type LinkSize = "inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
 export interface LinkProps extends StyledComponentProps<RACLinkProps> {
     /**
      * The visual style of the link.
      * @default "primary"
      */
-    variant?: "primary" | "secondary";
+    variant?: LinkVariant;
 
     /**
      * Size of the link.
      * @default "inherit"
      */
-    size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
+    size?: ResponsiveProp<LinkSize>;
 
     /**
      * Whether the link should be displayed with a quiet style.
@@ -58,7 +61,7 @@ const LinkToIconSizeAdapter = {
     lg: "md",
     xl: "lg",
     "2xl": "lg"
-} as const satisfies SizeAdapter<LinkProps["size"], IconProps["size"]>;
+} as const satisfies SizeAdapter<LinkSize, IconSize>;
 
 function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
     [props, ref] = useContextProps(props, ref, LinkContext);

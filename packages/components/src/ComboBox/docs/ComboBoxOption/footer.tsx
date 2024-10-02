@@ -4,12 +4,12 @@ import { AddIcon } from "@hopper-ui/icons";
 export default function Example() {
     return (
         <ComboBox
-            fieldChildren={<Label>Animals</Label>}
+            fieldChildren={<Label>Roles</Label>}
             footer={<Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>}
         >
-            <ComboBox.Option id="dog">Dog</ComboBox.Option>
-            <ComboBox.Option id="cat">Cat</ComboBox.Option>
-            <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            <ComboBox.Option id="developer">Developer</ComboBox.Option>
+            <ComboBox.Option id="designer">Designer</ComboBox.Option>
+            <ComboBox.Option id="manager">Manager</ComboBox.Option>
         </ComboBox>
     );
 }

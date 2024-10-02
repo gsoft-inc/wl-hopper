@@ -44,7 +44,7 @@ export const WithLabel: Story = {
     ...Default,
     args: {
         children: [
-            <Label key="1">Name:</Label>
+            <Label key="1">Name</Label>
         ]
     }
 };

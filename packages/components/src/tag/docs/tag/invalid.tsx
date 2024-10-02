@@ -1,4 +1,4 @@
-import { TagGroup, Tag, TagList } from "@hopper-ui/components";
+import { Tag, TagGroup, TagList } from "@hopper-ui/components";
 
 export default function Example() {
     return (
@@ -10,8 +10,8 @@ export default function Example() {
                 <Tag id="developer">
                         Designer
                 </Tag>
-                <Tag id="dentist">
-                        Dentist
+                <Tag id="manager">
+                        Manager
                 </Tag>
             </TagList>
         </TagGroup>

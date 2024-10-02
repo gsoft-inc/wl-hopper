@@ -6,9 +6,9 @@ export default function Example() {
             showCharacterCount
             maxLength={20}
             allowExceedingMaxLength
-            defaultValue="React simplifies the process of creating dynamic web applications."
+            defaultValue="I appreciate their open-door policy and willingness to listen to our ideas and concerns."
         >
-            <Label>Comment:</Label>
+            <Label>Comment</Label>
         </TextField>
     );
 }

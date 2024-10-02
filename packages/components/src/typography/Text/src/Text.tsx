@@ -17,12 +17,14 @@ import styles from "./Text.module.css";
 
 export const GlobalTextCssSelector = "hop-Text";
 
+export type TextSize = "inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
 export interface TextProps extends StyledComponentProps<RACTextProps> {
     /**
      * The Typography Type Scale to use.
      * @default "md"
      */
-    size?: ResponsiveProp<"inherit" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
+    size?: ResponsiveProp<TextSize>;
 }
 
 function Text(props: TextProps, ref: ForwardedRef<HTMLSpanElement>) {

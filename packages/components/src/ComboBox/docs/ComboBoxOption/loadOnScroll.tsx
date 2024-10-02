@@ -25,7 +25,7 @@ export default function Example() {
             aria-label="list of options"
             items={list.items as Iterable<Character>}
             maxHeight="core_1280"
-            fieldChildren={<Label>Animals</Label>}
+            fieldChildren={<Label>Roles</Label>}
             listBoxProps={{
                 isLoading: list.isLoading,
                 onLoadMore: list.loadMore

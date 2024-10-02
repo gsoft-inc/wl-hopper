@@ -1,9 +1,9 @@
-import { TextField, Label } from "@hopper-ui/components";
+import { Label, TextField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <TextField placeholder="Enter a name" showCharacterCount maxLength={60}>
-            <Label>Name:</Label>
+        <TextField placeholder="Full name (e.g., Jane Smith)" showCharacterCount maxLength={60}>
+            <Label>Name</Label>
         </TextField>
     );
 }

@@ -2,10 +2,10 @@ import { ComboBox, Label } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <ComboBox fieldChildren={<Label>Animals</Label>}>
-            <ComboBox.Option id="dog">Dog</ComboBox.Option>
-            <ComboBox.Option id="cat">Cat</ComboBox.Option>
-            <ComboBox.Option id="frog">Frog</ComboBox.Option>
+        <ComboBox fieldChildren={<Label>Roles</Label>}>
+            <ComboBox.Option id="designer">Designer</ComboBox.Option>
+            <ComboBox.Option id="developer">Developer</ComboBox.Option>
+            <ComboBox.Option id="manager">Manager</ComboBox.Option>
         </ComboBox>
     );
 }

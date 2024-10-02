@@ -1,13 +1,13 @@
 import {
     Button,
-    PopoverTrigger,
-    Popover,
-    Heading,
+    ButtonContext,
     Content,
-    SlotProvider,
-    PopoverContext, ButtonContext
+    Heading,
+    Popover,
+    PopoverContext,
+    PopoverTrigger,
+    SlotProvider
 } from "@hopper-ui/components";
-import { InfoIcon } from "@hopper-ui/icons";
 import { type ReactNode, useRef, useState } from "react";
 
 const HighlightedTrigger = ({ children }: { children: ReactNode }) => {
@@ -33,11 +33,11 @@ export default function Example() {
     return (
         <HighlightedTrigger>
             <PopoverTrigger>
-                <Button aria-label="information"><InfoIcon /></Button>
+                <Button>Company Profile</Button>
                 <Popover>
-                    <Heading>Help</Heading>
+                    <Heading>ACME</Heading>
                     <Content>
-                        For help accessing your account, please contact support.
+                    A tech company focusing on the development of software and hardware solutions.
                     </Content>
                 </Popover>
             </PopoverTrigger>
