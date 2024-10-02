@@ -67,7 +67,7 @@ const tsConfigParser = docgenTs.withCustomConfig(
 
 async function writeFile(filename: string, data: ComponentDocWithGroups[]) {
     if (!fs.existsSync(COMPONENT_DATA)) {
-        fs.mkdirSync(COMPONENT_DATA);
+        fs.mkdirSync(COMPONENT_DATA, { recursive: true });
     }
 
     fs.writeFile(`${COMPONENT_DATA}/${filename}.json`, JSON.stringify(data), function (err) {
@@ -119,7 +119,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 
     return filteredData.map(component => {
         // Remove the local or server path from the filePath
-        const originalFilePath = component.filePath.split("wl-hopper")[1].replace(".temp", "");
+        const originalFilePath = ("/packages/" + component.filePath.split("/packages/")[1]).replace(".temp", "");
         updatePropsFileName(component, originalFilePath);
 
         // Destructure and ignore id and ref from component.props
