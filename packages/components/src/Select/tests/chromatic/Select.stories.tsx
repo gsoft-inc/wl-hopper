@@ -1,3 +1,4 @@
+import { Select, SelectField, SelectOption, type SelectFieldProps } from "@hopper-ui/components";
 import { AddIcon, SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
@@ -9,16 +10,15 @@ import { Header } from "../../../Header/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Section } from "../../../Section/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
-import { Select, type SelectProps } from "../../src/Select.tsx";
 
 const meta = {
     title: "Components/Select",
-    component: Select,
+    component: SelectField,
     args: {
         children: [],
         "aria-label": "Animals"
     }
-} satisfies Meta<typeof Select>;
+} satisfies Meta<typeof SelectField>;
 
 export default meta;
 
@@ -51,11 +51,13 @@ const marginBottomDecoratorLG = [
 
 export const OnlyItems = {
     render: args => (
-        <Select {...args}>
-            <Select.Option id="dog">Dog</Select.Option>
-            <Select.Option id="cat">Cat</Select.Option>
-            <Select.Option id="frog">Frog</Select.Option>
-        </Select>
+        <SelectField {...args}>
+            <Select>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
     ),
     args: {
         isOpen: true
@@ -65,21 +67,23 @@ export const OnlyItems = {
 
 export const Sections = {
     render: args => (
-        <Select {...args}>
-            <Section>
-                <Header>Cats</Header>
-                <Select.Option id="1">Zoomy</Select.Option>
-                <Select.Option id="2">Voodoo</Select.Option>
-                <Select.Option id="3">Dusty</Select.Option>
-                <Select.Option id="4">Rengar</Select.Option>
-            </Section>
-            <Section>
-                <Header>Dogs</Header>
-                <Select.Option id="5">Teemo</Select.Option>
-                <Select.Option id="6">Scooter</Select.Option>
-                <Select.Option id="7">Prince</Select.Option>
-            </Section>
-        </Select>
+        <SelectField {...args}>
+            <Select>
+                <Section>
+                    <Header>Developers</Header>
+                    <SelectOption id="1">Zoomy</SelectOption>
+                    <SelectOption id="2">Voodoo</SelectOption>
+                    <SelectOption id="3">Dusty</SelectOption>
+                    <SelectOption id="4">Rengar</SelectOption>
+                </Section>
+                <Section>
+                    <Header>Designers</Header>
+                    <SelectOption id="5">Teemo</SelectOption>
+                    <SelectOption id="6">Scooter</SelectOption>
+                    <SelectOption id="7">Prince</SelectOption>
+                </Section>
+            </Select>
+        </SelectField>
     ),
     args: {
         isOpen: true
@@ -88,10 +92,53 @@ export const Sections = {
 } satisfies Story;
 
 export const Footer = {
-    ...Sections,
+    render: args => (
+        <SelectField {...args}>
+            <Select footer={<Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>}>
+                <Section>
+                    <Header>Developers</Header>
+                    <SelectOption id="1">Zoomy</SelectOption>
+                    <SelectOption id="2">Voodoo</SelectOption>
+                    <SelectOption id="3">Dusty</SelectOption>
+                    <SelectOption id="4">Rengar</SelectOption>
+                </Section>
+                <Section>
+                    <Header>Designers</Header>
+                    <SelectOption id="5">Teemo</SelectOption>
+                    <SelectOption id="6">Scooter</SelectOption>
+                    <SelectOption id="7">Prince</SelectOption>
+                </Section>
+            </Select>
+        </SelectField>
+    ),
     args: {
-        isOpen: true,
-        footer: <Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>
+        isOpen: true
+    },
+    decorators: marginBottomDecoratorLG
+} satisfies Story;
+
+export const TextFooter = {
+    render: args => (
+        <SelectField {...args}>
+            <Select footer={<Text>This is a list of animals</Text>}>
+                <Section>
+                    <Header>Developers</Header>
+                    <SelectOption id="1">Zoomy</SelectOption>
+                    <SelectOption id="2">Voodoo</SelectOption>
+                    <SelectOption id="3">Dusty</SelectOption>
+                    <SelectOption id="4">Rengar</SelectOption>
+                </Section>
+                <Section>
+                    <Header>Designers</Header>
+                    <SelectOption id="5">Teemo</SelectOption>
+                    <SelectOption id="6">Scooter</SelectOption>
+                    <SelectOption id="7">Prince</SelectOption>
+                </Section>
+            </Select>
+        </SelectField>
+    ),
+    args: {
+        isOpen: true
     },
     decorators: marginBottomDecoratorLG
 } satisfies Story;
@@ -99,36 +146,40 @@ export const Footer = {
 export const Sizes = {
     render: args => (
         <Inline>
-            <Select {...args}>
-                <Section>
-                    <Header>Cats</Header>
-                    <Select.Option id="1">Zoomy</Select.Option>
-                    <Select.Option id="2">Voodoo</Select.Option>
-                    <Select.Option id="3">Dusty</Select.Option>
-                    <Select.Option id="4">Rengar</Select.Option>
-                </Section>
-                <Section>
-                    <Header>Dogs</Header>
-                    <Select.Option id="5">Teemo</Select.Option>
-                    <Select.Option id="6">Scooter</Select.Option>
-                    <Select.Option id="7">Prince</Select.Option>
-                </Section>
-            </Select>
-            <Select {...args} size="md">
-                <Section>
-                    <Header>Cats</Header>
-                    <Select.Option id="1">Zoomy</Select.Option>
-                    <Select.Option id="2">Voodoo</Select.Option>
-                    <Select.Option id="3">Dusty</Select.Option>
-                    <Select.Option id="4">Rengar</Select.Option>
-                </Section>
-                <Section>
-                    <Header>Dogs</Header>
-                    <Select.Option id="5">Teemo</Select.Option>
-                    <Select.Option id="6">Scooter</Select.Option>
-                    <Select.Option id="7">Prince</Select.Option>
-                </Section>
-            </Select>
+            <SelectField {...args}>
+                <Select>
+                    <Section>
+                        <Header>Developers</Header>
+                        <SelectOption id="1">Zoomy</SelectOption>
+                        <SelectOption id="2">Voodoo</SelectOption>
+                        <SelectOption id="3">Dusty</SelectOption>
+                        <SelectOption id="4">Rengar</SelectOption>
+                    </Section>
+                    <Section>
+                        <Header>Designers</Header>
+                        <SelectOption id="5">Teemo</SelectOption>
+                        <SelectOption id="6">Scooter</SelectOption>
+                        <SelectOption id="7">Prince</SelectOption>
+                    </Section>
+                </Select>
+            </SelectField>
+            <SelectField {...args} size="md">
+                <Select>
+                    <Section>
+                        <Header>Developers</Header>
+                        <SelectOption id="1">Zoomy</SelectOption>
+                        <SelectOption id="2">Voodoo</SelectOption>
+                        <SelectOption id="3">Dusty</SelectOption>
+                        <SelectOption id="4">Rengar</SelectOption>
+                    </Section>
+                    <Section>
+                        <Header>Designers</Header>
+                        <SelectOption id="5">Teemo</SelectOption>
+                        <SelectOption id="6">Scooter</SelectOption>
+                        <SelectOption id="7">Prince</SelectOption>
+                    </Section>
+                </Select>
+            </SelectField>
         </Inline>
     ),
     args: {
@@ -141,7 +192,7 @@ export const Sizes = {
 export const OpenWithSelectedItem = {
     ...OnlyItems,
     args: {
-        defaultSelectedKey: "cat",
+        defaultSelectedKey: "developer",
         isOpen: true
     },
     decorators: marginBottomDecoratorSM
@@ -153,40 +204,50 @@ export const SelectedItem = {
             <Inline>
                 <Div>
                     <h1>Default Selected Key</h1>
-                    <Select {...args} defaultSelectedKey="cat">
-                        <Select.Option id="dog">Dog</Select.Option>
-                        <Select.Option id="cat">Cat</Select.Option>
-                        <Select.Option id="frog">Frog</Select.Option>
-                    </Select>
+                    <SelectField {...args} defaultSelectedKey="developer">
+                        <Select>
+                            <SelectOption id="designer">Designer</SelectOption>
+                            <SelectOption id="developer">Developer</SelectOption>
+                            <SelectOption id="manager">Manager</SelectOption>
+                        </Select>
+                    </SelectField>
                 </Div>
                 <Div>
                     <h1>Selected Key</h1>
-                    <Select {...args} selectedKey="cat">
-                        <Select.Option id="dog">Dog</Select.Option>
-                        <Select.Option id="cat">Cat</Select.Option>
-                        <Select.Option id="frog">Frog</Select.Option>
-                    </Select>
+                    <SelectField {...args} selectedKey="developer">
+                        <Select>
+                            <SelectOption id="designer">Designer</SelectOption>
+                            <SelectOption id="developer">Developer</SelectOption>
+                            <SelectOption id="manager">Manager</SelectOption>
+                        </Select>
+                    </SelectField>
                 </Div>
             </Inline>
             <h1>Disabled</h1>
-            <Select {...args} defaultSelectedKey="raccoon" isDisabled>
-                <Select.Option id="dog">Dog</Select.Option>
-                <Select.Option id="raccoon">Raccoon</Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
-            </Select>
+            <SelectField {...args} defaultSelectedKey="raccoon" isDisabled>
+                <Select>
+                    <SelectOption id="designer">Designer</SelectOption>
+                    <SelectOption id="raccoon">Raccoon</SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
+                </Select>
+            </SelectField>
             <h1>Fluid</h1>
-            <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                <Select.Option id="dog">Dog</Select.Option>
-                <Select.Option id="raccoon">Raccoon</Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
-            </Select>
+            <SelectField {...args} defaultSelectedKey="raccoon" isFluid>
+                <Select>
+                    <SelectOption id="designer">Designer</SelectOption>
+                    <SelectOption id="raccoon">Raccoon</SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
+                </Select>
+            </SelectField>
             <h1>Limited Width</h1>
             <Div width="11%">
-                <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                    <Select.Option id="dog">Dog</Select.Option>
-                    <Select.Option id="raccoon">Raccoon</Select.Option>
-                    <Select.Option id="frog">Frog</Select.Option>
-                </Select>
+                <SelectField {...args} defaultSelectedKey="raccoon" isFluid>
+                    <Select>
+                        <SelectOption id="designer">Designer</SelectOption>
+                        <SelectOption id="raccoon">Raccoon</SelectOption>
+                        <SelectOption id="manager">Manager</SelectOption>
+                    </Select>
+                </SelectField>
             </Div>
         </Stack>
     )
@@ -198,70 +259,80 @@ export const SelectedItemWithIcon = {
             <Inline>
                 <Div>
                     <h1>Default Selected Key</h1>
-                    <Select {...args} defaultSelectedKey="raccoon">
-                        <Select.Option id="dog" textValue="Dog">
-                            <SparklesIcon />
-                            <Text slot="label">Dog</Text>
-                        </Select.Option>
-                        <Select.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
-                        </Select.Option>
-                        <Select.Option id="frog">Frog</Select.Option>
-                    </Select>
+                    <SelectField {...args} defaultSelectedKey="raccoon">
+                        <Select>
+                            <SelectOption id="designer" textValue="Designer">
+                                <SparklesIcon />
+                                <Text slot="label">Designer</Text>
+                            </SelectOption>
+                            <SelectOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon />
+                                <Text slot="label">Raccoon</Text>
+                            </SelectOption>
+                            <SelectOption id="manager">Manager</SelectOption>
+                        </Select>
+                    </SelectField>
                 </Div>
                 <Div>
                     <h1>Selected Key</h1>
-                    <Select {...args} selectedKey="raccoon">
-                        <Select.Option id="dog" textValue="Dog">
-                            <SparklesIcon />
-                            <Text slot="label">Dog</Text>
-                        </Select.Option>
-                        <Select.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
-                        </Select.Option>
-                        <Select.Option id="frog">Frog</Select.Option>
-                    </Select>
+                    <SelectField {...args} selectedKey="raccoon">
+                        <Select>
+                            <SelectOption id="designer" textValue="Designer">
+                                <SparklesIcon />
+                                <Text slot="label">Designer</Text>
+                            </SelectOption>
+                            <SelectOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon />
+                                <Text slot="label">Raccoon</Text>
+                            </SelectOption>
+                            <SelectOption id="manager">Manager</SelectOption>
+                        </Select>
+                    </SelectField>
                 </Div>
             </Inline>
             <h1>Disabled</h1>
-            <Select {...args} defaultSelectedKey="raccoon" isDisabled>
-                <Select.Option id="dog" textValue="Dog">
-                    <SparklesIcon />
-                    <Text slot="label">Dog</Text>
-                </Select.Option>
-                <Select.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
-                </Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
-            </Select>
-            <h1>Fluid</h1>
-            <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                <Select.Option id="dog" textValue="Dog">
-                    <SparklesIcon />
-                    <Text slot="label">Dog</Text>
-                </Select.Option>
-                <Select.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
-                </Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
-            </Select>
-            <h1>Limited Width</h1>
-            <Div width="11%">
-                <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                    <Select.Option id="dog" textValue="Dog">
+            <SelectField {...args} defaultSelectedKey="raccoon" isDisabled>
+                <Select>
+                    <SelectOption id="designer" textValue="Designer">
                         <SparklesIcon />
-                        <Text slot="label">Dog</Text>
-                    </Select.Option>
-                    <Select.Option id="raccoon" textValue="Raccoon">
+                        <Text slot="label">Designer</Text>
+                    </SelectOption>
+                    <SelectOption id="raccoon" textValue="Raccoon">
                         <SparklesIcon />
                         <Text slot="label">Raccoon</Text>
-                    </Select.Option>
-                    <Select.Option id="frog">Frog</Select.Option>
+                    </SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
                 </Select>
+            </SelectField>
+            <h1>Fluid</h1>
+            <SelectField {...args} defaultSelectedKey="raccoon" isFluid>
+                <Select>
+                    <SelectOption id="designer" textValue="Designer">
+                        <SparklesIcon />
+                        <Text slot="label">Designer</Text>
+                    </SelectOption>
+                    <SelectOption id="raccoon" textValue="Raccoon">
+                        <SparklesIcon />
+                        <Text slot="label">Raccoon</Text>
+                    </SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
+                </Select>
+            </SelectField>
+            <h1>Limited Width</h1>
+            <Div width="11%">
+                <SelectField {...args} defaultSelectedKey="raccoon" isFluid>
+                    <Select>
+                        <SelectOption id="designer" textValue="Designer">
+                            <SparklesIcon />
+                            <Text slot="label">Designer</Text>
+                        </SelectOption>
+                        <SelectOption id="raccoon" textValue="Raccoon">
+                            <SparklesIcon />
+                            <Text slot="label">Raccoon</Text>
+                        </SelectOption>
+                        <SelectOption id="manager">Manager</SelectOption>
+                    </Select>
+                </SelectField>
             </Div>
         </Stack>
     )
@@ -273,70 +344,80 @@ export const SelectedItemWithEndIcon = {
             <Inline>
                 <Div>
                     <h1>Default Selected Key</h1>
-                    <Select {...args} defaultSelectedKey="raccoon">
-                        <Select.Option id="dog" textValue="Dog">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
-                        </Select.Option>
-                        <Select.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
-                        </Select.Option>
-                        <Select.Option id="frog">Frog</Select.Option>
-                    </Select>
+                    <SelectField {...args} defaultSelectedKey="raccoon">
+                        <Select>
+                            <SelectOption id="designer" textValue="Designer">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Designer</Text>
+                            </SelectOption>
+                            <SelectOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Raccoon</Text>
+                            </SelectOption>
+                            <SelectOption id="manager">Manager</SelectOption>
+                        </Select>
+                    </SelectField>
                 </Div>
                 <Div>
                     <h1>Selected Key</h1>
-                    <Select {...args} selectedKey="raccoon">
-                        <Select.Option id="dog" textValue="Dog">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
-                        </Select.Option>
-                        <Select.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
-                        </Select.Option>
-                        <Select.Option id="frog">Frog</Select.Option>
-                    </Select>
+                    <SelectField {...args} selectedKey="raccoon">
+                        <Select>
+                            <SelectOption id="designer" textValue="Designer">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Designer</Text>
+                            </SelectOption>
+                            <SelectOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Raccoon</Text>
+                            </SelectOption>
+                            <SelectOption id="manager">Manager</SelectOption>
+                        </Select>
+                    </SelectField>
                 </Div>
             </Inline>
             <h1>Disabled</h1>
-            <Select {...args} defaultSelectedKey="raccoon" isDisabled>
-                <Select.Option id="dog" textValue="Dog">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
-                </Select.Option>
-                <Select.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
-                </Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
-            </Select>
-            <h1>Fluid</h1>
-            <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                <Select.Option id="dog" textValue="Dog">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
-                </Select.Option>
-                <Select.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
-                </Select.Option>
-                <Select.Option id="frog">Frog</Select.Option>
-            </Select>
-            <h1>Limited Width</h1>
-            <Div width="11%">
-                <Select {...args} defaultSelectedKey="raccoon" isFluid>
-                    <Select.Option id="dog" textValue="Dog">
+            <SelectField {...args} defaultSelectedKey="raccoon" isDisabled>
+                <Select>
+                    <SelectOption id="designer" textValue="Designer">
                         <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Dog</Text>
-                    </Select.Option>
-                    <Select.Option id="raccoon" textValue="Raccoon">
+                        <Text slot="label">Designer</Text>
+                    </SelectOption>
+                    <SelectOption id="raccoon" textValue="Raccoon">
                         <SparklesIcon slot="end-icon" />
                         <Text slot="label">Raccoon</Text>
-                    </Select.Option>
-                    <Select.Option id="frog">Frog</Select.Option>
+                    </SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
                 </Select>
+            </SelectField>
+            <h1>Fluid</h1>
+            <SelectField {...args} defaultSelectedKey="raccoon" isFluid>
+                <Select>
+                    <SelectOption id="designer" textValue="Designer">
+                        <SparklesIcon slot="end-icon" />
+                        <Text slot="label">Designer</Text>
+                    </SelectOption>
+                    <SelectOption id="raccoon" textValue="Raccoon">
+                        <SparklesIcon slot="end-icon" />
+                        <Text slot="label">Raccoon</Text>
+                    </SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
+                </Select>
+            </SelectField>
+            <h1>Limited Width</h1>
+            <Div width="11%">
+                <SelectField {...args} defaultSelectedKey="raccoon" isFluid>
+                    <Select>
+                        <SelectOption id="designer" textValue="Designer">
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Designer</Text>
+                        </SelectOption>
+                        <SelectOption id="raccoon" textValue="Raccoon">
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Raccoon</Text>
+                        </SelectOption>
+                        <SelectOption id="manager">Manager</SelectOption>
+                    </Select>
+                </SelectField>
             </Div>
         </Stack>
     )
@@ -344,17 +425,19 @@ export const SelectedItemWithEndIcon = {
 
 export const SelectItemWithDescription = {
     render: args => (
-        <Select {...args}>
-            <Select.Option id="dog" textValue="Dog">
-                <Text slot="label">Dog</Text>
-                <Text slot="description">I come in many different breeds</Text>
-            </Select.Option>
-            <Select.Option id="raccoon" textValue="Raccoon">
-                <Text slot="label">Raccoon</Text>
-                <Text slot="description">I am nocturnal</Text>
-            </Select.Option>
-            <Select.Option id="frog">Frog</Select.Option>
-        </Select>
+        <SelectField {...args}>
+            <Select>
+                <SelectOption id="designer" textValue="Designer">
+                    <Text slot="label">Designer</Text>
+                    <Text slot="description">I come in many different breeds</Text>
+                </SelectOption>
+                <SelectOption id="raccoon" textValue="Raccoon">
+                    <Text slot="label">Raccoon</Text>
+                    <Text slot="description">I am nocturnal</Text>
+                </SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
     ),
     args: {
         defaultSelectedKey: "raccoon"
@@ -391,32 +474,49 @@ export const CustomTriggerWidth = {
 } satisfies Story;
 
 export const CustomMenuWidth = {
-    ...OnlyItems,
+    render: args => (
+        <SelectField {...args}>
+            <Select UNSAFE_width="30rem">
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
+    ),
     args: {
-        popoverProps: {
-            UNSAFE_width: "30rem"
-        },
         isOpen: true
     },
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const MenuAutoWidth = {
-    ...OnlyItems,
+    render: args => (
+        <SelectField {...args}>
+            <Select isAutoMenuWidth>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
+    ),
     args: {
-        isAutoMenuWidth: true,
         isOpen: true
     },
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const Direction = {
-    ...OnlyItems,
+    render: args => (
+        <SelectField {...args}>
+            <Select placement={{ base: "top", md: "right", lg: "top" }}>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
+    ),
     args: {
-        isOpen: true,
-        popoverProps: {
-            placement: { base: "top", md: "right", lg: "top" }
-        }
+        isOpen: true
     },
     decorators: [
         Story => (
@@ -428,12 +528,17 @@ export const Direction = {
 } satisfies Story;
 
 export const DirectionTop = {
-    ...OnlyItems,
+    render: args => (
+        <SelectField {...args}>
+            <Select placement="top">
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
+    ),
     args: {
-        isOpen: true,
-        popoverProps: {
-            placement: "top"
-        }
+        isOpen: true
     },
     decorators: [
         Story => (
@@ -454,49 +559,48 @@ export const Invalid = {
     decorators: marginBottomDecoratorMD
 } satisfies Story;
 
-const StateTemplate = (args: Partial<SelectProps<object>>) => (
+const StateTemplate = (args: Partial<SelectFieldProps<object>>) => (
     <Stack>
         <Inline alignY="center">
-            <Select {...args}
-                fieldChildren={
-                    <Label>Small</Label>
-                }
-            >
-                <Select.Option id="designer">Designer</Select.Option>
-                <Select.Option id="developer">Developer</Select.Option>
-                <Select.Option id="manager">Manager</Select.Option>
-            </Select>
-            <Select {...args}
+            <SelectField {...args}>
+                <Label>Small</Label>
+                <Select>
+                    <SelectOption id="designer">Designer</SelectOption>
+                    <SelectOption id="developer">Developer</SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
+                </Select>
+            </SelectField>
+            <SelectField {...args}
                 size="md"
-                fieldChildren={
-                    <Label>Medium</Label>
-                }
             >
-                <Select.Option id="designer">Designer</Select.Option>
-                <Select.Option id="developer">Developer</Select.Option>
-                <Select.Option id="manager">Manager</Select.Option>
-            </Select>
+                <Label>Medium</Label>
+                <Select>
+                    <SelectOption id="designer">Designer</SelectOption>
+                    <SelectOption id="developer">Developer</SelectOption>
+                    <SelectOption id="manager">Manager</SelectOption>
+                </Select>
+            </SelectField>
         </Inline>
-        <Select {...args}
+        <SelectField {...args}
             isDisabled
-            fieldChildren={
-                <Label>Disabled</Label>
-            }
         >
-            <Select.Option id="dog">Dog</Select.Option>
-            <Select.Option id="cat">Cat</Select.Option>
-            <Select.Option id="frog">Frog</Select.Option>
-        </Select>
-        <Select {...args}
+            <Label>Disabled</Label>
+            <Select>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
+        <SelectField {...args}
             isInvalid
-            fieldChildren={
-                <Label>Invalid</Label>
-            }
         >
-            <Select.Option id="dog">Dog</Select.Option>
-            <Select.Option id="cat">Cat</Select.Option>
-            <Select.Option id="frog">Frog</Select.Option>
-        </Select>
+            <Label>Invalid</Label>
+            <Select>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
     </Stack>
 );
 
@@ -545,7 +649,7 @@ export const TriggerStates = {
         </Stack>
     ),
     args: {
-        defaultSelectedKey: "cat"
+        defaultSelectedKey: "developer"
     },
     decorators: marginBottomDecoratorSM
 } satisfies Story;
@@ -554,18 +658,22 @@ export const Zoom = {
     render: args => (
         <Inline>
             <Div className="zoom-in">
-                <Select {...args}>
-                    <Select.Option id="1">Zoomy</Select.Option>
-                    <Select.Option id="2">Voodoo</Select.Option>
-                    <Select.Option id="3">Dusty</Select.Option>
-                </Select>
+                <SelectField {...args}>
+                    <Select>
+                        <SelectOption id="1">Zoomy</SelectOption>
+                        <SelectOption id="2">Voodoo</SelectOption>
+                        <SelectOption id="3">Dusty</SelectOption>
+                    </Select>
+                </SelectField>
             </Div>
             <Div className="zoom-out">
-                <Select {...args}>
-                    <Select.Option id="1">Zoomy</Select.Option>
-                    <Select.Option id="2">Voodoo</Select.Option>
-                    <Select.Option id="3">Dusty</Select.Option>
-                </Select>
+                <SelectField {...args}>
+                    <Select>
+                        <SelectOption id="1">Zoomy</SelectOption>
+                        <SelectOption id="2">Voodoo</SelectOption>
+                        <SelectOption id="3">Dusty</SelectOption>
+                    </Select>
+                </SelectField>
             </Div>
         </Inline>
     ),
@@ -578,33 +686,39 @@ export const Zoom = {
 export const Styling = {
     render: args => (
         <Inline>
-            <Select {...args}
+            <SelectField {...args}
                 triggerProps={
                     { border: "warning" }
                 }
             >
-                <Select.Option id="1">Zoomy</Select.Option>
-                <Select.Option id="2">Voodoo</Select.Option>
-                <Select.Option id="3">Dusty</Select.Option>
-            </Select>
-            <Select {...args}
+                <Select>
+                    <SelectOption id="1">Zoomy</SelectOption>
+                    <SelectOption id="2">Voodoo</SelectOption>
+                    <SelectOption id="3">Dusty</SelectOption>
+                </Select>
+            </SelectField>
+            <SelectField {...args}
                 triggerProps={
                     { className: "border-red" }
                 }
             >
-                <Select.Option id="1">Zoomy</Select.Option>
-                <Select.Option id="2">Voodoo</Select.Option>
-                <Select.Option id="3">Dusty</Select.Option>
-            </Select>
-            <Select {...args}
+                <Select>
+                    <SelectOption id="1">Zoomy</SelectOption>
+                    <SelectOption id="2">Voodoo</SelectOption>
+                    <SelectOption id="3">Dusty</SelectOption>
+                </Select>
+            </SelectField>
+            <SelectField {...args}
                 triggerProps={
                     { style: { border: "1px solid red" } }
                 }
             >
-                <Select.Option id="1">Zoomy</Select.Option>
-                <Select.Option id="2">Voodoo</Select.Option>
-                <Select.Option id="3">Dusty</Select.Option>
-            </Select>
+                <Select>
+                    <SelectOption id="1">Zoomy</SelectOption>
+                    <SelectOption id="2">Voodoo</SelectOption>
+                    <SelectOption id="3">Dusty</SelectOption>
+                </Select>
+            </SelectField>
         </Inline>
     ),
     args: {

@@ -5,9 +5,9 @@ import { type ForwardedRef, forwardRef, type NamedExoticComponent, useContext, u
 import {
     composeRenderProps,
     DEFAULT_SLOT,
+    SelectContext as RACSelectContext,
     SelectValueContext as RACSelectValueContext,
     type SelectValueProps as RACSelectValueProps,
-    SelectContext,
     SelectStateContext,
     useContextProps, useSlottedContext
 } from "react-aria-components";
@@ -50,7 +50,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
     const refForOverflowCheck = textRef.current ? textRef : ref;
     const isOverflow = useIsOverflow(refForOverflowCheck);
     const state = useContext(SelectStateContext);
-    const { placeholder } = useSlottedContext(SelectContext)!;
+    const { placeholder } = useSlottedContext(RACSelectContext)!;
     const selectedItem = state?.selectedKey != null
         ? state.collection.getItem(state.selectedKey)
         : null;

@@ -1,14 +1,16 @@
-import { Select } from "@hopper-ui/components";
+import { Select, SelectField, SelectOption } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Select
+        <SelectField
             disabledKeys={["developer"]}
             aria-label="list of options"
         >
-            <Select.Option id="designer">Designer</Select.Option>
-            <Select.Option id="developer">Developer</Select.Option>
-            <Select.Option id="manager">Manager</Select.Option>
-        </Select>
+            <Select>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
     );
 }

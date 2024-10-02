@@ -1,14 +1,16 @@
-import { Label, Select } from "@hopper-ui/components";
+import { Label, Select, SelectField, SelectOption } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Select
-            fieldChildren={<Label>Roles</Label>}
+        <SelectField
             prefix="Operations"
         >
-            <Select.Option id="project-coordinator">Project Coordinator</Select.Option>
-            <Select.Option id="qa-specialist">QA Specialist</Select.Option>
-            <Select.Option id="system-administrator">System Administrator</Select.Option>
-        </Select>
+            <Label>Roles</Label>
+            <Select>
+                <SelectOption id="project-coordinator">Project Coordinator</SelectOption>
+                <SelectOption id="qa-specialist">QA Specialist</SelectOption>
+                <SelectOption id="system-administrator">System Administrator</SelectOption>
+            </Select>
+        </SelectField>
     );
 }

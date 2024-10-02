@@ -3,16 +3,18 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Select } from "../../src/Select.tsx";
+import { Select, SelectField, SelectOption } from "../../index.ts";
 
 describe("Select", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <Select>
-                    <Select.Option id="1">Zoomy</Select.Option>
-                    <Select.Option id="2">Voodoo</Select.Option>
-                </Select>
+                <SelectField aria-label="Pets">
+                    <Select>
+                        <SelectOption id="1">Zoomy</SelectOption>
+                        <SelectOption id="2">Voodoo</SelectOption>
+                    </Select>
+                </SelectField>
             );
 
         expect(renderOnServer).not.toThrow();

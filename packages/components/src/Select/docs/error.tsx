@@ -1,21 +1,17 @@
-import { ErrorMessage, Label, Select } from "@hopper-ui/components";
-
-const fieldChildren = (
-    <>
-        <Label>Roles</Label>
-        <ErrorMessage>This field is required</ErrorMessage>
-    </>
-);
+import { ErrorMessage, Label, Select, SelectField, SelectOption } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <Select
-            fieldChildren={fieldChildren}
+        <SelectField
             isInvalid
         >
-            <Select.Option id="designer">Designer</Select.Option>
-            <Select.Option id="developer">Developer</Select.Option>
-            <Select.Option id="manager">Manager</Select.Option>
-        </Select>
+            <Label>Roles</Label>
+            <ErrorMessage>This field is required</ErrorMessage>
+            <Select>
+                <SelectOption id="designer">Designer</SelectOption>
+                <SelectOption id="developer">Developer</SelectOption>
+                <SelectOption id="manager">Manager</SelectOption>
+            </Select>
+        </SelectField>
     );
 }

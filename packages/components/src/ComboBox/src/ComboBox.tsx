@@ -316,7 +316,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                         <Popover
                             placement={placement}
                             isNonDialog
-                            autoWidth={isAutoMenuWidth}
+                            isAutoWidth={isAutoMenuWidth}
                             style={popoverStyle}
                             triggerRef={triggerRef}
                             {...otherPopoverProps}

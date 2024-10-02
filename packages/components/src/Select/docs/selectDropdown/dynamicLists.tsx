@@ -1,4 +1,4 @@
-import { Collection, Header, Inline, Label, Section, Select } from "@hopper-ui/components";
+import { Collection, Header, Inline, Label, Section, Select, SelectField, SelectOption } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -39,33 +39,37 @@ export default function Example() {
 
     return (
         <Inline alignY="flex-start">
-            <Select
-                items={options}
-                fieldChildren={<Label>Items</Label>}
-            >
-                {item => {
-                    const { id, role } = item;
+            <SelectField>
+                <Label>Items</Label>
+                <Select
+                    items={options}
+                >
+                    {item => {
+                        const { id, role } = item;
 
-                    return <Select.Option id={id}>{role}</Select.Option>;
-                }}
-            </Select>
-            <Select
-                items={optionsWithSections}
-                fieldChildren={<Label>Section</Label>}
-            >
-                {section => {
-                    const { role: sectionName, children } = section;
+                        return <SelectOption id={id}>{role}</SelectOption>;
+                    }}
+                </Select>
+            </SelectField>
+            <SelectField>
+                <Label>Section</Label>
+                <Select
+                    items={optionsWithSections}
+                >
+                    {section => {
+                        const { role: sectionName, children } = section;
 
-                    return (
-                        <Section id={sectionName}>
-                            <Header>{sectionName}</Header>
-                            <Collection items={children}>
-                                {item => <Select.Option id={item.id}>{item.role}</Select.Option>}
-                            </Collection>
-                        </Section>
-                    );
-                }}
-            </Select>
+                        return (
+                            <Section id={sectionName}>
+                                <Header>{sectionName}</Header>
+                                <Collection items={children}>
+                                    {item => <SelectOption id={item.id}>{item.role}</SelectOption>}
+                                </Collection>
+                            </Section>
+                        );
+                    }}
+                </Select>
+            </SelectField>
         </Inline>
     );
 }

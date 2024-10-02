@@ -1,4 +1,4 @@
-import { Select } from "@hopper-ui/components";
+import { Select, SelectField, SelectOption } from "@hopper-ui/components";
 import { useAsyncList } from "react-stately";
 
 interface Character {
@@ -21,20 +21,23 @@ export default function Example() {
     });
 
     return (
-        <Select
+        <SelectField
             aria-label="list of options"
-            items={list.items as Iterable<Character>}
-            maxHeight="core_1280"
-            listBoxProps={{ 
-                isLoading: list.isLoading,
-                onLoadMore: list.loadMore
-            }}
         >
-            {(item: Character) => {
-                const { name } = item;
+            <Select
+                items={list.items as Iterable<Character>}
+                listBoxProps={{ 
+                    isLoading: list.isLoading,
+                    onLoadMore: list.loadMore
+                }}
+                maxHeight="core_1280"
+            >
+                {(item: Character) => {
+                    const { name } = item;
 
-                return <Select.Option id={name}>{name}</Select.Option>;
-            }}
-        </Select>
+                    return <SelectOption id={name}>{name}</SelectOption>;
+                }}
+            </Select>
+        </SelectField>
     );
 }
