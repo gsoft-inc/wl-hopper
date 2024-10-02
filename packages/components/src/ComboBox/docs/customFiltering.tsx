@@ -4,16 +4,16 @@ import { useFilter } from "react-aria";
 
 export default function Example() {
     const options = useMemo(() => [
-        { id: 1, name: "Cat" },
-        { id: 2, name: "Dog" },
-        { id: 3, name: "Lizard" },
-        { id: 4, name: "Zebra" },
-        { id: 5, name: "Cow" },
-        { id: 6, name: "Chimpanzee" },
-        { id: 7, name: "Horse" },
-        { id: 8, name: "Fish" },
-        { id: 9, name: "Koala" },
-        { id: 10, name: "Kangaroo" }
+        { id: 1, name: "Designer" },
+        { id: 2, name: "Developer" },
+        { id: 3, name: "Manager" },
+        { id: 4, name: "QA Engineer" },
+        { id: 5, name: "Product Owner" },
+        { id: 6, name: "Scrum Master" },
+        { id: 7, name: "UX Researcher" },
+        { id: 8, name: "Business Analyst" },
+        { id: 9, name: "DevOps Engineer" },
+        { id: 10, name: "Data Scientist" }
     ], []);
 
     const { startsWith } = useFilter({ sensitivity: "base" });
@@ -25,7 +25,7 @@ export default function Example() {
 
     return (
         <ComboBox
-            fieldChildren={<Label>Animals</Label>}
+            fieldChildren={<Label>Roles</Label>}
             items={filteredItems}
             inputValue={filterValue}
             onInputChange={setFilterValue}

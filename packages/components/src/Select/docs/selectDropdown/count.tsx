@@ -3,15 +3,15 @@ import { Badge, Select, Text } from "@hopper-ui/components";
 export default function Example() {
     return (
         <Select aria-label="list of options">
-            <Select.Option textValue="Item 1">
-                <Text slot="label">Item 1</Text>
+            <Select.Option textValue="Designer">
+                <Text slot="label">Designer</Text>
                 <Badge>50</Badge>
             </Select.Option>
-            <Select.Option textValue="Item 2">
+            <Select.Option textValue="Developer">
                 <Badge variant="secondary">99+</Badge>
-                <Text slot="label">Item 2</Text>
+                <Text slot="label">Developer</Text>
             </Select.Option>
-            <Select.Option>Item 3</Select.Option>
+            <Select.Option>Manager</Select.Option>
         </Select>
     );
 }

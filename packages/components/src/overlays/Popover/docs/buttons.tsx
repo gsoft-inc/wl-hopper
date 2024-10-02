@@ -1,18 +1,17 @@
-import { Button, PopoverTrigger, Popover, Heading, Content, ButtonGroup } from "@hopper-ui/components";
-import { InfoIcon } from "@hopper-ui/icons";
+import { Button, ButtonGroup, Content, Heading, Popover, PopoverTrigger } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <PopoverTrigger>
-            <Button aria-label="information" variant="secondary"><InfoIcon /></Button>
+            <Button>Company Profile</Button>
             <Popover>
-                <Heading>Title</Heading>
+                <Heading>ACME</Heading>
                 <Content>
-                    Popover content
+                    A tech company focusing on the development of software and hardware solutions.
                 </Content>
                 <ButtonGroup>
-                    <Button variant="secondary">Next</Button>
-                    <Button>Got it</Button>
+                    <Button variant="secondary">Follow</Button>
+                    <Button>Apply</Button>
                 </ButtonGroup>
             </Popover>
         </PopoverTrigger>

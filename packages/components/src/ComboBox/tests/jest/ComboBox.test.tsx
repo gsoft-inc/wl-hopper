@@ -6,7 +6,7 @@ import { ComboBoxContext } from "../../src/ComboBoxContext.ts";
 
 describe("ComboBox", () => {
     it("should render with default class", () => {
-        render(<ComboBox aria-label="Animals" data-testid="select">
+        render(<ComboBox aria-label="Roles" data-testid="select">
             <ComboBox.Option>Item 1</ComboBox.Option>
             <ComboBox.Option>Item 2</ComboBox.Option>
             <ComboBox.Option>Item 3</ComboBox.Option>
@@ -17,7 +17,7 @@ describe("ComboBox", () => {
     });
 
     it("should support custom class", () => {
-        render(<ComboBox aria-label="Animals" className="test" data-testid="select">
+        render(<ComboBox aria-label="Roles" className="test" data-testid="select">
             <ComboBox.Option>Item 1</ComboBox.Option>
             <ComboBox.Option>Item 2</ComboBox.Option>
             <ComboBox.Option>Item 3</ComboBox.Option>
@@ -29,7 +29,7 @@ describe("ComboBox", () => {
     });
 
     it("should support custom style", () => {
-        render(<ComboBox aria-label="Animals" marginTop="stack-sm" style={{ marginBottom: "13px" }} data-testid="select">
+        render(<ComboBox aria-label="Roles" marginTop="stack-sm" style={{ marginBottom: "13px" }} data-testid="select">
             <ComboBox.Option>Item 1</ComboBox.Option>
             <ComboBox.Option>Item 2</ComboBox.Option>
             <ComboBox.Option>Item 3</ComboBox.Option>
@@ -40,7 +40,7 @@ describe("ComboBox", () => {
     });
 
     it("should support DOM props", () => {
-        render(<ComboBox aria-label="Animals" data-foo="bar" data-testid="select">
+        render(<ComboBox aria-label="Roles" data-foo="bar" data-testid="select">
             <ComboBox.Option>Item 1</ComboBox.Option>
             <ComboBox.Option>Item 2</ComboBox.Option>
             <ComboBox.Option>Item 3</ComboBox.Option>
@@ -69,7 +69,7 @@ describe("ComboBox", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<ComboBox ref={ref} aria-label="Animals">
+        render(<ComboBox ref={ref} aria-label="Roles">
             <ComboBox.Option>Item 1</ComboBox.Option>
             <ComboBox.Option>Item 2</ComboBox.Option>
             <ComboBox.Option>Item 3</ComboBox.Option>

@@ -13,13 +13,13 @@ export default function Example() {
     }
 
     return (
-        <ComboBox selectedKey={selectedKey} onSelectionChange={handleSelectionChange} aria-label="pets" fieldChildren={<Label>Animals</Label>}>
+        <ComboBox selectedKey={selectedKey} onSelectionChange={handleSelectionChange} aria-label="pets" fieldChildren={<Label>Roles</Label>}>
             <Section key="1">
-                <Header>Cats</Header>
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
+                <Header>Operations</Header>
+                <ComboBox.Option id="1">Project Coordinator</ComboBox.Option>
+                <ComboBox.Option id="2">QA Specialist</ComboBox.Option>
             </Section>
-            <ComboBox.Option key="2" id="3">Teemo</ComboBox.Option>
+            <ComboBox.Option key="2" id="3">Manager</ComboBox.Option>
         </ComboBox>
     );
 }

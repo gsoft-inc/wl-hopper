@@ -1,10 +1,10 @@
-import { Link, Inline } from "@hopper-ui/components";
+import { Inline, Link } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Inline>
-            <Link variant="primary" href="#">Primary link</Link>
-            <Link variant="secondary" href="#">Secondary link</Link>
+            <Link variant="primary" href="#">Learn more</Link>
+            <Link variant="secondary" href="#">Learn more</Link>
         </Inline>
     );
 }

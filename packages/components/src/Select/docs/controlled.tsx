@@ -13,13 +13,13 @@ export default function Example() {
     }
 
     return (
-        <Select selectedKey={selectedKey} onSelectionChange={handleSelectionChange} aria-label="pets" fieldChildren={<Label>Animals</Label>}>
+        <Select selectedKey={selectedKey} onSelectionChange={handleSelectionChange} aria-label="pets" fieldChildren={<Label>Roles</Label>}>
             <Section key="1">
-                <Header>Cats</Header>
-                <Select.Option id="1">Zoomy</Select.Option>
-                <Select.Option id="2">Voodoo</Select.Option>
+                <Header>Operations</Header>
+                <Select.Option id="1">Project Coordinator</Select.Option>
+                <Select.Option id="2">QA Specialist</Select.Option>
             </Section>
-            <Select.Option key="2" id="3">Teemo</Select.Option>
+            <Select.Option key="2" id="3">Manager</Select.Option>
         </Select>
     );
 }

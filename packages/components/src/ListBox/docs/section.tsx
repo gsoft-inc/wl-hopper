@@ -3,20 +3,20 @@ import { Header, ListBox, ListBoxItem, Section } from "@hopper-ui/components";
 export default function Example() {
     return (
         <ListBox selectionMode="single" aria-label="list of options">
-            <ListBoxItem>Item 1</ListBoxItem>
-            <ListBoxItem>Item 2</ListBoxItem>
+            <ListBoxItem>Developer</ListBoxItem>
+            <ListBoxItem>Manager</ListBoxItem>
             <Section>
-                <Header>More Items</Header>
-                <ListBoxItem>Item 3</ListBoxItem>
-                <ListBoxItem>Item 4</ListBoxItem>
-                <ListBoxItem>Item 5</ListBoxItem>
+                <Header>Creative Department</Header>
+                <ListBoxItem>Designer</ListBoxItem>
+                <ListBoxItem>Copywriter</ListBoxItem>
+                <ListBoxItem>UX Researcher</ListBoxItem>
             </Section>
             <Section>
-                <Header>Even More Items</Header>
-                <ListBoxItem>Item 6</ListBoxItem>
-                <ListBoxItem>Item 7</ListBoxItem>
+                <Header>Operations</Header>
+                <ListBoxItem>Project Coordinator</ListBoxItem>
+                <ListBoxItem>QA Specialist</ListBoxItem>
             </Section>
-            <ListBoxItem>Item 8</ListBoxItem>
+            <ListBoxItem>Product Owner</ListBoxItem>
         </ListBox>
     );
 }

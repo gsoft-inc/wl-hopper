@@ -3,17 +3,17 @@ import { SparklesIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
-        <ComboBox fieldChildren={<Label>Animals</Label>}>
-            <ComboBox.Option textValue="Item 1">
-                <Text slot="label">Item 1</Text>
+        <ComboBox fieldChildren={<Label>Roles</Label>}>
+            <ComboBox.Option textValue="Developer">
+                <Text slot="label">Developer</Text>
                 <IconList>
                     <SparklesIcon /><SparklesIcon /><SparklesIcon />
                 </IconList>
             </ComboBox.Option>
-            <ComboBox.Option textValue="Item 2">
-                <SparklesIcon /><Text slot="label">Item 2</Text>
+            <ComboBox.Option textValue="Designer">
+                <SparklesIcon /><Text slot="label">Designer</Text>
             </ComboBox.Option>
-            <ComboBox.Option>Item 3</ComboBox.Option>
+            <ComboBox.Option>Manager</ComboBox.Option>
         </ComboBox>
     );
 }

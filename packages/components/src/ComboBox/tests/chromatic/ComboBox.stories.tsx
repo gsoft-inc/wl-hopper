@@ -16,8 +16,8 @@ const meta = {
     component: ComboBox,
     args: {
         children: [],
-        "aria-label": "Animals"
-    }  
+        "aria-label": "Roles"
+    }
 } satisfies Meta<typeof ComboBox>;
 
 export default meta;
@@ -207,7 +207,7 @@ export const SelectedItem = {
                 <ComboBox.Option id="raccoon">Raccoon</ComboBox.Option>
                 <ComboBox.Option id="frog">Frog</ComboBox.Option>
             </ComboBox>
-            <h1>Limited Width</h1>  
+            <h1>Limited Width</h1>
             <Div width="12%">
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                     <ComboBox.Option id="dog">Dog</ComboBox.Option>
@@ -276,7 +276,7 @@ export const SelectedItemWithIcon = {
                 </ComboBox.Option>
                 <ComboBox.Option id="frog">Frog</ComboBox.Option>
             </ComboBox>
-            <h1>Limited Width</h1>  
+            <h1>Limited Width</h1>
             <Div width="12%">
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                     <ComboBox.Option id="dog" textValue="Dog">
@@ -351,7 +351,7 @@ export const SelectedItemWithEndIcon = {
                 </ComboBox.Option>
                 <ComboBox.Option id="frog">Frog</ComboBox.Option>
             </ComboBox>
-            <h1>Limited Width</h1>  
+            <h1>Limited Width</h1>
             <Div width="12%">
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                     <ComboBox.Option id="dog" textValue="Dog">
@@ -401,7 +401,7 @@ export const ScrollingWithSelectedItemOutsideVisibleScope = {
         defaultSelectedKey: "7"
     },
     play: playFn,
-    decorators: marginBottomDecoratorMD 
+    decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 export const CustomTriggerWidth = {
@@ -447,7 +447,7 @@ export const Direction = {
                 <Story />
             </Div>
         )
-    ] 
+    ]
 } satisfies Story;
 
 export const DirectionTop = {
@@ -464,7 +464,7 @@ export const DirectionTop = {
                 <Story />
             </Div>
         )
-    ] 
+    ]
 } satisfies Story;
 
 export const Invalid = {
@@ -610,7 +610,7 @@ export const Styling = {
                 <ComboBox.Option id="2">Voodoo</ComboBox.Option>
                 <ComboBox.Option id="3">Dusty</ComboBox.Option>
             </ComboBox>
-            <ComboBox {...args} 
+            <ComboBox {...args}
                 triggerProps={
                     { className: "border-red" }
                 }
@@ -619,7 +619,7 @@ export const Styling = {
                 <ComboBox.Option id="2">Voodoo</ComboBox.Option>
                 <ComboBox.Option id="3">Dusty</ComboBox.Option>
             </ComboBox>
-            <ComboBox {...args} 
+            <ComboBox {...args}
                 triggerProps={
                     { style: { border: "1px solid red" } }
                 }

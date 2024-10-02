@@ -4,19 +4,19 @@ export default function Example() {
     return (
         <ComboBox isAutoMenuWidth
             aria-label="list of options with a description"
-            fieldChildren={<Label>Animals</Label>}
+            fieldChildren={<Label>Roles</Label>}
         >
-            <ComboBox.Option textValue="Dog">
-                <Text>Dog</Text>
-                <Text slot="description">Description of item 1</Text>
+            <ComboBox.Option textValue="Developer">
+                <Text>Developer</Text>
+                <Text slot="description">Builds, tests, and maintains software.</Text>
             </ComboBox.Option>
             <ComboBox.Option textValue="Cat">
-                <Text>Cat</Text>
-                <Text slot="description">Description of item 2</Text>
+                <Text>Designer</Text>
+                <Text slot="description">Creates visually appealing, functional solutions.</Text>
             </ComboBox.Option>
             <ComboBox.Option textValue="Frog">
-                <Text>Frog</Text>
-                <Text slot="description">Description of item 3 will be a very long one to show overflow.</Text>
+                <Text>Manager</Text>
+                <Text slot="description">Responsible for leading and overseeing a team or department to ensure organizational goals are met.</Text>
             </ComboBox.Option>
         </ComboBox>
     );

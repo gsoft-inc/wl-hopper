@@ -10,7 +10,7 @@ describe("SearchField", () => {
     it("should render with default class", () => {
         render(
             <SearchField data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 
@@ -21,7 +21,7 @@ describe("SearchField", () => {
     it("should support custom class", () => {
         render(
             <SearchField className="test" data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 
@@ -33,7 +33,7 @@ describe("SearchField", () => {
     it("should support custom style", () => {
         render(
             <SearchField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 
@@ -44,7 +44,7 @@ describe("SearchField", () => {
     it("should support DOM props", () => {
         render(
             <SearchField data-testid="field" data-foo="bar">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 
@@ -69,7 +69,7 @@ describe("SearchField", () => {
         const ref = createRef<HTMLDivElement>();
         render(
             <SearchField ref={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 
@@ -81,7 +81,7 @@ describe("SearchField", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <SearchField inputRef={ref} data-testid="field">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 
@@ -95,7 +95,7 @@ describe("SearchField", () => {
         render(
             <SearchFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <SearchField inputRef={inputRef}>
-                    <Label>Label:</Label>
+                    <Label>Label</Label>
                 </SearchField>
             </SearchFieldContext.Provider>
         );
@@ -110,7 +110,7 @@ describe("SearchField", () => {
         const handleClear = jest.fn();
         render(
             <SearchField onClear={handleClear} defaultValue="There is some text in the input">
-                <Label>Label:</Label>
+                <Label>Label</Label>
             </SearchField>
         );
 

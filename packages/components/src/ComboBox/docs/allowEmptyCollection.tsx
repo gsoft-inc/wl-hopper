@@ -5,7 +5,7 @@ export default function Example() {
         <ComboBox
             allowsEmptyCollection
             aria-label="pets"
-            fieldChildren={<Label>Animals</Label>}
+            fieldChildren={<Label>Roles</Label>}
         >
             {[]}
         </ComboBox>

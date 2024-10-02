@@ -23,7 +23,7 @@ const meta = {
     },
     component: Heading,
     args: {
-        children: "Hello, World!"
+        children: "Great work!"
     }
 } satisfies Meta<typeof Heading>;
 

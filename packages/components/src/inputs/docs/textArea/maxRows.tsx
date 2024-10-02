@@ -1,12 +1,12 @@
-import { TextArea, Label } from "@hopper-ui/components";
+import { Label, TextArea } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <TextArea
             maxRows={8}
-            defaultValue="React simplifies the process of creating dynamic web applications."
+            defaultValue="I appreciate their open-door policy and willingness to listen to our ideas and concerns."
         >
-            <Label>Comment:</Label>
+            <Label>Comment</Label>
         </TextArea>
     );
 }
