@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm build && pnpm doc:build"
+  command = "pnpm doc:generate && pnpm build && pnpm doc:build"
   publish = "apps/docs/.next"
   environment = { NODE_OPTIONS = "--max-old-space-size=8192" }
 
