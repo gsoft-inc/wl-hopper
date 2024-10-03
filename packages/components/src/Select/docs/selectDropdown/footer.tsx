@@ -1,12 +1,12 @@
-import { Button, Select, SelectField, SelectOption, Text } from "@hopper-ui/components";
+import { Button, Select, SelectOption, SelectOptions, Text } from "@hopper-ui/components";
 import { AddIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
-        <SelectField
+        <Select
             aria-label="list of options with a description"
         >
-            <Select
+            <SelectOptions
                 footer={<Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>}
             >
                 <SelectOption textValue="Designer">
@@ -21,7 +21,7 @@ export default function Example() {
                     <Text>Manager</Text>
                     <Text slot="description">Leads teams and projects.</Text>
                 </SelectOption>
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

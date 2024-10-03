@@ -1,9 +1,9 @@
-import { Badge, Select, SelectField, SelectOption, Text } from "@hopper-ui/components";
+import { Badge, Select, SelectOption, SelectOptions, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <SelectField aria-label="list of options">
-            <Select>
+        <Select aria-label="list of options">
+            <SelectOptions>
                 <SelectOption textValue="Designer">
                     <Text slot="label">Designer</Text>
                     <Badge>50</Badge>
@@ -13,7 +13,7 @@ export default function Example() {
                     <Text slot="label">Developer</Text>
                 </SelectOption>
                 <SelectOption>Manager</SelectOption>
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

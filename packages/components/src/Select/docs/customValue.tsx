@@ -1,4 +1,4 @@
-import { Avatar, Label, Select, SelectField, SelectOption, Text, type ValueRenderProps } from "@hopper-ui/components";
+import { Avatar, Label, Select, SelectOption, SelectOptions, Text, type ValueRenderProps } from "@hopper-ui/components";
 
 import { users, type User } from "./data.ts";
 
@@ -21,12 +21,12 @@ export default function Example() {
     const [firstUser] = users;
 
     return (
-        <SelectField 
+        <Select 
             renderValue={renderValue}
             defaultSelectedKey={firstUser.id}
         >
             <Label>Users</Label>
-            <Select items={users}>
+            <SelectOptions items={users}>
                 {({ id, name, avatar, role }: User) => {
                     return (
                         <SelectOption id={id} textValue={name}>
@@ -36,7 +36,7 @@ export default function Example() {
                         </SelectOption>
                     );
                 }}
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

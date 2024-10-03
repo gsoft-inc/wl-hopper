@@ -1,9 +1,9 @@
-import { Select, SelectField, SelectOption, Text } from "@hopper-ui/components";
+import { Select, SelectOption, SelectOptions, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <SelectField aria-label="list of options with a description">
-            <Select>
+        <Select aria-label="list of options with a description">
+            <SelectOptions>
                 <SelectOption textValue="Developer">
                     <Text>Developer</Text>
                     <Text slot="description">Builds and maintains software.</Text>
@@ -16,7 +16,7 @@ export default function Example() {
                     <Text>Manager</Text>
                     <Text slot="description">Leads teams and projects.</Text>
                 </SelectOption>
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

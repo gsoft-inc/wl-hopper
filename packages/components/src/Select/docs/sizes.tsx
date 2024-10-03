@@ -1,24 +1,24 @@
-import { Label, Select, SelectField, SelectOption, Stack } from "@hopper-ui/components";
+import { Label, Select, SelectOption, SelectOptions, Stack } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Stack>
-            <SelectField>
+            <Select>
                 <Label>Roles</Label>
-                <Select>
+                <SelectOptions>
                     <SelectOption id="designer">Designer</SelectOption>
                     <SelectOption id="developer">Developer</SelectOption>
                     <SelectOption id="manager">Manager</SelectOption>
-                </Select>
-            </SelectField>
-            <SelectField size="md">
+                </SelectOptions>
+            </Select>
+            <Select size="md">
                 <Label>Roles</Label>
-                <Select>
+                <SelectOptions>
                     <SelectOption id="designer">Designer</SelectOption>
                     <SelectOption id="developer">Developer</SelectOption>
                     <SelectOption id="manager">Manager</SelectOption>
-                </Select>
-            </SelectField>
+                </SelectOptions>
+            </Select>
         </Stack>
     );
 }

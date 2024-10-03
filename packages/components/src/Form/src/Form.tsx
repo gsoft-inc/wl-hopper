@@ -9,7 +9,7 @@ import {
     PasswordFieldContext,
     RadioGroupContext,
     SearchFieldContext,
-    SelectFieldContext,
+    SelectContext,
     TagGroupContext,
     TextAreaContext,
     TextFieldContext
@@ -148,7 +148,7 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
         >
             {/* Put these in a separate SlotProvider due to a typing error */}
             <SlotProvider values={[
-                [SelectFieldContext, {
+                [SelectContext, {
                     isDisabled,
                     isFluid,
                     necessityIndicator,

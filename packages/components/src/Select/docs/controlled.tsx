@@ -1,4 +1,4 @@
-import { Header, Label, Section, Select, SelectField, SelectOption, type Key } from "@hopper-ui/components";
+import { Header, Label, Section, Select, SelectOption, SelectOptions, type Key } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
@@ -13,16 +13,16 @@ export default function Example() {
     }
 
     return (
-        <SelectField selectedKey={selectedKey} onSelectionChange={handleSelectionChange} aria-label="pets">
+        <Select selectedKey={selectedKey} onSelectionChange={handleSelectionChange} aria-label="pets">
             <Label>Roles</Label>
-            <Select>
+            <SelectOptions>
                 <Section key="1">
                     <Header>Operations</Header>
                     <SelectOption id="1">Project Coordinator</SelectOption>
                     <SelectOption id="2">QA Specialist</SelectOption>
                 </Section>
                 <SelectOption key="2" id="3">Manager</SelectOption>
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

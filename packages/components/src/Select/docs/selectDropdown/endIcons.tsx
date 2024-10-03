@@ -1,10 +1,10 @@
-import { IconList, Select, SelectField, SelectOption, Text } from "@hopper-ui/components";
+import { IconList, Select, SelectOption, SelectOptions, Text } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
-        <SelectField aria-label="list of options">
-            <Select>
+        <Select aria-label="list of options">
+            <SelectOptions>
                 <SelectOption textValue="Designer">
                     <Text slot="label">Designer</Text>
                     <IconList slot="end-icon">
@@ -15,7 +15,7 @@ export default function Example() {
                     <SparklesIcon slot="end-icon" /><Text slot="label">Developer</Text>
                 </SelectOption>
                 <SelectOption>Manager</SelectOption>
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

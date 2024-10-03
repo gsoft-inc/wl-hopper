@@ -1,15 +1,15 @@
-import { Select, SelectField } from "@hopper-ui/components";
+import { Select, SelectOptions } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <SelectField
+        <Select
             aria-label="list of options"
         >
-            <Select
+            <SelectOptions
                 listBoxProps={{ isLoading: true }}
             >
                 {[]}
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

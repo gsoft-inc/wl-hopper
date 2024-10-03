@@ -1,58 +1,58 @@
-import { Select, SelectField, SelectOption } from "@hopper-ui/components";
+import { Select, SelectOption, SelectOptions } from "@hopper-ui/components";
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { SelectFieldContext } from "../../src/SelectFieldContext.ts";
+import { SelectContext } from "../../src/SelectContext.ts";
 
-describe("Select", () => {
+describe("SelectOptions", () => {
     it("should render with default class", () => {
-        render(<SelectField aria-label="Animals" data-testid="select">
-            <Select>
+        render(<Select aria-label="Animals" data-testid="select">
+            <SelectOptions>
                 <SelectOption>Item 1</SelectOption>
                 <SelectOption>Item 2</SelectOption>
                 <SelectOption>Item 3</SelectOption>
-            </Select>
-        </SelectField>);
+            </SelectOptions>
+        </Select>);
 
         const element = screen.getByTestId("select");
-        expect(element).toHaveClass("hop-SelectField");
+        expect(element).toHaveClass("hop-Select");
     });
 
     it("should support custom class", () => {
-        render(<SelectField aria-label="Animals" className="test" data-testid="select">
-            <Select>
+        render(<Select aria-label="Animals" className="test" data-testid="select">
+            <SelectOptions>
                 <SelectOption>Item 1</SelectOption>
                 <SelectOption>Item 2</SelectOption>
                 <SelectOption>Item 3</SelectOption>
-            </Select>
-        </SelectField>);
+            </SelectOptions>
+        </Select>);
 
         const element = screen.getByTestId("select");
-        expect(element).toHaveClass("hop-SelectField");
+        expect(element).toHaveClass("hop-Select");
         expect(element).toHaveClass("test");
     });
 
     it("should support custom style", () => {
-        render(<SelectField aria-label="Animals" marginTop="stack-sm" style={{ marginBottom: "13px" }} data-testid="select">
-            <Select>
+        render(<Select aria-label="Animals" marginTop="stack-sm" style={{ marginBottom: "13px" }} data-testid="select">
+            <SelectOptions>
                 <SelectOption>Item 1</SelectOption>
                 <SelectOption>Item 2</SelectOption>
                 <SelectOption>Item 3</SelectOption>
-            </Select>
-        </SelectField>);
+            </SelectOptions>
+        </Select>);
 
         const element = screen.getByTestId("select");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<SelectField aria-label="Animals" data-foo="bar" data-testid="select">
-            <Select>
+        render(<Select aria-label="Animals" data-foo="bar" data-testid="select">
+            <SelectOptions>
                 <SelectOption>Item 1</SelectOption>
                 <SelectOption>Item 2</SelectOption>
                 <SelectOption>Item 3</SelectOption>
-            </Select>
-        </SelectField>);
+            </SelectOptions>
+        </Select>);
 
         const element = screen.getByTestId("select");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -60,15 +60,15 @@ describe("Select", () => {
 
     it("should support slots", () => {
         render(
-            <SelectFieldContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <SelectField slot="test" data-testid="select">
-                    <Select>
+            <SelectContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
+                <Select slot="test" data-testid="select">
+                    <SelectOptions>
                         <SelectOption>Item 1</SelectOption>
                         <SelectOption>Item 2</SelectOption>
                         <SelectOption>Item 3</SelectOption>
-                    </Select>
-                </SelectField>
-            </SelectFieldContext.Provider>
+                    </SelectOptions>
+                </Select>
+            </SelectContext.Provider>
         );
 
         const element = screen.getByTestId("select");
@@ -79,13 +79,13 @@ describe("Select", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<SelectField ref={ref} aria-label="Animals">
-            <Select>
+        render(<Select ref={ref} aria-label="Animals">
+            <SelectOptions>
                 <SelectOption>Item 1</SelectOption>
                 <SelectOption>Item 2</SelectOption>
                 <SelectOption>Item 3</SelectOption>
-            </Select>
-        </SelectField>);
+            </SelectOptions>
+        </Select>);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();

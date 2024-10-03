@@ -1,16 +1,16 @@
-import { Select, SelectField, SelectOption, Text, type Key } from "@hopper-ui/components";
+import { Select, SelectOption, SelectOptions, Text, type Key } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
     const [selectedKey, setSelectedKey] = useState<Key>("1");
 
     return (
-        <SelectField
+        <Select
             aria-label="list of options"
             selectedKey={selectedKey}
             onSelectionChange={setSelectedKey}
         >
-            <Select
+            <SelectOptions
                 listBoxProps={{ selectionIndicator: "input" }}
             >
                 <SelectOption textValue="Developer" id="1">
@@ -25,7 +25,7 @@ export default function Example() {
                     <Text slot="label">Manager</Text>
                     <Text slot="description">Leads teams and projects.</Text>
                 </SelectOption>
-            </Select>
-        </SelectField>
+            </SelectOptions>
+        </Select>
     );
 }

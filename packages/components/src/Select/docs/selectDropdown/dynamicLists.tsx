@@ -1,4 +1,4 @@
-import { Collection, Header, Inline, Label, Section, Select, SelectField, SelectOption } from "@hopper-ui/components";
+import { Collection, Header, Inline, Label, Section, Select, SelectOption, SelectOptions } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -39,9 +39,9 @@ export default function Example() {
 
     return (
         <Inline alignY="flex-start">
-            <SelectField>
+            <Select>
                 <Label>Items</Label>
-                <Select
+                <SelectOptions
                     items={options}
                 >
                     {item => {
@@ -49,11 +49,11 @@ export default function Example() {
 
                         return <SelectOption id={id}>{role}</SelectOption>;
                     }}
-                </Select>
-            </SelectField>
-            <SelectField>
+                </SelectOptions>
+            </Select>
+            <Select>
                 <Label>Section</Label>
-                <Select
+                <SelectOptions
                     items={optionsWithSections}
                 >
                     {section => {
@@ -68,8 +68,8 @@ export default function Example() {
                             </Section>
                         );
                     }}
-                </Select>
-            </SelectField>
+                </SelectOptions>
+            </Select>
         </Inline>
     );
 }
