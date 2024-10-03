@@ -16,6 +16,7 @@
         "doc:start": "pnpm --filter=docs dev",
         "doc:storybook": "pnpm --filter=docs storybook",
         "doc:build": "pnpm --filter=docs build",
+        "doc:generate": "pnpm --filter=docs generate",
         "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
         "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r build",
         "test-storybook": "test-storybook",

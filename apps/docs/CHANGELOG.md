@@ -1,5 +1,11 @@
 # docs
 
+## 0.4.3
+
+### Patch Changes
+
+- 075e33a: Generation of component data in the build/pipelines
+
 ## 0.4.2
 
 ### Patch Changes
