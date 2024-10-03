@@ -10,8 +10,8 @@ import {
     Radio,
     RadioGroup, RadioList,
     Select,
-    SelectField,
     SelectOption,
+    SelectOptions,
     Stack,
     Tag,
     TagGroup,
@@ -79,14 +79,14 @@ const Template = () => {
             <Checkbox>
                 Agree to terms and conditions
             </Checkbox>
-            <SelectField isRequired>
+            <Select isRequired>
                 <Label>Choose an animal</Label>
-                <Select>
+                <SelectOptions>
                     <SelectOption id="designer">Designer</SelectOption>
                     <SelectOption id="developer">Developer</SelectOption>
                     <SelectOption id="manager">Manager</SelectOption>
-                </Select>
-            </SelectField>
+                </SelectOptions>
+            </Select>
             <ComboBox fieldChildren={
                 <Label>Choose an animal</Label>
             }
