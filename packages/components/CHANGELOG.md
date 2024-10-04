@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 7eaf804: Updated the Select syntax to use SelectField and Select components.
+- 7eaf804: Updated the Select and ComboBox syntax to use Select/ComboBox and SelectOptions/ComboBoxOptions
 
 ## 1.3.16
 
