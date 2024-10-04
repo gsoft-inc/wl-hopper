@@ -1,5 +1,5 @@
-import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import clsx from "clsx";
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
 import "./code.css";
 
