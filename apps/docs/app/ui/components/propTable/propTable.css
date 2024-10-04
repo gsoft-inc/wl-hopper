@@ -16,7 +16,6 @@
     @media screen and (width >= 64rem) {
         --hd-props-table-header-display: table-header-group;
         --hd-props-table-cell-label-display: none;
-        --hd-props-table-cell-display: table-cell;
         --hd-props-table-cell-padding-block: var(--hd-space-1);
         --hd-props-table-cell-padding-inline: var(--hd-space-1);
         --hd-props-table-cell-description-font-size: 0.875rem;
@@ -35,7 +34,7 @@
 }
 
 .hd-props-table__cell {
-    display: flex;
+    display: var(--hd-props-table-cell-display);
     flex-flow: row nowrap;
     gap: var(--hd-space-1);
 }

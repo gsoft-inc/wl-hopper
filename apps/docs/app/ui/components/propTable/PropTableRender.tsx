@@ -25,7 +25,7 @@ interface ColoredDefaultValueProps {
 
 const ColoredDefaultValue: React.FC<ColoredDefaultValueProps> = ({ defaultValue }) => {
     const isBoolean = defaultValue === "true" || defaultValue === "false";
-    const formattedValue = isBoolean ? defaultValue.toString() : `'${defaultValue}'`;
+    const formattedValue = defaultValue.toString();
 
     const style = {
         color: isBoolean ? "var(--hd-color-accent-text)" : "var(--hd-color-primary-text)"
@@ -40,7 +40,7 @@ const columns: ColumnDef<Item>[] = [
         accessorFn: row => ({ name: row.name, type: row.type, required: row.required }),
         header: () => "Prop & Type",
         cell: info => {
-            const { name, type, required } = info.getValue() as { name: ReactNode; type: ReactNode };
+            const { name, type, required } = info.getValue() as { name: ReactNode; type: ReactNode; required: boolean };
 
             return (
                 <dt className="hd-props-table__description-term">
