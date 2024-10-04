@@ -1,15 +1,17 @@
+import { Select, SelectOption, SelectOptions } from "@hopper-ui/components";
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { Select } from "../../src/Select.tsx";
 import { SelectContext } from "../../src/SelectContext.ts";
 
-describe("Select", () => {
+describe("SelectOptions", () => {
     it("should render with default class", () => {
         render(<Select aria-label="Animals" data-testid="select">
-            <Select.Option>Item 1</Select.Option>
-            <Select.Option>Item 2</Select.Option>
-            <Select.Option>Item 3</Select.Option>
+            <SelectOptions>
+                <SelectOption>Item 1</SelectOption>
+                <SelectOption>Item 2</SelectOption>
+                <SelectOption>Item 3</SelectOption>
+            </SelectOptions>
         </Select>);
 
         const element = screen.getByTestId("select");
@@ -18,9 +20,11 @@ describe("Select", () => {
 
     it("should support custom class", () => {
         render(<Select aria-label="Animals" className="test" data-testid="select">
-            <Select.Option>Item 1</Select.Option>
-            <Select.Option>Item 2</Select.Option>
-            <Select.Option>Item 3</Select.Option>
+            <SelectOptions>
+                <SelectOption>Item 1</SelectOption>
+                <SelectOption>Item 2</SelectOption>
+                <SelectOption>Item 3</SelectOption>
+            </SelectOptions>
         </Select>);
 
         const element = screen.getByTestId("select");
@@ -30,9 +34,11 @@ describe("Select", () => {
 
     it("should support custom style", () => {
         render(<Select aria-label="Animals" marginTop="stack-sm" style={{ marginBottom: "13px" }} data-testid="select">
-            <Select.Option>Item 1</Select.Option>
-            <Select.Option>Item 2</Select.Option>
-            <Select.Option>Item 3</Select.Option>
+            <SelectOptions>
+                <SelectOption>Item 1</SelectOption>
+                <SelectOption>Item 2</SelectOption>
+                <SelectOption>Item 3</SelectOption>
+            </SelectOptions>
         </Select>);
 
         const element = screen.getByTestId("select");
@@ -41,9 +47,11 @@ describe("Select", () => {
 
     it("should support DOM props", () => {
         render(<Select aria-label="Animals" data-foo="bar" data-testid="select">
-            <Select.Option>Item 1</Select.Option>
-            <Select.Option>Item 2</Select.Option>
-            <Select.Option>Item 3</Select.Option>
+            <SelectOptions>
+                <SelectOption>Item 1</SelectOption>
+                <SelectOption>Item 2</SelectOption>
+                <SelectOption>Item 3</SelectOption>
+            </SelectOptions>
         </Select>);
 
         const element = screen.getByTestId("select");
@@ -54,9 +62,11 @@ describe("Select", () => {
         render(
             <SelectContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
                 <Select slot="test" data-testid="select">
-                    <Select.Option>Item 1</Select.Option>
-                    <Select.Option>Item 2</Select.Option>
-                    <Select.Option>Item 3</Select.Option>
+                    <SelectOptions>
+                        <SelectOption>Item 1</SelectOption>
+                        <SelectOption>Item 2</SelectOption>
+                        <SelectOption>Item 3</SelectOption>
+                    </SelectOptions>
                 </Select>
             </SelectContext.Provider>
         );
@@ -70,9 +80,11 @@ describe("Select", () => {
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
         render(<Select ref={ref} aria-label="Animals">
-            <Select.Option>Item 1</Select.Option>
-            <Select.Option>Item 2</Select.Option>
-            <Select.Option>Item 3</Select.Option>
+            <SelectOptions>
+                <SelectOption>Item 1</SelectOption>
+                <SelectOption>Item 2</SelectOption>
+                <SelectOption>Item 3</SelectOption>
+            </SelectOptions>
         </Select>);
 
         expect(ref.current).not.toBeNull();

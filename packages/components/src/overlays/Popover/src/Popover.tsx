@@ -37,7 +37,7 @@ export interface PopoverProps extends StyledComponentProps<Omit<RACPopoverProps,
     /**
      * Whether the popover should have an auto width. Only available in non-dialog popovers.
      */
-    autoWidth?: boolean;
+    isAutoWidth?: boolean;
     /**
      * The minimum distance the trigger edge should be from the edge of the overlay element.
      */
@@ -61,7 +61,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
-        autoWidth,
+        isAutoWidth,
         children,
         className,
         offset = 4,
@@ -120,7 +120,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
             ref={ref}
             className={popoverClassNames}
             arrowBoundaryOffset={boundaryOffset}
-            data-auto-width={autoWidth || undefined}
+            data-auto-width={isAutoWidth || undefined}
             containerPadding={containerPadding}
             style={style}
             placement={placement}

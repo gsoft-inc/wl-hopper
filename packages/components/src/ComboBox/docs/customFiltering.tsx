@@ -1,6 +1,11 @@
-import { ComboBox, Label } from "@hopper-ui/components";
+import { ComboBox, ComboBoxOption, ComboBoxOptions, Label } from "@hopper-ui/components";
 import { useMemo, useState } from "react";
 import { useFilter } from "react-aria";
+
+interface Role {
+    id: number;
+    name: string;
+}
 
 export default function Example() {
     const options = useMemo(() => [
@@ -14,7 +19,7 @@ export default function Example() {
         { id: 8, name: "Business Analyst" },
         { id: 9, name: "DevOps Engineer" },
         { id: 10, name: "Data Scientist" }
-    ], []);
+    ] satisfies Role[], []);
 
     const { startsWith } = useFilter({ sensitivity: "base" });
     const [filterValue, setFilterValue] = useState("");
@@ -25,12 +30,14 @@ export default function Example() {
 
     return (
         <ComboBox
-            fieldChildren={<Label>Roles</Label>}
             items={filteredItems}
             inputValue={filterValue}
             onInputChange={setFilterValue}
         >
-            {item => <ComboBox.Option>{item.name}</ComboBox.Option>}
+            <Label>Roles</Label>
+            <ComboBoxOptions>
+                {(item: Role) => <ComboBoxOption>{item.name}</ComboBoxOption>}
+            </ComboBoxOptions>
         </ComboBox>
     );
 }
