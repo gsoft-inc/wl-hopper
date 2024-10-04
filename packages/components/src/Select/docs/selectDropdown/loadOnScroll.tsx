@@ -23,9 +23,9 @@ export default function Example() {
     return (
         <Select
             aria-label="list of options"
+            items={list.items as Iterable<Character>}
         >
             <SelectOptions
-                items={list.items as Iterable<Character>}
                 listBoxProps={{ 
                     isLoading: list.isLoading,
                     onLoadMore: list.loadMore
