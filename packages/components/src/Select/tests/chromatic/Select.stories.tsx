@@ -12,7 +12,7 @@ import { Section } from "../../../Section/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
 
 const meta = {
-    title: "Components/SelectOptions",
+    title: "Components/Select",
     component: Select,
     args: {
         children: [],
