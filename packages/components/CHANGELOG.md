@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.17
+
+### Patch Changes
+
+- 7eaf804: Updated the Select and ComboBox syntax to use Select/ComboBox and SelectOptions/ComboBoxOptions
+
 ## 1.3.16
 
 ### Patch Changes
