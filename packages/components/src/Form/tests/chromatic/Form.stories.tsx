@@ -3,6 +3,8 @@ import {
     ButtonGroup,
     Checkbox,
     ComboBox,
+    ComboBoxOption,
+    ComboBoxOptions,
     ErrorMessage,
     HelperMessage,
     Inline,
@@ -87,13 +89,13 @@ const Template = () => {
                     <SelectOption id="manager">Manager</SelectOption>
                 </SelectOptions>
             </Select>
-            <ComboBox fieldChildren={
+            <ComboBox>
                 <Label>Choose an animal</Label>
-            }
-            >
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                    <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <TagGroup selectionMode="single">
                 <Label>Choose a place</Label>
