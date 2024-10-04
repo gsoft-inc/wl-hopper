@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.18
+
+### Patch Changes
+
+- 37cd226: Removed extra padding around select and combo box popovers so that the scrollbar would be all the way to the right.
+
 ## 1.3.17
 
 ### Patch Changes
