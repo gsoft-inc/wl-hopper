@@ -9,7 +9,7 @@ import { generateUniqueKey } from "@/app/lib/generateUniqueKey.ts";
 const filePath = path.join(process.cwd(), "datas", "components");
 
 export const formatData = async (prop: PropItem) => {
-    const { name, type, defaultValue, description } = prop;
+    const { name, type, defaultValue, description, required } = prop;
     const formatType = getType(type);
     const code = await formatCode(formatType, "tsx");
     const formatedDescription = description.replace(/<form>/g, "");
@@ -19,7 +19,8 @@ export const formatData = async (prop: PropItem) => {
         name,
         type: code,
         defaultValue: defaultValue ? defaultValue.value : "",
-        description: formatedDescription
+        description: formatedDescription,
+        required
     });
 };
 
