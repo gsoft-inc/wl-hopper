@@ -1,17 +1,16 @@
 import { Fragment } from "react";
 
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { getComponentProps } from "@/app/lib/getComponentProps.ts";
 import { capitalize } from "@/app/lib/capitalize.ts";
+import { getComponentProps } from "@/app/lib/getComponentProps.ts";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 import Collapsible from "@/components/collapsible/Collapsible.tsx";
-import Title from "@/components/title/Title.tsx";
-import Code from "@/components/code/Code.tsx";
 import { highlightCode, HighlightCode } from "@/components/highlightCode";
+import Title from "@/components/title/Title.tsx";
 
-import { PropTableRender } from "./PropTableRender.tsx";
 import { PropTableCodeExample } from "./PropTableCodeExample.tsx";
 import type { Item } from "./PropTableRender.tsx";
+import { PropTableRender } from "./PropTableRender.tsx";
 
 import "./propTable.css";
 
@@ -24,6 +23,7 @@ interface PropTableItem extends Item {
     name: string;
     type: string;
     description: string;
+    required: boolean;
 }
 
 export interface Groups {
@@ -95,10 +95,11 @@ const formatGroup = async (groups: Groups[]) => {
         return {
             [key]: items.map((description, index) => ({
                 ...group[key][index],
-                name: <Code>{group[key][index].name}</Code>,
+                name: <span>{group[key][index].name}</span>,
                 type: <HighlightCode code={group[key][index].type} variant="tiny" />,
-                defaultValue: group[key][index].defaultValue.replace(/'/g, "\""),
-                description
+                defaultValue: group[key][index].defaultValue.replace(/"/g, ""),
+                description,
+                required: group[key][index].required
             }))
         };
     }));
