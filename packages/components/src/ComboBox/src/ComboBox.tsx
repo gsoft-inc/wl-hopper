@@ -1,31 +1,26 @@
 import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs, useObjectRef, useResizeObserver } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, useState, type Context, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, useCallback, useRef, useState, type CSSProperties, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
 import {
     Button,
     composeRenderProps,
     Group,
     Input,
     InputContext,
-    ButtonContext as RACButtonContext,
     ComboBox as RACComboBox,
-    TextContext as RACTextContext,
     useContextProps,
     useSlottedContext,
-    type ContextValue,
     type ComboBoxProps as RACComboBoxProps,
     type GroupProps as RACGroupProps
 } from "react-aria-components";
 
-import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
 import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { Footer, type FooterProps } from "../../layout/index.ts";
-import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
-import { Popover, type PopoverProps } from "../../overlays/index.ts";
+import { ListBoxContext } from "../../ListBox/index.ts";
+import { PopoverContext } from "../../overlays/index.ts";
 import { LabelContext, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { ComboBoxContext } from "./ComboBoxContext.ts";
 
@@ -35,40 +30,20 @@ export const GlobalComboBoxCssSelector = "hop-ComboBox";
 
 export type ComboBoxTriggerProps = StyledComponentProps<RACGroupProps>;
 
-export interface ComboBoxProps<T extends object> extends StyledComponentProps<Omit<RACComboBoxProps<T>, "children">> {
-    /**
-     * The items of the ComboBox.
-     */
-    children: ReactNode | ((item: T) => ReactNode);
-    /**
-     * The field children of the ComboBox. This includes the field label, field description, and field errors.
-     */
-    fieldChildren?: ReactNode;
-    /**
-     * The footer of the ComboBox.
-     */
-    footer?: ReactNode;
+interface CustomCSSProperties extends CSSProperties {
+    "--custom-trigger-width"?: string;
+}
+
+export interface ComboBoxProps<T extends object> extends StyledComponentProps<RACComboBoxProps<T>> {
     /**
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
     /**
-     * If `true`, the select menu will not be the width of the trigger and instead be the width of its contents.
-     */
-    isAutoMenuWidth?: boolean;
-    /**
      * If `true`, the select will take all available width.
      * @default false
      */
     isFluid?: ResponsiveProp<boolean>;
-    /**
-     * Item objects in the collection.
-     */
-    items?: Iterable<T>;
-    /**
-     * The list box props.
-     */
-    listBoxProps?: ListBoxProps<T>;
     /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
@@ -77,10 +52,6 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      * The placeholder text when the select is empty.
      */
     placeholder?: string;
-    /**
-     * The popover props.
-     */
-    popoverProps?: PopoverProps;
     /**
      * An icon or text to display at the start of the select trigger.
      */
@@ -94,10 +65,6 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      * The props for the select's trigger.
      */
     triggerProps?: ComboBoxTriggerProps;
-    /**
-     * The props for the Footer.
-     */
-    footerProps?: FooterProps;
 }
 
 function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
@@ -110,24 +77,18 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        children,
-        fieldChildren,
-        footer,
-        isAutoMenuWidth,
+        children: childrenProp,
         isFluid: isFluidProp,
         isInvalid,
         isRequired,
         items,
         menuTrigger = "focus",
-        listBoxProps,
         necessityIndicator,
         placeholder,
-        popoverProps,
         prefix,
         size: sizeProp,
         style: styleProp,
         triggerProps,
-        footerProps,
         ...otherProps
     } = ownProps;
     const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef ?? null));
@@ -156,12 +117,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         style: triggerStyleProp,
         ...otherTriggerProps
     } = triggerOwnProps;
-    const { stylingProps: popoverStylingProps, ...popoverOwnProps } = useStyledSystem(popoverProps ?? {});
-    const {
-        placement = "bottom start",
-        style: popoverStyleProp,
-        ...otherPopoverProps
-    } = popoverOwnProps;
 
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
@@ -213,13 +168,9 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             ...prev
         };
     });
-
-    const popoverStyle = composeRenderProps(popoverStyleProp, prev => {
-        return {
-            ...popoverStylingProps.style,
-            ...prev,
-            "--custom-trigger-width": triggerWidth
-        };
+    
+    const children = composeRenderProps(childrenProp, prev => {
+        return prev;
     });
 
     const handleMouseDown: MouseEventHandler<HTMLDivElement> = useCallback(e => {
@@ -244,25 +195,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         </SlotProvider>
     ) : null;
 
-    const footerMarkup = footer ? (
-        <SlotProvider values={[
-            [TextContext, { size, className: styles["hop-ComboBox__footer-text"] }]
-        ]}
-        >
-            <ClearProviders
-                values={[
-                    RACTextContext,
-                    TextContext,
-                    RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
-                ]}
-            >
-                <Footer {...footerProps}>
-                    <EnsureTextWrapper>{footer}</EnsureTextWrapper>
-                </Footer>
-            </ClearProviders>
-        </SlotProvider>
-    ) : null;
-
     return (
         <RACComboBox
             ref={ref}
@@ -270,6 +202,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             style={style}
             isInvalid={isInvalid}
             isRequired={isRequired}
+            items={items}
             menuTrigger={menuTrigger}
             {...otherProps}
         >
@@ -290,10 +223,24 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                             }],
                             [ErrorMessageContext, {
                                 className: styles["hop-ComboBox__error-message"]
+                            }],
+                            [TextContext, {
+                                size
+                            }],
+                            [ListBoxContext, {
+                                size,
+                                isInvalid,
+                                items
+                            }],
+                            [PopoverContext, {
+                                triggerRef,
+                                style: {
+                                    "--custom-trigger-width": triggerWidth
+                                } as CustomCSSProperties
                             }]
                         ]}
                         >
-                            {fieldChildren}
+                            {children(comboBoxRenderProps)}
                         </SlotProvider>
                         <Group
                             ref={triggerRef}
@@ -313,50 +260,21 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 <ButtonIcon size="sm" className={styles["hop-ComboBox__button-icon"]} />
                             </Button>
                         </Group>
-                        <Popover
-                            placement={placement}
-                            isNonDialog
-                            isAutoWidth={isAutoMenuWidth}
-                            style={popoverStyle}
-                            triggerRef={triggerRef}
-                            {...otherPopoverProps}
-                        >
-                            <SlotProvider values={[
-                                [BadgeContext, {
-                                    variant: "secondary"
-                                }]
-                            ]}
-                            >
-                                <ListBox items={items} size={size} isInvalid={isInvalid} {...listBoxProps}>
-                                    {children}
-                                </ListBox>
-                            </SlotProvider>
-
-                            {footerMarkup}
-                        </Popover>
                     </>
                 );
             }}
         </RACComboBox>
     );
 }
-const _ComboBox = forwardRef(ComboBox) as <T extends object>(
-    props: ComboBoxProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof ComboBox>;
-(_ComboBox as NamedExoticComponent).displayName = "ComboBox";
 
 /**
  * Combo box components enable users to choose a single option from a collapsible list, optimizing space efficiency.
  *
  * [View Documentation](TODO)
  */
-const CompoundComboBox = Object.assign(_ComboBox, {
-    /**
-     * A combo box option is an item that is displayed in a combo box.
-     *
-     * [View Documentation](TODO)
-     */
-    Option: ListBoxItem
-});
+const _ComboBox = forwardRef(ComboBox) as <T extends object>(
+    props: ComboBoxProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof ComboBox>;
+(_ComboBox as NamedExoticComponent).displayName = "ComboBox";
 
-export { CompoundComboBox as ComboBox };
+export { _ComboBox as ComboBox };

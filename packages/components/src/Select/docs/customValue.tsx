@@ -24,9 +24,10 @@ export default function Example() {
         <Select 
             renderValue={renderValue}
             defaultSelectedKey={firstUser.id}
+            items={users}
         >
             <Label>Users</Label>
-            <SelectOptions items={users}>
+            <SelectOptions>
                 {({ id, name, avatar, role }: User) => {
                     return (
                         <SelectOption id={id} textValue={name}>

@@ -39,24 +39,20 @@ export default function Example() {
 
     return (
         <Inline alignY="flex-start">
-            <Select>
+            <Select items={options}>
                 <Label>Items</Label>
-                <SelectOptions
-                    items={options}
-                >
-                    {item => {
+                <SelectOptions>
+                    {(item: ListItemProps) => {
                         const { id, role } = item;
 
                         return <SelectOption id={id}>{role}</SelectOption>;
                     }}
                 </SelectOptions>
             </Select>
-            <Select>
+            <Select items={optionsWithSections}>
                 <Label>Section</Label>
-                <SelectOptions
-                    items={optionsWithSections}
-                >
-                    {section => {
+                <SelectOptions>
+                    {(section: ListSectionProps) => {
                         const { role: sectionName, children } = section;
 
                         return (

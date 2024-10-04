@@ -34,6 +34,10 @@ export interface SelectProps<T extends object> extends StyledComponentProps<RACS
      */
     isFluid?: ResponsiveProp<boolean>;
     /**
+     * Item objects in the collection.
+     */
+    items?: Iterable<T>;
+    /**
      * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
      */
     necessityIndicator?: NecessityIndicator;
@@ -69,6 +73,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         isFluid: isFluidProp,
         isInvalid,
         isRequired,
+        items,
         necessityIndicator,
         prefix,
         renderValue,
@@ -171,7 +176,8 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             }],
                             [ListBoxContext, {
                                 size,
-                                isInvalid
+                                isInvalid,
+                                items
                             }]
                             
                         ]}
@@ -195,7 +201,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
 }
 
 /**
- * SelectOptions field components enable users to choose a single option from a collapsible list, optimizing space efficiency.
+ * Select components enable users to choose a single option from a collapsible list, optimizing space efficiency.
  *
  * [View Documentation](TODO)
  */
