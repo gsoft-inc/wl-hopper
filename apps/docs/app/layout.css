@@ -14,7 +14,7 @@ html {
 
 /* New layout start here */
 .hd-layout {
-    --layout-width: 90rem;
+    --layout-width: 102rem;
     --nav-width: 14.875rem;
     --aside-width: 14.875rem;
 
@@ -53,7 +53,7 @@ main {
     .hd-container {
         display: grid;
         grid-template-columns: 1fr var(--aside-width);
-        gap: var(--hd-space-4);
+        gap: var(--hd-space-6);
     }
 
     .hd-container:not(:has(.hd-aside)) {
@@ -65,7 +65,7 @@ main {
     }
 }
 
-p {
+:where(p) {
     font-size: 1rem;
     line-height: 1.5;
 }
