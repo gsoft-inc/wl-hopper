@@ -19,6 +19,10 @@ export interface Item {
     required: boolean;
 }
 
+interface ColoredDefaultValueProps {
+    defaultValue: string;
+}
+
 const ColoredDefaultValue: React.FC<ColoredDefaultValueProps> = ({ defaultValue }) => {
     const isBoolean = defaultValue === "true" || defaultValue === "false";
     const formattedValue = isBoolean ? defaultValue.toString() : `'${defaultValue}'`;
@@ -29,7 +33,6 @@ const ColoredDefaultValue: React.FC<ColoredDefaultValueProps> = ({ defaultValue 
 
     return <span style={style}>{formattedValue}</span>;
 };
-
 
 const columns: ColumnDef<Item>[] = [
     {
