@@ -6,7 +6,7 @@
     --hd-props-table-cell-label-display: inline-block;
     --hd-props-table-cell-padding-block: var(--hd-space-1);
     --hd-props-table-cell-padding-inline: 0;
-    --hd-props-table-cell-description-font-size: 0.875rem;
+    --hd-props-table-cell-font-size: 0.875rem;
 
     box-sizing: border-box;
     text-indent: 0;
@@ -18,7 +18,6 @@
         --hd-props-table-cell-label-display: none;
         --hd-props-table-cell-padding-block: var(--hd-space-1);
         --hd-props-table-cell-padding-inline: var(--hd-space-1);
-        --hd-props-table-cell-description-font-size: 0.875rem;
     }
 }
 
@@ -61,7 +60,7 @@
 .hd-props-table__description-list .hd-props-table__description > *,
 .hd-props-table__default-value {
     color: var(--hd-color-neutral-text-weak);
-    font-size: 0.875rem;
+    font-size: var(--hd-props-table-cell-font-size);
 }
 
 .hd-props-table__description-term {
@@ -71,18 +70,18 @@
 
 .hd-props-table__name {
     font-family: var(--hd-default-font-family);
-    font-size: 0.875rem;
+    font-size: var(--hd-props-table-cell-font-size);
     font-weight: 600;
     line-height: 1.5;
 }
 
 .hd-props-table__cell.hd-props-table__col-default {
-    font-size: 0.875rem;
+    font-size: var(--hd-props-table-cell-font-size);
 }
 
 .hd-props-table__type [data-rehype-pretty-code-figure] [data-line] {
     padding-right: 0;
-    font-size: 0.875rem;
+    font-size: var(--hd-props-table-cell-font-size);
 }
 
 .hd-collapsible.hd-props-table__section {
