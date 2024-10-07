@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxGroup, CheckboxList } from "@hopper-ui/components";
+import { Checkbox, CheckboxGroup, CheckboxList, Label } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
@@ -11,6 +11,7 @@ export default function Example() {
             value={selected}
         >
             <CheckboxList>
+                <Label>Roles</Label>
                 <Checkbox value="developer">Developer</Checkbox>
                 <Checkbox value="designer">Designer</Checkbox>
                 <Checkbox value="manager">Manager</Checkbox>
