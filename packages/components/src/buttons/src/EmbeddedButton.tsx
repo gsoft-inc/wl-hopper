@@ -30,6 +30,21 @@ export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 export type EmbeddedButtonSize = "md" | "lg";
 export type EmbeddedButtonVariant = TagVariant;
 
+// TODO: Remove this when Orbiter is not used anymore
+type OrbiterVariants = "informative" | "warning";
+
+export function mapOrbiterToHopperVariants(variant: TagVariant | OrbiterVariants): TagVariant {
+    if (variant === "informative") {
+        return "option1";
+    }
+
+    if (variant === "warning") {
+        return "option6";
+    }
+
+    return variant;
+}
+
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * Whether the EmbeddedButton should show a selected state.
@@ -77,7 +92,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
             styles,
             "hop-EmbeddedButton",
             size,
-            variant
+            mapOrbiterToHopperVariants(variant)
         ),
         stylingProps.className
     );
