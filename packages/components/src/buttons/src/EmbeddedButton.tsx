@@ -15,6 +15,7 @@ import {
 } from "react-aria-components";
 
 import type { TagVariant } from "../../tag/index.ts";
+import { mapOrbiterToHopperVariants } from "../../tag/utils/Tag.utils.ts";
 import {
     SlotProvider,
     composeClassnameRenderProps,
@@ -29,21 +30,6 @@ export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
 export type EmbeddedButtonSize = "md" | "lg";
 export type EmbeddedButtonVariant = TagVariant;
-
-// TODO: Remove this when Orbiter is not used anymore
-type OrbiterVariants = "informative" | "warning";
-
-export function mapOrbiterToHopperVariants(variant: TagVariant | OrbiterVariants): TagVariant {
-    if (variant === "informative") {
-        return "option1";
-    }
-
-    if (variant === "warning") {
-        return "option6";
-    }
-
-    return variant;
-}
 
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
     /**

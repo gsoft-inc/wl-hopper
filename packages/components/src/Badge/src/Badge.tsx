@@ -6,6 +6,7 @@ import { composeRenderProps, useContextProps } from "react-aria-components";
 
 import { OverlineText } from "../../typography/OverlineText/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, useRenderProps, type AccessibleSlotProps, type RenderProps } from "../../utils/index.ts";
+import { mapOrbiterToHopperVariants } from "../utils/Badge.utils.ts";
 
 import { BadgeContext, type BadgeContextValue } from "./BadgeContext.ts";
 
@@ -114,7 +115,7 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
                 data-hovered={isHovered || undefined}
                 data-pressed={isPressed || undefined}
                 data-selected={isSelected || undefined}
-                data-variant={variant}
+                data-variant={mapOrbiterToHopperVariants(variant)}
             >
                 {!isDot && renderProps.children}
             </OverlineText>
