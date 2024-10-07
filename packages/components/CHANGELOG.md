@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.19
+
+### Patch Changes
+
+- edc8551: Handle Orbiter variants in Hopper for Tag
+
 ## 1.3.18
 
 ### Patch Changes
