@@ -77,7 +77,7 @@
     --hop-Popover-column-gap: var(--hop-space-inset-sm);
     --hop-Popover-row-gap: var(--hop-space-stack-sm);
     --hop-Popover-dialog-padding: var(--hop-space-inset-md);
-    --hop-Popover-dropdown-padding: var(--hop-space-inset-sm);
+    --hop-Popover-dropdown-padding: 0;
     --hop-Popover-title-font-family: var(--hop-body-sm-font-family);
     --hop-Popover-title-font-weight: var(--hop-body-sm-semibold-font-weight);
     --hop-Popover-content-font-size: var(--hop-body-sm-font-size);
@@ -129,6 +129,8 @@
     --footer-place-self: stretch;
     --grid-template: var(--hop-Popover-dropdown-grid-template);
     --padding: var(--hop-Popover-dropdown-padding);
+
+    overflow: hidden;
 }
 
 .hop-Popover__dialog {
@@ -160,7 +162,6 @@
     min-inline-size: auto;
     max-inline-size: none;
     max-block-size: var(--hop-Popover-list-box-dropdown-max-height);
-    padding: 0;
 
     border: none;
 }

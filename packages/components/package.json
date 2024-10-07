@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/components",
     "author": "Workleap",
-    "version": "1.3.16",
+    "version": "1.3.18",
     "description": "The components package.",
     "license": "Apache-2.0",
     "repository": {

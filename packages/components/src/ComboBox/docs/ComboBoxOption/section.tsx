@@ -1,21 +1,24 @@
-import { ComboBox, Header, Label, Section } from "@hopper-ui/components";
+import { ComboBox, ComboBoxOption, ComboBoxOptions, Header, Label, Section } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <ComboBox fieldChildren={<Label>Roles</Label>}>
-            <ComboBox.Option id="developer">Developer</ComboBox.Option>
-            <ComboBox.Option id="manager">Manager</ComboBox.Option>
-            <Section>
-                <Header>Operations</Header>
-                <ComboBox.Option id="project-coordinator">Project Coordinator</ComboBox.Option>
-                <ComboBox.Option id="qa-specialist">QA Specialist</ComboBox.Option>
-            </Section>
-            <Section>
-                <Header>Creative Department</Header>
-                <ComboBox.Option id="designer">Designer</ComboBox.Option>
-                <ComboBox.Option id="copywriter">Copywriter</ComboBox.Option>
-                <ComboBox.Option id="ux-researcher">UX Researcher</ComboBox.Option>
-            </Section>
+        <ComboBox>
+            <Label>Roles</Label>
+            <ComboBoxOptions>
+                <ComboBoxOption id="developer">Developer</ComboBoxOption>
+                <ComboBoxOption id="manager">Manager</ComboBoxOption>
+                <Section>
+                    <Header>Operations</Header>
+                    <ComboBoxOption id="project-coordinator">Project Coordinator</ComboBoxOption>
+                    <ComboBoxOption id="qa-specialist">QA Specialist</ComboBoxOption>
+                </Section>
+                <Section>
+                    <Header>Creative Department</Header>
+                    <ComboBoxOption id="designer">Designer</ComboBoxOption>
+                    <ComboBoxOption id="copywriter">Copywriter</ComboBoxOption>
+                    <ComboBoxOption id="ux-researcher">UX Researcher</ComboBoxOption>
+                </Section>
+            </ComboBoxOptions>
         </ComboBox>
     );
 }

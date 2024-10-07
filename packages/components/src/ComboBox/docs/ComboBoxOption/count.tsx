@@ -1,17 +1,20 @@
-import { Badge, ComboBox, Label, Text } from "@hopper-ui/components";
+import { Badge, ComboBox, ComboBoxOption, ComboBoxOptions, Label, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <ComboBox fieldChildren={<Label>Roles</Label>}>
-            <ComboBox.Option textValue="Designer">
-                <Text slot="label">Designer</Text>
-                <Badge>50</Badge>
-            </ComboBox.Option>
-            <ComboBox.Option textValue="Developer">
-                <Text slot="label">Developer</Text>
-                <Badge variant="secondary">99+</Badge>
-            </ComboBox.Option>
-            <ComboBox.Option>Manager</ComboBox.Option>
+        <ComboBox>
+            <Label>Roles</Label>
+            <ComboBoxOptions>
+                <ComboBoxOption textValue="Designer">
+                    <Text slot="label">Designer</Text>
+                    <Badge>50</Badge>
+                </ComboBoxOption>
+                <ComboBoxOption textValue="Developer">
+                    <Text slot="label">Developer</Text>
+                    <Badge variant="secondary">99+</Badge>
+                </ComboBoxOption>
+                <ComboBoxOption>Manager</ComboBoxOption>
+            </ComboBoxOptions>
         </ComboBox>
     );
 }

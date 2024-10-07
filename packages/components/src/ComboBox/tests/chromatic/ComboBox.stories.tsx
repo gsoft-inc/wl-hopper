@@ -1,22 +1,15 @@
+import { Button, ComboBox, ComboBoxOption, ComboBoxOptions, type ComboBoxProps, Header, HelperMessage, Inline, Label, Section, Stack, Text } from "@hopper-ui/components";
 import { AddIcon, SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { userEvent, within } from "@storybook/test";
-import { Label } from "react-aria-components";
-
-import { Button } from "../../../buttons/index.ts";
-import { Header } from "../../../Header/index.ts";
-import { Inline, Stack } from "../../../layout/index.ts";
-import { Section } from "../../../Section/index.ts";
-import { Text } from "../../../typography/Text/index.ts";
-import { ComboBox, type ComboBoxProps } from "../../src/ComboBox.tsx";
 
 const meta = {
     title: "Components/ComboBox",
     component: ComboBox,
     args: {
         children: [],
-        "aria-label": "Roles"
+        "aria-label": "Animals"
     }
 } satisfies Meta<typeof ComboBox>;
 
@@ -26,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 const marginBottomDecoratorSM = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="10rem">
+        <Div UNSAFE_marginBottom="11rem">
             <Story />
         </Div>
     )
@@ -56,10 +49,12 @@ const playFn: Story["play"] = async ({ canvasElement }) => {
 
 export const OnlyItems = {
     render: args => (
-        <ComboBox {...args} aria-label="test">
-            <ComboBox.Option id="dog">Dog</ComboBox.Option>
-            <ComboBox.Option id="cat">Cat</ComboBox.Option>
-            <ComboBox.Option id="frog">Frog</ComboBox.Option>
+        <ComboBox {...args}>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
         </ComboBox>
     ),
     play: playFn,
@@ -69,31 +64,76 @@ export const OnlyItems = {
 export const Sections = {
     render: args => (
         <ComboBox {...args}>
-            <Section>
-                <Header>Cats</Header>
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                <ComboBox.Option id="3">Dusty</ComboBox.Option>
-                <ComboBox.Option id="4">Rengar</ComboBox.Option>
-            </Section>
-            <Section>
-                <Header>Dogs</Header>
-                <ComboBox.Option id="5">Teemo</ComboBox.Option>
-                <ComboBox.Option id="6">Scooter</ComboBox.Option>
-                <ComboBox.Option id="7">Prince</ComboBox.Option>
-            </Section>
+            <ComboBoxOptions>
+                <Section>
+                    <Header>Cats</Header>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                    <ComboBoxOption id="4">Rengar</ComboBoxOption>
+                </Section>
+                <Section>
+                    <Header>Dogs</Header>
+                    <ComboBoxOption id="5">Teemo</ComboBoxOption>
+                    <ComboBoxOption id="6">Scooter</ComboBoxOption>
+                    <ComboBoxOption id="7">Prince</ComboBoxOption>
+                </Section>
+            </ComboBoxOptions>
         </ComboBox>
     ),
     play: playFn,
     decorators: marginBottomDecoratorMD
 } satisfies Story;
 
+export const FieldLabel = {
+    render: args => (
+        <ComboBox {...args}>
+            <Label>Animals</Label>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
+    decorators: marginBottomDecoratorSM
+} satisfies Story;
+
+export const FieldHelperMessage = {
+    render: args => (
+        <ComboBox {...args}>
+            <HelperMessage>These animals can become pets</HelperMessage>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
+    decorators: marginBottomDecoratorSM
+} satisfies Story;
+
 export const Footer = {
-    ...Sections,
+    render: args => (
+        <ComboBox {...args}>
+            <ComboBoxOptions footer={<Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>}>
+                <Section>
+                    <Header>Cats</Header>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                    <ComboBoxOption id="4">Rengar</ComboBoxOption>
+                </Section>
+                <Section>
+                    <Header>Dogs</Header>
+                    <ComboBoxOption id="5">Teemo</ComboBoxOption>
+                    <ComboBoxOption id="6">Scooter</ComboBoxOption>
+                    <ComboBoxOption id="7">Prince</ComboBoxOption>
+                </Section>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
     play: playFn,
-    args: {
-        footer: <Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>
-    },
     decorators: marginBottomDecoratorLG
 } satisfies Story;
 
@@ -101,19 +141,21 @@ export const Small = {
     play: playFn,
     render: args => (
         <ComboBox {...args}>
-            <Section>
-                <Header>Cats</Header>
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                <ComboBox.Option id="3">Dusty</ComboBox.Option>
-                <ComboBox.Option id="4">Rengar</ComboBox.Option>
-            </Section>
-            <Section>
-                <Header>Dogs</Header>
-                <ComboBox.Option id="5">Teemo</ComboBox.Option>
-                <ComboBox.Option id="6">Scooter</ComboBox.Option>
-                <ComboBox.Option id="7">Prince</ComboBox.Option>
-            </Section>
+            <ComboBoxOptions>
+                <Section>
+                    <Header>Cats</Header>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                    <ComboBoxOption id="4">Rengar</ComboBoxOption>
+                </Section>
+                <Section>
+                    <Header>Dogs</Header>
+                    <ComboBoxOption id="5">Teemo</ComboBoxOption>
+                    <ComboBoxOption id="6">Scooter</ComboBoxOption>
+                    <ComboBoxOption id="7">Prince</ComboBoxOption>
+                </Section>
+            </ComboBoxOptions>
         </ComboBox>
     ),
     args: {
@@ -128,19 +170,21 @@ export const Medium = {
     play: playFn,
     render: args => (
         <ComboBox {...args}>
-            <Section>
-                <Header>Cats</Header>
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                <ComboBox.Option id="3">Dusty</ComboBox.Option>
-                <ComboBox.Option id="4">Rengar</ComboBox.Option>
-            </Section>
-            <Section>
-                <Header>Dogs</Header>
-                <ComboBox.Option id="5">Teemo</ComboBox.Option>
-                <ComboBox.Option id="6">Scooter</ComboBox.Option>
-                <ComboBox.Option id="7">Prince</ComboBox.Option>
-            </Section>
+            <ComboBoxOptions>
+                <Section>
+                    <Header>Cats</Header>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                    <ComboBoxOption id="4">Rengar</ComboBoxOption>
+                </Section>
+                <Section>
+                    <Header>Dogs</Header>
+                    <ComboBoxOption id="5">Teemo</ComboBoxOption>
+                    <ComboBoxOption id="6">Scooter</ComboBoxOption>
+                    <ComboBoxOption id="7">Prince</ComboBoxOption>
+                </Section>
+            </ComboBoxOptions>
         </ComboBox>
     ),
     args: {
@@ -181,38 +225,48 @@ export const SelectedItem = {
                 <Div>
                     <h1>Default ComboBoxed Key</h1>
                     <ComboBox {...args} defaultSelectedKey="cat">
-                        <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                        <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                        <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                        <ComboBoxOptions>
+                            <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                            <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                            <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                        </ComboBoxOptions>
                     </ComboBox>
                 </Div>
                 <Div>
                     <h1>ComboBoxed Key</h1>
                     <ComboBox {...args} selectedKey="cat">
-                        <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                        <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                        <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                        <ComboBoxOptions>
+                            <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                            <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                            <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                        </ComboBoxOptions>
                     </ComboBox>
                 </Div>
             </Inline>
             <h1>Disabled</h1>
             <ComboBox {...args} defaultSelectedKey="raccoon" isDisabled>
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="raccoon">Raccoon</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                    <ComboBoxOption id="raccoon">Raccoon</ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <h1>Fluid</h1>
             <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="raccoon">Raccoon</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                    <ComboBoxOption id="raccoon">Raccoon</ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <h1>Limited Width</h1>
             <Div width="12%">
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
-                    <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                    <ComboBox.Option id="raccoon">Raccoon</ComboBox.Option>
-                    <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                    <ComboBoxOptions>
+                        <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                        <ComboBoxOption id="raccoon">Raccoon</ComboBoxOption>
+                        <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                    </ComboBoxOptions>
                 </ComboBox>
             </Div>
         </Stack>
@@ -226,68 +280,78 @@ export const SelectedItemWithIcon = {
                 <Div>
                     <h1>Default ComboBoxed Key</h1>
                     <ComboBox {...args} defaultSelectedKey="raccoon">
-                        <ComboBox.Option id="dog" textValue="Dog">
-                            <SparklesIcon />
-                            <Text slot="label">Dog</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                        <ComboBoxOptions>
+                            <ComboBoxOption id="dog" textValue="Dog">
+                                <SparklesIcon />
+                                <Text slot="label">Dog</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon />
+                                <Text slot="label">Raccoon</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                        </ComboBoxOptions>
                     </ComboBox>
                 </Div>
                 <Div>
                     <h1>ComboBoxed Key</h1>
                     <ComboBox {...args} selectedKey="raccoon">
-                        <ComboBox.Option id="dog" textValue="Dog">
-                            <SparklesIcon />
-                            <Text slot="label">Dog</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                        <ComboBoxOptions>
+                            <ComboBoxOption id="dog" textValue="Dog">
+                                <SparklesIcon />
+                                <Text slot="label">Dog</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon />
+                                <Text slot="label">Raccoon</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                        </ComboBoxOptions>
                     </ComboBox>
                 </Div>
             </Inline>
             <h1>Disabled</h1>
             <ComboBox {...args} defaultSelectedKey="raccoon" isDisabled>
-                <ComboBox.Option id="dog" textValue="Dog">
-                    <SparklesIcon />
-                    <Text slot="label">Dog</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog" textValue="Dog">
+                        <SparklesIcon />
+                        <Text slot="label">Dog</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="raccoon" textValue="Raccoon">
+                        <SparklesIcon />
+                        <Text slot="label">Raccoon</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <h1>Fluid</h1>
             <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
-                <ComboBox.Option id="dog" textValue="Dog">
-                    <SparklesIcon />
-                    <Text slot="label">Dog</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog" textValue="Dog">
+                        <SparklesIcon />
+                        <Text slot="label">Dog</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="raccoon" textValue="Raccoon">
+                        <SparklesIcon />
+                        <Text slot="label">Raccoon</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <h1>Limited Width</h1>
             <Div width="12%">
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
-                    <ComboBox.Option id="dog" textValue="Dog">
-                        <SparklesIcon />
-                        <Text slot="label">Dog</Text>
-                    </ComboBox.Option>
-                    <ComboBox.Option id="raccoon" textValue="Raccoon">
-                        <SparklesIcon />
-                        <Text slot="label">Raccoon</Text>
-                    </ComboBox.Option>
-                    <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                    <ComboBoxOptions>
+                        <ComboBoxOption id="dog" textValue="Dog">
+                            <SparklesIcon />
+                            <Text slot="label">Dog</Text>
+                        </ComboBoxOption>
+                        <ComboBoxOption id="raccoon" textValue="Raccoon">
+                            <SparklesIcon />
+                            <Text slot="label">Raccoon</Text>
+                        </ComboBoxOption>
+                        <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                    </ComboBoxOptions>
                 </ComboBox>
             </Div>
         </Stack>
@@ -301,68 +365,78 @@ export const SelectedItemWithEndIcon = {
                 <Div>
                     <h1>Default ComboBoxed Key</h1>
                     <ComboBox {...args} defaultSelectedKey="raccoon">
-                        <ComboBox.Option id="dog" textValue="Dog">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                        <ComboBoxOptions>
+                            <ComboBoxOption id="dog" textValue="Dog">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Dog</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Raccoon</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                        </ComboBoxOptions>
                     </ComboBox>
                 </Div>
                 <Div>
                     <h1>ComboBoxed Key</h1>
                     <ComboBox {...args} selectedKey="raccoon">
-                        <ComboBox.Option id="dog" textValue="Dog">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="raccoon" textValue="Raccoon">
-                            <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
-                        </ComboBox.Option>
-                        <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                        <ComboBoxOptions>
+                            <ComboBoxOption id="dog" textValue="Dog">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Dog</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="raccoon" textValue="Raccoon">
+                                <SparklesIcon slot="end-icon" />
+                                <Text slot="label">Raccoon</Text>
+                            </ComboBoxOption>
+                            <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                        </ComboBoxOptions>
                     </ComboBox>
                 </Div>
             </Inline>
             <h1>Disabled</h1>
             <ComboBox {...args} defaultSelectedKey="raccoon" isDisabled>
-                <ComboBox.Option id="dog" textValue="Dog">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog" textValue="Dog">
+                        <SparklesIcon slot="end-icon" />
+                        <Text slot="label">Dog</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="raccoon" textValue="Raccoon">
+                        <SparklesIcon slot="end-icon" />
+                        <Text slot="label">Raccoon</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <h1>Fluid</h1>
             <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
-                <ComboBox.Option id="dog" textValue="Dog">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="raccoon" textValue="Raccoon">
-                    <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
-                </ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog" textValue="Dog">
+                        <SparklesIcon slot="end-icon" />
+                        <Text slot="label">Dog</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="raccoon" textValue="Raccoon">
+                        <SparklesIcon slot="end-icon" />
+                        <Text slot="label">Raccoon</Text>
+                    </ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <h1>Limited Width</h1>
             <Div width="12%">
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
-                    <ComboBox.Option id="dog" textValue="Dog">
-                        <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Dog</Text>
-                    </ComboBox.Option>
-                    <ComboBox.Option id="raccoon" textValue="Raccoon">
-                        <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Raccoon</Text>
-                    </ComboBox.Option>
-                    <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                    <ComboBoxOptions>
+                        <ComboBoxOption id="dog" textValue="Dog">
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Dog</Text>
+                        </ComboBoxOption>
+                        <ComboBoxOption id="raccoon" textValue="Raccoon">
+                            <SparklesIcon slot="end-icon" />
+                            <Text slot="label">Raccoon</Text>
+                        </ComboBoxOption>
+                        <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                    </ComboBoxOptions>
                 </ComboBox>
             </Div>
         </Stack>
@@ -372,15 +446,17 @@ export const SelectedItemWithEndIcon = {
 export const ComboBoxItemWithDescription = {
     render: args => (
         <ComboBox {...args}>
-            <ComboBox.Option id="dog" textValue="Dog">
-                <Text slot="label">Dog</Text>
-                <Text slot="description">I come in many different breeds</Text>
-            </ComboBox.Option>
-            <ComboBox.Option id="raccoon" textValue="Raccoon">
-                <Text slot="label">Raccoon</Text>
-                <Text slot="description">I am nocturnal</Text>
-            </ComboBox.Option>
-            <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog" textValue="Dog">
+                    <Text slot="label">Dog</Text>
+                    <Text slot="description">I come in many different breeds</Text>
+                </ComboBoxOption>
+                <ComboBoxOption id="raccoon" textValue="Raccoon">
+                    <Text slot="label">Raccoon</Text>
+                    <Text slot="description">I am nocturnal</Text>
+                </ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
         </ComboBox>
     ),
     args: {
@@ -389,7 +465,15 @@ export const ComboBoxItemWithDescription = {
 } satisfies Story;
 
 export const TriggerIcon = {
-    ...OnlyItems.render,
+    render: args => (
+        <ComboBox {...args}>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
     args: {
         prefix: <SparklesIcon />
     }
@@ -414,33 +498,48 @@ export const CustomTriggerWidth = {
 } satisfies Story;
 
 export const CustomMenuWidth = {
-    ...OnlyItems,
+    render: args => (
+        <ComboBox {...args}>
+            <ComboBoxOptions UNSAFE_width="30rem">
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
     play: playFn,
-    args: {
-        popoverProps: {
-            UNSAFE_width: "30rem"
-        }
-    },
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const MenuAutoWidth = {
-    ...OnlyItems,
+    render: args => (
+        <ComboBox {...args}>
+            <ComboBoxOptions isAutoMenuWidth>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
     play: playFn,
-    args: {
-        isAutoMenuWidth: true
-    },
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 export const Direction = {
-    ...OnlyItems,
+    render: args => (
+        <ComboBox {...args}>
+            <ComboBoxOptions
+                placement={
+                    { base: "top", md: "right", lg: "top" }
+                }
+            >
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
     play: playFn,
-    args: {
-        popoverProps: {
-            placement: { base: "top", md: "right", lg: "top" }
-        }
-    },
     decorators: [
         Story => (
             <Div UNSAFE_marginTop="10rem" UNSAFE_marginBottom="4rem">
@@ -451,13 +550,16 @@ export const Direction = {
 } satisfies Story;
 
 export const DirectionTop = {
-    ...OnlyItems,
+    render: args => (
+        <ComboBox {...args}>
+            <ComboBoxOptions placement="top">
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
+        </ComboBox>
+    ),
     play: playFn,
-    args: {
-        popoverProps: {
-            placement: "top"
-        }
-    },
     decorators: [
         Story => (
             <Div UNSAFE_marginTop="10rem">
@@ -474,51 +576,50 @@ export const Invalid = {
         isInvalid: true,
         defaultSelectedKey: "raccoon"
     },
-    decorators: marginBottomDecoratorMD
+    decorators: marginBottomDecoratorSM
 } satisfies Story;
 
 const StateTemplate = (args: Partial<ComboBoxProps<object>>) => (
     <Stack>
         <Inline alignY="center">
-            <ComboBox {...args}
-                fieldChildren={
-                    <Label>Small</Label>
-                }
-            >
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            <ComboBox {...args}>
+                <Label>Small</Label>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                    <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <ComboBox {...args}
                 size="md"
-                fieldChildren={
-                    <Label>Medium</Label>
-                }
             >
-                <ComboBox.Option id="dog">Dog</ComboBox.Option>
-                <ComboBox.Option id="cat">Cat</ComboBox.Option>
-                <ComboBox.Option id="frog">Frog</ComboBox.Option>
+                <Label>Medium</Label>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                    <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
         </Inline>
         <ComboBox {...args}
             isDisabled
-            fieldChildren={
-                <Label>Disabled</Label>
-            }
         >
-            <ComboBox.Option id="dog">Dog</ComboBox.Option>
-            <ComboBox.Option id="cat">Cat</ComboBox.Option>
-            <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            <Label>Disabled</Label>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
         </ComboBox>
         <ComboBox {...args}
             isInvalid
-            fieldChildren={
-                <Label>Invalid</Label>
-            }
         >
-            <ComboBox.Option id="dog">Dog</ComboBox.Option>
-            <ComboBox.Option id="cat">Cat</ComboBox.Option>
-            <ComboBox.Option id="frog">Frog</ComboBox.Option>
+            <Label>Invalid</Label>
+            <ComboBoxOptions>
+                <ComboBoxOption id="dog">Dog</ComboBoxOption>
+                <ComboBoxOption id="cat">Cat</ComboBoxOption>
+                <ComboBoxOption id="frog">Frog</ComboBoxOption>
+            </ComboBoxOptions>
         </ComboBox>
     </Stack>
 );
@@ -578,16 +679,20 @@ export const Zoom = {
         <Inline>
             <Div className="zoom-in">
                 <ComboBox {...args}>
-                    <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                    <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                    <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                    <ComboBoxOptions>
+                        <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                        <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                        <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                    </ComboBoxOptions>
                 </ComboBox>
             </Div>
             <Div className="zoom-out">
                 <ComboBox {...args}>
-                    <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                    <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                    <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                    <ComboBoxOptions>
+                        <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                        <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                        <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                    </ComboBoxOptions>
                 </ComboBox>
             </Div>
         </Inline>
@@ -606,27 +711,33 @@ export const Styling = {
                     { border: "warning" }
                 }
             >
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <ComboBox {...args}
                 triggerProps={
                     { className: "border-red" }
                 }
             >
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
             <ComboBox {...args}
                 triggerProps={
                     { style: { border: "1px solid red" } }
                 }
             >
-                <ComboBox.Option id="1">Zoomy</ComboBox.Option>
-                <ComboBox.Option id="2">Voodoo</ComboBox.Option>
-                <ComboBox.Option id="3">Dusty</ComboBox.Option>
+                <ComboBoxOptions>
+                    <ComboBoxOption id="1">Zoomy</ComboBoxOption>
+                    <ComboBoxOption id="2">Voodoo</ComboBoxOption>
+                    <ComboBoxOption id="3">Dusty</ComboBoxOption>
+                </ComboBoxOptions>
             </ComboBox>
         </Inline>
     ),
