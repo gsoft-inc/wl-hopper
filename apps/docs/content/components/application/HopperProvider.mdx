@@ -9,10 +9,6 @@ links:
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/preview" />
 
-## Props
-
-<PropTable component="HopperProvider" />
-
 ## Application provider
 
 A HopperProvider must be the root component of your application. All other Hopper components rely on the Provider to define the color scheme, locale, and other settings that they need in order to render.
@@ -77,3 +73,7 @@ body {
 `withCssVariables` determines whether Hopper's CSS variables should be added to your application. By default, it is set to true and should not be changed unless you want to manage CSS variables via a CSS file. Note that in this case, you will need to add the tokens manually, ideally using the `@hopper-ui/tokens` [package](/tokens/getting-started/usage).
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/inject-css-var" />
+
+## Props
+
+<PropTable component="HopperProvider" />
