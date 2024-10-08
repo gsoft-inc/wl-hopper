@@ -15,6 +15,7 @@ import Form from "./Form.svg";
 import Grid from "./Grid.svg";
 import Heading from "./Heading.svg";
 import HelperMessage from "./HelperMessage.svg";
+import IconList from "./IconList.svg";
 import Inline from "./Inline.svg";
 import Label from "./Label.svg";
 import Link from "./Link.svg";
@@ -56,6 +57,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Grid,
     Heading,
     HelperMessage,
+    IconList,
     Inline,
     Label,
     Link,

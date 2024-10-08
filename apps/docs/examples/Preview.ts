@@ -632,6 +632,12 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/textField/fluid": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },
+    "Iconlist/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Iconlist/docs/preview.tsx"))
+    },
+    "Iconlist/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/Iconlist/docs/size.tsx"))
+    },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
     },
