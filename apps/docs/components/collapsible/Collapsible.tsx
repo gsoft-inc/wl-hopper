@@ -10,10 +10,9 @@ import "./collapsible.css";
 export interface CollapsibleProps extends DisclosureProps {
     children: ReactNode;
     title: ReactNode;
-    className?: string;
 }
 
-const Collapsible = ({ children, title, className, ...rest }: CollapsibleProps) => {
+const Collapsible = ({ title, className, children, ...rest }: CollapsibleProps) => {
     return (
         <Disclosure className={clsx("hd-collapsible", className)} {...rest}>
             <h3>
