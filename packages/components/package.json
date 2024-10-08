@@ -40,7 +40,6 @@
         "find-types": "tsx scripts/findImportedTypes.ts"
     },
     "peerDependencies": {
-        "@hopper-ui/styled-system": "^2.1.0",
         "react": "^18",
         "react-aria": "^3.34",
         "react-aria-components": "^1.2",
