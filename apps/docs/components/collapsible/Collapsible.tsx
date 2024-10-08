@@ -13,7 +13,7 @@ export interface CollapsibleProps {
     className?: string;
 }
 
-const Collapsible = ({ children, title, className }) => {
+const Collapsible = ({ children, title, className }: CollapsibleProps) => {
     return (
         <Disclosure className={clsx("hd-collapsible", className)}>
             <h3>
