@@ -1,21 +1,21 @@
 "use client";
 
+import { CollapseIcon, Icon } from "@/components/icon";
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { Button, UNSTABLE_Disclosure as Disclosure, UNSTABLE_DisclosurePanel as DisclosurePanel } from "react-aria-components";
-import { Icon, CollapseIcon } from "@/components/icon";
+import { Button, UNSTABLE_Disclosure as Disclosure, UNSTABLE_DisclosurePanel as DisclosurePanel, type DisclosureProps } from "react-aria-components";
 
 import "./collapsible.css";
 
-export interface CollapsibleProps {
+export interface CollapsibleProps extends DisclosureProps {
     children: ReactNode;
     title: ReactNode;
     className?: string;
 }
 
-const Collapsible = ({ children, title, className }: CollapsibleProps) => {
+const Collapsible = ({ children, title, className, ...rest }: CollapsibleProps) => {
     return (
-        <Disclosure className={clsx("hd-collapsible", className)}>
+        <Disclosure className={clsx("hd-collapsible", className)} {...rest}>
             <h3>
                 <Button className="hd-collapsible__trigger" slot="trigger">
                     {title}
