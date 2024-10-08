@@ -12,17 +12,17 @@ export default function Example() {
                 <StarIcon />
             </IconList>
             <IconList size="md">
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
+                <StarSolidIcon />
+                <StarSolidIcon />
+                <StarSolidIcon />
+                <StarSolidIcon />
                 <StarIcon />
             </IconList>
             <IconList size="lg">
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
+                <StarSolidIcon />
+                <StarSolidIcon />
+                <StarSolidIcon />
+                <StarSolidIcon />
                 <StarIcon />
             </IconList>
         </Stack>
