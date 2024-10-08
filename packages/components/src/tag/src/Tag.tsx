@@ -12,7 +12,7 @@ import { Tag as RACTag, type TagProps as RACTagProps, composeRenderProps, useCon
 
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
-import { ClearButton, type ClearButtonProps, mapOrbiterToHopperVariants } from "../../buttons/index.ts";
+import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
@@ -25,6 +25,7 @@ import {
     composeClassnameRenderProps,
     cssModule
 } from "../../utils/index.ts";
+import { mapOrbiterToHopperVariants } from "../utils/Tag.utils.ts";
 
 import { TagContext } from "./TagContext.ts";
 
