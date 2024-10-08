@@ -15,6 +15,7 @@ import {
 } from "react-aria-components";
 
 import type { TagVariant } from "../../tag/index.ts";
+import { mapOrbiterToHopperVariants } from "../../tag/utils/Tag.utils.ts";
 import {
     SlotProvider,
     composeClassnameRenderProps,
@@ -77,7 +78,7 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
             styles,
             "hop-EmbeddedButton",
             size,
-            variant
+            mapOrbiterToHopperVariants(variant)
         ),
         stylingProps.className
     );

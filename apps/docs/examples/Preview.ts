@@ -350,8 +350,8 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxgroup/size": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/size.tsx"))
     },
-    "checkbox/docs/checkboxgroup/label": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/label.tsx"))
+    "checkbox/docs/checkboxgroup/nolabel": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/nolabel.tsx"))
     },
     "checkbox/docs/checkboxgroup/description": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/description.tsx"))
@@ -631,6 +631,12 @@ export const Previews: Record<string, Preview> = {
     },
     "inputs/docs/textField/fluid": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
+    },
+    "IconList/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/IconList/docs/preview.tsx"))
+    },
+    "IconList/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/IconList/docs/size.tsx"))
     },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))

@@ -25,6 +25,7 @@ import {
     composeClassnameRenderProps,
     cssModule
 } from "../../utils/index.ts";
+import { mapOrbiterToHopperVariants } from "../utils/Tag.utils.ts";
 
 import { TagContext } from "./TagContext.ts";
 
@@ -110,7 +111,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
             styles,
             "hop-Tag",
             size,
-            variant
+            mapOrbiterToHopperVariants(variant)
         ),
         stylingProps.className
     );
