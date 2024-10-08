@@ -21,7 +21,6 @@ export const Default: Story = {
 
 export const Open: Story = {
     args: {
-        ...Default.args,
-        isOpen: true
+        ...Default.args
     }
 };
