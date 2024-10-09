@@ -26,9 +26,13 @@
         box-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
     }
 
-    &[data-focused],
-    &[data-focus-visible] {
-        outline: none;
+    &[data-focused="true"][aria-expanded="true"]:not([data-focus-visible]),
+    &[data-focused="true"][data-hovered="true"]:not([data-focus-visible]) {
+        box-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
+    }
+
+    &[data-focused="true"][aria-expanded="false"]:not([data-hovered]) {
+        box-shadow: none;
     }
 
     &[data-focus-visible] {
@@ -47,8 +51,6 @@
     transition: height cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
 }
 
-
 .hd-collapsible__content {
     padding-block: var(--hd-space-1);
 }
-

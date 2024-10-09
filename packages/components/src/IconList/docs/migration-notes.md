@@ -1,3 +1,3 @@
-## Icon and IconList
+Coming from Orbiter, you should be aware of the following changes:
 
-`disabled` props is no longer present
+- `disabled` prop is no longer available.

@@ -14,13 +14,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
         title: "Label",
-        children: "Conent of the collapsible"
+        children: "Content of the collapsible",
+        className: "custom-class"
     }
 };
 
 export const Open: Story = {
     args: {
-        ...Default.args,
-        isOpen: true
+        ...Default.args
     }
 };

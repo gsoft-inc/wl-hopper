@@ -22,8 +22,8 @@
         "copy:images": "tsx scripts/copyImages.ts"
     },
     "peerDependencies": {
-        "react-aria": "^3.35.0",
-        "react-aria-components": "^1.4.0"
+        "react-aria": "^3.35",
+        "react-aria-components": "^1.4"
     },
     "dependencies": {
         "@tanstack/react-table": "^8.17.3",
