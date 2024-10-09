@@ -73,6 +73,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
         isFluid: isFluidProp,
         variant = "primary",
         isLoading,
+        isDisabled = isLoading ?? undefined,
         style: styleProp,
         spinnerProps,
         ...otherProps
@@ -152,6 +153,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
                 slot={props.slot || undefined}
                 className={classNames}
                 style={style}
+                isDisabled={isDisabled}
                 data-loading={isLoading}
             >
                 {buttonRenderProps => {
