@@ -6,10 +6,11 @@ import type { Orientation } from "react-aria";
 import { useContextProps } from "react-aria-components";
 
 import { SlotProvider, cssModule, type Align } from "../../utils/index.ts";
+import type { ButtonSize } from "../utils/index.ts";
 
-import type { ButtonSize } from "./Button.ts";
 import { ButtonContext } from "./ButtonContext.ts";
 import { ButtonGroupContext } from "./ButtonGroupContext.ts";
+import { LinkButtonContext } from "./LinkButtonContext.ts";
 
 import styles from "./ButtonGroup.module.css";
 
@@ -99,13 +100,18 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
             style={style}
             slot={props.slot || undefined}
         >
-            <SlotProvider values={[[
-                ButtonContext, {
+            <SlotProvider values={[
+                [ButtonContext, {
                     size,
                     isDisabled,
                     isFluid
-                }
-            ]]}
+                }],
+                [LinkButtonContext, {
+                    size,
+                    isDisabled,
+                    isFluid
+                }]
+            ]}
             >
                 {children}
             </SlotProvider>

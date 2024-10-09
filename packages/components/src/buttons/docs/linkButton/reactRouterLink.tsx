@@ -1,4 +1,4 @@
-import { Button, HopperProvider } from "@hopper-ui/components";
+import { HopperProvider, LinkButton } from "@hopper-ui/components";
 import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-dom";
 
 export default function App() {
@@ -21,7 +21,7 @@ function Example() {
 
     return (
         <HopperProvider colorScheme="light" navigate={navigate}>
-            <Button href="/123">Go to next router page</Button>
+            <LinkButton href="/123">Go to next router page</LinkButton>
         </HopperProvider>
 
     );

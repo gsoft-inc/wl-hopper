@@ -1,0 +1,130 @@
+---
+title: LinkButton
+description: A link link button looks like a link button but behaves like a link
+category: "buttons"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/buttons/src/LinkButton.tsx
+    aria: https://www.w3.org/WAI/ARIA/apg/patterns/link/
+---
+
+<Example src="buttons/docs/linkButton/preview" isOpen />
+
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this component&apos;s usage
+
+    ### Accessibility?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+## Anatomy
+
+<FeatureFlag flag="rc">
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    - [Client Side Routing](./client-side-routing)
+</FeatureFlag>
+
+### Composed Components
+
+A `LinkButton` uses the following components.
+
+- [Icon](./Icon)
+- [IconList](./IconList)
+- [Text](./Text)
+
+## Examples
+
+### Variants
+A link button can use different variants.
+
+<Example src="buttons/docs/linkButton/variant" />
+
+**Primary** - For the principal call to action on the page. Primary buttons should only appear once per screen — not including the application header, modal or side panel.
+
+**Secondary** - For secondary actions on each page. Secondary buttons can be used in conjunction with a primary link button or on its own. Paired with a Primary link button, the secondary link button usually performs the negative action of the set, such as “Cancel.”
+
+**Upsell** - For upsell actions that relate to upgrading an account or a plan. Use the upsell link button to distinguish it from an existing primary link button. In some cases, a primary link button can be used instead when the general context of the page is about upselling.
+
+**Danger** - For actions that could have destructive effects on the user’s data.
+
+**Ghost-[primary|secondary|danger]** - For less prominent, and sometimes independent, actions. Ghost buttons can be used in isolation or paired with a primary link button when there are multiple calls to action. Ghost buttons can also be used for subtasks on a
+page where a primary link button for the main and final action is present.
+
+### Sizes
+A link button can vary in size.
+
+<Example src="buttons/docs/linkButton/size" />
+
+### Disabled
+A link button can be disabled.
+
+<Example src="buttons/docs/linkButton/state" />
+
+### External
+
+Add `rel="noopener noreferrer"` and `target="_blank"` attributes to render and external link button.
+
+<Example src="buttons/docs/linkButton/external" />
+
+### No Href
+
+When a link button link does not have an href prop, it is rendered as a `<span role="link">` instead of an `<a>`. Events will need to be handled in JavaScript with the `onPress` prop.
+
+Note: this will not behave like a native link. Browser features like context menus and open in a new tab will not apply.
+
+<Example src="buttons/docs/linkButton/noHref" />
+
+### Fluid
+A link button can be expanded to full width to fill its parent container.
+
+<Example src="buttons/docs/linkButton/layout" />
+
+### Icon Only
+A link button can contain only an icon.
+
+<Example src="buttons/docs/linkButton/icon" />
+
+### Icon
+A link button can contain icons.
+
+<Example src="buttons/docs/linkButton/icons" />
+
+### End Icon
+Nonstandard end icons can be provided to handle special cases. However, think twice before adding end icons, start icons should be your go-to.
+
+<Example src="buttons/docs/linkButton/endIcon" />
+
+<Example src="buttons/docs/linkButton/reactRouterLink" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+
+    All Hopper Components export a corresponding context that can be used to send props to them from a parent element.
+    You can send any prop or ref via context that you could pass to the corresponding component.
+    The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence
+
+    <Example src="buttons/docs/linkButton/advancedCustomization" />
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Props
+
+<PropTable component="LinkButton" />
+
+## Migration Notes
+
+<MigrateGuide src="buttons/docs/migration-notes-link-button" />

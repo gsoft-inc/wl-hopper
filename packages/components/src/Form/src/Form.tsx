@@ -28,6 +28,7 @@ import {
     type FormProps as RACFormProps
 } from "react-aria-components";
 
+import { LinkButtonContext } from "../../buttons/index.ts";
 import { cssModule, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { FormContext } from "./FormContext.ts";
@@ -163,7 +164,8 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
                 [TagGroupContext, {
                     necessityIndicator,
                     size
-                }]
+                }],
+                [LinkButtonContext, { isDisabled, size }]
             ]}
             >
                 <RACForm

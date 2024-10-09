@@ -1,5 +1,6 @@
 import { CheckmarkIcon, IconContext, type IconSize } from "@hopper-ui/icons";
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import type { forwardRefType } from "@react-types/shared";
 import clsx from "clsx";
 import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode, type TransitionEventHandler, useContext, useState } from "react";
 import {
@@ -231,7 +232,7 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
     );
 }
 
-function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: ForwardedRef<HTMLDivElement>) {
+function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, ListBoxItemContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -276,7 +277,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
     return (
         <RACListBoxItem
             {...otherProps}
-            ref={ref}
+            ref={ref as ForwardedRef<T>} /* Needed until this bug is fixed: https://github.com/adobe/react-spectrum/issues/6799 */
             className={classNames}
             style={style}
             textValue={textValue}
@@ -318,9 +319,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
  *
  * [View Documentation](TODO)
  */
-const _ListBoxItem = forwardRef(ListBoxItem) as <T>(
-    props: ListBoxItemProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof ListBoxItem>;
+const _ListBoxItem = (forwardRef as forwardRefType)(ListBoxItem);
 (_ListBoxItem as NamedExoticComponent).displayName = "ListBoxItem";
 
 export { _ListBoxItem as ListBoxItem };
