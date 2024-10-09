@@ -13,7 +13,7 @@ export interface CollapsibleProps extends DisclosureProps {
 
 const Collapsible = ({ title, className, children: childrenProp, ...rest }: CollapsibleProps) => {
     const children = composeRenderProps(childrenProp, prev => {
-        return prev ;
+        return prev;
     });
 
     return (
