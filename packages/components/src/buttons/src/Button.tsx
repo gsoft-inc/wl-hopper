@@ -35,7 +35,7 @@ import styles from "./Button.module.css";
 
 export const GlobalButtonCssSelector = "hop-Button";
 
-export interface ButtonProps extends StyledComponentProps<RACButtonProps> {
+export interface ButtonProps extends StyledComponentProps<Omit<RACButtonProps, "isPending">> {
     /**
      * The visual style of the button.
      * @default "primary"
@@ -154,7 +154,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
                 className={classNames}
                 style={style}
                 isDisabled={isDisabled}
-                data-loading={isLoading}
+                isPending={isLoading}
             >
                 {buttonRenderProps => {
                     return <>

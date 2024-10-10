@@ -144,7 +144,7 @@ function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>
 }
 
 /**
- * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+ * A LinkButton merges the functionality of a link with the appearance of a button, providing a user-friendly way to direct users to other pages.
  * [View Documentation](TODO)
  *
  */
