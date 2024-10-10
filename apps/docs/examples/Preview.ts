@@ -938,6 +938,18 @@ export const Previews: Record<string, Preview> = {
     "Select/docs/selectDropdown/description": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/description.tsx"))
     },
+    "layout/docs/content/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/content/preview.tsx"))
+    },
+    "layout/docs/footer/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/footer/preview.tsx"))
+    },
+    "Header/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Header/docs/preview.tsx"))
+    },
+    "Section/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
+    },
     "Badge/docs/badge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))
     },
