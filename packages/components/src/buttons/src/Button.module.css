@@ -352,10 +352,6 @@
 
 /* Loading */
 
-.hop-Button[data-pending] {
-    outline: none;
-}
-
 .hop-Button--primary[data-pending] {
     --background-color: var(--hop-Button-primary-background-color);
     --color: var(--hop-Button-primary-color);
