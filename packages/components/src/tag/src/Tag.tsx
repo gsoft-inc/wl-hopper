@@ -164,7 +164,13 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                         size: "sm"
                                     }],
                                     [BadgeContext, {
-                                        className: styles["hop-Tag__badge"],
+                                        className: ({ variant: badgeVariant }) => {
+                                            return cssModule(
+                                                styles,
+                                                "hop-Tag__badge",
+                                                badgeVariant
+                                            );
+                                        },
                                         isDisabled: isDisabled,
                                         isHovered: isHovered,
                                         isPressed: isPressed,
