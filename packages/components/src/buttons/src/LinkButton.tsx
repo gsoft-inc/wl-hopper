@@ -6,19 +6,16 @@ import {
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
-import clsx from "clsx";
 import { type ForwardedRef, forwardRef } from "react";
 import {
     composeRenderProps,
     DEFAULT_SLOT,
-    Button as RACButton,
-    type ButtonProps as RACButtonProps,
+    Link as RACLink,
+    type LinkProps as RACLinkProps,
     useContextProps
 } from "react-aria-components";
 
-import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
-import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
 import { TextContext } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
@@ -29,13 +26,13 @@ import {
 } from "../../utils/index.ts";
 import type { ButtonSize, ButtonVariant } from "../utils/index.ts";
 
-import { ButtonContext } from "./ButtonContext.ts";
+import { LinkButtonContext } from "./LinkButtonContext.ts";
 
-import styles from "./Button.module.css";
+import styles from "./LinkButton.module.css";
 
-export const GlobalButtonCssSelector = "hop-Button";
+export const GlobalLinkButtonCssSelector = "hop-LinkButton";
 
-export interface ButtonProps extends StyledComponentProps<Omit<RACButtonProps, "isPending">> {
+export interface LinkButtonProps extends StyledComponentProps<RACLinkProps> {
     /**
      * The visual style of the button.
      * @default "primary"
@@ -52,19 +49,12 @@ export interface ButtonProps extends StyledComponentProps<Omit<RACButtonProps, "
      * Whether or not the button takes up the width of its container.
      */
     isFluid?: ResponsiveProp<boolean>;
-
-    /** A button can show a loading indicator.*/
-    isLoading?: boolean;
-
-    /** The props for the Spinner. */
-    spinnerProps?: SpinnerProps;
 }
 
-function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
-    [props, ref] = useContextProps(props, ref, ButtonContext);
+function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>) {
+    [props, ref] = useContextProps(props, ref, LinkButtonContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const stringFormatter = useLocalizedString();
 
     const {
         className,
@@ -72,9 +62,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
         size: sizeProp,
         isFluid: isFluidProp,
         variant = "primary",
-        isLoading,
         style: styleProp,
-        spinnerProps,
         ...otherProps
     } = ownProps;
 
@@ -85,14 +73,13 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
 
     const classNames = composeClassnameRenderProps(
         className,
-        GlobalButtonCssSelector,
+        GlobalLinkButtonCssSelector,
         cssModule(
             styles,
-            "hop-Button",
+            "hop-LinkButton",
             variant,
             size,
             isFluid && "fluid",
-            isLoading && "loading",
             !hasText && "icon-only"
         ),
         stylingProps.className
@@ -109,9 +96,6 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
         return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
     });
 
-    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
-    const spinnerClassNames = clsx(styles["hop-Button__Spinner"], spinnerClassName);
-
     return (
         <SlotProvider
             values={[
@@ -119,11 +103,11 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
                     slots: {
                         [DEFAULT_SLOT]: {
                             size: size,
-                            className: styles["hop-Button__icon-list"]
+                            className: styles["hop-LinkButton__icon-list"]
                         },
                         "end-icon": {
                             size: size,
-                            className: styles["hop-Button__end-icon-list"]
+                            className: styles["hop-LinkButton__end-icon-list"]
                         }
                     }
                 }],
@@ -131,54 +115,41 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
                     slots: {
                         [DEFAULT_SLOT]: {
                             size: size,
-                            className: styles["hop-Button__icon"]
+                            className: styles["hop-LinkButton__icon"]
                         },
                         "end-icon": {
                             size: size,
-                            className: styles["hop-Button__end-icon"]
+                            className: styles["hop-LinkButton__end-icon"]
                         }
                     }
                 }],
                 [TextContext, {
-                    className: styles["hop-Button__text"],
+                    className: styles["hop-LinkButton__text"],
                     size: size,
                     ref: textRef
                 }]
             ]}
         >
-            <RACButton
+            <RACLink
                 {...otherProps}
                 ref={ref}
-                slot={props.slot || undefined}
                 className={classNames}
                 style={style}
-                isPending={isLoading}
+                slot={props.slot || undefined}
             >
-                {buttonRenderProps => {
-                    return <>
-                        {children(buttonRenderProps)}
-                        {isLoading && (
-                            <Spinner
-                                aria-label={stringFormatter.format("Button.spinnerAriaLabel")}
-                                size={size}
-                                className={spinnerClassNames}
-                                {...otherSpinnerProps}
-                            />
-                        )}
-                    </>;
-                }}
-            </RACButton>
+                {children}
+            </RACLink>
         </SlotProvider>
     );
 }
 
 /**
- * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+ * A LinkButton merges the functionality of a link with the appearance of a button, providing a user-friendly way to direct users to other pages.
  * [View Documentation](TODO)
  *
  */
-const _Button = slotFn("button", forwardRef(Button));
+const _LinkButton = slotFn("button", forwardRef(LinkButton));
 
-_Button.displayName = "Button";
+_LinkButton.displayName = "LinkButton";
 
-export { _Button as Button };
+export { _LinkButton as LinkButton };

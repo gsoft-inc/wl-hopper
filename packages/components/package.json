@@ -40,17 +40,17 @@
         "find-types": "tsx scripts/findImportedTypes.ts"
     },
     "peerDependencies": {
-        "@hopper-ui/styled-system": "^2.1.0",
+        "@hopper-ui/styled-system": "^2.4",
         "react": "^18",
-        "react-aria": "^3.34",
-        "react-aria-components": "^1.2",
+        "react-aria": "^3.35",
+        "react-aria-components": "^1.4",
         "react-dom": "^18"
     },
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
-        "@react-aria/utils": "^3.25.2",
-        "@react-stately/utils": "^3.10.3",
-        "@react-types/shared": "^3.24.1",
+        "@react-aria/utils": "^3.25.3",
+        "@react-stately/utils": "^3.10.4",
+        "@react-types/shared": "^3.25.0",
         "clsx": "^2.1.1"
     },
     "devDependencies": {
@@ -77,8 +77,8 @@
         "jest-fail-on-console": "3.3.0",
         "jest-fetch-mock": "3.0.3",
         "react": "18.3.1",
-        "react-aria": "3.34.3",
-        "react-aria-components": "1.2.1",
+        "react-aria": "3.35.0",
+        "react-aria-components": "1.4.0",
         "react-dom": "18.3.1",
         "react-test-renderer": "18.3.1",
         "ts-jest": "29.1.4",

@@ -3,7 +3,7 @@ import {
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { mergeProps } from "react-aria";
 import {
     composeRenderProps,
@@ -75,7 +75,7 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
             ...stylingProps.style,
             ...prev
         };
-    });
+    }) as CSSProperties;
 
     const renderProps = useRenderProps({
         ...props,

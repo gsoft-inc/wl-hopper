@@ -27,6 +27,7 @@ export * from "./typography/OverlineText/index.ts";
 export * from "./typography/Text/index.ts";
 export * from "./utils/index.ts";
 
+export type { RouterOptions } from "@react-types/shared";
 export type { Orientation, Placement } from "react-aria";
 
 export { Collection, type ContextValue, type Key, type Selection } from "react-aria-components";

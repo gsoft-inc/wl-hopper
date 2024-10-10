@@ -1,8 +1,6 @@
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
-import { HopperProvider } from "../../HopperProvider/index.ts";
 import { Inline, Stack } from "../../layout/index.ts";
 import { Text } from "../../typography/Text/index.ts";
 import { SlotProvider } from "../../utils/index.ts";
@@ -197,52 +195,6 @@ export const Loading: Story = {
     ...Variants,
     args: {
         isLoading: true
-    }
-};
-
-/**
- * A button can be rendered as a link by using the href property.
- */
-export const AsLink: Story = {
-    args: {
-        children: "Go to google",
-        href: "https://www.google.com"
-    }
-};
-
-/**
- * A button can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider
- */
-export const ReactRouterLink: Story = {
-    render: props => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const navigate = useNavigate();
-
-        return (
-            <HopperProvider colorScheme="light" navigate={navigate}>
-                <Button {...props} />
-            </HopperProvider>
-        );
-    },
-    decorators: [
-        Story => {
-            const router = createMemoryRouter([{
-                path: "/123",
-                element: <>Navigated Successfully! <Story /></>
-            }, {
-                path: "*",
-                element: <Story />
-            }
-            ]);
-
-            return (
-                <RouterProvider router={router} />
-            );
-        }
-    ],
-    args: {
-        children: "Go to next router page",
-        href: "/123"
     }
 };
 

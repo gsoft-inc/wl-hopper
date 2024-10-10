@@ -1,0 +1,70 @@
+.hop-LinkButton {
+    composes: hop-Button from "./Button.module.css";
+}
+
+.hop-LinkButton--fluid {
+    composes: hop-Button--fluid from "./Button.module.css";
+}
+
+/** Sizes */
+.hop-LinkButton--sm {
+    composes: hop-Button--sm from "./Button.module.css";
+}
+
+/** Modifier */
+.hop-LinkButton--icon-only {
+    composes: hop-Button--icon-only from "./Button.module.css";
+}
+
+/** Variants */
+.hop-LinkButton--primary {
+    composes: hop-Button--primary from "./Button.module.css";
+}
+
+.hop-LinkButton--secondary {
+    composes: hop-Button--secondary from "./Button.module.css";
+}
+
+.hop-LinkButton--upsell {
+    composes: hop-Button--upsell from "./Button.module.css";
+}
+
+.hop-LinkButton--danger {
+    composes: hop-Button--danger from "./Button.module.css";
+}
+
+.hop-LinkButton--ghost-primary {
+    composes: hop-Button--ghost-primary from "./Button.module.css";
+}
+
+.hop-LinkButton--ghost-secondary {
+    composes: hop-Button--ghost-secondary from "./Button.module.css";
+}
+
+.hop-LinkButton--ghost-danger {
+    composes: hop-Button--ghost-danger from "./Button.module.css";
+}
+
+/** Elements */
+.hop-LinkButton__Spinner {
+    composes: hop-Button__Spinner from "./Button.module.css";
+}
+
+.hop-LinkButton__icon,
+.hop-LinkButton__icon-list {
+    composes: hop-Button__icon from "./Button.module.css";
+}
+
+.hop-LinkButton__text {
+    composes: hop-Button__text from "./Button.module.css";
+}
+
+.hop-LinkButton__end-icon,
+.hop-LinkButton__end-icon-list {
+    composes: hop-Button__end-icon from "./Button.module.css";
+}
+
+.hop-LinkButton .hop-LinkButton__icon-list,
+.hop-LinkButton .hop-LinkButton__end-icon-list {
+    flex-wrap: nowrap;
+}

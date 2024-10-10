@@ -1,21 +1,19 @@
+import { Div, IconList, Text } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
-import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
-import { ButtonContext } from "react-aria-components";
 
-import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../typography/index.ts";
-import { Button, type ButtonProps } from "../../src/Button.tsx";
+import { LinkButton, type LinkButtonProps } from "../../src/LinkButton.tsx";
 
 const meta = {
-    title: "Components/Buttons/Button",
-    component: Button,
+    title: "Components/Buttons/LinkButton",
+    component: LinkButton,
     args: {
-        children: "Click me!"
+        children: "Click me!",
+        target: "_blank"
     }
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof LinkButton>;
 
 export default meta;
 
@@ -28,159 +26,139 @@ export const Primary: Story = {
                 <Stack>
                     <h1>Default</h1>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>Save</Button>
-                        <Button {...args}>Save</Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isLoading size="sm" {...args}>Save</Button>
-                        <Button isLoading {...args}>Save</Button>
+                        <LinkButton size="sm" {...args}>Save</LinkButton>
+                        <LinkButton {...args}>Save</LinkButton>
                     </Inline>
                     <Div>
-                        <Button isFluid {...args}>Save</Button>
+                        <LinkButton isFluid {...args}>Save</LinkButton>
                     </Div>
                     <Div width="10%">
-                        <Button isFluid {...args}>Save</Button>
-                    </Div>
-                    <Div>
-                        <Button isLoading isFluid {...args}>Save</Button>
+                        <LinkButton isFluid {...args}>Save</LinkButton>
                     </Div>
                 </Stack>
                 <Stack>
                     <h1>Icons</h1>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>
+                        <LinkButton size="sm" {...args}>
                             <SparklesIcon />
                             <Text>Save</Text>
-                        </Button>
-                        <Button {...args}>
+                        </LinkButton>
+                        <LinkButton {...args}>
                             <SparklesIcon />
                             <Text>Save</Text>
-                        </Button>
+                        </LinkButton>
                     </Inline>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>
+                        <LinkButton size="sm" {...args}>
                             <IconList>
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
                             <Text>Save</Text>
-                        </Button>
-                        <Button {...args}>
+                        </LinkButton>
+                        <LinkButton {...args}>
                             <IconList>
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
                             <Text>Save</Text>
-                        </Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isLoading size="sm" {...args}>
-                            <SparklesIcon />
-                            <Text>Save</Text>
-                        </Button>
-                        <Button isLoading {...args}>
-                            <SparklesIcon />
-                            <Text>Save</Text>
-                        </Button>
+                        </LinkButton>
                     </Inline>
                     <Div>
-                        <Button isDisabled {...args}>
+                        <LinkButton isDisabled {...args}>
                             <SparklesIcon />
                             <Text>Save</Text>
-                        </Button>
+                        </LinkButton>
                     </Div>
                     <Stack>
-                        <Button isFluid {...args}>
+                        <LinkButton isFluid {...args}>
                             <SparklesIcon />
                             <Text>Save</Text>
-                        </Button>
-                        <Button isFluid {...args}>
+                        </LinkButton>
+                        <LinkButton isFluid {...args}>
                             <Text>Save</Text>
-                        </Button>
+                        </LinkButton>
                     </Stack>
                 </Stack>
                 <Stack>
                     <h1>End icons</h1>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>
+                        <LinkButton size="sm" {...args}>
                             <Text>Save</Text>
                             <SparklesIcon slot="end-icon" />
-                        </Button>
-                        <Button {...args}>
+                        </LinkButton>
+                        <LinkButton {...args}>
                             <Text>Save</Text>
                             <SparklesIcon slot="end-icon" />
-                        </Button>
+                        </LinkButton>
                     </Inline>
                     <Inline alignY="end">
-                        <Button size="sm" {...args}>
+                        <LinkButton size="sm" {...args}>
                             <Text>Save</Text>
                             <IconList slot="end-icon">
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
-                        </Button>
-                        <Button {...args}>
+                        </LinkButton>
+                        <LinkButton {...args}>
                             <Text>Save</Text>
                             <IconList slot="end-icon">
                                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
                             </IconList>
-                        </Button>
-                    </Inline>
-                    <Inline alignY="end">
-                        <Button isLoading size="sm" {...args}>
-                            <Text>Save</Text>
-                            <SparklesIcon slot="end-icon" />
-                        </Button>
-                        <Button isLoading {...args}>
-                            <Text>Save</Text>
-                            <SparklesIcon slot="end-icon" />
-                        </Button>
+                        </LinkButton>
                     </Inline>
                     <Div>
-                        <Button isDisabled {...args}>
+                        <LinkButton isDisabled {...args}>
                             <Text>Save</Text>
                             <SparklesIcon slot="end-icon" />
-                        </Button>
+                        </LinkButton>
                     </Div>
                     <Stack>
-                        <Button isFluid {...args}>
+                        <LinkButton isFluid {...args}>
                             <Text>Save</Text>
                             <SparklesIcon slot="end-icon" />
-                        </Button>
-                        <Button isFluid {...args}>
+                        </LinkButton>
+                        <LinkButton isFluid {...args}>
                             <Text>Save</Text>
-                        </Button>
+                        </LinkButton>
                     </Stack>
                 </Stack>
                 <Stack>
                     <h1>Zoom</h1>
                     <Inline alignY="end">
                         <Div className="zoom-in">
-                            <Button {...args}>Save</Button>
+                            <LinkButton {...args}>Save</LinkButton>
                         </Div>
                         <Div className="zoom-out'">
-                            <Button {...args}>Save</Button>
+                            <LinkButton {...args}>Save</LinkButton>
                         </Div>
                     </Inline>
                 </Stack>
             </Stack>
         );
+    },
+    args:{
+        href: "https://www.google.com"
     }
 };
+
 export const Secondary: Story = {
     ...Primary,
-    args: {
+    args:{
+        ...Primary.args,
         variant: "secondary"
     }
 };
 
 export const Upsell: Story = {
     ...Primary,
-    args: {
+    args:{
+        ...Primary.args,
         variant: "upsell"
     }
 };
 
 export const Danger: Story = {
     ...Primary,
-    args: {
+    args:{
+        ...Primary.args,
         variant: "danger"
     }
 };
@@ -206,39 +184,37 @@ export const GhostDanger: Story = {
     }
 };
 
-const StateTemplate = (args: Partial<ButtonProps>) => (
+const StateTemplate = (args: Partial<LinkButtonProps>) => (
     <Inline alignY="end">
-        <Button size="sm" {...args}>Save</Button>
-        <Button {...args}>Save</Button>
-        <Button isLoading size="sm" {...args}>Save</Button>
-        <Button isLoading {...args}>Save</Button>
-        <Button {...args}>
+        <LinkButton size="sm" {...args}>Save</LinkButton>
+        <LinkButton {...args}>Save</LinkButton>
+        <LinkButton {...args}>
             <SparklesIcon />
             <Text>Save</Text>
-        </Button>
-        <Button {...args}>
+        </LinkButton>
+        <LinkButton {...args}>
             <Text>Save</Text>
             <SparklesIcon slot="end-icon" />
-        </Button>
-        <Button {...args}>
+        </LinkButton>
+        <LinkButton {...args}>
             <Text>Save</Text>
             <IconList>
                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
             </IconList>
-        </Button>
-        <Button {...args}>
+        </LinkButton>
+        <LinkButton {...args}>
             <Text>Save</Text>
             <IconList slot="end-icon">
                 <SparklesIcon /><SparklesIcon /><SparklesIcon />
             </IconList>
-        </Button>
+        </LinkButton>
     </Inline>
 );
 
 export const PrimaryStates: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const buttons = canvas.getAllByRole("button");
+        const buttons = canvas.getAllByRole("link");
 
         buttons.forEach(button => {
             if (button.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
@@ -251,6 +227,11 @@ export const PrimaryStates: Story = {
                     button.setAttribute("data-hovered", "true");
                     button.removeAttribute("data-chromatic-force-hover");
                 }
+
+                if (button.getAttribute("data-chromatic-force-press")) {
+                    button.setAttribute("data-pressed", "true");
+                    button.removeAttribute("data-chromatic-force-press");
+                }
             }
         });
     },
@@ -262,9 +243,7 @@ export const PrimaryStates: Story = {
                 <h1>Disabled</h1>
                 <StateTemplate {...args} isDisabled />
                 <h1>Pressed</h1>
-                <ButtonContext.Provider value={{ isPressed: true }}>
-                    <StateTemplate {...args} />
-                </ButtonContext.Provider>
+                <StateTemplate {...args} data-chromatic-force-press />
                 <h1>Focus Visible</h1>
                 <StateTemplate {...args} data-chromatic-force-focus />
                 <h1>Hovered</h1>
@@ -273,8 +252,13 @@ export const PrimaryStates: Story = {
                 <StateTemplate {...args} data-chromatic-force-focus data-chromatic-force-hover />
             </Stack>
         );
+    },
+    args:{
+        href: "https://www.google.com"
     }
 };
+
+
 export const SecondaryStates: Story = {
     ...PrimaryStates,
     args: {
