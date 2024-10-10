@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.22
+
+### Patch Changes
+
+- d329436: In the Badge component, we were using data-variant to be able to add styles in other components based on its variant. Now that we have className render props, we can switch back to using a class for Badge's variant prop.
+
 ## 1.3.21
 
 ### Patch Changes
