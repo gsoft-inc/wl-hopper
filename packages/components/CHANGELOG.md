@@ -1,5 +1,17 @@
 # @hopper-ui/components
 
+## 1.3.21
+
+### Patch Changes
+
+- dbb0b74: Updated react aria versions and hopper styled-system version.
+- dbb0b74: We've separated the Button component into two distinct components: Button and LinkButton. This change clarifies their purposes and simplifies their usage. The Button component now focuses solely on traditional button functionality, without any link-related features.
+
+  Meanwhile, the new LinkButton component is specifically designed for link-based interactions, visually styled like a button but meant for navigation. Unlike Button, LinkButton does not support loading states (isLoading), as its primary role is to facilitate navigation rather than trigger actions that require loading feedback.
+
+- Updated dependencies [dbb0b74]
+  - @hopper-ui/icons@2.8.3
+
 ## 1.3.20
 
 ### Patch Changes

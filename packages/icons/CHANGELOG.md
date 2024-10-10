@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.8.3
+
+### Patch Changes
+
+- dbb0b74: Updated react aria versions and hopper styled-system version.
+
 ## 2.8.2
 
 ### Patch Changes
