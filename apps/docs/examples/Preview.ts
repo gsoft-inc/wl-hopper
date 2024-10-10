@@ -497,18 +497,6 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radio/icons": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/icons.tsx"))
     },
-    "inputs/docs/remainingCharacterCount/preview": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/preview.tsx"))
-    },
-    "inputs/docs/remainingCharacterCount/negative": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/negative.tsx"))
-    },
-    "inputs/docs/remainingCharacterCount/invalid": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/invalid.tsx"))
-    },
-    "inputs/docs/remainingCharacterCount/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/disabled.tsx"))
-    },
     "inputs/docs/searchField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/preview.tsx"))
     },
