@@ -36,6 +36,11 @@ interface BadgeRenderProps {
      * Whether or not the badge is selected.
      */
     isSelected?: boolean;
+    /**
+    * The visual style of the badge.
+    * @default "primary"
+    */
+    variant?: BadgeVariant;
 }
 
 export interface BadgeProps extends StyledSystemProps, AccessibleSlotProps, RenderProps<BadgeRenderProps> {
@@ -75,7 +80,8 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
         GlobalBadgeCssSelector,
         cssModule(
             styles,
-            "hop-Badge"
+            "hop-Badge",
+            mapOrbiterToHopperVariants(variant)
         ),
         stylingProps.className
     );
@@ -96,7 +102,8 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
             isIndeterminate: isIndeterminate || false,
             isHovered: isHovered || false,
             isPressed: isPressed || false,
-            isSelected: isSelected || false
+            isSelected: isSelected || false,
+            variant: mapOrbiterToHopperVariants(variant)
         }
     });
 
@@ -115,7 +122,6 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
                 data-hovered={isHovered || undefined}
                 data-pressed={isPressed || undefined}
                 data-selected={isSelected || undefined}
-                data-variant={mapOrbiterToHopperVariants(variant)}
             >
                 {!isDot && renderProps.children}
             </OverlineText>
