@@ -72,12 +72,12 @@ describe("Button", () => {
         expect(element).not.toBeNull();
     });
 
-    it("should add data-pending and disabled attributes when the button is loading", async () => {
+    it("should add data-pending and aria-disabled attribute when the button is loading", async () => {
         render(<Button isLoading >Loading Button</Button>);
 
         const element = screen.getByRole("button");
         expect(element).toHaveAttribute("data-pending", "true");
-        expect(element).toHaveAttribute("disabled");
+        expect(element).toHaveAttribute("aria-disabled");
     });
 
     it("should prevent onPress when the button is loading", async () => {
