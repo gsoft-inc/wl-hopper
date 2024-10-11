@@ -759,7 +759,7 @@
     margin-inline-end: var(--badge-margin-inline-end);
 }
 
-.hop-Tag .hop-Tag__badge[data-variant="subdued"] {
+.hop-Tag .hop-Tag__badge--subdued {
     margin-inline-start: var(--badge-secondary-margin-inline-start);
     color: inherit;
     background: none;

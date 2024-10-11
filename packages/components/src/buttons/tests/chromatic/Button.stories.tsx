@@ -2,11 +2,11 @@ import { SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
+import { ButtonContext } from "react-aria-components";
 
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Text } from "../../../typography/index.ts";
-import { ButtonContext } from "../../index.ts";
 import { Button, type ButtonProps } from "../../src/Button.tsx";
 
 const meta = {

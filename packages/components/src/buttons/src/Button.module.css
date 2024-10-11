@@ -4,144 +4,111 @@
     --hop-Button-column-gap: var(--hop-space-inline-xs);
     --hop-Button-icon-only-column-gap: 0;
     --hop-Button-outline-size: var(--hop-space-20);
+    --hop-Button-border-size: var(--hop-space-10);
+    --hop-Button-text-underline-offset: var(--hop-space-20);
 
     /* Sizes */
     --hop-Button-icon-only-padding: 0; /* Since the content is centered, no need for padding */
     --hop-Button-sm-height: 2rem;
     --hop-Button-md-height: 2.5rem;
+    --hop-Button-sm-padding: 0 var(--hop-space-inset-md);
+    --hop-Button-md-padding: 0 var(--hop-space-inset-md);
+
+    /* Ghost */
+    --hop-Button-ghost-sm-padding: 0 var(--hop-space-inset-xs);
+    --hop-Button-ghost-md-padding: 0 var(--hop-space-inset-sm);
+
+    /* Disabled */
+    --hop-Button-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Button-background-color-disabled: var(--hop-neutral-surface-disabled);
+    --hop-Button-border-disabled: var(--hop-Button-border-size) solid var(--hop-Button-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Button-ghost-background-color-disabled: transparent;
+    --hop-Button-ghost-border-disabled: var(--hop-Button-border-size) solid var(--hop-Button-ghost-background-color-disabled); /* same color as the background */
 
     /* Primary */
     --hop-Button-primary-color: var(--hop-primary-text-strong);
     --hop-Button-primary-color-hover: var(--hop-primary-text-strong-hover);
     --hop-Button-primary-color-pressed: var(--hop-primary-text-strong);
-    --hop-Button-primary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-primary-background-color: var(--hop-primary-surface-strong);
     --hop-Button-primary-background-color-hover: var(--hop-primary-surface-strong-hover);
     --hop-Button-primary-background-color-pressed: var(--hop-primary-surface-strong-press);
-    --hop-Button-primary-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-primary-border: 0.0625rem solid var(--hop-Button-primary-background-color); /* same color as the background */
-    --hop-Button-primary-border-hover: 0.0625rem solid var(--hop-Button-primary-background-color-hover); /* same color as the background */
-    --hop-Button-primary-border-pressed: 0.0625rem solid var(--hop-Button-primary-background-color-pressed);
-    --hop-Button-primary-border-disabled: 0.0625rem solid var(--hop-Button-primary-background-color-disabled); /* same color as the background */
+    --hop-Button-primary-border: var(--hop-Button-border-size) solid var(--hop-Button-primary-background-color); /* same color as the background */
+    --hop-Button-primary-border-hover: var(--hop-Button-border-size) solid var(--hop-Button-primary-background-color-hover); /* same color as the background */
+    --hop-Button-primary-border-pressed: var(--hop-Button-border-size) solid var(--hop-Button-primary-background-color-pressed);
     --hop-Button-primary-spinner-color: var(--hop-primary-icon-strong);
-    --hop-Button-primary-sm-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-primary-sm-padding-y: 0;
-    --hop-Button-primary-md-padding-x: var(--hop-space-inset-md);
-    --hop-Button-primary-md-padding-y: 0;
 
     /* Secondary */
     --hop-Button-secondary-color: var(--hop-neutral-text);
     --hop-Button-secondary-color-hover: var(--hop-neutral-text-hover);
     --hop-Button-secondary-color-pressed: var(--hop-neutral-text-press);
-    --hop-Button-secondary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-secondary-background-color: var(--hop-neutral-surface);
     --hop-Button-secondary-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-secondary-background-color-pressed: var(--hop-neutral-surface-press);
-    --hop-Button-secondary-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-secondary-border: 0.0625rem solid var(--hop-neutral-border-strong);
-    --hop-Button-secondary-border-hover: 0.0625rem solid var(--hop-neutral-border-strong-hover);
-    --hop-Button-secondary-border-pressed: 0.0625rem solid var(--hop-neutral-border-strong);
-    --hop-Button-secondary-border-disabled: 0.0625rem solid var(--hop-Button-secondary-background-color-disabled); /* same color as the background */
+    --hop-Button-secondary-border: var(--hop-Button-border-size) solid var(--hop-neutral-border-strong);
+    --hop-Button-secondary-border-hover: var(--hop-Button-border-size) solid var(--hop-neutral-border-strong-hover);
+    --hop-Button-secondary-border-pressed: var(--hop-Button-border-size) solid var(--hop-neutral-border-strong);
     --hop-Button-secondary-spinner-color: var(--hop-neutral-icon);
-    --hop-Button-secondary-sm-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-secondary-sm-padding-y: 0;
-    --hop-Button-secondary-md-padding-x: var(--hop-space-inset-md);
-    --hop-Button-secondary-md-padding-y: 0;
 
     /* Upsell */
     --hop-Button-upsell-color: var(--hop-upsell-text);
     --hop-Button-upsell-color-hover: var(--hop-upsell-text-hover);
     --hop-Button-upsell-color-pressed: var(--hop-upsell-text-press);
-    --hop-Button-upsell-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-upsell-background-color: var(--hop-upsell-surface);
     --hop-Button-upsell-background-color-hover: var(--hop-upsell-surface-hover);
     --hop-Button-upsell-background-color-pressed: var(--hop-upsell-surface-press);
-    --hop-Button-upsell-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-upsell-border: 0.0625rem solid var(--hop-Button-upsell-background-color); /* same color as the background */
-    --hop-Button-upsell-border-hover: 0.0625rem solid var(--hop-Button-upsell-background-color-hover); /* same color as the background */
-    --hop-Button-upsell-border-pressed: 0.0625rem solid var(--hop-Button-upsell-background-color-pressed); /* same color as the background */
-    --hop-Button-upsell-border-disabled: 0.0625rem solid var(--hop-Button-upsell-background-color-disabled); /* same color as the background */
+    --hop-Button-upsell-border: var(--hop-Button-border-size) solid var(--hop-Button-upsell-background-color); /* same color as the background */
+    --hop-Button-upsell-border-hover: var(--hop-Button-border-size) solid var(--hop-Button-upsell-background-color-hover); /* same color as the background */
+    --hop-Button-upsell-border-pressed: var(--hop-Button-border-size) solid var(--hop-Button-upsell-background-color-pressed); /* same color as the background */
     --hop-Button-upsell-spinner-color: var(--hop-upsell-icon);
-    --hop-Button-upsell-sm-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-upsell-sm-padding-y: 0;
-    --hop-Button-upsell-md-padding-x: var(--hop-space-inset-md);
-    --hop-Button-upsell-md-padding-y: 0;
 
     /* Danger */
     --hop-Button-danger-color: var(--hop-danger-text-strong);
     --hop-Button-danger-color-hover: var(--hop-danger-text-strong-hover);
     --hop-Button-danger-color-pressed: var(--hop-danger-text-strong-hover);
-    --hop-Button-danger-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-danger-background-color: var(--hop-danger-surface-strong);
     --hop-Button-danger-background-color-hover: var(--hop-danger-surface-strong-hover);
     --hop-Button-danger-background-color-pressed: var(--hop-danger-surface-press);
-    --hop-Button-danger-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Button-danger-border: 0.0625rem solid var(--hop-Button-danger-background-color); /* same color as the background */
-    --hop-Button-danger-border-hover: 0.0625rem solid var(--hop-Button-danger-background-color-hover); /* same color as the background */
-    --hop-Button-danger-border-pressed: 0.0625rem solid var(--hop-Button-danger-background-color-pressed); /* same color as the background */
-    --hop-Button-danger-border-disabled: 0.0625rem solid var(--hop-Button-danger-background-color-disabled); /* same color as the background */
+    --hop-Button-danger-border: var(--hop-Button-border-size) solid var(--hop-Button-danger-background-color); /* same color as the background */
+    --hop-Button-danger-border-hover: var(--hop-Button-border-size) solid var(--hop-Button-danger-background-color-hover); /* same color as the background */
+    --hop-Button-danger-border-pressed: var(--hop-Button-border-size) solid var(--hop-Button-danger-background-color-pressed); /* same color as the background */
     --hop-Button-danger-spinner-color: var(--hop-primary-icon-strong);
-    --hop-Button-danger-sm-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-danger-sm-padding-y: 0;
-    --hop-Button-danger-md-padding-x: var(--hop-space-inset-md);
-    --hop-Button-danger-md-padding-y: 0;
 
     /* Ghost Primary */
     --hop-Button-ghost-primary-color: var(--hop-primary-text);
     --hop-Button-ghost-primary-color-hover: var(--hop-primary-text-hover);
     --hop-Button-ghost-primary-color-pressed: var(--hop-primary-text-press);
-    --hop-Button-ghost-primary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-ghost-primary-background-color: transparent;
     --hop-Button-ghost-primary-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-ghost-primary-background-color-pressed: var(--hop-primary-surface-weak-press);
-    --hop-Button-ghost-primary-background-color-disabled: transparent;
-    --hop-Button-ghost-primary-border: 0.0625rem solid var(--hop-Button-ghost-primary-background-color); /* same color as the background */
-    --hop-Button-ghost-primary-border-hover: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-hover); /* same color as the background */
-    --hop-Button-ghost-primary-border-pressed: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-pressed); /* same color as the background */
-    --hop-Button-ghost-primary-border-disabled: 0.0625rem solid var(--hop-Button-ghost-primary-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-primary-border: var(--hop-Button-border-size) solid var(--hop-Button-ghost-primary-background-color); /* same color as the background */
+    --hop-Button-ghost-primary-border-hover: var(--hop-Button-border-size) solid var(--hop-Button-ghost-primary-background-color-hover); /* same color as the background */
+    --hop-Button-ghost-primary-border-pressed: var(--hop-Button-border-size) solid var(--hop-Button-ghost-primary-background-color-pressed); /* same color as the background */
     --hop-Button-ghost-primary-spinner-color: var(--hop-neutral-icon);
-    --hop-Button-ghost-primary-sm-padding-x: var(--hop-space-inset-xs);
-    --hop-Button-ghost-primary-sm-padding-y: 0;
-    --hop-Button-ghost-primary-md-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-ghost-primary-md-padding-y: 0;
 
     /* Ghost Secondary */
     --hop-Button-ghost-secondary-color: var(--hop-neutral-text-weak);
     --hop-Button-ghost-secondary-color-hover: var(--hop-neutral-text-weak-hover);
     --hop-Button-ghost-secondary-color-pressed: var(--hop-neutral-text-weak-press);
-    --hop-Button-ghost-secondary-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-ghost-secondary-background-color: transparent;
     --hop-Button-ghost-secondary-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-ghost-secondary-background-color-pressed: var(--hop-neutral-surface-press);
-    --hop-Button-ghost-secondary-background-color-disabled: transparent;
-    --hop-Button-ghost-secondary-border: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color); /* same color as the background */
-    --hop-Button-ghost-secondary-border-hover: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-hover); /* same color as the background */
-    --hop-Button-ghost-secondary-border-pressed: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-pressed); /* same color as the background */
-    --hop-Button-ghost-secondary-border-disabled: 0.0625rem solid var(--hop-Button-ghost-secondary-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-secondary-border: var(--hop-Button-border-size) solid var(--hop-Button-ghost-secondary-background-color); /* same color as the background */
+    --hop-Button-ghost-secondary-border-hover: var(--hop-Button-border-size) solid var(--hop-Button-ghost-secondary-background-color-hover); /* same color as the background */
+    --hop-Button-ghost-secondary-border-pressed: var(--hop-Button-border-size) solid var(--hop-Button-ghost-secondary-background-color-pressed); /* same color as the background */
     --hop-Button-ghost-secondary-spinner-color: var(--hop-neutral-icon);
-    --hop-Button-ghost-secondary-sm-padding-x: var(--hop-space-inset-xs);
-    --hop-Button-ghost-secondary-sm-padding-y: 0;
-    --hop-Button-ghost-secondary-md-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-ghost-secondary-md-padding-y: 0;
 
     /* Ghost Danger */
     --hop-Button-ghost-danger-color: var(--hop-danger-text-weak);
     --hop-Button-ghost-danger-color-hover: var(--hop-danger-text-hover);
     --hop-Button-ghost-danger-color-pressed: var(--hop-danger-text-press);
-    --hop-Button-ghost-danger-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Button-ghost-danger-background-color: transparent;
     --hop-Button-ghost-danger-background-color-hover: var(--hop-neutral-surface-hover);
     --hop-Button-ghost-danger-background-color-pressed: var(--hop-danger-surface-weak-press);
-    --hop-Button-ghost-danger-background-color-disabled: transparent;
-    --hop-Button-ghost-danger-border: 0.0625rem solid var(--hop-Button-ghost-danger-background-color); /* same color as the background */
-    --hop-Button-ghost-danger-border-hover: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-hover); /* same color as the background */
-    --hop-Button-ghost-danger-border-pressed: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-pressed); /* same color as the background */
-    --hop-Button-ghost-danger-border-disabled: 0.0625rem solid var(--hop-Button-ghost-danger-background-color-disabled); /* same color as the background */
+    --hop-Button-ghost-danger-border: var(--hop-Button-border-size) solid var(--hop-Button-ghost-danger-background-color); /* same color as the background */
+    --hop-Button-ghost-danger-border-hover: var(--hop-Button-border-size) solid var(--hop-Button-ghost-danger-background-color-hover); /* same color as the background */
+    --hop-Button-ghost-danger-border-pressed: var(--hop-Button-border-size) solid var(--hop-Button-ghost-danger-background-color-pressed); /* same color as the background */
     --hop-Button-ghost-danger-spinner-color: var(--hop-neutral-icon);
-    --hop-Button-ghost-danger-sm-padding-x: var(--hop-space-inset-xs);
-    --hop-Button-ghost-danger-sm-padding-y: 0;
-    --hop-Button-ghost-danger-md-padding-x: var(--hop-space-inset-sm);
-    --hop-Button-ghost-danger-md-padding-y: 0;
 
     /* Internal variable */
     --inline-size: max-content;
@@ -151,8 +118,8 @@
     --column-gap: var(--hop-Button-column-gap);
     --spinner: var(--hop-primary-icon-strong);
     --border: 0;
-    --padding-inline: 0;
-    --padding-block: 0;
+    --padding: var(--hop-Button-md-padding);
+    --text-underline: none;
 
     /** styles */
     cursor: pointer;
@@ -168,8 +135,7 @@
     box-sizing: border-box;
     inline-size: var(--inline-size);
     block-size: var(--block-size);
-    padding-block: var(--padding-block);
-    padding-inline: var(--padding-inline);
+    padding: var(--padding);
 
     color: var(--color);
     text-decoration: none;
@@ -187,25 +153,6 @@
         border var(--hop-easing-duration-2) var(--hop-easing-productive);
 }
 
-/** Focus Ring */
-.hop-Button[data-focus-visible] {
-    outline: var(--hop-Button-outline-size) solid var(--hop-Button-focus-ring-color);
-}
-
-/** Modifier */
-.hop-Button--icon-only {
-    --padding-block: var(--hop-Button-icon-only-padding);
-    --padding-inline: var(--hop-Button-icon-only-padding);
-    --column-gap: var(--hop-Button-icon-only-column-gap);
-
-    aspect-ratio: 1;
-}
-
-.hop-Button[data-disabled],
-.hop-Button[data-loading] {
-    cursor: not-allowed;
-}
-
 .hop-Button--fluid {
     --inline-size: 100%;
 }
@@ -213,76 +160,23 @@
 /** Sizes */
 .hop-Button--sm {
     --block-size: var(--hop-Button-sm-height);
+    --padding: var(--hop-Button-sm-padding);
 }
 
-.hop-Button--primary.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-primary-sm-padding-x);
-    --padding-block: var(--hop-Button-primary-sm-padding-y);
+.hop-Button--sm[class*="--ghost"] {
+    --padding: var(--hop-Button-ghost-sm-padding);
 }
 
-.hop-Button--primary.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-primary-md-padding-x);
-    --padding-block: var(--hop-Button-primary-md-padding-y);
+.hop-Button--md[class*="--ghost"] {
+    --padding: var(--hop-Button-ghost-md-padding);
 }
 
-.hop-Button--secondary.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-secondary-md-padding-x);
-    --padding-block: var(--hop-Button-secondary-md-padding-y);
-}
+/** Modifier */
+.hop-Button--icon-only {
+    --column-gap: var(--hop-Button-icon-only-column-gap);
+    --padding: var(--hop-Button-icon-only-padding);
 
-.hop-Button--secondary.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-secondary-sm-padding-x);
-    --padding-block: var(--hop-Button-secondary-sm-padding-y);
-}
-
-.hop-Button--upsell.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-upsell-md-padding-x);
-    --padding-block: var(--hop-Button-upsell-md-padding-y);
-}
-
-.hop-Button--upsell.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-upsell-sm-padding-x);
-    --padding-block: var(--hop-Button-upsell-sm-padding-y);
-}
-
-.hop-Button--danger.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-danger-md-padding-x);
-    --padding-block: var(--hop-Button-danger-md-padding-y);
-}
-
-.hop-Button--danger.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-danger-sm-padding-x);
-    --padding-block: var(--hop-Button-danger-sm-padding-y);
-}
-
-.hop-Button--ghost-danger.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-ghost-danger-md-padding-x);
-    --padding-block: var(--hop-Button-ghost-danger-md-padding-y);
-}
-
-.hop-Button--ghost-danger.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-ghost-danger-sm-padding-x);
-    --padding-block: var(--hop-Button-ghost-danger-sm-padding-y);
-}
-
-.hop-Button--ghost-secondary.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-ghost-secondary-md-padding-x);
-    --padding-block: var(--hop-Button-ghost-secondary-md-padding-y);
-}
-
-.hop-Button--ghost-secondary.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-ghost-secondary-sm-padding-x);
-    --padding-block: var(--hop-Button-ghost-secondary-sm-padding-y);
-}
-
-.hop-Button--ghost-primary.hop-Button--md:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-ghost-primary-md-padding-x);
-    --padding-block: var(--hop-Button-ghost-primary-md-padding-y);
-}
-
-.hop-Button--ghost-primary.hop-Button--sm:not(.hop-Button--icon-only) {
-    --padding-inline: var(--hop-Button-ghost-primary-sm-padding-x);
-    --padding-block: var(--hop-Button-ghost-primary-sm-padding-y);
+    aspect-ratio: 1;
 }
 
 /** Variants */
@@ -293,21 +187,15 @@
     --spinner-color: var(--hop-Button-primary-spinner-color);
 }
 
-.hop-Button--primary[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-primary-background-color-disabled);
-    --color: var(--hop-Button-primary-color-disabled);
-    --border: var(--hop-Button-primary-border-disabled);
-}
-
-.hop-Button--primary[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--primary[data-focus-visible]:not([data-disabled], [data-loading])
+.hop-Button--primary[data-hovered],
+.hop-Button--primary[data-focus-visible]
  {
     --background-color: var(--hop-Button-primary-background-color-hover);
     --color: var(--hop-Button-primary-color-hover);
     --border: var(--hop-Button-primary-border-hover);
 }
 
-.hop-Button--primary[data-pressed]:not([data-loading]) {
+.hop-Button--primary[data-pressed] {
     --background-color: var(--hop-Button-primary-background-color-pressed);
     --color: var(--hop-Button-primary-color-pressed);
     --border: var(--hop-Button-primary-border-pressed);
@@ -320,20 +208,14 @@
     --spinner-color: var(--hop-Button-secondary-spinner-color);
 }
 
-.hop-Button--secondary[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-secondary-background-color-disabled);
-    --color: var(--hop-Button-secondary-color-disabled);
-    --border: var(--hop-Button-secondary-border-disabled);
-}
-
-.hop-Button--secondary[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--secondary[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-Button--secondary[data-hovered],
+.hop-Button--secondary[data-focus-visible] {
     --background-color: var(--hop-Button-secondary-background-color-hover);
     --color: var(--hop-Button-secondary-color-hover);
     --border: var(--hop-Button-secondary-border-hover);
 }
 
-.hop-Button--secondary[data-pressed]:not([data-loading]) {
+.hop-Button--secondary[data-pressed] {
     --background-color: var(--hop-Button-secondary-background-color-pressed);
     --color: var(--hop-Button-secondary-color-pressed);
     --border: var(--hop-Button-secondary-border-pressed);
@@ -346,20 +228,14 @@
     --spinner-color: var(--hop-Button-upsell-spinner-color);
 }
 
-.hop-Button--upsell[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-upsell-background-color-disabled);
-    --color: var(--hop-Button-upsell-color-disabled);
-    --border: var(--hop-Button-upsell-border-disabled);
-}
-
-.hop-Button--upsell[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--upsell[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-Button--upsell[data-hovered],
+.hop-Button--upsell[data-focus-visible] {
     --background-color: var(--hop-Button-upsell-background-color-hover);
     --color: var(--hop-Button-upsell-color-hover);
     --border: var(--hop-Button-upsell-border-hover);
 }
 
-.hop-Button--upsell[data-pressed]:not([data-loading]) {
+.hop-Button--upsell[data-pressed] {
     --background-color: var(--hop-Button-upsell-background-color-pressed);
     --color: var(--hop-Button-upsell-color-pressed);
     --border: var(--hop-Button-upsell-border-pressed);
@@ -372,20 +248,14 @@
     --spinner-color: var(--hop-Button-danger-spinner-color);
 }
 
-.hop-Button--danger[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-danger-background-color-disabled);
-    --color: var(--hop-Button-danger-color-disabled);
-    --border: var(--hop-Button-danger-border-disabled);
-}
-
-.hop-Button--danger[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--danger[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-Button--danger[data-hovered],
+.hop-Button--danger[data-focus-visible] {
     --background-color: var(--hop-Button-danger-background-color-hover);
     --color: var(--hop-Button-danger-color-hover);
     --border: var(--hop-Button-danger-border-hover);
 }
 
-.hop-Button--danger[data-pressed]:not([data-loading]) {
+.hop-Button--danger[data-pressed] {
     --background-color: var(--hop-Button-danger-background-color-pressed);
     --color: var(--hop-Button-danger-color-pressed);
     --border: var(--hop-Button-danger-border-pressed);
@@ -398,23 +268,19 @@
     --spinner-color: var(--hop-Button-ghost-primary-spinner-color);
 }
 
-.hop-Button--ghost-primary[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-ghost-primary-background-color-disabled);
-    --color: var(--hop-Button-ghost-primary-color-disabled);
-    --border: var(--hop-Button-ghost-primary-border-disabled);
-}
-
-.hop-Button--ghost-primary[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--ghost-primary[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-Button--ghost-primary[data-hovered],
+.hop-Button--ghost-primary[data-focus-visible] {
     --background-color: var(--hop-Button-ghost-primary-background-color-hover);
     --color: var(--hop-Button-ghost-primary-color-hover);
     --border: var(--hop-Button-ghost-primary-border-hover);
+    --text-underline: underline;
 }
 
-.hop-Button--ghost-primary[data-pressed]:not([data-loading]) {
+.hop-Button--ghost-primary[data-pressed] {
     --background-color: var(--hop-Button-ghost-primary-background-color-pressed);
     --color: var(--hop-Button-ghost-primary-color-pressed);
     --border: var(--hop-Button-ghost-primary-border-pressed);
+    --text-underline: underline;
 }
 
 .hop-Button--ghost-secondary {
@@ -424,23 +290,19 @@
     --spinner-color: var(--hop-Button-ghost-secondary-spinner-color);
 }
 
-.hop-Button--ghost-secondary[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-ghost-secondary-background-color-disabled);
-    --color: var(--hop-Button-ghost-secondary-color-disabled);
-    --border: var(--hop-Button-ghost-secondary-border-disabled);
-}
-
-.hop-Button--ghost-secondary[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--ghost-secondary[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-Button--ghost-secondary[data-hovered],
+.hop-Button--ghost-secondary[data-focus-visible] {
     --background-color: var(--hop-Button-ghost-secondary-background-color-hover);
     --color: var(--hop-Button-ghost-secondary-color-hover);
     --border: var(--hop-Button-ghost-secondary-border-hover);
+    --text-underline: underline;
 }
 
-.hop-Button--ghost-secondary[data-pressed]:not([data-loading]) {
+.hop-Button--ghost-secondary[data-pressed] {
     --background-color: var(--hop-Button-ghost-secondary-background-color-pressed);
     --color: var(--hop-Button-ghost-secondary-color-pressed);
     --border: var(--hop-Button-ghost-secondary-border-pressed);
+    --text-underline: underline;
 }
 
 .hop-Button--ghost-danger {
@@ -450,23 +312,89 @@
     --spinner-color: var(--hop-Button-ghost-danger-spinner-color);
 }
 
-.hop-Button--ghost-danger[data-disabled]:not([data-loading]) {
-    --background-color: var(--hop-Button-ghost-danger-background-color-disabled);
-    --color: var(--hop-Button-ghost-danger-color-disabled);
-    --border: var(--hop-Button-ghost-danger-border-disabled);
-}
-
-.hop-Button--ghost-danger[data-hovered]:not([data-disabled], [data-loading]),
-.hop-Button--ghost-danger[data-focus-visible]:not([data-disabled], [data-loading]) {
+.hop-Button--ghost-danger[data-hovered],
+.hop-Button--ghost-danger[data-focus-visible] {
     --background-color: var(--hop-Button-ghost-danger-background-color-hover);
     --color: var(--hop-Button-ghost-danger-color-hover);
     --border: var(--hop-Button-ghost-danger-border-hover);
+    --text-underline: underline;
 }
 
-.hop-Button--ghost-danger[data-pressed]:not([data-loading]) {
+.hop-Button--ghost-danger[data-pressed] {
     --background-color: var(--hop-Button-ghost-danger-background-color-pressed);
     --color: var(--hop-Button-ghost-danger-color-pressed);
     --border: var(--hop-Button-ghost-danger-border-pressed);
+    --text-underline: underline;
+}
+
+/** Focus Ring */
+.hop-Button[data-focus-visible] {
+    outline: var(--hop-Button-outline-size) solid var(--hop-Button-focus-ring-color);
+}
+
+/* Disabled */
+.hop-Button[data-disabled],
+.hop-Button[data-pending] {
+    cursor: not-allowed;
+}
+
+.hop-Button[data-disabled] {
+    --background-color: var(--hop-Button-background-color-disabled);
+    --color: var(--hop-Button-color-disabled);
+    --border: var(--hop-Button-border-disabled);
+}
+
+.hop-Button[class*="--ghost"][data-disabled] {
+    --background-color: var(--hop-Button-ghost-background-color-disabled);
+    --color: var(--hop-Button-ghost-color-disabled);
+    --border: var(--hop-Button-ghost-border-disabled);
+}
+
+/* Loading */
+
+.hop-Button--primary[data-pending] {
+    --background-color: var(--hop-Button-primary-background-color);
+    --color: var(--hop-Button-primary-color);
+    --border: var(--hop-Button-primary-border);
+}
+
+.hop-Button--secondary[data-pending] {
+    --background-color: var(--hop-Button-secondary-background-color);
+    --color: var(--hop-Button-secondary-color);
+    --border: var(--hop-Button-secondary-border);
+}
+
+.hop-Button--upsell[data-pending] {
+    --background-color: var(--hop-Button-upsell-background-color);
+    --color: var(--hop-Button-upsell-color);
+    --border: var(--hop-Button-upsell-border);
+}
+
+.hop-Button--danger[data-pending] {
+    --background-color: var(--hop-Button-danger-background-color);
+    --color: var(--hop-Button-danger-color);
+    --border: var(--hop-Button-danger-border);
+}
+
+.hop-Button--ghost-primary[data-pending] {
+    --background-color: var(--hop-Button-ghost-primary-background-color);
+    --color: var(--hop-Button-ghost-primary-color);
+    --border: var(--hop-Button-ghost-primary-border);
+    --text-underline: none;
+}
+
+.hop-Button--ghost-secondary[data-pending] {
+    --background-color: var(--hop-Button-ghost-secondary-background-color);
+    --color: var(--hop-Button-ghost-secondary-color);
+    --border: var(--hop-Button-ghost-secondary-border);
+    --text-underline: none;
+}
+
+.hop-Button--ghost-danger[data-pending] {
+    --background-color: var(--hop-Button-ghost-danger-background-color);
+    --color: var(--hop-Button-ghost-danger-color);
+    --border: var(--hop-Button-ghost-danger-border);
+    --text-underline: none;
 }
 
 /** Elements */
@@ -490,20 +418,9 @@
     order: 2;
 
     font-weight: var(--hop-font-weight-505);
-    text-wrap: nowrap;
-}
-
-.hop-Button--ghost-primary[data-hovered]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-secondary[data-hovered]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-danger[data-hovered]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-primary[data-pressed]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-secondary[data-pressed]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-danger[data-pressed]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-primary[data-focus-visible]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-secondary[data-focus-visible]:not([data-loading]) .hop-Button__text,
-.hop-Button--ghost-danger[data-focus-visible]:not([data-loading]) .hop-Button__text {
-    text-decoration: underline;
+    text-decoration: var(--text-underline);
     text-underline-offset: 0.125rem;
+    text-wrap: nowrap;
 }
 
 .hop-Button__end-icon,
@@ -521,6 +438,6 @@
  - allows screen readers to read the content
  - preserve the button's size
 */
-.hop-Button[data-loading] > *:not(.hop-Button__Spinner) {
+.hop-Button[data-pending] > *:not(.hop-Button__Spinner) {
     opacity: 0;
 }

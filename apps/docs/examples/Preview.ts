@@ -38,12 +38,6 @@ export const Previews: Record<string, Preview> = {
     "buttons/docs/button/endIcon": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/endIcon.tsx"))
     },
-    "buttons/docs/button/asLink": {
-        component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/asLink.tsx"))
-    },
-    "buttons/docs/button/reactRouterLink": {
-        component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/reactRouterLink.tsx"))
-    },
     "buttons/docs/button/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/button/advancedCustomization.tsx"))
     },
@@ -64,6 +58,42 @@ export const Previews: Record<string, Preview> = {
     },
     "buttons/docs/buttonGroup/sizes": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/buttonGroup/sizes.tsx"))
+    },
+    "buttons/docs/linkButton/preview": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/preview.tsx"))
+    },
+    "buttons/docs/linkButton/variant": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/variant.tsx"))
+    },
+    "buttons/docs/linkButton/size": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/size.tsx"))
+    },
+    "buttons/docs/linkButton/state": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/state.tsx"))
+    },
+    "buttons/docs/linkButton/external": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/external.tsx"))
+    },
+    "buttons/docs/linkButton/noHref": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/noHref.tsx"))
+    },
+    "buttons/docs/linkButton/layout": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/layout.tsx"))
+    },
+    "buttons/docs/linkButton/icon": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/icon.tsx"))
+    },
+    "buttons/docs/linkButton/icons": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/icons.tsx"))
+    },
+    "buttons/docs/linkButton/endIcon": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/endIcon.tsx"))
+    },
+    "buttons/docs/linkButton/reactRouterLink": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/reactRouterLink.tsx"))
+    },
+    "buttons/docs/linkButton/advancedCustomization": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/advancedCustomization.tsx"))
     },
     "ListBox/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/preview.tsx"))
@@ -497,18 +527,6 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radio/icons": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/icons.tsx"))
     },
-    "inputs/docs/remainingCharacterCount/preview": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/preview.tsx"))
-    },
-    "inputs/docs/remainingCharacterCount/negative": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/negative.tsx"))
-    },
-    "inputs/docs/remainingCharacterCount/invalid": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/invalid.tsx"))
-    },
-    "inputs/docs/remainingCharacterCount/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/inputs/docs/remainingCharacterCount/disabled.tsx"))
-    },
     "inputs/docs/searchField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/searchField/preview.tsx"))
     },
@@ -937,6 +955,18 @@ export const Previews: Record<string, Preview> = {
     },
     "Select/docs/selectDropdown/description": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/description.tsx"))
+    },
+    "layout/docs/content/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/content/preview.tsx"))
+    },
+    "layout/docs/footer/preview": {
+        component: lazy(() => import("@/../../packages/components/src/layout/docs/footer/preview.tsx"))
+    },
+    "Header/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Header/docs/preview.tsx"))
+    },
+    "Section/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
     },
     "Badge/docs/badge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))

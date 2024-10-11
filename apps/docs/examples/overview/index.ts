@@ -7,12 +7,15 @@ import ButtonGroup from "./ButtonGroup.svg";
 import Checkbox from "./Checkbox.svg";
 import CheckboxGroup from "./CheckboxGroup.svg";
 import Combobox from "./Combobox.svg";
+import Content from "./Content.svg";
 import Divider from "./Divider.svg";
 import ErrorMessage from "./ErrorMessage.svg";
 import Flex from "./Flex.svg";
 import FloatingBadge from "./FloatingBadge.svg";
+import Footer from "./Footer.svg";
 import Form from "./Form.svg";
 import Grid from "./Grid.svg";
+import Header from "./Header.svg";
 import Heading from "./Heading.svg";
 import HelperMessage from "./HelperMessage.svg";
 import IconList from "./IconList.svg";
@@ -24,8 +27,8 @@ import NumberField from "./NumberField.svg";
 import PasswordField from "./PasswordField.svg";
 import Popover from "./Popover.svg";
 import RadioGroup from "./RadioGroup.svg";
-import RemainingCharacterCount from "./RemainingCharacterCount.svg";
 import SearchField from "./SearchField.svg";
+import Section from "./Section.svg";
 import Select from "./Select.svg";
 import Spinner from "./Spinner.svg";
 import Stack from "./Stack.svg";
@@ -49,12 +52,15 @@ export const OverviewComponents: OverviewComponentsType = {
     Checkbox,
     CheckboxGroup,
     Combobox,
+    Content,
     Divider,
     ErrorMessage,
     Flex,
     FloatingBadge,
+    Footer,
     Form,
     Grid,
+    Header,
     Heading,
     HelperMessage,
     IconList,
@@ -66,8 +72,8 @@ export const OverviewComponents: OverviewComponentsType = {
     PasswordField,
     Popover,
     RadioGroup,
-    RemainingCharacterCount,
     SearchField,
+    Section,
     Select,
     Spinner,
     Stack,

@@ -1,54 +1,37 @@
 "use client";
 
+import { CollapseIcon, Icon } from "@/components/icon";
 import clsx from "clsx";
-import { type ReactNode, useEffect, useRef, useState } from "react";
-import { ToggleButton } from "react-aria-components";
-import { Icon, CollapseIcon } from "@/components/icon";
+import type { ReactNode } from "react";
+import { Button, composeRenderProps, UNSTABLE_Disclosure as Disclosure, UNSTABLE_DisclosurePanel as DisclosurePanel, type DisclosureProps } from "react-aria-components";
 
 import "./collapsible.css";
 
-export interface CollapsibleProps {
-    children: ReactNode;
+export interface CollapsibleProps extends DisclosureProps {
     title: ReactNode;
-    label?: string;
-    isOpen?: boolean;
-    className?: string;
 }
 
-const Collapsible = ({ children, title, label, isOpen = false, className }: CollapsibleProps) => {
-    const [open, setOpen] = useState(isOpen);
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (open && contentRef.current) {
-            contentRef.current.style.height = `${contentRef.current.scrollHeight}px`;
-        }
-
-        if (!open && contentRef.current) {
-            contentRef.current.style.height = "0px";
-        }
-    }, [open]);
-
-    const toggle = () => {
-        setOpen(!open);
-    };
+const Collapsible = ({ title, className, children: childrenProp, ...rest }: CollapsibleProps) => {
+    const children = composeRenderProps(childrenProp, prev => {
+        return prev;
+    });
 
     return (
-        <div className={clsx("hd-collapsible", { "hd-collapsible--open": open }, className)}>
-            <ToggleButton className="hd-collapsible__trigger"
-                onChange={toggle}
-                isSelected={open}
-                aria-label={label}
-            >
-                {title}
-                <Icon src={CollapseIcon} />
-            </ToggleButton>
-            <div ref={contentRef}
-                className="hd-collapsible__content-wrapper"
-            >
-                <div className="hd-collapsible__content">{children}</div>
-            </div>
-        </div>
+        <Disclosure className={clsx("hd-collapsible", className)} {...rest}>
+            {disclosureRenderProps => (
+                <>
+                    <h3>
+                        <Button className="hd-collapsible__trigger" slot="trigger">
+                            {title}
+                            <Icon src={CollapseIcon} />
+                        </Button>
+                    </h3>
+                    <DisclosurePanel>
+                        <div className="hd-collapsible__content">{children(disclosureRenderProps)}</div>
+                    </DisclosurePanel>
+                </>
+            )}
+        </Disclosure>
     );
 };
 

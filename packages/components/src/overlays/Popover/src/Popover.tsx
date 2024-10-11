@@ -9,6 +9,7 @@ import {
     HopperProvider,
     isFunction,
     isNil,
+    LinkButtonContext,
     LinkContext,
     ListBoxContext,
     SlotProvider,
@@ -167,6 +168,10 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                                     size: "xs"
                                 }],
                                 [ButtonContext, {
+                                    size: "sm",
+                                    className: styles["hop-Popover__action"]
+                                }],
+                                [LinkButtonContext, {
                                     size: "sm",
                                     className: styles["hop-Popover__action"]
                                 }],

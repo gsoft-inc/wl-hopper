@@ -1,7 +1,7 @@
 import { IconContext } from "@hopper-ui/icons";
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { filterDOMProps } from "@react-aria/utils";
-import { type ForwardedRef, forwardRef, type NamedExoticComponent, useContext, useRef } from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, type NamedExoticComponent, useContext, useRef } from "react";
 import {
     composeRenderProps,
     DEFAULT_SLOT,
@@ -73,7 +73,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
             ...stylingProps.style,
             ...prev
         };
-    });
+    }) as CSSProperties;
   
     const renderProps = useRenderProps({
         ...otherProps,

@@ -1,9 +1,9 @@
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
+import { ButtonContext } from "react-aria-components";
 
 import { Inline, Stack } from "../../../layout/index.ts";
-import { ButtonContext } from "../../index.ts";
 import { Button, type ButtonProps } from "../../src/Button.tsx";
 
 const meta = {

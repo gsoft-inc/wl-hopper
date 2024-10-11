@@ -3,8 +3,8 @@ import { InfoIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { type ReactNode, useRef, useState } from "react";
 
-import { Button, ButtonGroup, ButtonContext } from "../../../buttons/index.ts";
-import { Footer, Inline, Content } from "../../../layout/index.ts";
+import { Button, ButtonContext, ButtonGroup } from "../../../buttons/index.ts";
+import { Content, Footer, Inline } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
 import { Heading } from "../../../typography/index.ts";
 import { Popover } from "../src/Popover.tsx";

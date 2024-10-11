@@ -144,7 +144,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
             data-loading={isLoading || undefined}
         >
             {tagProps => {
-                const { allowsRemoving, isDisabled, isSelected, isPressed, isHovered } = tagProps;
+                const { allowsRemoving, isDisabled, isSelected } = tagProps;
 
                 return (
                     <>
@@ -164,11 +164,14 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
                                         size: "sm"
                                     }],
                                     [BadgeContext, {
-                                        className: styles["hop-Tag__badge"],
-                                        isDisabled: isDisabled,
-                                        isHovered: isHovered,
-                                        isPressed: isPressed,
-                                        isSelected: isSelected
+                                        className: ({ variant: badgeVariant }) => {
+                                            return cssModule(
+                                                styles,
+                                                "hop-Tag__badge",
+                                                badgeVariant
+                                            );
+                                        },
+                                        isDisabled: isDisabled
                                     }],
                                     [AvatarContext, {
                                         className: styles["hop-Tag__avatar"],

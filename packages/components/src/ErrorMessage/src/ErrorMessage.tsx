@@ -1,6 +1,6 @@
 import { WarningIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef, useContext } from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, useContext } from "react";
 import {
     type FieldErrorProps as RACFieldErrorProps,
     FieldErrorContext as RACFieldErrorContext,
@@ -65,7 +65,7 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
             ...stylingProps.style,
             ...prev
         };
-    });
+    }) as CSSProperties;
 
     const warningIcon = !hideIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
 
