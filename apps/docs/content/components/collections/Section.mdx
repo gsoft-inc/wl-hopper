@@ -1,10 +1,12 @@
 ---
 title: Section
 description: A Section serves as a versatile container component, encapsulating an HTML section element.
-category: "placeholders"
+category: "collections"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Section/src/Section.tsx
 ---
+
+Section is a subcomponent of [Listbox](./Listbox), it's used within [Combobox](./ComboBox) and [Select](./Select).
 
 <Example src="Section/docs/preview" isOpen />
 
@@ -24,9 +26,20 @@ links:
 
 A `Section` uses the following components.
 
+#### Listbox
+
 - [ListboxItem](./Listbox#listboxitem)
 - [Header](./Header)
 
+#### Combobox
+
+- [ComboBoxOption](./ComboBox#comboboxoption)
+- [Header](./Header)
+
+#### Select
+
+- [SelectOption](./Select#selectoption)
+- [Header](./Header)
 
 <FeatureFlag flag="rc">
 
