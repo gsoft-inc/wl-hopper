@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.23
+
+### Patch Changes
+
+- c603aff: Badge used to change appearance based on the states of its parent, but now Badge will remain the same when its parent's state changes.
+
 ## 1.3.22
 
 ### Patch Changes
