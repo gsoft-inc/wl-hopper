@@ -152,6 +152,9 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/multipleSizes": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSizes.tsx"))
     },
+    "Section/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
+    },
     "tag/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/preview.tsx"))
     },
@@ -362,8 +365,8 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxfield/size": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/size.tsx"))
     },
-    "checkbox/docs/checkbox/description": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/description.tsx"))
+    "checkbox/docs/checkboxfield/description": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/description.tsx"))
     },
     "checkbox/docs/checkboxgroup/preview": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/preview.tsx"))
@@ -964,9 +967,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Header/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Header/docs/preview.tsx"))
-    },
-    "Section/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
     },
     "Badge/docs/badge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))

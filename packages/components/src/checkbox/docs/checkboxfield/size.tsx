@@ -1,15 +1,13 @@
-import { Checkbox, CheckboxField, Inline, Text } from "@hopper-ui/components";
+import { Checkbox, CheckboxField, Inline } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Inline>
-            <CheckboxField size="sm">
+            <CheckboxField size="sm" description="Team Manager">
                 <Checkbox>Manager</Checkbox>
-                <Text>Team Manager</Text>
             </CheckboxField>
-            <CheckboxField size="md">
+            <CheckboxField size="md" description="Team Manager">
                 <Checkbox>Manager</Checkbox>
-                <Text>Team Manager</Text>
             </CheckboxField>
         </Inline>
     );
