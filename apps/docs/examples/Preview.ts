@@ -392,6 +392,9 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxgroup/controlled": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/controlled.tsx"))
     },
+    "checkbox/docs/checkboxgroup/itemsDescription": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/itemsDescription.tsx"))
+    },
     "ErrorMessage/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
     },
