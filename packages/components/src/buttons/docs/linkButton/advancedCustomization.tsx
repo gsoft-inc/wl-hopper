@@ -6,7 +6,7 @@ export default function Example() {
             [LinkButtonContext, { variant: "secondary", size: "sm" }]
         ]}
         >
-            <LinkButton href="https://www.google.com">Save</LinkButton>
+            <LinkButton href="https://www.google.com">Help</LinkButton>
         </SlotProvider>
     );
 }

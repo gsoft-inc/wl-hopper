@@ -4,6 +4,7 @@ import Avatar from "./Avatar.svg";
 import Badge from "./Badge.svg";
 import Button from "./Button.svg";
 import ButtonGroup from "./ButtonGroup.svg";
+import LinkButton from "./LinkButton.svg";
 import Checkbox from "./Checkbox.svg";
 import CheckboxGroup from "./CheckboxGroup.svg";
 import Combobox from "./Combobox.svg";
@@ -18,6 +19,7 @@ import Grid from "./Grid.svg";
 import Header from "./Header.svg";
 import Heading from "./Heading.svg";
 import HelperMessage from "./HelperMessage.svg";
+import Icon from "./Icon.svg";
 import IconList from "./IconList.svg";
 import Inline from "./Inline.svg";
 import Label from "./Label.svg";
@@ -49,6 +51,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Badge,
     Button,
     ButtonGroup,
+    LinkButton,
     Checkbox,
     CheckboxGroup,
     Combobox,
@@ -63,6 +66,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Header,
     Heading,
     HelperMessage,
+    Icon,
     IconList,
     Inline,
     Label,

@@ -62,7 +62,7 @@ const Overview = () => {
                     interactive
                     className="hd-component-overview-category__title"
                 >{category}</Title>
-                <HopperProvider colorScheme={theme} >
+                <HopperProvider colorScheme={theme}>
                     <div className="hd-component-overview">
                         {allComponents.filter(component =>
                             component.category &&
@@ -72,7 +72,7 @@ const Overview = () => {
      (component.status === "alpha" && featureFlags.alpha))
                         ).map(component => {
                             return (
-                                <OverviewTile component={component} key={component._id} />
+                                <OverviewTile title={component.title} key={component._id} />
                             );
                         })}
                     </div>

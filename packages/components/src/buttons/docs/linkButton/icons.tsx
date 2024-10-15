@@ -6,11 +6,11 @@ export default function Example() {
         <Inline>
             <LinkButton href="https://www.google.com" size="md" aria-label="Clean" variant="secondary">
                 <SparklesIcon key="1" />
-                <Text key="2">Save</Text>
+                <Text key="2">Help</Text>
             </LinkButton>
             <LinkButton href="https://www.google.com" size="sm" aria-label="Clean" variant="secondary">
                 <SparklesIcon key="1" />
-                <Text key="2">Save</Text>
+                <Text key="2">Help</Text>
             </LinkButton>
         </Inline>
     );
