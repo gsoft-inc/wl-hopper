@@ -3,9 +3,7 @@ import { isNil, isObject } from "../utils/assertion.ts";
 import { useBreakpointContext } from "./BreakpointContext.tsx";
 import { Breakpoints, type Breakpoint } from "./Breakpoints.ts";
 
-export type ResponsiveValue<T> = {
-    [K in Breakpoint]?: T
-};
+export type ResponsiveValue<T> = Partial<Record<Breakpoint, T>>;
 
 export type ResponsiveProp<T> = T | ResponsiveValue<T>;
 
