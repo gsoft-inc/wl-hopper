@@ -4,12 +4,13 @@ import {
     type ResponsiveProp,
     type StyledSystemProps
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { mergeProps, useId } from "react-aria";
+import { useSlotId } from "@react-aria/utils";
+import { forwardRef, type ForwardedRef, type ReactNode } from "react";
+import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { TextContext, type TextSize } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type FieldSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
+import { Text, type TextSize } from "../../typography/Text/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type FieldSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
 import { CheckboxFieldContext } from "./CheckboxFieldContext.ts";
@@ -32,6 +33,10 @@ interface CheckboxFieldRenderProps {
 
 export interface CheckboxFieldProps extends StyledSystemProps, AccessibleSlotProps, RenderProps<CheckboxFieldRenderProps> {
     /**
+     * The description of the checkbox field.
+     */
+    description?: ReactNode;
+    /**
      * Whether the checkbox field is disabled.
      */
     isDisabled?: boolean;
@@ -47,6 +52,7 @@ function CheckboxField(props: CheckboxFieldProps, ref: ForwardedRef<HTMLDivEleme
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
+        description,
         isDisabled,
         size: sizeProp = "md",
         style,
@@ -83,33 +89,40 @@ function CheckboxField(props: CheckboxFieldProps, ref: ForwardedRef<HTMLDivEleme
         }
     });
 
-    const descriptionId = useId();
+    const descriptionId = useSlotId([Boolean(description)]);
 
     return (
-        <SlotProvider
-            values={[
-                [TextContext, {
-                    id: descriptionId,
-                    className: styles["hop-CheckboxField__description"],
-                    size: CheckboxToDescriptionSizeAdapter[size]
-                }],
-                [CheckboxContext, {
-                    className: styles["hop-CheckboxField__checkbox"],
-                    size: size,
-                    isDisabled: isDisabled,
-                    "aria-describedby": descriptionId
-                }]
-            ]}
-        >
-            <div
-                {...mergeProps(otherProps, renderProps)}
-                ref={ref}
-                slot={slot ?? undefined}
-                data-disabled={isDisabled}
+        <ClearContainerSlots>
+            <SlotProvider
+                values={[
+                    [CheckboxContext, {
+                        className: styles["hop-CheckboxField__checkbox"],
+                        size: size,
+                        isDisabled: isDisabled,
+                        "aria-describedby": descriptionId
+                    }]
+                ]}
             >
-                {renderProps.children}
-            </div>
-        </SlotProvider>
+                <div
+                    {...mergeProps(otherProps, renderProps)}
+                    ref={ref}
+                    slot={slot ?? undefined}
+                    data-disabled={isDisabled}
+                >
+                    {renderProps.children}
+                    {description && (
+                        <Text
+                            id={descriptionId}
+                            className={styles["hop-CheckboxField__description"]}
+                            size={CheckboxToDescriptionSizeAdapter[size]}
+                            slot="description"
+                        >
+                            {description}
+                        </Text>
+                    )}
+                </div>
+            </SlotProvider>
+        </ClearContainerSlots>
     );
 }
 

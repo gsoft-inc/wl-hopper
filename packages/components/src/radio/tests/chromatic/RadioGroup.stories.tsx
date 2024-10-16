@@ -30,9 +30,8 @@ export const Vertical = {
                 <RadioList>
                     <Radio value="developer">Developer</Radio>
                     <Radio value="designer">Designer</Radio>
-                    <RadioField>
+                    <RadioField description="Product Owner">
                         <Radio value="po">PO</Radio>
-                        <Text slot="description">Product Owner</Text>
                     </RadioField>
                     <Radio value="manager">Manager</Radio>
                 </RadioList>
@@ -77,13 +76,13 @@ export const Vertical = {
                             <SparklesIcon /><SparklesIcon /><SparklesIcon />
                         </IconList>
                     </Radio>
-                    <RadioField>
+                    <RadioField description="Team Manager">
                         <Radio value="manager">
                             <Text>Manager</Text>
                             <IconList>
                                 <SparklesIcon /><SparklesIcon />
-                            </IconList></Radio>
-                        <Text slot="description">Team Manager</Text>
+                            </IconList>
+                        </Radio>
                     </RadioField>
                 </RadioList>
                 <HelperMessage>Select one to continue</HelperMessage>
@@ -151,14 +150,12 @@ export const Vertical = {
                 <RadioGroup {...props} size="sm" variant="bordered">
                     <Label>Roles</Label>
                     <RadioList>
-                        <RadioField>
+                        <RadioField description="Team Lead">
                             <Radio value="developer">Developer</Radio>
-                            <Text slot="description">Team Lead</Text>
                         </RadioField>
                         <Radio value="designer">Designer</Radio>
-                        <RadioField>
+                        <RadioField description="Team Manager">
                             <Radio value="manager">Manager</Radio>
-                            <Text slot="description">Team Manager</Text>
                         </RadioField>
                     </RadioList>
                     <HelperMessage>Select one to continue</HelperMessage>
@@ -166,14 +163,12 @@ export const Vertical = {
                 <RadioGroup {...props} size="md" variant="bordered">
                     <Label>Roles</Label>
                     <RadioList>
-                        <RadioField>
+                        <RadioField description="Team Lead">
                             <Radio value="developer">Developer</Radio>
-                            <Text slot="description">Team Lead</Text>
                         </RadioField>
                         <Radio value="designer">Designer</Radio>
-                        <RadioField>
+                        <RadioField description="Team Manager">
                             <Radio value="manager">Manager</Radio>
-                            <Text slot="description">Team Manager</Text>
                         </RadioField>
                     </RadioList>
                     <HelperMessage>Select one to continue</HelperMessage>

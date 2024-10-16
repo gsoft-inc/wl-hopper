@@ -46,11 +46,10 @@ export const Default: Story = {
  */
 export const Description: Story = {
     render: props => (
-        <CheckboxField {...props}>
+        <CheckboxField {...props} description="Team Manager">
             <Checkbox>
                 <Text>Option 1</Text>
             </Checkbox>
-            <Text slot="description">Description</Text>
         </CheckboxField>
     )
 };
@@ -71,17 +70,15 @@ export const Disabled: Story = {
 export const Sizes: Story = {
     render: props => (
         <Stack>
-            <CheckboxField {...props} size="sm">
+            <CheckboxField {...props} size="sm" description="Team Manager">
                 <Checkbox>
                     <Text>Option 1</Text>
                 </Checkbox>
-                <Text slot="description">Description</Text>
             </CheckboxField>
-            <CheckboxField {...props} size="md">
+            <CheckboxField {...props} size="md" description="Team Manager">
                 <Checkbox>
                     <Text>Option 1</Text>
                 </Checkbox>
-                <Text slot="description">Description</Text>
             </CheckboxField>
         </Stack>
     )

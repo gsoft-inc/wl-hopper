@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../typography/Text/index.ts";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 
@@ -17,17 +16,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: props => (
         <Inline alignY="end">
-            <CheckboxField {...props} size="sm">
-                <Checkbox>
-                    <Text>Option 1</Text>
-                </Checkbox>
-                <Text slot="description">Description</Text>
+            <CheckboxField {...props} size="sm" description="Description">
+                <Checkbox>Option 1</Checkbox>
             </CheckboxField>
-            <CheckboxField {...props} size="md">
-                <Checkbox>
-                    <Text>Option 1</Text>
-                </Checkbox>
-                <Text slot="description">Description</Text>
+            <CheckboxField {...props} size="md" description="Description">
+                <Checkbox>Option 1</Checkbox>
             </CheckboxField>
         </Inline>
     )
@@ -36,17 +29,11 @@ export const Default: Story = {
 export const Validation: Story = {
     render: props => (
         <Inline alignY="end">
-            <CheckboxField {...props} size="sm">
-                <Checkbox isInvalid>
-                    <Text>Option 1</Text>
-                </Checkbox>
-                <Text slot="description">Description</Text>
+            <CheckboxField {...props} size="sm" description="Description">
+                <Checkbox isInvalid>Option 1</Checkbox>
             </CheckboxField>
-            <CheckboxField {...props} size="md">
-                <Checkbox isInvalid>
-                    <Text>Option 1</Text>
-                </Checkbox>
-                <Text slot="description">Description</Text>
+            <CheckboxField {...props} size="md" description="Description">
+                <Checkbox isInvalid>Option 1</Checkbox>
             </CheckboxField>
         </Inline>
     )
@@ -55,17 +42,11 @@ export const Validation: Story = {
 export const Disabled: Story = {
     render: props => (
         <Inline alignY="end">
-            <CheckboxField {...props} size="sm" isDisabled>
-                <Checkbox>
-                    <Text>Option 1</Text>
-                </Checkbox>
-                <Text slot="description">Description</Text>
+            <CheckboxField {...props} size="sm" isDisabled description="Description">
+                <Checkbox>Option 1</Checkbox>
             </CheckboxField>
-            <CheckboxField {...props} size="md" isDisabled>
-                <Checkbox>
-                    <Text>Option 1</Text>
-                </Checkbox>
-                <Text slot="description">Description</Text>
+            <CheckboxField {...props} size="md" isDisabled description="Description">
+                <Checkbox>Option 1</Checkbox>
             </CheckboxField>
         </Inline>
     )
@@ -75,31 +56,19 @@ export const Zoom: Story = {
     render: props => (
         <Stack>
             <Inline alignY="end">
-                <CheckboxField {...props} size="sm" className="zoom-in">
-                    <Checkbox>
-                        <Text>Option 1</Text>
-                    </Checkbox>
-                    <Text slot="description">Description</Text>
+                <CheckboxField {...props} size="sm" className="zoom-in" description="Description">
+                    <Checkbox>Option 1</Checkbox>
                 </CheckboxField>
-                <CheckboxField {...props} size="md" className="zoom-in">
-                    <Checkbox>
-                        <Text>Option 1</Text>
-                    </Checkbox>
-                    <Text slot="description">Description</Text>
+                <CheckboxField {...props} size="md" className="zoom-in" description="Description">
+                    <Checkbox>Option 1</Checkbox>
                 </CheckboxField>
             </Inline>
             <Inline alignY="end">
-                <CheckboxField {...props} size="sm" className="zoom-out">
-                    <Checkbox>
-                        <Text>Option 1</Text>
-                    </Checkbox>
-                    <Text slot="description">Description</Text>
+                <CheckboxField {...props} size="sm" className="zoom-out" description="Description">
+                    <Checkbox>Option 1</Checkbox>
                 </CheckboxField>
-                <CheckboxField {...props} size="md" className="zoom-out">
-                    <Checkbox>
-                        <Text>Option 1</Text>
-                    </Checkbox>
-                    <Text slot="description">Description</Text>
+                <CheckboxField {...props} size="md" className="zoom-out" description="Description">
+                    <Checkbox>Option 1</Checkbox>
                 </CheckboxField>
             </Inline>
         </Stack>
@@ -109,25 +78,20 @@ export const Zoom: Story = {
 export const AccessToDisabledState: Story = {
     render: props => (
         <Inline alignY="end">
-            <CheckboxField {...props} isDisabled>
+            <CheckboxField {...props} isDisabled description="Value should be true">
                 {({ isDisabled }) => (
-                    <>
-                        <Checkbox>
-                            <Text>Value should be true</Text>
-                        </Checkbox>
-                        <Text slot="description">Is disabled: {String(isDisabled)}</Text>
-                    </>
+                    <Checkbox>
+                            Is disabled: {String(isDisabled)}
+                    </Checkbox>
                 )}
             </CheckboxField>
             <CheckboxField
                 {...props}
                 isDisabled
                 style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+                description="Border should be red"
             >
-                <Checkbox>
-                    <Text>Disabled</Text>
-                </Checkbox>
-                <Text slot="description">Border should be red</Text>
+                <Checkbox>Disabled</Checkbox>
             </CheckboxField>
         </Inline>
     )
