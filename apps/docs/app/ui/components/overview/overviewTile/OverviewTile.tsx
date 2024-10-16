@@ -2,13 +2,13 @@
 
 import { allComponents } from "@/.contentlayer/generated";
 
-import Link from "next/link";
-import { Icon, EmptyComponent } from "@/components/icon";
 import Card from "@/components/card/Card";
+import { EmptyComponent, Icon } from "@/components/icon";
 import Title from "@/components/title/Title";
 import { OverviewComponents } from "@/examples/overview";
+import Link from "next/link";
 
-interface OverviewTileProps {
+export interface OverviewTileProps {
     title: string;
 }
 

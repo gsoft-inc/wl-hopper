@@ -1,13 +1,17 @@
 "use client";
 
-import { useContext } from "react";
-import { HopperProvider } from "@hopper-ui/components";
-import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import OverviewTile from "@/app/ui/components/overview/overviewTile/OverviewTile";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
+import { HopperProvider } from "@hopper-ui/components";
+import { useContext } from "react";
 
 import "./composedComponents.css";
 
-const ComposedComponents = ({ components }) => {
+interface ComposedComponentsProps {
+    components: string[];
+}
+
+const ComposedComponents = ({ components } : ComposedComponentsProps) => {
     const { colorMode } = useContext(ThemeContext);
     const theme = colorMode as ColorScheme;
 

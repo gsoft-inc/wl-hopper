@@ -8,7 +8,7 @@ import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.ts
 
 import { useContext } from "react";
 import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
-import OverviewTile from "./overviewTile/OverviewTile.tsx";
+import OverviewTile, { type OverviewTileProps } from "./overviewTile/OverviewTile.tsx";
 
 import "./overview.css";
 
@@ -72,7 +72,7 @@ const Overview = () => {
      (component.status === "alpha" && featureFlags.alpha))
                         ).map(component => {
                             return (
-                                <OverviewTile title={component.title} key={component._id} />
+                                <OverviewTile title={component.title as OverviewTileProps["title"]} key={component._id} />
                             );
                         })}
                     </div>

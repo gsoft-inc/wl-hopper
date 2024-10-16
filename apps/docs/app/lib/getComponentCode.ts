@@ -3,6 +3,12 @@ import { promises as fs } from "fs";
 import { highlightCode } from "@/components/highlightCode";
 
 function formatComponentExamplePath(uri: string) {
+    if (uri.includes("icons/docs/")) {
+        const updatedUri = uri.replace("icons/", "");
+
+        return path.join(process.cwd(), "..", "..", "packages", "icons", "src", updatedUri);
+    }
+
     return path.join(process.cwd(), "..", "..", "packages", "components", "src", uri);
 }
 

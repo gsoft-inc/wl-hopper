@@ -152,6 +152,9 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/multipleSizes": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSizes.tsx"))
     },
+    "Section/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
+    },
     "tag/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/preview.tsx"))
     },
@@ -650,6 +653,15 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/textField/fluid": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },
+    "icons/docs/preview": {
+        component: lazy(() => import("@/../../packages/icons/src/docs/preview.tsx"))
+    },
+    "icons/docs/sizes": {
+        component: lazy(() => import("@/../../packages/icons/src/docs/sizes.tsx"))
+    },
+    "icons/docs/styling": {
+        component: lazy(() => import("@/../../packages/icons/src/docs/styling.tsx"))
+    },
     "IconList/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/IconList/docs/preview.tsx"))
     },
@@ -964,9 +976,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Header/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Header/docs/preview.tsx"))
-    },
-    "Section/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
     },
     "Badge/docs/badge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))

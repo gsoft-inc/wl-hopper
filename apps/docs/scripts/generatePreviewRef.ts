@@ -43,9 +43,18 @@ function generatePreviewRef() {
 
     let previewEntries = "";
     for (const examplePath of examplePaths) {
+        let importPath;
+
+        if (examplePath.startsWith("icons")) {
+            const modifiedExamplePath = examplePath.replace(/^icons\//, "");
+            importPath = `@/../../packages/icons/src/${modifiedExamplePath}.tsx`;
+        } else {
+            importPath = `@/../../packages/components/src/${examplePath}.tsx`;
+        }
+
         previewEntries += `
     "${examplePath}": {
-        component: lazy(() => import("@/../../packages/components/src/${examplePath}.tsx"))
+        component: lazy(() => import("${importPath}"))
     },`;
     }
 
