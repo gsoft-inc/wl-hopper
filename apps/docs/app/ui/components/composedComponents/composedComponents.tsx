@@ -16,15 +16,13 @@ const ComposedComponents = ({ components } : ComposedComponentsProps) => {
     const theme = colorMode as ColorScheme;
 
     return (
-        <>
-            <HopperProvider colorScheme={theme}>
-                <div className="hd-composed-components__wrapper">
-                    {components.map(component => (
-                        <OverviewTile title={component} key={component} />
-                    ))}
-                </div>
-            </HopperProvider>
-        </>
+        <HopperProvider colorScheme={theme}>
+            <div className="hd-composed-components__wrapper">
+                {components.map(component => (
+                    <OverviewTile title={component} key={component} />
+                ))}
+            </div>
+        </HopperProvider>
     );
 };
 
