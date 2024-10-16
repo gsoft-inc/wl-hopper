@@ -31,6 +31,8 @@ function useProcessor(text: string, variant?: Variant) {
 
         unified()
             .use(rehypeParse, { fragment: true })
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             .use(rehypeReact, options)
             .process(text)
             .then(file => {
