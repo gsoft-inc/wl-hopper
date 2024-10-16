@@ -1,5 +1,11 @@
 # docs
 
+## 0.4.4
+
+### Patch Changes
+
+- d098c47: Updated all dependencies.
+
 ## 0.4.3
 
 ### Patch Changes
