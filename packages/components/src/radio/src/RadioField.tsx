@@ -4,11 +4,12 @@ import {
     type ResponsiveProp,
     type StyledSystemProps
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { mergeProps, useId } from "react-aria";
+import { useSlotId } from "@react-aria/utils";
+import { forwardRef, type ForwardedRef, type ReactNode } from "react";
+import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { TextContext, type TextSize } from "../../typography/Text/index.ts";
+import { Text, type TextSize } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
@@ -42,6 +43,10 @@ interface RadioFieldRenderProps {
 
 export interface RadioFieldProps extends StyledSystemProps, AccessibleSlotProps, RenderProps<RadioFieldRenderProps> {
     /**
+     * The description of the checkbox field.
+     */
+    description?: ReactNode;
+    /**
      * Whether the radio field is disabled.
      */
     isDisabled?: boolean;
@@ -57,6 +62,7 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
+        description,
         isDisabled,
         size: sizeProp = "md",
         style,
@@ -93,17 +99,12 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     });
 
-    const descriptionId = useId();
+    const descriptionId = useSlotId([Boolean(description)]);
 
     return (
         <ClearContainerSlots>
             <SlotProvider
                 values={[
-                    [TextContext, {
-                        id: descriptionId,
-                        className: styles["hop-RadioField__description"],
-                        size: RadioToDescriptionSizeAdapter[size]
-                    }],
                     [RadioContext, {
                         className: styles["hop-RadioField__radio"],
                         size: size,
@@ -119,6 +120,16 @@ function RadioField(props: RadioFieldProps, ref: ForwardedRef<HTMLDivElement>) {
                     data-disabled={isDisabled}
                 >
                     {renderProps.children}
+                    {description && (
+                        <Text
+                            id={descriptionId}
+                            className={styles["hop-RadioField__description"]}
+                            size={RadioToDescriptionSizeAdapter[size]}
+                            slot="description"
+                        >
+                            {description}
+                        </Text>
+                    )}
                 </div>
             </SlotProvider>
         </ClearContainerSlots>

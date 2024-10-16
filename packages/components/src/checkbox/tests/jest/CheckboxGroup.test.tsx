@@ -1,10 +1,9 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { screen, render } from "@hopper-ui/test-utils";
+import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef } from "react";
 
-import { Text } from "../../../typography/Text/src/Text.tsx";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
@@ -65,9 +64,8 @@ describe("Checkbox", () => {
     it("should set the size class name and pass the size to the checkbox and checkbox field.", () => {
         const testId = "checkbox-field";
         render(<CheckboxGroup aria-label="options" size="sm">
-            <CheckboxField data-testid={testId}>
+            <CheckboxField data-testid={testId} description="Description">
                 <Checkbox>option 1</Checkbox>
-                <Text slot="description">description</Text>
             </CheckboxField>
         </CheckboxGroup>);
 

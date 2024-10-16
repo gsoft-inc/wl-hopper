@@ -1,4 +1,4 @@
-import { RadioField, RadioGroup, RadioList, Radio, Text } from "@hopper-ui/components";
+import { Radio, RadioField, RadioGroup, RadioList } from "@hopper-ui/components";
 
 export default function Example() {
     return (
@@ -6,9 +6,8 @@ export default function Example() {
             <RadioList>
                 <Radio value="developer">Developer</Radio>
                 <Radio value="designer">Designer</Radio>
-                <RadioField>
+                <RadioField description="Team Manager">
                     <Radio value="manager">Manager</Radio>
-                    <Text slot="description">Team Manager</Text>
                 </RadioField>
             </RadioList>
         </RadioGroup>

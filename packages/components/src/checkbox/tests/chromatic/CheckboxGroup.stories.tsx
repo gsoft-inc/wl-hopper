@@ -4,7 +4,6 @@ import { ErrorMessage } from "../../../ErrorMessage/index.ts";
 import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
 import { Label } from "../../../typography/Label/index.ts";
-import { Text } from "../../../typography/Text/index.ts";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
@@ -28,9 +27,8 @@ export const Vertical = {
                 <CheckboxList>
                     <Checkbox value="developer">Developer</Checkbox>
                     <Checkbox value="designer">Designer</Checkbox>
-                    <CheckboxField>
+                    <CheckboxField description="Product Owner">
                         <Checkbox value="manager">PO</Checkbox>
-                        <Text slot="description">Product Owner</Text>
                     </CheckboxField>
                     <Checkbox value="manager">Manager</Checkbox>
                 </CheckboxList>
@@ -127,14 +125,12 @@ export const Vertical = {
                 <CheckboxGroup {...props} size="sm" variant="bordered">
                     <Label>Roles</Label>
                     <CheckboxList>
-                        <CheckboxField>
+                        <CheckboxField description="Team Lead">
                             <Checkbox value="developer">Developer</Checkbox>
-                            <Text slot="description">Team Lead</Text>
                         </CheckboxField>
                         <Checkbox value="designer">Designer</Checkbox>
-                        <CheckboxField>
+                        <CheckboxField description="Team Manager">
                             <Checkbox value="manager">Manager</Checkbox>
-                            <Text slot="description">Team Manager</Text>
                         </CheckboxField>
                     </CheckboxList>
                     <HelperMessage>Select one to continue</HelperMessage>
@@ -142,14 +138,12 @@ export const Vertical = {
                 <CheckboxGroup {...props} size="md" variant="bordered">
                     <Label>Roles</Label>
                     <CheckboxList>
-                        <CheckboxField>
+                        <CheckboxField description="Team Lead">
                             <Checkbox value="developer">Developer</Checkbox>
-                            <Text slot="description">Team Lead</Text>
                         </CheckboxField>
                         <Checkbox value="designer">Designer</Checkbox>
-                        <CheckboxField>
+                        <CheckboxField description="Team Manager">
                             <Checkbox value="manager">Manager</Checkbox>
-                            <Text slot="description">Team Manager</Text>
                         </CheckboxField>
                     </CheckboxList>
                     <HelperMessage>Select one to continue</HelperMessage>
