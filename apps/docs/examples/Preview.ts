@@ -651,13 +651,13 @@ export const Previews: Record<string, Preview> = {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },
     "icons/docs/preview": {
-        component: lazy(() => import("@/../../packages/icons/src/docs/preview.tsx"))
+        component: lazy(() => import("@/../../packages/icons/docs/preview.tsx"))
     },
     "icons/docs/sizes": {
-        component: lazy(() => import("@/../../packages/icons/src/docs/sizes.tsx"))
+        component: lazy(() => import("@/../../packages/icons/docs/sizes.tsx"))
     },
     "icons/docs/styling": {
-        component: lazy(() => import("@/../../packages/icons/src/docs/styling.tsx"))
+        component: lazy(() => import("@/../../packages/icons/docs/styling.tsx"))
     },
     "IconList/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/IconList/docs/preview.tsx"))
