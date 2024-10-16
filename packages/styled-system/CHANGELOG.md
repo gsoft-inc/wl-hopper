@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.4.1
+
+### Patch Changes
+
+- d098c47: Updated all dependencies.
+
 ## 2.4.0
 
 ### Minor Changes
