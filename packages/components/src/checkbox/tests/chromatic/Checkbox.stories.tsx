@@ -147,19 +147,19 @@ export const UncheckedStates: Story = {
         checkboxLabels.forEach(checkboxLabel => {
             const checkbox = checkboxLabel.querySelector("input[type='checkbox']");
             if (checkbox && checkbox.getAttribute("disabled") !== "") { // don't try and force states on a disabled input
-                if (checkbox.getAttribute("data-chromatic-force-press")) {
+                if (checkboxLabel.getAttribute("data-chromatic-force-press")) {
                     checkboxLabel.setAttribute("data-pressed", "true");
-                    checkbox.removeAttribute("data-chromatic-force-press");
+                    checkboxLabel.removeAttribute("data-chromatic-force-press");
                 }
 
-                if (checkbox.getAttribute("data-chromatic-force-focus")) {
+                if (checkboxLabel.getAttribute("data-chromatic-force-focus")) {
                     checkboxLabel.setAttribute("data-focus-visible", "true");
-                    checkbox.removeAttribute("data-chromatic-force-focus");
+                    checkboxLabel.removeAttribute("data-chromatic-force-focus");
                 }
 
-                if (checkbox.getAttribute("data-chromatic-force-hover")) {
+                if (checkboxLabel.getAttribute("data-chromatic-force-hover")) {
                     checkboxLabel.setAttribute("data-hovered", "true");
-                    checkbox.removeAttribute("data-chromatic-force-hover");
+                    checkboxLabel.removeAttribute("data-chromatic-force-hover");
                 }
             }
         });
