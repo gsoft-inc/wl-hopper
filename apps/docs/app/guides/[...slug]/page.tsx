@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation";
 import { allGuides } from "contentlayer/generated";
+import { notFound } from "next/navigation";
 
+import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 import Aside from "@/app/ui/layout/aside/Aside.tsx";
 import Mdx from "@/components/mdx/Mdx.tsx";
-import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 
 interface PageProps {
     params: {

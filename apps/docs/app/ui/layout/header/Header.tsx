@@ -133,7 +133,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="hd-header">
+            <header className="hd-header" id="hd-header">
                 <Wrapper className="hd-flex">
                     <div className="hd-header__nav">
                         <ProductMenuAndBrand />

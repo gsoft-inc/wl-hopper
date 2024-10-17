@@ -77,7 +77,7 @@ const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
                             className="hd-section-popover"
                         >
                             <div className="hd-section-popover__wrapper">
-                                <SectionLink className="hd-section-popover__top-section" href="#props">Return to top</SectionLink>
+                                <SectionLink className="hd-section-popover__top-section" href="#hd-header">Return to top</SectionLink>
                                 <div className="hd-section-popover__container">
                                     <ul className="hd-section-popover__list">
                                         {listItems}

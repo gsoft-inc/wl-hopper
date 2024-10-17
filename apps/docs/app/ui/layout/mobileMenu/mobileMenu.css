@@ -51,11 +51,11 @@
 }
 
 .hd-mobile-menu-nav-list__link:hover {
-    color: var(--hd-color-primary-text);
+    color: var(--hd-color-accent-text);
 }
 
 .hd-mobile-menu-nav-list__link--active {
-    color: var(--hd-color-primary-text);
+    color: var(--hd-color-accent-text);
 }
 
 .hd-mobile-menu-footer {

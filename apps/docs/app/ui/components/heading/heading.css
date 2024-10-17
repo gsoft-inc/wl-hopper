@@ -9,6 +9,7 @@
 }
 
 .hd-heading__description {
+    font-size: 1.125rem;
     margin-block-end: var(--hd-space-2);
 }
 

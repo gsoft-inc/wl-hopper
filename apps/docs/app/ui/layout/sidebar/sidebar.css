@@ -88,12 +88,12 @@
 }
 
 .hd-sidebar__nested-list .hd-sidebar__item--active {
-    border-inline-start: var(--hd-border-size) solid var(--hd-color-primary-border);
-    color: var(--hd-color-primary-text);
+    border-inline-start: var(--hd-border-size) solid var(--hd-color-accent-border);
+    color: var(--hd-color-accent-text);
 }
 
 .hd-sidebar__nested-list .hd-sidebar__item:hover {
-    color: var(--hd-color-primary-text);
+    color: var(--hd-color-accent-text);
 }
 
 .hd-sidebar-section:has(.hd-sidebar__nested-list:empty) {
