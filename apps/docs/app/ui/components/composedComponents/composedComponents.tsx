@@ -15,10 +15,12 @@ const ComposedComponents = ({ components } : ComposedComponentsProps) => {
     const { colorMode } = useContext(ThemeContext);
     const theme = colorMode as ColorScheme;
 
+    const sortedComponents = [...components].sort((a, b) => a.localeCompare(b));
+
     return (
         <HopperProvider colorScheme={theme}>
             <div className="hd-composed-components__wrapper">
-                {components.map(component => (
+                {sortedComponents.map(component => (
                     <OverviewTile title={component} key={component} />
                 ))}
             </div>
