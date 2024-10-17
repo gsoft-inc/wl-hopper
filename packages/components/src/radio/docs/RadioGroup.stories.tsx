@@ -93,9 +93,8 @@ export const Icons = {
                     <SparklesIcon /><SparklesIcon /><SparklesIcon />
                 </IconList>
             </Radio>
-            <RadioField>
+            <RadioField description="Team Manager">
                 <Radio value="manager">Manager</Radio>
-                <Text slot="description">Team Manager</Text>
             </RadioField>
         </RadioGroup>
     )
