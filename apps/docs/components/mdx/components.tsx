@@ -15,6 +15,7 @@ import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
 import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
 import Overview from "@/app/ui/components/overview/Overview.tsx";
+import ComposedComponents from "@/app/ui/components/composedComponents/composedComponents.tsx";
 import Title from "@/components/title/Title.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
@@ -56,6 +57,7 @@ export const components = {
     Overview: Overview,
     SimpleTable: SimpleTable,
     Tabs: Tabs,
+    ComposedComponents: ComposedComponents,
     TableSection: TableSection,
     Switcher: Switcher,
     FeatureFlag: FeatureFlag,

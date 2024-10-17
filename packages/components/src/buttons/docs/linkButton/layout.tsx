@@ -4,13 +4,13 @@ import { SparklesIcon } from "@hopper-ui/icons";
 export default function Example() {
     return (
         <Inline>
-            <LinkButton href="https://www.google.com" isFluid variant="primary">Save</LinkButton>
+            <LinkButton href="https://www.google.com" isFluid variant="primary">Help</LinkButton>
             <LinkButton href="https://www.google.com" isFluid variant="primary">
                 <SparklesIcon />
-                <Text>Save</Text>
+                <Text>Help</Text>
             </LinkButton>
             <LinkButton href="https://www.google.com" isFluid>
-                <Text>Save</Text>
+                <Text>Help</Text>
                 <SparklesIcon slot="end-icon" />
             </LinkButton>
         </Inline>

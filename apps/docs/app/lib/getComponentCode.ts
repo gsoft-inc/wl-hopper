@@ -1,8 +1,14 @@
-import path from "path";
-import { promises as fs } from "fs";
 import { highlightCode } from "@/components/highlightCode";
+import { promises as fs } from "fs";
+import path from "path";
 
 function formatComponentExamplePath(uri: string) {
+    if (uri.includes("icons/docs/")) {
+        const updatedUri = uri.replace("icons/", "");
+
+        return path.join(process.cwd(), "..", "..", "packages", "icons", updatedUri);
+    }
+
     return path.join(process.cwd(), "..", "..", "packages", "components", "src", uri);
 }
 

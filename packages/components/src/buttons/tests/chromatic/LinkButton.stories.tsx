@@ -26,14 +26,14 @@ export const Primary: Story = {
                 <Stack>
                     <h1>Default</h1>
                     <Inline alignY="end">
-                        <LinkButton size="sm" {...args}>Save</LinkButton>
-                        <LinkButton {...args}>Save</LinkButton>
+                        <LinkButton size="sm" {...args}>Help</LinkButton>
+                        <LinkButton {...args}>Help</LinkButton>
                     </Inline>
                     <Div>
-                        <LinkButton isFluid {...args}>Save</LinkButton>
+                        <LinkButton isFluid {...args}>Help</LinkButton>
                     </Div>
                     <Div width="10%">
-                        <LinkButton isFluid {...args}>Save</LinkButton>
+                        <LinkButton isFluid {...args}>Help</LinkButton>
                     </Div>
                 </Stack>
                 <Stack>
@@ -124,10 +124,10 @@ export const Primary: Story = {
                     <h1>Zoom</h1>
                     <Inline alignY="end">
                         <Div className="zoom-in">
-                            <LinkButton {...args}>Save</LinkButton>
+                            <LinkButton {...args}>Help</LinkButton>
                         </Div>
                         <Div className="zoom-out'">
-                            <LinkButton {...args}>Save</LinkButton>
+                            <LinkButton {...args}>Help</LinkButton>
                         </Div>
                     </Inline>
                 </Stack>
@@ -186,8 +186,8 @@ export const GhostDanger: Story = {
 
 const StateTemplate = (args: Partial<LinkButtonProps>) => (
     <Inline alignY="end">
-        <LinkButton size="sm" {...args}>Save</LinkButton>
-        <LinkButton {...args}>Save</LinkButton>
+        <LinkButton size="sm" {...args}>Help</LinkButton>
+        <LinkButton {...args}>Help</LinkButton>
         <LinkButton {...args}>
             <SparklesIcon />
             <Text>Save</Text>
