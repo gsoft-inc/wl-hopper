@@ -26,9 +26,9 @@ describe("Radio", () => {
     });
 
     it("should support custom style", () => {
-        render(<RadioGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Radio
-            value="option1"
-        >option 1</Radio></RadioGroup>);
+        render(<RadioGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
+            <Radio value="option1">option 1</Radio>
+        </RadioGroup>);
 
         const element = screen.getByRole("radiogroup");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });

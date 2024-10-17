@@ -1,16 +1,12 @@
 import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Label } from "../../../typography/Label/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
 import { Radio } from "../../src/Radio.tsx";
 import { RadioField } from "../../src/RadioField.tsx";
 import { RadioGroup } from "../../src/RadioGroup.tsx";
-import { RadioList } from "../../src/RadioList.tsx";
 
 const meta = {
     title: "Components/Forms/RadioGroup",
@@ -25,225 +21,158 @@ export const Vertical = {
     render: props => (
         <Stack>
             <h1>Default</h1>
-            <RadioGroup {...props}>
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer">Developer</Radio>
-                    <Radio value="designer">Designer</Radio>
-                    <RadioField description="Product Owner">
-                        <Radio value="po">PO</Radio>
-                    </RadioField>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <RadioGroup {...props} description="Select one to continue">
+                <Radio value="developer">Developer</Radio>
+                <Radio value="designer">Designer</Radio>
+                <RadioField description="Product Owner">
+                    <Radio value="po">PO</Radio>
+                </RadioField>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
             <h1>Selected</h1>
             <RadioGroup {...props} defaultValue="developer">
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer">Developer</Radio>
-                    <Radio value="designer">Designer</Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
+                <Radio value="developer">Developer</Radio>
+                <Radio value="designer">Designer</Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
             <h1>Size</h1>
             <Inline alignY="start">
                 <RadioGroup {...props} size="sm">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
-                </RadioGroup>
-                <RadioGroup {...props} size="md">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
-                </RadioGroup>
-            </Inline>
-            <h1>Icons</h1>
-            <RadioGroup {...props}>
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
-                    <Radio value="designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                        </IconList>
-                    </Radio>
-                    <RadioField description="Team Manager">
-                        <Radio value="manager">
-                            <Text>Manager</Text>
-                            <IconList>
-                                <SparklesIcon /><SparklesIcon />
-                            </IconList>
-                        </Radio>
-                    </RadioField>
-                </RadioList>
-                <HelperMessage>Select one to continue</HelperMessage>
-            </RadioGroup>
-            <h1>Disabled</h1>
-            <RadioGroup {...props} isDisabled>
-                <Label>Roles</Label>
-                <RadioList>
                     <Radio value="developer">Developer</Radio>
                     <Radio value="designer">Designer</Radio>
                     <Radio value="manager">Manager</Radio>
-                </RadioList>
+                </RadioGroup>
+                <RadioGroup {...props} size="md">
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
+                </RadioGroup>
+            </Inline>
+            <h1>Icons</h1>
+            <RadioGroup {...props} description="Select one to continue">
+                <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
+                <Radio value="designer">
+                    <Text>Designer</Text>
+                    <IconList>
+                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                    </IconList>
+                </Radio>
+                <RadioField description="Team Manager">
+                    <Radio value="manager">
+                        <Text>Manager</Text>
+                        <IconList>
+                            <SparklesIcon /><SparklesIcon />
+                        </IconList>
+                    </Radio>
+                </RadioField>
+            </RadioGroup>
+            <h1>Disabled</h1>
+            <RadioGroup {...props} isDisabled>
+                <Radio value="developer">Developer</Radio>
+                <Radio value="designer">Designer</Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
             <h1>Invalid</h1>
             <Inline alignY="start">
-                <RadioGroup {...props} size="sm" isInvalid>
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
-                    <ErrorMessage>This field is required</ErrorMessage>
+                <RadioGroup {...props} size="sm" isInvalid errorMessage="This field is required">
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
-                <RadioGroup {...props} size="md" isInvalid>
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
-                    <ErrorMessage>This field is required</ErrorMessage>
+                <RadioGroup {...props} size="md" isInvalid errorMessage="This field is required">
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
             </Inline>
             <h1>Invalid & Disabled</h1>
             <RadioGroup {...props} isDisabled isInvalid>
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer">Developer</Radio>
-                    <Radio value="designer">Designer</Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
+                <Radio value="developer">Developer</Radio>
+                <Radio value="designer">Designer</Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
             <h1>Bordered</h1>
             <Inline alignY="start">
                 <RadioGroup {...props} size="sm" variant="bordered">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
                 <RadioGroup {...props} size="md" variant="bordered">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
             </Inline>
             <h1>Bordered with Description</h1>
             <Inline alignY="start">
-                <RadioGroup {...props} size="sm" variant="bordered">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <RadioField description="Team Lead">
-                            <Radio value="developer">Developer</Radio>
-                        </RadioField>
-                        <Radio value="designer">Designer</Radio>
-                        <RadioField description="Team Manager">
-                            <Radio value="manager">Manager</Radio>
-                        </RadioField>
-                    </RadioList>
-                    <HelperMessage>Select one to continue</HelperMessage>
+                <RadioGroup {...props} size="sm" variant="bordered" description="Select one to continue">
+                    <RadioField description="Team Lead">
+                        <Radio value="developer">Developer</Radio>
+                    </RadioField>
+                    <Radio value="designer">Designer</Radio>
+                    <RadioField description="Team Manager">
+                        <Radio value="manager">Manager</Radio>
+                    </RadioField>
                 </RadioGroup>
-                <RadioGroup {...props} size="md" variant="bordered">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <RadioField description="Team Lead">
-                            <Radio value="developer">Developer</Radio>
-                        </RadioField>
-                        <Radio value="designer">Designer</Radio>
-                        <RadioField description="Team Manager">
-                            <Radio value="manager">Manager</Radio>
-                        </RadioField>
-                    </RadioList>
-                    <HelperMessage>Select one to continue</HelperMessage>
+                <RadioGroup {...props} size="md" variant="bordered" description="Select one to continue">
+                    <RadioField description="Team Lead">
+                        <Radio value="developer">Developer</Radio>
+                    </RadioField>
+                    <Radio value="designer">Designer</Radio>
+                    <RadioField description="Team Manager">
+                        <Radio value="manager">Manager</Radio>
+                    </RadioField>
                 </RadioGroup>
             </Inline>
             <h1>Bordered & Invalid</h1>
             <Inline alignY="start">
-                <RadioGroup {...props} size="sm" variant="bordered" isInvalid>
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
-                    <ErrorMessage>This field is required</ErrorMessage>
+                <RadioGroup {...props} size="sm" variant="bordered" isInvalid errorMessage="This field is required">
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
-                <RadioGroup {...props} size="md" variant="bordered" isInvalid>
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
-                    <ErrorMessage>This field is required</ErrorMessage>
+                <RadioGroup {...props} size="md" variant="bordered" isInvalid errorMessage="This field is required">
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
             </Inline>
             <h1>Styling</h1>
             <Inline>
-                <RadioGroup border="warning">
-                    <Label>Numbers</Label>
-                    <RadioList>
-                        <Radio value="1">1</Radio>
-                        <Radio value="2">2</Radio>
-                        <Radio value="3">3</Radio>
-                    </RadioList>
+                <RadioGroup border="warning" label="Numbers">
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">3</Radio>
                 </RadioGroup>
-                <RadioGroup className="border-blue">
-                    <Label>Numbers</Label>
-                    <RadioList>
-                        <Radio value="1">1</Radio>
-                        <Radio value="2">2</Radio>
-                        <Radio value="3">3</Radio>
-                    </RadioList>
+                <RadioGroup className="border-blue" label="Numbers">
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">3</Radio>
                 </RadioGroup>
-                <RadioGroup style={{ border: "1px solid red" }}>
-                    <Label>Numbers</Label>
-                    <RadioList>
-                        <Radio value="1">1</Radio>
-                        <Radio value="2">2</Radio>
-                        <Radio value="3">3</Radio>
-                    </RadioList>
+                <RadioGroup style={{ border: "1px solid red" }} label="Numbers">
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">3</Radio>
                 </RadioGroup>
             </Inline>
             <h1>Zoom</h1>
             <Inline alignY="start">
                 <RadioGroup {...props} className="zoom-in">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
                 <RadioGroup {...props} className="zoom-out">
-                    <Label>Roles</Label>
-                    <RadioList>
-                        <Radio value="developer">Developer</Radio>
-                        <Radio value="designer">Designer</Radio>
-                        <Radio value="manager">Manager</Radio>
-                    </RadioList>
+                    <Radio value="developer">Developer</Radio>
+                    <Radio value="designer">Designer</Radio>
+                    <Radio value="manager">Manager</Radio>
                 </RadioGroup>
             </Inline>
         </Stack>
     ),
     args: {
+        label: "Roles",
         orientation: "vertical"
     }
 } satisfies Story;

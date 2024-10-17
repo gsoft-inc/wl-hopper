@@ -1,9 +1,11 @@
 import {
     type ResponsiveProp,
     type StyledComponentProps,
+    type StyledSystemProps,
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef } from "react";
 import type { Orientation } from "react-aria";
 import {
@@ -13,11 +15,11 @@ import {
     useContextProps
 } from "react-aria-components";
 
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { RadioContext, RadioFieldContext, RadioListContext } from "../../radio/index.ts";
-import { LabelContext } from "../../typography/Label/index.ts";
-import { type FieldSize, type InputGroupVariant, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { RadioContext, RadioFieldContext } from "../../radio/index.ts";
+import { Label } from "../../typography/Label/index.ts";
+import { type BaseComponentDOMProps, type FieldProps, type InputGroupVariant, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { RadioGroupContext } from "./RadioGroupContext.ts";
 
@@ -25,21 +27,18 @@ import styles from "./RadioGroup.module.css";
 
 export const GlobalRadioGroupCssSelector = "hop-RadioGroup";
 
-export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroupProps, "orientation">> {
+export type RadioListProps = StyledSystemProps & BaseComponentDOMProps;
+
+export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroupProps, "orientation">>, FieldProps {
     /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     * The props of the list element that wraps the Radio components.
      */
-    necessityIndicator?: NecessityIndicator;
+    listProps?: RadioListProps;
     /**
      * A RadioGroup can be displayed horizontally or vertically.
      * @default "vertical"
      */
     orientation?: ResponsiveProp<Orientation>;
-    /**
-     * A RadioGroup can vary in size.
-     * @default "md"
-     */
-    size?: ResponsiveProp<FieldSize>;
     /**
      * A RadioGroup has two variants: borderless and bordered.
      * @default "borderless"
@@ -50,12 +49,16 @@ export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroup
 function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, RadioGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+    const { stylingProps: listStylingProps, ...listProps } = useStyledSystem(ownProps.listProps ?? {});
     const {
         className,
-        children,
+        children: childrenProp,
+        description,
+        errorMessage,
         isDisabled,
         isInvalid,
         isRequired,
+        label,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
         style: styleProp,
@@ -63,6 +66,13 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         necessityIndicator,
         ...otherProps
     } = ownProps;
+    
+    const {
+        className: listClassName,
+        slot: listSlot,
+        style: listStyleProp,
+        ...otherListProps
+    } = listProps;
 
     const orientation = useResponsiveValue(orientationProp) ?? "vertical";
     const size = useResponsiveValue(sizeProp) ?? "md";
@@ -79,6 +89,12 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         stylingProps.className
     );
 
+    const listClassNames = clsx(
+        styles["hop-RadioGroup__list"],
+        listClassName,
+        listStylingProps.className
+    );
+
     const style = composeRenderProps(styleProp, prev => {
         return {
             ...stylingProps.style,
@@ -86,14 +102,27 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         };
     });
 
+    const listStyle = {
+        ...listStylingProps.style,
+        ...listStyleProp
+    };
+
+    const children = composeRenderProps(childrenProp, prev => {
+        return (
+            <div 
+                className={listClassNames}
+                slot={listSlot ?? undefined}
+                style={listStyle} 
+                {...otherListProps}
+            >
+                {prev}
+            </div>
+        );
+    });
+
     return (
         <SlotProvider
             values={[
-                [LabelContext, {
-                    className: styles["hop-RadioGroup__label"],
-                    isRequired,
-                    necessityIndicator
-                }],
                 [RadioContext, {
                     className: styles["hop-RadioGroup__radio"],
                     size: size
@@ -102,17 +131,6 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                     className: styles["hop-RadioGroup__radio"],
                     size: size,
                     isDisabled: isDisabled
-                }],
-                [RadioListContext, {
-                    className: styles["hop-RadioGroup__list"]
-                }],
-                [ErrorMessageContext, {
-                    className: styles["hop-RadioGroup__error-message"],
-                    hideIcon: true
-                }],
-                [HelperMessageContext, {
-                    className: styles["hop-RadioGroup__helper-message"],
-                    hideIcon: true
                 }]
             ]}
         >
@@ -126,7 +144,30 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 orientation={orientation}
                 {...otherProps}
             >
-                {children}
+                {radioGroupRenderProps => (
+                    <>
+                        {label && (
+                            <Label
+                                className={styles["hop-RadioGroup__label"]}
+                                isRequired={isRequired}
+                                necessityIndicator={necessityIndicator}
+                            >
+                                {label}
+                            </Label>
+                        )}
+                        {children(radioGroupRenderProps)}
+                        {description && (
+                            <HelperMessage className={styles["hop-RadioGroup__helper-message"]} hideIcon>
+                                {description}
+                            </HelperMessage>
+                        )}
+                        {errorMessage && (
+                            <ErrorMessage className={styles["hop-RadioGroup__error-message"]} hideIcon>
+                                {errorMessage}
+                            </ErrorMessage>
+                        )}
+                    </>
+                )}
             </RACRadioGroup>
         </SlotProvider>
     );

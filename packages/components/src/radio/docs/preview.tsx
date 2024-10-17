@@ -1,12 +1,10 @@
-import { RadioGroup, Radio, RadioList } from "@hopper-ui/components";
+import { Radio, RadioGroup } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <RadioGroup aria-label="roles">
-            <RadioList>
-                <Radio value="developer">Developer</Radio>
-                <Radio value="designer">Designer</Radio>
-            </RadioList>
+            <Radio value="developer">Developer</Radio>
+            <Radio value="designer">Designer</Radio>
         </RadioGroup>
     );
 }

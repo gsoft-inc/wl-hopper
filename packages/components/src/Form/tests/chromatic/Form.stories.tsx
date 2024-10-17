@@ -10,7 +10,7 @@ import {
     Inline,
     Label,
     Radio,
-    RadioGroup, RadioList,
+    RadioGroup,
     Select,
     SelectOption,
     SelectOptions,
@@ -45,13 +45,10 @@ const Template = () => {
                     <HelperMessage>Invoices will be sent to this email address.</HelperMessage>
                 </TextField>
             </Inline>
-            <RadioGroup>
-                <Label>I identify my gender as</Label>
-                <RadioList>
-                    <Radio value="man">Man</Radio>
-                    <Radio value="women">Women</Radio>
-                    <Radio value="non-binary">Non-Binary</Radio>
-                </RadioList>
+            <RadioGroup label="I identify my gender as">
+                <Radio value="man">Man</Radio>
+                <Radio value="women">Women</Radio>
+                <Radio value="non-binary">Non-Binary</Radio>
             </RadioGroup>
             <Inline>
                 <TextField placeholder="John">

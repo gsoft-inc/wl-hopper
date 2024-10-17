@@ -1,21 +1,15 @@
-import { Checkbox, CheckboxGroup, CheckboxList, Inline, Label } from "@hopper-ui/components";
+import { Checkbox, CheckboxGroup, Inline } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Inline gap="inline-xl">
-            <CheckboxGroup orientation="horizontal">
-                <Label>Roles</Label>
-                <CheckboxList>
-                    <Checkbox value="developer">Developer</Checkbox>
-                    <Checkbox value="designer">Designer</Checkbox>
-                </CheckboxList>
+            <CheckboxGroup orientation="horizontal" label="Roles">
+                <Checkbox value="developer">Developer</Checkbox>
+                <Checkbox value="designer">Designer</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup orientation="vertical">
-                <Label>Roles</Label>
-                <CheckboxList>
-                    <Checkbox value="developer">Developer</Checkbox>
-                    <Checkbox value="designer">Designer</Checkbox>
-                </CheckboxList>
+            <CheckboxGroup orientation="vertical" label="Roles">
+                <Checkbox value="developer">Developer</Checkbox>
+                <Checkbox value="designer">Designer</Checkbox>
             </CheckboxGroup>
         </Inline>
     );
