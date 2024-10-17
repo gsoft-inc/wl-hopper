@@ -1,49 +1,110 @@
 ---
 title: Icon
-description: TBD
+description: An icon component allow you to render a custom icon.
 category: "icons"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/icons/src/Icon.tsx
-status: WIP
 ---
 
-## Props
+<Example src="icons/docs/preview" isOpen />
 
-TODO: Add the props table, if we have multiple props table (ex: TagList and Tag) in the same file,  use the name of the component in ### before the each props table
+Hopper provides multiple ways to use icons in your project:
 
-## Guidelines
+- Using the [Workleap icon library](/icons/overview/introduction)
+- [Creating your own icons](#creating-your-custom-icons)
 
-TODO: If we have some guidelines about this component's usage
+## Creating your custom icons
 
-### Accessibility ?
+To use an icon component to create custom icons you must first import your SVG icon as a component by using [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/).
 
-TODO: If we have some guidelines about this component and accessibility
+Hopper provides two methods for creating your custom icons:
 
-## Anatomy
+- Using the `createIcon` function (recommended)
+- Using the `Icon` component
 
-TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+Both `Icon` and `createIcon` enable you to style the icon using the styled system.
 
-### Concepts
+### Using the createIcon function
 
-TODO: links to related concepts
+The `createIcon` function is a convenience wrapper around the process of generating icons with `Icon`, allowing you to achieve the same functionality with less effort.
 
-### Composed Components
+```jsx
+import CustomIcon16 from "./path/to/custom-icon-16.svg";
+import CustomIcon24 from "./path/to/custom-icon-24.svg";
+import CustomIcon32 from "./path/to/custom-icon-32.svg";
+import { createIcon } from "@hopper-ui/icons";
 
-TODO: links to related components (most likely all component which are used by the slots)
+const CustomIcon = createIcon(CustomIcon16, CustomIcon24, CustomIcon32, "CustomIcon")
+```
+
+### Using the Icon component
+
+```jsx
+import CustomIcon16 from "./path/to/custom-icon-16.svg"
+import CustomIcon24 from "./path/to/custom-icon-24.svg"
+import CustomIcon32 from "./path/to/custom-icon-32.svg"
+import { Icon, type CreatedIconProps } from "@hopper-ui/icons";
+
+function CustomIcon(props: CreatedIconProps) {
+  return (
+    <Icon
+    src16={CustomIcon16}
+    src24={CustomIcon24}
+    src32={CustomIcon32}
+    {...props} />
+  )
+}
+```
+
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this components usage
+
+    ### Accessibility
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+<FeatureFlag flag="rc">
+    ## Anatomy
+
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
 
 ## Examples
 
-## Advanced customization
+### Sizes
 
-### Contexts
-TODO: Example of context + content about the context
+An icon can vary in size. When used inside another component, it'll generally be sized automatically. If you use a standalone icon, you can use the size prop to control the sizing.
 
-### Custom Children
+<Example src="icons/docs/sizes" />
 
-TODO: Example of passing custom childrens to the components to fake a slot
+### Styling
 
-### Custom Component
+The color of the icon can be changed using the `fill` prop. All the styled system props are also available.
 
-TODO: Example of creating a custom version of this component
+<Example src="icons/docs/styling" />
 
-## Migration Notes (WIP)
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom childrens to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Props
+
+<PropTable component="Icon" />

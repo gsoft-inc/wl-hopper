@@ -1,0 +1,5 @@
+.hd-composed-components__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 1.5rem;
+}
