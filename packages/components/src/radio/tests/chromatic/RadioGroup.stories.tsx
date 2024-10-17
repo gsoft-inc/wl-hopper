@@ -140,17 +140,17 @@ export const Vertical = {
             </Inline>
             <h1>Styling</h1>
             <Inline>
-                <RadioGroup border="warning" label="Numbers">
+                <RadioGroup {...props} border="warning" label="Numbers">
                     <Radio value="1">1</Radio>
                     <Radio value="2">2</Radio>
                     <Radio value="3">3</Radio>
                 </RadioGroup>
-                <RadioGroup className="border-blue" label="Numbers">
+                <RadioGroup {...props} className="border-blue" label="Numbers">
                     <Radio value="1">1</Radio>
                     <Radio value="2">2</Radio>
                     <Radio value="3">3</Radio>
                 </RadioGroup>
-                <RadioGroup style={{ border: "1px solid red" }} label="Numbers">
+                <RadioGroup {...props} style={{ border: "1px solid red" }} label="Numbers">
                     <Radio value="1">1</Radio>
                     <Radio value="2">2</Radio>
                     <Radio value="3">3</Radio>
@@ -180,6 +180,7 @@ export const Vertical = {
 export const Horizontal = {
     ...Vertical,
     args: {
+        label: "Roles",
         orientation: "horizontal"
     }
 } satisfies Story;
