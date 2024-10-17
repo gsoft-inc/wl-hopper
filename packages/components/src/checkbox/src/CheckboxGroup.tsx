@@ -1,9 +1,11 @@
 import {
     type ResponsiveProp,
     type StyledComponentProps,
+    type StyledSystemProps,
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { type ForwardedRef, forwardRef } from "react";
 import type { Orientation } from "react-aria";
 import {
@@ -13,11 +15,11 @@ import {
     useContextProps
 } from "react-aria-components";
 
-import { CheckboxContext, CheckboxFieldContext, CheckboxListContext } from "../../checkbox/index.ts";
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext } from "../../typography/Label/index.ts";
-import { type FieldSize, type InputGroupVariant, type NecessityIndicator, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { CheckboxContext, CheckboxFieldContext } from "../../checkbox/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Label } from "../../typography/Label/index.ts";
+import { type BaseComponentDOMProps, type FieldProps, type InputGroupVariant, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { CheckboxGroupContext } from "./CheckboxGroupContext.ts";
 
@@ -25,21 +27,18 @@ import styles from "./CheckboxGroup.module.css";
 
 export const GlobalCheckboxGroupCssSelector = "hop-CheckboxGroup";
 
-export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps> {
+export type CheckboxListProps = StyledSystemProps & BaseComponentDOMProps;
+
+export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGroupProps>, FieldProps {
     /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     * The props of the list element that wraps the Checkbox components.
      */
-    necessityIndicator?: NecessityIndicator;
+    listProps?: CheckboxListProps;
     /**
      * A CheckboxGroup can be displayed horizontally or vertically.
      * @default "vertical"
      */
     orientation?: ResponsiveProp<Orientation>;
-    /**
-     * A CheckboxGroup can vary in size.
-     * @default "md"
-     */
-    size?: ResponsiveProp<FieldSize>;
     /**
      * A CheckboxGroup has two variants: borderless and bordered.
      * @default "borderless"
@@ -50,12 +49,16 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
 function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, CheckboxGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+    const { stylingProps: listStylingProps, ...listProps } = useStyledSystem(ownProps.listProps ?? {});
     const {
         className,
-        children,
+        children: childrenProp,
+        description,
+        errorMessage,
         isDisabled,
         isInvalid,
         isRequired,
+        label,
         necessityIndicator,
         orientation: orientationProp = "vertical",
         size: sizeProp = "md",
@@ -63,6 +66,13 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         variant = "borderless",
         ...otherProps
     } = ownProps;
+
+    const {
+        className: listClassName,
+        slot: listSlot,
+        style: listStyleProp,
+        ...otherListProps
+    } = listProps;
 
     const orientation = useResponsiveValue(orientationProp) ?? "vertical";
     const size = useResponsiveValue(sizeProp) ?? "md";
@@ -79,6 +89,12 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         stylingProps.className
     );
 
+    const listClassNames = clsx(
+        styles["hop-CheckboxGroup__list"],
+        listClassName,
+        listStylingProps.className
+    );
+
     const style = composeRenderProps(styleProp, prev => {
         return {
             ...stylingProps.style,
@@ -86,14 +102,27 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
         };
     });
 
+    const listStyle = {
+        ...listStylingProps.style,
+        ...listStyleProp
+    };
+
+    const children = composeRenderProps(childrenProp, prev => {
+        return (
+            <div 
+                className={listClassNames}
+                slot={listSlot ?? undefined}
+                style={listStyle} 
+                {...otherListProps}
+            >
+                {prev}
+            </div>
+        );
+    });
+
     return (
         <SlotProvider
             values={[
-                [LabelContext, {
-                    className: styles["hop-CheckboxGroup__label"],
-                    isRequired,
-                    necessityIndicator
-                }],
                 [CheckboxContext, {
                     className: styles["hop-CheckboxGroup__checkbox"],
                     size: size
@@ -102,17 +131,6 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                     className: styles["hop-CheckboxGroup__checkbox"],
                     size: size,
                     isDisabled: isDisabled
-                }],
-                [CheckboxListContext, {
-                    className: styles["hop-CheckboxGroup__list"]
-                }],
-                [ErrorMessageContext, {
-                    className: styles["hop-CheckboxGroup__error-message"],
-                    hideIcon: true
-                }],
-                [HelperMessageContext, {
-                    className: styles["hop-CheckboxGroup__helper-message"],
-                    hideIcon: true
                 }]
             ]}
         >
@@ -126,7 +144,30 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                 data-orientation={orientation}
                 {...otherProps}
             >
-                {children}
+                {checkboxGroupRenderProps => (
+                    <>
+                        {label && (
+                            <Label
+                                className={styles["hop-CheckboxGroup__label"]}
+                                isRequired={isRequired}
+                                necessityIndicator={necessityIndicator}
+                            >
+                                {label}
+                            </Label>
+                        )}
+                        {children(checkboxGroupRenderProps)}
+                        {description && (
+                            <HelperMessage className={styles["hop-CheckboxGroup__helper-message"]} hideIcon>
+                                {description}
+                            </HelperMessage>
+                        )}
+                        {errorMessage && (
+                            <ErrorMessage className={styles["hop-CheckboxGroup__error-message"]} hideIcon>
+                                {errorMessage}
+                            </ErrorMessage>
+                        )}
+                    </>
+                )}
             </RACCheckboxGroup>
         </SlotProvider>
     );

@@ -1,15 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import { ErrorMessage } from "../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Inline } from "../../layout/index.ts";
-import { Label } from "../../typography/Label/index.ts";
-import { Text } from "../../typography/Text/index.ts";
 import { Checkbox } from "../src/Checkbox.tsx";
 import { CheckboxField } from "../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../src/CheckboxGroup.tsx";
-import { CheckboxList } from "../src/CheckboxList.tsx";
 
 /**
  * The CheckboxGroup is used to group related options together and to provide a label for the group. It can also provide validation and helper messages.
@@ -40,14 +35,11 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
     render: props => (
         <CheckboxGroup {...props}>
-            <CheckboxList>
-                <Checkbox value="developer">Developer</Checkbox>
-                <Checkbox value="designer">Designer</Checkbox>
-                <CheckboxField>
-                    <Checkbox value="manager">Manager</Checkbox>
-                    <Text slot="description">Team Manager</Text>
-                </CheckboxField>
-            </CheckboxList>
+            <Checkbox value="developer">Developer</Checkbox>
+            <Checkbox value="designer">Designer</Checkbox>
+            <CheckboxField description="Team Manager">
+                <Checkbox value="manager">Manager</Checkbox>
+            </CheckboxField>
         </CheckboxGroup>
     ),
     args: {
@@ -62,13 +54,10 @@ export const Default = {
 export const LabelStory = {
     name: "Label",
     render: props => (
-        <CheckboxGroup {...props}>
-            <CheckboxList>
-                <Checkbox value="developer">Developer</Checkbox>
-                <Checkbox value="designer">Designer</Checkbox>
-                <Checkbox value="manager">Manager</Checkbox>
-            </CheckboxList>
-            <Label>Roles</Label>
+        <CheckboxGroup {...props} label="Roles">
+            <Checkbox value="developer">Developer</Checkbox>
+            <Checkbox value="designer">Designer</Checkbox>
+            <Checkbox value="manager">Manager</Checkbox>
         </CheckboxGroup>
     )
 } satisfies Story;
@@ -78,17 +67,12 @@ export const LabelStory = {
  */
 export const Description = {
     render: props => (
-        <CheckboxGroup {...props}>
-            <Label>Roles</Label>
-            <CheckboxList>
-                <Checkbox value="developer">Developer</Checkbox>
-                <Checkbox value="designer">Designer</Checkbox>
-                <CheckboxField>
-                    <Checkbox value="manager">Manager</Checkbox>
-                    <Text slot="description">Team Manager</Text>
-                </CheckboxField>
-            </CheckboxList>
-            <HelperMessage>Select one to continue</HelperMessage>
+        <CheckboxGroup {...props} label="Roles" description="Select one to continue">
+            <Checkbox value="developer">Developer</Checkbox>
+            <Checkbox value="designer">Designer</Checkbox>
+            <CheckboxField description="Team Manager">
+                <Checkbox value="manager">Manager</Checkbox>
+            </CheckboxField>
         </CheckboxGroup>
     )
 } satisfies Story;
@@ -99,23 +83,15 @@ export const Description = {
 export const Size = {
     render: props => (
         <Inline alignY="start">
-            <CheckboxGroup {...props} size="sm">
-                <Label>Roles</Label>
-                <CheckboxList>
-                    <Checkbox value="developer">Developer</Checkbox>
-                    <Checkbox value="designer">Designer</Checkbox>
-                    <Checkbox value="manager">Manager</Checkbox>
-                </CheckboxList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <CheckboxGroup {...props} size="sm" label="Roles" description="Select one to continue">
+                <Checkbox value="developer">Developer</Checkbox>
+                <Checkbox value="designer">Designer</Checkbox>
+                <Checkbox value="manager">Manager</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup {...props} size="md">
-                <Label>Roles</Label>
-                <CheckboxList>
-                    <Checkbox value="developer">Developer</Checkbox>
-                    <Checkbox value="designer">Designer</Checkbox>
-                    <Checkbox value="manager">Manager</Checkbox>
-                </CheckboxList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <CheckboxGroup {...props} size="md" label="Roles" description="Select one to continue">
+                <Checkbox value="developer">Developer</Checkbox>
+                <Checkbox value="designer">Designer</Checkbox>
+                <Checkbox value="manager">Manager</Checkbox>
             </CheckboxGroup>
         </Inline>
     )
@@ -148,15 +124,16 @@ export const Validation = {
         }
 
         return (
-            <CheckboxGroup {...args} onChange={onChange} isInvalid={isInvalid}>
-                <HelperMessage>Uncheck all to show the error message</HelperMessage>
-                <ErrorMessage>Check this box and the description will appear</ErrorMessage>
-                <CheckboxList>
-                    <Checkbox value="developer">Developer</Checkbox>
-                    <Checkbox value="designer">Designer</Checkbox>
-                    <Checkbox value="manager">Manager</Checkbox>
-                </CheckboxList>
-                <Label>Roles</Label>
+            <CheckboxGroup {...args} 
+                onChange={onChange} 
+                isInvalid={isInvalid} 
+                label="Roles"
+                description="Uncheck all to show the error message"
+                errorMessage="Check this box and the description will appear"
+            >
+                <Checkbox value="developer">Developer</Checkbox>
+                <Checkbox value="designer">Designer</Checkbox>
+                <Checkbox value="manager">Manager</Checkbox>
             </CheckboxGroup>
         );
     }
@@ -194,11 +171,9 @@ export const Controlled = {
                 value={selected}
                 onChange={setSelected}
             >
-                <CheckboxList>
-                    <Checkbox value="developer">Developer</Checkbox>
-                    <Checkbox value="designer">Designer</Checkbox>
-                    <Checkbox value="manager">Manager</Checkbox>
-                </CheckboxList>
+                <Checkbox value="developer">Developer</Checkbox>
+                <Checkbox value="designer">Designer</Checkbox>
+                <Checkbox value="manager">Manager</Checkbox>
             </CheckboxGroup>
         );
     },

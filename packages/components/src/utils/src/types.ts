@@ -1,3 +1,6 @@
+import type {
+    ResponsiveProp
+} from "@hopper-ui/styled-system";
 import type { AriaLabelingProps, DOMProps as SharedDOMProps } from "@react-types/shared";
 import type { CSSProperties, ReactNode } from "react";
 import type { SlotProps } from "react-aria-components";
@@ -85,3 +88,27 @@ export type Align = "start" | "end" | "center";
 export type FieldSize = "sm" | "md";
 export type NecessityIndicator = "asterisk" | "label";
 export type InputGroupVariant = "borderless" | "bordered";
+
+export interface FieldProps {
+    /**
+     * The helper message of the field.
+     */
+    description?: ReactNode;
+    /**
+     * The error message of the field.
+     */
+    errorMessage?: ReactNode;
+    /**
+     * The label of the field.
+     */
+    label?: ReactNode;
+    /**
+     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     */
+    necessityIndicator?: NecessityIndicator;
+    /**
+     * A CheckboxGroup can vary in size.
+     * @default "md"
+     */
+    size?: ResponsiveProp<FieldSize>;
+}

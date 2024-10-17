@@ -26,8 +26,11 @@ describe("Checkbox", () => {
     });
 
     it("should support custom style", () => {
-        render(<CheckboxGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Checkbox>option
-            1</Checkbox></CheckboxGroup>);
+        render(
+            <CheckboxGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
+                <Checkbox>option 1</Checkbox>
+            </CheckboxGroup>
+        );
 
         const element = screen.getByRole("group");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
