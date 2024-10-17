@@ -1,5 +1,11 @@
 # @hopper-ui/tokens
 
+## 4.4.1
+
+### Patch Changes
+
+- d098c47: Updated all dependencies.
+
 ## 4.4.0
 
 ### Minor Changes

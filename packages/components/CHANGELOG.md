@@ -1,5 +1,14 @@
 # @hopper-ui/components
 
+## 1.3.24
+
+### Patch Changes
+
+- d098c47: Updated all dependencies.
+- 448b6e4: CheckboxField and RadioField will now have a description prop as opposed to a description slot.
+- Updated dependencies [d098c47]
+  - @hopper-ui/icons@2.8.4
+
 ## 1.3.23
 
 ### Patch Changes
