@@ -78,9 +78,9 @@ main {
     margin-block-end: 1.25rem;
 }
 
-.hd-content p + * {
+/* .hd-content p + * {
     margin-block: var(--hd-space-3);
-}
+} */
 
 .hd-content ul li:not([class]) {
     line-height: 1.5;
