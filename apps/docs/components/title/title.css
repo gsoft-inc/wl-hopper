@@ -25,7 +25,7 @@
 
 :where(.hd-title--level4) {
     font-size: 1rem;
-    margin-block: 1.5rem 0;
+    margin-block: 1.5rem 0.375rem;
 }
 
 :where(.hd-title--level5) {

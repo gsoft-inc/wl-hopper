@@ -137,8 +137,9 @@
     --hd-color-neutral-icon-weak-hover: var(--hd-neutral-0);
     --hd-color-neutral-border: var(--hd-neutral-700);
     --hd-color-neutral-border-hover: var(--hd-neutral-400);
+    --hd-color-neutral-border-strong: var(--hd-neutral-75);
     --hd-color-accent-text: var(--hd-accent-300);
-    --hd-color-accent-border: var(--hd-accent-700);
+    --hd-color-accent-border: var(--hd-accent-400);
     --hd-color-accent-surface: var(--hd-accent-900);
     --hd-color-information-surface: #D9EFFF;
     --hd-color-information-icon: #2E70A8;
