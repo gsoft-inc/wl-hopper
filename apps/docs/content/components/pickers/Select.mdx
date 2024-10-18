@@ -39,18 +39,22 @@ The Section component represents a `section` within a Hopper container.
 
 ### Composed Components
 
-#### Select
-
 A `Select` uses the following components.
 
 <ComposedComponents components={["Avatar", "Badge", "ErrorMessage", "Header", "HelperMessage", "Icon", "Label", "Section", "Text"]}/>
 
-## Select Trigger Examples
+## Usage
 
 ### Disabled
 A select in a disabled state shows that it exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that a field may become available later.
 
 <Example src="Select/docs/disabled" />
+
+### Disabled Item
+
+A select with a disabled item.
+
+<Example src="Select/docs/selectDropdown/disabled" />
 
 ### Error
 A select can be displayed in an error state to indicate that the selection is invalid.
@@ -97,14 +101,6 @@ A select can have a controlled selected value. In this example, it shows how it 
 A select can be part of a form. To submit the value of a select, make sure you specify the `name` property.
 
 <Example src="Select/docs/form" />
-
-## Select Dropdown Examples
-
-### Disabled Item
-
-A select with a disabled item.
-
-<Example src="Select/docs/selectDropdown/disabled" />
 
 ### Auto Menu Width
 
