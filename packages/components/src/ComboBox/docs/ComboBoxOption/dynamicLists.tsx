@@ -1,4 +1,4 @@
-import { Collection, ComboBox, ComboBoxOption, ComboBoxOptions, Header, Inline, Label, Section } from "@hopper-ui/components";
+import { Collection, ComboBox, ComboBoxItem, Header, Inline, Section } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -41,34 +41,30 @@ export default function Example() {
         <Inline alignY="flex-start">
             <ComboBox
                 items={options}
+                label="Items"
             >
-                <Label>Items</Label>
-                <ComboBoxOptions>
-                    {(item: ListItemProps) => {
-                        const { id, role } = item;
+                {(item: ListItemProps) => {
+                    const { id, role } = item;
 
-                        return <ComboBoxOption id={id}>{role}</ComboBoxOption>;
-                    }}
-                </ComboBoxOptions>
+                    return <ComboBoxItem id={id}>{role}</ComboBoxItem>;
+                }}
             </ComboBox>
             <ComboBox
                 items={optionsWithSections}
+                label="Section"
             >
-                <Label>Section</Label>
-                <ComboBoxOptions>
-                    {(section: ListSectionProps) => {
-                        const { role: sectionName, children } = section;
+                {(section: ListSectionProps) => {
+                    const { role: sectionName, children } = section;
 
-                        return (
-                            <Section id={sectionName}>
-                                <Header>{sectionName}</Header>
-                                <Collection items={children}>
-                                    {item => <ComboBoxOption id={item.id}>{item.role}</ComboBoxOption>}
-                                </Collection>
-                            </Section>
-                        );
-                    }}
-                </ComboBoxOptions>
+                    return (
+                        <Section id={sectionName}>
+                            <Header>{sectionName}</Header>
+                            <Collection items={children}>
+                                {item => <ComboBoxItem id={item.id}>{item.role}</ComboBoxItem>}
+                            </Collection>
+                        </Section>
+                    );
+                }}
             </ComboBox>
         </Inline>
     );

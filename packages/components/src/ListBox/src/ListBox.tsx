@@ -38,7 +38,7 @@ export interface ListBoxProps<T> extends StyledComponentProps<Omit<RACListBoxPro
     onLoadMore?: () => void;
     /**
      * The selection indicator to use. Only available if the selection mode is not "none".
-     * When set to "input", the selection indicator will be an either a radio or checkbox based on the selection mode.
+     * When set to "input", the selection indicator will be either a radio or checkbox based on the selection mode.
      * @default "check"
      */
     selectionIndicator?: SelectionIndicator;

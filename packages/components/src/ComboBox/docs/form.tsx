@@ -1,15 +1,12 @@
-import { ComboBox, ComboBoxOption, ComboBoxOptions, Form, Label } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem, Form } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Form>
-            <ComboBox name="Roles">
-                <Label>Roles</Label>
-                <ComboBoxOptions>
-                    <ComboBoxOption id="designer">Designer</ComboBoxOption>
-                    <ComboBoxOption id="developer">Developer</ComboBoxOption>
-                    <ComboBoxOption id="manager">Manager</ComboBoxOption>
-                </ComboBoxOptions>
+            <ComboBox name="Roles" label="Roles">
+                <ComboBoxItem id="designer">Designer</ComboBoxItem>
+                <ComboBoxItem id="developer">Developer</ComboBoxItem>
+                <ComboBoxItem id="manager">Manager</ComboBoxItem>
             </ComboBox>
         </Form>
     );
