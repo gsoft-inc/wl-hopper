@@ -497,9 +497,8 @@ export const Direction = {
         </ComboBox>
     ),
     args: {
-        popoverProps: {
-            placement: { base: "top", md: "right", lg: "top" }
-        }
+        align: "end",
+        direction: { base: "top", md: "bottom", lg: "top" }
     },
     play: playFn,
     decorators: [
@@ -520,9 +519,7 @@ export const DirectionTop = {
         </ComboBox>
     ),
     args: {
-        popoverProps: {
-            placement: "top"
-        }
+        direction: "top"
     },
     play: playFn,
     decorators: [

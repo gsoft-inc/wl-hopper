@@ -25,10 +25,8 @@ export default function Example() {
             label="Roles"
             items={list.items as Iterable<Character>}
             maxHeight="core_1280"
-            listBoxProps={{
-                isLoading: list.isLoading,
-                onLoadMore: list.loadMore
-            }}
+            isLoading={list.isLoading}
+            onLoadMore={list.loadMore}
         >
             {(item: Character) => {
                 const { name } = item;

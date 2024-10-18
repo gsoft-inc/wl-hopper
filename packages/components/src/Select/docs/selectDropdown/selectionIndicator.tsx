@@ -9,7 +9,7 @@ export default function Example() {
             aria-label="list of options"
             selectedKey={selectedKey}
             onSelectionChange={setSelectedKey}
-            listBoxProps={{ selectionIndicator: "input" }}
+            selectionIndicator="input"
         >
             <SelectItem textValue="Developer" id="1">
                 <Text slot="label">Developer</Text>

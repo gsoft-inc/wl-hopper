@@ -88,6 +88,8 @@ export type Align = "start" | "end" | "center";
 export type FieldSize = "sm" | "md";
 export type NecessityIndicator = "asterisk" | "label";
 export type InputGroupVariant = "borderless" | "bordered";
+export type MenuAlignment = "start" | "end";
+export type MenuDirection = "top" | "bottom";
 
 export interface FieldProps {
     /**

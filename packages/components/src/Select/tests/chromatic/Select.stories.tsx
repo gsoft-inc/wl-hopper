@@ -468,9 +468,8 @@ export const Direction = {
     ),
     args: {
         isOpen: true,
-        popoverProps: {
-            placement: { base: "top", md: "right", lg: "top" }
-        }
+        align: "end",
+        direction: { base: "top", md: "bottom", lg: "top" }
     },
     decorators: [
         Story => (
@@ -491,9 +490,7 @@ export const DirectionTop = {
     ),
     args: {
         isOpen: true,
-        popoverProps: {
-            placement: "top"
-        }
+        direction: "top"
     },
     decorators: [
         Story => (

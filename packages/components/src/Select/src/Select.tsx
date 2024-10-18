@@ -18,14 +18,13 @@ import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
-import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
+import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
 import { SelectValue } from "./SelectValue.tsx";
-
 
 import styles from "./Select.module.css";
 
@@ -36,9 +35,19 @@ export type SelectTriggerProps = StyledComponentProps<RACButtonProps>;
 
 export interface SelectProps<T extends object> extends StyledComponentProps<Omit<RACSelectProps<T>, "children">>, FieldProps {
     /**
+     * The alignment of the menu.
+     * @default "start"
+     */
+    align?: ResponsiveProp<MenuAlignment>;
+    /**
      * The items of the Select.
      */
     children: ReactNode | ((item: T) => ReactNode);
+    /**
+     * The direction that the menu should open.
+     * @default "bottom"
+     */
+    direction?: ResponsiveProp<MenuDirection>;
     /**
      * The footer of the select.
      */
@@ -57,9 +66,17 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
      */
     items?: Iterable<T>;
     /**
+     * Whether data is currently being loaded.
+     * */
+    isLoading?: boolean;
+    /**
      * The list box props.
      */
     listBoxProps?: ListBoxProps<T>;
+    /**
+     * Handler that is called when more items should be loaded, e.g. while scrolling near the bottom.
+     * */
+    onLoadMore?: () => void;
     /**
      * The placeholder text when the select is empty.
      */
@@ -77,6 +94,16 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
      */
     renderValue?: (valueRenderProps: ValueRenderProps) => ReactNode;
     /**
+     * The selection indicator to use. Only available if the selection mode is not "none".
+     * When set to "input", the selection indicator will be either a radio or checkbox based on the selection mode.
+     * @default "check"
+     */
+    selectionIndicator?: SelectionIndicator;
+    /**
+     * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+     */
+    shouldFlip?: boolean;
+    /**
      * The props for the select's trigger.
      */
     triggerProps?: SelectTriggerProps;
@@ -86,24 +113,28 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
     [props, ref] = useContextProps(props, ref, SelectContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
+        align: alignProp,
         className,
         children,
         description,
+        direction: directionProp,
         errorMessage,
         footer,
         isAutoMenuWidth,
         isFluid: isFluidProp,
         isInvalid,
+        isLoading,
         isRequired,
         items,
         label,
         listBoxProps,
         necessityIndicator,
-        popoverProps = {
-            placement: "bottom start"
-        },
+        onLoadMore,
+        popoverProps,
         prefix,
         renderValue,
+        selectionIndicator,
+        shouldFlip,
         size: sizeProp,
         style: styleProp,
         triggerProps,
@@ -118,6 +149,8 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
 
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const align = useResponsiveValue(alignProp) ?? "start";
+    const direction = useResponsiveValue(directionProp) ?? "bottom";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -214,9 +247,11 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             </Label>
                         )}
                         <Popover 
-                            {...popoverProps}
                             isAutoWidth={isAutoMenuWidth}
                             isNonDialog
+                            placement={`${direction} ${align}`}
+                            shouldFlip={shouldFlip}
+                            {...popoverProps}
                         >
                             <SlotProvider values={[
                                 [BadgeContext, {
@@ -224,11 +259,18 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 }]
                             ]}
                             >
-                                <ListBox size={size} isInvalid={isInvalid} items={items} {...listBoxProps}>
+                                <ListBox 
+                                    size={size} 
+                                    isInvalid={isInvalid} 
+                                    items={items}
+                                    isLoading={isLoading}
+                                    onLoadMore={onLoadMore}
+                                    selectionIndicator={selectionIndicator}
+                                    {...listBoxProps}
+                                >
                                     {children}
                                 </ListBox>
                             </SlotProvider>
-
                             {footerMarkup}
                         </Popover>
                         <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>

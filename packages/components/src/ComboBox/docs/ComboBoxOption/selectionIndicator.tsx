@@ -10,9 +10,7 @@ export default function Example() {
             selectedKey={selectedKey}
             onSelectionChange={setSelectedKey}
             label="Roles"
-            listBoxProps={{
-                selectionIndicator: "input"
-            }}
+            selectionIndicator="input"
         >
             <ComboBoxItem textValue="Developer" id="1">
                 <Text slot="label">Developer</Text>

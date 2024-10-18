@@ -23,11 +23,9 @@ export default function Example() {
     return (
         <Select
             aria-label="list of options"
-            items={list.items as Iterable<Character>}
-            listBoxProps={{ 
-                isLoading: list.isLoading,
-                onLoadMore: list.loadMore
-            }}
+            items={list.items as Iterable<Character>} 
+            isLoading={list.isLoading}
+            onLoadMore={list.loadMore}
             popoverProps={{
                 maxHeight: "core_1280"
             }}

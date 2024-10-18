@@ -3,9 +3,8 @@ import { ComboBox, ComboBoxItem } from "@hopper-ui/components";
 export default function Example() {
     return (
         <ComboBox label="Roles"
-            popoverProps={{
-                placement: "top start"
-            }}
+            align="end"
+            direction="top"
         >
             <ComboBoxItem id="designer">Designer</ComboBoxItem>
             <ComboBoxItem id="developer">Developer</ComboBoxItem>

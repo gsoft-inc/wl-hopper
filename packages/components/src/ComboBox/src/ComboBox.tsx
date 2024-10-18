@@ -22,10 +22,10 @@ import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
-import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
+import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
 import { ComboBoxContext } from "./ComboBoxContext.ts";
 
@@ -37,9 +37,19 @@ export type ComboBoxTriggerProps = StyledComponentProps<RACGroupProps>;
 
 export interface ComboBoxProps<T extends object> extends StyledComponentProps<Omit<RACComboBoxProps<T>, "children">>, FieldProps {
     /**
+     * The alignment of the menu.
+     * @default "start"
+     */
+    align?: ResponsiveProp<MenuAlignment>;
+    /**
      * The items of the combo box.
      */
     children: ReactNode | ((item: T) => ReactNode);
+    /**
+     * The direction that the menu should open.
+     * @default "bottom"
+     */
+    direction?: ResponsiveProp<MenuDirection>;
     /**
      * The footer of the combo box.
      */
@@ -58,9 +68,17 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      */
     isFluid?: ResponsiveProp<boolean>;
     /**
+     * Whether data is currently being loaded.
+     * */
+    isLoading?: boolean;
+    /**
      * The list box props.
      */
     listBoxProps?: ListBoxProps<T>;
+    /**
+     * Handler that is called when more items should be loaded, e.g. while scrolling near the bottom.
+     * */
+    onLoadMore?: () => void;
     /**
      * The placeholder text when the select is empty.
      */
@@ -73,6 +91,16 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
      * An icon or text to display at the start of the select trigger.
      */
     prefix?: ReactNode;
+    /**
+     * The selection indicator to use. Only available if the selection mode is not "none".
+     * When set to "input", the selection indicator will be either a radio or checkbox based on the selection mode.
+     * @default "check"
+     */
+    selectionIndicator?: SelectionIndicator;
+    /**
+     * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+     */
+    shouldFlip?: boolean;
     /**
      * The props for the select's trigger.
      */
@@ -88,25 +116,29 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
     [props, ref] = useContextProps(propsWithoutRef, ref, ComboBoxContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
+        align: alignProp,
         className,
         children,
         description,
+        direction: directionProp,
         errorMessage,
         footer,
         isAutoMenuWidth,
         isFluid: isFluidProp,
         isInvalid,
+        isLoading,
         isRequired,
         items,
         label,
         listBoxProps,
         menuTrigger = "focus",
         necessityIndicator,
-        popoverProps = {
-            placement: "bottom start"
-        },
+        onLoadMore,
+        popoverProps,
         placeholder,
         prefix,
+        selectionIndicator,
+        shouldFlip,
         size: sizeProp,
         style: styleProp,
         triggerProps,
@@ -142,10 +174,12 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
 
     const {
         style: popoverStyleProp
-    } = popoverProps;
+    } = popoverProps ?? {};
 
     const size = useResponsiveValue(sizeProp) ?? "sm";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const align = useResponsiveValue(alignProp) ?? "start";
+    const direction = useResponsiveValue(directionProp) ?? "bottom";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -275,6 +309,8 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                         <Popover 
                             isAutoWidth={isAutoMenuWidth}
                             isNonDialog
+                            placement={`${direction} ${align}`}
+                            shouldFlip={shouldFlip}
                             style={popoverStyle}
                             triggerRef={triggerRef}
                             {...popoverProps}
@@ -285,11 +321,18 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 }]
                             ]}
                             >
-                                <ListBox size={size} isInvalid={isInvalid} items={items} {...listBoxProps}>
+                                <ListBox
+                                    size={size}
+                                    isInvalid={isInvalid}
+                                    items={items}
+                                    isLoading={isLoading}
+                                    onLoadMore={onLoadMore}
+                                    selectionIndicator={selectionIndicator}
+                                    {...listBoxProps}
+                                >
                                     {children}
                                 </ListBox>
                             </SlotProvider>
-
                             {footerMarkup}
                         </Popover>
                         <Group

@@ -4,7 +4,7 @@ export default function Example() {
     return (
         <Select
             aria-label="list of options"
-            listBoxProps={{ isLoading: true }}
+            isLoading
         >
             {[]}
         </Select>

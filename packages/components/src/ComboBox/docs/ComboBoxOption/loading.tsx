@@ -4,9 +4,7 @@ export default function Example() {
     return (
         <ComboBox
             label="Roles"
-            listBoxProps={{
-                isLoading: true
-            }}
+            isLoading
         >
             {[]}
         </ComboBox>

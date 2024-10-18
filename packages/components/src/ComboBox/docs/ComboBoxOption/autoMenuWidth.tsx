@@ -11,11 +11,11 @@ export default function Example() {
                 <Text>Developer</Text>
                 <Text slot="description">Builds, tests, and maintains software.</Text>
             </ComboBoxItem>
-            <ComboBoxItem textValue="Cat">
+            <ComboBoxItem textValue="Designer">
                 <Text>Designer</Text>
                 <Text slot="description">Creates visually appealing, functional solutions.</Text>
             </ComboBoxItem>
-            <ComboBoxItem textValue="Frog">
+            <ComboBoxItem textValue="Manager">
                 <Text>Manager</Text>
                 <Text slot="description">Responsible for leading and overseeing a team or department to ensure organizational goals are met.</Text>
             </ComboBoxItem>

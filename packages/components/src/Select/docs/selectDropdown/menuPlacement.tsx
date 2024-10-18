@@ -5,9 +5,8 @@ export default function Example() {
         <Select
             aria-label="Roles"
             isAutoMenuWidth
-            popoverProps={{
-                placement: "top start"
-            }}
+            align="start"
+            direction="top"
         >
             <SelectItem id="designer">Designer</SelectItem>
             <SelectItem id="developer">Developer</SelectItem>

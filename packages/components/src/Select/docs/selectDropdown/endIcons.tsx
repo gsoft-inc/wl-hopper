@@ -11,7 +11,8 @@ export default function Example() {
                 </IconList>
             </SelectItem>
             <SelectItem textValue="Developer">
-                <SparklesIcon slot="end-icon" /><Text slot="label">Developer</Text>
+                <SparklesIcon slot="end-icon" />
+                <Text slot="label">Developer</Text>
             </SelectItem>
             <SelectItem>Manager</SelectItem>
         </Select>
