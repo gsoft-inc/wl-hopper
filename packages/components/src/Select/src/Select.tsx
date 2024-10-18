@@ -1,24 +1,31 @@
 import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
 import {
     Button,
     composeRenderProps,
+    ButtonContext as RACButtonContext,
     Select as RACSelect,
+    TextContext as RACTextContext,
     useContextProps,
+    type ContextValue,
     type ButtonProps as RACButtonProps,
     type SelectProps as RACSelectProps,
     type SelectValueRenderProps
 } from "react-aria-components";
 
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { ListBoxContext } from "../../ListBox/index.ts";
-import { LabelContext, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { BadgeContext } from "../../Badge/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Footer } from "../../layout/index.ts";
+import { ListBox, ListBoxItem, type ListBoxProps } from "../../ListBox/index.ts";
+import { Popover, type PopoverProps } from "../../overlays/index.ts";
+import { Label, TextContext } from "../../typography/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
 import { SelectValue } from "./SelectValue.tsx";
+
 
 import styles from "./Select.module.css";
 
@@ -27,7 +34,19 @@ export const GlobalSelectCssSelector = "hop-Select";
 export type ValueRenderProps = SelectValueRenderProps<object> & { defaultChildren: ReactNode };
 export type SelectTriggerProps = StyledComponentProps<RACButtonProps>;
 
-export interface SelectProps<T extends object> extends StyledComponentProps<RACSelectProps<T>> {
+export interface SelectProps<T extends object> extends StyledComponentProps<Omit<RACSelectProps<T>, "children">>, FieldProps {
+    /**
+     * The items of the Select.
+     */
+    children: ReactNode | ((item: T) => ReactNode);
+    /**
+     * The footer of the select.
+     */
+    footer?: ReactNode;
+    /**
+     * If `true`, the select menu will not be the width of the trigger and instead be the width of its contents.
+     */
+    isAutoMenuWidth?: boolean;
     /**
      * If `true`, the select will take all available width.
      * @default false
@@ -38,13 +57,17 @@ export interface SelectProps<T extends object> extends StyledComponentProps<RACS
      */
     items?: Iterable<T>;
     /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     * The list box props.
      */
-    necessityIndicator?: NecessityIndicator;
+    listBoxProps?: ListBoxProps<T>;
     /**
      * The placeholder text when the select is empty.
      */
     placeholder?: string;
+    /**
+     * The props for the popover.
+     */
+    popoverProps?: PopoverProps;
     /**
      * An icon or text to display at the start of the select trigger.
      */
@@ -53,11 +76,6 @@ export interface SelectProps<T extends object> extends StyledComponentProps<RACS
      * A function to render the value of the select. It will render the selected item's text by default.
      */
     renderValue?: (valueRenderProps: ValueRenderProps) => ReactNode;
-    /**
-     * The size of the select.
-     * @default "sm"
-     */
-    size?: ResponsiveProp<FieldSize>;
     /**
      * The props for the select's trigger.
      */
@@ -69,12 +87,21 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        children: childrenProp,
+        children,
+        description,
+        errorMessage,
+        footer,
+        isAutoMenuWidth,
         isFluid: isFluidProp,
         isInvalid,
         isRequired,
         items,
+        label,
+        listBoxProps,
         necessityIndicator,
+        popoverProps = {
+            placement: "bottom start"
+        },
         prefix,
         renderValue,
         size: sizeProp,
@@ -128,10 +155,6 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         };
     });
 
-    const children = composeRenderProps(childrenProp, prev => {
-        return prev;
-    });
-
     const prefixMarkup = prefix ? (
         <SlotProvider values={[
             [TextContext, { size, className: styles["hop-Select__prefix"] }],
@@ -142,6 +165,28 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                 <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
             </ClearContainerSlots>
         </SlotProvider>
+    ) : null;
+
+    const footerMarkup = footer ? (
+        <ClearProviders
+            values={[
+                RACTextContext,
+                TextContext,
+                RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
+            ]}
+        >
+            <SlotProvider values={[
+                [TextContext, {
+                    size
+                }]
+            ]}
+            >
+                <Footer>
+                    <EnsureTextWrapper>{footer}</EnsureTextWrapper>
+                </Footer>
+            
+            </SlotProvider>
+        </ClearProviders>
     ) : null;
 
     return (
@@ -159,31 +204,33 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
 
                 return (
                     <>
-                        <SlotProvider values={[
-                            [LabelContext, {
-                                className: styles["hop-Select__label"],
-                                isRequired,
-                                necessityIndicator
-                            }],
-                            [HelperMessageContext, {
-                                className: styles["hop-Select__helper-message"]
-                            }],
-                            [ErrorMessageContext, {
-                                className: styles["hop-Select__error-message"]
-                            }],
-                            [TextContext, {
-                                size
-                            }],
-                            [ListBoxContext, {
-                                size,
-                                isInvalid,
-                                items
-                            }]
-                            
-                        ]}
+                        {label && (
+                            <Label
+                                className={styles["hop-Select__label"]}
+                                isRequired={isRequired}
+                                necessityIndicator={necessityIndicator}
+                            >
+                                {label}
+                            </Label>
+                        )}
+                        <Popover 
+                            {...popoverProps}
+                            isAutoWidth={isAutoMenuWidth}
+                            isNonDialog
                         >
-                            {children(selectRenderProps)}
-                        </SlotProvider>
+                            <SlotProvider values={[
+                                [BadgeContext, {
+                                    variant: "secondary"
+                                }]
+                            ]}
+                            >
+                                <ListBox size={size} isInvalid={isInvalid} items={items} {...listBoxProps}>
+                                    {children}
+                                </ListBox>
+                            </SlotProvider>
+
+                            {footerMarkup}
+                        </Popover>
                         <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
                             {prefixMarkup}
                             <SelectValue size={size}>
@@ -193,6 +240,16 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             </SelectValue>
                             <ButtonIcon size="sm" className={styles["hop-Select__button-icon"]} />
                         </Button>
+                        {description && (
+                            <HelperMessage className={styles["hop-Select__helper-message"]}>
+                                {description}
+                            </HelperMessage>
+                        )}
+                        {errorMessage && (
+                            <ErrorMessage className={styles["hop-Select__error-message"]}>
+                                {errorMessage}
+                            </ErrorMessage>
+                        )}
                     </>
                 );
             }}
@@ -210,4 +267,4 @@ const _Select = forwardRef(Select) as <T extends object>(
 ) => ReturnType<typeof Select>;
 (_Select as NamedExoticComponent).displayName = "Select";
 
-export { _Select as Select };
+export { _Select as Select, ListBoxItem as SelectItem };

@@ -1,4 +1,4 @@
-import { ComboBox, ComboBoxOption, ComboBoxOptions, Label } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem } from "@hopper-ui/components";
 import { useAsyncList } from "react-stately";
 
 interface Character {
@@ -22,23 +22,19 @@ export default function Example() {
 
     return (
         <ComboBox
-            aria-label="list of options"
+            label="Roles"
             items={list.items as Iterable<Character>}
             maxHeight="core_1280"
+            listBoxProps={{
+                isLoading: list.isLoading,
+                onLoadMore: list.loadMore
+            }}
         >
-            <Label>Roles</Label>
-            <ComboBoxOptions
-                listBoxProps={{
-                    isLoading: list.isLoading,
-                    onLoadMore: list.loadMore
-                }}
-            >
-                {(item: Character) => {
-                    const { name } = item;
+            {(item: Character) => {
+                const { name } = item;
 
-                    return <ComboBoxOption id={name}>{name}</ComboBoxOption>;
-                }}
-            </ComboBoxOptions>
+                return <ComboBoxItem id={name}>{name}</ComboBoxItem>;
+            }}
         </ComboBox>
     );
 }

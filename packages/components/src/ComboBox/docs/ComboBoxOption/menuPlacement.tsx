@@ -1,14 +1,15 @@
-import { ComboBox, ComboBoxOption, ComboBoxOptions, Label } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <ComboBox aria-label="Roles">
-            <Label>Roles</Label>
-            <ComboBoxOptions placement="top start">
-                <ComboBoxOption id="designer">Designer</ComboBoxOption>
-                <ComboBoxOption id="developer">Developer</ComboBoxOption>
-                <ComboBoxOption id="manager">Manager</ComboBoxOption>
-            </ComboBoxOptions>
+        <ComboBox label="Roles"
+            popoverProps={{
+                placement: "top start"
+            }}
+        >
+            <ComboBoxItem id="designer">Designer</ComboBoxItem>
+            <ComboBoxItem id="developer">Developer</ComboBoxItem>
+            <ComboBoxItem id="manager">Manager</ComboBoxItem>
         </ComboBox>
     );
 }

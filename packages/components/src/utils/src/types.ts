@@ -1,7 +1,7 @@
 import type {
     ResponsiveProp
 } from "@hopper-ui/styled-system";
-import type { AriaLabelingProps, DOMProps as SharedDOMProps } from "@react-types/shared";
+import type { AriaLabelingProps, DOMProps as SharedDOMProps, ValidationResult } from "@react-types/shared";
 import type { CSSProperties, ReactNode } from "react";
 import type { SlotProps } from "react-aria-components";
 
@@ -97,7 +97,7 @@ export interface FieldProps {
     /**
      * The error message of the field.
      */
-    errorMessage?: ReactNode;
+    errorMessage?: ReactNode | ((v: ValidationResult) => ReactNode);
     /**
      * The label of the field.
      */

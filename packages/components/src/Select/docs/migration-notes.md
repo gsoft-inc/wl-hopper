@@ -1,6 +1,6 @@
 Coming from Orbiter, you should be aware of the following changes:
 
-- `Item` has been renamed to `SelectOption`.
+- `Item` has been renamed to `SelectItem`.
 - The selected value only includes text. If an icon or avatar is needed, customize it using the `renderValue` function.
 - There is no `align` prop. Use `placement` inside `popoverProps`.
 - There is no `allowFlip`. Use `shouldFlip` inside `popoverProps`.

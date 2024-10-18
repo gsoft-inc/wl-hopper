@@ -3,8 +3,7 @@ import {
     ButtonGroup,
     Checkbox,
     ComboBox,
-    ComboBoxOption,
-    ComboBoxOptions,
+    ComboBoxItem,
     ErrorMessage,
     HelperMessage,
     Inline,
@@ -12,8 +11,7 @@ import {
     Radio,
     RadioGroup,
     Select,
-    SelectOption,
-    SelectOptions,
+    SelectItem,
     Stack,
     Tag,
     TagGroup,
@@ -78,21 +76,15 @@ const Template = () => {
             <Checkbox>
                 Agree to terms and conditions
             </Checkbox>
-            <Select isRequired>
-                <Label>Choose an animal</Label>
-                <SelectOptions>
-                    <SelectOption id="designer">Designer</SelectOption>
-                    <SelectOption id="developer">Developer</SelectOption>
-                    <SelectOption id="manager">Manager</SelectOption>
-                </SelectOptions>
+            <Select isRequired label="Choose an animal">
+                <SelectItem id="designer">Designer</SelectItem>
+                <SelectItem id="developer">Developer</SelectItem>
+                <SelectItem id="manager">Manager</SelectItem>
             </Select>
-            <ComboBox>
-                <Label>Choose an animal</Label>
-                <ComboBoxOptions>
-                    <ComboBoxOption id="dog">Dog</ComboBoxOption>
-                    <ComboBoxOption id="cat">Cat</ComboBoxOption>
-                    <ComboBoxOption id="frog">Frog</ComboBoxOption>
-                </ComboBoxOptions>
+            <ComboBox label="Choose an animal">
+                <ComboBoxItem id="dog">Dog</ComboBoxItem>
+                <ComboBoxItem id="cat">Cat</ComboBoxItem>
+                <ComboBoxItem id="frog">Frog</ComboBoxItem>
             </ComboBox>
             <TagGroup selectionMode="single">
                 <Label>Choose a place</Label>
