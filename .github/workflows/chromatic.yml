@@ -8,6 +8,9 @@ on:
         branches:
             - main
     pull_request:
+        # Opened, synchronize, or reopened are the default types
+        # We added ready_for_review to trigger the workflow is passed from draft to ready_for_review
+        types: ["opened", "synchronize", "reopened", "ready_for_review"]
         # Workflows will not run on pull_request activity if the pull request has a merge conflict. The merge conflict must be resolved first.
         # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened.
         branches-ignore:
