@@ -1,7 +1,7 @@
 {
     "name": "@hopper-ui/tokens",
     "author": "Workleap",
-    "version": "4.4.0",
+    "version": "4.4.1",
     "description": "The tokens package.",
     "license": "Apache-2.0",
     "repository": {
@@ -34,14 +34,15 @@
         "build": "tsx src/style-dictionary/build.ts"
     },
     "devDependencies": {
-        "@types/node": "20.14.2",
+        "@types/eslint": "8.56.12",
+        "@types/node": "22.7.5",
         "@workleap/eslint-plugin": "3.2.2",
         "@workleap/tsup-configs": "3.0.6",
         "@workleap/typescript-configs": "3.0.2",
-        "eslint": "8.57.0",
+        "eslint": "8.57.1",
         "style-dictionary": "3.9.2",
-        "tsx": "4.12.0",
-        "typescript": "5.4.5"
+        "tsx": "4.19.1",
+        "typescript": "5.5.4"
     },
     "sideEffects": false
 }

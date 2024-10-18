@@ -1,6 +1,6 @@
 import fs from "fs";
-import path from "path";
 import glob from "glob";
+import path from "path";
 
 const CONTENT_FILES = path.join(process.cwd(), "content", "components", "**", "*.mdx");
 const OUTPUT_FILE = "Preview.ts";
@@ -43,9 +43,18 @@ function generatePreviewRef() {
 
     let previewEntries = "";
     for (const examplePath of examplePaths) {
+        let importPath;
+
+        if (examplePath.startsWith("icons")) {
+            const modifiedExamplePath = examplePath.replace(/^icons\//, "");
+            importPath = `@/../../packages/icons/${modifiedExamplePath}.tsx`;
+        } else {
+            importPath = `@/../../packages/components/src/${examplePath}.tsx`;
+        }
+
         previewEntries += `
     "${examplePath}": {
-        component: lazy(() => import("@/../../packages/components/src/${examplePath}.tsx"))
+        component: lazy(() => import("${importPath}"))
     },`;
     }
 

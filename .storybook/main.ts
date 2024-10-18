@@ -32,9 +32,6 @@ const storybookConfig: StorybookConfig = {
             }
         }
     },
-    docs: {
-        autodocs: "tag"
-    },
     swc: (_: SwcOptions, { configType }: Options): SwcOptions => {
         return configType === "PRODUCTION" ? SwcBuildConfig : SwcDevConfig;
     },

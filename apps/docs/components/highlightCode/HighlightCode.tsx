@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import * as prod from "react/jsx-runtime";
-import { unified } from "unified";
-import rehypeReact from "rehype-react";
 import rehypeParse from "rehype-parse";
+import rehypeReact from "rehype-react";
+import { unified } from "unified";
 
-import Pre from "@/components/pre/Pre.tsx";
 import InlineCode, { type InlineCodeProps } from "@/components/code/InlineCode.tsx";
+import Pre from "@/components/pre/Pre.tsx";
 
 export type Variant = "default" | "tiny";
 
@@ -31,7 +31,8 @@ function useProcessor(text: string, variant?: Variant) {
 
         unified()
             .use(rehypeParse, { fragment: true })
-            // @ts-expect-error: rehype-react types error
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             .use(rehypeReact, options)
             .process(text)
             .then(file => {

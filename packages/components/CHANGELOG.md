@@ -1,5 +1,26 @@
 # @hopper-ui/components
 
+## 1.3.25
+
+### Patch Changes
+
+- bd8b972: Instead of having slots for Label, HelperMessage and ErrorMessage, we removed them in favor of props: label, description and errorMessage. CheckboxList and RadioList are no longer needed and have been removed due to this change.
+
+## 1.3.24
+
+### Patch Changes
+
+- d098c47: Updated all dependencies.
+- 448b6e4: CheckboxField and RadioField will now have a description prop as opposed to a description slot.
+- Updated dependencies [d098c47]
+  - @hopper-ui/icons@2.8.4
+
+## 1.3.23
+
+### Patch Changes
+
+- c603aff: Badge used to change appearance based on the states of its parent, but now Badge will remain the same when its parent's state changes.
+
 ## 1.3.22
 
 ### Patch Changes

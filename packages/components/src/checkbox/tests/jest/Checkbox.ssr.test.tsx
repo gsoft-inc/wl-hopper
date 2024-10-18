@@ -3,7 +3,6 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Text } from "../../../typography/Text/index.ts";
 import { Checkbox } from "../../src/Checkbox.tsx";
 import { CheckboxField } from "../../src/CheckboxField.tsx";
 import { CheckboxGroup } from "../../src/CheckboxGroup.tsx";
@@ -14,9 +13,8 @@ describe("Checkbox", () => {
             renderToString(
                 <CheckboxGroup aria-label="options">
                     <Checkbox>option 1</Checkbox>
-                    <CheckboxField>
+                    <CheckboxField description="description">
                         <Checkbox>option 1</Checkbox>
-                        <Text slot="description">description</Text>
                     </CheckboxField>
                 </CheckboxGroup>
             );

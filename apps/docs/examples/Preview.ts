@@ -152,6 +152,9 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/multipleSizes": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSizes.tsx"))
     },
+    "Section/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
+    },
     "tag/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/preview.tsx"))
     },
@@ -356,12 +359,6 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkbox/icons": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/icons.tsx"))
     },
-    "checkbox/docs/checkboxfield/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/disabled.tsx"))
-    },
-    "checkbox/docs/checkboxfield/size": {
-        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxfield/size.tsx"))
-    },
     "checkbox/docs/checkbox/description": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkbox/description.tsx"))
     },
@@ -394,6 +391,9 @@ export const Previews: Record<string, Preview> = {
     },
     "checkbox/docs/checkboxgroup/controlled": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/controlled.tsx"))
+    },
+    "checkbox/docs/checkboxgroup/itemsDescription": {
+        component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/itemsDescription.tsx"))
     },
     "ErrorMessage/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
@@ -515,8 +515,8 @@ export const Previews: Record<string, Preview> = {
     "radio/docs/radiogroup/controlled": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radiogroup/controlled.tsx"))
     },
-    "radio/docs/radio/label": {
-        component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/label.tsx"))
+    "radio/docs/radio/noLabel": {
+        component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/noLabel.tsx"))
     },
     "radio/docs/radio/disabled": {
         component: lazy(() => import("@/../../packages/components/src/radio/docs/radio/disabled.tsx"))
@@ -649,6 +649,15 @@ export const Previews: Record<string, Preview> = {
     },
     "inputs/docs/textField/fluid": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
+    },
+    "icons/docs/preview": {
+        component: lazy(() => import("@/../../packages/icons/docs/preview.tsx"))
+    },
+    "icons/docs/sizes": {
+        component: lazy(() => import("@/../../packages/icons/docs/sizes.tsx"))
+    },
+    "icons/docs/styling": {
+        component: lazy(() => import("@/../../packages/icons/docs/styling.tsx"))
     },
     "IconList/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/IconList/docs/preview.tsx"))
@@ -964,9 +973,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Header/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Header/docs/preview.tsx"))
-    },
-    "Section/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
     },
     "Badge/docs/badge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/preview.tsx"))

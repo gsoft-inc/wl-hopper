@@ -89,7 +89,7 @@
 }
 
 .hd-aside__link:hover {
-    color: var(--hd-color-primary-text);
+    color: var(--hd-color-accent-text);
 }
 
 .hd-aside__link-level-3 {
@@ -123,7 +123,7 @@
 .hd-aside__marker {
     height: var(--hd-space-3);
     width: var(--hd-border-size);
-    background-color: var(--hd-color-primary-border);
+    background-color: var(--hd-color-accent-border);
     position: absolute;
     top: 0;
     left: 0;

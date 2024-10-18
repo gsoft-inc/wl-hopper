@@ -1,10 +1,9 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { screen, render } from "@hopper-ui/test-utils";
+import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef } from "react";
 
-import { Text } from "../../../typography/Text/src/Text.tsx";
 import { Radio } from "../../src/Radio.tsx";
 import { RadioField } from "../../src/RadioField.tsx";
 import { RadioGroup } from "../../src/RadioGroup.tsx";
@@ -27,9 +26,9 @@ describe("Radio", () => {
     });
 
     it("should support custom style", () => {
-        render(<RadioGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Radio
-            value="option1"
-        >option 1</Radio></RadioGroup>);
+        render(<RadioGroup aria-label="options" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
+            <Radio value="option1">option 1</Radio>
+        </RadioGroup>);
 
         const element = screen.getByRole("radiogroup");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
@@ -66,9 +65,8 @@ describe("Radio", () => {
     it("should set the size class name and pass the size to the radio and radio field.", () => {
         const testId = "radio-field";
         render(<RadioGroup aria-label="options" size="sm">
-            <RadioField data-testid={testId}>
+            <RadioField data-testid={testId} description="Description">
                 <Radio value="option1">option 1</Radio>
-                <Text slot="description">description</Text>
             </RadioField>
         </RadioGroup>);
 

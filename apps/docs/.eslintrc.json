@@ -30,6 +30,7 @@
         "PropTable": true,
         "CodeOnlyExample": true,
         "Example": true,
+        "ComposedComponents": true,
         "FeatureFlag": true
     },
     "overrides": [

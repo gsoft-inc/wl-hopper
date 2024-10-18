@@ -28,6 +28,7 @@ export interface Options {
 }
 
 const PACKAGES = path.join(process.cwd(), "..", "..", "packages", "components", "src");
+const ICON_FILE = path.join(process.cwd(), "..", "..", "packages", "icons", "src", "Icon.tsx");
 const COMPONENT_DATA = path.join(process.cwd(), "datas", "components");
 
 const tsConfigParser = docgenTs.withCustomConfig(
@@ -229,7 +230,8 @@ function deleteFile(filePath: string) {
 }
 
 async function generateComponentData() {
-    console.log("Start api generation for components");
+    console.log("Start API generation for components and Icon");
+
     const options = {
         exclude: [
             toDirectoryPath("docs"),
@@ -241,7 +243,12 @@ async function generateComponentData() {
         ]
     };
 
-    const components = await generateComponentList(PACKAGES, options);
+    // Generate component list for 'components' directory
+    const componentList = await generateComponentList(PACKAGES, options);
+
+    // Manually add Icon.tsx to the component list
+    const iconComponent: ComponentData = { name: "Icon", filePath: ICON_FILE };
+    const components = [...componentList, iconComponent];
 
     if (!components.length) {
         console.error("No components found");
@@ -260,7 +267,7 @@ async function generateComponentData() {
                 const formattedData = getFormattedData(data);
 
                 await writeFile(name, formattedData);
-                console.log(`${name} api is created!`);
+                console.log(`${name} API is created!`);
             } catch (error) {
                 console.error(`Error generating documentation for ${component.name}:`, error);
             } finally {

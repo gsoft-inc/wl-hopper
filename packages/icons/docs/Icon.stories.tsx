@@ -1,4 +1,4 @@
-import { Stack, SlotProvider } from "@hopper-ui/components";
+import { SlotProvider, Stack } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SparklesIcon } from "../src/generated-icon-components/SparklesIcon.tsx";
@@ -44,7 +44,7 @@ export const Sizing: Story = {
 };
 
 /**
- * The color of the icon can be change using the `fill` prop.
+ * The color of the icon can be changed using the `fill` prop.
  * All the styled system props are also available.
  */
 export const Styling: Story = {

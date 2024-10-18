@@ -2,16 +2,12 @@ import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import { ErrorMessage } from "../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../HelperMessage/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Inline } from "../../layout/index.ts";
-import { Label } from "../../typography/Label/index.ts";
 import { Text } from "../../typography/Text/index.ts";
 import { Radio } from "../src/Radio.tsx";
 import { RadioField } from "../src/RadioField.tsx";
 import { RadioGroup } from "../src/RadioGroup.tsx";
-import { RadioList } from "../src/RadioList.tsx";
 
 /**
  * The RadioGroup is used to group related options together and to provide a label for the group. It can also provide validation and helper messages.
@@ -42,14 +38,11 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
     render: props => (
         <RadioGroup {...props}>
-            <RadioList>
-                <Radio value="developer">Developer</Radio>
-                <Radio value="designer">Designer</Radio>
-                <RadioField>
-                    <Radio value="manager">Manager</Radio>
-                    <Text slot="description">Team Manager</Text>
-                </RadioField>
-            </RadioList>
+            <Radio value="developer">Developer</Radio>
+            <Radio value="designer">Designer</Radio>
+            <RadioField description="Team Manager">
+                <Radio value="manager">Manager</Radio>
+            </RadioField>
         </RadioGroup>
     ),
     args: {
@@ -64,13 +57,10 @@ export const Default = {
 export const LabelStory = {
     name: "Label",
     render: props => (
-        <RadioGroup {...props}>
-            <RadioList>
-                <Radio value="developer">Developer</Radio>
-                <Radio value="designer">Designer</Radio>
-                <Radio value="manager">Manager</Radio>
-            </RadioList>
-            <Label>Roles</Label>
+        <RadioGroup {...props} label="Roles">
+            <Radio value="developer">Developer</Radio>
+            <Radio value="designer">Designer</Radio>
+            <Radio value="manager">Manager</Radio>
         </RadioGroup>
     )
 } satisfies Story;
@@ -80,17 +70,12 @@ export const LabelStory = {
  */
 export const Description = {
     render: props => (
-        <RadioGroup {...props}>
-            <Label>Roles</Label>
-            <RadioList>
-                <Radio value="developer">Developer</Radio>
-                <Radio value="designer">Designer</Radio>
-                <RadioField>
-                    <Radio value="manager">Manager</Radio>
-                    <Text slot="description">Team Manager</Text>
-                </RadioField>
-            </RadioList>
-            <HelperMessage>Select one to continue</HelperMessage>
+        <RadioGroup {...props} label="Roles" description="Select one to continue">
+            <Radio value="developer">Developer</Radio>
+            <Radio value="designer">Designer</Radio>
+            <RadioField description="Team manager">
+                <Radio value="manager">Manager</Radio>
+            </RadioField>
         </RadioGroup>
     )
 } satisfies Story;
@@ -100,22 +85,17 @@ export const Description = {
  */
 export const Icons = {
     render: props => (
-        <RadioGroup {...props}>
-            <Label>Roles</Label>
-            <RadioList>
-                <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
-                <Radio value="designer">
-                    <Text>Designer</Text>
-                    <IconList>
-                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                    </IconList>
-                </Radio>
-                <RadioField>
-                    <Radio value="manager">Manager</Radio>
-                    <Text slot="description">Team Manager</Text>
-                </RadioField>
-            </RadioList>
-            <HelperMessage>Select one to continue</HelperMessage>
+        <RadioGroup {...props} label="Roles" description="Select one to continue">
+            <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
+            <Radio value="designer">
+                <Text>Designer</Text>
+                <IconList>
+                    <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                </IconList>
+            </Radio>
+            <RadioField description="Team Manager">
+                <Radio value="manager">Manager</Radio>
+            </RadioField>
         </RadioGroup>
     )
 } satisfies Story;
@@ -126,33 +106,25 @@ export const Icons = {
 export const Size = {
     render: props => (
         <Inline alignY="start">
-            <RadioGroup {...props} size="sm">
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
-                    <Radio value="designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                        </IconList>
-                    </Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <RadioGroup {...props} size="sm" label="Roles" description="Select one to continue">
+                <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
+                <Radio value="designer">
+                    <Text>Designer</Text>
+                    <IconList>
+                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                    </IconList>
+                </Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
-            <RadioGroup {...props} size="md">
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
-                    <Radio value="designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                        </IconList>
-                    </Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <RadioGroup {...props} size="md" label="Roles" description="Select one to continue">
+                <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
+                <Radio value="designer">
+                    <Text>Designer</Text>
+                    <IconList>
+                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                    </IconList>
+                </Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
         </Inline>
     )
@@ -185,15 +157,16 @@ export const Validation = {
         }
 
         return (
-            <RadioGroup {...args} onChange={onChange} isInvalid={isInvalid}>
-                <HelperMessage>These are all excellent roles</HelperMessage>
-                <ErrorMessage>Check this box and the description will appear</ErrorMessage>
-                <RadioList>
-                    <Radio value="developer">Developer</Radio>
-                    <Radio value="designer">Designer</Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
-                <Label>Roles</Label>
+            <RadioGroup {...args} 
+                onChange={onChange} 
+                isInvalid={isInvalid}
+                label="Roles"
+                description="Select one to continue"
+                errorMessage="Check this box and the description will appear"
+            >
+                <Radio value="developer">Developer</Radio>
+                <Radio value="designer">Designer</Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
         );
     }
@@ -215,33 +188,34 @@ export const ResponsiveOrientation = {
 export const Disabled = {
     render: props => (
         <Inline alignY="start">
-            <RadioGroup {...props} isDisabled size="sm">
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
-                    <Radio value="designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                        </IconList>
-                    </Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <RadioGroup {...props}
+                isDisabled
+                size="sm"
+                label="Roles"
+                description="Select one to continue"
+            >
+                <Radio value="developer"><SparklesIcon /><Text>Developer</Text></Radio>
+                <Radio value="designer">
+                    <Text>Designer</Text>
+                    <IconList>
+                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                    </IconList>
+                </Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
-            <RadioGroup {...props} size="md">
-                <Label>Roles</Label>
-                <RadioList>
-                    <Radio value="developer" isDisabled><SparklesIcon /><Text>Developer</Text></Radio>
-                    <Radio value="designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon /><SparklesIcon /><SparklesIcon />
-                        </IconList>
-                    </Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
-                <HelperMessage>Select one to continue</HelperMessage>
+            <RadioGroup {...props}
+                size="md"
+                label="Roles"
+                description="Select one to continue"
+            >
+                <Radio value="developer" isDisabled><SparklesIcon /><Text>Developer</Text></Radio>
+                <Radio value="designer">
+                    <Text>Designer</Text>
+                    <IconList>
+                        <SparklesIcon /><SparklesIcon /><SparklesIcon />
+                    </IconList>
+                </Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
         </Inline>
     )
@@ -259,11 +233,9 @@ export const Controlled = {
                 value={selected}
                 onChange={setSelected}
             >
-                <RadioList>
-                    <Radio value="developer">Developer</Radio>
-                    <Radio value="designer">Designer</Radio>
-                    <Radio value="manager">Manager</Radio>
-                </RadioList>
+                <Radio value="developer">Developer</Radio>
+                <Radio value="designer">Designer</Radio>
+                <Radio value="manager">Manager</Radio>
             </RadioGroup>
         );
     },
