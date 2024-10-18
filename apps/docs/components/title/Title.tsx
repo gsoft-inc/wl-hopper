@@ -1,9 +1,9 @@
 import formattingTitleId from "@/app/lib/formattingTitleId";
 import clsx from "clsx";
 
-import "./title.css";
 import Link from "next/link";
 import type { PropsWithChildren } from "react";
+import "./title.css";
 
 export interface TitleProps {
     as?: "h1" | "h2" | "h3" | "h4" | "h5";
@@ -37,7 +37,7 @@ const Title = ({
             className={clsx("hd-title", className, {
                 [`hd-title--level${level}`]: level
             })}
-            id={level > 1 ? uniqueConcatId : undefined}
+            id={uniqueConcatId}
             data-section-title={level === 2 ? uniqueId : undefined}
             data-subsection-title={level === 3 ? uniqueId : undefined}
             {...rest}

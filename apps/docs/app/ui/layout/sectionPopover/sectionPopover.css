@@ -68,6 +68,6 @@
     line-height: 1.5rem;
     font-size: 0.875rem;
     margin-bottom: var(--hd-space-05);
-    color: var(--hd-color-primary-text);
+    color: var(--hd-color-accent-text);
     padding: 0.375rem 0;
 }
