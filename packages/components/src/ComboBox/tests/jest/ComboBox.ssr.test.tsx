@@ -3,18 +3,15 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { ComboBox } from "../../src/ComboBox.tsx";
-import { ComboBoxOption, ComboBoxOptions } from "../../src/ComboBoxOptions.tsx";
+import { ComboBox, ComboBoxItem } from "../../src/ComboBox.tsx";
 
 describe("ComboBox", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
                 <ComboBox>
-                    <ComboBoxOptions>
-                        <ComboBoxOption id="1">Zoomy</ComboBoxOption>
-                        <ComboBoxOption id="2">Voodoo</ComboBoxOption>
-                    </ComboBoxOptions>
+                    <ComboBoxItem id="1">Zoomy</ComboBoxItem>
+                    <ComboBoxItem id="2">Voodoo</ComboBoxItem>
                 </ComboBox>
             );
 

@@ -1,4 +1,4 @@
-import { ComboBox, ComboBoxOption, ComboBoxOptions, Label } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem } from "@hopper-ui/components";
 import { useMemo, useState } from "react";
 import { useFilter } from "react-aria";
 
@@ -33,11 +33,9 @@ export default function Example() {
             items={filteredItems}
             inputValue={filterValue}
             onInputChange={setFilterValue}
+            label="Roles"
         >
-            <Label>Roles</Label>
-            <ComboBoxOptions>
-                {(item: Role) => <ComboBoxOption>{item.name}</ComboBoxOption>}
-            </ComboBoxOptions>
+            {(item: Role) => <ComboBoxItem>{item.name}</ComboBoxItem>}
         </ComboBox>
     );
 }

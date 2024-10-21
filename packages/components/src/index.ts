@@ -30,7 +30,7 @@ export * from "./utils/index.ts";
 export type { RouterOptions } from "@react-types/shared";
 export type { Orientation, Placement } from "react-aria";
 
-export { Collection, type ContextValue, type Key, type Selection } from "react-aria-components";
+export { Collection, type ContextValue, type Key, type Selection, type ValidationResult } from "react-aria-components";
 export { useAsyncList } from "react-stately";
 
 export * from "@hopper-ui/styled-system";

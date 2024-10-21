@@ -1,4 +1,4 @@
-import { ComboBox, ComboBoxOption, ComboBoxOptions, Label, Text, type Key } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem, Text, type Key } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
@@ -9,24 +9,21 @@ export default function Example() {
             aria-label="list of options"
             selectedKey={selectedKey}
             onSelectionChange={setSelectedKey}
+            label="Roles"
+            selectionIndicator="input"
         >
-            <Label>Roles</Label>
-            <ComboBoxOptions
-                listBoxProps={{ selectionIndicator: "input" }}
-            >
-                <ComboBoxOption textValue="Developer" id="1">
-                    <Text slot="label">Developer</Text>
-                    <Text slot="description">Builds and maintains software.</Text>
-                </ComboBoxOption>
-                <ComboBoxOption textValue="Designer" id="2">
-                    <Text slot="label">Designer</Text>
-                    <Text slot="description">Creates visual design solutions.</Text>
-                </ComboBoxOption>
-                <ComboBoxOption textValue="Manager" id="3">
-                    <Text slot="label">Manager</Text>
-                    <Text slot="description">Leads teams and projects.</Text>
-                </ComboBoxOption>
-            </ComboBoxOptions>
+            <ComboBoxItem textValue="Developer" id="1">
+                <Text slot="label">Developer</Text>
+                <Text slot="description">Builds and maintains software.</Text>
+            </ComboBoxItem>
+            <ComboBoxItem textValue="Designer" id="2">
+                <Text slot="label">Designer</Text>
+                <Text slot="description">Creates visual design solutions.</Text>
+            </ComboBoxItem>
+            <ComboBoxItem textValue="Manager" id="3">
+                <Text slot="label">Manager</Text>
+                <Text slot="description">Leads teams and projects.</Text>
+            </ComboBoxItem>
         </ComboBox>
     );
 }
