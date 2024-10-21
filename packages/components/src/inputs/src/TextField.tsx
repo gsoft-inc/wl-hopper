@@ -27,7 +27,7 @@ import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useTruncatedText,
     type FieldProps
@@ -41,7 +41,7 @@ import styles from "./TextField.module.css";
 
 export const GlobalTextFieldCssSelector = "hop-TextField";
 
-export interface TextFieldProps extends StyledComponentProps<RACTextFieldProps>, FieldProps {
+export interface TextFieldProps extends Omit<StyledComponentProps<RACTextFieldProps>, "children">, FieldProps {
     /**
      * An icon or text to display at the start of the input.
      */
@@ -117,7 +117,6 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         placeholder,
         isClearable,
         onChange: onChangeProp,
-        children,
         onClear,
         defaultValue,
         value: valueProp,
@@ -188,7 +187,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
             [IconContext, { size, className: styles["hop-TextField__prefix"] }]
         ]}
         >
-            <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
+            {ensureTextWrapper(prefix)}
         </SlotProvider>
     ) : null;
 
@@ -230,17 +229,14 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         </ClearContainerSlots>
     );
 
-    const childrenMarkup = composeRenderProps(children, prev => {
-        return (
-            <>
-                {label && <Label className={styles["hop-TextField__Label"]} isRequired necessityIndicator={necessityIndicator}>{label}</Label>}
-                {inputMarkup}
-                {prev}
-                {description && <HelperMessage className={styles["hop-TextField__HelperMessage"]}>{description}</HelperMessage>}
-                <ErrorMessage className={styles["hop-TextField__ErrorMessage"]}>{errorMessage}</ErrorMessage>
-            </>
-        );
-    });
+    const childrenMarkup = (
+        <>
+            {label && <Label className={styles["hop-TextField__Label"]} isRequired necessityIndicator={necessityIndicator}>{label}</Label>}
+            {inputMarkup}
+            {description && <HelperMessage className={styles["hop-TextField__HelperMessage"]}>{description}</HelperMessage>}
+            <ErrorMessage className={styles["hop-TextField__ErrorMessage"]}>{errorMessage}</ErrorMessage>
+        </>
+    );
 
     return (
         <RACTextField

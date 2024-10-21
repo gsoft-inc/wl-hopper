@@ -25,7 +25,7 @@ import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
 import { ComboBoxContext } from "./ComboBoxContext.ts";
 
@@ -251,7 +251,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             ]}
             >
                 <Footer>
-                    <EnsureTextWrapper>{footer}</EnsureTextWrapper>
+                    {ensureTextWrapper(footer)}
                 </Footer>
             
             </SlotProvider>
@@ -275,7 +275,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         ]}
         >
             <ClearContainerSlots>
-                <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
+                {ensureTextWrapper(prefix)}
             </ClearContainerSlots>
         </SlotProvider>
     ) : null;

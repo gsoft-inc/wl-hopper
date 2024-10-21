@@ -21,7 +21,7 @@ import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
 import { SelectValue } from "./SelectValue.tsx";
@@ -195,7 +195,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         ]}
         >
             <ClearContainerSlots>
-                <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
+                {ensureTextWrapper(prefix)}
             </ClearContainerSlots>
         </SlotProvider>
     ) : null;
@@ -215,7 +215,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
             ]}
             >
                 <Footer>
-                    <EnsureTextWrapper>{footer}</EnsureTextWrapper>
+                    {ensureTextWrapper(footer)}
                 </Footer>
             
             </SlotProvider>

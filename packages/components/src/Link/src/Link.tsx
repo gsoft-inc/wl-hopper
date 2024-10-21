@@ -15,7 +15,7 @@ import { TextContext } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     type SizeAdapter
 } from "../../utils/index.ts";
@@ -102,7 +102,7 @@ function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const iconSize = LinkToIconSizeAdapter[size];

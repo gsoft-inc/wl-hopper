@@ -26,7 +26,7 @@ import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useScale,
     type FieldSize,
@@ -168,7 +168,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
             [IconContext, { size, className: styles["hop-NumberField__prefix"] }]
         ]}
         >
-            <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
+            {ensureTextWrapper(prefix)}
         </SlotProvider>
     ) : null;
 
