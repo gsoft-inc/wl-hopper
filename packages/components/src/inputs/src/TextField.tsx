@@ -231,7 +231,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const childrenMarkup = (
         <>
-            {label && <Label className={styles["hop-TextField__Label"]} isRequired necessityIndicator={necessityIndicator}>{label}</Label>}
+            {label && <Label className={styles["hop-TextField__Label"]} isRequired={isRequired} necessityIndicator={necessityIndicator}>{label}</Label>}
             {inputMarkup}
             {description && <HelperMessage className={styles["hop-TextField__HelperMessage"]}>{description}</HelperMessage>}
             <ErrorMessage className={styles["hop-TextField__ErrorMessage"]}>{errorMessage}</ErrorMessage>

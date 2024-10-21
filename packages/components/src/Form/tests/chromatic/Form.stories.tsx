@@ -4,8 +4,6 @@ import {
     Checkbox,
     ComboBox,
     ComboBoxItem,
-    ErrorMessage,
-    HelperMessage,
     Inline,
     Label,
     Radio,
@@ -38,10 +36,7 @@ const Template = () => {
     return (
         <>
             <Inline>
-                <TextField type="email" placeholder="billings@acme.com" isRequired>
-                    <Label>Email adress</Label>
-                    <HelperMessage>Invoices will be sent to this email address.</HelperMessage>
-                </TextField>
+                <TextField type="email" placeholder="billings@acme.com" isRequired label="Email address" description="Invoices will be sent to this email address." />
             </Inline>
             <RadioGroup label="I identify my gender as">
                 <Radio value="man">Man</Radio>
@@ -49,27 +44,15 @@ const Template = () => {
                 <Radio value="non-binary">Non-Binary</Radio>
             </RadioGroup>
             <Inline>
-                <TextField placeholder="John">
-                    <Label>First name</Label>
-                </TextField>
-                <TextField placeholder="Doe">
-                    <Label>Last name</Label>
-                </TextField>
+                <TextField placeholder="John" label="First name" />
+                <TextField placeholder="Doe" label="Last name" />
             </Inline>
-            <TextField placeholder="Looney Tunes Inc.">
-                <Label>Organization name</Label>
-            </TextField>
+            <TextField placeholder="Looney Tunes Inc." label="Organization name" />
             <Inline>
-                <TextField placeholder="24 Sussex Drive">
-                    <Label>Adress</Label>
-                </TextField>
-                <TextField placeholder="Apt or suite">
-                    <Label>Apt/Suite</Label>
-                </TextField>
+                <TextField placeholder="24 Sussex Drive" label="Address" />
+                <TextField placeholder="Apt or suite" label="Apt/Suite" />
             </Inline>
-            <TextField placeholder="Old El Paso">
-                <Label>City</Label>
-            </TextField>
+            <TextField placeholder="Old El Paso" label="City" />
             <TextArea placeholder="Leave a comment">
                 <Label>Comments</Label>
             </TextArea>
@@ -141,10 +124,7 @@ export const AsteriskNecessityIndicator = {
 export const Validation = {
     render: () => (
         <Form validationErrors={{ username: "Sorry, this username is taken." }}>
-            <TextField defaultValue="john_doe" name="username">
-                <Label>Username</Label>
-                <ErrorMessage />
-            </TextField>
+            <TextField defaultValue="john_doe" name="username" label="Username" />
         </Form>
     )
 };
@@ -157,10 +137,8 @@ export const ValidationBehaviorAria = {
                 defaultValue="admin"
                 isRequired
                 validate={value => value === "admin" ? "Nice try." : null}
-            >
-                <Label>Username</Label>
-                <ErrorMessage />
-            </TextField>
+                label="Username"
+            />
             <Button type="submit">Submit</Button>
         </Form>
     )
@@ -174,10 +152,9 @@ export const ValidationBehaviorNative = {
                     name="email"
                     type="email"
                     isRequired
-                >
-                    <Label>Email</Label>
-                    <ErrorMessage>This field is required</ErrorMessage>
-                </TextField>
+                    label="Email" 
+                    errorMessage="This field is required"
+                />
                 <ButtonGroup>
                     <Button type="submit">Submit</Button>
                     <Button type="reset">Reset</Button>
@@ -204,9 +181,8 @@ export const Styling = {
                     <TextField
                         name="email"
                         type="email"
-                    >
-                        <Label>Email</Label>
-                    </TextField>
+                        label="Email"
+                    />
                     <Button type="submit">Submit</Button>
                 </Form>
 
@@ -214,9 +190,8 @@ export const Styling = {
                     <TextField
                         name="password"
                         type="password"
-                    >
-                        <Label>Password</Label>
-                    </TextField>
+                        label="Password"
+                    />
                     <Button type="submit">Submit</Button>
                 </Form>
 
@@ -224,9 +199,8 @@ export const Styling = {
                     <TextField
                         name="password"
                         type="password"
-                    >
-                        <Label>Password</Label>
-                    </TextField>
+                        label="Password"
+                    />
                     <Button type="submit">Submit</Button>
                 </Form>
             </Stack>
