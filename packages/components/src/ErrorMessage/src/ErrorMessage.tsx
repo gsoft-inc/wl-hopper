@@ -1,5 +1,6 @@
 import { WarningIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { filterDOMProps } from "@react-aria/utils";
 import { type CSSProperties, type ForwardedRef, forwardRef, useContext } from "react";
 import {
     type FieldErrorProps as RACFieldErrorProps,
@@ -48,7 +49,15 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
     const validation = useContext(RACFieldErrorContext)!;
     [props, ref] = useContextProps(props, ref, ErrorMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { className, children, hideIcon = false, style: styleProp, slot = "errorMessage", ...otherProps } = ownProps;
+    const { 
+        className, 
+        children: childrenProp, 
+        hideIcon = false, 
+        style: styleProp, 
+        slot = "errorMessage", 
+        ...otherProps 
+    } = ownProps;
+    const domProps = filterDOMProps(otherProps)!;
 
     const classNames = composeClassnameRenderProps(
         GlobalErrorMessageCssSelector,
@@ -69,20 +78,31 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
 
     const warningIcon = !hideIcon && <WarningIcon size="sm" className={styles["hop-ErrorMessage__icon"]} />;
 
+    const children = composeRenderProps(childrenProp, prev => {
+        return prev ? <>{warningIcon} {prev}</> : null;
+    });
+
     const renderProps = useRenderProps({
+        ...props,
         className: classNames,
         style,
-        children: children ? <>{warningIcon} {children}</> : null,
-        defaultChildren: <>{warningIcon} {validation.validationErrors.join(" ")}</>,
+        children: children,
+        defaultChildren: validation.validationErrors.length === 0 ? undefined : <>{warningIcon} {validation.validationErrors.join(" ")}</>,
         values: validation
     });
 
+    // Don't return anything if there is no error message to display
+    if (renderProps.children == null) {
+        return null;
+    }
+
+
     return (
         <Text
-            {...otherProps}
-            {...renderProps}
             slot={slot}
             ref={ref}
+            {...domProps}
+            {...renderProps}
         />
     );
 });
