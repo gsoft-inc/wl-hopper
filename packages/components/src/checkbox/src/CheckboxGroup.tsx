@@ -161,11 +161,9 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
                                 {description}
                             </HelperMessage>
                         )}
-                        {errorMessage && (
-                            <ErrorMessage className={styles["hop-CheckboxGroup__error-message"]} hideIcon>
-                                {errorMessage}
-                            </ErrorMessage>
-                        )}
+                        <ErrorMessage className={styles["hop-CheckboxGroup__error-message"]} hideIcon>
+                            {errorMessage}
+                        </ErrorMessage>
                     </>
                 )}
             </RACCheckboxGroup>

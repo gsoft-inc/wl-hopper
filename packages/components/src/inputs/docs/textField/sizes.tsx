@@ -1,9 +1,9 @@
-import { Label, Stack, TextField } from "@hopper-ui/components";
+import { Stack, TextField } from "@hopper-ui/components";
 
 export default function Example() {
     const props = {
         placeholder: "Full name (e.g., Jane Smith)",
-        children: <Label key="1">Name</Label>
+        label: "Name"
     };
 
     return (

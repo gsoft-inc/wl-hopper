@@ -287,11 +287,9 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 {description}
                             </HelperMessage>
                         )}
-                        {errorMessage && (
-                            <ErrorMessage className={styles["hop-Select__error-message"]}>
-                                {errorMessage}
-                            </ErrorMessage>
-                        )}
+                        <ErrorMessage className={styles["hop-Select__error-message"]}>
+                            {errorMessage}
+                        </ErrorMessage>
                     </>
                 );
             }}

@@ -358,11 +358,9 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 {description}
                             </HelperMessage>
                         )}
-                        {errorMessage && (
-                            <ErrorMessage className={styles["hop-ComboBox__error-message"]}>
-                                {errorMessage}
-                            </ErrorMessage>
-                        )}
+                        <ErrorMessage className={styles["hop-ComboBox__error-message"]}>
+                            {errorMessage}
+                        </ErrorMessage>
                     </>
                 );
             }}
