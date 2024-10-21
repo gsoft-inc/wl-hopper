@@ -131,11 +131,11 @@ function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>
             ]}
         >
             <RACLink
-                {...otherProps}
                 ref={ref}
                 className={classNames}
                 style={style}
                 slot={props.slot || undefined}
+                {...otherProps}
             >
                 {children}
             </RACLink>

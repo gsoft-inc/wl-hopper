@@ -82,13 +82,13 @@ function FloatingBadge(props: FloatingBadgeProps, ref: ForwardedRef<HTMLDivEleme
                 ]}
             >
                 <div
-                    {...otherProps}
                     ref={ref}
                     className={classNames}
                     style={mergedStyles}
                     slot={slot ?? undefined}
                     data-overlap={overlap}
                     data-placement={placement}
+                    {...otherProps}
                 >
                     {children}
                 </div>

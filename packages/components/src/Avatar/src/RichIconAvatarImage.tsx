@@ -76,12 +76,12 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
     });
 
     const renderProps = useRenderProps<RichIconAvatarImageRenderProps>({
-        ...props,
         className: classNames,
         style: mergedStyles,
         values: {
             isDisabled: isDisabled || false
-        }
+        },
+        ...props
     });
 
     if (!props["aria-label"] && !props["aria-labelledby"]) {

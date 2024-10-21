@@ -1,8 +1,8 @@
 import { InfoIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef, type CSSProperties, useContext } from "react";
-import { useContextProps, FieldErrorContext as RACFieldErrorContext } from "react-aria-components";
+import { type CSSProperties, type ForwardedRef, forwardRef, useContext } from "react";
+import { FieldErrorContext as RACFieldErrorContext, useContextProps } from "react-aria-components";
 
 import { type TextProps, Text } from "../../typography/Text/index.ts";
 import { cssModule } from "../../utils/index.ts";
@@ -61,12 +61,12 @@ const HelperMessageInner = forwardRef((props: HelperMessageProps, ref: Forwarded
 
     return (
         <Text
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
             size="xs"
             slot={slot}
+            {...otherProps}
         >
             {!hideIcon && <InfoIcon size="sm" className={styles["hop-HelperMessage__icon"]} />}
             {children}

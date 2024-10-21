@@ -135,13 +135,13 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
 
     return (
         <RACTag
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             textValue={textValue}
             data-invalid={isInvalid || undefined}
             data-loading={isLoading || undefined}
+            {...otherProps}
         >
             {tagProps => {
                 const { allowsRemoving, isDisabled, isSelected } = tagProps;

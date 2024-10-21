@@ -103,7 +103,6 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
 
     return (
         <div
-            {...mergeProps(otherProps, renderProps)}
             ref={ref as ForwardedRef<HTMLDivElement>}
             slot={slot || undefined}
             data-selected={isSelected || undefined}
@@ -115,6 +114,7 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
             data-readonly={isReadOnly || undefined}
             data-invalid={isInvalid || undefined}
             data-required={isRequired || undefined}
+            {...mergeProps(renderProps, otherProps)}
         >
             <div className={styles["hop-DecorativeCheckbox__box"]}>{icon}</div>
             <ClearContainerSlots>

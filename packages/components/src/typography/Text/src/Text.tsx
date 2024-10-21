@@ -52,11 +52,11 @@ function Text(props: TextProps, ref: ForwardedRef<HTMLSpanElement>) {
 
     return (
         <RACText
-            {...otherProps}
             ref={ref}
             elementType={elementType}
             className={classNames}
             style={mergedStyles}
+            {...otherProps}
         >
             <ClearContainerSlots>
                 <SlotProvider

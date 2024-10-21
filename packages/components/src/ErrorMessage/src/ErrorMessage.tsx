@@ -79,10 +79,10 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
 
     return (
         <Text
-            {...otherProps}
             {...renderProps}
             slot={slot}
             ref={ref}
+            {...otherProps}
         />
     );
 });

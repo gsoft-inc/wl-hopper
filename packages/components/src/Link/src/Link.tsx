@@ -145,12 +145,12 @@ function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
             ]}
         >
             <RACLink
-                {...otherProps}
                 rel={rel ?? (isExternal ? "noopener noreferrer" : undefined)}
                 target={target ?? (isExternal ? "_blank" : undefined)}
                 ref={ref}
                 className={classNames}
                 style={style}
+                {...otherProps}
             >
                 {children}
             </RACLink>

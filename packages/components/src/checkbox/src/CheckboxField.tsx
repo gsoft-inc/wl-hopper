@@ -104,10 +104,10 @@ function CheckboxField(props: CheckboxFieldProps, ref: ForwardedRef<HTMLDivEleme
                 ]}
             >
                 <div
-                    {...mergeProps(otherProps, renderProps)}
                     ref={ref}
                     slot={slot ?? undefined}
                     data-disabled={isDisabled}
+                    {...mergeProps(renderProps, otherProps)}
                 >
                     {renderProps.children}
                     {description && (

@@ -50,10 +50,10 @@ function Heading(props: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) {
 
     return (
         <RACHeading
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
+            {...otherProps}
         >
             {children}
         </RACHeading>

@@ -1,6 +1,6 @@
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { useContextProps, TagList as RACTagList, type TagListProps as RACTagListProps, composeRenderProps } from "react-aria-components";
+import { type ForwardedRef, forwardRef } from "react";
+import { TagList as RACTagList, type TagListProps as RACTagListProps, composeRenderProps, useContextProps } from "react-aria-components";
 
 import { composeClassnameRenderProps } from "../../utils/index.ts";
 
@@ -36,10 +36,10 @@ function TagList<T extends object>(props: TagListProps<T>, ref: ForwardedRef<HTM
 
     return (
         <RACTagList
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
+            {...otherProps}
         >
             {children}
         </RACTagList>

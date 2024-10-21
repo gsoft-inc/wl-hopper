@@ -1,34 +1,34 @@
-import type { HTMLAttributes, DetailedHTMLProps } from "react";
 import dynamic from "next/dynamic";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 
-import Card from "@/components/card/Card.tsx";
-import { Callout } from "@/components/callout/Callout.tsx";
-import NextImage from "@/components/image/Image.tsx";
-import Pre from "@/components/pre/Pre.tsx";
-import InlineCode from "@/components/code/InlineCode.tsx";
+import ComposedComponents from "@/app/ui/components/composedComponents/composedComponents.tsx";
+import Overview from "@/app/ui/components/overview/Overview.tsx";
+import { IconTable } from "@/app/ui/icons/iconTable/IconTable.tsx";
+import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
+import IconSpecTable from "@/app/ui/tokens/table/IconSpecTable.tsx";
 import TokenTable from "@/app/ui/tokens/table/TokenTable.tsx";
 import TypographyTable from "@/app/ui/tokens/table/TypographyTable.tsx";
 import TypographyVariantTable from "@/app/ui/tokens/table/TypographyVariantTable.tsx";
-import { IconTable } from "@/app/ui/icons/iconTable/IconTable.tsx";
-import IconSpecTable from "@/app/ui/tokens/table/IconSpecTable.tsx";
-import Tabs from "@/components/tabs/Tabs.tsx";
 import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
-import Switcher from "@/app/ui/icons/switcher/Switcher.tsx";
-import Overview from "@/app/ui/components/overview/Overview.tsx";
-import ComposedComponents from "@/app/ui/components/composedComponents/composedComponents.tsx";
-import Title from "@/components/title/Title.tsx";
-import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
+import { Callout } from "@/components/callout/Callout.tsx";
+import Card from "@/components/card/Card.tsx";
+import InlineCode from "@/components/code/InlineCode.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
+import NextImage from "@/components/image/Image.tsx";
+import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
 import PackageInstallation, {
     type PackageInstallationProps
 } from "@/components/packageInstallation/PackageInstallation.tsx";
+import Pre from "@/components/pre/Pre.tsx";
+import Tabs from "@/components/tabs/Tabs.tsx";
+import Title from "@/components/title/Title.tsx";
 
+import BreakpointTable from "@/app/ui/components/breakpointTable/BreakpointTable";
+import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
+import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
+import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
-import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
-import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/ComponentCodeWrapper.tsx";
-import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
-import BreakpointTable from "@/app/ui/components/breakpointTable/BreakpointTable";
 import SimpleTable from "@/app/ui/components/simpleTable/SimpleTable";
 
 const MigrateGuide = dynamic(() => import("@/app/ui/components/migrateGuide/MigrateGuide.tsx"));
