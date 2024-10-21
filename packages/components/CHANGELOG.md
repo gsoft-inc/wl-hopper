@@ -1,5 +1,13 @@
 # @hopper-ui/components
 
+## 1.3.26
+
+### Patch Changes
+
+- 667db64: - Added label, description and errorMessage props instead of having them as slots for the Select and ComboBox components.
+  - Removed SelectOptions/ComboBoxOptions since they are no longer needed.
+  - Renamed SelectOption/ComboBoxOption to SelectItem/ComboBoxItem.
+
 ## 1.3.25
 
 ### Patch Changes
