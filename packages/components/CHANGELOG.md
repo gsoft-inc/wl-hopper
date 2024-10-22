@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.28
+
+### Patch Changes
+
+- e2a266e: TextArea and SearchField no longer accept `children`. `Label`, `description` and `errorMessage` are now props.
+
 ## 1.3.27
 
 ### Patch Changes
