@@ -16,7 +16,7 @@ import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useRenderProps,
     type InteractionProps
@@ -55,7 +55,7 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const classNames = composeClassnameRenderProps(

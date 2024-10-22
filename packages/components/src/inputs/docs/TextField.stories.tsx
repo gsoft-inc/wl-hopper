@@ -1,10 +1,7 @@
 import { SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Label } from "../../typography/index.ts";
 import { TextField } from "../src/TextField.tsx";
 
 /**
@@ -30,9 +27,7 @@ const meta = {
     component: TextField,
     args: {
         placeholder: "Placeholder",
-        children: [
-            <Label key="1">TextField Label</Label>
-        ]
+        label: "TextField Label"
     }
 } satisfies Meta<typeof TextField>;
 
@@ -59,7 +54,7 @@ export const Labeling: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [],
+        label: undefined,
         "aria-label": "Label"
     }
 };
@@ -118,10 +113,7 @@ export const Description: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [
-            ...meta.args.children,
-            <HelperMessage key="2">Helper message</HelperMessage>
-        ]
+        description: "Helper message"
     }
 };
 
@@ -132,10 +124,7 @@ export const Error: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [
-            ...meta.args.children,
-            <ErrorMessage key="2">Error message</ErrorMessage>
-        ],
+        errorMessage: "Error message",
         isInvalid: true
     }
 };

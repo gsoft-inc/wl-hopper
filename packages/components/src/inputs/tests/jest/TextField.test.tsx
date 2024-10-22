@@ -2,16 +2,13 @@ import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef, type MutableRefObject } from "react";
 
-import { Label } from "../../../typography/index.ts";
 import { TextField } from "../../src/TextField.tsx";
 import { TextFieldContext } from "../../src/TextFieldContext.ts";
 
 describe("TextField", () => {
     it("should render with default class", () => {
         render(
-            <TextField data-testid="field">
-                <Label>Label</Label>
-            </TextField>
+            <TextField data-testid="field" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -20,9 +17,7 @@ describe("TextField", () => {
 
     it("should support custom class", () => {
         render(
-            <TextField className="test" data-testid="field">
-                <Label>Label</Label>
-            </TextField>
+            <TextField className="test" data-testid="field" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -32,9 +27,7 @@ describe("TextField", () => {
 
     it("should support custom style", () => {
         render(
-            <TextField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label</Label>
-            </TextField>
+            <TextField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }} label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -43,9 +36,7 @@ describe("TextField", () => {
 
     it("should support DOM props", () => {
         render(
-            <TextField data-testid="field" data-foo="bar">
-                <Label>Label</Label>
-            </TextField>
+            <TextField data-testid="field" data-foo="bar" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -68,9 +59,7 @@ describe("TextField", () => {
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
         render(
-            <TextField ref={ref} data-testid="field">
-                <Label>Label</Label>
-            </TextField>
+            <TextField ref={ref} data-testid="field" label="Label" />
         );
 
         expect(ref.current).not.toBeNull();
@@ -80,9 +69,7 @@ describe("TextField", () => {
     it("should support input refs", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
-            <TextField inputRef={ref} data-testid="field">
-                <Label>Label</Label>
-            </TextField>
+            <TextField inputRef={ref} data-testid="field" label="Label" />
         );
 
         expect(ref.current).toBe(screen.getByRole("textbox"));
@@ -94,9 +81,7 @@ describe("TextField", () => {
         const contextInputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <TextFieldContext.Provider value={{ inputRef: contextInputRef }}>
-                <TextField inputRef={inputRef}>
-                    <Label>Label</Label>
-                </TextField>
+                <TextField inputRef={inputRef} label="Label" />
             </TextFieldContext.Provider>
         );
 
@@ -107,9 +92,7 @@ describe("TextField", () => {
 
     it("should only show clear button when the field contains text", async () => {
         render(
-            <TextField isClearable>
-                <Label>Label</Label>
-            </TextField>
+            <TextField isClearable label="Label" />
         );
 
         const clearButton = screen.queryByRole("button");
@@ -120,9 +103,7 @@ describe("TextField", () => {
         const user = userEvent.setup();
         const handleClear = jest.fn();
         render(
-            <TextField isClearable onClear={handleClear} defaultValue="There is some text in the input">
-                <Label>Label</Label>
-            </TextField>
+            <TextField isClearable onClear={handleClear} defaultValue="There is some text in the input" label="Label" />
         );
 
         const clearButton = screen.getByLabelText("Clear");
@@ -137,9 +118,7 @@ describe("TextField", () => {
         const expectedResult = maxLength - defaultValue.length;
 
         render(
-            <TextField defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label</Label>
-            </TextField>
+            <TextField defaultValue={defaultValue} showCharacterCount maxLength={maxLength} label="Label" />
         );
 
         const characterCount = screen.queryByText(expectedResult.toString());
@@ -150,9 +129,7 @@ describe("TextField", () => {
         const defaultValue = "1111111111";
 
         render(
-            <TextField defaultValue={defaultValue} showCharacterCount maxLength={defaultValue.length}>
-                <Label>Label</Label>
-            </TextField>
+            <TextField defaultValue={defaultValue} showCharacterCount maxLength={defaultValue.length} label="Label" />
         );
 
         const characterCount = screen.queryByText(0);
@@ -165,9 +142,7 @@ describe("TextField", () => {
         const expectedResult = maxLength - defaultValue.length;
 
         render(
-            <TextField defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label</Label>
-            </TextField>
+            <TextField defaultValue={defaultValue} showCharacterCount maxLength={maxLength} label="Label" />
         );
 
         const characterCount = screen.queryByText(expectedResult.toString());

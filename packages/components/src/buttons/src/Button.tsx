@@ -23,7 +23,7 @@ import { TextContext } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useSlot
 } from "../../utils/index.ts";
@@ -106,7 +106,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
