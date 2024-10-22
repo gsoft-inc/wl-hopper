@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.27
+
+### Patch Changes
+
+- 6551037: TextField no longer accepts children. `Label`, `description` and `errorMessage` are now props.
+
 ## 1.3.26
 
 ### Patch Changes
