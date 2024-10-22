@@ -538,7 +538,7 @@ export const Invalid = {
         isInvalid: true,
         defaultSelectedKey: "raccoon"
     },
-    decorators: marginBottomDecoratorSM
+    decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 const StateTemplate = (args: Partial<ComboBoxProps<object>>) => (
