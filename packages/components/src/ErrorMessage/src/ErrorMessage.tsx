@@ -1,6 +1,5 @@
 import { WarningIcon } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
-import { filterDOMProps } from "@react-aria/utils";
 import { type CSSProperties, type ForwardedRef, forwardRef, useContext } from "react";
 import {
     type FieldErrorProps as RACFieldErrorProps,
@@ -57,7 +56,6 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
         slot = "errorMessage", 
         ...otherProps 
     } = ownProps;
-    const domProps = filterDOMProps(otherProps)!;
 
     const classNames = composeClassnameRenderProps(
         GlobalErrorMessageCssSelector,
@@ -101,7 +99,7 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
         <Text
             slot={slot}
             ref={ref}
-            {...domProps}
+            {...otherProps}
             {...renderProps}
         />
     );
