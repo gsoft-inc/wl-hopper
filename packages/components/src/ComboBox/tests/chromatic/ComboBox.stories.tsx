@@ -35,7 +35,7 @@ const marginBottomDecoratorMD = [
 
 const marginBottomDecoratorLG = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="23rem">
+        <Div UNSAFE_marginBottom="24rem">
             <Story />
         </Div>
     )
