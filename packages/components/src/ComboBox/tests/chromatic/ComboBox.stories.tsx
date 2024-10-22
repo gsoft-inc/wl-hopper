@@ -503,7 +503,7 @@ export const Direction = {
     play: playFn,
     decorators: [
         Story => (
-            <Div UNSAFE_marginTop="10rem" UNSAFE_marginBottom="4rem">
+            <Div UNSAFE_marginTop="12rem" UNSAFE_marginBottom="4rem">
                 <Story />
             </Div>
         )
