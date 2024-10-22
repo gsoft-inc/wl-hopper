@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 const marginBottomDecoratorSM = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="11rem">
+        <Div UNSAFE_marginBottom="12rem">
             <Story />
         </Div>
     )
@@ -524,7 +524,7 @@ export const DirectionTop = {
     play: playFn,
     decorators: [
         Story => (
-            <Div UNSAFE_marginTop="10rem">
+            <Div UNSAFE_marginTop="12rem">
                 <Story />
             </Div>
         )
