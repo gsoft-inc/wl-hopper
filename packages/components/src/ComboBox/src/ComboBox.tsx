@@ -176,7 +176,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         style: popoverStyleProp
     } = popoverProps ?? {};
 
-    const size = useResponsiveValue(sizeProp) ?? "sm";
+    const size = useResponsiveValue(sizeProp) ?? "md";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const align = useResponsiveValue(alignProp) ?? "start";
     const direction = useResponsiveValue(directionProp) ?? "bottom";
