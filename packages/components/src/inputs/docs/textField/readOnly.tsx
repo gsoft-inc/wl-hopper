@@ -1,9 +1,7 @@
-import { Label, TextField } from "@hopper-ui/components";
+import { TextField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <TextField value="John Doe" placeholder="Full name (e.g., Jane Smith)" isReadOnly>
-            <Label>Name</Label>
-        </TextField>
+        <TextField value="John Doe" placeholder="Full name (e.g., Jane Smith)" isReadOnly label="Name" />
     );
 }

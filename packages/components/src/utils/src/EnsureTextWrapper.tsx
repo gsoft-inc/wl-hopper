@@ -4,10 +4,10 @@ import { Text } from "../../typography/index.ts";
 
 import { isTextOnlyChildren } from "./isTextOnlyChildren.ts";
 
-interface EnsureTextWrapperProps {
-    children: ReactNode;
-}
+export function ensureTextWrapper(children: ReactNode): ReactNode {
+    if (children && isTextOnlyChildren(children)) {
+        return <Text>{children}</Text>;
+    }
 
-export const EnsureTextWrapper = ({ children }: EnsureTextWrapperProps) => {
-    return children && isTextOnlyChildren(children) ? <Text>{children}</Text> : <>{children}</>;
-};
+    return children;
+}

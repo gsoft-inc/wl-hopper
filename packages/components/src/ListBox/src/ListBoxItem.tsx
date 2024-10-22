@@ -19,7 +19,7 @@ import { DecorativeCheckbox, type DecorativeCheckboxProps } from "../../checkbox
 import { IconListContext } from "../../IconList/index.ts";
 import { DecorativeRadio, type DecorativeRadioProps } from "../../radio/index.ts";
 import { TextContext, type TextSize } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, EnsureTextWrapper, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, ensureTextWrapper, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxItemContext } from "./ListBoxItemContext.ts";
 import { ListBoxItemSkeleton } from "./ListBoxItemSkeleton.tsx";
@@ -268,7 +268,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     return (

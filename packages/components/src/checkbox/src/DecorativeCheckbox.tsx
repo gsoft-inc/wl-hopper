@@ -16,7 +16,7 @@ import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useRenderProps,
     type InteractionProps
@@ -56,7 +56,7 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const classNames = composeClassnameRenderProps(

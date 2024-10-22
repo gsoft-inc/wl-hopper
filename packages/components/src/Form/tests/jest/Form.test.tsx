@@ -1,4 +1,4 @@
-import { Button, ErrorMessage, Label, TextField } from "@hopper-ui/components";
+import { Button, TextField } from "@hopper-ui/components";
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
@@ -8,9 +8,7 @@ describe("Form", () => {
     it("should render with default class", () => {
         render(
             <Form data-testid="form">
-                <TextField>
-                    <Label>Label</Label>
-                </TextField>
+                <TextField label="Label" />
             </Form>
         );
 
@@ -21,9 +19,7 @@ describe("Form", () => {
     it("should support custom style", () => {
         render(
             <Form data-testid="form" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <TextField>
-                    <Label>Label</Label>
-                </TextField>
+                <TextField label="Label" />
             </Form>
         );
 
@@ -34,9 +30,7 @@ describe("Form", () => {
     it("should support DOM props", () => {
         render(
             <Form data-testid="form" data-foo="bar">
-                <TextField>
-                    <Label>Label</Label>
-                </TextField>
+                <TextField label="Label" />
             </Form>
         );
 
@@ -48,9 +42,7 @@ describe("Form", () => {
         const ref = createRef<HTMLFormElement>();
         render(
             <Form data-testid="form" ref={ref}>
-                <TextField>
-                    <Label>Label</Label>
-                </TextField>
+                <TextField label="Label" />
             </Form>
         );
 
@@ -61,9 +53,7 @@ describe("Form", () => {
     it("should aupport disabled state", () => {
         render(
             <Form isDisabled>
-                <TextField>
-                    <Label>Label</Label>
-                </TextField>
+                <TextField label="Label" />
             </Form>
         );
 
@@ -74,10 +64,7 @@ describe("Form", () => {
     it("should be able to validate form", () => {
         render(
             <Form data-testid="form" validationErrors={{ username: "Sorry, this username is taken." }}>
-                <TextField name="username" defaultValue="john_doe">
-                    <Label>Username</Label>
-                    <ErrorMessage />
-                </TextField>
+                <TextField name="username" defaultValue="john_doe" label="Username" />
             </Form>
         );
 
@@ -93,10 +80,8 @@ describe("Form", () => {
                     defaultValue="admin"
                     isRequired
                     validate={value => value === "admin" ? "Nice try." : null}
-                >
-                    <Label>Username</Label>
-                    <ErrorMessage />
-                </TextField>
+                    label="Username"
+                />
                 <Button type="submit">Submit</Button>
             </Form>
         );

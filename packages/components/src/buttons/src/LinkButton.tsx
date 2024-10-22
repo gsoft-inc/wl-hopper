@@ -20,7 +20,7 @@ import { TextContext } from "../../typography/Text/index.ts";
 import {
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useSlot
 } from "../../utils/index.ts";
@@ -93,7 +93,7 @@ function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     return (

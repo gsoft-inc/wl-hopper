@@ -17,11 +17,11 @@ import { IconListContext } from "../../IconList/index.ts";
 import { TextContext } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
-    EnsureTextWrapper,
     type FieldSize,
     SlotProvider,
     composeClassnameRenderProps,
-    cssModule
+    cssModule,
+    ensureTextWrapper
 } from "../../utils/index.ts";
 
 import { CheckboxContext } from "./CheckboxContext.ts";
@@ -70,7 +70,7 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     return (
