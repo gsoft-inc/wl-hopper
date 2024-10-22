@@ -18,10 +18,10 @@ import {
 } from "react-aria-components";
 
 import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Label } from "../../typography/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, type FieldProps } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { SearchFieldContext } from "./SearchFieldContext.ts";
@@ -30,7 +30,7 @@ import styles from "./SearchField.module.css";
 
 export const GlobalSearchFieldCssSelector = "hop-SearchField";
 
-export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldProps> {
+export interface SearchFieldProps extends Omit<StyledComponentProps<RACSearchFieldProps>, "children">, FieldProps {
 
     /**
      * Whether the SearchField is clearable.
@@ -42,12 +42,6 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
      * The placeholder text when the SearchField is empty.
      */
     placeholder?: string;
-
-    /**
-     * The size of the SearchField.
-     * @default "md"
-     */
-    size?: ResponsiveProp<FieldSize>;
 
     /**
      * If `true`, the SearchField will take all available width.
@@ -66,18 +60,13 @@ export interface SearchFieldProps extends StyledComponentProps<RACSearchFieldPro
     inputRef?: MutableRefObject<HTMLInputElement>;
 
     /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
-     */
-    necessityIndicator?: NecessityIndicator;
-
-    /**
      * The props for the InputGroup.
      */
     inputGroupProps?: InputGroupProps;
 
     /**
-         * The props for the EmbeddedButton.
-         */
+     * The props for the EmbeddedButton.
+     */
     clearButtonProps?: ClearButtonProps;
 }
 
@@ -96,7 +85,6 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         size,
         placeholder,
         isClearable = true,
-        children,
         isFluid: isFluidProp,
         icon = <SearchIcon />,
         isDisabled,
@@ -105,6 +93,9 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         necessityIndicator,
         inputGroupProps,
         clearButtonProps,
+        label,
+        description,
+        errorMessage,
         ...otherProps
     } = ownProps;
 
@@ -160,21 +151,14 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         </ClearContainerSlots>
     );
 
-    const childrenMarkup = composeRenderProps(children, prev => {
-        return (
-            <>
-                <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-SearchField__Label"], isRequired, necessityIndicator }],
-                    [HelperMessageContext, { className: styles["hop-SearchField__HelperMessage"] }],
-                    [ErrorMessageContext, { className: styles["hop-SearchField__ErrorMessage"] }]
-                ]}
-                >
-                    {prev}
-                </SlotProvider>
-                {inputMarkup}
-            </>
-        );
-    });
+    const childrenMarkup = (
+        <>
+            {label && <Label className={styles["hop-SearchField__Label"]} isRequired={isRequired} necessityIndicator={necessityIndicator}>{label}</Label>}
+            {inputMarkup}
+            {description && <HelperMessage className={styles["hop-SearchField__HelperMessage"]}>{description}</HelperMessage>}
+            <ErrorMessage className={styles["hop-SearchField__ErrorMessage"]}>{errorMessage}</ErrorMessage>
+        </>
+    );
 
     return (
         <RACSearchField

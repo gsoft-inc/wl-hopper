@@ -53,9 +53,7 @@ const Template = () => {
                 <TextField placeholder="Apt or suite" label="Apt/Suite" />
             </Inline>
             <TextField placeholder="Old El Paso" label="City" />
-            <TextArea placeholder="Leave a comment">
-                <Label>Comments</Label>
-            </TextArea>
+            <TextArea placeholder="Leave a comment" label="Comments" />
             <Checkbox>
                 Agree to terms and conditions
             </Checkbox>

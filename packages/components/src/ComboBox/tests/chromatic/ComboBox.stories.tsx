@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 const marginBottomDecoratorSM = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="11rem">
+        <Div UNSAFE_marginBottom="12rem">
             <Story />
         </Div>
     )
@@ -35,7 +35,7 @@ const marginBottomDecoratorMD = [
 
 const marginBottomDecoratorLG = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="23rem">
+        <Div UNSAFE_marginBottom="24rem">
             <Story />
         </Div>
     )
@@ -503,7 +503,7 @@ export const Direction = {
     play: playFn,
     decorators: [
         Story => (
-            <Div UNSAFE_marginTop="10rem" UNSAFE_marginBottom="4rem">
+            <Div UNSAFE_marginTop="12rem" UNSAFE_marginBottom="4rem">
                 <Story />
             </Div>
         )
@@ -524,7 +524,7 @@ export const DirectionTop = {
     play: playFn,
     decorators: [
         Story => (
-            <Div UNSAFE_marginTop="10rem">
+            <Div UNSAFE_marginTop="12rem">
                 <Story />
             </Div>
         )
@@ -538,7 +538,7 @@ export const Invalid = {
         isInvalid: true,
         defaultSelectedKey: "raccoon"
     },
-    decorators: marginBottomDecoratorSM
+    decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 const StateTemplate = (args: Partial<ComboBoxProps<object>>) => (

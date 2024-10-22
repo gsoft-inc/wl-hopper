@@ -147,7 +147,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         ...otherTriggerProps
     } = triggerOwnProps;
 
-    const size = useResponsiveValue(sizeProp) ?? "sm";
+    const size = useResponsiveValue(sizeProp) ?? "md";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const align = useResponsiveValue(alignProp) ?? "start";
     const direction = useResponsiveValue(directionProp) ?? "bottom";

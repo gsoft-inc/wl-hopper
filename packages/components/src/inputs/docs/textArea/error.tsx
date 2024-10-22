@@ -1,10 +1,7 @@
-import { ErrorMessage, Label, TextArea } from "@hopper-ui/components";
+import { TextArea } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <TextArea placeholder="123 Main St, City, State" isInvalid>
-            <Label>Address</Label>
-            <ErrorMessage>This field is required</ErrorMessage>
-        </TextArea>
+        <TextArea placeholder="123 Main St, City, State" isInvalid label="Address" errorMessage="This field is required" />
     );
 }

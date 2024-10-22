@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 const marginBottomDecoratorSM = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="10rem">
+        <Div UNSAFE_marginBottom="12rem">
             <Story />
         </Div>
     )
@@ -41,12 +41,17 @@ const marginBottomDecoratorMD = [
 
 const marginBottomDecoratorLG = [
     (Story: StoryFn) => (
-        <Div UNSAFE_marginBottom="23rem">
+        <Div UNSAFE_marginBottom="24rem">
             <Story />
         </Div>
     )
 ];
 
+const playFn: Story["play"] = async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const selectTrigger = canvas.getAllByRole("button")[0];
+    await userEvent.click(selectTrigger);
+};
 
 export const OnlyItems = {
     render: args => (
@@ -56,9 +61,7 @@ export const OnlyItems = {
             <SelectItem id="frog">Frog</SelectItem>
         </Select>
     ),
-    args: {
-        isOpen: true
-    },
+    play: playFn,
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
@@ -80,9 +83,7 @@ export const Sections = {
             </Section>
         </Select>
     ),
-    args: {
-        isOpen: true
-    },
+    play: playFn,
     decorators: marginBottomDecoratorMD
 } satisfies Story;
 
@@ -104,9 +105,7 @@ export const Footer = {
             </Section>
         </Select>
     ),
-    args: {
-        isOpen: true
-    },
+    play: playFn,
     decorators: marginBottomDecoratorLG
 } satisfies Story;
 
@@ -128,60 +127,68 @@ export const TextFooter = {
             </Section>
         </Select>
     ),
-    args: {
-        isOpen: true
-    },
+    play: playFn,
     decorators: marginBottomDecoratorLG
 } satisfies Story;
 
-export const Sizes = {
+export const Small = {
     render: args => (
-        <Inline>
-            <Select {...args}>
-                <Section>
-                    <Header>Cats</Header>
-                    <SelectItem id="1">Zoomy</SelectItem>
-                    <SelectItem id="2">Voodoo</SelectItem>
-                    <SelectItem id="3">Dusty</SelectItem>
-                    <SelectItem id="4">Rengar</SelectItem>
-                </Section>
-                <Section>
-                    <Header>Dogs</Header>
-                    <SelectItem id="5">Teemo</SelectItem>
-                    <SelectItem id="6">Scooter</SelectItem>
-                    <SelectItem id="7">Prince</SelectItem>
-                </Section>
-            </Select>
-            <Select {...args} size="md">
-                <Section>
-                    <Header>Cats</Header>
-                    <SelectItem id="1">Zoomy</SelectItem>
-                    <SelectItem id="2">Voodoo</SelectItem>
-                    <SelectItem id="3">Dusty</SelectItem>
-                    <SelectItem id="4">Rengar</SelectItem>
-                </Section>
-                <Section>
-                    <Header>Dogs</Header>
-                    <SelectItem id="5">Teemo</SelectItem>
-                    <SelectItem id="6">Scooter</SelectItem>
-                    <SelectItem id="7">Prince</SelectItem>
-                </Section>
-            </Select>
-        </Inline>
+        <Select {...args}>
+            <Section>
+                <Header>Cats</Header>
+                <SelectItem id="1">Zoomy</SelectItem>
+                <SelectItem id="2">Voodoo</SelectItem>
+                <SelectItem id="3">Dusty</SelectItem>
+                <SelectItem id="4">Rengar</SelectItem>
+            </Section>
+            <Section>
+                <Header>Dogs</Header>
+                <SelectItem id="5">Teemo</SelectItem>
+                <SelectItem id="6">Scooter</SelectItem>
+                <SelectItem id="7">Prince</SelectItem>
+            </Section>
+        </Select>
     ),
     args: {
         defaultSelectedKey: "2",
-        isOpen: true
+        size: "sm"
     },
+    play: playFn,
+    decorators: marginBottomDecoratorMD
+} satisfies Story;
+
+export const Medium = {
+    render: args => (
+        <Select {...args}>
+            <Section>
+                <Header>Cats</Header>
+                <SelectItem id="1">Zoomy</SelectItem>
+                <SelectItem id="2">Voodoo</SelectItem>
+                <SelectItem id="3">Dusty</SelectItem>
+                <SelectItem id="4">Rengar</SelectItem>
+            </Section>
+            <Section>
+                <Header>Dogs</Header>
+                <SelectItem id="5">Teemo</SelectItem>
+                <SelectItem id="6">Scooter</SelectItem>
+                <SelectItem id="7">Prince</SelectItem>
+            </Section>
+        </Select>
+    ),
+    args: {
+        defaultSelectedKey: "2",
+        size: "md"
+    },
+    play: playFn,
     decorators: marginBottomDecoratorMD
 } satisfies Story;
 
 export const OpenWithSelectedItem = {
     ...OnlyItems,
     args: {
-        defaultSelectedKey: "cat",
-        isOpen: true
+        defaultSelectedKey: "cat"
     },
+    play: playFn,
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
@@ -422,9 +429,9 @@ export const ScrollingWithSelectedItemOutsideVisibleScope = {
 export const CustomTriggerWidth = {
     ...OnlyItems,
     args: {
-        UNSAFE_width: "30rem",
-        isOpen: true
+        UNSAFE_width: "30rem"
     },
+    play: playFn,
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
@@ -437,9 +444,9 @@ export const CustomMenuWidth = {
         </Select>
     ),
     args: {
-        isOpen: true,
         popoverProps: { UNSAFE_width: "30rem" }
     },
+    play: playFn,
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
@@ -452,9 +459,9 @@ export const MenuAutoWidth = {
         </Select>
     ),
     args: {
-        isOpen: true,
         isAutoMenuWidth: true
     },
+    play: playFn,
     decorators: marginBottomDecoratorSM
 } satisfies Story;
 
@@ -467,13 +474,13 @@ export const Direction = {
         </Select>
     ),
     args: {
-        isOpen: true,
         align: "end",
         direction: { base: "top", md: "bottom", lg: "top" }
     },
+    play: playFn,
     decorators: [
         Story => (
-            <Div UNSAFE_marginTop="10rem" UNSAFE_marginBottom="4rem">
+            <Div UNSAFE_marginTop="12rem" UNSAFE_marginBottom="4rem">
                 <Story />
             </Div>
         )
@@ -489,12 +496,12 @@ export const DirectionTop = {
         </Select>
     ),
     args: {
-        isOpen: true,
         direction: "top"
     },
+    play: playFn,
     decorators: [
         Story => (
-            <Div UNSAFE_marginTop="10rem">
+            <Div UNSAFE_marginTop="12rem">
                 <Story />
             </Div>
         )
@@ -504,10 +511,10 @@ export const DirectionTop = {
 export const Invalid = {
     ...SelectItemWithDescription,
     args: {
-        isOpen: true,
         isInvalid: true,
         defaultSelectedKey: "raccoon"
     },
+    play: playFn,
     decorators: marginBottomDecoratorMD
 } satisfies Story;
 
