@@ -1,5 +1,4 @@
-import type { ResponsiveProp, StyledComponentProps } from "@hopper-ui/components";
-import { slot as slotFn, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { slot as slotFn, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import {
     forwardRef,
