@@ -273,7 +273,6 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
 
     return (
         <RACListBoxItem
-            {...otherProps}
             ref={ref as ForwardedRef<T>} /* Needed until this bug is fixed: https://github.com/adobe/react-spectrum/issues/6799 */
             className={classNames}
             style={style}
@@ -283,6 +282,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
             data-loading={isLoading || undefined}
             aria-label={isLoading ? "Loading" : undefined}
             aria-live={isLoading ? "polite" : undefined}
+            {...otherProps}
         >
             {listBoxItemProps => {
                 if (isLoading) {

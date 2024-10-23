@@ -79,12 +79,12 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
     });
 
     const renderProps = useRenderProps({
-        ...otherProps,
         className: classNames,
         style: mergedStyles,
         values: {
             isDisabled: isDisabled || false
-        }
+        },
+        ...otherProps
     });
 
     return (
@@ -104,10 +104,10 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
             ]}
         >
             <div
-                {...mergeProps(otherProps, renderProps)}
                 ref={ref}
                 slot={slot ?? undefined}
                 data-disabled={isDisabled}
+                {...mergeProps(renderProps, otherProps)}
             >
                 {renderProps.children}
             </div>

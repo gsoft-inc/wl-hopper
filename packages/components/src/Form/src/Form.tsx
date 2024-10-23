@@ -169,10 +169,10 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
             ]}
             >
                 <RACForm
-                    {...otherProps}
                     ref={ref}
                     className={classNames}
                     style={mergedStyles}
+                    {...otherProps}
                 >
                     {children}
                 </RACForm>

@@ -1,6 +1,6 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, forwardRef, type ForwardedRef, type NamedExoticComponent } from "react";
+import { forwardRef, type CSSProperties, type ForwardedRef, type NamedExoticComponent } from "react";
 import { Section as RACSection, useContextProps, type SectionProps as RACSectionProps } from "react-aria-components";
 
 import { SectionContext } from "./SectionContext.ts";
@@ -32,10 +32,10 @@ function Section<T extends object>(props: SectionProps<T>, ref: ForwardedRef<HTM
 
     return (
         <RACSection
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
+            {...otherProps}
         >
             {children}
         </RACSection>

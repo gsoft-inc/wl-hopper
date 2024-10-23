@@ -217,19 +217,19 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                 <Footer>
                     {ensureTextWrapper(footer)}
                 </Footer>
-            
+
             </SlotProvider>
         </ClearProviders>
     ) : null;
 
     return (
         <RACSelect
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             isInvalid={isInvalid}
             isRequired={isRequired}
+            {...otherProps}
         >
             {selectRenderProps => {
                 const { isOpen } = selectRenderProps;
@@ -246,7 +246,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 {label}
                             </Label>
                         )}
-                        <Popover 
+                        <Popover
                             isAutoWidth={isAutoMenuWidth}
                             isNonDialog
                             placement={`${direction} ${align}`}
@@ -259,9 +259,9 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                 }]
                             ]}
                             >
-                                <ListBox 
-                                    size={size} 
-                                    isInvalid={isInvalid} 
+                                <ListBox
+                                    size={size}
+                                    isInvalid={isInvalid}
                                     items={items}
                                     isLoading={isLoading}
                                     onLoadMore={onLoadMore}

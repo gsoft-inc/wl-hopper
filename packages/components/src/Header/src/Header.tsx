@@ -35,11 +35,11 @@ function Header(props: HeaderProps, ref: ForwardedRef<HTMLElement>) {
 
     return (
         <RACHeader
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
             slot={slot || undefined}
+            {...otherProps}
         >
             {children}
         </RACHeader>

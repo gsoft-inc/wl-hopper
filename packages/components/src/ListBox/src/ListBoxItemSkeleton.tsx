@@ -51,11 +51,11 @@ function ListBoxItemSkeleton(props: ListBoxItemSkeletonProps, ref: ForwardedRef<
 
     return (
         <div
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             slot={slot ?? undefined}
+            {...otherProps}
         />
     );
 }

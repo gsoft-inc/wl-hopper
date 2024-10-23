@@ -112,10 +112,10 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
             ]}
         >
             <RACTagGroup
-                {...otherProps}
                 ref={ref}
                 className={classNames}
                 style={style}
+                {...otherProps}
             >
                 {children}
             </RACTagGroup>

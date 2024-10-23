@@ -147,12 +147,12 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
             ]}
         >
             <RACButton
-                {...otherProps}
                 ref={ref}
                 slot={props.slot || undefined}
                 className={classNames}
                 style={style}
                 isPending={isLoading}
+                {...otherProps}
             >
                 {buttonRenderProps => {
                     return <>

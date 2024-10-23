@@ -1,7 +1,7 @@
 "use client";
 
-import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import clsx from "clsx";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 
 import CopyButton from "@/components/copyButton/CopyButton.tsx";
 import LangIcon from "@/components/pre/langIcon/LangIcon";
@@ -32,7 +32,7 @@ const Pre = ({ children, className, title, "data-language": dataLanguage, raw, t
     const copyButton = raw && <CopyButton onDark={isOnDark} text={raw} />;
 
     return (
-        <pre {...props} data-theme={theme} className={classes} tabIndex={-1}>
+        <pre data-theme={theme} className={classes} tabIndex={-1} {...props}>
             {title &&
                 <div className="hd-pre-header">
                     <div className="hd-pre-header__info">

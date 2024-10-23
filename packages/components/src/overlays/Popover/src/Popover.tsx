@@ -116,7 +116,6 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
 
     return (
         <RACPopover
-            {...otherProps}
             offset={offset}
             ref={ref}
             className={popoverClassNames}
@@ -125,6 +124,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
             containerPadding={containerPadding}
             style={style}
             placement={placement}
+            {...otherProps}
         >
             {state => {
                 const content = (isFunction(children) && !isNil(children)) ? children(state) : children;

@@ -131,13 +131,13 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         ]}
         >
             <RACGroup
-                {...otherProps}
                 isInvalid={validation?.isInvalid || isInvalid}
                 onMouseDown={handleMouseDown}
                 ref={ref}
                 className={classNames}
                 style={style}
                 data-input-type={inputType}
+                {...otherProps}
             >
                 {children}
             </RACGroup>

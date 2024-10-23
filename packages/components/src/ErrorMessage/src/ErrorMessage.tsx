@@ -48,13 +48,13 @@ const ErrorMessageInner = forwardRef((props: ErrorMessageProps, ref: ForwardedRe
     const validation = useContext(RACFieldErrorContext)!;
     [props, ref] = useContextProps(props, ref, ErrorMessageContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
-    const { 
-        className, 
-        children: childrenProp, 
-        hideIcon = false, 
-        style: styleProp, 
-        slot = "errorMessage", 
-        ...otherProps 
+    const {
+        className,
+        children: childrenProp,
+        hideIcon = false,
+        style: styleProp,
+        slot = "errorMessage",
+        ...otherProps
     } = ownProps;
 
     const classNames = composeClassnameRenderProps(
