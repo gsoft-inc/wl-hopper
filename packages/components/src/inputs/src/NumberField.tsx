@@ -19,9 +19,9 @@ import {
     type NumberFieldProps as RACNumberFieldProps
 } from "react-aria-components";
 
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext, TextContext } from "../../typography/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Label, TextContext } from "../../typography/index.ts";
 import {
     ClearContainerSlots,
     composeClassnameRenderProps,
@@ -29,8 +29,7 @@ import {
     ensureTextWrapper,
     SlotProvider,
     useScale,
-    type FieldSize,
-    type NecessityIndicator
+    type FieldProps
 } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
@@ -40,17 +39,11 @@ import styles from "./NumberField.module.css";
 
 export const GlobalNumberFieldCssSelector = "hop-NumberField";
 
-export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldProps> {
+export interface NumberFieldProps extends Omit<StyledComponentProps<RACNumberFieldProps>, "children">, FieldProps {
     /**
      * An icon or text to display at the start of the input.
      */
     prefix?: ReactNode;
-
-    /**
-     * The size of the NumberField.
-     * @default "md"
-     */
-    size?: ResponsiveProp<FieldSize>;
 
     /**
      * If `true`, the NumberField will take all available width.
@@ -62,11 +55,6 @@ export interface NumberFieldProps extends StyledComponentProps<RACNumberFieldPro
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
-
-    /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
-     */
-    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.
@@ -120,7 +108,6 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         size,
         prefix,
         onChange: onChangeProp,
-        children,
         defaultValue,
         value: valueProp,
         isFluid: isFluidProp,
@@ -129,6 +116,9 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         isRequired,
         necessityIndicator,
         inputGroupProps,
+        label,
+        description,
+        errorMessage,
         ...otherProps
     } = ownProps;
 
@@ -196,21 +186,14 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         </ClearContainerSlots>
     );
 
-    const childrenMarkup = composeRenderProps(children, prev => {
-        return (
-            <>
-                <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-NumberField__Label"], isRequired, necessityIndicator }],
-                    [HelperMessageContext, { className: styles["hop-NumberField__HelperMessage"] }],
-                    [ErrorMessageContext, { className: styles["hop-NumberField__ErrorMessage"] }]
-                ]}
-                >
-                    {prev}
-                </SlotProvider>
-                {inputMarkup}
-            </>
-        );
-    });
+    const childrenMarkup = (
+        <>
+            {label && <Label className={styles["hop-NumberField__Label"]} isRequired={isRequired} necessityIndicator={necessityIndicator}>{label}</Label>}
+            {inputMarkup}
+            {description && <HelperMessage className={styles["hop-NumberField__HelperMessage"]}>{description}</HelperMessage>}
+            <ErrorMessage className={styles["hop-NumberField__ErrorMessage"]}>{errorMessage}</ErrorMessage>
+        </>
+    );
 
     return (
         <RACNumberField

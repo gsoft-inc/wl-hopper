@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ErrorMessage } from "../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Label } from "../../typography/index.ts";
 import { PasswordField } from "../src/PasswordField.tsx";
 
 /**
@@ -32,9 +29,7 @@ const meta = {
     ],
     args: {
         placeholder: "Placeholder",
-        children: [
-            <Label key="1">Password</Label>
-        ]
+        label: "Password"
     }
 } satisfies Meta<typeof PasswordField>;
 
@@ -61,7 +56,7 @@ export const Labeling: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [],
+        label: undefined,
         "aria-label": "Label"
     }
 };
@@ -73,10 +68,7 @@ export const Description: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [
-            ...meta.args.children,
-            <HelperMessage key="2">Helper message</HelperMessage>
-        ]
+        description: "Helper message"
     }
 };
 
@@ -87,10 +79,7 @@ export const Validation: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [
-            ...meta.args.children,
-            <ErrorMessage key="2">Error message</ErrorMessage>
-        ],
+        errorMessage: "Error message",
         isInvalid: true
     }
 };

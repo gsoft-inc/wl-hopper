@@ -2,10 +2,7 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 
-import { ErrorMessage } from "../../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../../HelperMessage/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Label } from "../../../typography/index.ts";
 import { PasswordField, type PasswordFieldProps } from "../../src/PasswordField.tsx";
 
 const meta = {
@@ -41,9 +38,7 @@ export const Default: Story = {
 export const WithLabel: Story = {
     ...Default,
     args: {
-        children: [
-            <Label key="1">Name</Label>
-        ]
+        label: "Name"
     }
 };
 
@@ -67,10 +62,8 @@ export const HelperText: Story = {
     ...Default,
     args: {
         ...Default.args,
-        children: [
-            <HelperMessage key="1">Helper message</HelperMessage>,
-            <ErrorMessage key="2">Error message</ErrorMessage>
-        ],
+        description: "Helper message",
+        errorMessage: "Error message",
         defaultValue: "Hop we go!"
     }
 };
@@ -78,13 +71,8 @@ export const HelperText: Story = {
 export const Validation: Story = {
     ...Default,
     args: {
-        ...Default.args,
-        isInvalid: true,
-        children: [
-            <HelperMessage key="1">Helper message</HelperMessage>,
-            <ErrorMessage key="2">Error message</ErrorMessage>
-        ],
-        defaultValue: "Hop we go!"
+        ...HelperText.args,
+        isInvalid: true
     }
 };
 
