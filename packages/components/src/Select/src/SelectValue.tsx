@@ -76,6 +76,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
     }) as CSSProperties;
 
     const renderProps = useRenderProps({
+        ...otherProps,
         className: classNames,
         defaultChildren: textValue || placeholder || stringFormatter.format("Select.placeholder"),
         style,
@@ -83,8 +84,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
             selectedItem: state?.selectedItem?.value as T ?? null,
             selectedText: textValue ?? null,
             isPlaceholder: !selectedItem
-        },
-        ...otherProps
+        }
     });
 
     const DOMProps = filterDOMProps(ownProps);
