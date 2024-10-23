@@ -271,16 +271,3 @@ export const InvalidIndeterminateStates: Story = {
         isIndeterminate: true
     }
 };
-
-export const Overflow: Story = {
-    render: props => (
-        <Stack style={{ maxWidth: "16rem" }}>
-            <Checkbox {...props} size="sm">
-                PA-99-N2 event and possible exoplanet in galaxy
-            </Checkbox>
-            <Checkbox {...props} size="md">
-                PA-99-N2 event and possible exoplanet in galaxy
-            </Checkbox>
-        </Stack>
-    )
-};

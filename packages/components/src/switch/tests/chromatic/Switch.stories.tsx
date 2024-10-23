@@ -213,16 +213,3 @@ export const CheckedStates: Story = {
         defaultSelected: true
     }
 };
-
-export const Overflow: Story = {
-    render: props => (
-        <Stack style={{ maxWidth: "16rem" }}>
-            <Switch {...props} size="sm">
-                PA-99-N2 event and possible exoplanet in galaxy
-            </Switch>
-            <Switch {...props} size="md">
-                PA-99-N2 event and possible exoplanet in galaxy
-            </Switch>
-        </Stack>
-    )
-};
