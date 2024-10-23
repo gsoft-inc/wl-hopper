@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.30
+
+### Patch Changes
+
+- 190a71f: Moved otherProps last to let the end user override props if needed
+
 ## 1.3.29
 
 ### Patch Changes
