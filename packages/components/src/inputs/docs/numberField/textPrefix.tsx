@@ -1,9 +1,7 @@
-import { Label, NumberField } from "@hopper-ui/components";
+import { NumberField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <NumberField prefix="Kg">
-            <Label>Training hours completed</Label>
-        </NumberField>
+        <NumberField prefix="Kg" label="Training hours completed" />
     );
 }

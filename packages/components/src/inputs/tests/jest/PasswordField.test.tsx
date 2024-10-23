@@ -2,16 +2,13 @@ import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
 import { createRef, type MutableRefObject } from "react";
 
-import { Label } from "../../../typography/index.ts";
 import { PasswordField } from "../../src/PasswordField.tsx";
 import { PasswordFieldContext } from "../../src/PasswordFieldContext.ts";
 
 describe("PasswordField", () => {
     it("should render with default class", () => {
         render(
-            <PasswordField data-testid="field">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField data-testid="field" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -20,9 +17,7 @@ describe("PasswordField", () => {
 
     it("should have password type", () => {
         render(
-            <PasswordField data-testid="field">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField data-testid="field" label="Label" />
         );
 
         const element = screen.getByLabelText("Label");
@@ -32,9 +27,7 @@ describe("PasswordField", () => {
     it("should have password text when show password is clicked", async () => {
         const user = userEvent.setup();
         render(
-            <PasswordField data-testid="field">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField data-testid="field" label="Label" />
         );
 
         let element = screen.getByLabelText("Label");
@@ -53,9 +46,7 @@ describe("PasswordField", () => {
 
     it("should support custom class", () => {
         render(
-            <PasswordField className="test" data-testid="field">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField className="test" data-testid="field" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -65,9 +56,7 @@ describe("PasswordField", () => {
 
     it("should support custom style", () => {
         render(
-            <PasswordField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }} label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -76,9 +65,7 @@ describe("PasswordField", () => {
 
     it("should support DOM props", () => {
         render(
-            <PasswordField data-testid="field" data-foo="bar">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField data-testid="field" data-foo="bar" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -102,9 +89,7 @@ describe("PasswordField", () => {
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
         render(
-            <PasswordField ref={ref} data-testid="field">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField ref={ref} data-testid="field" label="Label" />
         );
 
         expect(ref.current).not.toBeNull();
@@ -114,9 +99,7 @@ describe("PasswordField", () => {
     it("should support input refs", () => {
         const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
-            <PasswordField inputRef={ref} data-testid="field">
-                <Label>Label</Label>
-            </PasswordField>
+            <PasswordField inputRef={ref} data-testid="field" label="Label" />
         );
 
         expect(ref.current).toBe(screen.getByLabelText("Label"));
@@ -128,9 +111,7 @@ describe("PasswordField", () => {
         const contextInputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
         render(
             <PasswordFieldContext.Provider value={{ inputRef: contextInputRef }}>
-                <PasswordField inputRef={inputRef}>
-                    <Label>Label</Label>
-                </PasswordField>
+                <PasswordField inputRef={inputRef} label="Label" />
             </PasswordFieldContext.Provider>
         );
 
