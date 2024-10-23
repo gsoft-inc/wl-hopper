@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.29
+
+### Patch Changes
+
+- c1e98fb: PasswordField and NumberField no longer accept `children`. `Label`, `description` and `errorMessage` are now props.
+
 ## 1.3.28
 
 ### Patch Changes
