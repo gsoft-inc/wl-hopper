@@ -1,4 +1,4 @@
-import { Button, Heading, Footer, Content, Link, ButtonGroup, Div } from "@hopper-ui/components";
+import { Button, ButtonGroup, Content, Div, Footer, Heading, Link } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Popover } from "../../src/Popover.tsx";
@@ -115,6 +115,17 @@ export const Styling = {
                 }}
             >
                 <Heading>{TITLE}</Heading>
+                <Content>{CONTENT}</Content>
+            </Popover>
+        </PopoverTrigger>
+    )
+} satisfies Story;
+
+export const NoHeading = {
+    render: args => (
+        <PopoverTrigger>
+            <Button>{TRIGGER}</Button>
+            <Popover {...args} >
                 <Content>{CONTENT}</Content>
             </Popover>
         </PopoverTrigger>
