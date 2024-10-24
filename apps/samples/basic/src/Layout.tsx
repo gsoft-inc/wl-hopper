@@ -33,7 +33,6 @@ function InnerLayout() {
                     display="fixed"
                     UNSAFE_width="200px"
                 >
-
                     <Button
                         size="sm"
                         variant="secondary"
