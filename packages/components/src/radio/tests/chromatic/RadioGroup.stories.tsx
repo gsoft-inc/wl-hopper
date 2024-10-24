@@ -184,3 +184,24 @@ export const Horizontal = {
         orientation: "horizontal"
     }
 } satisfies Story;
+
+export const Overflow = {
+    render: props => (
+        <Inline alignY="start">
+            <RadioGroup {...props} size="sm" style={{ maxWidth: "16rem" }}>
+                <Radio value="developer">PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                <Radio value="designer">PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                <Radio value="manager">PA-99-N2 event and possible exoplanet in galaxy</Radio>
+            </RadioGroup>
+            <RadioGroup {...props} size="md" style={{ maxWidth: "16rem" }}>
+                <Radio value="developer">PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                <Radio value="designer">PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                <Radio value="manager">PA-99-N2 event and possible exoplanet in galaxy</Radio>
+            </RadioGroup>
+        </Inline>
+    ),
+    args: {
+        label: "Roles",
+        orientation: "vertical"
+    }
+} satisfies Story;
