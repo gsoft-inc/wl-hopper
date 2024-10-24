@@ -1,0 +1,36 @@
+{
+    "name": "basic",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "webpack serve --config webpack.dev.js",
+        "build": "webpack --config webpack.build.js",
+        "lint": "eslint ./src"
+    },
+    "dependencies": {
+        "@hopper-ui/components": "workspace:*",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "react-router-dom": "^6.26.2"
+    },
+    "devDependencies": {
+        "@swc/core": "1.7.26",
+        "@swc/helpers": "0.5.13",
+        "@types/react": "18.3.3",
+        "@types/react-dom": "18.3.0",
+        "@typescript-eslint/parser": "8.6.0",
+        "@workleap/browserslist-config": "2.0.1",
+        "@workleap/eslint-plugin": "3.2.2",
+        "@workleap/swc-configs": "2.2.3",
+        "@workleap/typescript-configs": "3.0.2",
+        "@workleap/webpack-configs": "1.5.1",
+        "browserslist": "4.23.3",
+        "eslint": "8.57.1",
+        "shelljs": "0.8.5",
+        "typescript": "5.5.4",
+        "webpack": "5.95.0",
+        "webpack-cli": "5.1.4",
+        "webpack-dev-server": "5.1.0"
+    }
+}
