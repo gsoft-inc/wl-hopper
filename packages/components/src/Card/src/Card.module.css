@@ -1,0 +1,26 @@
+.hop-Card {
+    /* Internal Variables */
+    --width: 100%;
+    --border-radius: var(--hop-shape-rounded-md);
+
+    /* Main */
+    --hop-Card-main-border: var(--hop-space-10) solid var(--hop-neutral-border-weak);
+    --hop-Card-main-background-color: var(--hop-neutral-surface);
+
+    /* Second */
+    --hop-Card-second-border: none;
+    --hop-Card-second-background-color: var(--hop-neutral-surface-weakest);
+
+    inline-size: var(--width);
+    border-radius: var(--border-radius);
+}
+
+.hop-Card--main {
+    background-color: var(--hop-Card-main-background-color);
+    border: var(--hop-Card-main-border);
+}
+
+.hop-Card--second-level {
+    background-color: var(--hop-Card-second-background-color);
+    border: var(--hop-Card-second-border);
+}
