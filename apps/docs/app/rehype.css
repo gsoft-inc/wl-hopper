@@ -23,20 +23,20 @@ code[data-theme*=' '] span {
     }
 }
 
-[style*="--shiki-light: #98C379"] {
+.hd-props-table [style*="--shiki-light: #98C379"] {
     --shiki-light: var(--hd-color-primary-text) !important
 }
 
-[style*="--shiki-light: #E06C75"],
-[style*="--shiki-light: #C678DD"] {
+.hd-props-table [style*="--shiki-light: #E06C75"],
+.hd-props-table[style*="--shiki-light: #C678DD"] {
     --shiki-light: var(--hd-codeblock-word-color) !important
 }
 
-[style*="--shiki-light: #56B6C2"] {
+.hd-props-table [style*="--shiki-light: #56B6C2"] {
     --shiki-light: var(--hd-neutral-700) !important
 }
 
-[style*="--shiki-light: #E5C07B"] {
+.hd-props-table [style*="--shiki-light: #E5C07B"] {
     --shiki-light: var(--hd-color-accent-text) !important
 }
 
