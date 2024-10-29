@@ -43,7 +43,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
         style: styleProp,
         ...otherProps
     } = ownProps;
-    
+
     const size = useResponsiveValue(sizeProp) ?? "sm";
 
     const textRef = useRef<HTMLSpanElement>(null);
@@ -54,7 +54,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
     const selectedItem = state?.selectedKey != null
         ? state.collection.getItem(state.selectedKey)
         : null;
-  
+
     const stringFormatter = useLocalizedString();
     const textValue = state?.selectedItem?.textValue;
 
@@ -74,7 +74,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
             ...prev
         };
     }) as CSSProperties;
-  
+
     const renderProps = useRenderProps({
         ...otherProps,
         className: classNames,
@@ -86,12 +86,12 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
             isPlaceholder: !selectedItem
         }
     });
-  
+
     const DOMProps = filterDOMProps(ownProps);
-  
+
     return (
         <ClearContainerSlots>
-            <Text 
+            <Text
                 ref={ref}
                 {...DOMProps}
                 {...renderProps}

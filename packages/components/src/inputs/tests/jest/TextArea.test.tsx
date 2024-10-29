@@ -1,7 +1,6 @@
 import { render, screen, waitFor } from "@hopper-ui/test-utils";
 import { createRef, type MutableRefObject } from "react";
 
-import { Label } from "../../../typography/index.ts";
 import { TextArea } from "../../src/TextArea.tsx";
 import { TextAreaContext } from "../../src/TextAreaContext.ts";
 
@@ -14,9 +13,7 @@ describe("TextArea", () => {
 
     it("should render with default class", async () => {
         render(
-            <TextArea data-testid="field">
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea data-testid="field" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -25,9 +22,7 @@ describe("TextArea", () => {
 
     it("should support custom class", async () => {
         render(
-            <TextArea className="test" data-testid="field">
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea className="test" data-testid="field" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -37,9 +32,7 @@ describe("TextArea", () => {
 
     it("should support custom style", async () => {
         render(
-            <TextArea data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }}>
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea data-testid="field" marginTop="stack-sm" style={{ marginBottom: "13px" }} label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -48,9 +41,7 @@ describe("TextArea", () => {
 
     it("should support DOM props", async () => {
         render(
-            <TextArea data-testid="field" data-foo="bar">
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea data-testid="field" data-foo="bar" label="Label" />
         );
 
         const element = screen.getByTestId("field");
@@ -73,9 +64,7 @@ describe("TextArea", () => {
     it("should support refs", async () => {
         const ref = createRef<HTMLDivElement>();
         render(
-            <TextArea ref={ref} data-testid="field">
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea ref={ref} data-testid="field" label="Label" />
         );
 
         await waitFor(() => expect(ref.current).not.toBeNull());
@@ -85,9 +74,7 @@ describe("TextArea", () => {
     it("should support input refs", async () => {
         const ref = createRef<HTMLTextAreaElement>() as MutableRefObject<HTMLTextAreaElement>;
         render(
-            <TextArea inputRef={ref} data-testid="field">
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea inputRef={ref} data-testid="field" label="Label" />
         );
 
         await waitFor(() => expect(ref.current).toBe(screen.getByRole("textbox")));
@@ -99,9 +86,7 @@ describe("TextArea", () => {
         const contextInputRef = createRef<HTMLTextAreaElement>() as MutableRefObject<HTMLTextAreaElement>;
         render(
             <TextAreaContext.Provider value={{ inputRef: contextInputRef }}>
-                <TextArea inputRef={inputRef}>
-                    <Label>Label</Label>
-                </TextArea>
+                <TextArea inputRef={inputRef} label="Label" />
             </TextAreaContext.Provider>
         );
 
@@ -116,9 +101,7 @@ describe("TextArea", () => {
         const expectedResult = maxLength - defaultValue.length;
 
         render(
-            <TextArea defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea defaultValue={defaultValue} showCharacterCount maxLength={maxLength} label="Label" />
         );
 
         const characterCount = screen.queryByText(expectedResult.toString());
@@ -129,9 +112,7 @@ describe("TextArea", () => {
         const defaultValue = "1111111111";
 
         render(
-            <TextArea defaultValue={defaultValue} showCharacterCount maxLength={defaultValue.length}>
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea defaultValue={defaultValue} showCharacterCount maxLength={defaultValue.length} label="Label" />
         );
 
         const characterCount = screen.queryByText(0);
@@ -144,9 +125,7 @@ describe("TextArea", () => {
         const expectedResult = maxLength - defaultValue.length;
 
         render(
-            <TextArea defaultValue={defaultValue} showCharacterCount maxLength={maxLength}>
-                <Label>Label</Label>
-            </TextArea>
+            <TextArea defaultValue={defaultValue} showCharacterCount maxLength={maxLength} label="Label" />
         );
 
         const characterCount = screen.queryByText(expectedResult.toString());

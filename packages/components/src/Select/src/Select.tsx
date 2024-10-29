@@ -1,21 +1,27 @@
 import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
 import {
     Button,
     composeRenderProps,
+    ButtonContext as RACButtonContext,
     Select as RACSelect,
+    TextContext as RACTextContext,
     useContextProps,
+    type ContextValue,
     type ButtonProps as RACButtonProps,
     type SelectProps as RACSelectProps,
     type SelectValueRenderProps
 } from "react-aria-components";
 
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { ListBoxContext } from "../../ListBox/index.ts";
-import { LabelContext, TextContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, EnsureTextWrapper, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { BadgeContext } from "../../Badge/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Footer } from "../../layout/index.ts";
+import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
+import { Popover, type PopoverProps } from "../../overlays/index.ts";
+import { Label, TextContext } from "../../typography/index.ts";
+import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
 import { SelectContext } from "./SelectContext.ts";
 import { SelectValue } from "./SelectValue.tsx";
@@ -27,7 +33,29 @@ export const GlobalSelectCssSelector = "hop-Select";
 export type ValueRenderProps = SelectValueRenderProps<object> & { defaultChildren: ReactNode };
 export type SelectTriggerProps = StyledComponentProps<RACButtonProps>;
 
-export interface SelectProps<T extends object> extends StyledComponentProps<RACSelectProps<T>> {
+export interface SelectProps<T extends object> extends StyledComponentProps<Omit<RACSelectProps<T>, "children">>, FieldProps {
+    /**
+     * The alignment of the menu.
+     * @default "start"
+     */
+    align?: ResponsiveProp<MenuAlignment>;
+    /**
+     * The items of the Select.
+     */
+    children: ReactNode | ((item: T) => ReactNode);
+    /**
+     * The direction that the menu should open.
+     * @default "bottom"
+     */
+    direction?: ResponsiveProp<MenuDirection>;
+    /**
+     * The footer of the select.
+     */
+    footer?: ReactNode;
+    /**
+     * If `true`, the select menu will not be the width of the trigger and instead be the width of its contents.
+     */
+    isAutoMenuWidth?: boolean;
     /**
      * If `true`, the select will take all available width.
      * @default false
@@ -38,13 +66,25 @@ export interface SelectProps<T extends object> extends StyledComponentProps<RACS
      */
     items?: Iterable<T>;
     /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
+     * Whether data is currently being loaded.
+     * */
+    isLoading?: boolean;
+    /**
+     * The list box props.
      */
-    necessityIndicator?: NecessityIndicator;
+    listBoxProps?: ListBoxProps<T>;
+    /**
+     * Handler that is called when more items should be loaded, e.g. while scrolling near the bottom.
+     * */
+    onLoadMore?: () => void;
     /**
      * The placeholder text when the select is empty.
      */
     placeholder?: string;
+    /**
+     * The props for the popover.
+     */
+    popoverProps?: PopoverProps;
     /**
      * An icon or text to display at the start of the select trigger.
      */
@@ -54,10 +94,15 @@ export interface SelectProps<T extends object> extends StyledComponentProps<RACS
      */
     renderValue?: (valueRenderProps: ValueRenderProps) => ReactNode;
     /**
-     * The size of the select.
-     * @default "sm"
+     * The selection indicator to use. Only available if the selection mode is not "none".
+     * When set to "input", the selection indicator will be either a radio or checkbox based on the selection mode.
+     * @default "check"
      */
-    size?: ResponsiveProp<FieldSize>;
+    selectionIndicator?: SelectionIndicator;
+    /**
+     * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+     */
+    shouldFlip?: boolean;
     /**
      * The props for the select's trigger.
      */
@@ -68,15 +113,28 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
     [props, ref] = useContextProps(props, ref, SelectContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
+        align: alignProp,
         className,
-        children: childrenProp,
+        children,
+        description,
+        direction: directionProp,
+        errorMessage,
+        footer,
+        isAutoMenuWidth,
         isFluid: isFluidProp,
         isInvalid,
+        isLoading,
         isRequired,
         items,
+        label,
+        listBoxProps,
         necessityIndicator,
+        onLoadMore,
+        popoverProps,
         prefix,
         renderValue,
+        selectionIndicator,
+        shouldFlip,
         size: sizeProp,
         style: styleProp,
         triggerProps,
@@ -89,8 +147,10 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         ...otherTriggerProps
     } = triggerOwnProps;
 
-    const size = useResponsiveValue(sizeProp) ?? "sm";
+    const size = useResponsiveValue(sizeProp) ?? "md";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
+    const align = useResponsiveValue(alignProp) ?? "start";
+    const direction = useResponsiveValue(directionProp) ?? "bottom";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -128,10 +188,6 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         };
     });
 
-    const children = composeRenderProps(childrenProp, prev => {
-        return prev;
-    });
-
     const prefixMarkup = prefix ? (
         <SlotProvider values={[
             [TextContext, { size, className: styles["hop-Select__prefix"] }],
@@ -139,19 +195,41 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         ]}
         >
             <ClearContainerSlots>
-                <EnsureTextWrapper>{prefix}</EnsureTextWrapper>
+                {ensureTextWrapper(prefix)}
             </ClearContainerSlots>
         </SlotProvider>
     ) : null;
 
+    const footerMarkup = footer ? (
+        <ClearProviders
+            values={[
+                RACTextContext,
+                TextContext,
+                RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
+            ]}
+        >
+            <SlotProvider values={[
+                [TextContext, {
+                    size
+                }]
+            ]}
+            >
+                <Footer>
+                    {ensureTextWrapper(footer)}
+                </Footer>
+
+            </SlotProvider>
+        </ClearProviders>
+    ) : null;
+
     return (
         <RACSelect
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             isInvalid={isInvalid}
             isRequired={isRequired}
+            {...otherProps}
         >
             {selectRenderProps => {
                 const { isOpen } = selectRenderProps;
@@ -159,31 +237,42 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
 
                 return (
                     <>
-                        <SlotProvider values={[
-                            [LabelContext, {
-                                className: styles["hop-Select__label"],
-                                isRequired,
-                                necessityIndicator
-                            }],
-                            [HelperMessageContext, {
-                                className: styles["hop-Select__helper-message"]
-                            }],
-                            [ErrorMessageContext, {
-                                className: styles["hop-Select__error-message"]
-                            }],
-                            [TextContext, {
-                                size
-                            }],
-                            [ListBoxContext, {
-                                size,
-                                isInvalid,
-                                items
-                            }]
-                            
-                        ]}
+                        {label && (
+                            <Label
+                                className={styles["hop-Select__label"]}
+                                isRequired={isRequired}
+                                necessityIndicator={necessityIndicator}
+                            >
+                                {label}
+                            </Label>
+                        )}
+                        <Popover
+                            isAutoWidth={isAutoMenuWidth}
+                            isNonDialog
+                            placement={`${direction} ${align}`}
+                            shouldFlip={shouldFlip}
+                            {...popoverProps}
                         >
-                            {children(selectRenderProps)}
-                        </SlotProvider>
+                            <SlotProvider values={[
+                                [BadgeContext, {
+                                    variant: "secondary"
+                                }]
+                            ]}
+                            >
+                                <ListBox
+                                    size={size}
+                                    isInvalid={isInvalid}
+                                    items={items}
+                                    isLoading={isLoading}
+                                    onLoadMore={onLoadMore}
+                                    selectionIndicator={selectionIndicator}
+                                    {...listBoxProps}
+                                >
+                                    {children}
+                                </ListBox>
+                            </SlotProvider>
+                            {footerMarkup}
+                        </Popover>
                         <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
                             {prefixMarkup}
                             <SelectValue size={size}>
@@ -193,6 +282,14 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             </SelectValue>
                             <ButtonIcon size="sm" className={styles["hop-Select__button-icon"]} />
                         </Button>
+                        {description && (
+                            <HelperMessage className={styles["hop-Select__helper-message"]}>
+                                {description}
+                            </HelperMessage>
+                        )}
+                        <ErrorMessage className={styles["hop-Select__error-message"]}>
+                            {errorMessage}
+                        </ErrorMessage>
                     </>
                 );
             }}
@@ -210,4 +307,4 @@ const _Select = forwardRef(Select) as <T extends object>(
 ) => ReturnType<typeof Select>;
 (_Select as NamedExoticComponent).displayName = "Select";
 
-export { _Select as Select };
+export { _Select as Select, ListBoxItem as SelectItem };

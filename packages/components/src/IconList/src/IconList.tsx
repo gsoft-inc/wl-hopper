@@ -40,11 +40,11 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
 
     return (
         <span
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
             slot={slot ?? undefined}
+            {...otherProps}
         >
             <SlotProvider values={[
                 [IconContext, {

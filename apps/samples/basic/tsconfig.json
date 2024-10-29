@@ -1,0 +1,10 @@
+{
+  "extends": "@workleap/typescript-configs/web-application.json",
+  "exclude": ["dist", "node_modules"],
+  "include": ["**/*", "../../../types"],
+  "compilerOptions": {
+        "paths": {
+            "@hopper-ui/components": ["../../../packages/components/src/index.ts"],
+        }
+  }
+}

@@ -19,11 +19,11 @@ import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
 import { TextContext, type TextSize } from "../../typography/Text/index.ts";
 import {
     ClearContainerSlots,
-    EnsureTextWrapper,
     type SizeAdapter,
     SlotProvider,
     composeClassnameRenderProps,
-    cssModule
+    cssModule,
+    ensureTextWrapper
 } from "../../utils/index.ts";
 import { mapOrbiterToHopperVariants } from "../utils/Tag.utils.ts";
 
@@ -124,7 +124,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
     });
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
@@ -135,13 +135,13 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
 
     return (
         <RACTag
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={style}
             textValue={textValue}
             data-invalid={isInvalid || undefined}
             data-loading={isLoading || undefined}
+            {...otherProps}
         >
             {tagProps => {
                 const { allowsRemoving, isDisabled, isSelected } = tagProps;

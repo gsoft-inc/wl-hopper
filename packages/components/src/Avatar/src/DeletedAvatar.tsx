@@ -69,10 +69,10 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
 
     return (
         <RichIconAvatarImage
-            {...mergeProps(otherProps, renderProps)}
             isDisabled={isDisabled}
             ref={ref}
             size={size}
+            {...mergeProps(renderProps, otherProps)}
         >
             <DeletedUserRichIcon />
         </RichIconAvatarImage>

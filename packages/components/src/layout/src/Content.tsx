@@ -36,11 +36,11 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {
 
     return (
         <div
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
             slot={slot || undefined}
+            {...otherProps}
         >
             {children}
         </div>

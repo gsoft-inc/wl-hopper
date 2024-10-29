@@ -16,7 +16,7 @@ import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useRenderProps,
     type InteractionProps
@@ -55,7 +55,7 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const classNames = composeClassnameRenderProps(
@@ -98,7 +98,6 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
 
     return (
         <div
-            {...mergeProps(otherProps, renderProps)}
             ref={ref as ForwardedRef<HTMLDivElement>}
             slot={slot || undefined}
             data-selected={isSelected || undefined}
@@ -110,6 +109,7 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
             data-readonly={isReadOnly || undefined}
             data-invalid={isInvalid || undefined}
             data-required={isRequired || undefined}
+            {...mergeProps(renderProps, otherProps)}
         >
             <div className={styles["hop-DecorativeRadio__box"]}>
                 <BulletIcon size={size} className={radioIconClassName} />

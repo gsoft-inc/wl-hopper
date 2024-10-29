@@ -19,11 +19,11 @@ import {
 } from "react-aria-components";
 
 import { EmbeddedButton, type EmbeddedButtonProps } from "../../buttons/index.ts";
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
-import { LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { Label } from "../../typography/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, type FieldProps, type FieldSize } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { PasswordFieldContext } from "./PasswordFieldContext.ts";
@@ -32,7 +32,7 @@ import styles from "./PasswordField.module.css";
 
 export const GlobalPasswordFieldCssSelector = "hop-PasswordField";
 
-export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFieldProps, "type">> {
+export interface PasswordFieldProps extends Omit<StyledComponentProps<Omit<RACTextFieldProps, "type">>, "children">, FieldProps {
     /**
      * The placeholder text when the PasswordField is empty.
      */
@@ -54,11 +54,6 @@ export interface PasswordFieldProps extends StyledComponentProps<Omit<RACTextFie
      * A ref for the HTML input element.
      */
     inputRef?: MutableRefObject<HTMLInputElement>;
-
-    /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
-     */
-    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.
@@ -92,7 +87,6 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         style: styleProp,
         size,
         placeholder,
-        children,
         isFluid: isFluidProp,
         isDisabled,
         isInvalid,
@@ -101,6 +95,9 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         inputGroupProps,
         inputProps,
         embeddedButtonProps,
+        label,
+        description,
+        errorMessage,
         ...otherProps
     } = ownProps;
 
@@ -154,21 +151,14 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         </ClearContainerSlots>
     );
 
-    const childrenMarkup = composeRenderProps(children, prev => {
-        return (
-            <>
-                <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-PasswordField__Label"], isRequired, necessityIndicator }],
-                    [HelperMessageContext, { className: styles["hop-PasswordField__HelperMessage"] }],
-                    [ErrorMessageContext, { className: styles["hop-PasswordField__ErrorMessage"] }]
-                ]}
-                >
-                    {prev}
-                </SlotProvider>
-                {inputMarkup}
-            </>
-        );
-    });
+    const childrenMarkup = (
+        <>
+            {label && <Label className={styles["hop-PasswordField__Label"]} isRequired={isRequired} necessityIndicator={necessityIndicator}>{label}</Label>}
+            {inputMarkup}
+            {description && <HelperMessage className={styles["hop-PasswordField__HelperMessage"]}>{description}</HelperMessage>}
+            <ErrorMessage className={styles["hop-PasswordField__ErrorMessage"]}>{errorMessage}</ErrorMessage>
+        </>
+    );
 
     return (
         <RACTextField

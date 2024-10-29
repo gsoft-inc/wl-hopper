@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { forwardRef, type ElementRef, type CSSProperties } from "react";
+import { forwardRef, type CSSProperties, type ElementRef } from "react";
 
 import type { StyledComponentProps } from "../styledSystemProps.ts";
 import { useStyledSystem } from "../useStyledSystem.ts";
@@ -36,7 +36,7 @@ export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: 
             // useStyledSystem removes the styled system props, so what is remaining is valid for the elementType.
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            <As ref={ref} style={mergedStyles} {...otherProps} className={classNames} />
+            <As ref={ref} style={mergedStyles} className={classNames} {...otherProps} />
         );
     });
 }

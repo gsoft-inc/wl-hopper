@@ -7,10 +7,10 @@ import { forwardRef, useCallback, useMemo, useState, type ForwardedRef, type Mut
 import { useObjectRef } from "react-aria";
 import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
 
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext } from "../../typography/index.ts";
-import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useFontFaceReady, useTruncatedText, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Label } from "../../typography/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, useFontFaceReady, useTruncatedText, type FieldProps } from "../../utils/index.ts";
 
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
@@ -23,7 +23,7 @@ const DefaultMinimumTextAreaRows = 3;
 
 export type ResizeMode = "none" | "vertical";
 
-export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
+export interface TextAreaProps extends Omit<StyledComponentProps<RACTextFieldProps>, "children">, FieldProps {
     /**
      * True to display the number of remaining allowed characters on the right of the input. Requires a valid value in the "maxLength" prop.
      */
@@ -50,12 +50,6 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
     cols?: number;
 
     /**
-     * The size of the TextArea.
-     * @default "md"
-     */
-    size?: ResponsiveProp<FieldSize>;
-
-    /**
      * If `true`, the TextArea will take all available width.
      */
     isFluid?: ResponsiveProp<boolean>;
@@ -76,11 +70,6 @@ export interface TextAreaProps extends StyledComponentProps<RACTextFieldProps> {
      * A ref for the HTML textarea element.
      */
     inputRef?: MutableRefObject<HTMLTextAreaElement>;
-
-    /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
-     */
-    necessityIndicator?: NecessityIndicator;
 
     /**
      * The props for the InputGroup.
@@ -150,7 +139,6 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         maxLength,
         placeholder,
         onChange: onChangeProp,
-        children,
         defaultValue,
         maxRows,
         cols,
@@ -165,6 +153,9 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         necessityIndicator,
         inputGroupProps,
         remainingCharacterCountProps,
+        label,
+        description,
+        errorMessage,
         ...otherProps
     } = ownProps;
 
@@ -287,21 +278,14 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         </ClearContainerSlots>
     );
 
-    const childrenMarkup = composeRenderProps(children, prev => {
-        return (
-            <>
-                <SlotProvider values={[
-                    [LabelContext, { className: styles["hop-TextArea__Label"], isRequired, necessityIndicator }],
-                    [HelperMessageContext, { className: styles["hop-TextArea__HelperMessage"] }],
-                    [ErrorMessageContext, { className: styles["hop-TextArea__ErrorMessage"] }]
-                ]}
-                >
-                    {prev}
-                </SlotProvider>
-                {inputMarkup}
-            </>
-        );
-    });
+    const childrenMarkup = (
+        <>
+            {label && <Label className={styles["hop-TextArea__Label"]} isRequired={isRequired} necessityIndicator={necessityIndicator}>{label}</Label>}
+            {inputMarkup}
+            {description && <HelperMessage className={styles["hop-TextArea__HelperMessage"]}>{description}</HelperMessage>}
+            <ErrorMessage className={styles["hop-TextArea__ErrorMessage"]}>{errorMessage}</ErrorMessage>
+        </>
+    );
 
     return (
         <RACTextField

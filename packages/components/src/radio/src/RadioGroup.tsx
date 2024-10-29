@@ -161,11 +161,9 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                                 {description}
                             </HelperMessage>
                         )}
-                        {errorMessage && (
-                            <ErrorMessage className={styles["hop-RadioGroup__error-message"]} hideIcon>
-                                {errorMessage}
-                            </ErrorMessage>
-                        )}
+                        <ErrorMessage className={styles["hop-RadioGroup__error-message"]} hideIcon>
+                            {errorMessage}
+                        </ErrorMessage>
                     </>
                 )}
             </RACRadioGroup>

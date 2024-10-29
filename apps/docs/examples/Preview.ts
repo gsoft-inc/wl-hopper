@@ -167,6 +167,9 @@ export const Previews: Record<string, Preview> = {
     "tag/docs/tagGroup/disabled": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/disabled.tsx"))
     },
+    "tag/docs/tag/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/disabled.tsx"))
+    },
     "tag/docs/tagGroup/invalid": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/invalid.tsx"))
     },
@@ -179,23 +182,20 @@ export const Previews: Record<string, Preview> = {
     "tag/docs/tagGroup/sizes": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/sizes.tsx"))
     },
+    "tag/docs/tag/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/sizes.tsx"))
+    },
     "tag/docs/tagGroup/variants": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/variants.tsx"))
+    },
+    "tag/docs/tag/variants": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/variants.tsx"))
     },
     "tag/docs/tagList/empty": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tagList/empty.tsx"))
     },
-    "tag/docs/tag/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/disabled.tsx"))
-    },
     "tag/docs/tag/invalid": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/invalid.tsx"))
-    },
-    "tag/docs/tag/sizes": {
-        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/sizes.tsx"))
-    },
-    "tag/docs/tag/variants": {
-        component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/variants.tsx"))
     },
     "tag/docs/tag/loading": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/loading.tsx"))
@@ -563,17 +563,17 @@ export const Previews: Record<string, Preview> = {
     "switch/docs/switch/disabled": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/disabled.tsx"))
     },
-    "switch/docs/switch/sizes": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/sizes.tsx"))
-    },
-    "switch/docs/switch/icons": {
-        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/icons.tsx"))
-    },
     "switch/docs/switchfield/disabled": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/disabled.tsx"))
     },
+    "switch/docs/switch/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/sizes.tsx"))
+    },
     "switch/docs/switchfield/sizes": {
         component: lazy(() => import("@/../../packages/components/src/switch/docs/switchfield/sizes.tsx"))
+    },
+    "switch/docs/switch/icons": {
+        component: lazy(() => import("@/../../packages/components/src/switch/docs/switch/icons.tsx"))
     },
     "inputs/docs/textArea/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textArea/preview.tsx"))
@@ -815,6 +815,9 @@ export const Previews: Record<string, Preview> = {
     "ComboBox/docs/disabled": {
         component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/disabled.tsx"))
     },
+    "ComboBox/docs/ComboBoxOption/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/disabled.tsx"))
+    },
     "ComboBox/docs/error": {
         component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/error.tsx"))
     },
@@ -847,9 +850,6 @@ export const Previews: Record<string, Preview> = {
     },
     "ComboBox/docs/form": {
         component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/form.tsx"))
-    },
-    "ComboBox/docs/ComboBoxOption/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/disabled.tsx"))
     },
     "ComboBox/docs/ComboBoxOption/autoMenuWidth": {
         component: lazy(() => import("@/../../packages/components/src/ComboBox/docs/ComboBoxOption/autoMenuWidth.tsx"))
@@ -896,6 +896,9 @@ export const Previews: Record<string, Preview> = {
     "Select/docs/disabled": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/disabled.tsx"))
     },
+    "Select/docs/selectDropdown/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/disabled.tsx"))
+    },
     "Select/docs/error": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/error.tsx"))
     },
@@ -922,9 +925,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Select/docs/form": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/form.tsx"))
-    },
-    "Select/docs/selectDropdown/disabled": {
-        component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/disabled.tsx"))
     },
     "Select/docs/selectDropdown/autoMenuWidth": {
         component: lazy(() => import("@/../../packages/components/src/Select/docs/selectDropdown/autoMenuWidth.tsx"))

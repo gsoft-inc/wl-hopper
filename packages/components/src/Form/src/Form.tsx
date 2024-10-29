@@ -1,20 +1,4 @@
 import {
-    ButtonContext,
-    CheckboxContext,
-    CheckboxFieldContext,
-    CheckboxGroupContext,
-    ComboBoxContext,
-    LabelContext,
-    NumberFieldContext,
-    PasswordFieldContext,
-    RadioGroupContext,
-    SearchFieldContext,
-    SelectContext,
-    TagGroupContext,
-    TextAreaContext,
-    TextFieldContext
-} from "@hopper-ui/components";
-import {
     useResponsiveValue,
     useStyledSystem,
     type ResponsiveProp,
@@ -28,7 +12,14 @@ import {
     type FormProps as RACFormProps
 } from "react-aria-components";
 
-import { LinkButtonContext } from "../../buttons/index.ts";
+import { ButtonContext, LinkButtonContext } from "../../buttons/index.ts";
+import { CheckboxContext, CheckboxFieldContext, CheckboxGroupContext } from "../../checkbox/index.ts";
+import { ComboBoxContext } from "../../ComboBox/index.ts";
+import { NumberFieldContext, PasswordFieldContext, SearchFieldContext, TextAreaContext, TextFieldContext } from "../../inputs/index.ts";
+import { RadioGroupContext } from "../../radio/index.ts";
+import { SelectContext } from "../../Select/index.ts";
+import { TagGroupContext } from "../../tag/index.ts";
+import { LabelContext } from "../../typography/index.ts";
 import { cssModule, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { FormContext } from "./FormContext.ts";
@@ -169,10 +160,10 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
             ]}
             >
                 <RACForm
-                    {...otherProps}
                     ref={ref}
                     className={classNames}
                     style={mergedStyles}
+                    {...otherProps}
                 >
                     {children}
                 </RACForm>

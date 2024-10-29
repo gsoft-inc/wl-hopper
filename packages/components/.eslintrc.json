@@ -28,6 +28,10 @@
                             "name": "react",
                             "importNames": ["default"],
                             "message": "import React from \"react\" is no longer necessary and should be avoided. "
+                        },
+                        {
+                            "name": "@hopper-ui/components",
+                            "message": "import { anything } from \"@hopper-ui/components\" inside /src needs to be avoided. It should only be used in docs and tests."
                         }
                     ]
                 }]

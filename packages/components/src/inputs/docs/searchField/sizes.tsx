@@ -1,9 +1,9 @@
-import { Label, SearchField, Stack } from "@hopper-ui/components";
+import { SearchField, Stack } from "@hopper-ui/components";
 
 export default function Example() {
     const props = {
         placeholder: "New York, NY",
-        children: <Label key="1">Filter by location</Label>
+        label: "Filter by location"
     };
 
     return (

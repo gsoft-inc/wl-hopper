@@ -1,5 +1,37 @@
 # @hopper-ui/components
 
+## 1.3.30
+
+### Patch Changes
+
+- 190a71f: Moved otherProps last to let the end user override props if needed
+
+## 1.3.29
+
+### Patch Changes
+
+- c1e98fb: PasswordField and NumberField no longer accept `children`. `Label`, `description` and `errorMessage` are now props.
+
+## 1.3.28
+
+### Patch Changes
+
+- e2a266e: TextArea and SearchField no longer accept `children`. `Label`, `description` and `errorMessage` are now props.
+
+## 1.3.27
+
+### Patch Changes
+
+- 6551037: TextField no longer accepts children. `Label`, `description` and `errorMessage` are now props.
+
+## 1.3.26
+
+### Patch Changes
+
+- 667db64: - Added label, description and errorMessage props instead of having them as slots for the Select and ComboBox components.
+  - Removed SelectOptions/ComboBoxOptions since they are no longer needed.
+  - Renamed SelectOption/ComboBoxOption to SelectItem/ComboBoxItem.
+
 ## 1.3.25
 
 ### Patch Changes

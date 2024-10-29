@@ -1,4 +1,4 @@
-import { screen, render } from "@hopper-ui/test-utils";
+import { render, screen } from "@hopper-ui/test-utils";
 import { createRef, forwardRef } from "react";
 
 import { Button } from "../../src/Button.tsx";

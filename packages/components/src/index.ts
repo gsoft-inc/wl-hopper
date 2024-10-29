@@ -27,12 +27,10 @@ export * from "./typography/OverlineText/index.ts";
 export * from "./typography/Text/index.ts";
 export * from "./utils/index.ts";
 
+export * from "@hopper-ui/styled-system";
+export { useAsyncList } from "@react-stately/data";
 export type { RouterOptions } from "@react-types/shared";
 export type { Orientation, Placement } from "react-aria";
-
-export { Collection, type ContextValue, type Key, type Selection } from "react-aria-components";
-export { useAsyncList } from "react-stately";
-
-export * from "@hopper-ui/styled-system";
+export { Collection, type ContextValue, type Key, type Selection, type ValidationResult } from "react-aria-components";
 
 import "./index.css";

@@ -16,7 +16,7 @@ import {
     ClearContainerSlots,
     composeClassnameRenderProps,
     cssModule,
-    EnsureTextWrapper,
+    ensureTextWrapper,
     SlotProvider,
     useRenderProps,
     type InteractionProps
@@ -56,7 +56,7 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
     const size = useResponsiveValue(sizeProp) ?? "md";
 
     const children = composeRenderProps(childrenProp, prev => {
-        return <EnsureTextWrapper>{prev}</EnsureTextWrapper>;
+        return ensureTextWrapper(prev);
     });
 
     const classNames = composeClassnameRenderProps(
@@ -103,7 +103,6 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
 
     return (
         <div
-            {...mergeProps(otherProps, renderProps)}
             ref={ref as ForwardedRef<HTMLDivElement>}
             slot={slot || undefined}
             data-selected={isSelected || undefined}
@@ -115,6 +114,7 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
             data-readonly={isReadOnly || undefined}
             data-invalid={isInvalid || undefined}
             data-required={isRequired || undefined}
+            {...mergeProps(renderProps, otherProps)}
         >
             <div className={styles["hop-DecorativeCheckbox__box"]}>{icon}</div>
             <ClearContainerSlots>

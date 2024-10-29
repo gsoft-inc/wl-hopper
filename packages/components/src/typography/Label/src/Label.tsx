@@ -66,10 +66,10 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
 
     return (
         <RACLabel
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
+            {...otherProps}
         >
             {children}
             {(necessityIndicator === "label" && !isRequired) && <span className={styles["hop-Label__label-indicator"]}> ({necessityLabel})</span>}

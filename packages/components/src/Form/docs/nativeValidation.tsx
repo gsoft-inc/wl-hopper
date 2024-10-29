@@ -1,4 +1,4 @@
-import { Form, TextField, Label, Div, ErrorMessage, Button, ButtonGroup } from "@hopper-ui/components";
+import { Button, ButtonGroup, Div, Form, TextField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
@@ -8,10 +8,8 @@ export default function Example() {
                     name="email"
                     type="email"
                     isRequired
-                >
-                    <Label>Email</Label>
-                    <ErrorMessage />
-                </TextField>
+                    label="Email"
+                />
                 <ButtonGroup>
                     <Button type="submit">Submit</Button>
                     <Button type="reset">Reset</Button>

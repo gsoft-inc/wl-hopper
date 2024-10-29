@@ -3,17 +3,15 @@
  */
 import { renderToString } from "react-dom/server";
 
-import { Select, SelectOption, SelectOptions } from "../../index.ts";
+import { Select, SelectItem } from "../../index.ts";
 
-describe("SelectOptions", () => {
+describe("Select", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
                 <Select aria-label="Pets">
-                    <SelectOptions>
-                        <SelectOption id="1">Zoomy</SelectOption>
-                        <SelectOption id="2">Voodoo</SelectOption>
-                    </SelectOptions>
+                    <SelectItem id="1">Zoomy</SelectItem>
+                    <SelectItem id="2">Voodoo</SelectItem>
                 </Select>
             );
 

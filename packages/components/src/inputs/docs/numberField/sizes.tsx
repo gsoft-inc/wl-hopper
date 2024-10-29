@@ -1,8 +1,8 @@
-import { Label, NumberField, Stack } from "@hopper-ui/components";
+import { NumberField, Stack } from "@hopper-ui/components";
 
 export default function Example() {
     const props = {
-        children: <Label key="1">Training hours completed</Label>
+        label: "Training hours completed"
     };
 
     return (

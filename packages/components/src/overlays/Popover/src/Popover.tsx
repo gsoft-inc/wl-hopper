@@ -1,20 +1,3 @@
-import {
-    ButtonContext,
-    ButtonGroupContext,
-    composeClassnameRenderProps,
-    ContentContext,
-    cssModule,
-    FooterContext,
-    HeadingContext,
-    HopperProvider,
-    isFunction,
-    isNil,
-    LinkButtonContext,
-    LinkContext,
-    ListBoxContext,
-    SlotProvider,
-    type BaseComponentDOMProps
-} from "@hopper-ui/components";
 import { useColorSchemeContext, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
@@ -26,6 +9,14 @@ import {
     useContextProps,
     type PopoverProps as RACPopoverProps
 } from "react-aria-components";
+
+import { ButtonContext, ButtonGroupContext, LinkButtonContext } from "../../../buttons/index.ts";
+import { HopperProvider } from "../../../HopperProvider/index.ts";
+import { ContentContext, FooterContext } from "../../../layout/index.ts";
+import { LinkContext } from "../../../Link/index.ts";
+import { ListBoxContext } from "../../../ListBox/index.ts";
+import { HeadingContext } from "../../../typography/index.ts";
+import { composeClassnameRenderProps, cssModule, isFunction, isNil, SlotProvider, type BaseComponentDOMProps } from "../../../utils/index.ts";
 
 import { PopoverContext } from "./PopoverContext.ts";
 
@@ -116,7 +107,6 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
 
     return (
         <RACPopover
-            {...otherProps}
             offset={offset}
             ref={ref}
             className={popoverClassNames}
@@ -125,6 +115,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
             containerPadding={containerPadding}
             style={style}
             placement={placement}
+            {...otherProps}
         >
             {state => {
                 const content = (isFunction(children) && !isNil(children)) ? children(state) : children;

@@ -35,11 +35,11 @@ function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
 
     return (
         <footer
-            {...otherProps}
             ref={ref}
             className={classNames}
             style={mergedStyles}
             slot={slot || undefined}
+            {...otherProps}
         >
             {children}
         </footer>
