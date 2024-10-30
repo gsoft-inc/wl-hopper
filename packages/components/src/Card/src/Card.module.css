@@ -1,6 +1,5 @@
 .hop-Card {
     /* Internal Variables */
-    --width: 100%;
     --border-radius: var(--hop-shape-rounded-md);
 
     /* Main */
@@ -11,7 +10,6 @@
     --hop-Card-second-border: none;
     --hop-Card-second-background-color: var(--hop-neutral-surface-weakest);
 
-    inline-size: var(--width);
     border-radius: var(--border-radius);
 }
 
