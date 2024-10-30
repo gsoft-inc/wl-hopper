@@ -7,7 +7,7 @@
     --hop-Card-main-background-color: var(--hop-neutral-surface);
 
     /* Second */
-    --hop-Card-second-border: none;
+    --hop-Card-second-border: var(--hop-space-10) solid var(--hop-neutral-surface-weakest);
     --hop-Card-second-background-color: var(--hop-neutral-surface-weakest);
 
     border-radius: var(--border-radius);
