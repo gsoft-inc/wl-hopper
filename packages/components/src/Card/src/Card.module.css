@@ -6,9 +6,9 @@
     --hop-Card-main-border: var(--hop-space-10) solid var(--hop-neutral-border-weak);
     --hop-Card-main-background-color: var(--hop-neutral-surface);
 
-    /* Second */
-    --hop-Card-second-border: var(--hop-space-10) solid var(--hop-neutral-surface-weakest);
-    --hop-Card-second-background-color: var(--hop-neutral-surface-weakest);
+    /* Second-level */
+    --hop-Card-second-level-border: var(--hop-space-10) solid var(--hop-neutral-surface-weakest);
+    --hop-Card-second-level-background-color: var(--hop-neutral-surface-weakest);
 
     border-radius: var(--border-radius);
 }
@@ -19,6 +19,6 @@
 }
 
 .hop-Card--second-level {
-    background-color: var(--hop-Card-second-background-color);
-    border: var(--hop-Card-second-border);
+    background-color: var(--hop-Card-second-level-background-color);
+    border: var(--hop-Card-second-level-border);
 }
