@@ -15,7 +15,6 @@ import { composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider
 import { TooltipContext } from "./TooltipContext.ts";
 import { TooltipTriggerContext } from "./TooltipTriggerContext.ts";
 
-
 import styles from "./Tooltip.module.css";
 
 export const GlobalTooltipCssSelector = "hop-Tooltip";
@@ -44,7 +43,7 @@ function Tooltip(props: TooltipProps, ref: ForwardedRef<HTMLDivElement>) {
     } = ownProps;
 
     const {
-        containerPadding,
+        containerPadding = 16,
         crossOffset,
         offset,
         placement = "top",
@@ -76,6 +75,7 @@ function Tooltip(props: TooltipProps, ref: ForwardedRef<HTMLDivElement>) {
     const style = composeRenderProps(styleProp, prev => {
         return {
             ...stylingProps.style,
+            "--container-padding": `${containerPadding}px`,
             ...prev
         };
     });

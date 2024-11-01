@@ -6,7 +6,8 @@
     --origin-x: 0;
     --origin-y: 0;
 
-    max-inline-size: var(--hop-Tooltip-max-inline-size);
+    /* Ensures there's always 1rem space around the tooltip, but it'll still have a max width of 25rem. */
+    max-inline-size: min(var(--hop-Tooltip-max-inline-size), calc(100% - (var(--container-padding) * 2)));
 }
 
 .hop-Tooltip--top {

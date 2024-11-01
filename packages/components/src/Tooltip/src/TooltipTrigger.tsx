@@ -23,9 +23,9 @@ export interface TooltipTriggerProps extends RACTooltipTriggerProps, Pick<RACToo
 export function TooltipTrigger(props: TooltipTriggerProps) {
     const {
         children,
-        containerPadding = 16, /* Should this be on the trigger or the actual tooltip component? */
+        containerPadding = 16,
         crossOffset,
-        delay = 1000,
+        delay = 600,
         offset = 4,
         placement = "top",
         shouldFlip,

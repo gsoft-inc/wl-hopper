@@ -1,5 +1,6 @@
 import { Button } from "@hopper-ui/components";
 import { render, screen } from "@hopper-ui/test-utils";
+import { userEvent } from "@testing-library/user-event";
 import { createRef } from "react";
 
 import { Tooltip } from "../../src/Tooltip.tsx";
@@ -7,13 +8,13 @@ import { TooltipContext } from "../../src/TooltipContext.ts";
 import { TooltipTrigger } from "../../src/TooltipTrigger.tsx";
 
 describe("Tooltip", () => {
-    const BUTTON_TEXT = "Trigger";
-    const TOOLTIP_TEXT = "Tooltip text";
+    const buttonText = "Trigger";
+    const tooltipText = "Tooltip text";
 
     it("should render with default class", () => {
         render(<TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
-            <Tooltip>{TOOLTIP_TEXT}</Tooltip>
+            <Button>{buttonText}</Button>
+            <Tooltip>{tooltipText}</Tooltip>
         </TooltipTrigger>);
 
         const element = screen.getByRole("tooltip");
@@ -22,8 +23,8 @@ describe("Tooltip", () => {
 
     it("should support custom class", () => {
         render(<TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
-            <Tooltip className="test">{TOOLTIP_TEXT}</Tooltip>
+            <Button>{buttonText}</Button>
+            <Tooltip className="test">{tooltipText}</Tooltip>
         </TooltipTrigger>);
 
         const element = screen.getByRole("tooltip");
@@ -33,8 +34,8 @@ describe("Tooltip", () => {
 
     it("should support custom style", () => {
         render(<TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
-            <Tooltip marginTop="stack-sm" style={{ marginBottom: "13px" }}>{TOOLTIP_TEXT}</Tooltip>
+            <Button>{buttonText}</Button>
+            <Tooltip marginTop="stack-sm" style={{ marginBottom: "13px" }}>{tooltipText}</Tooltip>
         </TooltipTrigger>);
 
         const element = screen.getByRole("tooltip");
@@ -43,8 +44,8 @@ describe("Tooltip", () => {
 
     it("should support DOM props", () => {
         render(<TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
-            <Tooltip data-foo="bar">{TOOLTIP_TEXT}</Tooltip>
+            <Button>{buttonText}</Button>
+            <Tooltip data-foo="bar">{tooltipText}</Tooltip>
         </TooltipTrigger>);
 
         const element = screen.getByRole("tooltip");
@@ -55,8 +56,8 @@ describe("Tooltip", () => {
         render(
             <TooltipContext.Provider value={{ "aria-label": "test" }}>
                 (<TooltipTrigger defaultOpen>
-                    <Button>{BUTTON_TEXT}</Button>
-                    <Tooltip>{TOOLTIP_TEXT}</Tooltip>
+                    <Button>{buttonText}</Button>
+                    <Tooltip>{tooltipText}</Tooltip>
                 </TooltipTrigger>
             </TooltipContext.Provider>
         );
@@ -68,11 +69,41 @@ describe("Tooltip", () => {
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
         render(<TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
-            <Tooltip ref={ref}>{TOOLTIP_TEXT}</Tooltip>
+            <Button>{buttonText}</Button>
+            <Tooltip ref={ref}>{tooltipText}</Tooltip>
         </TooltipTrigger>);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
+    });
+
+    it("should render a visible tooltip that won't disappear", async () => {
+        render(
+            <TooltipTrigger defaultOpen isDisabled>
+                <Button>{buttonText}</Button>
+                <Tooltip>{tooltipText}</Tooltip>
+            </TooltipTrigger>
+        );
+        const user = userEvent.setup();
+
+        await user.tab();
+
+        const tooltip = screen.queryByRole("tooltip");
+        expect(tooltip).toBeVisible();
+    });
+
+    it("should render a tooltip that will not appear", async () => {
+        render(
+            <TooltipTrigger isDisabled>
+                <Button>{buttonText}</Button>
+                <Tooltip>{tooltipText}</Tooltip>
+            </TooltipTrigger>
+        );
+        const user = userEvent.setup();
+
+        await user.tab();
+
+        const tooltip = screen.queryByRole("tooltip");
+        expect(tooltip).toBeNull(); 
     });
 });

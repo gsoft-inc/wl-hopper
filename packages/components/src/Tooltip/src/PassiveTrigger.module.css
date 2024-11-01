@@ -1,0 +1,5 @@
+.hop-PassiveTrigger {
+    --hop-PassiveTrigger-inline-size: max-content;
+
+    inline-size: var(--hop-PassiveTrigger-inline-size);
+}

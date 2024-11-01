@@ -1,26 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent } from "@storybook/test";
+import { expect, screen, userEvent, waitFor, within } from "@storybook/test";
 
+import { Avatar } from "../../../Avatar/index.ts";
 import { Button } from "../../../buttons/index.ts";
-import { Flex, Grid } from "../../../layout/index.ts";
+import { Flex, Grid, Stack } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
+import { H1 } from "../../../typography/Heading/index.ts";
+import { PassiveTrigger } from "../../src/PassiveTrigger.tsx";
 import { Tooltip } from "../../src/Tooltip.tsx";
 import { TooltipTrigger } from "../../src/TooltipTrigger.tsx";
 
-const BUTTON_TEXT = "Hover me";
+const buttonText = "Hover me";
+const childrenText = "More info";
 
 const meta = {
     title: "Components/Tooltip",
     component: Tooltip,
     args: {
-        children: "Click to learn more."
+        children: childrenText
     },
     decorators: [
-        Story => (
-            <Flex UNSAFE_marginBottom="4rem" UNSAFE_marginTop="3rem" justifyContent="center">
-                <Story />
-            </Flex>
-        )
+        (Story, context) => {
+            if (context.parameters.skipGlobalDecorator) {
+                return <Story />;
+            }
+
+            return (
+                <Flex UNSAFE_marginBottom="4rem" UNSAFE_marginTop="3rem" justifyContent="center">
+                    <Story />
+                </Flex>
+            );
+        }
     ]
 } satisfies Meta<typeof Tooltip>;
 
@@ -31,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
     render: args => (
         <TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
+            <Button>{buttonText}</Button>
             <Tooltip {...args} />
         </TooltipTrigger>
     )
@@ -45,46 +55,81 @@ export const Placement = {
             width="100%"
         >
             <TooltipTrigger defaultOpen placement="start">
-                <Button>{BUTTON_TEXT}</Button>
+                <Button>{buttonText}</Button>
                 <Tooltip {...args} />
             </TooltipTrigger>
             <TooltipTrigger defaultOpen placement="end">
-                <Button>{BUTTON_TEXT}</Button>
+                <Button>{buttonText}</Button>
                 <Tooltip {...args} />
             </TooltipTrigger>
             <TooltipTrigger defaultOpen placement="right">
-                <Button>{BUTTON_TEXT}</Button>
+                <Button>{buttonText}</Button>
                 <Tooltip {...args} />
             </TooltipTrigger>
             <TooltipTrigger defaultOpen placement="left">
-                <Button>{BUTTON_TEXT}</Button>
+                <Button>{buttonText}</Button>
                 <Tooltip {...args} />
             </TooltipTrigger>
             <TooltipTrigger defaultOpen placement="top">
-                <Button>{BUTTON_TEXT}</Button>
+                <Button>{buttonText}</Button>
                 <Tooltip {...args} />
             </TooltipTrigger>
             <TooltipTrigger defaultOpen placement="bottom">
-                <Button>{BUTTON_TEXT}</Button>
+                <Button>{buttonText}</Button>
                 <Tooltip {...args} />
             </TooltipTrigger>
         </Grid>
     )
 } satisfies Story;
 
+export const ShouldFlip = {
+    render: args => (
+        <Stack>
+            <H1>Original Placement: left</H1>
+            <TooltipTrigger defaultOpen placement="left">
+                <Button>{buttonText}</Button>
+                <Tooltip {...args} />
+            </TooltipTrigger>
+        </Stack>
+    ),
+    decorators: [
+        Story => (
+            <Flex justifyContent="left">
+                <Story />
+            </Flex>
+        )
+    ],
+    parameters: {
+        skipGlobalDecorator: true
+    }
+} satisfies Story;
+
 export const LinkTrigger = {
     render: args => (
         <TooltipTrigger defaultOpen>
-            <Link>{BUTTON_TEXT}</Link>
+            <Link>{buttonText}</Link>
             <Tooltip {...args} />
         </TooltipTrigger>
     )
 } satisfies Story;
 
+export const AvatarTrigger = {
+    render: function Render(args) {
+        return (
+            <TooltipTrigger defaultOpen>
+                <PassiveTrigger>
+                    <Avatar name="Fred Allen" />
+                </PassiveTrigger>
+                <Tooltip {...args} />
+            </TooltipTrigger>
+        );
+    }
+} satisfies Story;
+
 export const LongContent = {
     render: args => (
-        <TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
+        <TooltipTrigger isOpen>
+            <Button>{buttonText}</Button>
             <Tooltip {...args} />
         </TooltipTrigger>
     ), 
@@ -96,17 +141,66 @@ export const LongContent = {
     },
     decorators: [
         Story => (
-            <Flex UNSAFE_marginTop="6rem" justifyContent="center">
+            <Flex UNSAFE_marginTop="8rem" justifyContent="center">
                 <Story />
             </Flex>
         )
-    ]
+    ],
+    parameters: {
+        skipGlobalDecorator: true
+    }
+} satisfies Story;
+
+export const DisabledOpen = {
+    render: args => (
+        <TooltipTrigger defaultOpen isDisabled>
+            <Button>{buttonText}</Button>
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
+    play: async () => {
+        userEvent.tab();
+    }
+} satisfies Story;
+
+export const DisabledClosed = {
+    render: args => (
+        <TooltipTrigger isDisabled>
+            <Button>{buttonText}</Button>
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
+    play: async () => {
+        userEvent.tab();
+    }
+} satisfies Story;
+
+export const DisabledTrigger = {
+    render: args => (
+        <TooltipTrigger>
+            <PassiveTrigger data-testid="passive-trigger">
+                <Button isDisabled>{buttonText}</Button>
+            </PassiveTrigger>
+            <Tooltip {...args} />
+        </TooltipTrigger>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const trigger = canvas.getAllByTestId("passive-trigger")[0];
+        const trigger2 = canvas.getAllByTestId("passive-trigger")[1];
+        // For some reason, we need to hover over the second trigger first
+        await userEvent.hover(trigger2);
+        await userEvent.hover(trigger);
+        await waitFor(async () => {
+            await expect(screen.getByText(childrenText)).toBeVisible();
+        });
+    }
 } satisfies Story;
 
 export const Focus = {
     render: args => (
         <TooltipTrigger>
-            <Button>{BUTTON_TEXT}</Button>
+            <Button>{buttonText}</Button>
             <Tooltip {...args} />
         </TooltipTrigger>
     ),
@@ -118,7 +212,7 @@ export const Focus = {
 export const Styling = {
     render: args => (
         <TooltipTrigger defaultOpen>
-            <Button>{BUTTON_TEXT}</Button>
+            <Button>{buttonText}</Button>
             <Tooltip {...args} />
         </TooltipTrigger>
     ),
