@@ -151,30 +151,6 @@ export const LongContent = {
     }
 } satisfies Story;
 
-export const DisabledOpen = {
-    render: args => (
-        <TooltipTrigger defaultOpen isDisabled>
-            <Button>{buttonText}</Button>
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
-    play: async () => {
-        userEvent.tab();
-    }
-} satisfies Story;
-
-export const DisabledClosed = {
-    render: args => (
-        <TooltipTrigger isDisabled>
-            <Button>{buttonText}</Button>
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
-    play: async () => {
-        userEvent.tab();
-    }
-} satisfies Story;
-
 export const DisabledTrigger = {
     render: args => (
         <TooltipTrigger>
