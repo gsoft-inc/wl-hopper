@@ -44,7 +44,7 @@ function PassiveTrigger(props: PassiveTriggerProps, ref: ForwardedRef<HTMLDivEle
         GlobalPassiveTriggerCssSelector,
         cssModule(
             styles,
-            "hop-FloatingBadge"
+            "hop-PassiveTrigger"
         ),
         stylingProps.className
     );
