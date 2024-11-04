@@ -1,10 +1,9 @@
-import { Switch, SwitchField, Text } from "@hopper-ui/components";
+import { Switch, SwitchField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <SwitchField isDisabled>
+        <SwitchField isDisabled description="This will override your changes">
             <Switch>Save</Switch>
-            <Text>This will override your changes.</Text>
         </SwitchField>
     );
 }
