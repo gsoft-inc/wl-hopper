@@ -46,11 +46,10 @@ export const Default: Story = {
  */
 export const Description: Story = {
     render: props => (
-        <SwitchField {...props}>
+        <SwitchField {...props} description="Description">
             <Switch>
                 <Text>Option 1</Text>
             </Switch>
-            <Text slot="description">Description</Text>
         </SwitchField>
     )
 };
@@ -71,17 +70,15 @@ export const Disabled: Story = {
 export const Sizes: Story = {
     render: props => (
         <Stack>
-            <SwitchField {...props} size="sm">
+            <SwitchField {...props} size="sm" description="Description">
                 <Switch>
                     <Text>Option 1</Text>
                 </Switch>
-                <Text slot="description">Description</Text>
             </SwitchField>
-            <SwitchField {...props} size="md">
+            <SwitchField {...props} size="md" description="Description">
                 <Switch>
                     <Text>Option 1</Text>
                 </Switch>
-                <Text slot="description">Description</Text>
             </SwitchField>
         </Stack>
     )
