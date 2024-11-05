@@ -13,6 +13,10 @@ import styles from "./Card.module.css";
 export const GlobalCardCssSelector = "hop-Card";
 
 export interface CardProps extends StyledComponentProps<BaseComponentDOMProps> {
+    /**
+     * The visual style of the card.
+     * @default "main"
+     */
     variant?: "main" | "second-level";
 }
 
@@ -71,7 +75,7 @@ const Card = (props: CardProps, ref: ForwardedRef<HTMLElement>) => {
 };
 
 /**
- * The Card component represents a Card within a Hopper container such as a Modal or Card.
+ * Cards are used to group similar concepts and tasks to make it easier for users to scan, read and get things done.
  *
  * [View Documentation](TODO)
  */
