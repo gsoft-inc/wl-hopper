@@ -18,12 +18,7 @@ export interface PassiveTriggerProps extends StyledSystemProps, BaseComponentDOM
      */
     children?: ReactNode;
 }
-/**
- * A PassiveTrigger wraps a trigger element and Tooltip, handling visibility and positioning.
- *
- * [View Documentation](TODO)
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 function PassiveTrigger(props: PassiveTriggerProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, PassiveTriggerContext);
 

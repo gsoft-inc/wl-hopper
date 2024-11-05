@@ -1,13 +1,11 @@
+import { SparklesIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import { expect, screen, userEvent, waitFor, within } from "@storybook/test";
 
-import { Avatar } from "../../../Avatar/index.ts";
 import { Button } from "../../../buttons/index.ts";
 import { Flex, Grid, Stack } from "../../../layout/index.ts";
 import { Link } from "../../../Link/index.ts";
-import { ListBox, ListBoxItem } from "../../../ListBox/index.ts";
 import { H1 } from "../../../typography/Heading/index.ts";
-import { Text } from "../../../typography/Text/index.ts";
 import { PassiveTrigger } from "../../src/PassiveTrigger.tsx";
 import { Tooltip } from "../../src/Tooltip.tsx";
 import { TooltipTrigger } from "../../src/TooltipTrigger.tsx";
@@ -115,12 +113,12 @@ export const LinkTrigger = {
     )
 } satisfies Story;
 
-export const AvatarTrigger = {
+export const IconTrigger = {
     render: function Render(args) {
         return (
             <TooltipTrigger defaultOpen>
                 <PassiveTrigger>
-                    <Avatar name="Fred Allen" />
+                    <SparklesIcon />
                 </PassiveTrigger>
                 <Tooltip {...args} />
             </TooltipTrigger>
@@ -169,43 +167,6 @@ export const DisabledTrigger = {
         // For some reason, we need to hover over the second trigger first
         await userEvent.hover(trigger2);
         await userEvent.hover(trigger);
-        await waitFor(async () => {
-            await expect(screen.getByText(childrenText)).toBeVisible();
-        });
-    }
-} satisfies Story;
-
-export const DisabledListItem = {
-    render: args => (
-        <TooltipTrigger>
-            <ListBox selectionMode="multiple">
-                <ListBoxItem id="1" isDisabled position="relative">
-                    <PassiveTrigger data-testid="passive-trigger" width="auto" position="absolute" top="0" bottom="0" right="0" left="0" />
-                    <Text>
-                        Earth
-                    </Text>
-                </ListBoxItem>
-                <ListBoxItem id="2">Mars</ListBoxItem>
-                <ListBoxItem id="3">Saturn</ListBoxItem>
-            </ListBox>
-            <Tooltip {...args} />
-        </TooltipTrigger>
-    ),
-    play: async ({ canvasElement }) => {
-        const canvas = within(canvasElement);
-        let trigger;
-        let trigger2;
-        await waitFor(async () => {
-            trigger = canvas.getAllByTestId("passive-trigger")[0];
-            trigger2 = canvas.getAllByTestId("passive-trigger")[1];
-        });
-        // For some reason, we need to hover over the second trigger first
-        if (trigger2) {
-            await userEvent.hover(trigger2);
-        }
-        if (trigger) {
-            await userEvent.hover(trigger);
-        }
         await waitFor(async () => {
             await expect(screen.getByText(childrenText)).toBeVisible();
         });
