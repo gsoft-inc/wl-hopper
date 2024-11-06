@@ -1,0 +1,27 @@
+.hop-Card {
+    /* Default */
+    --hop-Card-border-radius: var(--hop-shape-rounded-md);
+    --hop-Card-border-size:  0.0625rem;
+
+    /* Main */
+    --hop-Card-main-border: var(--hop-Card-border-size) solid var(--hop-neutral-border-weak);
+    --hop-Card-main-background-color: var(--hop-neutral-surface);
+
+    /* Second-level */
+    --hop-Card-second-level-border: var(--hop-Card-border-size) solid var(--hop-neutral-surface-weakest);
+    --hop-Card-second-level-background-color: var(--hop-neutral-surface-weakest);
+
+    background-color: var(--background-color);
+    border: var(--border);
+    border-radius: var(--hop-Card-border-radius);
+}
+
+.hop-Card--main {
+    --background-color: var(--hop-Card-main-background-color);
+    --border: var(--hop-Card-main-border);
+}
+
+.hop-Card--second-level {
+    --background-color: var(--hop-Card-second-level-background-color);
+    --border: var(--hop-Card-second-level-border);
+}

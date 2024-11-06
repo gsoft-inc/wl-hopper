@@ -1,5 +1,17 @@
 # @hopper-ui/components
 
+## 1.3.32
+
+### Patch Changes
+
+- b14b0e4: Added Card component
+
+## 1.3.31
+
+### Patch Changes
+
+- 4eacf7b: Added a `description` prop to SwitchField and removed the description slot.
+
 ## 1.3.30
 
 ### Patch Changes
