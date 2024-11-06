@@ -284,6 +284,12 @@ export const Previews: Record<string, Preview> = {
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
+    "Card/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/preview.tsx"))
+    },
+    "Card/docs/variant": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/variant.tsx"))
+    },
     "Divider/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Divider/docs/preview.tsx"))
     },
