@@ -1,4 +1,4 @@
-import { Stack, Tag, TagGroup, TagList, type Selection } from "@hopper-ui/components";
+import { Stack, Tag, TagGroup, type Selection } from "@hopper-ui/components";
 
 export default function Example() {
     const props = {
@@ -7,13 +7,10 @@ export default function Example() {
         },
         "aria-label": "Jobs",
         children: [
-            (
-                <TagList key="1">
-                    <Tag id="designer">Designer</Tag>
-                    <Tag id="developer">Developer</Tag>
-                    <Tag id="manager">Manager</Tag>
-                </TagList>
-            )]
+            <Tag key="designer" id="designer">Designer</Tag>,
+            <Tag key="developer" id="developer">Developer</Tag>,
+            <Tag key="manager" id="manager">Manager</Tag>
+        ]
     };
 
     return (

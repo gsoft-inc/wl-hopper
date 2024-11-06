@@ -1,4 +1,4 @@
-import { TagGroup, Tag, TagList, HopperProvider } from "@hopper-ui/components";
+import { HopperProvider, Tag, TagGroup } from "@hopper-ui/components";
 import { createMemoryRouter, RouterProvider, useNavigate } from "react-router-dom";
 
 export default function App() {
@@ -25,10 +25,8 @@ function Example() {
     return (
         <HopperProvider colorScheme="light" navigate={navigate}>
             <TagGroup aria-label="tag-group">
-                <TagList>
-                    <Tag id="1" href="/123">Page 1</Tag>
-                    <Tag id="2" href="/456">Page 2</Tag>
-                </TagList>
+                <Tag id="1" href="/123">Page 1</Tag>
+                <Tag id="2" href="/456">Page 2</Tag>
             </TagGroup>
         </HopperProvider>
     );

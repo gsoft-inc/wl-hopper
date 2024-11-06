@@ -6,16 +6,12 @@ import { useState } from "react";
 import { RouterProvider, createMemoryRouter, useNavigate } from "react-router-dom";
 
 import { Badge } from "../../Badge/index.ts";
-import { ErrorMessage } from "../../ErrorMessage/index.ts";
-import { HelperMessage } from "../../HelperMessage/index.ts";
 import { HopperProvider } from "../../HopperProvider/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Stack } from "../../layout/index.ts";
-import { Label } from "../../typography/Label/index.ts";
 import { Text } from "../../typography/Text/index.ts";
 import { Tag } from "../src/Tag.tsx";
 import { TagGroup } from "../src/TagGroup.tsx";
-import { TagList } from "../src/TagList.tsx";
 
 /**
  * The TagGroup is a dynamic UI component that encapsulates a collection of tags.
@@ -49,11 +45,9 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
     render: props => (
         <TagGroup {...props} aria-label="tag-group">
-            <TagList>
-                <Tag id="1">Tag 1</Tag>
-                <Tag id="2">Tag 2</Tag>
-                <Tag id="3">Tag 3</Tag>
-            </TagList>
+            <Tag id="1">Tag 1</Tag>
+            <Tag id="2">Tag 2</Tag>
+            <Tag id="3">Tag 3</Tag>
         </TagGroup>
     )
 } satisfies Story;
@@ -77,11 +71,9 @@ export const RemovableTags = {
 export const LoadingTags = {
     render: props => (
         <TagGroup {...props} aria-label="tag-group">
-            <TagList>
-                <Tag id="1" isLoading>Tag 1</Tag>
-                <Tag id="2">Tag 2</Tag>
-                <Tag id="3">Tag 3</Tag>
-            </TagList>
+            <Tag id="1" isLoading>Tag 1</Tag>
+            <Tag id="2">Tag 2</Tag>
+            <Tag id="3">Tag 3</Tag>
         </TagGroup>
     ),
     args: {
@@ -92,18 +84,15 @@ export const LoadingTags = {
 } satisfies Story;
 
 /**
- * A TagGroup can have a Label to provide more context to the user.
+ * A TagGroup can have a label to provide more context to the user.
  */
 export const LabelStory = {
     name: "Label",
     render: props => (
-        <TagGroup {...props}>
-            <TagList>
-                <Tag id="1">Tag 1</Tag>
-                <Tag id="2">Tag 2</Tag>
-                <Tag id="3">Tag 3</Tag>
-            </TagList>
-            <Label>List of Tags</Label>
+        <TagGroup {...props} label="List of Tags">
+            <Tag id="1">Tag 1</Tag>
+            <Tag id="2">Tag 2</Tag>
+            <Tag id="3">Tag 3</Tag>
         </TagGroup>
     )
 } satisfies Story;
@@ -115,25 +104,19 @@ export const Sizes = {
     render: props => (
         <Stack>
             <TagGroup {...props} aria-label="tag-group" size="sm">
-                <TagList>
-                    <Tag id="1">Tag 1</Tag>
-                    <Tag id="2">Tag 2</Tag>
-                    <Tag id="3">Tag 3</Tag>
-                </TagList>
+                <Tag id="1">Tag 1</Tag>
+                <Tag id="2">Tag 2</Tag>
+                <Tag id="3">Tag 3</Tag>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
-                <TagList>
-                    <Tag id="1">Tag 1</Tag>
-                    <Tag id="2">Tag 2</Tag>
-                    <Tag id="3">Tag 3</Tag>
-                </TagList>
+                <Tag id="1">Tag 1</Tag>
+                <Tag id="2">Tag 2</Tag>
+                <Tag id="3">Tag 3</Tag>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="lg">
-                <TagList>
-                    <Tag id="1">Tag 1</Tag>
-                    <Tag id="2">Tag 2</Tag>
-                    <Tag id="3">Tag 3</Tag>
-                </TagList>
+                <Tag id="1">Tag 1</Tag>
+                <Tag id="2">Tag 2</Tag>
+                <Tag id="3">Tag 3</Tag>
             </TagGroup>
         </Stack>
     ),
@@ -150,48 +133,21 @@ export const Sizes = {
 export const Variants = {
     render: props => (
         <TagGroup {...props} aria-label="tag-group" size="md">
-            <TagList>
-                <Tag variant="neutral">
-                    <Text>Neutral</Text>
-                </Tag>
-                <Tag variant="subdued">
-                    <Text>Subdued</Text>
-                </Tag>
-                <Tag variant="progress">
-                    <Text>Progress</Text>
-                </Tag>
-                <Tag variant="positive">
-                    <Text>Positive</Text>
-                </Tag>
-                <Tag variant="caution">
-                    <Text>Caution</Text>
-                </Tag>
-                <Tag variant="negative">
-                    <Text>Negative</Text>
-                </Tag>
-                <Tag variant="option1">
-                    <Text>Option 1</Text>
-                </Tag>
-                <Tag variant="option2">
-                    <Text>Option 2</Text>
-                </Tag>
-                <Tag variant="option3">
-                    <Text>Option 3</Text>
-                </Tag>
-                <Tag variant="option4">
-                    <Text>Option 4</Text>
-                </Tag>
-                <Tag variant="option5">
-                    <Text>Option 5</Text>
-                </Tag>
-                <Tag variant="option6">
-                    <Text>Option 6</Text>
-                </Tag>
-            </TagList>
+            <Tag variant="neutral"><Text>Neutral</Text></Tag>
+            <Tag variant="subdued"><Text>Subdued</Text></Tag>
+            <Tag variant="progress"><Text>Progress</Text></Tag>
+            <Tag variant="positive"><Text>Positive</Text></Tag>
+            <Tag variant="caution"><Text>Caution</Text></Tag>
+            <Tag variant="negative"><Text>Negative</Text></Tag>
+            <Tag variant="option1"><Text>Option 1</Text></Tag>
+            <Tag variant="option2"><Text>Option 2</Text></Tag>
+            <Tag variant="option3"><Text>Option 3</Text></Tag>
+            <Tag variant="option4"><Text>Option 4</Text></Tag>
+            <Tag variant="option5"><Text>Option 5</Text></Tag>
+            <Tag variant="option6"><Text>Option 6</Text></Tag>
         </TagGroup>
     )
 } satisfies Story;
-
 
 /**
  * Tags can have icons.
@@ -200,52 +156,46 @@ export const Icons = {
     render: props => (
         <Stack>
             <TagGroup {...props} aria-label="tag-group" size="sm">
-                <TagList>
-                    <Tag id="1" textValue="Developer">
+                <Tag id="1" textValue="Developer">
+                    <SparklesIcon />
+                    <Text>Developer</Text>
+                </Tag>
+                <Tag id="2" textValue="Designer">
+                    <Text>Designer</Text>
+                    <IconList>
                         <SparklesIcon />
-                        <Text>Developer</Text>
-                    </Tag>
-                    <Tag id="2" textValue="Designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon />
-                            <SparklesIcon />
-                            <SparklesIcon />
-                        </IconList>
-                    </Tag>
-                </TagList>
+                        <SparklesIcon />
+                        <SparklesIcon />
+                    </IconList>
+                </Tag>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
-                <TagList>
-                    <Tag id="1" textValue="Developer">
+                <Tag id="1" textValue="Developer">
+                    <SparklesIcon />
+                    <Text>Developer</Text>
+                </Tag>
+                <Tag id="2" textValue="Designer">
+                    <Text>Designer</Text>
+                    <IconList>
                         <SparklesIcon />
-                        <Text>Developer</Text>
-                    </Tag>
-                    <Tag id="2" textValue="Designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon />
-                            <SparklesIcon />
-                            <SparklesIcon />
-                        </IconList>
-                    </Tag>
-                </TagList>
+                        <SparklesIcon />
+                        <SparklesIcon />
+                    </IconList>
+                </Tag>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="lg">
-                <TagList>
-                    <Tag id="1" textValue="Developer">
+                <Tag id="1" textValue="Developer">
+                    <SparklesIcon />
+                    <Text>Developer</Text>
+                </Tag>
+                <Tag id="2" textValue="Designer">
+                    <Text>Designer</Text>
+                    <IconList>
                         <SparklesIcon />
-                        <Text>Developer</Text>
-                    </Tag>
-                    <Tag id="2" textValue="Designer">
-                        <Text>Designer</Text>
-                        <IconList>
-                            <SparklesIcon />
-                            <SparklesIcon />
-                            <SparklesIcon />
-                        </IconList>
-                    </Tag>
-                </TagList>
+                        <SparklesIcon />
+                        <SparklesIcon />
+                    </IconList>
+                </Tag>
             </TagGroup>
         </Stack>
     ),
@@ -256,7 +206,6 @@ export const Icons = {
     }
 } satisfies Story;
 
-
 /**
  * Tags can also have a count using the `Badge` component.
  */
@@ -264,40 +213,34 @@ export const Count = {
     render: props => (
         <Stack>
             <TagGroup {...props} aria-label="tag-group" size="sm">
-                <TagList>
-                    <Tag id="1" textValue="Designer">
-                        <Text>Designer</Text>
-                        <Badge>12</Badge>
-                    </Tag>
-                    <Tag id="2" textValue="Developer">
-                        <Text>Developer</Text>
-                        <Badge variant="subdued">100</Badge>
-                    </Tag>
-                </TagList>
+                <Tag id="1" textValue="Designer">
+                    <Text>Designer</Text>
+                    <Badge>12</Badge>
+                </Tag>
+                <Tag id="2" textValue="Developer">
+                    <Text>Developer</Text>
+                    <Badge variant="subdued">100</Badge>
+                </Tag>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="md">
-                <TagList>
-                    <Tag id="1" textValue="Designer">
-                        <Text>Designer</Text>
-                        <Badge>12</Badge>
-                    </Tag>
-                    <Tag id="2" textValue="Developer">
-                        <Text>Developer</Text>
-                        <Badge variant="subdued">100</Badge>
-                    </Tag>
-                </TagList>
+                <Tag id="1" textValue="Designer">
+                    <Text>Designer</Text>
+                    <Badge>12</Badge>
+                </Tag>
+                <Tag id="2" textValue="Developer">
+                    <Text>Developer</Text>
+                    <Badge variant="subdued">100</Badge>
+                </Tag>
             </TagGroup>
             <TagGroup {...props} aria-label="tag-group" size="lg">
-                <TagList>
-                    <Tag id="1" textValue="Designer">
-                        <Badge>12</Badge>
-                        <Text>Designer</Text>
-                    </Tag>
-                    <Tag id="2" textValue="Developer">
-                        <Text>Developer</Text>
-                        <Badge variant="subdued">100</Badge>
-                    </Tag>
-                </TagList>
+                <Tag id="1" textValue="Designer">
+                    <Badge>12</Badge>
+                    <Text>Designer</Text>
+                </Tag>
+                <Tag id="2" textValue="Developer">
+                    <Text>Developer</Text>
+                    <Badge variant="subdued">100</Badge>
+                </Tag>
             </TagGroup>
         </Stack>
     )
@@ -308,14 +251,10 @@ export const Count = {
  */
 export const Description = {
     render: props => (
-        <TagGroup {...props}>
-            <Label>Planets</Label>
-            <TagList>
-                <Tag id="1" textValue="Earth"><SparklesIcon /><Text>Earth</Text></Tag>
-                <Tag id="2" textValue="Mars"><SparklesIcon /><Text>Mars</Text></Tag>
-                <Tag id="3" textValue="Jupiter"><SparklesIcon /><Text>Jupiter</Text></Tag>
-            </TagList>
-            <HelperMessage>The planets in this list are in no particular order.</HelperMessage>
+        <TagGroup {...props} label="Planets" description="The planets in this list are in no particular order.">
+            <Tag id="1" textValue="Earth"><SparklesIcon /><Text>Earth</Text></Tag>
+            <Tag id="2" textValue="Mars"><SparklesIcon /><Text>Mars</Text></Tag>
+            <Tag id="3" textValue="Jupiter"><SparklesIcon /><Text>Jupiter</Text></Tag>
         </TagGroup>
     ),
     args: {
@@ -327,8 +266,6 @@ export const Description = {
 
 /**
  * Tags can be selected using the `selectionMode` prop.
- * Use `defaultSelectedKeys` for initial selected items (uncontrolled) and `selectedKeys` to manage selected items (controlled).
- * The selected keys should match the item's id prop.
  */
 export const SelectableTags = {
     ...Description,
@@ -340,7 +277,7 @@ export const SelectableTags = {
 } satisfies Story;
 
 /**
- * Tags can be disabled using the `disabledKeys` prop or the `isDisabled` prop on the Tag component.
+ * Tags can be disabled using the `disabledKeys` prop.
  */
 export const DisabledTags = {
     ...Description,
@@ -351,8 +288,7 @@ export const DisabledTags = {
 } satisfies Story;
 
 /**
- * If a TagGroup is invalid, it will display an error message. Displaying this error message will hide the helper message.
- * A individual Tag can also be set as invalid using the `isInvalid` prop.
+ * If a TagGroup is invalid, it will display an error message.
  */
 export const Validation = {
     args: {
@@ -371,23 +307,15 @@ export const Validation = {
 
         return (
             <Stack>
-                <TagGroup {...args} onSelectionChange={onChange} isInvalid={isInvalid}>
-                    <HelperMessage>Unselect all to show the error message</HelperMessage>
-                    <ErrorMessage>Select a tag and the description will appear</ErrorMessage>
-                    <TagList>
-                        <Tag id="1">Tag 1</Tag>
-                        <Tag id="2">Tag 2</Tag>
-                        <Tag id="3">Tag 3</Tag>
-                    </TagList>
-                    <Label>List of Tags</Label>
+                <TagGroup {...args} onSelectionChange={onChange} isInvalid={isInvalid} errorMessage="Select a tag and the description will appear" description="Unselect all to show the error message">
+                    <Tag id="1">Tag 1</Tag>
+                    <Tag id="2">Tag 2</Tag>
+                    <Tag id="3">Tag 3</Tag>
                 </TagGroup>
-                <TagGroup onSelectionChange={onChange}>
-                    <Label>List of Tags with only one invalid</Label>
-                    <TagList>
-                        <Tag id="1">Tag 1</Tag>
-                        <Tag id="2" isInvalid>Tag 2</Tag>
-                        <Tag id="3">Tag 3</Tag>
-                    </TagList>
+                <TagGroup onSelectionChange={onChange} label="List of Tags with only one invalid">
+                    <Tag id="1">Tag 1</Tag>
+                    <Tag id="2" isInvalid>Tag 2</Tag>
+                    <Tag id="3">Tag 3</Tag>
                 </TagGroup>
             </Stack>
         );
@@ -400,32 +328,26 @@ export const Validation = {
 export const EmptyState = {
     render: props => (
         <TagGroup {...props} aria-label="tag-group">
-            <TagList
-                renderEmptyState={() => "No tags available"}
-            >
-                {[]}
-            </TagList>
+            No tags available
         </TagGroup>
     )
 } satisfies Story;
 
 /**
- * Tags can be links by using the `href` prop on the Tag component. Tags with an `href` are not selectable.
+ * Tags can be links by using the `href` prop on the Tag component.
  */
 export const Links = {
     render: props => (
         <TagGroup {...props} aria-label="tag-group">
-            <TagList>
-                <Tag id="1" href="https://www.google.com">Google</Tag>
-                <Tag id="2" href="https://www.bing.com">Bing</Tag>
-                <Tag id="3" href="https://www.yahoo.com">Yahoo</Tag>
-            </TagList>
+            <Tag id="1" href="https://www.google.com">Google</Tag>
+            <Tag id="2" href="https://www.bing.com">Bing</Tag>
+            <Tag id="3" href="https://www.yahoo.com">Yahoo</Tag>
         </TagGroup>
     )
 } satisfies Story;
 
 /**
- * A Tag can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider
+ * A Tag can be rendered as a react router link when using the href property, and setting the navigate property on the HopperProvider.
  */
 export const ReactRouterLink: Story = {
     render: props => {
@@ -435,30 +357,32 @@ export const ReactRouterLink: Story = {
         return (
             <HopperProvider colorScheme="light" navigate={navigate}>
                 <TagGroup {...props} aria-label="tag-group">
-                    <TagList>
-                        <Tag id="1" href="/123">Page 1</Tag>
-                        <Tag id="2" href="/456">Page 2</Tag>
-                        <Tag id="3" href="/789">Page 3</Tag>
-                    </TagList>
+                    <Tag id="1" href="/123">Page 1</Tag>
+                    <Tag id="2" href="/456">Page 2</Tag>
+                    <Tag id="3" href="/789">Page 3</Tag>
                 </TagGroup>
             </HopperProvider>
         );
     },
     decorators: [
         Story => {
-            const router = createMemoryRouter([{
-                path: "/123",
-                element: <Stack><Story /><Div>Navigated Successfully to page 1!</Div></Stack>
-            }, {
-                path: "/456",
-                element: <Stack><Story /><Div>Navigated Successfully to page 2!</Div></Stack>
-            }, {
-                path: "/789",
-                element: <Stack><Story /><Div>Navigated Successfully to page 3!</Div></Stack>
-            }, {
-                path: "*",
-                element: <Story />
-            }
+            const router = createMemoryRouter([
+                {
+                    path: "/123",
+                    element: <Stack><Story /><Div>Navigated Successfully to page 1!</Div></Stack>
+                },
+                {
+                    path: "/456",
+                    element: <Stack><Story /><Div>Navigated Successfully to page 2!</Div></Stack>
+                },
+                {
+                    path: "/789",
+                    element: <Stack><Story /><Div>Navigated Successfully to page 3!</Div></Stack>
+                },
+                {
+                    path: "*",
+                    element: <Story />
+                }
             ]);
 
             return (
@@ -467,5 +391,4 @@ export const ReactRouterLink: Story = {
         }
     ]
 };
-
 

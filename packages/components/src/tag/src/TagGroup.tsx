@@ -5,42 +5,47 @@ import {
     useStyledSystem
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, type NamedExoticComponent } from "react";
 import {
+    composeRenderProps,
     FieldErrorContext as RACFieldErrorContext,
     TagGroup as RACTagGroup,
     type TagGroupProps as RACTagGroupProps,
+    type TagListProps as RACTagListProps,
+    TagList,
     useContextProps
 } from "react-aria-components";
 
-import { ErrorMessageContext } from "../../ErrorMessage/index.ts";
-import { HelperMessageContext } from "../../HelperMessage/index.ts";
-import { LabelContext } from "../../typography/Label/index.ts";
-import { type NecessityIndicator, SlotProvider, cssModule } from "../../utils/index.ts";
+import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Label } from "../../typography/Label/index.ts";
+import { composeClassnameRenderProps, cssModule, type FieldProps, SlotProvider } from "../../utils/index.ts";
 
 import type { TagSize, TagVariant } from "./Tag.tsx";
 import { TagContext } from "./TagContext.ts";
 import { TagGroupContext } from "./TagGroupContext.ts";
-import { TagListContext } from "./TagListContext.ts";
 
 import styles from "./TagGroup.module.css";
 
 export const GlobalTagGroupCssSelector = "hop-TagGroup";
 
-export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
+type ListProps = "items" | "children" | "renderEmptyState";
+export type TagListProps<T> = StyledComponentProps<Omit<RACTagListProps<T>, ListProps>>;
+
+export interface TagGroupProps<T> extends StyledComponentProps<Omit<RACTagGroupProps, "children">>, Pick<RACTagListProps<T>, ListProps>, Omit<FieldProps, "size"> {
     /**
      * Whether the tags are invalid or not.
      */
     isInvalid?: boolean;
     /**
-     * Whether the required state should be shown as an asterisk or a label, which would display (Optional) on all non required field labels.
-     */
-    necessityIndicator?: NecessityIndicator;
-    /**
      * A tag can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<TagSize>;
+    /**
+     * The tag list props
+     */
+    tagListProps?: TagListProps<T>;
     /**
      * The visual style of the TagGroup.
      * @default "neutral"
@@ -48,21 +53,34 @@ export interface TagGroupProps extends StyledComponentProps<RACTagGroupProps> {
     variant?: TagVariant;
 }
 
-function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
+function TagGroup<T extends object>(props: TagGroupProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, TagGroupContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
         children,
+        description,
+        errorMessage,
         isInvalid = false,
+        items,
+        label,
         necessityIndicator,
+        renderEmptyState,
         style: styleProp,
         size: sizeProp,
+        tagListProps,
         variant,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
+    
+    const { stylingProps: tagListStylingProps, ...tagListOwnProps } = useStyledSystem(tagListProps ?? {});
+    const {
+        className: tagListClassName,
+        style: tagListStyleProp,
+        ...otherTagListProps
+    } = tagListOwnProps;
 
     const classNames = clsx(
         className,
@@ -75,34 +93,37 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         )
     );
 
+    const tagListClassNames = composeClassnameRenderProps(
+        tagListClassName,
+        cssModule(
+            styles,
+            "hop-TagGroup__list",
+            size
+        ),
+        tagListStylingProps.className
+    );
+
     const style: CSSProperties = {
         ...stylingProps.style,
         ...styleProp
     };
 
+    const tagListStyle = composeRenderProps(tagListStyleProp, prev => {
+        return {
+            ...tagListStylingProps.style,
+            ...prev
+        };
+    });
+
+
     return (
         <SlotProvider
             values={[
-                [LabelContext, {
-                    className: styles["hop-TagGroup__label"],
-                    necessityIndicator
-                }],
-                [TagListContext, {
-                    className: styles["hop-TagGroup__list"]
-                }],
                 [TagContext, {
                     className: styles["hop-TagGroup__tag"],
                     isInvalid,
                     size: size,
                     variant: variant
-                }],
-                [ErrorMessageContext, {
-                    className: styles["hop-TagGroup__error-message"],
-                    hideIcon: true
-                }],
-                [HelperMessageContext, {
-                    className: styles["hop-TagGroup__helper-message"],
-                    hideIcon: true
                 }],
                 [RACFieldErrorContext, {
                     isInvalid: isInvalid,
@@ -117,7 +138,18 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
                 style={style}
                 {...otherProps}
             >
-                {children}
+                {label && <Label className={styles["hop-TagGroup__Label"]} necessityIndicator={necessityIndicator}>{label}</Label>}
+                <TagList
+                    items={items}
+                    renderEmptyState={renderEmptyState}
+                    className={tagListClassNames}
+                    style={tagListStyle}
+                    {...otherTagListProps}
+                >
+                    {children}
+                </TagList>
+                {description && <HelperMessage className={styles["hop-TagGroup__error-message"]} hideIcon>{description}</HelperMessage>}
+                <ErrorMessage className={styles["hop-TagGroup__helper-message"]} hideIcon>{errorMessage}</ErrorMessage>
             </RACTagGroup>
         </SlotProvider>
     );
@@ -128,7 +160,9 @@ function TagGroup(props: TagGroupProps, ref: ForwardedRef<HTMLDivElement>) {
  *
  * [View Documentation](TODO)
  */
-const _TagGroup = forwardRef<HTMLDivElement, TagGroupProps>(TagGroup);
-_TagGroup.displayName = "TagGroup";
+const _TagGroup = forwardRef(TagGroup) as <T>(
+    props: TagGroupProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof TagGroup>;
+(_TagGroup as NamedExoticComponent).displayName = "TagGroup";
 
 export { _TagGroup as TagGroup };

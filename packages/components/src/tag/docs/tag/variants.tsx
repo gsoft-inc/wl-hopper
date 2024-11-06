@@ -1,47 +1,45 @@
-import { TagGroup, Tag, TagList, Div } from "@hopper-ui/components";
+import { Div, Tag, TagGroup } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Div margin="stack-lg" width="80%">
             <TagGroup aria-label="Jobs">
-                <TagList>
-                    <Tag variant="neutral">
+                <Tag variant="neutral">
                         Neutral
-                    </Tag>
-                    <Tag variant="subdued">
+                </Tag>
+                <Tag variant="subdued">
                         Subdued
-                    </Tag>
-                    <Tag variant="progress">
+                </Tag>
+                <Tag variant="progress">
                         Progress
-                    </Tag>
-                    <Tag variant="positive">
+                </Tag>
+                <Tag variant="positive">
                         Positive
-                    </Tag>
-                    <Tag variant="caution">
+                </Tag>
+                <Tag variant="caution">
                         Caution
-                    </Tag>
-                    <Tag variant="negative">
+                </Tag>
+                <Tag variant="negative">
                         Negative
-                    </Tag>
-                    <Tag variant="option1">
+                </Tag>
+                <Tag variant="option1">
                         Option 1
-                    </Tag>
-                    <Tag variant="option2">
+                </Tag>
+                <Tag variant="option2">
                         Option 2
-                    </Tag>
-                    <Tag variant="option3">
+                </Tag>
+                <Tag variant="option3">
                         Option 3
-                    </Tag>
-                    <Tag variant="option4">
+                </Tag>
+                <Tag variant="option4">
                         Option 4
-                    </Tag>
-                    <Tag variant="option5">
+                </Tag>
+                <Tag variant="option5">
                         Option 5
-                    </Tag>
-                    <Tag variant="option6">
+                </Tag>
+                <Tag variant="option6">
                         Option 6
-                    </Tag>
-                </TagList>
+                </Tag>
             </TagGroup>
         </Div>
     );

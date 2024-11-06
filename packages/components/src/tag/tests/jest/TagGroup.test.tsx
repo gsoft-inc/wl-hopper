@@ -1,18 +1,22 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { Tag, TagGroupContext, TagList, TagGroup } from "../../src/index.ts";
+import { Tag, TagGroup, TagGroupContext, type TagListProps } from "../../src/index.ts";
+
+type ExtendedTagListProps<T extends object> = TagListProps<T> & {
+    "data-testid"?: string;
+};
 
 describe("Tag", () => {
     it("should render with default class", () => {
-        render(<TagGroup aria-label="options" data-testid="tag-group"><TagList><Tag id="option1">option 1</Tag></TagList></TagGroup>);
+        render(<TagGroup aria-label="options" data-testid="tag-group"><Tag id="option1">option 1</Tag></TagGroup>);
 
         const element = screen.getByTestId("tag-group");
         expect(element).toHaveClass("hop-TagGroup");
     });
 
     it("should support custom class", () => {
-        render(<TagGroup aria-label="options" data-testid="tag-group" className="test"><TagList><Tag id="option1">option 1</Tag></TagList></TagGroup>);
+        render(<TagGroup aria-label="options" data-testid="tag-group" className="test"><Tag id="option1">option 1</Tag></TagGroup>);
 
         const element = screen.getByTestId("tag-group");
         expect(element).toHaveClass("hop-TagGroup");
@@ -20,14 +24,14 @@ describe("Tag", () => {
     });
 
     it("should support custom style", () => {
-        render(<TagGroup aria-label="options" data-testid="tag-group" marginTop="stack-sm" style={{ marginBottom: "13px" }}><TagList><Tag id="option1">option 1</Tag></TagList></TagGroup>);
+        render(<TagGroup aria-label="options" data-testid="tag-group" marginTop="stack-sm" style={{ marginBottom: "13px" }}><Tag id="option1">option 1</Tag></TagGroup>);
 
         const element = screen.getByTestId("tag-group");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<TagGroup aria-label="options" data-testid="tag-group" data-foo="bar"><TagList><Tag id="option1">option 1</Tag></TagList></TagGroup>);
+        render(<TagGroup aria-label="options" data-testid="tag-group" data-foo="bar"><Tag id="option1">option 1</Tag></TagGroup>);
 
         const element = screen.getByTestId("tag-group");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -36,7 +40,14 @@ describe("Tag", () => {
     it("should support slots", () => {
         render(
             <TagGroupContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <TagGroup slot="test" data-testid="tag-group"><TagList data-testid="tag-list"><Tag id="option1">option 1</Tag></TagList></TagGroup>
+                <TagGroup slot="test"
+                    data-testid="tag-group" 
+                    tagListProps={
+                        { "data-testid": "tag-list" } as ExtendedTagListProps<object>
+                    }
+                >
+                    <Tag id="option1">option 1</Tag>
+                </TagGroup>
             </TagGroupContext.Provider>
         );
 
@@ -49,23 +60,29 @@ describe("Tag", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<TagGroup aria-label="options" data-testid="tag-group" ref={ref}><TagList><Tag id="option1">option 1</Tag></TagList></TagGroup>);
+        render(<TagGroup 
+            aria-label="options" 
+            data-testid="tag-group"
+            ref={ref}
+        >
+            <Tag id="option1">option 1</Tag>
+        </TagGroup>);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();
     });
 
-    it("should set the size class name and pass the size to the radio and radio field.", () => {
-        const testId = "radio-field";
-        render(<TagGroup aria-label="options" data-testid="tag-group" size="lg">
-            <TagList>
+    it("should set the size class name and pass the size to the tag.", () => {
+        const testId = "tag-option";
+        render(
+            <TagGroup aria-label="options" data-testid="tag-group" size="lg">
                 <Tag id="option1" data-testid={testId}>option 1</Tag>
-            </TagList>
-        </TagGroup>);
+            </TagGroup>
+        );
 
         const element = screen.getByTestId("tag-group");
-        const radio = screen.getByTestId(testId);
+        const tag = screen.getByTestId(testId);
         expect(element).toHaveClass("hop-TagGroup--lg");
-        expect(radio).toHaveClass("hop-Tag--lg");
+        expect(tag).toHaveClass("hop-Tag--lg");
     });
 });
