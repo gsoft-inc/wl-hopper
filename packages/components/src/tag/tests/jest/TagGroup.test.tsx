@@ -1,11 +1,7 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
-import { Tag, TagGroup, TagGroupContext, type TagListProps } from "../../src/index.ts";
-
-type ExtendedTagListProps<T extends object> = TagListProps<T> & {
-    "data-testid"?: string;
-};
+import { Tag, TagGroup, TagGroupContext } from "../../src/index.ts";
 
 describe("Tag", () => {
     it("should render with default class", () => {
@@ -41,10 +37,7 @@ describe("Tag", () => {
         render(
             <TagGroupContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
                 <TagGroup slot="test"
-                    data-testid="tag-group" 
-                    tagListProps={
-                        { "data-testid": "tag-list" } as ExtendedTagListProps<object>
-                    }
+                    data-testid="tag-group"
                 >
                     <Tag id="option1">option 1</Tag>
                 </TagGroup>
@@ -52,7 +45,7 @@ describe("Tag", () => {
         );
 
         const element = screen.getByTestId("tag-group");
-        const tagList = screen.getByTestId("tag-list");
+        const tagList = screen.getByRole("grid");
         
         expect(element).toHaveAttribute("slot", "test");
         expect(tagList).toHaveAttribute("aria-label", "test");
