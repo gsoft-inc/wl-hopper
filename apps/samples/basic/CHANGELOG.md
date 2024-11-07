@@ -1,5 +1,12 @@
 # basic
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [b234672]
+  - @hopper-ui/components@1.3.33
+
 ## 0.0.2
 
 ### Patch Changes
