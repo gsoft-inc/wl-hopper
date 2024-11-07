@@ -6,4 +6,4 @@ Coming from Orbiter, you should be aware of the following changes:
 - `size` has been removed.
 - `slot` has been removed.
 - `fluid` prop has been removed. If you need a fluid Card use an appropriate CSS or StyleProps equivalent.
-- The Hopper Card component does not feature custom layouts, you are responsible of implementing the needed layouts.
+- The Hopper Card component does not feature custom layouts, you are responsible for implementing the needed layouts.
