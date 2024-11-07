@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Text } from "../../../typography/Text/index.ts";
 import { Switch } from "../../src/Switch.tsx";
 import { SwitchField } from "../../src/SwitchField.tsx";
 
@@ -17,17 +16,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: props => (
         <Inline alignY="end">
-            <SwitchField {...props} size="sm">
+            <SwitchField {...props} size="sm" description="Description">
                 <Switch>
-                    <Text>Option 1</Text>
+                    Option 1
                 </Switch>
-                <Text slot="description">Description</Text>
             </SwitchField>
-            <SwitchField {...props} size="md">
+            <SwitchField {...props} size="md" description="Description">
                 <Switch>
-                    <Text>Option 1</Text>
+                    Option 1
                 </Switch>
-                <Text slot="description">Description</Text>
             </SwitchField>
         </Inline>
     )
@@ -36,17 +33,15 @@ export const Default: Story = {
 export const Disabled: Story = {
     render: props => (
         <Inline alignY="end">
-            <SwitchField {...props} size="sm" isDisabled>
+            <SwitchField {...props} size="sm" isDisabled description="Description">
                 <Switch>
-                    <Text>Option 1</Text>
+                    Option 1
                 </Switch>
-                <Text slot="description">Description</Text>
             </SwitchField>
-            <SwitchField {...props} size="md" isDisabled>
+            <SwitchField {...props} size="md" isDisabled description="Description">
                 <Switch>
-                    <Text>Option 1</Text>
+                    Option 1
                 </Switch>
-                <Text slot="description">Description</Text>
             </SwitchField>
         </Inline>
     )
@@ -56,31 +51,27 @@ export const Zoom: Story = {
     render: props => (
         <Stack>
             <Inline alignY="end">
-                <SwitchField {...props} size="sm" className="zoom-in">
+                <SwitchField {...props} size="sm" className="zoom-in" description="Description">
                     <Switch>
-                        <Text>Option 1</Text>
+                        Option 1
                     </Switch>
-                    <Text slot="description">Description</Text>
                 </SwitchField>
-                <SwitchField {...props} size="md" className="zoom-in">
+                <SwitchField {...props} size="md" className="zoom-in" description="Description">
                     <Switch>
-                        <Text>Option 1</Text>
+                        Option 1
                     </Switch>
-                    <Text slot="description">Description</Text>
                 </SwitchField>
             </Inline>
             <Inline alignY="end">
-                <SwitchField {...props} size="sm" className="zoom-out">
+                <SwitchField {...props} size="sm" className="zoom-out" description="Description">
                     <Switch>
-                        <Text>Option 1</Text>
+                        Option 1
                     </Switch>
-                    <Text slot="description">Description</Text>
                 </SwitchField>
-                <SwitchField {...props} size="md" className="zoom-out">
+                <SwitchField {...props} size="md" className="zoom-out" description="Description">
                     <Switch>
-                        <Text>Option 1</Text>
+                        Option 1
                     </Switch>
-                    <Text slot="description">Description</Text>
                 </SwitchField>
             </Inline>
         </Stack>
@@ -90,14 +81,11 @@ export const Zoom: Story = {
 export const AccessToDisabledState: Story = {
     render: props => (
         <Inline alignY="end">
-            <SwitchField {...props} size="sm" isDisabled>
+            <SwitchField {...props} size="sm" isDisabled description="Value should be true">
                 {({ isDisabled }) => (
-                    <>
-                        <Switch>
-                            <Text>Should be true</Text>
-                        </Switch>
-                        <Text slot="description">Is disabled: {String(isDisabled)}</Text>
-                    </>
+                    <Switch>
+                            Is disabled: {String(isDisabled)}
+                    </Switch>
                 )}
             </SwitchField>
             <SwitchField
@@ -105,11 +93,11 @@ export const AccessToDisabledState: Story = {
                 size="sm"
                 isDisabled
                 style={({ isDisabled }) => isDisabled ? { border: "1px solid red" } : {}}
+                description="Border should be red"
             >
                 <Switch>
-                    <Text>Disable and red border</Text>
+                    Disable and red border
                 </Switch>
-                <Text slot="description">Border should be red</Text>
             </SwitchField>
         </Inline>
     )

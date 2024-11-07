@@ -4,11 +4,12 @@ import {
     type ResponsiveProp,
     type StyledSystemProps
 } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { mergeProps, useId } from "react-aria";
+import { useSlotId } from "@react-aria/utils";
+import { forwardRef, type ForwardedRef, type ReactNode } from "react";
+import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
-import { TextContext, type TextSize } from "../../typography/Text/index.ts";
+import { Text, type TextSize } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type FieldSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
 
 import { SwitchContext } from "./SwitchContext.ts";
@@ -32,14 +33,18 @@ interface SwitchFieldRenderProps {
 
 export interface SwitchFieldProps extends RenderProps<SwitchFieldRenderProps>, StyledSystemProps, AccessibleSlotProps {
     /**
-     * A switch field can vary in size.
-     * @default "md"
+     * The description of the switch field.
      */
-    size?: ResponsiveProp<FieldSize>;
+    description?: ReactNode;
     /**
      * Whether the switch field is disabled.
      */
     isDisabled?: boolean;
+    /**
+     * A switch field can vary in size.
+     * @default "md"
+     */
+    size?: ResponsiveProp<FieldSize>;
 }
 
 function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>) {
@@ -49,16 +54,17 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
 
     const {
         className,
-        style,
+        description,
         isDisabled,
         size: sizeProp = "md",
         slot,
+        style,
         ...otherProps
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
 
-    const descriptionId = useId();
+    const descriptionId = useSlotId([Boolean(description)]);
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -90,11 +96,6 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
     return (
         <SlotProvider
             values={[
-                [TextContext, {
-                    id: descriptionId,
-                    className: styles["hop-SwitchField__description"],
-                    size: SwitchToDescriptionSizeAdapter[size]
-                }],
                 [SwitchContext, {
                     className: styles["hop-SwitchField__switch"],
                     size: size,
@@ -110,6 +111,16 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 {...mergeProps(renderProps, otherProps)}
             >
                 {renderProps.children}
+                {description && (
+                    <Text
+                        id={descriptionId}
+                        className={styles["hop-SwitchField__description"]}
+                        size={SwitchToDescriptionSizeAdapter[size]}
+                        slot="description"
+                    >
+                        {description}
+                    </Text>
+                )}
             </div>
         </SlotProvider>
     );

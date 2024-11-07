@@ -9,7 +9,7 @@
     line-height: var(--hd-nav-line-height);
 }
 
-@media screen and (width >= 48rem) {
+@media screen and (width >= 52.25rem) {
     .hd-nav {
         display: block;
     }
@@ -53,4 +53,13 @@
 
 .hd-nav__link--disabled:hover {
     background-color: transparent;
+}
+
+/* Tag */
+.hd-nav__link-tag {
+    border-radius: var(--hd-border-radius-sm);
+    background-color: var(--hd-color-accent-surface-strong);
+    color: var(--hd-white);
+    font-size: 0.75rem;
+    padding: var(--hd-space-05);
 }

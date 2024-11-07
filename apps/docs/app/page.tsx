@@ -1,7 +1,7 @@
 "use client";
 
-import { useContext } from "react";
 import Image from "next/image";
+import { useContext } from "react";
 
 import { Button as HopperButton, HopperProvider } from "@hopper-ui/components";
 import {
@@ -34,24 +34,24 @@ import {
 } from "@hopper-ui/icons";
 import "@hopper-ui/tokens/fonts.css";
 
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import Button from "@/components/button/Button";
 import {
-    ExternalLinkIcon,
-    Icon,
     AccessibleIcon,
     ArrowIcon,
     DarkModeIcon,
+    ExternalLinkIcon,
     FontSizeIcon,
+    Icon,
     InternationalIcon,
     LineHeightIcon,
     MarginIcon,
     SelectArrowIcon,
     TypescriptIcon
 } from "@/components/icon";
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 
-import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
 import "./home.css";
 
@@ -286,9 +286,7 @@ export default function Home() {
                 </div>
                 <a href="/components/component-list" className="hd-home-sample__item hd-home-sample__item-components">
                     <div className="hd-home-sample__title-wrap">
-                        <h3 className="hd-home-sample__title">Components <ArrowIcon
-                            className="hd-home-sample__title-icon"
-                        /></h3>
+                        <h3 className="hd-home-sample__title">Components <span className="hd-home-sample__title-tag">Preview</span> <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                     </div>
                     <p className="hd-home-sample__tagline">An accessible suite of components powered by
                         react-aria.</p>

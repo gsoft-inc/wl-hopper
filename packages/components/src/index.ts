@@ -1,6 +1,7 @@
 export * from "./Avatar/index.ts";
 export * from "./Badge/index.ts";
 export * from "./buttons/index.ts";
+export * from "./Card/index.ts";
 export * from "./checkbox/index.ts";
 export * from "./ComboBox/index.ts";
 export * from "./Divider/index.ts";
