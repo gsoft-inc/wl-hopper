@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.33
+
+### Patch Changes
+
+- b234672: Updated TagGroup's API. Removed TagList since it's now used internally. Added label, description and errorMessage props instead of being used as slots.
+
 ## 1.3.32
 
 ### Patch Changes
