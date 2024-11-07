@@ -19,7 +19,7 @@
 
 .hd-heading__banner {
     background-color: var(--hd-color-neutral-surface-weak);
-    border: 2px solid;
+    border: 0.125rem solid var(--hd-color-neutral-border-strong);
     border-radius: var(--hd-border-radius-sm);
     margin-block-end: var(--hd-space-4);
     padding: var(--hd-space-2);
