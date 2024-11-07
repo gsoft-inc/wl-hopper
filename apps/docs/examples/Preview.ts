@@ -290,6 +290,9 @@ export const Previews: Record<string, Preview> = {
     "Card/docs/variant": {
         component: lazy(() => import("@/../../packages/components/src/Card/docs/variant.tsx"))
     },
+    "Card/docs/sections": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/sections.tsx"))
+    },
     "Card/docs/migration/default": {
         component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/default.tsx"))
     },

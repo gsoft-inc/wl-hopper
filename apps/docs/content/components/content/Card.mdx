@@ -18,8 +18,27 @@ links:
     TODO: If we have some guidelines about this component and accessibility
 </FeatureFlag>
 
+## Anatomy
+
+#### Header
+
+The Header component represents a `header` within a Hopper container.
+
+#### Content
+
+The Header component represents a `content` within a Hopper container.
+
+#### Footer
+
+The Header component represents a `footer` within a Hopper container.
+
+### Composed Components
+
+A `Card` uses the following components.
+
+<ComposedComponents components={["Header", "Content", "Footer"]}/>
+
 <FeatureFlag flag="rc">
-    ## Anatomy
 
     TODO: We have anatomy screenshots from the Figma, we could most likely use them here
 
@@ -35,6 +54,12 @@ links:
 A card can use different variants. Second-level cards need to be used within a first-level card.
 
 <Example src="Card/docs/variant" />
+
+### Sections
+
+A card can use a header, content, and footer section.
+
+<Example src="Card/docs/sections" />
 
 <FeatureFlag flag="next">
     ## Advanced customization
@@ -61,7 +86,7 @@ A card can use different variants. Second-level cards need to be used within a f
 
 ### Layout Samples
 
-In order to ease the migration process, we provide some layout samples that can be used as a reference.
+To facilitate the migration process, we've provided layout samples as reference guides. These examples demonstrate how to recreate features previously supported in [Orbiter](https://wl-orbiter-website.netlify.app/?path=/docs/card--default-story).
 
 #### Default
 
