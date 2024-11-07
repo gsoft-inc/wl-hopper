@@ -92,6 +92,7 @@
     --hd-color-accent-text: var(--hd-accent-700);
     --hd-color-accent-border: var(--hd-accent-700);
     --hd-color-accent-surface: var(--hd-accent-100);
+    --hd-color-accent-surface-strong: var(--hd-accent-700);
     --hd-color-information-surface: #D9EFFF;
     --hd-color-information-icon: #2E70A8;
     --hd-color-message-surface: var(--hd-accent-100);
@@ -141,6 +142,7 @@
     --hd-color-accent-text: var(--hd-accent-300);
     --hd-color-accent-border: var(--hd-accent-400);
     --hd-color-accent-surface: var(--hd-accent-900);
+    --hd-color-accent-surface-strong: var(--hd-accent-400);
     --hd-color-information-surface: #D9EFFF;
     --hd-color-information-icon: #2E70A8;
     --hd-color-message-surface: var(--hd-accent-100);

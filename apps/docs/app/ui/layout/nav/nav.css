@@ -54,3 +54,12 @@
 .hd-nav__link--disabled:hover {
     background-color: transparent;
 }
+
+/* Tag */
+.hd-nav__link-tag {
+    border-radius: var(--hd-border-radius-sm);
+    background-color: var(--hd-color-accent-surface-strong);
+    color: var(--hd-white);
+    padding-block: var(--hd-space-05);
+    padding-inline: var(--hd-space-1);
+}
