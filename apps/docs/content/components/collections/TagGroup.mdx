@@ -1,7 +1,7 @@
 ---
 title: TagGroup
 description: The TagGroup is a dynamic UI component that encapsulates a collection of tags.
-             Each tag, representing a label, category, keyword, or filter, is designed to be used within a TagList for groupings.
+             Each tag represents a label, category, keyword, or filter, and can be used for various groupings
 category: "collections"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/tag/src/TagGroup.tsx
@@ -34,19 +34,19 @@ links:
 
 A `TagGroup` uses the following components.
 
-<ComposedComponents components={["Avatar", "Badge", "ErrorMessage", "HelperMessage", "Icon", "IconList", "Label", "Text"]}/>
+<ComposedComponents components={["Avatar", "Badge", "Icon", "IconList", "Text"]}/>
 
 ## Usage
 
 ### Label
 
-A tag group can contain a label to provide more context to the user.
+A tag group can use the `label` prop to provide more context to the user.
 
 <Example src="tag/docs/tagGroup/label" />
 
 ### Description
 
-A tag group can contain a description to provide more information to the user.
+A tag group can use a `description` prop to provide more information to the user.
 
 <Example src="tag/docs/tagGroup/description" />
 
@@ -111,7 +111,7 @@ A tag can vary in style using the `variant` prop.
 
 Using the `renderEmptyState` prop, you can customize the empty state message when there are no tags.
 
-<Example src="tag/docs/tagList/empty" />
+<Example src="tag/docs/tagGroup/empty" />
 
 ### Invalid
 
@@ -176,10 +176,6 @@ A tag can be rendered as a react router link when using the `href` prop and sett
 
 <PropTable component="TagGroup" />
 
-### TagList
-
-<PropTable component="TagList" />
-
 ### Tag
 
 <PropTable component="Tag" />
@@ -189,10 +185,6 @@ A tag can be rendered as a react router link when using the `href` prop and sett
 ### TagGroup
 
 <MigrateGuide src="tag/docs/migration-notes-tag-group" />
-
-### TagList
-
-<MigrateGuide src="tag/docs/migration-notes-tag-list" />
 
 ### Tag
 

@@ -191,8 +191,8 @@ export const Previews: Record<string, Preview> = {
     "tag/docs/tag/variants": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/variants.tsx"))
     },
-    "tag/docs/tagList/empty": {
-        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagList/empty.tsx"))
+    "tag/docs/tagGroup/empty": {
+        component: lazy(() => import("@/../../packages/components/src/tag/docs/tagGroup/empty.tsx"))
     },
     "tag/docs/tag/invalid": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/tag/invalid.tsx"))
