@@ -62,4 +62,5 @@
     color: var(--hd-white);
     font-size: 0.75rem;
     padding: var(--hd-space-05);
+    margin-inline-start: var(--hd-space-05);
 }
