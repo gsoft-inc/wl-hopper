@@ -3,6 +3,8 @@ import type { ContextValue } from "react-aria-components";
 
 import type { TagGroupProps } from "./TagGroup.tsx";
 
-export const TagGroupContext = createContext<ContextValue<TagGroupProps, HTMLDivElement>>({});
+// any is used in spectrum
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const TagGroupContext = createContext<ContextValue<TagGroupProps<any>, HTMLDivElement>>({});
 
 TagGroupContext.displayName = "TagGroupContext";

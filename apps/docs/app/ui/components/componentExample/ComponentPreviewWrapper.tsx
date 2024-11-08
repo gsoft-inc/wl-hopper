@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, memo, type ReactNode, useCallback, useContext, useEffect } from "react";
 import Card from "@/components/card/Card.tsx";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch.tsx";
 import { ThemeContext, type ColorScheme } from "@/context/theme/ThemeProvider.tsx";
+import { memo, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
-import "./componentPreviewWrapper.css";
 import { HopperProvider } from "@hopper-ui/components";
+import "./componentPreviewWrapper.css";
 
 interface ComponentPreviewWrapperProps {
     preview?: ReactNode;

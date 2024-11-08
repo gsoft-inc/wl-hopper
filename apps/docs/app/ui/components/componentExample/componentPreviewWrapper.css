@@ -7,6 +7,11 @@
     height: 100%;
 }
 
+.hd-component-preview-wrapper__card.hd-card {
+    padding-bottom: var(--hd-space-8);
+    padding-top: var(--hd-space-8);
+}
+
 .hd-component-preview-wrapper[data-schema="light"] {
     .hd-component-preview-wrapper__card {
         --background: var(--hd-white);

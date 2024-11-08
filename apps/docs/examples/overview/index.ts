@@ -4,6 +4,7 @@ import Avatar from "./Avatar.svg";
 import Badge from "./Badge.svg";
 import Button from "./Button.svg";
 import ButtonGroup from "./ButtonGroup.svg";
+import Card from "./Card.svg";
 import Checkbox from "./Checkbox.svg";
 import CheckboxGroup from "./CheckboxGroup.svg";
 import ComboBox from "./ComboBox.svg";
@@ -51,7 +52,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Badge,
     Button,
     ButtonGroup,
-    LinkButton,
+    Card,
     Checkbox,
     CheckboxGroup,
     ComboBox,
@@ -71,6 +72,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Inline,
     Label,
     Link,
+    LinkButton,
     ListBox,
     NumberField,
     PasswordField,

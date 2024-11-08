@@ -1,4 +1,4 @@
-import { ErrorMessage, HelperMessage, Tag, TagGroup, TagList, type Selection } from "@hopper-ui/components";
+import { Tag, TagGroup, type Selection } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
@@ -12,14 +12,17 @@ export default function Example() {
     }
 
     return (
-        <TagGroup aria-label="Jobs" selectionMode="multiple" onSelectionChange={onChange} isInvalid={isInvalid}>
-            <TagList>
-                <Tag id="designer">Designer</Tag>
-                <Tag id="developer">Developer</Tag>
-                <Tag id="manager">Manager</Tag>
-            </TagList>
-            <HelperMessage>Unselect all to show the error message</HelperMessage>
-            <ErrorMessage>Select a job and the description will appear</ErrorMessage>
+        <TagGroup
+            aria-label="Jobs"
+            selectionMode="multiple"
+            onSelectionChange={onChange}
+            isInvalid={isInvalid}
+            description="Unselect all to show the error message"
+            errorMessage="Select a job and the description will appear"
+        >
+            <Tag id="designer">Designer</Tag>
+            <Tag id="developer">Developer</Tag>
+            <Tag id="manager">Manager</Tag>
         </TagGroup>
     );
 }

@@ -5,7 +5,6 @@ import {
     ComboBox,
     ComboBoxItem,
     Inline,
-    Label,
     Radio,
     RadioGroup,
     Select,
@@ -13,7 +12,6 @@ import {
     Stack,
     Tag,
     TagGroup,
-    TagList,
     TextArea,
     TextField
 } from "@hopper-ui/components";
@@ -67,12 +65,9 @@ const Template = () => {
                 <ComboBoxItem id="cat">Cat</ComboBoxItem>
                 <ComboBoxItem id="frog">Frog</ComboBoxItem>
             </ComboBox>
-            <TagGroup selectionMode="single">
-                <Label>Choose a place</Label>
-                <TagList>
-                    <Tag id="1">Canada</Tag>
-                    <Tag id="2">US</Tag>
-                </TagList>
+            <TagGroup selectionMode="single" label="Choose a place">
+                <Tag id="1">Canada</Tag>
+                <Tag id="2">US</Tag>
             </TagGroup>
             <Button>Submit</Button>
         </>);
