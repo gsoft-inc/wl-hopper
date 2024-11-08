@@ -23,9 +23,13 @@ import { PopoverContext } from "./PopoverContext.ts";
 import styles from "./Popover.module.css";
 
 export const GlobalPopoverCssSelector = "hop-Popover";
+
 export type PopoverContainerProps = BaseComponentDOMProps & StyledSystemProps;
 
-export interface PopoverProps extends StyledComponentProps<Omit<RACPopoverProps, "placement">> {
+type PropsToOmit = "triggerRef" | "UNSTABLE_portalContainer" | "placement" | "containerPadding" | "offset" | "crossOffset" |
+"shouldFlip" | "arrowBoundaryOffset" | "isOpen" | "defaultOpen" | "onOpenChange";
+
+export interface PopoverContextProps extends Omit<RACPopoverProps, "placement"> {
     /**
      * Whether the popover should have an auto width. Only available in non-dialog popovers.
      */
@@ -49,6 +53,8 @@ export interface PopoverProps extends StyledComponentProps<Omit<RACPopoverProps,
     placement?: ResponsiveProp<Placement>;
 }
 
+export interface PopoverProps extends StyledComponentProps<Omit<PopoverContextProps, PropsToOmit>> {}
+
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
@@ -64,7 +70,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         placement: placementProp,
         style: styleProp,
         ...otherProps
-    } = ownProps;
+    } = ownProps as PopoverContextProps;
 
     const placement = useResponsiveValue(placementProp) ?? "bottom";
     const { stylingProps: containerStylingProps, ...containerOwnProps } = useStyledSystem(containerProps ?? {});
