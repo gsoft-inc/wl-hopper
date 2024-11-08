@@ -11,6 +11,9 @@
     --hop-Card-second-level-border: var(--hop-Card-border-size) solid var(--hop-neutral-surface-weakest);
     --hop-Card-second-level-background-color: var(--hop-neutral-surface-weakest);
 
+    display: flex;
+    flex-direction: column;
+
     background-color: var(--background-color);
     border: var(--border);
     border-radius: var(--hop-Card-border-radius);

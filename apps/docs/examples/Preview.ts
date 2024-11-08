@@ -284,6 +284,39 @@ export const Previews: Record<string, Preview> = {
     "Avatar/docs/customization": {
         component: lazy(() => import("@/../../packages/components/src/Avatar/docs/customization.tsx"))
     },
+    "Card/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/preview.tsx"))
+    },
+    "Card/docs/variant": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/variant.tsx"))
+    },
+    "Card/docs/sections": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/sections.tsx"))
+    },
+    "Card/docs/migration/default": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/default.tsx"))
+    },
+    "Card/docs/migration/image": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/image.tsx"))
+    },
+    "Card/docs/migration/illustration": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/illustration.tsx"))
+    },
+    "Card/docs/migration/size": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/size.tsx"))
+    },
+    "Card/docs/migration/button": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/button.tsx"))
+    },
+    "Card/docs/migration/buttongroup": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/buttongroup.tsx"))
+    },
+    "Card/docs/migration/orientation": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/orientation.tsx"))
+    },
+    "Card/docs/migration/fluid": {
+        component: lazy(() => import("@/../../packages/components/src/Card/docs/migration/fluid.tsx"))
+    },
     "Divider/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Divider/docs/preview.tsx"))
     },
