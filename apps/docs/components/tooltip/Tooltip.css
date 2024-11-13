@@ -1,0 +1,10 @@
+.hd-tooltip {
+    background-color: var(--hd-neutral-800);
+    border-radius: var(--hd-border-radius-sm);
+    color: var(--hd-white);
+    padding: var(--hd-space-1);
+}
+
+.hd-tooltip_title {
+    font-size: 0.825rem
+}

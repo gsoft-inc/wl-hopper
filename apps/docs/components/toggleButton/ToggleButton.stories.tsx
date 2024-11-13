@@ -1,8 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import Icon from "@/components/themeSwitch/ThemeSwitchIcons";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { ToggleButton } from "./ToggleButton";
-
 
 const meta = {
     title: "components/ToggleButton",
