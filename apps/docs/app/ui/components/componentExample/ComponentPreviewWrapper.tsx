@@ -3,6 +3,7 @@
 import Card from "@/components/card/Card.tsx";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch.tsx";
 import Tooltip from "@/components/tooltip/Tooltip.tsx";
+import TooltipTrigger from "@/components/tooltip/TooltipTrigger.tsx";
 import { ThemeContext, type ColorScheme } from "@/context/theme/ThemeProvider.tsx";
 import { memo, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 
@@ -39,16 +40,21 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, minHeight = "13re
             style={{ minHeight: minHeight }}
         >
             <div className="hd-component-preview-wrapper__actions">
-                <Tooltip title="Toggle code sample">
-                    {toggleButton}
-                </Tooltip>
-                <Tooltip title={`Toggle ${localColorMode === "dark" ? "light" : "dark" } theme for preview`}>
-                    <ThemeSwitch className="hd-component-preview-wrapper__action"
-                        onChange={toggleTheme}
-                        colorMode={localColorMode}
-                    />
-                </Tooltip>
-
+                <TooltipTrigger>
+                    <Tooltip>
+                        Toggle code sample
+                        {toggleButton}
+                    </Tooltip>
+                </TooltipTrigger>
+                <TooltipTrigger>
+                    <Tooltip>
+                        {`Toggle ${localColorMode === "dark" ? "light" : "dark" } theme for preview`}
+                        <ThemeSwitch className="hd-component-preview-wrapper__action"
+                            onChange={toggleTheme}
+                            colorMode={localColorMode}
+                        />
+                    </Tooltip>
+                </TooltipTrigger>
             </div>
             <HopperProvider colorScheme={localColorMode} locale="en-US">
                 <Card className="hd-component-preview-wrapper__card" size="sm" style={{ minHeight: minHeight }}>

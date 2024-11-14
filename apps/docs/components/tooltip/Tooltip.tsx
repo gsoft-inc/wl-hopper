@@ -1,21 +1,17 @@
 import type { ReactNode } from "react";
-import { Tooltip as RACTooltip, TooltipTrigger } from "react-aria-components";
+import { Tooltip as RACTooltip, type TooltipProps as RACTooltipProps } from "react-aria-components";
 
 import "./Tooltip.css";
 
-interface TooltipProps {
+interface TooltipProps extends RACTooltipProps {
     children: ReactNode;
-    title: string;
 }
 
-const Tooltip = ({ title, children }: TooltipProps) => {
+const Tooltip = ({ children, ...rest }: TooltipProps) => {
     return (
-        <TooltipTrigger>
+        <RACTooltip {...rest} className="hd-tooltip">
             {children}
-            <RACTooltip className="hd-tooltip">
-                <p className="hd-tooltip_title">{title}</p>
-            </RACTooltip>
-        </TooltipTrigger>
+        </RACTooltip>
     );
 };
 

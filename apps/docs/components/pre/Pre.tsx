@@ -6,6 +6,7 @@ import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import CopyButton from "@/components/copyButton/CopyButton.tsx";
 import LangIcon from "@/components/pre/langIcon/LangIcon";
 import Tooltip from "@/components/tooltip/Tooltip.tsx";
+import TooltipTrigger from "@/components/tooltip/TooltipTrigger.tsx";
 
 import "./pre.css";
 
@@ -40,18 +41,24 @@ const Pre = ({ children, className, title, "data-language": dataLanguage, raw, t
                         {langContent}
                         {titleContent}
                     </div>
-                    <Tooltip title="Copy code">
-                        {copyButton}
-                    </Tooltip>
+                    <TooltipTrigger>
+                        <Tooltip>
+                        Copy code
+                            {copyButton}
+                        </Tooltip>
+                    </TooltipTrigger>
                 </div>
             }
             <div className="hd-pre__code">
                 {children}
             </div>
             {!title && <div className="hd-pre__action">
-                <Tooltip title="Copy code">
-                    {copyButton}
-                </Tooltip>
+                <TooltipTrigger>
+                    <Tooltip>
+                        Copy code
+                        {copyButton}
+                    </Tooltip>
+                </TooltipTrigger>
             </div>}
         </pre>
     );
