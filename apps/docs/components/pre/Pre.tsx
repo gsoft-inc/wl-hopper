@@ -42,9 +42,9 @@ const Pre = ({ children, className, title, "data-language": dataLanguage, raw, t
                         {titleContent}
                     </div>
                     <TooltipTrigger>
+                        {copyButton}
                         <Tooltip>
-                        Copy code
-                            {copyButton}
+                            Copy code
                         </Tooltip>
                     </TooltipTrigger>
                 </div>
@@ -54,9 +54,9 @@ const Pre = ({ children, className, title, "data-language": dataLanguage, raw, t
             </div>
             {!title && <div className="hd-pre__action">
                 <TooltipTrigger>
+                    {copyButton}
                     <Tooltip>
                         Copy code
-                        {copyButton}
                     </Tooltip>
                 </TooltipTrigger>
             </div>}
