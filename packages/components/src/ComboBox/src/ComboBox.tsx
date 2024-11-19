@@ -20,6 +20,7 @@ import {
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
@@ -114,6 +115,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         ...propsWithoutRef
     } = props;
     [props, ref] = useContextProps(propsWithoutRef, ref, ComboBoxContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         align: alignProp,

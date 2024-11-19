@@ -1,0 +1,53 @@
+.hop-Disclosure  {
+    /* Default */
+    --hop-Disclosure-panel-padding: var(--hop-space-inset-md);
+
+    /* No Header */ 
+    --hop-Disclosure-no-header-panel-padding: var(--hop-space-inset-md) 0;
+
+    /* Inline */
+    --hop-Disclosure-inline-border-size: 0;
+    --hop-Disclosure-inline-border-color: transparent;
+    --hop-Disclosure-inline-border-radius: 0;
+    --hop-Disclosure-inline-box-shadow: none;
+
+    /* Standalone */
+    --hop-Disclosure-standalone-border-size: var(--hop-space-10);
+    --hop-Disclosure-standalone-border-color: var(--hop-neutral-border-weak);
+    --hop-Disclosure-standalone-border-radius: var(--hop-shape-rounded-md);
+    --hop-Disclosure-standalone-box-shadow: var(--hop-elevation-raised);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border: var(--border-size) solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.hop-Disclosure:has(.hop-Disclosure__header) {
+    --border-size: var(--hop-Disclosure-standalone-border-size);
+    --border-color: var(--hop-Disclosure-standalone-border-color);
+    --border-radius: var(--hop-Disclosure-standalone-border-radius);
+    --box-shadow: var(--hop-Disclosure-standalone-box-shadow);
+}
+
+.hop-Disclosure--inline:has(.hop-Disclosure__header) {
+    --border-size: var(--hop-Disclosure-inline-border-size);
+    --border-color: var(--hop-Disclosure-inline-border-color);
+    --border-radius: var(--hop-Disclosure-inline-border-radius);
+    --box-shadow: var(--hop-Disclosure-inline-box-shadow);
+}
+
+.hop-Disclosure[data-expanded] {
+    --panel-padding: var(--hop-Disclosure-no-header-panel-padding);
+}
+
+.hop-Disclosure:has(.hop-Disclosure__header)[data-expanded] {
+    --panel-padding: var(--hop-Disclosure-panel-padding);
+}
+
+.hop-Disclosure__panel {
+    padding: var(--panel-padding);
+}

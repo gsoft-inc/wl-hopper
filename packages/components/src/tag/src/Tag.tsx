@@ -13,6 +13,7 @@ import { Tag as RACTag, type TagProps as RACTagProps, composeRenderProps, useCon
 import { AvatarContext, type AvatarProps } from "../../Avatar/index.ts";
 import { BadgeContext } from "../../Badge/index.ts";
 import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
+import { type FormStyleProps, useFormProps } from "../../Form/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
@@ -85,6 +86,7 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
 
 function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, TagContext);
+    props = useFormProps(props as FormStyleProps); /* Needed because Tag as an extra size. */
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

@@ -17,6 +17,7 @@ import {
 
 import { CheckboxContext, CheckboxFieldContext } from "../../checkbox/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Label } from "../../typography/Label/index.ts";
 import { type BaseComponentDOMProps, type FieldProps, type InputGroupVariant, SlotProvider, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
@@ -48,6 +49,7 @@ export interface CheckboxGroupProps extends StyledComponentProps<RACCheckboxGrou
 
 function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, CheckboxGroupContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { stylingProps: listStylingProps, ...listProps } = useStyledSystem(ownProps.listProps ?? {});
     const {

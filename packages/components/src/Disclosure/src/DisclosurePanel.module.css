@@ -1,0 +1,12 @@
+.hop-DisclosurePanel {
+    --hop-DisclosurePanel-background-color: var(--hop-neutral-surface);
+    --hop-DisclosurePanel-text-color: var(--hop-neutral-text-weak);
+
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: var(--hop-DisclosurePanel-background-color);
+}
+
+.hop-DisclosurePanel__text {
+    color: var(--hop-DisclosurePanel-text-color);
+}

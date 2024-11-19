@@ -9,6 +9,7 @@ import { forwardRef, type ForwardedRef, type ReactNode } from "react";
 import { mergeProps } from "react-aria";
 import { composeRenderProps, useContextProps } from "react-aria-components";
 
+import { useFormProps } from "../../Form/index.ts";
 import { Text, type TextSize } from "../../typography/Text/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, useRenderProps, type AccessibleSlotProps, type FieldSize, type RenderProps, type SizeAdapter } from "../../utils/index.ts";
 
@@ -49,6 +50,7 @@ export interface CheckboxFieldProps extends StyledSystemProps, AccessibleSlotPro
 
 function CheckboxField(props: CheckboxFieldProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, CheckboxFieldContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

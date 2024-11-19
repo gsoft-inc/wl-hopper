@@ -13,6 +13,7 @@ import {
     useContextProps
 } from "react-aria-components";
 
+import { useFormProps } from "../../Form/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { TextContext } from "../../typography/Text/index.ts";
 import {
@@ -40,6 +41,7 @@ export interface CheckboxProps extends StyledComponentProps<RACCheckboxProps> {
 
 function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, CheckboxContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

@@ -2,10 +2,12 @@ import {
     useStyledSystem,
     type StyledComponentProps
 } from "@hopper-ui/styled-system";
+import { filterDOMProps } from "@react-aria/utils";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { Label as RACLabel, useContextProps, type LabelProps as RACLabelProps } from "react-aria-components";
 
+import { useFormProps } from "../../../Form/index.ts";
 import { useLocalizedString } from "../../../i18n/index.ts";
 import { cssModule, type NecessityIndicator } from "../../../utils/index.ts";
 
@@ -30,6 +32,7 @@ export interface LabelProps extends StyledComponentProps<RACLabelProps> {
 
 function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     [props, ref] = useContextProps(props, ref, LabelContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -64,12 +67,14 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
         className={styles["hop-Label__indicator"]}
     >*</span>;
 
+    const filteredProps = filterDOMProps(otherProps, { labelable: true });
+
     return (
         <RACLabel
             ref={ref}
             className={classNames}
             style={mergedStyles}
-            {...otherProps}
+            {...filteredProps}
         >
             {children}
             {(necessityIndicator === "label" && !isRequired) && <span className={styles["hop-Label__label-indicator"]}> ({necessityLabel})</span>}
