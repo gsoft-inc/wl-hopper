@@ -1,10 +1,10 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { composeRenderProps, UNSTABLE_DisclosurePanel as RACDisclosurePanel, useContextProps, type DisclosurePanelProps as RACDisclosurePanelProps } from "react-aria-components";
+import { forwardRef, useContext, useEffect, type ForwardedRef } from "react";
+import { composeRenderProps, DisclosureStateContext, UNSTABLE_DisclosurePanel as RACDisclosurePanel, useContextProps, type DisclosurePanelProps as RACDisclosurePanelProps } from "react-aria-components";
 
 import { FormStyleContext } from "../../Form/index.ts";
 import { TextContext } from "../../typography/index.ts";
-import { composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, useSlidingTransition } from "../../utils/index.ts";
 
 import { DisclosurePanelContext } from "./DisclosurePanelContext.ts";
 
@@ -25,12 +25,16 @@ function DisclosurePanel(props: DisclosurePanelProps, ref: ForwardedRef<HTMLDivE
         ...otherProps
     } = ownProps;
 
+    const { isExpanded } = useContext(DisclosureStateContext);
+    const { transitionClasses, transitionProps } = useSlidingTransition(isExpanded, ref);
+
     const classNames = composeClassnameRenderProps(
         className,
         GlobalDisclosurePanelCssSelector,
         cssModule(
             styles,
-            "hop-DisclosurePanel"
+            "hop-DisclosurePanel",
+            transitionClasses
         ),
         stylingProps.className
     );
@@ -41,6 +45,24 @@ function DisclosurePanel(props: DisclosurePanelProps, ref: ForwardedRef<HTMLDivE
             ...prev
         };
     });
+
+    useEffect(() => {
+        const currentRef = ref && "current" in ref ? ref.current : null;
+        
+        if (currentRef) {
+            // Adding `onTransitionEnd` from `transitionProps`
+            if (transitionProps.onTransitionEnd) {
+                currentRef.addEventListener("transitionend", transitionProps.onTransitionEnd);
+            }
+
+            // Cleanup listener on unmount
+            return () => {
+                if (transitionProps.onTransitionEnd) {
+                    currentRef.removeEventListener("transitionend", transitionProps.onTransitionEnd);
+                }
+            };
+        }
+    }, [ref, transitionProps]);
 
     return (
         <RACDisclosurePanel

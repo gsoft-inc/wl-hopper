@@ -2,9 +2,20 @@
     --hop-DisclosurePanel-background-color: var(--hop-neutral-surface);
     --hop-DisclosurePanel-text-color: var(--hop-neutral-text-weak);
 
+    /* Internal Variables */
+    --transition: 3s var(--hop-easing-productive);
+
     overflow: hidden;
     box-sizing: border-box;
     background-color: var(--hop-DisclosurePanel-background-color);
+}
+
+.hop-DisclosurePanel--expanding {
+    transition: all var(--transition);
+}
+
+.hop-DisclosurePanel--collapsing {
+    transition: all var(--transition);
 }
 
 .hop-DisclosurePanel__text {
