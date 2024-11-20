@@ -15,6 +15,9 @@
     --hop-DisclosureHeader-standalone-border-size:  var(--hop-space-10);
     --hop-DisclosureHeader-standalone-border-color: transparent;
     --hop-DisclosureHeader-standalone-border-radius: var(--hop-shape-rounded-md);
+    --hop-DisclosureHeader-inline-border-size:  0;
+    --hop-DisclosureHeader-inline-border-color: transparent;
+    --hop-DisclosureHeader-inline-border-radius: 0;
 
     /* Expanded */
     --hop-DisclosureHeader-separator-size-expanded: var(--hop-space-10);
@@ -28,12 +31,14 @@
     --hop-DisclosureHeader-color-hovered: var(--hop-neutral-text-hover);
     --hop-DisclosureHeader-prefix-color-hovered: var(--hop-neutral-icon-hover);
     --hop-DisclosureHeader-standalone-border-color-hovered: var(--hop-neutral-border-hover);
+    --hop-DisclosureHeader-inline-border-color-hovered: transparent;
 
     /* Pressed */
     --hop-DisclosureHeader-background-color-pressed: var(--hop-neutral-surface-press);
     --hop-DisclosureHeader-color-pressed: var(--hop-neutral-text-press);
     --hop-DisclosureHeader-prefix-color-pressed: var(--hop-neutral-icon-press);
     --hop-DisclosureHeader-standalone-border-color-pressed: var(--hop-neutral-border-press);
+    --hop-DisclosureHeader-inline-border-color-pressed: transparent;
 
     /* Focused */
     --hop-DisclosureHeader-background-color-focused: var(--hop-neutral-surface-hover);
@@ -41,6 +46,8 @@
     --hop-DisclosureHeader-prefix-color-focused: var(--hop-neutral-icon-hover);
     --hop-DisclosureHeader-standalone-border-size-focused:  var(--hop-space-20);
     --hop-DisclosureHeader-standalone-border-color-focused: var(--hop-primary-border-focus);
+    --hop-DisclosureHeader-inline-border-size-focused:  var(--hop-space-20);
+    --hop-DisclosureHeader-inline-border-color-focused: var(--hop-primary-border-focus);
 
     /* Disabled */
     --hop-DisclosureHeader-background-color-disabled: var(--hop-neutral-surface-disabled);
@@ -49,6 +56,7 @@
     --hop-DisclosureHeader-description-color-disabled: var(--hop-neutral-text-disabled);
     --hop-DisclosureHeader-separator-color-disabled: var(--hop-neutral-border-disabled);
     --hop-DisclosureHeader-standalone-border-color-disabled: var(--hop-neutral-border-disabled);
+    --hop-DisclosureHeader-inline-border-color-disabled: transparent;
 
     /* Internal Variables */
     --background-color: var(--hop-DisclosureHeader-background-color);
@@ -58,9 +66,9 @@
     --cursor: pointer;
     --prefix-color: var(--hop-DisclosureHeader-prefix-color);
     --description-color: var(--hop-DisclosureHeader-description-color);
-    --standalone-border-size: var(--hop-DisclosureHeader-standalone-border-size);
-    --standalone-border-color: var(--hop-DisclosureHeader-standalone-border-color);
-    --standalone-border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
+    --border-size: var(--hop-DisclosureHeader-standalone-border-size);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color);
+    --border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
     --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
     
     display: flex;
@@ -95,18 +103,18 @@
     transition: color var(--transition), background-color var(--transition), border var(--transition);
 }
 
-.hop-DisclosureHeader__button--standalone::before {
+.hop-DisclosureHeader__button::before {
     content: "";
 
     position: absolute;
     inset: 0;
     
-    border: var(--standalone-border-size) solid var(--standalone-border-color);
-    border-radius: var(--standalone-border-radius);
+    border: var(--border-size) solid var(--border-color);
+    border-radius: var(--border-radius);
 }
 
-.hop-DisclosureHeader__button--standalone[data-expanded]::before {
-    border-radius: var(--standalone-border-radius);
+.hop-DisclosureHeader__button[data-expanded]::before {
+    border-radius: var(--border-radius);
 }
 
 .hop-DisclosureHeader__button[data-expanded] {
@@ -114,29 +122,29 @@
     --background-color: var(--hop-DisclosureHeader-background-color-expanded);
     --color: var(--hop-DisclosureHeader-color-expanded);
     --prefix-color: var(--hop-DisclosureHeader-prefix-color-expanded);
-    --standalone-border-radius: var(--hop-DisclosureHeader-standalone-border-radius-expanded);
+    --border-radius: var(--hop-DisclosureHeader-standalone-border-radius-expanded);
 }
 
 .hop-DisclosureHeader__button[data-hovered] {
     --background-color: var(--hop-DisclosureHeader-background-color-hovered);
     --color: var(--hop-DisclosureHeader-color-hovered);
     --prefix-color: var(--hop-DisclosureHeader-prefix-color-hovered);
-    --standalone-border-color: var(--hop-DisclosureHeader-standalone-border-color-hovered);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color-hovered);
 }
 
 .hop-DisclosureHeader__button[data-pressed] {
     --background-color: var(--hop-DisclosureHeader-background-color-pressed);
     --color: var(--hop-DisclosureHeader-color-pressed);
     --prefix-color: var(--hop-DisclosureHeader-prefix-color-pressed);
-    --standalone-border-color: var(--hop-DisclosureHeader-standalone-border-color-pressed);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color-pressed);
 }
 
 .hop-DisclosureHeader__button[data-focus-visible] {
     --background-color: var(--hop-DisclosureHeader-background-color-focused);
     --color: var(--hop-DisclosureHeader-color-focused);
     --prefix-color: var(--hop-DisclosureHeader-prefix-color-focused);
-    --standalone-border-size: var(--hop-DisclosureHeader-standalone-border-size-focused);
-    --standalone-border-color: var(--hop-DisclosureHeader-standalone-border-color-focused);
+    --border-size: var(--hop-DisclosureHeader-standalone-border-size-focused);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color-focused);
 }
 
 .hop-DisclosureHeader__button[data-disabled] {
@@ -146,7 +154,18 @@
     --prefix-color: var(--hop-DisclosureHeader-prefix-color-disabled);
     --description-color: var(--hop-DisclosureHeader-description-color-disabled);
     --separator-color: var(--hop-DisclosureHeader-separator-color-disabled);
-    --standalone-border-color: var(--hop-DisclosureHeader-standalone-border-color-disabled);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color-disabled);
+}
+
+.hop-DisclosureHeader__button--inline {
+    --border-size: var(--hop-DisclosureHeader-inline-border-size);
+    --border-color: var(--hop-DisclosureHeader-inline-border-color);
+    --border-radius: var(--hop-DisclosureHeader-inline-border-radius);
+}
+
+.hop-DisclosureHeader__button--inline[data-focus-visible] {
+    --border-size: var(--hop-DisclosureHeader-inline-border-size-focused);
+    --border-color: var(--hop-DisclosureHeader-inline-border-color-focused);
 }
 
 .hop-DisclosureHeader__prefix {

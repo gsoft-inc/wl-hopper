@@ -37,6 +37,7 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
     const {
         className,
         children,
+        slot,
         style,
         isRequired,
         necessityIndicator,
@@ -73,6 +74,7 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
         <RACLabel
             ref={ref}
             className={classNames}
+            slot={slot || undefined}
             style={mergedStyles}
             {...filteredProps}
         >
