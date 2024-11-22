@@ -1,12 +1,13 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { composeRenderProps, UNSTABLE_DisclosurePanel as RACDisclosurePanel, useContextProps, type DisclosurePanelProps as RACDisclosurePanelProps } from "react-aria-components";
+import { forwardRef, useContext, type ForwardedRef } from "react";
+import { composeRenderProps, DisclosurePanel as RACDisclosurePanel, useContextProps, type DisclosurePanelProps as RACDisclosurePanelProps } from "react-aria-components";
 
 import { FormStyleContext } from "../../Form/index.ts";
 import { TextContext } from "../../typography/index.ts";
 import { composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider } from "../../utils/index.ts";
 
 import { DisclosurePanelContext } from "./DisclosurePanelContext.ts";
+import { InternalDisclosureContext } from "./InternalDisclosureContext.ts";
 
 import styles from "./DisclosurePanel.module.css";
 
@@ -25,12 +26,15 @@ function DisclosurePanel(props: DisclosurePanelProps, ref: ForwardedRef<HTMLDivE
         ...otherProps
     } = ownProps;
 
+    const { hasHeader } = useContext(InternalDisclosureContext)!;
+
     const classNames = composeClassnameRenderProps(
         className,
         GlobalDisclosurePanelCssSelector,
         cssModule(
             styles,
-            "hop-DisclosurePanel"
+            "hop-DisclosurePanel",
+            hasHeader && "has-header"
         ),
         stylingProps.className
     );
@@ -49,13 +53,15 @@ function DisclosurePanel(props: DisclosurePanelProps, ref: ForwardedRef<HTMLDivE
             style={style}
             {...otherProps}
         >
-            <SlotProvider values={[
-                [TextContext, { size: "sm", className: styles["hop-DisclosurePanel__text"] }],
-                [FormStyleContext, { size: "sm" }]
-            ]}
-            >
-                {ensureTextWrapper(children)}
-            </SlotProvider>
+            <div className={styles["hop-DisclosurePanel__content"]}>
+                <SlotProvider values={[
+                    [TextContext, { size: "sm", className: styles["hop-DisclosurePanel__text"] }],
+                    [FormStyleContext, { size: "sm" }]
+                ]}
+                >
+                    {ensureTextWrapper(children)}
+                </SlotProvider>
+            </div>
         </RACDisclosurePanel>
     );
 }

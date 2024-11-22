@@ -97,19 +97,17 @@ export const CustomHeader = {
 
 
 const StateTemplate = (args: Partial<DisclosureProps>) => (
-    <Stack>
-        <Disclosure {...args}>
-            <DisclosureHeader prefix={<SparklesIcon />} level={2}>
-                <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
-                <Text slot="description">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-            </DisclosureHeader>
-            <DisclosurePanel>
+    <Disclosure {...args}>
+        <DisclosureHeader prefix={<SparklesIcon />} level={2}>
+            <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
+            <Text slot="description">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
+        </DisclosureHeader>
+        <DisclosurePanel>
                 We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
 
 Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
-            </DisclosurePanel>
-        </Disclosure>
-    </Stack>
+        </DisclosurePanel>
+    </Disclosure>
 );
 
 export const DefaultStates = {

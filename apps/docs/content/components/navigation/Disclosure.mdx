@@ -1,0 +1,97 @@
+---
+title: Disclosure
+description: The disclosure component is used to put long sections of information under a block that users can expand or collapsed.
+category: "navigation"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Disclosure/src/Disclosure.tsx
+    aria: https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/
+---
+
+<Example src="Disclosure/docs/preview" isOpen />
+
+<FeatureFlag flag="next">
+    ## Guidelines
+
+    TODO: If we have some guidelines about this component&apos;s usage
+
+    ### Accessibility ?
+
+    TODO: If we have some guidelines about this component and accessibility
+</FeatureFlag>
+
+## Anatomy
+
+<FeatureFlag flag="rc">
+    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+
+    ### Concepts
+
+    TODO: links to related concepts
+</FeatureFlag>
+
+### Composed Components
+
+A `Link` uses the following components.
+
+<ComposedComponents components={["Text"]}/>
+
+## Usage
+
+### Disabled
+
+A disclosure can be disabled.
+
+<Example src="Disclosure/docs/disabled" />
+
+### Variants
+
+A disclosure has different variants.
+
+<Example src="Disclosure/docs/variants" />
+
+### Icon
+
+Disclosures can contain an icon.
+
+<Example src="Disclosure/docs/icon" />
+
+### Description
+
+Disclosures can contain a description.
+
+<Example src="Disclosure/docs/description" />
+
+### Controlled
+
+A disclosure can handle its expanded state in controlled mode.
+
+<Example src="Disclosure/docs/controlled" />
+
+### Custom Header
+
+A disclosure can have a custom header. To accomplish this, do not use DisclosureHeader and use the Button component with `slot="trigger"` instead.
+
+<Example src="Disclosure/docs/customHeader" />
+
+<FeatureFlag flag="next">
+    ## Advanced customization
+
+    ### Contexts
+    TODO: Example of context + content about the context
+
+    ### Custom Children
+
+    TODO: Example of passing custom children to the components to fake a slot
+
+    ### Custom Component
+
+    TODO: Example of creating a custom version of this component
+</FeatureFlag>
+
+## Props
+
+<PropTable component="Disclosure" />
+
+## Migration Notes
+
+<MigrateGuide src="Disclosure/docs/migration-notes" />

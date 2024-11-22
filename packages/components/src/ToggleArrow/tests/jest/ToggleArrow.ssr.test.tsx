@@ -9,7 +9,7 @@ describe("ToggleArrow", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <ToggleArrow>Text</ToggleArrow>
+                <ToggleArrow />
             );
 
         expect(renderOnServer).not.toThrow();

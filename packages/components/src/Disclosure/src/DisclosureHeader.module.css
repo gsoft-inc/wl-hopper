@@ -100,7 +100,7 @@
     border-block-end: var(--separator-size) solid var(--separator-color);
     outline: none;
 
-    transition: color var(--transition), background-color var(--transition), border var(--transition);
+    transition: color var(--transition), background-color var(--transition);
 }
 
 .hop-DisclosureHeader__button::before {
@@ -111,6 +111,14 @@
     
     border: var(--border-size) solid var(--border-color);
     border-radius: var(--border-radius);
+
+    transition: border var(--transition);
+}
+
+@supports (interpolate-size: allow-keywords) {
+    .hop-DisclosureHeader__button::before {
+        transition: border-radius var(--transition);
+    }
 }
 
 .hop-DisclosureHeader__button[data-expanded]::before {

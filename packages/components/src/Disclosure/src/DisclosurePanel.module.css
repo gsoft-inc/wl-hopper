@@ -1,10 +1,42 @@
 .hop-DisclosurePanel {
-    --hop-DisclosurePanel-background-color: var(--hop-neutral-surface);
     --hop-DisclosurePanel-text-color: var(--hop-neutral-text-weak);
+    --hop-DisclosurePanel-padding: var(--hop-space-inset-md) 0;
+    --hop-DisclosurePanel-background-color: none;
+
+    /* With Header */ 
+    --hop-DisclosurePanel-with-header-padding: var(--hop-space-inset-md);
+    --hop-DisclosurePanel-with-header-background-color: var(--hop-neutral-surface);
+
+    /* Internal Variables */
+    --background-color: var(--hop-DisclosurePanel-background-color);
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
+    --block-size: auto;
+    --padding: var(--hop-DisclosurePanel-padding);
 
     overflow: hidden;
+
     box-sizing: border-box;
-    background-color: var(--hop-DisclosurePanel-background-color);
+    block-size: var(--block-size);
+
+    background-color: var(--background-color);
+
+    transition: block-size var(--transition), content-visibility var(--transition);
+    
+    transition-behavior: allow-discrete;
+}
+
+.hop-DisclosurePanel[aria-hidden="true"] {
+    --block-size: 0;
+}
+
+.hop-DisclosurePanel--has-header {
+    --background-color: var(--hop-DisclosurePanel-with-header-background-color);
+    --padding: var(--hop-DisclosurePanel-with-header-padding);
+}
+
+.hop-DisclosurePanel__content {
+    padding: var(--padding);
+
 }
 
 .hop-DisclosurePanel__text {

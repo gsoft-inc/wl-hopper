@@ -1,7 +1,7 @@
 import { IconContext } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, type ForwardedRef, forwardRef, type ReactNode, useContext } from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, type ReactNode, useContext, useEffect } from "react";
 import { Button, type ButtonProps, composeRenderProps, DEFAULT_SLOT, DisclosureStateContext, useContextProps, useSlottedContext } from "react-aria-components";
 
 import { ToggleArrow } from "../../ToggleArrow/index.ts";
@@ -11,6 +11,7 @@ import { composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider
 
 import { DisclosureContext } from "./DisclosureContext.ts";
 import { DisclosureHeaderContext } from "./DisclosureHeaderContext.ts";
+import { InternalDisclosureContext } from "./InternalDisclosureContext.ts";
 
 import styles from "./DisclosureHeader.module.css";
 
@@ -43,8 +44,13 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
         ...otherProps
     } = ownProps;
 
-    const { isExpanded } = useContext(DisclosureStateContext);
+    const { isExpanded } = useContext(DisclosureStateContext)!;
     const disclosureCtx = useSlottedContext(DisclosureContext);
+    const { setHasHeader } = useContext(InternalDisclosureContext)!;
+    
+    useEffect(() => {
+        setHasHeader(true);
+    }, [setHasHeader]);
 
     const classNames = clsx(
         GlobalDisclosureHeaderCssSelector,

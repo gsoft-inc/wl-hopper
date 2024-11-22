@@ -1,4 +1,4 @@
-import { AngleDownIcon, AngleUpIcon } from "@hopper-ui/icons";
+import { AngleDownIcon } from "@hopper-ui/icons";
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
@@ -65,10 +65,8 @@ function ToggleArrow(props:ToggleArrowProps, ref: ForwardedRef<SVGSVGElement>) {
         ...styleProp
     };
 
-    const Chevron = isExpanded ? AngleUpIcon : AngleDownIcon;
-
     return (
-        <Chevron
+        <AngleDownIcon
             ref={ref}
             className={classNames}
             style={style}

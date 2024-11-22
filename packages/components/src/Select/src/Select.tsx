@@ -1,4 +1,4 @@
-import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
+import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
 import {
@@ -21,6 +21,7 @@ import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
+import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
 import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
@@ -235,7 +236,6 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         >
             {selectRenderProps => {
                 const { isOpen } = selectRenderProps;
-                const ButtonIcon = isOpen ? AngleUpIcon : AngleDownIcon;
 
                 return (
                     <>
@@ -276,13 +276,28 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             {footerMarkup}
                         </Popover>
                         <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
-                            {prefixMarkup}
-                            <SelectValue size={size}>
-                                {valueRenderProps => {
-                                    return renderValue?.(valueRenderProps);
-                                }}
-                            </SelectValue>
-                            <ButtonIcon size="sm" className={styles["hop-Select__button-icon"]} />
+                            {selectButtonRenderProps => {
+                                const { isDisabled, isFocusVisible, isHovered } = selectButtonRenderProps;
+
+                                return (
+                                    <>
+                                        {prefixMarkup}
+                                        <SelectValue size={size}>
+                                            {valueRenderProps => {
+                                                return renderValue?.(valueRenderProps);
+                                            }}
+                                        </SelectValue>
+                                        <ToggleArrow 
+                                            className={styles["hop-Select__button-icon"]} 
+                                            isExpanded={isOpen}
+                                            isDisabled={isDisabled}
+                                            isFocused={isFocusVisible}
+                                            isHovered={isHovered}
+
+                                        />
+                                    </>
+                                );
+                            }}
                         </Button>
                         {description && (
                             <HelperMessage className={styles["hop-Select__helper-message"]}>

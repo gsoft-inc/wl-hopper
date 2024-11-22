@@ -1,12 +1,13 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type ForwardedRef } from "react";
-import { composeRenderProps, UNSTABLE_Disclosure as RACDisclosure, useContextProps, type DisclosureProps as RACDisclosureProps } from "react-aria-components";
+import { forwardRef, useState, type ForwardedRef } from "react";
+import { composeRenderProps, Disclosure as RACDisclosure, useContextProps, type DisclosureProps as RACDisclosureProps } from "react-aria-components";
 
 import { composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
 
 import { DisclosureContext } from "./DisclosureContext.ts";
 import { DisclosureHeaderContext } from "./DisclosureHeaderContext.ts";
 import { DisclosurePanelContext } from "./DisclosurePanelContext.ts";
+import { InternalDisclosureContext } from "./InternalDisclosureContext.ts";
 
 import styles from "./Disclosure.module.css";
 
@@ -51,6 +52,8 @@ function Disclosure(props: DisclosureProps, ref: ForwardedRef<HTMLDivElement>) {
         return prev;
     });
 
+    const [hasHeader, setHasHeader] = useState(false);
+
     return (
         <RACDisclosure
             ref={ref}
@@ -60,6 +63,10 @@ function Disclosure(props: DisclosureProps, ref: ForwardedRef<HTMLDivElement>) {
         >
             {disclosureRenderProps => (
                 <SlotProvider values={[
+                    [InternalDisclosureContext, {
+                        hasHeader: hasHeader,
+                        setHasHeader: setHasHeader
+                    }],
                     [DisclosureContext, {
                         ...ownProps,
                         variant: variant /* send to make sure the default is also sent */

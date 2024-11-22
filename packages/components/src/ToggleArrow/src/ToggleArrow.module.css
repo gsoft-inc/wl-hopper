@@ -18,13 +18,18 @@
     --hop-ToggleArrow-color-disabled: var(--hop-neutral-icon-disabled);
 
     /* Internal Variables */
-    --color: var(--hop-ToggleArrow-color);
+    --color: var(--hop-ToggleArrow-color);    
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
 
+    position: relative;
     color: var(--color);
+    transition: transform var(--transition);
 }
 
 .hop-ToggleArrow[data-expanded] {
     --color: var(--hop-ToggleArrow-color-expanded);
+
+    transform: rotate(-180deg);
 }
 
 .hop-ToggleArrow[data-hovered] {
