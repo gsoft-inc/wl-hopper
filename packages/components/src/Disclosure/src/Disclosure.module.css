@@ -11,7 +11,9 @@
     --hop-Disclosure-standalone-border-radius: var(--hop-shape-rounded-md);
     --hop-Disclosure-standalone-box-shadow: var(--hop-elevation-raised);
 
-    overflow: hidden;
+    /* Disabled */
+    --hop-Disclosure-border-color-disabled: var(--hop-neutral-border-disabled);
+    --hop-Disclosure-box-shadow-disabled: none;
 
     box-sizing: border-box;
 
@@ -27,6 +29,8 @@
     --border-color: var(--hop-Disclosure-standalone-border-color);
     --border-radius: var(--hop-Disclosure-standalone-border-radius);
     --box-shadow: var(--hop-Disclosure-standalone-box-shadow);
+
+    overflow: hidden;
 }
 
 .hop-Disclosure--inline:has(.hop-Disclosure__header) {
@@ -34,4 +38,9 @@
     --border-color: var(--hop-Disclosure-inline-border-color);
     --border-radius: var(--hop-Disclosure-inline-border-radius);
     --box-shadow: var(--hop-Disclosure-inline-box-shadow);
+}
+
+.hop-Disclosure[data-disabled] {
+    --border-color: var(--hop-Disclosure-border-color-disabled);
+    --box-shadow: var(--hop-Disclosure-box-shadow-disabled);
 }

@@ -749,8 +749,8 @@ export const Previews: Record<string, Preview> = {
     "Disclosure/docs/disabled": {
         component: lazy(() => import("@/../../packages/components/src/Disclosure/docs/disabled.tsx"))
     },
-    "Disclosure/docs/variants": {
-        component: lazy(() => import("@/../../packages/components/src/Disclosure/docs/variants.tsx"))
+    "Disclosure/docs/inline": {
+        component: lazy(() => import("@/../../packages/components/src/Disclosure/docs/inline.tsx"))
     },
     "Disclosure/docs/icon": {
         component: lazy(() => import("@/../../packages/components/src/Disclosure/docs/icon.tsx"))
