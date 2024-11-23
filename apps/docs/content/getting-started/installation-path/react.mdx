@@ -1,0 +1,71 @@
+---
+title: React Applications
+description: Getting started with Hopper UI in a react app.
+order: 1
+---
+
+Hopper UI is a Design System that provides a collection of [React components](../../components/component-list), [tokens](../../tokens/overview/introduction), and [icons](../../icons/overview/introduction) to help you build applications.
+
+**Requirements:**
+- [React 18](https://reactjs.org/) or later
+
+## Installation
+
+### Install Packages
+
+Run the following command to install Hopper packages and their peer dependencies.
+
+<PackageInstallation library="components @hopper-ui/icons @hopper-ui/styled-system react-aria react-aria-components" mod="prod" />
+
+### Setup provider
+
+Wrap your application with the [HopperProvider](/components/HopperProvider) component. This sets up the global styles and context required for Hopper UI components. Typically, this is done in your `index.tsx` or `app.tsx`, but it may vary depending on your setup.
+
+```tsx
+import { HopperProvider } from "@hopper-ui/components";
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <HopperProvider withBodyStyle>
+    <App />
+  </HopperProvider>
+);
+```
+
+### Import Styles
+
+Add Hopper styles to your project by importing the following CSS file. Place this in your global CSS file or main stylesheet.
+
+```css
+@import "@hopper-ui/components/index.css";
+```
+
+### Enjoy!
+Leverage Hopper UI's components and styled system to build user interfaces efficiently and with ease.
+
+```tsx
+import { Button, Stack } from "@hopper-ui/components";
+
+const Demo = () => {
+  return (
+    <Stack>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+    </Stack>
+  )
+}
+```
+
+## Take it Further
+Explore advanced features of Hopper UI to unlock its full potential:
+
+{/* TODO */}
+- [Icons](#): Use a rich library of icons in your applications.
+- [Client Side Routing](#): Ensure seamless navigation with Hopper UI components.
+- [Color Schemes](#): Implement and customize dark mode for your application seamlessly.
+- [Internationalization](#): Build applications for multiple languages and locales.
+- [Layout](#): Create responsive, accessible layouts.
+- [Responsive Styles](#): Design interfaces that adapt to different screen sizes.
+- [Slots](#): Extend and compose components flexibly.
+- [Styling](#): Style components with Hopper's styled system and override defaults effortlessly.

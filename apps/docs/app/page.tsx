@@ -67,7 +67,7 @@ export default function Home() {
                     handpicked for ultimate simplicity and accessibility.</p>
                 </div>
                 <div className="hd-home__ctas">
-                    <Button as="a" href="/getting-started/react">Get Started</Button>
+                    <Button as="a" href="/getting-started/overview/installation">Get Started</Button>
                     <Button as="a"
                         href="https://github.com/gsoft-inc/wl-hopper"
                         variant="secondary"

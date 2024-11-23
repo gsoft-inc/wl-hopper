@@ -21,10 +21,6 @@
         "generate:previewRef": "tsx scripts/generatePreviewRef.ts",
         "copy:images": "tsx scripts/copyImages.ts"
     },
-    "peerDependencies": {
-        "react-aria": "^3.35",
-        "react-aria-components": "^1.4"
-    },
     "dependencies": {
         "@tanstack/react-table": "^8.20.5",
         "clsx": "2.1.1",

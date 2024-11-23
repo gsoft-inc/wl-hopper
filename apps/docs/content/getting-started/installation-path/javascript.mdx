@@ -1,0 +1,56 @@
+---
+title: Other Frameworks
+description: An installation guide for Hopper UI for non-React users.
+order: 2
+status: ready
+---
+
+Hopper UI is a Design System that provides a collection of tokens and icons to help you build beautiful, consistent applications.
+
+You don't need to use React to take advantage of Hopper UI's features. This guide will show you how to use Hopper tokens and icons in any framework or plain HTML/CSS project.
+
+Hopper tokens are predefined design decisions (such as colors, spacing, and typography) translated into CSS variables to style your application. For icons, you can use Hopper UI's SVG icons, available via the @hopper-ui/svg-icons package.
+
+## Installation
+
+### Install Packages
+
+Run the following command to install Hopper tokens and SVG icons.
+
+<PackageInstallation library="tokens @hopper-ui/svg-icons" mod="prod" />
+
+### Import Styles
+
+Add Hopper styles to your project by importing the following CSS files into your main stylesheet or global CSS file:
+
+```css
+@import "@hopper-ui/tokens/fonts.css"; /* To import Hopper fonts*/
+@import "@hopper-ui/tokens/tokens.css"; /* To import the design tokens*/
+@import "@hopper-ui/tokens/dark/tokens.css"; /* optional - if your application supports dark mode */
+```
+
+If your application supports dark mode, you can include the dark mode token styles for seamless theme switching.
+
+### Enjoy!
+
+You can now use Hopper tokens in your project by referencing the design tokens as CSS variables. For example:
+
+```css
+.my-class {
+    background-color: var(--hop-primary-surface-weak);
+}
+```
+
+You can import an SVG icon directly into your JavaScript or TypeScript file. If you plan to use SVG icons as components, ensure your bundler (e.g., Webpack, Vite, or Rollup) is configured to handle SVG imports correctly.
+
+```tsx
+import alertIcon from "@hopper-ui/svg-icons/alert-24.svg";
+```
+
+Alternatively, you can use SVG icons directly in your CSS, like this:
+
+```css
+.myComponent {
+    background-image: url("@hopper-ui/svg-icons/alert-24.svg");
+}
+```
