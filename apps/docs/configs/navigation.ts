@@ -17,7 +17,7 @@ export const navigation: NavItem[] = [
     },
     {
         "label": "Icons",
-        "path": "/icons",
+        "path": "/icons/overview/introduction",
         "status": "ready"
     },
     {
