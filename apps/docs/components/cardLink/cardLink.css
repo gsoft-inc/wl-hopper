@@ -1,0 +1,65 @@
+.hd-cardlink {
+    --card-color: #564EA7;
+    --card-color-translucent: #3a3290aa;
+
+    backdrop-filter: blur(2rem);
+    background-color: var(--card-color);
+    border-radius: 1rem;
+    color: var(--hd-white);
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 21rem;
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 2rem;
+}
+
+.hd-cardlink:hover .hd-cardlink__logo,
+.hd-cardlink:focus .hd-cardlink__logo {
+    opacity: 0.2;
+}
+
+.hd-cardlink--secondary {
+    --card-color: #506E9F;
+    --card-color-translucent: #375c96f7;
+}
+
+.hd-cardlink__logo {
+    max-width: 6rem;
+    opacity: 0.1;
+    position: relative;
+    scale: 2.5;
+    transform-origin: 0 0;
+    transition: all .2s ease-in;
+    z-index: -1;
+}
+
+.hd-cardlink::before {
+    aspect-ratio: 1/1;
+    background-image: linear-gradient(-45deg, var(--card-color) 50%, var(--card-color-translucent) 0);
+    content: "";
+    filter: blur(3rem);
+    height: 25rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: rotate(-144deg);
+    width: 26rem;
+    z-index: -1;
+}
+
+.hd-cardlink h3 {
+    font-size: 1.5rem;
+}
+
+.hd-cardlink p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-top: .75rem;
+}
+
+.hd-cardlink__copy {
+    margin-top: auto;
+    padding: 0 2rem;
+}

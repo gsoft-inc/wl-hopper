@@ -88,6 +88,7 @@ main {
 .hd-content p a,
 .hd-content li a {
     text-decoration: underline;
+    color: var(--hd-color-accent-text)
 }
 
 /* reset the underline for the card */
