@@ -24,8 +24,8 @@ const CardLink = ({ children, className, title, size = "md", type = "primary", d
                 {children}
             </div>}
             <div className="hd-cardlink__copy">
-                <h3>{title}</h3>
-                <p>{description}</p>
+                <h3 className="hd-cardlink__title">{title}</h3>
+                <p className="hd-cardlink__description">{description}</p>
             </div>
         </a>
     );

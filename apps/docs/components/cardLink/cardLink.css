@@ -15,18 +15,18 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    height: 21rem;
+    height: 14rem;
     overflow: hidden;
     position: relative;
     padding: 2rem 0;
 }
 
 .hd-cardlink:has(.hd-cardlink__logo) {
-    padding: 0 0 2rem;
+    padding: 2rem 0;
 }
 
 .hd-cardlink--sm {
-    height: 12rem;
+    height: 10rem;
 }
 
 .hd-cardlink:nth-child(3n) {
@@ -60,11 +60,12 @@
 }
 
 .hd-cardlink__logo {
-    max-width: 6rem;
+    bottom: 0;
+    right: 0;
+    max-width: 10rem;
     opacity: 0.1;
-    position: relative;
-    scale: 2.5;
-    transform-origin: 0 0;
+    position: absolute;
+    scale: 1.5;
     z-index: -1;
 }
 
@@ -102,20 +103,24 @@
     opacity: 1;
 }
 
-.hd-cardlink h3 {
+.hd-cardlink__title  {
     font-size: 1.5rem;
 }
 
-.hd-cardlink p {
+.hd-cardlink__description {
     font-size: 1.125rem;
     line-height: 1.5;
     margin-top: .75rem;
 }
 
-.hd-cardlink__copy {
-    padding: 0 2rem;
+.hd-cardlink--sm .hd-cardlink__title {
+    font-size: 1.25rem;
 }
 
-.hd-cardlink:has(.hd-cardlink__logo) .hd-cardlink__copy {
-    margin-top: auto;
+.hd-cardlink--sm .hd-cardlink__description {
+    font-size: 1rem;
+}
+
+.hd-cardlink__copy {
+    padding: 0 2rem;
 }
