@@ -24,7 +24,7 @@
     --hop-Select-prefix-color: var(--hop-neutral-text-weak);
 
     /* Button Icon */
-    --hop-Select-button-icon-color: var(--hop-neutral-icon-weak);
+    --hop-Select-button-icon-color: var(--hop-neutral-icon);
 
     /* Hovered */
     --hop-Select-button-background-color-hovered: var(--hop-neutral-surface-hover);
@@ -93,6 +93,7 @@
     align-items: center;
     order: 2;
 
+    box-sizing: border-box;
     block-size: var(--button-block-size);
     padding-block: var(--hop-Select-button-padding-block);
     padding-inline: var(--hop-Select-button-padding-inline);

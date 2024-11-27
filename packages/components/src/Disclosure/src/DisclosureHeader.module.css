@@ -1,0 +1,196 @@
+.hop-DisclosureHeader  {
+    --hop-DisclosureHeader-padding: var(--hop-space-inset-md);
+    --hop-DisclosureHeader-icon-margin-inline-end: var(--hop-space-inline-md);
+    --hop-DisclosureHeader-toggle-arrow-margin-inline-start: var(--hop-space-inline-md);
+    --hop-DisclosureHeader-outline-offset: calc(-1 * var(--hop-space-10));
+
+    /* Default */
+    --hop-DisclosureHeader-background-color: var(--hop-neutral-surface);
+    --hop-DisclosureHeader-color: var(--hop-neutral-text);
+    --hop-DisclosureHeader-icon-color: var(--hop-neutral-icon);
+    --hop-DisclosureHeader-description-color: var(--hop-neutral-text-weak);
+    --hop-DisclosureHeader-border-radius-transition: 0s var(--hop-easing-productive) var(--hop-easing-duration-2); /* has a delay so it only happens after the other transitions */
+
+    /* Standalone */
+    --hop-DisclosureHeader-standalone-outline-size: var(--hop-space-10);
+    --hop-DisclosureHeader-standalone-outline-color: transparent;
+    --hop-DisclosureHeader-standalone-border-size: var(--hop-space-10);
+    --hop-DisclosureHeader-standalone-border-color: var(--hop-neutral-border-weak);
+    --hop-DisclosureHeader-standalone-border-radius: var(--hop-shape-rounded-md);
+
+    /* Inline */
+    --hop-DisclosureHeader-inline-outline-size: 0;
+    --hop-DisclosureHeader-inline-outline-color: transparent;
+    --hop-DisclosureHeader-inline-border-size: 0 0 var(--hop-space-10) 0;
+    --hop-DisclosureHeader-inline-border-color: var(--hop-neutral-border-weak);
+    --hop-DisclosureHeader-inline-border-radius: 0;
+
+    /* Expanded */
+    --hop-DisclosureHeader-background-color-expanded: var(--hop-neutral-surface);
+    --hop-DisclosureHeader-color-expanded: var(--hop-neutral-text);
+    --hop-DisclosureHeader-icon-color-expanded: var(--hop-neutral-icon);
+    --hop-DisclosureHeader-standalone-border-radius-expanded: var(--hop-shape-rounded-md) var(--hop-shape-rounded-md) 0 0;
+    --hop-DisclosureHeader-inline-border-radius-expanded: 0;
+    --hop-DisclosureHeader-border-radius-transition-expanded: 0s var(--hop-easing-productive) 0s;
+
+    /* Hovered */
+    --hop-DisclosureHeader-background-color-hovered: var(--hop-neutral-surface-hover);
+    --hop-DisclosureHeader-color-hovered: var(--hop-neutral-text-hover);
+    --hop-DisclosureHeader-icon-color-hovered: var(--hop-neutral-icon-hover);
+    --hop-DisclosureHeader-standalone-outline-color-hovered: var(--hop-neutral-border-hover);
+    --hop-DisclosureHeader-inline-outline-color-hovered: transparent;
+
+    /* Pressed */
+    --hop-DisclosureHeader-background-color-pressed: var(--hop-neutral-surface-press);
+    --hop-DisclosureHeader-color-pressed: var(--hop-neutral-text-press);
+    --hop-DisclosureHeader-icon-color-pressed: var(--hop-neutral-icon-press);
+    --hop-DisclosureHeader-standalone-outline-color-pressed: var(--hop-neutral-border-press);
+    --hop-DisclosureHeader-inline-outline-color-pressed: transparent;
+
+    /* Focused */
+    --hop-DisclosureHeader-background-color-focused: var(--hop-neutral-surface-hover);
+    --hop-DisclosureHeader-color-focused: var(--hop-neutral-text-hover);
+    --hop-DisclosureHeader-icon-color-focused: var(--hop-neutral-icon-hover);
+    --hop-DisclosureHeader-standalone-outline-size-focused:  var(--hop-space-20);
+    --hop-DisclosureHeader-standalone-outline-color-focused: var(--hop-primary-border-focus);
+    --hop-DisclosureHeader-inline-outline-size-focused:  var(--hop-space-20);
+    --hop-DisclosureHeader-inline-outline-color-focused: var(--hop-primary-border-focus);
+
+    /* Disabled */
+    --hop-DisclosureHeader-background-color-disabled: var(--hop-neutral-surface-disabled);
+    --hop-DisclosureHeader-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-DisclosureHeader-icon-color-disabled: var(--hop-neutral-icon-disabled);
+    --hop-DisclosureHeader-description-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-DisclosureHeader-standalone-border-color-disabled: var(--hop-neutral-border-disabled);
+    --hop-DisclosureHeader-inline-border-color-disabled: transparent;
+
+    /* Internal Variables */
+    --background-color: var(--hop-DisclosureHeader-background-color);
+    --color: var(--hop-DisclosureHeader-color);
+    --cursor: pointer;
+    --icon-color: var(--hop-DisclosureHeader-icon-color);
+    --description-color: var(--hop-DisclosureHeader-description-color);
+    --outline-size: var(--hop-DisclosureHeader-standalone-outline-size);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color);
+    --border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
+    --transition-info: var(--hop-easing-duration-2) var(--hop-easing-productive);
+    --border-radius-transition-info: var(--hop-DisclosureHeader-border-radius-transition);
+    --transition: color var(--transition-info), background-color var(--transition-info);
+    --border-size: var(--hop-DisclosureHeader-standalone-border-size);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color);
+
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.hop-DisclosureHeader__button {
+    cursor: var(--cursor);
+
+    display: grid;
+    grid-template-areas: "icon content toggle-arrow";
+    grid-template-columns: auto 1fr auto;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: start;
+
+    box-sizing: border-box;
+    padding: var(--hop-DisclosureHeader-padding);
+
+    font: inherit;
+    line-height: inherit;
+    color: var(--color);
+    text-align: start;
+
+    background-color: var(--background-color);
+    border: solid var(--border-color);
+    border-width: var(--border-size);
+    border-radius: var(--border-radius);
+    outline: var(--outline-size) solid var(--outline-color);
+    outline-offset: var(--hop-DisclosureHeader-outline-offset);
+
+    transition: var(--transition);
+}
+
+@supports (interpolate-size: allow-keywords) {
+    .hop-DisclosureHeader__button {
+        --transition: color var(--transition-info), background-color var(--transition-info), 
+                        border-radius var(--border-radius-transition-info);
+    }
+}
+
+.hop-DisclosureHeader__button[data-expanded] {
+    --background-color: var(--hop-DisclosureHeader-background-color-expanded);
+    --color: var(--hop-DisclosureHeader-color-expanded);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-expanded);
+    --border-radius: var(--hop-DisclosureHeader-standalone-border-radius-expanded);
+    --border-radius-transition-info: var(--hop-DisclosureHeader-border-radius-transition-expanded);
+}
+
+.hop-DisclosureHeader__button[data-hovered] {
+    --background-color: var(--hop-DisclosureHeader-background-color-hovered);
+    --color: var(--hop-DisclosureHeader-color-hovered);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-hovered);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-hovered);
+}
+
+.hop-DisclosureHeader__button[data-pressed] {
+    --background-color: var(--hop-DisclosureHeader-background-color-pressed);
+    --color: var(--hop-DisclosureHeader-color-pressed);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-pressed);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-pressed);
+}
+
+.hop-DisclosureHeader__button[data-focus-visible] {
+    --background-color: var(--hop-DisclosureHeader-background-color-focused);
+    --color: var(--hop-DisclosureHeader-color-focused);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-focused);
+    --outline-size: var(--hop-DisclosureHeader-standalone-outline-size-focused);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-focused);
+}
+
+.hop-DisclosureHeader__button--inline {
+    --outline-size: var(--hop-DisclosureHeader-inline-outline-size);
+    --outline-color: var(--hop-DisclosureHeader-inline-outline-color);
+    --border-size: var(--hop-DisclosureHeader-inline-border-size);
+    --border-color: var(--hop-DisclosureHeader-inline-border-color);
+    --border-radius: var(--hop-DisclosureHeader-inline-border-radius);
+}
+
+.hop-DisclosureHeader__button--inline[data-expanded] {
+    --border-radius: var(--hop-DisclosureHeader-inline-border-radius-expanded);
+}
+
+.hop-DisclosureHeader__button--inline[data-focus-visible] {
+    --outline-size: var(--hop-DisclosureHeader-inline-outline-size-focused);
+    --outline-color: var(--hop-DisclosureHeader-inline-outline-color-focused);
+}
+
+.hop-DisclosureHeader__button[data-disabled] {
+    --background-color: var(--hop-DisclosureHeader-background-color-disabled);
+    --color: var(--hop-DisclosureHeader-color-disabled);
+    --cursor: not-allowed;
+    --icon-color: var(--hop-DisclosureHeader-icon-color-disabled);
+    --description-color: var(--hop-DisclosureHeader-description-color-disabled);
+    --border-color: var(--hop-DisclosureHeader-standalone-border-color-disabled);
+}
+
+.hop-DisclosureHeader__button > * {
+    grid-area: content;
+}
+
+.hop-DisclosureHeader__icon {
+    grid-area: icon;
+    box-sizing: border-box;
+    margin-inline-end: var(--hop-DisclosureHeader-icon-margin-inline-end);
+    color: var(--icon-color);
+}
+
+.hop-DisclosureHeader__title {
+    flex: 0 1 auto;
+}
+
+.hop-DisclosureHeader__toggle-arrow {
+    grid-area: toggle-arrow;
+    margin-inline-start: var(--hop-DisclosureHeader-toggle-arrow-margin-inline-start);
+}

@@ -32,9 +32,6 @@
     /* ComboBox Button */
     --hop-ComboBox-button-padding-inline: var(--hop-space-inset-md);
 
-    /* Button Icon */
-    --hop-ComboBox-button-icon-color: var(--hop-neutral-icon-weak);
-
     /* Prefix */
     --hop-ComboBox-prefix-color: var(--hop-neutral-text-weak);
 
@@ -42,13 +39,11 @@
     --hop-ComboBox-trigger-background-color-hovered: var(--hop-neutral-surface-hover);
     --hop-ComboBox-trigger-border-color-hovered: var(--hop-neutral-border-hover);
     --hop-ComboBox-trigger-color-hovered: var(--hop-neutral-text-hover);
-    --hop-ComboBox-button-icon-color-hovered: var(--hop-neutral-icon-hover);
 
     /* Focused */
     --hop-ComboBox-trigger-background-color-focused: var(--hop-neutral-surface-hover);
     --hop-ComboBox-trigger-border-color-focused: var(--hop-primary-border-focus);
     --hop-ComboBox-trigger-color-focused: var(--hop-neutral-text-hover);
-    --hop-ComboBox-button-icon-color-focused: var(--hop-neutral-icon-hover);
     --hop-ComboBox-trigger-outline-color-focused: var(--hop-primary-border-focus);
 
     /**
@@ -59,7 +54,6 @@
     --hop-ComboBox-button-background-color-selected: var(--hop-neutral-surface);
     --hop-ComboBox-button-border-color-selected: var(--hop-neutral-border-selected);
     --hop-ComboBox-button-color-selected: var(--hop-neutral-text);
-    --hop-ComboBox-button-icon-color-selected: var(--hop-neutral-icon);
 
     /* Invalid */
     --hop-ComboBox-trigger-border-color-invalid: var(--hop-danger-border-strong);
@@ -68,7 +62,6 @@
     --hop-ComboBox-trigger-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-ComboBox-trigger-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-ComboBox-trigger-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-ComboBox-button-icon-color-disabled: var(--hop-neutral-icon-disabled);
     --hop-ComboBox-trigger-cursor-disabled: not-allowed;
 
     /* Internal Variables */
@@ -77,7 +70,6 @@
     --trigger-border-color: var(--hop-ComboBox-trigger-border-color);
     --trigger-cursor: var(--hop-ComboBox-trigger-cursor);
     --trigger-color: var(--hop-ComboBox-trigger-color);
-    --button-icon-color: var(--hop-ComboBox-button-icon-color);
     --input-font-family: var(--hop-ComboBox-input-md-font-family);
     --input-font-size: var(--hop-ComboBox-input-md-font-size);
     --input-font-weight: var(--hop-ComboBox-input-md-font-weight);
@@ -108,6 +100,7 @@
     column-gap: var(--hop-ComboBox-trigger-column-gap);
     order: 2;
 
+    box-sizing: border-box;
     block-size: var(--trigger-block-size);
     padding-inline-start: var(--hop-ComboBox-trigger-padding-inline-start);
 
@@ -134,14 +127,12 @@
     --trigger-background-color: var(--hop-ComboBox-trigger-background-color-hovered);
     --trigger-border-color: var(--hop-ComboBox-trigger-border-color-hovered);
     --trigger-color: var(--hop-ComboBox-trigger-color-hovered);
-    --button-icon-color: var(--hop-ComboBox-button-icon-color-hovered);
 }
 
 .hop-ComboBox__trigger[data-selected] {
     --trigger-background-color: var(--hop-ComboBox-button-background-color-selected);
     --trigger-border-color: var(--hop-ComboBox-button-border-color-selected);
     --trigger-color: var(--hop-ComboBox-button-color-selected);
-    --button-icon-color: var(--hop-ComboBox-button-icon-color-selected);
 }
 
 .hop-ComboBox__trigger[data-invalid] {
@@ -152,7 +143,6 @@
     --trigger-background-color: var(--hop-ComboBox-trigger-background-color-focused);
     --trigger-border-color: var(--hop-ComboBox-trigger-border-color-focused);
     --trigger-color: var(--hop-ComboBox-trigger-color-focused);
-    --button-icon-color: var(--hop-ComboBox-button-icon-color-focused);
 
     outline: var(--hop-ComboBox-trigger-border-size) solid var(--hop-ComboBox-trigger-outline-color-focused);
     outline-offset: var(--hop-ComboBox-trigger-outline-offset);
@@ -162,7 +152,6 @@
     --trigger-background-color: var(--hop-ComboBox-trigger-background-color-disabled);
     --trigger-border-color: var(--hop-ComboBox-trigger-border-color-disabled);
     --trigger-color: var(--hop-ComboBox-trigger-color-disabled);
-    --button-icon-color: var(--hop-ComboBox-button-icon-color-disabled);
     --trigger-cursor: var(--hop-ComboBox-trigger-cursor-disabled);
 }
 
@@ -196,6 +185,8 @@
 
     padding-inline: var(--hop-ComboBox-button-padding-inline);
 
+    color: inherit;
+
     background-color: var(--trigger-background-color);
     border: none;
     outline: none;
@@ -208,7 +199,6 @@
 
 .hop-ComboBox__button-icon {
     margin-inline-start: auto;
-    color: var(--button-icon-color);
 }
 
 .hop-ComboBox__helper-message,

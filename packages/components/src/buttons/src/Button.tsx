@@ -16,6 +16,7 @@ import {
     useContextProps
 } from "react-aria-components";
 
+import { useFormProps } from "../../Form/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { Spinner, type SpinnerProps } from "../../Spinner/index.ts";
@@ -62,6 +63,7 @@ export interface ButtonProps extends StyledComponentProps<Omit<RACButtonProps, "
 
 function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     [props, ref] = useContextProps(props, ref, ButtonContext);
+    props = useFormProps(props);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const stringFormatter = useLocalizedString();

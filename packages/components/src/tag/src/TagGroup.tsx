@@ -17,6 +17,7 @@ import {
 } from "react-aria-components";
 
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { type FormStyleProps, useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Label } from "../../typography/Label/index.ts";
 import { composeClassnameRenderProps, cssModule, type FieldProps, SlotProvider } from "../../utils/index.ts";
@@ -55,6 +56,7 @@ export interface TagGroupProps<T> extends StyledComponentProps<Omit<RACTagGroupP
 
 function TagGroup<T extends object>(props: TagGroupProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, TagGroupContext);
+    props = useFormProps(props as FormStyleProps); /* Needed because TagGroup has an extra size. */
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

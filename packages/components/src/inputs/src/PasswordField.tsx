@@ -20,6 +20,7 @@ import {
 
 import { EmbeddedButton, type EmbeddedButtonProps } from "../../buttons/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { Label } from "../../typography/index.ts";
@@ -78,6 +79,7 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
         ...propsWithoutRef
     } = props;
     [props, ref] = useContextProps(propsWithoutRef, ref, PasswordFieldContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const [showPassword, setShowPassword] = useState(false);
     const stringFormatter = useLocalizedString();

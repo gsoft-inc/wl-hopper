@@ -3,7 +3,7 @@
 import { CollapseIcon, Icon } from "@/components/icon";
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { Button, composeRenderProps, UNSTABLE_Disclosure as Disclosure, UNSTABLE_DisclosurePanel as DisclosurePanel, type DisclosureProps } from "react-aria-components";
+import { Button, composeRenderProps, Disclosure, DisclosurePanel, type DisclosureProps } from "react-aria-components";
 
 import "./collapsible.css";
 
