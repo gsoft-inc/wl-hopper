@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.34
+
+### Patch Changes
+
+- 8abd4a4: Created the Disclosure component with its sub components: DisclosureHeader and DisclosurePanel.
+
 ## 1.3.33
 
 ### Patch Changes
