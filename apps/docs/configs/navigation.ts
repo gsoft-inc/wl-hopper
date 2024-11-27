@@ -22,7 +22,7 @@ export const navigation: NavItem[] = [
     },
     {
         "label": "Guides",
-        "path": "/guides/introduction",
+        "path": "/guides/overview/introduction",
         "status": "ready"
     },
     {

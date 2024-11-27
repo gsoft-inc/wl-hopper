@@ -25,7 +25,9 @@ export default function GuideLayout({ children }: { children: ReactNode }) {
     }
 
     const sectionLinks = getSectionLinks(pageContent);
-    const allGuidesLinks = getPageLinks(allGuides);
+    const allGuidesLinks = getPageLinks(allGuides, {
+        order: ["overview", "guides"]
+    });
 
     return (
         <SidebarProvider>
