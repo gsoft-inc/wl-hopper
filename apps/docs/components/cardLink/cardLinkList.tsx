@@ -6,7 +6,7 @@ import "./cardLinkList.css";
 export interface CardLinkListProps extends ComponentProps<"div">{}
 
 const CardLinkList = ({ children, className, ...rest }: CardLinkListProps) => {
-    const cardLinkListClass = clsx("hd-cardlink", {
+    const cardLinkListClass = clsx("hd-cardlink-list", {
     }, className);
 
     return (
