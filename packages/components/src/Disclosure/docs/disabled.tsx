@@ -1,4 +1,4 @@
-import { Disclosure, DisclosureHeader, DisclosurePanel, Div, Flex, Text } from "@hopper-ui/components";
+import { Disclosure, DisclosureHeader, DisclosurePanel, Div, Inline, Text } from "@hopper-ui/components";
 import { SparklesIcon } from "@hopper-ui/icons";
 
 export default function Example() {
@@ -7,10 +7,10 @@ export default function Example() {
             <Disclosure isDisabled>
                 <DisclosureHeader>
                     <SparklesIcon />
-                    <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+                    <Inline columnGap="inline-sm" alignY="baseline">
                         <Text>Workleap Officevibe</Text>
                         <Text color="neutral-disabled" size="sm">Engagement and Feedback</Text>
-                    </Flex>
+                    </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
                     Help employees speak up and make sure they feel heard. 

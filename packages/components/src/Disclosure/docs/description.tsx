@@ -1,14 +1,14 @@
-import { Disclosure, DisclosureHeader, DisclosurePanel, Div, Flex, Text } from "@hopper-ui/components";
+import { Disclosure, DisclosureHeader, DisclosurePanel, Div, Inline, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Div width="100%" paddingX="core_320" paddingY="core_480">
             <Disclosure>
                 <DisclosureHeader>
-                    <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+                    <Inline columnGap="inline-sm" alignY="baseline">
                         <Text>Workleap Officevibe</Text>
                         <Text color="neutral-weak" size="sm">Engagement and Feedback</Text>
-                    </Flex>
+                    </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
                     Help employees speak up and make sure they feel heard. 

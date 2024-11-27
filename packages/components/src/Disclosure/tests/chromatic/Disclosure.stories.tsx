@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/test";
 
 import { Button } from "../../../buttons/index.ts";
-import { Flex, Stack } from "../../../layout/index.ts";
+import { Inline, Stack } from "../../../layout/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
 import { DisclosureHeader, DisclosurePanel } from "../../index.ts";
 import { Disclosure, type DisclosureProps } from "../../src/Disclosure.tsx";
@@ -35,10 +35,10 @@ export const Default = {
             <h1>Description</h1>
             <Disclosure {...args}>
                 <DisclosureHeader level={2}>
-                    <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+                    <Inline columnGap="inline-sm" alignY="baseline">
                         <Text>Disclosure Header</Text>
                         <Text color="neutral-weak" size="sm">Disclosure Description</Text>
-                    </Flex>
+                    </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
                 Disclosure Panel
@@ -58,10 +58,10 @@ export const Default = {
             <Disclosure {...args}>
                 <DisclosureHeader level={2}>
                     <SparklesIcon />
-                    <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+                    <Inline columnGap="inline-sm" alignY="baseline">
                         <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                         <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-                    </Flex>
+                    </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
             We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
@@ -84,7 +84,7 @@ export const Default = {
     }
 } satisfies Story;
 
-export const Inline = {
+export const InlineVariant = {
     ...Default,
     args: {
         defaultExpanded: true,
@@ -107,10 +107,10 @@ const StateTemplate = (args: Partial<DisclosureProps>) => (
     <Disclosure {...args}>
         <DisclosureHeader level={2}>
             <SparklesIcon />
-            <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+            <Inline columnGap="inline-sm" alignY="baseline">
                 <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                 <Text color={args.isDisabled ? "neutral-disabled" : "neutral-weak"} size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-            </Flex>
+            </Inline>
         </DisclosureHeader>
         <DisclosurePanel>
             We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
@@ -180,10 +180,10 @@ export const Zoom = {
             <Disclosure {...args} className="zoom-in">
                 <DisclosureHeader level={2}>
                     <SparklesIcon />
-                    <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+                    <Inline columnGap="inline-sm" alignY="baseline">
                         <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                         <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-                    </Flex>
+                    </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
                     We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
@@ -193,10 +193,10 @@ export const Zoom = {
             <Disclosure {...args} className="zoom-out">
                 <DisclosureHeader level={2}>
                     <SparklesIcon />
-                    <Flex wrap="wrap" columnGap="inline-sm" alignItems="baseline">
+                    <Inline columnGap="inline-sm" alignY="baseline">
                         <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                         <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-                    </Flex>
+                    </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
                     We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
