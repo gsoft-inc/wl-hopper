@@ -75,7 +75,7 @@
     --border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
     --transition-info: var(--hop-easing-duration-2) var(--hop-easing-productive);
     --border-radius-transition-info: var(--hop-DisclosureHeader-border-radius-transition);
-    --transition: color var(--transition-info), background-color var(--transition-info), outline var(--transition-info);
+    --transition: color var(--transition-info), background-color var(--transition-info);
     --border-size: var(--hop-DisclosureHeader-standalone-border-size);
     --border-color: var(--hop-DisclosureHeader-standalone-border-color);
 
@@ -115,7 +115,7 @@
 @supports (interpolate-size: allow-keywords) {
     .hop-DisclosureHeader__button {
         --transition: color var(--transition-info), background-color var(--transition-info), 
-                        outline var(--transition-info), border-radius var(--border-radius-transition-info);
+                        border-radius var(--border-radius-transition-info);
     }
 }
 
