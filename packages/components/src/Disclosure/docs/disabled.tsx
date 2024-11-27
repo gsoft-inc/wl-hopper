@@ -7,7 +7,7 @@ export default function Example() {
             <Disclosure isDisabled>
                 <DisclosureHeader>
                     <SparklesIcon />
-                    <Inline columnGap="inline-sm" alignY="baseline">
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                         <Text>Workleap Officevibe</Text>
                         <Text color="neutral-disabled" size="sm">Engagement and Feedback</Text>
                     </Inline>

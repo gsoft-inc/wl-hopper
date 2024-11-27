@@ -35,7 +35,7 @@ export const Default = {
             <h1>Description</h1>
             <Disclosure {...args}>
                 <DisclosureHeader level={2}>
-                    <Inline columnGap="inline-sm" alignY="baseline">
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                         <Text>Disclosure Header</Text>
                         <Text color="neutral-weak" size="sm">Disclosure Description</Text>
                     </Inline>
@@ -58,7 +58,7 @@ export const Default = {
             <Disclosure {...args}>
                 <DisclosureHeader level={2}>
                     <SparklesIcon />
-                    <Inline columnGap="inline-sm" alignY="baseline">
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                         <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                         <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
                     </Inline>
@@ -107,7 +107,7 @@ const StateTemplate = (args: Partial<DisclosureProps>) => (
     <Disclosure {...args}>
         <DisclosureHeader level={2}>
             <SparklesIcon />
-            <Inline columnGap="inline-sm" alignY="baseline">
+            <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                 <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                 <Text color={args.isDisabled ? "neutral-disabled" : "neutral-weak"} size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
             </Inline>
@@ -180,7 +180,7 @@ export const Zoom = {
             <Disclosure {...args} className="zoom-in">
                 <DisclosureHeader level={2}>
                     <SparklesIcon />
-                    <Inline columnGap="inline-sm" alignY="baseline">
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                         <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                         <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
                     </Inline>
@@ -193,7 +193,7 @@ export const Zoom = {
             <Disclosure {...args} className="zoom-out">
                 <DisclosureHeader level={2}>
                     <SparklesIcon />
-                    <Inline columnGap="inline-sm" alignY="baseline">
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                         <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
                         <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
                     </Inline>

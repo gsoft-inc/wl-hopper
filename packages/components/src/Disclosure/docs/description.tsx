@@ -5,7 +5,7 @@ export default function Example() {
         <Div width="100%" paddingX="core_320" paddingY="core_480">
             <Disclosure>
                 <DisclosureHeader>
-                    <Inline columnGap="inline-sm" alignY="baseline">
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
                         <Text>Workleap Officevibe</Text>
                         <Text color="neutral-weak" size="sm">Engagement and Feedback</Text>
                     </Inline>
