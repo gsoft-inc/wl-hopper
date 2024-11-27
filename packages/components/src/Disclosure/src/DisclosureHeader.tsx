@@ -39,7 +39,7 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
     } = ownProps;
 
     const { isExpanded } = useContext(DisclosureStateContext)!;
-    const disclosureCtx = useSlottedContext(DisclosureContext);
+    const { variant } = useSlottedContext(DisclosureContext)!;
 
     const classNames = clsx(
         GlobalDisclosureHeaderCssSelector,
@@ -69,7 +69,7 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
         cssModule(
             styles,
             "hop-DisclosureHeader__button",
-            disclosureCtx?.variant
+            variant
         ),
         buttonStylingProps.className
     );

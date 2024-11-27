@@ -60,8 +60,8 @@ function Disclosure(props: DisclosureProps, ref: ForwardedRef<HTMLDivElement>) {
             {disclosureRenderProps => (
                 <SlotProvider values={[
                     [DisclosureContext, {
-                        ...ownProps,
-                        variant: variant /* send to make sure the default is also sent */
+                        isDisabled: disclosureRenderProps.isDisabled,
+                        variant: variant
                     }],
                     [DisclosureHeaderContext, {
                         className: styles["hop-Disclosure__header"]
