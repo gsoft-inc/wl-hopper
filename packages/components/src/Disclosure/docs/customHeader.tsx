@@ -9,19 +9,11 @@ export default function Example() {
                 {({ isExpanded }) => (
                     <>
                         <Button slot="trigger" variant="secondary">
-                            {({ isDisabled, isFocusVisible, isHovered, isPressed }) => (
-                                <>
-                                    <Text>Help your people work better</Text>
-                                    <ToggleArrow
-                                        isExpanded={isExpanded}
-                                        isDisabled={isDisabled}
-                                        isFocused={isFocusVisible}
-                                        isHovered={isHovered}
-                                        isPressed={isPressed}
-                                        slot="end-icon"
-                                    />
-                                </>
-                            )}
+                            <Text>Help your people work better</Text>
+                            <ToggleArrow
+                                isExpanded={isExpanded}
+                                slot="end-icon"
+                            />
                         </Button>
                         <DisclosurePanel>
                             Tackle the challenges of hybrid, remote and distributed work, no matter what. 
