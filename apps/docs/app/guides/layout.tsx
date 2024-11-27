@@ -1,18 +1,22 @@
 "use client";
 
-import type { ReactNode } from "react";
+import getPageLinks from "@/app/lib/getPageLinks";
+import getSectionLinks from "@/app/lib/getSectionLinks";
+import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
+import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
+import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import { allGuides } from "contentlayer/generated";
 import { useSelectedLayoutSegment } from "next/navigation";
-import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
-import getSectionLinks from "@/app/lib/getSectionLinks";
-import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
-import getPageLinks from "@/app/lib/getPageLinks";
+import type { ReactNode } from "react";
 
-export default function TokenLayout({ children }: { children: ReactNode }) {
+export default function GuideLayout({ children }: { children: ReactNode }) {
     const selectedLayoutSegment = useSelectedLayoutSegment();
-    const [section, type] = selectedLayoutSegment?.split("/") ?? ["", ""];
+    let segments = selectedLayoutSegment?.split("/") ?? ["", ""];
+    if (segments.length === 1) {
+        segments = ["guides", ...segments];
+    }
+    const [section, type] = segments;
 
     const pageContent = allGuides.find(icon => icon.slug === type && icon.section === section);
 
@@ -24,14 +28,12 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
     const allGuidesLinks = getPageLinks(allGuides);
 
     return (
-        <>
-            <SidebarProvider>
-                <SubHeader links={sectionLinks} />
-                <Wrapper type="with-sidebar">
-                    <Sidebar links={allGuidesLinks} />
-                    {children}
-                </Wrapper>
-            </SidebarProvider>
-        </>
+        <SidebarProvider>
+            <SubHeader links={sectionLinks} />
+            <Wrapper type="with-sidebar">
+                <Sidebar links={allGuidesLinks} />
+                {children}
+            </Wrapper>
+        </SidebarProvider>
     );
 }

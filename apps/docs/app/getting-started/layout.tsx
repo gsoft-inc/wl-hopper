@@ -10,7 +10,7 @@ import { allGettingStarteds } from "contentlayer/generated";
 import { useSelectedLayoutSegment } from "next/navigation";
 import type { ReactNode } from "react";
 
-export default function TokenLayout({ children }: { children: ReactNode }) {
+export default function GettingStartedLayout({ children }: { children: ReactNode }) {
     const selectedLayoutSegment = useSelectedLayoutSegment();
     const [section, type] = selectedLayoutSegment?.split("/") ?? ["", ""];
 
@@ -21,7 +21,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
 
     const sectionLinks = getSectionLinks(pageContent);
     const allGettingStartedsLinks = getPageLinks(allGettingStarteds, {
-        order: ["overview", "installation-path"]
+        order: ["overview", "installation-path", "advanced-options"]
     });
 
     return (

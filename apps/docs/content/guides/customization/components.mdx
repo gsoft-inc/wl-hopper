@@ -1,0 +1,84 @@
+---
+title: Customizing Components
+description: Learn how to customize Hopper components to meet your product needs.
+order: 1
+---
+
+Hopper components are built with well-considered defaults that meet common product needs.
+ However, we understand that product teams often move quickly, iterating at a pace that can move faster than design system updates.
+ As this article on [pace layering](https://bigmedium.com/ideas/design-system-pace-layers-slow-fast.html) explains, it's natural for design systems to evolve more slowly than the products they support.
+ Rather than being a bottleneck, this approach keeps our design system stable and reliable.
+ To support fast-paced product development, Hopper provides a range of options for customization,
+ from simple styling adjustments to creating entirely new components.
+
+## Customization Principles
+
+The Hopper design systems are built on the principle that “components are designed to be overridden, not locked-in.” This allows developers to adjust styles and behaviors to meet specific product needs, while ensuring components remain usable and adaptable.
+
+There are multiple customization methods available, and to highlight why some are better suited than others, I’ve organized them into four tiers:
+
+🥇**Gold Tier:** Maximize reuse of the Design System, applying only minimal overwrites to fit your needs.
+
+🥈**Silver Tier:** Reuse most of the component’s behaviors.
+
+🥉**Bronze Tier:** Reassemble the component’s behavior using smaller utility methods.
+
+🤷**Do it yourself:** Build the behavior from scratch and use low-level styling tools as needed
+
+## Customization Methods Overview
+
+Here's an overview of the different customization methods:
+
+- 🥇 [Direct styling adjustments](#customization-methods-details--direct-styling-adjustments): You can use CSS Classes or the styling props on existing Design System Components to alter the style as needed.
+
+- 🥇 [Behavior modifications](#customization-methods-details--behavior-modifications): You can use ref, callbacks and controlled properties to modify its behavior.
+
+- 🥈 [Copying component](#customization-methods-details--copying-component): Copy the component code inside your codebase and modify it.
+
+- 🥈 [Custom components using base components](#customization-methods-details--custom-components-using-base-components): Create a new component on top of Design System base components or React Aria Components.
+
+- 🥉 [Custom components using hooks](#customization-methods-details--custom-components-using-hooks): Create a new component on top of Design System hooks or React Aria hooks.
+
+- 🛠️ [Building components from scratch](#customization-methods-details--building-components-from-scratch): Create a component from scratch and leveraging Design Tokens if possible
+
+## Customization Methods Details
+
+These customization options provide product teams with the flexibility to adapt Hopper components to specific requirements, without sacrificing consistency. By using this range of customization methods, teams can meet product goals efficiently while maintaining the benefits of a unified design system. These customization methods are presented in the order you should consider when evaluating your options, with details provided in the sections below.
+
+### 🥇 Direct styling adjustments
+
+For straightforward customization needs, you can make adjustments directly by passing style-related props, adding CSS classes, or setting up refs for access to component elements. This approach allows you to override specific styles while keeping the component's behavior and overall styling intact.
+
+### 🥇 Behavior modifications
+
+To customize a component's behavior, use refs, callbacks and controlled properties. This approach is useful for interactive features and for modifying default component behavior. This approach is ideal when you need to adjust how a component responds to user interactions without altering its visual style or structure. Read more about Controlled vs Uncontrolled components [here](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components).
+
+### 🥈 Copying component
+
+When you need extensive customizations that go beyond simple styling or behavior adjustments, copying the component code can be an effective solution. This allows you to make specific changes while retaining the existing structure, making the customized component reusable across similar use cases.
+
+Link to [Hopper's components](https://github.com/gsoft-inc/wl-hopper/tree/main/packages/components)
+
+### 🥈 Custom components using base components
+
+If the existing Design System component feels too complex for your needs, take a closer look at its underlying structure in the code. In Hopper, it's likely built on a [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) component, which you can directly leverage to create a more tailored solution. React Aria offers a robust library of foundational components, making it a versatile starting point. [The Technology team recommends using React Aria](https://workleap.atlassian.net/wiki/spaces/TL/pages/3469508719) as the preferred foundation for building components.
+
+💡[Need Help Getting Started?](#need-help-getting-started)
+
+### 🥉 Custom components using hooks
+
+If there is no base components to use, or if the base component is again too strict for you needs, you can use underlying hooks for more granular control. [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) also offer hooks that you can tailor components more precisely to your needs. [The Technology team recommends using React Aria](https://workleap.atlassian.net/wiki/spaces/TL/pages/3469508719) as the preferred foundation for building components
+
+💡[Need Help Getting Started?](#need-help-getting-started)
+
+### 🛠️ Building components from scratch
+
+For unique needs that go beyond the capabilities of design system components, building a component from scratch may be necessary. At this point, the only recommendation we can give is to refer to the [WAI Aria Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) or [Spec](https://www.w3.org/WAI/ARIA/apg/) to determine the expected behavior of controls. Using this approach you will have to style the entire component, which is fine. Just be sure to use [Hopper tokens](../../tokens/overview/introduction) to ensure that any future branding updates are automatically applied to your component without needing manual adjustments. If you want to allow customization on your component, you can also use the `useStyledSystem` hook to expose style props!
+
+💡[Need Help Getting Started?](#need-help-getting-started)
+
+## Need Help Getting Started?
+
+Even if you're not using Design System components, we're here to help! The Design System team has deep expertise in React Aria and is eager to collaborate with you.
+
+💡Let's brainstorm together! Reach out to us in **#ds-hopper** for guidance, ideas, or support in finding the perfect starting point for your project.
