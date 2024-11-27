@@ -2,48 +2,13 @@
     /* Default */
     --hop-ToggleArrow-color: var(--hop-neutral-icon);
 
-    /* Expanded */
-    --hop-ToggleArrow-color-expanded: var(--hop-neutral-icon);
-
-    /* Hovered */
-    --hop-ToggleArrow-color-hovered: var(--hop-neutral-icon-hover);
-
-    /* Pressed */
-    --hop-ToggleArrow-color-pressed: var(--hop-neutral-icon-press);
-
-    /* Focused */
-    --hop-ToggleArrow-color-focused: var(--hop-neutral-icon-focus);
-
-    /* Disabled */
-    --hop-ToggleArrow-color-disabled: var(--hop-neutral-icon-disabled);
-
-    /* Internal Variables */
-    --color: var(--hop-ToggleArrow-color);    
+    /* Internal Variables */  
     --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
 
     position: relative;
-    color: var(--color);
     transition: transform var(--transition);
 }
 
 .hop-ToggleArrow[data-expanded] {
-    --color: var(--hop-ToggleArrow-color-expanded);
-
     transform: rotate(-180deg);
-}
-
-.hop-ToggleArrow[data-hovered] {
-    --color: var(--hop-ToggleArrow-color-hovered);
-}
-
-.hop-ToggleArrow[data-pressed] {
-    --color: var(--hop-ToggleArrow-color-pressed);
-}
-
-.hop-ToggleArrow[data-focus-visible] {
-    --color: var(--hop-ToggleArrow-color-focused);
-}
-
-.hop-ToggleArrow[data-disabled] {
-    --color: var(--hop-ToggleArrow-color-disabled);
 }

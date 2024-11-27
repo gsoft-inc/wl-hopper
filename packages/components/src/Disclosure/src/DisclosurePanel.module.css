@@ -1,44 +1,71 @@
 .hop-DisclosurePanel {
     --hop-DisclosurePanel-text-color: var(--hop-neutral-text-weak);
-    --hop-DisclosurePanel-padding: var(--hop-space-inset-md) 0;
-    --hop-DisclosurePanel-background-color: none;
+    
+    /* Standalone */
+    --hop-DisclosurePanel-standalone-border-radius: 0 0 var(--hop-shape-rounded-md) var(--hop-shape-rounded-md);
 
-    /* With Header */ 
-    --hop-DisclosurePanel-with-header-padding: var(--hop-space-inset-md);
-    --hop-DisclosurePanel-with-header-background-color: var(--hop-neutral-surface);
+    /* Inline */
+    --hop-DisclosurePanel-inline-border-radius: 0;
+
+    /* Disabled */
+    --hop-DisclosurePanel-color-disabled: var(--hop-neutral-text-disabled);
 
     /* Internal Variables */
-    --background-color: var(--hop-DisclosurePanel-background-color);
-    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
+    --transition-duration: var(--hop-easing-duration-2);
+    --transition: var(--transition-duration) var(--hop-easing-productive);
+    --delayed-transition: 0s var(--hop-easing-productive) var(--transition-duration);
     --block-size: auto;
-    --padding: var(--hop-DisclosurePanel-padding);
+    --border-radius: var(--hop-DisclosurePanel-standalone-border-radius);
+    --color: var(--hop-DisclosurePanel-text-color);
 
     overflow: hidden;
-
     box-sizing: border-box;
     block-size: var(--block-size);
+    border-radius: var(--border-radius);
+}
 
-    background-color: var(--background-color);
+@supports (interpolate-size: allow-keywords) {
+    .hop-DisclosurePanel {
+        transition: block-size var(--transition), content-visibility var(--transition), 
+                    padding-block var(--transition);
 
-    transition: block-size var(--transition), content-visibility var(--transition);
-    
-    transition-behavior: allow-discrete;
+        transition-behavior: allow-discrete;
+    }
+}
+
+@supports (interpolate-size: allow-keywords) {
+    .hop-DisclosurePanel[aria-hidden="true"] {
+        transition: block-size var(--transition), content-visibility var(--transition), 
+                    border var(--delayed-transition), padding-block var(--transition), padding-inline var(--delayed-transition);
+
+        transition-behavior: allow-discrete;
+    }
 }
 
 .hop-DisclosurePanel[aria-hidden="true"] {
     --block-size: 0;
 }
 
-.hop-DisclosurePanel--has-header {
-    --background-color: var(--hop-DisclosurePanel-with-header-background-color);
-    --padding: var(--hop-DisclosurePanel-with-header-padding);
+.hop-DisclosurePanel[aria-hidden="false"] {
+    display: block;
 }
 
-.hop-DisclosurePanel__content {
-    padding: var(--padding);
+.hop-DisclosurePanel--inline {
+    --border-radius: var(--hop-DisclosurePanel-inline-border-radius);
+}
 
+.hop-DisclosurePanel--disabled {
+    --color: var(--hop-DisclosurePanel-color-disabled);
 }
 
 .hop-DisclosurePanel__text {
-    color: var(--hop-DisclosurePanel-text-color);
+    color: var(--color);
+}
+
+.hop-DisclosurePanel__text:first-child {
+    margin-block-start: 0;
+}
+
+.hop-DisclosurePanel__text:last-child {
+    margin-block-end: 0;
 }

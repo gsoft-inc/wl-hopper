@@ -11,22 +11,21 @@ export default function Example() {
                         <Button slot="trigger" variant="secondary">
                             {({ isDisabled, isFocusVisible, isHovered, isPressed }) => (
                                 <>
-                                    <Text>Shipping & Returns Overview</Text>
+                                    <Text>Help your people work better</Text>
                                     <ToggleArrow
                                         isExpanded={isExpanded}
                                         isDisabled={isDisabled}
                                         isFocused={isFocusVisible}
                                         isHovered={isHovered}
                                         isPressed={isPressed}
-                                        order="2"
+                                        slot="end-icon"
                                     />
                                 </>
                             )}
                         </Button>
                         <DisclosurePanel>
-        Free shipping on orders over $50. Processing takes 1-2 business days. Expedited options available.
-
-        Returns are hassle-free within 30 days of delivery, as long as items are in original condition. Contact support for help.
+                            Tackle the challenges of hybrid, remote and distributed work, no matter what. 
+                            The Workleap platform builds solutions tailored to your existing HR and productivity tools to answer these challenges.
                         </DisclosurePanel>
                     </>
                 )}

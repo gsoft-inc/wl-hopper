@@ -86,7 +86,7 @@ export interface TagProps extends StyledComponentProps<RACTagProps> {
 
 function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, TagContext);
-    props = useFormProps(props as FormStyleProps); /* Needed because Tag as an extra size. */
+    props = useFormProps(props as FormStyleProps); /* Needed because Tag has an extra size. */
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

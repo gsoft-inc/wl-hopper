@@ -1,46 +1,86 @@
 .hop-Disclosure  {
-    /* Inline */
-    --hop-Disclosure-inline-border-size: 0;
-    --hop-Disclosure-inline-border-color: transparent;
-    --hop-Disclosure-inline-border-radius: 0;
-    --hop-Disclosure-inline-box-shadow: none;
+    /*  Default */
+    --hop-Disclosure-panel-padding: 0;
+    --hop-Disclosure-panel-padding-expanded: var(--hop-space-inset-md) 0;
+    --hop-Disclosure-panel-background-color: none;
+    
+    /* With Header */ 
+    --hop-Disclosure-with-header-panel-padding: var(--hop-space-inset-md);
+    --hop-Disclosure-with-header-panel-background-color: var(--hop-neutral-surface);
 
     /* Standalone */
-    --hop-Disclosure-standalone-border-size: var(--hop-space-10);
-    --hop-Disclosure-standalone-border-color: var(--hop-neutral-border-weak);
     --hop-Disclosure-standalone-border-radius: var(--hop-shape-rounded-md);
     --hop-Disclosure-standalone-box-shadow: var(--hop-elevation-raised);
+    --hop-Disclosure-standalone-panel-border-size: 0;
+    --hop-Disclosure-standalone-panel-border-size-expanded: 0 var(--hop-space-10) var(--hop-space-10) var(--hop-space-10);
+    --hop-Disclosure-standalone-panel-border-color: var(--hop-neutral-border-weak);
+    
+    /* Inline */
+    --hop-Disclosure-inline-border-radius: 0;
+    --hop-Disclosure-inline-box-shadow: none;
+    --hop-Disclosure-inline-panel-border-size: 0;
+    --hop-Disclosure-inline-panel-border-size-expanded: 0;
+    --hop-Disclosure-inline-panel-border-color: transparent;
 
     /* Disabled */
-    --hop-Disclosure-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-Disclosure-box-shadow-disabled: none;
+    --hop-Disclosure-panel-border-color-disabled: var(--hop-neutral-border-disabled);
+
+    /* Internal Variables */
+    --panel-background-color: var(--hop-Disclosure-panel-background-color);
+    --panel-padding: var(--hop-Disclosure-panel-padding);
+    --panel-border-size: var(--hop-Disclosure-standalone-panel-border-size);
 
     box-sizing: border-box;
-
-    border: var(--border-size) solid var(--border-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+
+    /* This is an experimental feature that allows you to enable animations and transitions 
+    between a length value and an intrinsic value such as auto, fit-content or max-content.
+    This a a progressive enhancement and for now, 
+    it only seems to work in Chrome https://caniuse.com/mdn-css_properties_interpolate-size_allow-keywords */
     /* stylelint-disable-next-line property-no-unknown */
     interpolate-size: allow-keywords;
 }
 
 .hop-Disclosure:has(.hop-Disclosure__header) {
-    --border-size: var(--hop-Disclosure-standalone-border-size);
-    --border-color: var(--hop-Disclosure-standalone-border-color);
     --border-radius: var(--hop-Disclosure-standalone-border-radius);
     --box-shadow: var(--hop-Disclosure-standalone-box-shadow);
+    --panel-background-color: var(--hop-Disclosure-with-header-panel-background-color);
+}
 
-    overflow: hidden;
+.hop-Disclosure[data-expanded] {
+    --panel-padding: var(--hop-Disclosure-panel-padding-expanded);
+}
+
+.hop-Disclosure:has(.hop-Disclosure__header)[data-expanded] {
+    --panel-border-size: var(--hop-Disclosure-standalone-panel-border-size-expanded);
+    --panel-border-color: var(--hop-Disclosure-standalone-panel-border-color);
+    --panel-padding: var(--hop-Disclosure-with-header-panel-padding);
+}
+
+.hop-Disclosure--inline {
+    --panel-border-size: var(--hop-Disclosure-inline-panel-border-size);
 }
 
 .hop-Disclosure--inline:has(.hop-Disclosure__header) {
-    --border-size: var(--hop-Disclosure-inline-border-size);
-    --border-color: var(--hop-Disclosure-inline-border-color);
     --border-radius: var(--hop-Disclosure-inline-border-radius);
     --box-shadow: var(--hop-Disclosure-inline-box-shadow);
 }
 
+.hop-Disclosure--inline:has(.hop-Disclosure__header)[data-expanded] {
+    --panel-border-size: var(--hop-Disclosure-inline-panel-border-size-expanded);
+    --panel-border-color: var(--hop-Disclosure-inline-panel-border-color);
+}
+
 .hop-Disclosure[data-disabled] {
-    --border-color: var(--hop-Disclosure-border-color-disabled);
     --box-shadow: var(--hop-Disclosure-box-shadow-disabled);
+    --panel-border-color: var(--hop-Disclosure-panel-border-color-disabled);
+}
+
+.hop-Disclosure__panel {
+    padding: var(--panel-padding);
+    background-color: var(--panel-background-color);
+    border: solid var(--panel-border-color);
+    border-width: var(--panel-border-size);
 }

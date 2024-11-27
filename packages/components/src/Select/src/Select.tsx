@@ -276,28 +276,17 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             {footerMarkup}
                         </Popover>
                         <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
-                            {selectButtonRenderProps => {
-                                const { isDisabled, isFocusVisible, isHovered } = selectButtonRenderProps;
+                            {prefixMarkup}
+                            <SelectValue size={size}>
+                                {valueRenderProps => {
+                                    return renderValue?.(valueRenderProps);
+                                }}
+                            </SelectValue>
+                            <ToggleArrow 
+                                className={styles["hop-Select__button-icon"]} 
+                                isExpanded={isOpen}
 
-                                return (
-                                    <>
-                                        {prefixMarkup}
-                                        <SelectValue size={size}>
-                                            {valueRenderProps => {
-                                                return renderValue?.(valueRenderProps);
-                                            }}
-                                        </SelectValue>
-                                        <ToggleArrow 
-                                            className={styles["hop-Select__button-icon"]} 
-                                            isExpanded={isOpen}
-                                            isDisabled={isDisabled}
-                                            isFocused={isFocusVisible}
-                                            isHovered={isHovered}
-
-                                        />
-                                    </>
-                                );
-                            }}
+                            />
                         </Button>
                         {description && (
                             <HelperMessage className={styles["hop-Select__helper-message"]}>

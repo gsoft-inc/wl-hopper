@@ -352,21 +352,10 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 placeholder={placeholder}
                             />
                             <Button className={buttonClassNames} ref={buttonRef}>
-                                {comboBoxButtonRenderProps => {
-                                    const { isDisabled, isFocusVisible, isHovered } = comboBoxButtonRenderProps;
-
-                                    return (
-                                        <>
-                                            <ToggleArrow 
-                                                className={styles["hop-ComboBox__button-icon"]} 
-                                                isExpanded={isOpen}
-                                                isDisabled={isDisabled}
-                                                isFocused={isFocusVisible}
-                                                isHovered={isHovered}
-                                            />
-                                        </>
-                                    );
-                                }}
+                                <ToggleArrow 
+                                    className={styles["hop-ComboBox__button-icon"]} 
+                                    isExpanded={isOpen}
+                                />
                             </Button>
                         </Group>
                         {description && (

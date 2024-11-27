@@ -5,10 +5,9 @@ import {
     type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { createContext, forwardRef, useContext, useMemo, type CSSProperties, type ForwardedRef } from "react";
+import { forwardRef, useContext, useMemo, type CSSProperties, type ForwardedRef } from "react";
 import {
     Form as RACForm,
-    useContextProps,
     type FormProps as RACFormProps
 } from "react-aria-components";
 
@@ -45,9 +44,8 @@ export interface FormStyleProps {
 
 export interface FormProps extends StyledComponentProps<RACFormProps>, FormStyleProps {}
 
-export const FormStyleContext = createContext<FormStyleProps | null>(null);
 export function useFormProps<T extends FormStyleProps>(props: T): T {
-    const ctx = useContext(FormStyleContext);
+    const ctx = useContext(FormContext);
 
     return useMemo(() => {
         let result: T = props;
@@ -68,7 +66,6 @@ export function useFormProps<T extends FormStyleProps>(props: T): T {
 }
 
 function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
-    [props, ref] = useContextProps(props, ref, FormContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -99,7 +96,7 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
     };
 
     return (
-        <FormStyleContext.Provider value={{ isDisabled, isFluid, necessityIndicator, size }}>
+        <FormContext.Provider value={{ isDisabled, isFluid, necessityIndicator, size }}>
             <RACForm
                 ref={ref}
                 className={classNames}
@@ -108,7 +105,7 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
             >
                 {children}
             </RACForm>
-        </FormStyleContext.Provider>
+        </FormContext.Provider>
     );
 }
 

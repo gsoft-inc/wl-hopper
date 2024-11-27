@@ -31,9 +31,9 @@ links:
 
 ### Composed Components
 
-A `Link` uses the following components.
+A `Disclosure` uses the following components.
 
-<ComposedComponents components={["Text"]}/>
+<ComposedComponents components={["Text, Icon"]}/>
 
 ## Usage
 
@@ -43,22 +43,25 @@ A disclosure can be disabled.
 
 <Example src="Disclosure/docs/disabled" />
 
-### Inline
+### Variants
 
-To make a disclosure inline, set the `variant` prop to `inline`. 
-This is typically used when placing a disclosure inside a container. In this example, it's inside a `Card` component.
+A disclosure has multiple variants.
 
-<Example src="Disclosure/docs/inline" />
+<Example src="Disclosure/docs/variants" />
+
+**Standalone** - Used when the disclosure is not inside a container.
+
+**Inline** - Used when placing a disclosure inside a container.
 
 ### Icon
 
-Disclosures can contain an icon.
+A disclosure can contain an icon.
 
 <Example src="Disclosure/docs/icon" />
 
 ### Description
 
-Disclosures can contain a description.
+A disclosure can contain a description.
 
 <Example src="Disclosure/docs/description" />
 
@@ -71,6 +74,7 @@ A disclosure can handle its expanded state in controlled mode.
 ### Custom Header
 
 A disclosure can have a custom header. To accomplish this, do not use `DisclosureHeader` and use the [Button](./Button) component with `slot="trigger"` instead.
+Using React Aria's [Button](https://react-spectrum.adobe.com/react-aria/Button.html) component will also work.
 
 <Example src="Disclosure/docs/customHeader" />
 
@@ -91,7 +95,24 @@ A disclosure can have a custom header. To accomplish this, do not use `Disclosur
 
 ## Props
 
+### Disclosure
 <PropTable component="Disclosure" />
+
+### Disclosure Header
+<PropTable component="DisclosureHeader" />
+
+### Disclosure Panel
+<PropTable component="DisclosurePanel" />
+
+## Progressive Enhancement
+
+Our Disclosure component uses experimental CSS features like:
+
+- **interpolate-size: allow-keywords;**: Enables fluid transitions between dynamic sizes.
+
+- **transition-behavior: allow-discrete;**: Allows transitions for properties like content-visibility.
+
+These features enhance animations where supported. In browsers without support, the component remains fully usable without animations, maintaining progressive enhancement.
 
 ## Migration Notes
 

@@ -1,76 +1,85 @@
 .hop-DisclosureHeader  {
     --hop-DisclosureHeader-padding: var(--hop-space-inset-md);
-    --hop-DisclosureHeader-prefix-margin-inline-end: var(--hop-space-inline-md);
-    --hop-DisclosureHeader-content-column-gap: var(--hop-space-inline-sm);
-    --hop-DisclosureHeader-content-row-gap: 0;
+    --hop-DisclosureHeader-icon-margin-inline-end: var(--hop-space-inline-md);
     --hop-DisclosureHeader-toggle-arrow-margin-inline-start: var(--hop-space-inline-md);
+    --hop-DisclosureHeader-outline-offset: calc(-1 * var(--hop-space-10));
 
     /* Default */
     --hop-DisclosureHeader-background-color: var(--hop-neutral-surface);
     --hop-DisclosureHeader-color: var(--hop-neutral-text);
-    --hop-DisclosureHeader-prefix-color: var(--hop-neutral-icon);
+    --hop-DisclosureHeader-icon-color: var(--hop-neutral-icon);
     --hop-DisclosureHeader-description-color: var(--hop-neutral-text-weak);
-    --hop-DisclosureHeader-separator-size: 0;
-    --hop-DisclosureHeader-separator-color: var(--hop-neutral-border-weak);
-    --hop-DisclosureHeader-standalone-border-size:  var(--hop-space-10);
-    --hop-DisclosureHeader-standalone-border-color: transparent;
+    --hop-DisclosureHeader-border-radius-transition: 0s var(--hop-easing-productive) var(--hop-easing-duration-2); /* has a delay so it only happens after the other transitions */
+
+    /* Standalone */
+    --hop-DisclosureHeader-standalone-outline-size: var(--hop-space-10);
+    --hop-DisclosureHeader-standalone-outline-color: transparent;
+    --hop-DisclosureHeader-standalone-border-size: var(--hop-space-10);
+    --hop-DisclosureHeader-standalone-border-color: var(--hop-neutral-border-weak);
     --hop-DisclosureHeader-standalone-border-radius: var(--hop-shape-rounded-md);
-    --hop-DisclosureHeader-inline-border-size:  0;
-    --hop-DisclosureHeader-inline-border-color: transparent;
+
+    /* Inline */
+    --hop-DisclosureHeader-inline-outline-size: 0;
+    --hop-DisclosureHeader-inline-outline-color: transparent;
+    --hop-DisclosureHeader-inline-border-size: 0 0 var(--hop-space-10) 0;
+    --hop-DisclosureHeader-inline-border-color: var(--hop-neutral-border-weak);
     --hop-DisclosureHeader-inline-border-radius: 0;
 
     /* Expanded */
-    --hop-DisclosureHeader-separator-size-expanded: var(--hop-space-10);
     --hop-DisclosureHeader-background-color-expanded: var(--hop-neutral-surface);
     --hop-DisclosureHeader-color-expanded: var(--hop-neutral-text);
-    --hop-DisclosureHeader-prefix-color-expanded: var(--hop-neutral-icon);
+    --hop-DisclosureHeader-icon-color-expanded: var(--hop-neutral-icon);
     --hop-DisclosureHeader-standalone-border-radius-expanded: var(--hop-shape-rounded-md) var(--hop-shape-rounded-md) 0 0;
+    --hop-DisclosureHeader-inline-border-radius-expanded: 0;
+    --hop-DisclosureHeader-border-radius-transition-expanded: 0s var(--hop-easing-productive) 0s;
 
     /* Hovered */
     --hop-DisclosureHeader-background-color-hovered: var(--hop-neutral-surface-hover);
     --hop-DisclosureHeader-color-hovered: var(--hop-neutral-text-hover);
-    --hop-DisclosureHeader-prefix-color-hovered: var(--hop-neutral-icon-hover);
-    --hop-DisclosureHeader-standalone-border-color-hovered: var(--hop-neutral-border-hover);
-    --hop-DisclosureHeader-inline-border-color-hovered: transparent;
+    --hop-DisclosureHeader-icon-color-hovered: var(--hop-neutral-icon-hover);
+    --hop-DisclosureHeader-standalone-outline-color-hovered: var(--hop-neutral-border-hover);
+    --hop-DisclosureHeader-inline-outline-color-hovered: transparent;
 
     /* Pressed */
     --hop-DisclosureHeader-background-color-pressed: var(--hop-neutral-surface-press);
     --hop-DisclosureHeader-color-pressed: var(--hop-neutral-text-press);
-    --hop-DisclosureHeader-prefix-color-pressed: var(--hop-neutral-icon-press);
-    --hop-DisclosureHeader-standalone-border-color-pressed: var(--hop-neutral-border-press);
-    --hop-DisclosureHeader-inline-border-color-pressed: transparent;
+    --hop-DisclosureHeader-icon-color-pressed: var(--hop-neutral-icon-press);
+    --hop-DisclosureHeader-standalone-outline-color-pressed: var(--hop-neutral-border-press);
+    --hop-DisclosureHeader-inline-outline-color-pressed: transparent;
 
     /* Focused */
     --hop-DisclosureHeader-background-color-focused: var(--hop-neutral-surface-hover);
     --hop-DisclosureHeader-color-focused: var(--hop-neutral-text-hover);
-    --hop-DisclosureHeader-prefix-color-focused: var(--hop-neutral-icon-hover);
-    --hop-DisclosureHeader-standalone-border-size-focused:  var(--hop-space-20);
-    --hop-DisclosureHeader-standalone-border-color-focused: var(--hop-primary-border-focus);
-    --hop-DisclosureHeader-inline-border-size-focused:  var(--hop-space-20);
-    --hop-DisclosureHeader-inline-border-color-focused: var(--hop-primary-border-focus);
+    --hop-DisclosureHeader-icon-color-focused: var(--hop-neutral-icon-hover);
+    --hop-DisclosureHeader-standalone-outline-size-focused:  var(--hop-space-20);
+    --hop-DisclosureHeader-standalone-outline-color-focused: var(--hop-primary-border-focus);
+    --hop-DisclosureHeader-inline-outline-size-focused:  var(--hop-space-20);
+    --hop-DisclosureHeader-inline-outline-color-focused: var(--hop-primary-border-focus);
 
     /* Disabled */
     --hop-DisclosureHeader-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-DisclosureHeader-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-DisclosureHeader-prefix-color-disabled: var(--hop-neutral-icon-disabled);
+    --hop-DisclosureHeader-icon-color-disabled: var(--hop-neutral-icon-disabled);
     --hop-DisclosureHeader-description-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-DisclosureHeader-separator-color-disabled: var(--hop-neutral-border-disabled);
     --hop-DisclosureHeader-standalone-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-DisclosureHeader-inline-border-color-disabled: transparent;
 
     /* Internal Variables */
     --background-color: var(--hop-DisclosureHeader-background-color);
-    --separator-size: var(--hop-DisclosureHeader-separator-size);
-    --separator-color: var(--hop-DisclosureHeader-separator-color);
     --color: var(--hop-DisclosureHeader-color);
     --cursor: pointer;
-    --prefix-color: var(--hop-DisclosureHeader-prefix-color);
+    --icon-color: var(--hop-DisclosureHeader-icon-color);
     --description-color: var(--hop-DisclosureHeader-description-color);
+    --outline-size: var(--hop-DisclosureHeader-standalone-outline-size);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color);
+    --border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
+    --transition-info: var(--hop-easing-duration-2) var(--hop-easing-productive);
+    --border-radius-transition-info: var(--hop-DisclosureHeader-border-radius-transition);
+    --transition: color var(--transition-info), background-color var(--transition-info), outline var(--transition-info);
     --border-size: var(--hop-DisclosureHeader-standalone-border-size);
     --border-color: var(--hop-DisclosureHeader-standalone-border-color);
-    --border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
-    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
-    
+
+    position: relative;
     display: flex;
     box-sizing: border-box;
 }
@@ -78,10 +87,8 @@
 .hop-DisclosureHeader__button {
     cursor: var(--cursor);
 
-    position: relative;
-
     display: grid;
-    grid-template-areas: "prefix content toggle-arrow";
+    grid-template-areas: "icon content toggle-arrow";
     grid-template-columns: auto 1fr auto;
     flex: 1 1 auto;
     align-items: center;
@@ -96,110 +103,91 @@
     text-align: start;
 
     background-color: var(--background-color);
-    border: none;
-    border-block-end: var(--separator-size) solid var(--separator-color);
-    outline: none;
-
-    transition: color var(--transition), background-color var(--transition);
-}
-
-.hop-DisclosureHeader__button::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-    
-    border: var(--border-size) solid var(--border-color);
+    border: solid var(--border-color);
+    border-width: var(--border-size);
     border-radius: var(--border-radius);
+    outline: var(--outline-size) solid var(--outline-color);
+    outline-offset: var(--hop-DisclosureHeader-outline-offset);
 
-    transition: border var(--transition);
+    transition: var(--transition);
 }
 
 @supports (interpolate-size: allow-keywords) {
-    .hop-DisclosureHeader__button::before {
-        transition: border-radius var(--transition);
+    .hop-DisclosureHeader__button {
+        --transition: color var(--transition-info), background-color var(--transition-info), 
+                        outline var(--transition-info), border-radius var(--border-radius-transition-info);
     }
 }
 
-.hop-DisclosureHeader__button[data-expanded]::before {
-    border-radius: var(--border-radius);
-}
-
 .hop-DisclosureHeader__button[data-expanded] {
-    --separator-size: var(--hop-DisclosureHeader-separator-size-expanded);
     --background-color: var(--hop-DisclosureHeader-background-color-expanded);
     --color: var(--hop-DisclosureHeader-color-expanded);
-    --prefix-color: var(--hop-DisclosureHeader-prefix-color-expanded);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-expanded);
     --border-radius: var(--hop-DisclosureHeader-standalone-border-radius-expanded);
+    --border-radius-transition-info: var(--hop-DisclosureHeader-border-radius-transition-expanded);
 }
 
 .hop-DisclosureHeader__button[data-hovered] {
     --background-color: var(--hop-DisclosureHeader-background-color-hovered);
     --color: var(--hop-DisclosureHeader-color-hovered);
-    --prefix-color: var(--hop-DisclosureHeader-prefix-color-hovered);
-    --border-color: var(--hop-DisclosureHeader-standalone-border-color-hovered);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-hovered);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-hovered);
 }
 
 .hop-DisclosureHeader__button[data-pressed] {
     --background-color: var(--hop-DisclosureHeader-background-color-pressed);
     --color: var(--hop-DisclosureHeader-color-pressed);
-    --prefix-color: var(--hop-DisclosureHeader-prefix-color-pressed);
-    --border-color: var(--hop-DisclosureHeader-standalone-border-color-pressed);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-pressed);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-pressed);
 }
 
 .hop-DisclosureHeader__button[data-focus-visible] {
     --background-color: var(--hop-DisclosureHeader-background-color-focused);
     --color: var(--hop-DisclosureHeader-color-focused);
-    --prefix-color: var(--hop-DisclosureHeader-prefix-color-focused);
-    --border-size: var(--hop-DisclosureHeader-standalone-border-size-focused);
-    --border-color: var(--hop-DisclosureHeader-standalone-border-color-focused);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-focused);
+    --outline-size: var(--hop-DisclosureHeader-standalone-outline-size-focused);
+    --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-focused);
+}
+
+.hop-DisclosureHeader__button--inline {
+    --outline-size: var(--hop-DisclosureHeader-inline-outline-size);
+    --outline-color: var(--hop-DisclosureHeader-inline-outline-color);
+    --border-size: var(--hop-DisclosureHeader-inline-border-size);
+    --border-color: var(--hop-DisclosureHeader-inline-border-color);
+    --border-radius: var(--hop-DisclosureHeader-inline-border-radius);
+}
+
+.hop-DisclosureHeader__button--inline[data-expanded] {
+    --border-radius: var(--hop-DisclosureHeader-inline-border-radius-expanded);
+}
+
+.hop-DisclosureHeader__button--inline[data-focus-visible] {
+    --outline-size: var(--hop-DisclosureHeader-inline-outline-size-focused);
+    --outline-color: var(--hop-DisclosureHeader-inline-outline-color-focused);
 }
 
 .hop-DisclosureHeader__button[data-disabled] {
     --background-color: var(--hop-DisclosureHeader-background-color-disabled);
     --color: var(--hop-DisclosureHeader-color-disabled);
     --cursor: not-allowed;
-    --prefix-color: var(--hop-DisclosureHeader-prefix-color-disabled);
+    --icon-color: var(--hop-DisclosureHeader-icon-color-disabled);
     --description-color: var(--hop-DisclosureHeader-description-color-disabled);
-    --separator-color: var(--hop-DisclosureHeader-separator-color-disabled);
     --border-color: var(--hop-DisclosureHeader-standalone-border-color-disabled);
 }
 
-.hop-DisclosureHeader__button--inline {
-    --border-size: var(--hop-DisclosureHeader-inline-border-size);
-    --border-color: var(--hop-DisclosureHeader-inline-border-color);
-    --border-radius: var(--hop-DisclosureHeader-inline-border-radius);
-}
-
-.hop-DisclosureHeader__button--inline[data-focus-visible] {
-    --border-size: var(--hop-DisclosureHeader-inline-border-size-focused);
-    --border-color: var(--hop-DisclosureHeader-inline-border-color-focused);
-}
-
-.hop-DisclosureHeader__prefix {
-    grid-area: prefix;
-    box-sizing: border-box;
-    margin-inline-end: var(--hop-DisclosureHeader-prefix-margin-inline-end);
-    color: var(--prefix-color);
-}
-
-.hop-DisclosureHeader__content {
-    display: flex;
+.hop-DisclosureHeader__button > * {
     grid-area: content;
-    flex-wrap: wrap;
-    gap: var(--hop-DisclosureHeader-content-row-gap) var(--hop-DisclosureHeader-content-column-gap);
-    align-items: baseline;
+}
 
+.hop-DisclosureHeader__icon {
+    grid-area: icon;
     box-sizing: border-box;
+    margin-inline-end: var(--hop-DisclosureHeader-icon-margin-inline-end);
+    color: var(--icon-color);
 }
 
 .hop-DisclosureHeader__title {
     flex: 0 1 auto;
-}
-
-.hop-DisclosureHeader__description {
-    flex: 0 1 auto;
-    color: var(--description-color);
 }
 
 .hop-DisclosureHeader__toggle-arrow {

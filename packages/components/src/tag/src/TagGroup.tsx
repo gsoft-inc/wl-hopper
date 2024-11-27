@@ -56,7 +56,7 @@ export interface TagGroupProps<T> extends StyledComponentProps<Omit<RACTagGroupP
 
 function TagGroup<T extends object>(props: TagGroupProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, TagGroupContext);
-    props = useFormProps(props as FormStyleProps); /* Needed because TagGroup as an extra size. */
+    props = useFormProps(props as FormStyleProps); /* Needed because TagGroup has an extra size. */
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,

@@ -12,10 +12,10 @@ describe("Disclosure", () => {
             renderToString(
                 <Disclosure>
                     <DisclosureHeader>
-                    Disclosure Header
+                        Disclosure Header
                     </DisclosureHeader>
                     <DisclosurePanel>
-                Disclosure Panel
+                        Disclosure Panel
                     </DisclosurePanel>
                 </Disclosure>
             );

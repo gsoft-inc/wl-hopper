@@ -14,26 +14,9 @@ export const GlobalToggleArrowCssSelector = "hop-ToggleArrow";
 
 export interface ToggleArrowProps extends Omit<StyledComponentProps<BaseComponentDOMProps>, "children"> {
     /**
-     * Whether the arrow is disabled.
-     */
-    isDisabled?: boolean;
-    /**
      * Whether the arrow is in an expanded state.
      */
     isExpanded?: boolean;
-    /**
-     * Whether the arrow should have a focused effect.
-     */
-    isFocused?: boolean;
-    /**
-     * Whether the arrow should have a hover effect.
-     */
-    isHovered?: boolean;
-    /**
-     * Whether the arrow should have a pressed effect.
-     */
-    isPressed?: boolean;
-
 }
 
 function ToggleArrow(props:ToggleArrowProps, ref: ForwardedRef<SVGSVGElement>) {
@@ -41,11 +24,7 @@ function ToggleArrow(props:ToggleArrowProps, ref: ForwardedRef<SVGSVGElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        isDisabled,
         isExpanded,
-        isFocused,
-        isHovered,
-        isPressed,
         style: styleProp,
         ...otherProps
     } = ownProps;
@@ -71,11 +50,7 @@ function ToggleArrow(props:ToggleArrowProps, ref: ForwardedRef<SVGSVGElement>) {
             className={classNames}
             style={style}
             size="sm"
-            data-disabled={isDisabled || undefined}
             data-expanded={isExpanded || undefined}
-            data-focused={isFocused || undefined}
-            data-hovered={isHovered || undefined}
-            data-pressed={isPressed || undefined}
             {...otherProps}
         />
     );

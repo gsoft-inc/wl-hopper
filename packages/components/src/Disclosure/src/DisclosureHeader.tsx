@@ -1,17 +1,16 @@
 import { IconContext } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { type CSSProperties, type ForwardedRef, forwardRef, type ReactNode, useContext, useEffect } from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, useContext } from "react";
 import { Button, type ButtonProps, composeRenderProps, DEFAULT_SLOT, DisclosureStateContext, useContextProps, useSlottedContext } from "react-aria-components";
 
 import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import type { HeadingProps } from "../../typography/Heading/index.ts";
 import { Heading, TextContext } from "../../typography/index.ts";
-import { composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
 
 import { DisclosureContext } from "./DisclosureContext.ts";
 import { DisclosureHeaderContext } from "./DisclosureHeaderContext.ts";
-import { InternalDisclosureContext } from "./InternalDisclosureContext.ts";
 
 import styles from "./DisclosureHeader.module.css";
 
@@ -19,15 +18,11 @@ export const GlobalDisclosureHeaderCssSelector = "hop-DisclosureHeader";
 
 export type DisclosureHeaderButtonProps = Omit<StyledComponentProps<ButtonProps>, "children">;
 
-export interface DisclosureHeaderProps extends Omit<HeadingProps, "prefix"> {
+export interface DisclosureHeaderProps extends HeadingProps {
     /**
      * The props for the button that triggers the disclosure.
      */
     buttonProps?: DisclosureHeaderButtonProps;
-    /**
-     * An icon or text to display at the start of the disclosure header.
-     */
-    prefix?: ReactNode;
 }
 
 function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHeadingElement>) {
@@ -38,7 +33,6 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
         className,
         children,
         level = 3,
-        prefix,
         size = "xs",
         style: styleProp,
         ...otherProps
@@ -46,11 +40,6 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
 
     const { isExpanded } = useContext(DisclosureStateContext)!;
     const disclosureCtx = useSlottedContext(DisclosureContext);
-    const { setHasHeader } = useContext(InternalDisclosureContext)!;
-    
-    useEffect(() => {
-        setHasHeader(true);
-    }, [setHasHeader]);
 
     const classNames = clsx(
         GlobalDisclosureHeaderCssSelector,
@@ -92,16 +81,6 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
         };
     });
 
-    const prefixMarkup = prefix ? (
-        <SlotProvider values={[
-            [TextContext, { size: "sm", className: styles["hop-DisclosureHeader__prefix"] }],
-            [IconContext, { size: "md", className: styles["hop-DisclosureHeader__prefix"] }]
-        ]}
-        >
-            {ensureTextWrapper(prefix)}
-        </SlotProvider>
-    ) : null;
-
     return (
         <Heading
             ref={ref}
@@ -118,38 +97,30 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
                 data-expanded={isExpanded || undefined}
                 {...buttonOtherProps}
             >
-                {({ isDisabled, isFocusVisible, isHovered, isPressed }) => (
-                    <>
-                        {prefixMarkup}
-                        <div className={styles["hop-DisclosureHeader__content"]}>
-                            <SlotProvider values={[
-                                [TextContext, {
-                                    slots: {
-                                        [DEFAULT_SLOT]: {
-                                            className: styles["hop-DisclosureHeader__title"],
-                                            size: "inherit"
-                                        },
-                                        "description": {
-                                            className: styles["hop-DisclosureHeader__description"],
-                                            size: "sm"
-                                        }
-                                    }
-                                }]
-                            ]}
-                            >
-                                {children}
-                            </SlotProvider>
-                        </div>
-                        <ToggleArrow
-                            className={styles["hop-DisclosureHeader__toggle-arrow"]}
-                            isExpanded={isExpanded}
-                            isDisabled={isDisabled}
-                            isFocused={isFocusVisible}
-                            isHovered={isHovered}
-                            isPressed={isPressed}
-                        />
-                    </>
-                )}
+                <SlotProvider values={[
+                    [TextContext, {
+                        slots: {
+                            [DEFAULT_SLOT]: {
+                                className: styles["hop-DisclosureHeader__title"],
+                                size: "inherit"
+                            }
+                        }
+                    }],
+                    [IconContext, {
+                        slots: {
+                            [DEFAULT_SLOT]: {
+                                className: styles["hop-DisclosureHeader__icon"],
+                                size: "md"
+                            }
+                        }
+                    }]
+                ]}
+                >
+                    {children}
+                </SlotProvider>
+                <ToggleArrow
+                    className={styles["hop-DisclosureHeader__toggle-arrow"]}
+                />
             </Button>
         </Heading>
     );

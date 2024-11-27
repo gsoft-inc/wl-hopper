@@ -5,12 +5,11 @@ export default function Example() {
         <Div width="100%" paddingX="core_320" paddingY="core_480">
             <Disclosure>
                 <DisclosureHeader>
-                Shipping & Returns Overview
+                    Help your people work better
                 </DisclosureHeader>
                 <DisclosurePanel>
-        Free shipping on orders over $50. Processing takes 1-2 business days. Expedited options available.
-
-        Returns are hassle-free within 30 days of delivery, as long as items are in original condition. Contact support for help.
+                    Tackle the challenges of hybrid, remote and distributed work, no matter what. 
+                    The Workleap platform builds solutions tailored to your existing HR and productivity tools to answer these challenges.
                 </DisclosurePanel>
             </Disclosure>
         </Div>
