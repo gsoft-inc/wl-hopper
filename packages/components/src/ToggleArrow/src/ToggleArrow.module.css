@@ -1,7 +1,4 @@
 .hop-ToggleArrow  {
-    /* Default */
-    --hop-ToggleArrow-color: var(--hop-neutral-icon);
-
     /* Internal Variables */  
     --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
 

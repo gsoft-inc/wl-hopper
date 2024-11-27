@@ -100,6 +100,7 @@
     column-gap: var(--hop-ComboBox-trigger-column-gap);
     order: 2;
 
+    box-sizing: border-box;
     block-size: var(--trigger-block-size);
     padding-inline-start: var(--hop-ComboBox-trigger-padding-inline-start);
 
@@ -183,6 +184,8 @@
     align-items: center;
 
     padding-inline: var(--hop-ComboBox-button-padding-inline);
+
+    color: inherit;
 
     background-color: var(--trigger-background-color);
     border: none;

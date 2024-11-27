@@ -23,15 +23,20 @@
     /* Prefix */
     --hop-Select-prefix-color: var(--hop-neutral-text-weak);
 
+    /* Button Icon */
+    --hop-Select-button-icon-color: var(--hop-neutral-icon);
+
     /* Hovered */
     --hop-Select-button-background-color-hovered: var(--hop-neutral-surface-hover);
     --hop-Select-button-border-color-hovered: var(--hop-neutral-border-hover);
     --hop-Select-button-color-hovered: var(--hop-neutral-text-hover);
+    --hop-Select-button-icon-color-hovered: var(--hop-neutral-icon-hover);
 
     /* Focused */
     --hop-Select-button-background-color-focused: var(--hop-neutral-surface-hover);
     --hop-Select-button-border-color-focused: var(--hop-primary-border-focus);
     --hop-Select-button-color-focused: var(--hop-neutral-text-hover);
+    --hop-Select-button-icon-color-focused: var(--hop-neutral-icon-hover);
     --hop-Select-button-outline-color-focused: var(--hop-primary-border-focus);
 
     /**
@@ -42,6 +47,7 @@
     --hop-Select-button-background-color-selected: var(--hop-neutral-surface);
     --hop-Select-button-border-color-selected: var(--hop-neutral-border-selected);
     --hop-Select-button-color-selected: var(--hop-neutral-text);
+    --hop-Select-button-icon-color-selected: var(--hop-neutral-icon);
 
     /* Invalid */
     --hop-Select-button-border-color-invalid: var(--hop-danger-border-strong);
@@ -50,6 +56,7 @@
     --hop-Select-button-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-Select-button-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-Select-button-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Select-button-icon-color-disabled: var(--hop-neutral-icon-disabled);
     --hop-Select-button-cursor-disabled: not-allowed;
 
     /* Internal Variables */
@@ -57,6 +64,7 @@
     --button-background-color: var(--hop-Select-button-background-color);
     --button-border-color: var(--hop-Select-button-border-color);
     --button-color: var(--hop-Select-button-color);
+    --button-icon-color: var(--hop-Select-button-icon-color);
     --button-cursor: var(--hop-Select-button-cursor);
 
     display: flex;
@@ -85,6 +93,7 @@
     align-items: center;
     order: 2;
 
+    box-sizing: border-box;
     block-size: var(--button-block-size);
     padding-block: var(--hop-Select-button-padding-block);
     padding-inline: var(--hop-Select-button-padding-inline);
@@ -110,12 +119,14 @@
     --button-background-color: var(--hop-Select-button-background-color-hovered);
     --button-border-color: var(--hop-Select-button-border-color-hovered);
     --button-color: var(--hop-Select-button-color-hovered);
+    --button-icon-color: var(--hop-Select-button-icon-color-hovered);
 }
 
 .hop-Select__button[data-pressed] {
     --button-background-color: var(--hop-Select-button-background-color-selected);
     --button-border-color: var(--hop-Select-button-border-color-selected);
     --button-color: var(--hop-Select-button-color-selected);
+    --button-icon-color: var(--hop-Select-button-icon-color-selected);
 }
 
 .hop-Select__button[data-invalid] {
@@ -126,6 +137,7 @@
     --button-background-color: var(--hop-Select-button-background-color-focused);
     --button-border-color: var(--hop-Select-button-border-color-focused);
     --button-color: var(--hop-Select-button-color-focused);
+    --button-icon-color: var(--hop-Select-button-icon-color-focused);
 
     outline: var(--hop-Select-button-border-size) solid var(--hop-Select-button-outline-color-focused);
     outline-offset: var(--hop-Select-button-outline-offset);
@@ -139,6 +151,7 @@
     --button-background-color: var(--hop-Select-button-background-color-disabled);
     --button-border-color: var(--hop-Select-button-border-color-disabled);
     --button-color: var(--hop-Select-button-color-disabled);
+    --button-icon-color: var(--hop-Select-button-icon-color-disabled);
     --button-cursor: var(--hop-Select-button-cursor-disabled);
 }
 
@@ -148,6 +161,7 @@
 
 .hop-Select__button-icon {
     margin-inline-start: auto;
+    color: var(--button-icon-color);
 }
 
 .hop-Select__helper-message,
