@@ -10,7 +10,7 @@
 
     backdrop-filter: blur(2rem);
     background-color: var(--card-color);
-    border-radius: 1rem;
+    border-radius: var(--hd-border-radius-lg);
     color: var(--hd-white);
     display: flex;
     flex-direction: column;
@@ -18,11 +18,11 @@
     height: 14rem;
     overflow: hidden;
     position: relative;
-    padding: 2rem 0;
+    padding: var(--hd-space-4) 0;
 }
 
 .hd-cardlink:has(.hd-cardlink__logo) {
-    padding: 2rem 0;
+    padding: var(--hd-space-4) 0;
 }
 
 .hd-cardlink--sm {
@@ -110,7 +110,7 @@
 .hd-cardlink__description {
     font-size: 1.125rem;
     line-height: 1.5;
-    margin-top: .75rem;
+    margin-top: var(--hd-space-2);
 }
 
 .hd-cardlink--sm .hd-cardlink__title {
@@ -122,5 +122,5 @@
 }
 
 .hd-cardlink__copy {
-    padding: 0 2rem;
+    padding: 0 var(--hd-space-4);
 }

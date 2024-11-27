@@ -15,6 +15,7 @@
         "CardLinkList": true,
         "Callout": true,
         "Collapsible": true,
+        "Expand": true,
         "TokenTable": true,
         "MotionPreview": true,
         "Footnote": true,
