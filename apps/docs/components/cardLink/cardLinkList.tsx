@@ -3,10 +3,13 @@ import type { ComponentProps } from "react";
 
 import "./cardLinkList.css";
 
-export interface CardLinkListProps extends ComponentProps<"div">{}
+export interface CardLinkListProps extends ComponentProps<"div">{
+    size: "sm" | "md";
+}
 
-const CardLinkList = ({ children, className, ...rest }: CardLinkListProps) => {
+const CardLinkList = ({ children, size = "md", className, ...rest }: CardLinkListProps) => {
     const cardLinkListClass = clsx("hd-cardlink-list", {
+        [`hd-cardlink-list--${size}`]: size
     }, className);
 
     return (

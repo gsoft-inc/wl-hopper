@@ -3,3 +3,8 @@
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(23.75rem, 1fr));
 }
+
+.hd-cardlink-list--sm {
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}

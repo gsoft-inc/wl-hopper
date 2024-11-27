@@ -1,6 +1,12 @@
+@property --angle {
+    syntax: "<angle>";
+    initial-value: -45deg;
+    inherits: false;
+}
+
 .hd-cardlink {
-    --card-color: #564EA7;
-    --card-color-translucent: #3a3290aa;
+    --card-color: #332c7c;
+    --card-color-translucent: #c58d9baa;
 
     backdrop-filter: blur(2rem);
     background-color: var(--card-color);
@@ -12,17 +18,45 @@
     height: 21rem;
     overflow: hidden;
     position: relative;
+    padding: 2rem 0;
+}
+
+.hd-cardlink:has(.hd-cardlink__logo) {
     padding: 0 0 2rem;
 }
 
-.hd-cardlink:hover .hd-cardlink__logo,
-.hd-cardlink:focus .hd-cardlink__logo {
-    opacity: 0.2;
+.hd-cardlink--sm {
+    height: 12rem;
 }
 
-.hd-cardlink--secondary {
-    --card-color: #506E9F;
-    --card-color-translucent: #375c96f7;
+.hd-cardlink:nth-child(3n) {
+    --card-color: #37345d;
+    --card-color-translucent: #a07ff1ba;
+}
+
+.hd-cardlink:nth-child(2n) {
+    --card-color: #2b163a;
+    --card-color-translucent: #ffb0b045;
+}
+
+.hd-cardlink:nth-child(4n) {
+    --card-color: #2b2c5c;
+    --card-color-translucent: #ffb629bf;
+}
+
+.hd-cardlink:nth-child(5n) {
+    --card-color: #382f58;
+    --card-color-translucent: #babeff91;
+}
+
+.hd-cardlink:nth-child(6n) {
+    --card-color: #3e254d;
+    --card-color-translucent: #29ff9ee3;
+}
+
+.hd-cardlink:nth-child(7n) {
+    --card-color: #432055;
+    --card-color-translucent: #4299ea91;
 }
 
 .hd-cardlink__logo {
@@ -31,22 +65,41 @@
     position: relative;
     scale: 2.5;
     transform-origin: 0 0;
-    transition: all .2s ease-in;
     z-index: -1;
 }
 
-.hd-cardlink::before {
+.hd-cardlink::before,
+.hd-cardlink::after {
     aspect-ratio: 1/1;
-    background-image: linear-gradient(-45deg, var(--card-color) 50%, var(--card-color-translucent) 0);
     content: "";
     filter: blur(3rem);
     height: 25rem;
     left: 0;
     position: absolute;
     top: 0;
+    transition: opacity 0.5s linear;
     transform: rotate(-144deg);
     width: 26rem;
-    z-index: -1;
+    z-index: -2;
+}
+
+.hd-cardlink::before {
+    background-image: linear-gradient(var(--angle), var(--card-color) 50%, var(--card-color-translucent) 0)
+}
+
+.hd-cardlink:hover::before,
+.hd-cardlink:focus::before {
+    opacity: 0;
+}
+
+.hd-cardlink::after {
+    background-image: linear-gradient(-25deg, var(--card-color) 50%, var(--card-color-translucent) 0);;
+    opacity: 0;
+}
+
+.hd-cardlink:hover::after,
+.hd-cardlink:focus::after {
+    opacity: 1;
 }
 
 .hd-cardlink h3 {
@@ -60,6 +113,9 @@
 }
 
 .hd-cardlink__copy {
-    margin-top: auto;
     padding: 0 2rem;
+}
+
+.hd-cardlink:has(.hd-cardlink__logo) .hd-cardlink__copy {
+    margin-top: auto;
 }

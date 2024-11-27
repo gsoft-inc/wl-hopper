@@ -7,20 +7,22 @@ export interface CardLinkProps extends ComponentProps<"a">{
     href: string;
     type: "primary" | "secondary";
     title: string;
-    description: string;
+    size: "sm" | "md";
+    description?: string;
     children: React.ReactNode;
 }
 
-const CardLink = ({ children, className, title, type = "primary", description = "md", href, ...rest }: CardLinkProps) => {
+const CardLink = ({ children, className, title, size = "md", type = "primary", description = "md", href, ...rest }: CardLinkProps) => {
     const cardLinkClass = clsx("hd-cardlink", {
-        [`hd-cardlink--${type}`]: type
+        [`hd-cardlink--${type}`]: type,
+        [`hd-cardlink--${size}`]: size
     }, className);
 
     return (
         <a className={cardLinkClass} {...rest} href={href}>
-            <div className="hd-cardlink__logo">
+            {children && <div className="hd-cardlink__logo">
                 {children}
-            </div>
+            </div>}
             <div className="hd-cardlink__copy">
                 <h3>{title}</h3>
                 <p>{description}</p>
