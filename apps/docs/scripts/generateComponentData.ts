@@ -16,7 +16,7 @@ interface Groups {
 }
 
 interface GroupsConfig {
-    [key: string]: string | string[];
+    [key: string]: (string | RegExp)[];
 }
 
 export interface ComponentDocWithGroups extends ComponentDoc {
@@ -102,10 +102,62 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
     // Define the groups and their corresponding terms
 
     const groupsConfig: GroupsConfig = {
-        events: ["Events", "DOMAttributes"],
-        accessibility: ["Aria", "Focusable"],
-        layout: "Slot"
-        // Add more groups here as needed
+        Events: [
+            /^on[A-Z]/
+        ],
+        Layout: [
+            "flex", "flexGrow", "flexShrink", "flexBasis", "alignSelf", "justifySelf", "order", "flexOrder",
+            "gridArea", "gridColumn", "gridRow", "gridColumnStart", "gridColumnEnd", "gridRowStart", "gridRowEnd", "slot",
+            "overflow"
+        ],
+        Spacing: [
+            "margin", "marginTop", "marginLeft", "marginRight", "marginBottom", "marginStart", "marginEnd", "marginX", "marginY",
+            "padding", "paddingTop", "paddingLeft", "paddingRight", "paddingBottom", "paddingStart", "paddingEnd", "paddingX", "paddingY"
+        ],
+        Sizing: [
+            "width", "minWidth", "maxWidth", "height", "minHeight", "maxHeight", "defaultWidth"
+        ],
+        Background: [
+            "background", "backgroundColor", "backgroundImage", "backgroundSize", "backgroundPosition", "backgroundRepeat",
+            "opacity" // ???
+        ],
+        Borders: [
+            "border",
+            "borderX",
+            "borderY",
+            "borderStyle",
+            "borderTop",
+            "borderLeft",
+            "borderRight",
+            "borderTop",
+            "borderBottom",
+            "borderWidth", "borderStartWidth", "borderEndWidth", "borderLeftWidth", "borderRightWidth", "borderTopWidth", "borderBottomWidth", "borderXWidth", "borderYWidth",
+            "borderColor", "borderStartColor", "borderEndColor", "borderLeftColor", "borderRightColor", "borderTopColor", "borderBottomColor", "borderXColor", "borderYColor",
+            "borderRadius", "borderTopStartRadius", "borderTopEndRadius", "borderBottomStartRadius", "borderBottomEndRadius", "borderTopLeftRadius", "borderTopRightRadius", "borderBottomLeftRadius", "borderBottomRightRadius"
+        ],
+        Shadows: [
+            "boxShadow",
+            "textShadow"
+        ],
+        Positioning: [
+            "position", "top", "bottom", "left", "right", "start", "end", "zIndex", "isHidden", "hidden", "display"
+        ],
+        Typography: [
+            "font",
+            "fontFamily",
+            "fontSize",
+            "fontStyle",
+            "textAlign",
+            "verticalAlign",
+            "lineHeight",
+            "letterSpacing"
+        ],
+        Accessibility: [
+            "role", "id", "tabIndex", "excludeFromTabOrder", "preventFocusOnPress", /^aria-/
+        ],
+        Advanced: [
+            "UNSAFE_className", "UNSAFE_style"
+        ]
     };
 
     // Define the exceptions that should be added to a specific group
@@ -136,18 +188,32 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
         Object.entries(props).forEach(([key, prop]) => {
             let added = false;
 
+            // Special handling for the "id" prop
+            if (key === "id") {
+                if (prop.type?.name === "string") {
+                    groups.Accessibility[key] = prop; // Group under Accessibility if the type is string
+                    added = true;
+                } else {
+                    groups.default[key] = prop; // Group under default for non-string types
+                    added = true;
+                }
+                delete props[key]; // Remove it from the props to prevent further processing
+
+                return; // Skip to the next prop
+            }
+
             // Check each group to see if the prop should be added to it
-            Object.entries(groupsConfig).forEach(([group, term]) => {
-                if (Array.isArray(term)) {
-                    term.forEach(t => {
-                        if (prop.parent?.name.includes(t)) {
+            Object.entries(groupsConfig).forEach(([group, terms]) => {
+                if (Array.isArray(terms)) {
+                    terms.forEach(term => {
+                        if (
+                            (typeof term === "string" && prop.name.includes(term)) ||
+                            (term instanceof RegExp && term.test(prop.name))
+                        ) {
                             groups[group][key] = prop;
                             added = true;
                         }
                     });
-                } else if (prop.parent?.name.includes(term)) {
-                    groups[group][key] = prop;
-                    added = true;
                 }
             });
 
