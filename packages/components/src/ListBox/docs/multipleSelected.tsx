@@ -1,4 +1,4 @@
-import { ListBox, ListBoxItem, Section, Header } from "@hopper-ui/components";
+import { Header, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
 import { useState } from "react";
 import type { Selection } from "react-aria-components";
 
@@ -12,18 +12,18 @@ export default function Example() {
             selectedKeys={selectedKeys}
             onSelectionChange={setSelectedKeys}
         >
-            <Section aria-label="section">
+            <ListBoxSection aria-label="section">
                 <Header>Self review</Header>
                 <ListBoxItem id="1">Overdue</ListBoxItem>
                 <ListBoxItem id="2">In progress</ListBoxItem>
                 <ListBoxItem id="3">Submitted</ListBoxItem>
-            </Section>
-            <Section aria-label="section">
+            </ListBoxSection>
+            <ListBoxSection aria-label="section">
                 <Header>Manager review</Header>
                 <ListBoxItem id="4">Overdue</ListBoxItem>
                 <ListBoxItem id="5">In progress</ListBoxItem>
                 <ListBoxItem id="6">Submitted</ListBoxItem>
-            </Section>
+            </ListBoxSection>
         </ListBox>
     );
 }

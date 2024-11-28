@@ -1,4 +1,4 @@
-import { Button, ComboBox, ComboBoxItem, type ComboBoxProps, Header, Inline, Section, Stack, Text } from "@hopper-ui/components";
+import { Button, ComboBox, ComboBoxItem, type ComboBoxProps, ComboBoxSection, Header, Inline, Stack, Text } from "@hopper-ui/components";
 import { AddIcon, SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
@@ -62,19 +62,19 @@ export const OnlyItems = {
 export const Sections = {
     render: args => (
         <ComboBox {...args}>
-            <Section>
+            <ComboBoxSection>
                 <Header>Cats</Header>
                 <ComboBoxItem id="1">Zoomy</ComboBoxItem>
                 <ComboBoxItem id="2">Voodoo</ComboBoxItem>
                 <ComboBoxItem id="3">Dusty</ComboBoxItem>
                 <ComboBoxItem id="4">Rengar</ComboBoxItem>
-            </Section>
-            <Section>
+            </ComboBoxSection>
+            <ComboBoxSection>
                 <Header>Dogs</Header>
                 <ComboBoxItem id="5">Teemo</ComboBoxItem>
                 <ComboBoxItem id="6">Scooter</ComboBoxItem>
                 <ComboBoxItem id="7">Prince</ComboBoxItem>
-            </Section>
+            </ComboBoxSection>
         </ComboBox>
     ),
     play: playFn,
@@ -112,19 +112,19 @@ export const FieldHelperMessage = {
 export const Footer = {
     render: args => (
         <ComboBox {...args}>
-            <Section>
+            <ComboBoxSection>
                 <Header>Cats</Header>
                 <ComboBoxItem id="1">Zoomy</ComboBoxItem>
                 <ComboBoxItem id="2">Voodoo</ComboBoxItem>
                 <ComboBoxItem id="3">Dusty</ComboBoxItem>
                 <ComboBoxItem id="4">Rengar</ComboBoxItem>
-            </Section>
-            <Section>
+            </ComboBoxSection>
+            <ComboBoxSection>
                 <Header>Dogs</Header>
                 <ComboBoxItem id="5">Teemo</ComboBoxItem>
                 <ComboBoxItem id="6">Scooter</ComboBoxItem>
                 <ComboBoxItem id="7">Prince</ComboBoxItem>
-            </Section>
+            </ComboBoxSection>
         </ComboBox>
     ),
     play: playFn,
@@ -138,19 +138,19 @@ export const Small = {
     play: playFn,
     render: args => (
         <ComboBox {...args}>
-            <Section>
+            <ComboBoxSection>
                 <Header>Cats</Header>
                 <ComboBoxItem id="1">Zoomy</ComboBoxItem>
                 <ComboBoxItem id="2">Voodoo</ComboBoxItem>
                 <ComboBoxItem id="3">Dusty</ComboBoxItem>
                 <ComboBoxItem id="4">Rengar</ComboBoxItem>
-            </Section>
-            <Section>
+            </ComboBoxSection>
+            <ComboBoxSection>
                 <Header>Dogs</Header>
                 <ComboBoxItem id="5">Teemo</ComboBoxItem>
                 <ComboBoxItem id="6">Scooter</ComboBoxItem>
                 <ComboBoxItem id="7">Prince</ComboBoxItem>
-            </Section>
+            </ComboBoxSection>
         </ComboBox>
     ),
     args: {
@@ -165,19 +165,19 @@ export const Medium = {
     play: playFn,
     render: args => (
         <ComboBox {...args}>
-            <Section>
+            <ComboBoxSection>
                 <Header>Cats</Header>
                 <ComboBoxItem id="1">Zoomy</ComboBoxItem>
                 <ComboBoxItem id="2">Voodoo</ComboBoxItem>
                 <ComboBoxItem id="3">Dusty</ComboBoxItem>
                 <ComboBoxItem id="4">Rengar</ComboBoxItem>
-            </Section>
-            <Section>
+            </ComboBoxSection>
+            <ComboBoxSection>
                 <Header>Dogs</Header>
                 <ComboBoxItem id="5">Teemo</ComboBoxItem>
                 <ComboBoxItem id="6">Scooter</ComboBoxItem>
                 <ComboBoxItem id="7">Prince</ComboBoxItem>
-            </Section>
+            </ComboBoxSection>
         </ComboBox>
     ),
     args: {

@@ -1,4 +1,4 @@
-import { Collection, ComboBox, ComboBoxItem, Header, Inline, Section } from "@hopper-ui/components";
+import { Collection, ComboBox, ComboBoxItem, ComboBoxSection, Header, Inline } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -57,12 +57,12 @@ export default function Example() {
                     const { role: sectionName, children } = section;
 
                     return (
-                        <Section id={sectionName}>
+                        <ComboBoxSection id={sectionName}>
                             <Header>{sectionName}</Header>
                             <Collection items={children}>
                                 {item => <ComboBoxItem id={item.id}>{item.role}</ComboBoxItem>}
                             </Collection>
-                        </Section>
+                        </ComboBoxSection>
                     );
                 }}
             </ComboBox>
