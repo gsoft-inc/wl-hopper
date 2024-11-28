@@ -5,22 +5,13 @@ import {
     type StyledComponentProps
 } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
+import { forwardRef, useContext, useMemo, type CSSProperties, type ForwardedRef } from "react";
 import {
     Form as RACForm,
-    useContextProps,
     type FormProps as RACFormProps
 } from "react-aria-components";
 
-import { ButtonContext, LinkButtonContext } from "../../buttons/index.ts";
-import { CheckboxContext, CheckboxFieldContext, CheckboxGroupContext } from "../../checkbox/index.ts";
-import { ComboBoxContext } from "../../ComboBox/index.ts";
-import { NumberFieldContext, PasswordFieldContext, SearchFieldContext, TextAreaContext, TextFieldContext } from "../../inputs/index.ts";
-import { RadioGroupContext } from "../../radio/index.ts";
-import { SelectContext } from "../../Select/index.ts";
-import { TagGroupContext } from "../../tag/index.ts";
-import { LabelContext } from "../../typography/index.ts";
-import { cssModule, SlotProvider, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
+import { cssModule, type FieldSize, type NecessityIndicator } from "../../utils/index.ts";
 
 import { FormContext } from "./FormContext.ts";
 
@@ -28,7 +19,7 @@ import styles from "./Form.module.css";
 
 export const GlobalFormCssSelector = "hop-Form";
 
-export interface FormProps extends StyledComponentProps<RACFormProps> {
+export interface FormStyleProps {
     /**
      * Whether the form elements are disabled.
      */
@@ -51,8 +42,30 @@ export interface FormProps extends StyledComponentProps<RACFormProps> {
     size?: ResponsiveProp<FieldSize>;
 }
 
+export interface FormProps extends StyledComponentProps<RACFormProps>, FormStyleProps {}
+
+export function useFormProps<T extends FormStyleProps>(props: T): T {
+    const ctx = useContext(FormContext);
+
+    return useMemo(() => {
+        let result: T = props;
+    
+        if (ctx) {
+            result = { ...props };
+
+            // This is a subset of mergeProps. We just need to merge non-undefined values.
+            for (const key in ctx) {
+                if (result[key as keyof T] === undefined) {
+                    result[key as keyof T] = ctx[key as keyof FormStyleProps] as T[keyof T];
+                }
+            }
+        }
+    
+        return result;
+    }, [ctx, props]);
+}
+
 function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
-    [props, ref] = useContextProps(props, ref, FormContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -83,92 +96,16 @@ function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
     };
 
     return (
-        <SlotProvider values={[
-            [LabelContext, {
-                necessityIndicator
-            }],
-            [TextFieldContext, {
-                isDisabled,
-                isFluid,
-                necessityIndicator,
-                size
-            }],
-            [PasswordFieldContext, {
-                isDisabled,
-                isFluid,
-                necessityIndicator,
-                size
-            }],
-            [SearchFieldContext, {
-                isDisabled,
-                isFluid,
-                necessityIndicator,
-                size
-            }],
-            [NumberFieldContext, {
-                isDisabled,
-                necessityIndicator,
-                size,
-                isFluid
-            }],
-            [TextAreaContext, {
-                isDisabled,
-                necessityIndicator,
-                size,
-                isFluid
-            }],
-            [RadioGroupContext, {
-                isDisabled,
-                necessityIndicator,
-                size
-            }],
-            [CheckboxContext, {
-                isDisabled,
-                size
-            }],
-            [CheckboxFieldContext, {
-                isDisabled,
-                size
-            }],
-            [CheckboxGroupContext, {
-                isDisabled,
-                necessityIndicator,
-                size
-            }],
-            [ButtonContext, { isDisabled, size }]
-        ]}
-        >
-            {/* Put these in a separate SlotProvider due to a typing error */}
-            <SlotProvider values={[
-                [SelectContext, {
-                    isDisabled,
-                    isFluid,
-                    necessityIndicator,
-                    size
-                }],
-                [ComboBoxContext, {
-                    isDisabled,
-                    isFluid,
-                    necessityIndicator,
-                    size
-                }],
-                [TagGroupContext, {
-                    necessityIndicator,
-                    size
-                }],
-                [LinkButtonContext, { isDisabled, size }]
-            ]}
+        <FormContext.Provider value={{ isDisabled, isFluid, necessityIndicator, size }}>
+            <RACForm
+                ref={ref}
+                className={classNames}
+                style={mergedStyles}
+                {...otherProps}
             >
-                <RACForm
-                    ref={ref}
-                    className={classNames}
-                    style={mergedStyles}
-                    {...otherProps}
-                >
-                    {children}
-                </RACForm>
-            </SlotProvider>
-        </SlotProvider>
+                {children}
+            </RACForm>
+        </FormContext.Provider>
     );
 }
 

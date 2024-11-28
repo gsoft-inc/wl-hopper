@@ -1,7 +1,7 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef, type NamedExoticComponent } from "react";
-import { Section as RACSection, useContextProps, type SectionProps as RACSectionProps } from "react-aria-components";
+import { ListBoxSection as RACSection, useContextProps, type SectionProps as RACSectionProps } from "react-aria-components";
 
 import { SectionContext } from "./SectionContext.ts";
 

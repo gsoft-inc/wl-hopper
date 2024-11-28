@@ -8,6 +8,7 @@ import { useObjectRef } from "react-aria";
 import { composeRenderProps, TextArea as RACTextArea, TextField as RACTextField, useContextProps, type TextFieldProps as RACTextFieldProps } from "react-aria-components";
 
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Label } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, useFontFaceReady, useTruncatedText, type FieldProps } from "../../utils/index.ts";
@@ -127,6 +128,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         ...propsWithoutRef
     } = props;
     [props, ref] = useContextProps(propsWithoutRef, ref, TextAreaContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const [characterCount, setCharacterCount] = useState(() => props.value?.length ?? props.defaultValue?.length ?? 0);

@@ -16,6 +16,7 @@ import {
 } from "react-aria-components";
 
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { RadioContext, RadioFieldContext } from "../../radio/index.ts";
 import { Label } from "../../typography/Label/index.ts";
@@ -48,6 +49,7 @@ export interface RadioGroupProps extends StyledComponentProps<Omit<RACRadioGroup
 
 function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, RadioGroupContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { stylingProps: listStylingProps, ...listProps } = useStyledSystem(ownProps.listProps ?? {});
     const {

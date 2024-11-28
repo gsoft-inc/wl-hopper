@@ -9,6 +9,7 @@ import Checkbox from "./Checkbox.svg";
 import CheckboxGroup from "./CheckboxGroup.svg";
 import ComboBox from "./ComboBox.svg";
 import Content from "./Content.svg";
+import Disclosure from "./Disclosure.svg";
 import Divider from "./Divider.svg";
 import ErrorMessage from "./ErrorMessage.svg";
 import Flex from "./Flex.svg";
@@ -57,6 +58,7 @@ export const OverviewComponents: OverviewComponentsType = {
     CheckboxGroup,
     ComboBox,
     Content,
+    Disclosure,
     Divider,
     ErrorMessage,
     Flex,
