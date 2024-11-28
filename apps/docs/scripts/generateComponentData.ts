@@ -119,7 +119,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
         ],
         Background: [
             "background", "backgroundColor", "backgroundImage", "backgroundSize", "backgroundPosition", "backgroundRepeat",
-            "opacity" // ???
+            "opacity"
         ],
         Borders: [
             "border",
@@ -207,7 +207,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
                 if (Array.isArray(terms)) {
                     terms.forEach(term => {
                         if (
-                            (typeof term === "string" && prop.name.includes(term)) ||
+                            (typeof term === "string" && prop.name === term) ||
                             (term instanceof RegExp && term.test(prop.name))
                         ) {
                             groups[group][key] = prop;
