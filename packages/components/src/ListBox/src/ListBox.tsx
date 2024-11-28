@@ -6,7 +6,7 @@ import { Collection, composeRenderProps, type ListBoxRenderProps, ListBox as RAC
 
 import { HeaderContext } from "../../Header/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
-import { SectionContext } from "../../Section/index.ts";
+import { ListBoxSectionContext } from "../../ListBoxSection/index.ts";
 import { Text, type TextSize } from "../../typography/Text/index.ts";
 import { composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
@@ -147,7 +147,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
                 [HeaderContext, {
                     className: styles["hop-ListBox__section-header"]
                 }],
-                [SectionContext, {
+                [ListBoxSectionContext, {
                     className: styles["hop-ListBox__section"]
                 }],
                 [ListBoxItemContext, {
@@ -199,3 +199,4 @@ const _ListBox = forwardRef(ListBox) as <T>(
 (_ListBox as NamedExoticComponent).displayName = "ListBox";
 
 export { _ListBox as ListBox };
+

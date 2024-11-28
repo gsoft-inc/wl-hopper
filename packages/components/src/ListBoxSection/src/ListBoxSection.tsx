@@ -1,16 +1,16 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef, type NamedExoticComponent } from "react";
-import { ListBoxSection as RACSection, useContextProps, type SectionProps as RACSectionProps } from "react-aria-components";
+import { ListBoxSection as RACListBoxSection, useContextProps, type SectionProps as RACSectionProps } from "react-aria-components";
 
-import { SectionContext } from "./SectionContext.ts";
+import { ListBoxSectionContext } from "./ListBoxSectionContext.ts";
 
-export const GlobalSectionCssSelector = "hop-Section";
+export const GlobalSectionCssSelector = "hop-ListBoxSection";
 
-export interface SectionProps<T> extends StyledComponentProps<RACSectionProps<T>> {}
+export interface ListBoxSectionProps<T> extends StyledComponentProps<RACSectionProps<T>> {}
 
-function Section<T extends object>(props: SectionProps<T>, ref: ForwardedRef<HTMLElement>) {
-    [props, ref] = useContextProps(props, ref, SectionContext);
+function ListBoxSection<T extends object>(props: ListBoxSectionProps<T>, ref: ForwardedRef<HTMLElement>) {
+    [props, ref] = useContextProps(props, ref, ListBoxSectionContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -31,14 +31,14 @@ function Section<T extends object>(props: SectionProps<T>, ref: ForwardedRef<HTM
     };
 
     return (
-        <RACSection
+        <RACListBoxSection
             ref={ref}
             className={classNames}
             style={mergedStyles}
             {...otherProps}
         >
             {children}
-        </RACSection>
+        </RACListBoxSection>
     );
 }
 
@@ -47,9 +47,9 @@ function Section<T extends object>(props: SectionProps<T>, ref: ForwardedRef<HTM
  *
  * [View Documentation](TODO)
  */
-const _Section = forwardRef(Section) as <T>(
-    props: SectionProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
-) => ReturnType<typeof Section>;
-(_Section as NamedExoticComponent).displayName = "Section";
+const _ListBoxSection = forwardRef(ListBoxSection) as <T>(
+    props: ListBoxSectionProps<T> & { ref?: ForwardedRef<HTMLDivElement> }
+) => ReturnType<typeof ListBoxSection>;
+(_ListBoxSection as NamedExoticComponent).displayName = "ListBoxSection";
 
-export { _Section as Section };
+export { _ListBoxSection as ListBoxSection };

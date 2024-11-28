@@ -1,4 +1,4 @@
-import { Header, Section, Select, SelectItem, type Key } from "@hopper-ui/components";
+import { Header, Select, SelectItem, SelectSection, type Key } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
@@ -14,11 +14,11 @@ export default function Example() {
 
     return (
         <Select selectedKey={selectedKey} onSelectionChange={handleSelectionChange} label="Roles">
-            <Section key="1">
+            <SelectSection key="1">
                 <Header>Operations</Header>
                 <SelectItem id="1">Project Coordinator</SelectItem>
                 <SelectItem id="2">QA Specialist</SelectItem>
-            </Section>
+            </SelectSection>
             <SelectItem key="2" id="3">Manager</SelectItem>
         </Select>
     );

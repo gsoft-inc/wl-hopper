@@ -20,6 +20,7 @@ import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
+import { ListBoxSection } from "../../ListBoxSection/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
@@ -313,4 +314,4 @@ const _Select = forwardRef(Select) as <T extends object>(
 ) => ReturnType<typeof Select>;
 (_Select as NamedExoticComponent).displayName = "Select";
 
-export { _Select as Select, ListBoxItem as SelectItem };
+export { _Select as Select, ListBoxItem as SelectItem, ListBoxSection as SelectSection };

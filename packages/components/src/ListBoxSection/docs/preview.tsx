@@ -1,14 +1,14 @@
-import { Header, ListBox, ListBoxItem, Section } from "@hopper-ui/components";
+import { Header, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <ListBox>
-            <Section>
+            <ListBoxSection>
                 <Header>Creative Department</Header>
                 <ListBoxItem>Designer</ListBoxItem>
                 <ListBoxItem>Copywriter</ListBoxItem>
                 <ListBoxItem>UX Researcher</ListBoxItem>
-            </Section>
+            </ListBoxSection>
         </ListBox>
     );
 }
