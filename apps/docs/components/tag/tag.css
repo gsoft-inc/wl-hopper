@@ -1,3 +1,9 @@
+@property --font-size {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 1rem;
+}
+
 :root {
     --hd-tag-font-family: var(--hd-default-font-family);
     --hd-tag-font-size: 0.875rem;

@@ -191,15 +191,15 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
             // Special handling for the "id" prop
             if (key === "id") {
                 if (prop.type?.name === "string") {
-                    groups.Accessibility[key] = prop; // Group under Accessibility if the type is string
+                    groups.Accessibility[key] = prop;
                     added = true;
                 } else {
-                    groups.default[key] = prop; // Group under default for non-string types
+                    groups.default[key] = prop;
                     added = true;
                 }
-                delete props[key]; // Remove it from the props to prevent further processing
+                delete props[key];
 
-                return; // Skip to the next prop
+                return;
             }
 
             // Check each group to see if the prop should be added to it
