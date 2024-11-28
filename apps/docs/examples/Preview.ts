@@ -152,9 +152,6 @@ export const Previews: Record<string, Preview> = {
     "ListBox/docs/multipleSizes": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/multipleSizes.tsx"))
     },
-    "Section/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/Section/docs/preview.tsx"))
-    },
     "tag/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/tag/docs/preview.tsx"))
     },
