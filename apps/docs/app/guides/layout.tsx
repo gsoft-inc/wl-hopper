@@ -7,7 +7,7 @@ import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import { allGuides } from "contentlayer/generated";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { notFound, useSelectedLayoutSegment } from "next/navigation";
 import type { ReactNode } from "react";
 
 export default function GuideLayout({ children }: { children: ReactNode }) {
@@ -21,7 +21,7 @@ export default function GuideLayout({ children }: { children: ReactNode }) {
     const pageContent = allGuides.find(icon => icon.slug === type && icon.section === section);
 
     if (!pageContent) {
-        return null;
+        return notFound();
     }
 
     const sectionLinks = getSectionLinks(pageContent);

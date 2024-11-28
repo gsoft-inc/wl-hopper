@@ -21,11 +21,6 @@ export const navigation: NavItem[] = [
         "status": "ready"
     },
     {
-        "label": "Guides",
-        "path": "/guides/overview/introduction",
-        "status": "ready"
-    },
-    {
         "label": "Components",
         "path": "/components/component-list",
         "status": "ready"
