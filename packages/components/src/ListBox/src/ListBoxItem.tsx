@@ -117,7 +117,8 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
     const isCheckbox = selectionIndicator === "input" && selectionMode === "multiple";
     const isCheck = selectionIndicator === "check" && selectionMode !== "none";
 
-    const isListHasSelection = listStateContext.selectionManager.selectedKeys.size > 0;
+    const selectedKeysLength = listStateContext?.selectionManager?.selectedKeys?.size;
+    const isListHasSelection = (selectedKeysLength ?? 0) > 0;
     const [isListHasSelectionEnd, setIsListHasSelectionEnd] = useState(isListHasSelection);
 
     const handleTransitionEnd: TransitionEventHandler<HTMLDivElement> = event => {

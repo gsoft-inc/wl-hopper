@@ -19,6 +19,7 @@ import {
 
 import { ClearButton, type ClearButtonProps } from "../../buttons/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Label } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, type FieldProps } from "../../utils/index.ts";
@@ -77,6 +78,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         ...propsWithoutRef
     } = props;
     [props, ref] = useContextProps(propsWithoutRef, ref, SearchFieldContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
     const {

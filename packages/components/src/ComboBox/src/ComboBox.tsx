@@ -1,4 +1,4 @@
-import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
+import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs, useObjectRef, useResizeObserver } from "@react-aria/utils";
 import { forwardRef, useCallback, useRef, useState, type Context, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
@@ -20,10 +20,12 @@ import {
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
+import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
 import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
@@ -114,6 +116,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         ...propsWithoutRef
     } = props;
     [props, ref] = useContextProps(propsWithoutRef, ref, ComboBoxContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         align: alignProp,
@@ -293,7 +296,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         >
             {comboBoxRenderProps => {
                 const { isOpen } = comboBoxRenderProps;
-                const ButtonIcon = isOpen ? AngleUpIcon : AngleDownIcon;
 
                 return (
                     <>
@@ -350,7 +352,10 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 placeholder={placeholder}
                             />
                             <Button className={buttonClassNames} ref={buttonRef}>
-                                <ButtonIcon size="sm" className={styles["hop-ComboBox__button-icon"]} />
+                                <ToggleArrow 
+                                    className={styles["hop-ComboBox__button-icon"]} 
+                                    isExpanded={isOpen}
+                                />
                             </Button>
                         </Group>
                         {description && (

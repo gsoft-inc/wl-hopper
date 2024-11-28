@@ -15,6 +15,7 @@ import {
     useContextProps
 } from "react-aria-components";
 
+import { useFormProps } from "../../Form/index.ts";
 import { IconListContext } from "../../IconList/index.ts";
 import { TextContext } from "../../typography/Text/index.ts";
 import {
@@ -53,6 +54,7 @@ export interface LinkButtonProps extends StyledComponentProps<RACLinkProps> {
 
 function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>) {
     [props, ref] = useContextProps(props, ref, LinkButtonContext);
+    props = useFormProps(props);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 

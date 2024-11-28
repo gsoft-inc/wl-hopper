@@ -1,4 +1,4 @@
-import { AngleDownIcon, AngleUpIcon, IconContext } from "@hopper-ui/icons";
+import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
 import {
@@ -16,10 +16,12 @@ import {
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
+import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
+import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
 import { ClearContainerSlots, ClearProviders, composeClassnameRenderProps, cssModule, ensureTextWrapper, SlotProvider, type FieldProps, type MenuAlignment, type MenuDirection } from "../../utils/index.ts";
 
@@ -111,6 +113,7 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
 
 function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, SelectContext);
+    props = useFormProps(props);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         align: alignProp,
@@ -233,7 +236,6 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
         >
             {selectRenderProps => {
                 const { isOpen } = selectRenderProps;
-                const ButtonIcon = isOpen ? AngleUpIcon : AngleDownIcon;
 
                 return (
                     <>
@@ -280,7 +282,11 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                     return renderValue?.(valueRenderProps);
                                 }}
                             </SelectValue>
-                            <ButtonIcon size="sm" className={styles["hop-Select__button-icon"]} />
+                            <ToggleArrow 
+                                className={styles["hop-Select__button-icon"]} 
+                                isExpanded={isOpen}
+
+                            />
                         </Button>
                         {description && (
                             <HelperMessage className={styles["hop-Select__helper-message"]}>

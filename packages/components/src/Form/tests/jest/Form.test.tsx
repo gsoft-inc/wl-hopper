@@ -50,7 +50,7 @@ describe("Form", () => {
         expect(ref.current instanceof HTMLFormElement).toBeTruthy();
     });
 
-    it("should aupport disabled state", () => {
+    it("should support disabled state", () => {
         render(
             <Form isDisabled>
                 <TextField label="Label" />

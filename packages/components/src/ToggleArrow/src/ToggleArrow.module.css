@@ -1,0 +1,11 @@
+.hop-ToggleArrow  {
+    /* Internal Variables */  
+    --transition: var(--hop-easing-duration-2) var(--hop-easing-productive);
+
+    position: relative;
+    transition: transform var(--transition);
+}
+
+.hop-ToggleArrow[data-expanded] {
+    transform: rotate(-180deg);
+}
