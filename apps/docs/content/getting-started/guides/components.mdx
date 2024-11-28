@@ -39,13 +39,13 @@ Here's an overview of the different customization methods:
 
 - 🥉 [Custom components using hooks](#customization-methods-details--custom-components-using-hooks): Create a new component on top of Design System hooks or React Aria hooks.
 
-- 🛠️ [Building components from scratch](#customization-methods-details--building-components-from-scratch): Create a component from scratch and leveraging Design Tokens if possible
+- 🛠️ [Building components from scratch](#customization-methods-details--building-components-from-scratch): Create a component from scratch and leverage Design Tokens if possible
 
-## Customization Methods Details
+## Customization Method Details
 
 These customization options provide product teams with the flexibility to adapt Hopper components to specific requirements, without sacrificing consistency. By using this range of customization methods, teams can meet product goals efficiently while maintaining the benefits of a unified design system. These customization methods are presented in the order you should consider when evaluating your options, with details provided in the sections below.
 
-### 🥇 Direct styling adjustments
+### 🥇 Direct Styling Adjustments
 
 For straightforward customization needs, you can make adjustments directly by passing style-related props, adding CSS classes, or setting up refs for access to component elements. This approach allows you to override specific styles while keeping the component's behavior and overall styling intact.
 
@@ -80,9 +80,9 @@ export function AICard({ children, className, ...rest }: CardProps) {
 ```
 </Expand>
 
-### 🥇 Behavior modifications
+### 🥇 Behavior Modifications
 
-To customize a component's behavior, use refs, callbacks and controlled properties. This approach is useful for interactive features and for modifying default component behavior. This approach is ideal when you need to adjust how a component responds to user interactions without altering its visual style or structure. Read more about Controlled vs Uncontrolled components [here](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components).
+To customize a component's behavior, use refs, callbacks and controlled properties. This approach is useful for interactive features and for modifying default component behavior. This approach is ideal when you need to adjust how a component responds to user interactions without altering its visual style or structure. Read more about _Controlled vs Uncontrolled components_ [here](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components).
 
 <Expand title="Details">
 #### Refs for Direct Access
@@ -125,7 +125,7 @@ function MyCustomButtonPopoverTrigger({ children, ...rest }: PopoverTriggerProps
 ```
 </Expand>
 
-### 🥈 Copying component
+### 🥈 Copying Component
 
 When you need extensive customizations that go beyond simple styling or behavior adjustments, copying the component code can be an effective solution. This allows you to make specific changes while retaining the existing structure, making the customized component reusable across similar use cases.
 

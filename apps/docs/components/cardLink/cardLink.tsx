@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import "./cardLink.css";
 
@@ -9,7 +9,7 @@ export interface CardLinkProps extends ComponentProps<"a">{
     title: string;
     size: "sm" | "md";
     description?: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 const CardLink = ({ children, className, title, size = "md", type = "primary", description = "md", href, ...rest }: CardLinkProps) => {
