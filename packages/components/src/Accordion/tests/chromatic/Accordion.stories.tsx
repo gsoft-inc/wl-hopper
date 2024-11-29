@@ -127,6 +127,71 @@ export const Default = {
                     <DisclosurePanel>Drive impact by simplifying how your leaders and you manage team performance throughout the year.</DisclosurePanel>
                 </Disclosure>
             </Accordion>
+            <h1>Zoom</h1>
+            <Accordion {...args} className="zoom-in">
+                <Disclosure id="officevibe">
+                    <DisclosureHeader>
+                        <SparklesIcon />
+                        <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                            <Text>Workleap Officevibe</Text>
+                            <Text color="neutral-weak" size="sm">Engagement and Feedback</Text>
+                        </Inline>
+                    </DisclosureHeader>
+                    <DisclosurePanel>Help employees speak up and make sure they feel heard. Continuous and real-time surveys offer feedback to celebrate every win, recognize commitment, and uncover challenges.</DisclosurePanel>
+                </Disclosure>
+                <Disclosure id="pingboard">
+                    <DisclosureHeader>
+                        <SparklesIcon />
+                        <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                            <Text>Workleap Pingboard</Text>
+                            <Text color="neutral-weak" size="sm">Org Chart</Text>
+                        </Inline>
+                    </DisclosureHeader>
+                    <DisclosurePanel>Make teamwork work. Use your org chart to create lasting connections across your distributed and hybrid teams to make collaboration easier.</DisclosurePanel>
+                </Disclosure>
+                <Disclosure id="performance">
+                    <DisclosureHeader>
+                        <SparklesIcon />
+                        <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                            <Text>Workleap Performance</Text>
+                            <Text color="neutral-weak" size="sm">Performance Management</Text>
+                        </Inline>
+                    </DisclosureHeader>
+                    <DisclosurePanel>Drive impact by simplifying how your leaders and you manage team performance throughout the year.</DisclosurePanel>
+                </Disclosure>
+            </Accordion>
+            <Accordion {...args} className="zoom-out">
+                <Disclosure id="officevibe">
+                    <DisclosureHeader>
+                        <SparklesIcon />
+                        <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                            <Text>Workleap Officevibe</Text>
+                            <Text color="neutral-weak" size="sm">Engagement and Feedback</Text>
+                        </Inline>
+                    </DisclosureHeader>
+                    <DisclosurePanel>Help employees speak up and make sure they feel heard. Continuous and real-time surveys offer feedback to celebrate every win, recognize commitment, and uncover challenges.</DisclosurePanel>
+                </Disclosure>
+                <Disclosure id="pingboard">
+                    <DisclosureHeader>
+                        <SparklesIcon />
+                        <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                            <Text>Workleap Pingboard</Text>
+                            <Text color="neutral-weak" size="sm">Org Chart</Text>
+                        </Inline>
+                    </DisclosureHeader>
+                    <DisclosurePanel>Make teamwork work. Use your org chart to create lasting connections across your distributed and hybrid teams to make collaboration easier.</DisclosurePanel>
+                </Disclosure>
+                <Disclosure id="performance">
+                    <DisclosureHeader>
+                        <SparklesIcon />
+                        <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                            <Text>Workleap Performance</Text>
+                            <Text color="neutral-weak" size="sm">Performance Management</Text>
+                        </Inline>
+                    </DisclosureHeader>
+                    <DisclosurePanel>Drive impact by simplifying how your leaders and you manage team performance throughout the year.</DisclosurePanel>
+                </Disclosure>
+            </Accordion>
         </Stack>
     ),
     args: {

@@ -64,8 +64,15 @@ export const Default = {
                     </Inline>
                 </DisclosureHeader>
                 <DisclosurePanel>
-            We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
-            Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
+                    We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
+                    Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
+                </DisclosurePanel>
+            </Disclosure>
+            <h1>Custom Header</h1>
+            <Disclosure {...args}>
+                <Button slot="trigger">Custom Header</Button>
+                <DisclosurePanel>
+                Disclosure Panel
                 </DisclosurePanel>
             </Disclosure>
             <h1>Style</h1>
@@ -75,6 +82,33 @@ export const Default = {
                 </DisclosureHeader>
                 <DisclosurePanel>
                 Disclosure Panel
+                </DisclosurePanel>
+            </Disclosure>
+            <h1>Zoom</h1>
+            <Disclosure {...args} className="zoom-in">
+                <DisclosureHeader level={2}>
+                    <SparklesIcon />
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                        <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
+                        <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
+                    </Inline>
+                </DisclosureHeader>
+                <DisclosurePanel>
+                    We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
+                    Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
+                </DisclosurePanel>
+            </Disclosure>
+            <Disclosure {...args} className="zoom-out">
+                <DisclosureHeader level={2}>
+                    <SparklesIcon />
+                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
+                        <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
+                        <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
+                    </Inline>
+                </DisclosureHeader>
+                <DisclosurePanel>
+                    We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
+                    Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
                 </DisclosurePanel>
             </Disclosure>
         </Stack>
@@ -90,17 +124,6 @@ export const InlineVariant = {
         defaultExpanded: true,
         variant: "inline"
     }
-} satisfies Story;
-
-export const CustomHeader = {
-    render: args => (
-        <Disclosure {...args}>
-            <Button slot="trigger">Custom Header</Button>
-            <DisclosurePanel>
-                Disclosure Panel
-            </DisclosurePanel>
-        </Disclosure>
-    )
 } satisfies Story;
 
 const StateTemplate = (args: Partial<DisclosureProps>) => (
@@ -170,42 +193,6 @@ export const InlineStates = {
     ...DefaultStates,
     args: {
         variant: "inline",
-        defaultExpanded: true
-    }
-} satisfies Story;
-
-export const Zoom = {
-    render: args => (
-        <Stack>
-            <Disclosure {...args} className="zoom-in">
-                <DisclosureHeader level={2}>
-                    <SparklesIcon />
-                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
-                        <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
-                        <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-                    </Inline>
-                </DisclosureHeader>
-                <DisclosurePanel>
-                    We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
-                    Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
-                </DisclosurePanel>
-            </Disclosure>
-            <Disclosure {...args} className="zoom-out">
-                <DisclosureHeader level={2}>
-                    <SparklesIcon />
-                    <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
-                        <Text>Shipping, Delivery Times, and Easy Returns Policy Overview</Text>
-                        <Text color="neutral-weak" size="sm">Explore our comprehensive shipping options, estimated delivery times for various regions, and our simple, customer-friendly returns process to make sure you feel comfortable with every purchase.</Text>
-                    </Inline>
-                </DisclosureHeader>
-                <DisclosurePanel>
-                    We offer free standard shipping on all orders over $50. Orders are typically processed within 1-2 business days, and delivery times vary based on your location. Expedited shipping options are available for an additional fee.
-                    Returns are easy and hassle-free. You have 30 days from the date of delivery to return items for a full refund. Items must be in their original condition and packaging. For further assistance, please contact our support team.
-                </DisclosurePanel>
-            </Disclosure>
-        </Stack>
-    ),
-    args: {
         defaultExpanded: true
     }
 } satisfies Story;
