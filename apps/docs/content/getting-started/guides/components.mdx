@@ -72,12 +72,12 @@ Append custom CSS classes to modify styles.
 <Expand title="Example: Creating an AI Card">
 ```tsx
 export function AICard({ children, className, ...rest }: CardProps) {
-  const classNames = clsx(className, "ai-gradiant-border");
-   return (
-       <Card className={classNames} {...rest}>
-           {children}
-       </Card>
-   );
+    const classNames = clsx(className, "ai-gradiant-border");
+    return (
+        <Card className={classNames} {...rest}>
+            {children}
+        </Card>
+    );
 }
 ```
 </Expand>
@@ -115,14 +115,14 @@ You can control the component&apos;s behavior by passing a controlled property.
 <Expand title="Example: Creating a popover that opens on hover.">
 ```tsx
 function MyCustomButtonPopoverTrigger({ children, ...rest }: PopoverTriggerProps) {
-   const ref = useRef();
-   const isHovered = useHover(ref);
-   return (
-       <PopoverTrigger {...rest} open={isHovered}>
-           <Button ref={ref}>Hoverable Button</Button>
-           {children}
-       </PopoverTrigger>
-   );
+    const ref = useRef();
+    const isHovered = useHover(ref);
+    return (
+        <PopoverTrigger {...rest} open={isHovered}>
+            <Button ref={ref}>Hoverable Button</Button>
+            {children}
+        </PopoverTrigger>
+    );
 }
 ```
 </Expand>

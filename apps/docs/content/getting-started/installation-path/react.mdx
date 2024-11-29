@@ -27,9 +27,9 @@ import { createRoot } from 'react-dom/client';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <HopperProvider withBodyStyle>
-    <App />
-  </HopperProvider>
+    <HopperProvider withBodyStyle>
+        <App />
+    </HopperProvider>
 );
 ```
 
@@ -38,7 +38,7 @@ root.render(
 Add Hopper styles to your project by importing the following CSS file. Place this in your global CSS file or main stylesheet.
 
 ```css
-@import "@hopper-ui/components/index.css";
+@import url("@hopper-ui/components/index.css");
 ```
 
 ### Enjoy!
@@ -48,12 +48,12 @@ Leverage Hopper's components and styled system to build user interfaces efficien
 import { Button, Stack } from "@hopper-ui/components";
 
 const Demo = () => {
-  return (
-    <Stack>
-      <Button>Click me</Button>
-      <Button>Click me</Button>
-    </Stack>
-  )
+    return (
+        <Stack>
+            <Button>Click me</Button>
+            <Button>Click me</Button>
+        </Stack>
+    );
 }
 ```
 
