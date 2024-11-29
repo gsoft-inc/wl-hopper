@@ -8,7 +8,7 @@ import { Badge } from "../../Badge/index.ts";
 import { Header } from "../../Header/index.ts";
 import { IconList } from "../../IconList/index.ts";
 import { Inline } from "../../layout/index.ts";
-import { Section } from "../../Section/index.ts";
+import { ListBoxSection } from "../../ListBoxSection/index.ts";
 import { Text } from "../../typography/Text/index.ts";
 import { ListBox, ListBoxItem } from "../src/index.ts";
 
@@ -159,13 +159,13 @@ export const MultipleSelection = {
                 <ListBoxItem id="3">Item 3</ListBoxItem>
                 <ListBoxItem id="4">Item 4</ListBoxItem>
                 <ListBoxItem id="5">Item 5</ListBoxItem>
-                <Section aria-label="section">
+                <ListBoxSection aria-label="section">
                     <ListBoxItem id="6">Item 6</ListBoxItem>
                     <ListBoxItem id="7">Item 7</ListBoxItem>
                     <ListBoxItem id="8">Item 8</ListBoxItem>
                     <ListBoxItem id="9">Item 9</ListBoxItem>
                     <ListBoxItem id="10">Item 10</ListBoxItem>
-                </Section>
+                </ListBoxSection>
             </ListBox>
         );
     },
@@ -357,22 +357,22 @@ export const Sections = {
                 <ListBoxItem>Item 3</ListBoxItem>
                 <ListBoxItem>Item 4</ListBoxItem>
                 <ListBoxItem>Item 5</ListBoxItem>
-                <Section >
+                <ListBoxSection >
                     <Header>More Items</Header>
                     <ListBoxItem>Item 6</ListBoxItem>
                     <ListBoxItem>Item 7</ListBoxItem>
                     <ListBoxItem>Item 8</ListBoxItem>
                     <ListBoxItem>Item 9</ListBoxItem>
                     <ListBoxItem>Item 10</ListBoxItem>
-                </Section>
-                <Section>
+                </ListBoxSection>
+                <ListBoxSection>
                     <Header>Even More Items</Header>
                     <ListBoxItem>Item 11</ListBoxItem>
                     <ListBoxItem>Item 12</ListBoxItem>
                     <ListBoxItem>Item 13</ListBoxItem>
                     <ListBoxItem>Item 14</ListBoxItem>
                     <ListBoxItem>Item 15</ListBoxItem>
-                </Section>
+                </ListBoxSection>
                 <ListBoxItem>Item 16</ListBoxItem>
             </ListBox>
         );
@@ -432,12 +432,12 @@ export const DynamicLists = {
                         const listSection = section as ListSectionProps;
 
                         return (
-                            <Section id={listSection.name}>
+                            <ListBoxSection id={listSection.name}>
                                 <Header>{listSection.name}</Header>
                                 <Collection items={listSection.children}>
                                     {item => <ListBoxItem id={item.name}>{item.name}</ListBoxItem>}
                                 </Collection>
-                            </Section>
+                            </ListBoxSection>
                         );
                     }}
                 </ListBox>

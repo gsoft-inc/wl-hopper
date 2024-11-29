@@ -8,7 +8,7 @@ import { Badge } from "../../../Badge/index.ts";
 import { Header } from "../../../Header/index.ts";
 import { IconList } from "../../../IconList/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Section } from "../../../Section/index.ts";
+import { ListBoxSection } from "../../../ListBoxSection/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
 import { ListBox, ListBoxItem, type ListBoxProps } from "../../index.ts";
 
@@ -81,31 +81,31 @@ export const Default = {
                 </Inline>
                 <h1>Sections</h1>
                 <ListBox {...args}>
-                    <Section>
+                    <ListBoxSection>
                         <Header>Visited</Header>
                         <ListBoxItem id="1">Earth</ListBoxItem>
                         <ListBoxItem id="2">Mars</ListBoxItem>
                         <ListBoxItem id="3">Saturn</ListBoxItem>
-                    </Section>
-                    <Section>
+                    </ListBoxSection>
+                    <ListBoxSection>
                         <Header>Not Visited</Header>
                         <ListBoxItem id="4">Jupiter</ListBoxItem>
                         <ListBoxItem id="5">Mercury</ListBoxItem>
                         <ListBoxItem id="6">Neptune</ListBoxItem>
                         <ListBoxItem id="7">Uranus</ListBoxItem>
-                    </Section>
+                    </ListBoxSection>
                 </ListBox>
                 <h1>Mixed Section and Items</h1>
                 <ListBox {...args}>
                     <ListBoxItem id="1">Earth</ListBoxItem>
                     <ListBoxItem id="2">Mars</ListBoxItem>
                     <ListBoxItem id="3">Saturn</ListBoxItem>
-                    <Section>
+                    <ListBoxSection>
                         <Header>Visited</Header>
                         <ListBoxItem id="4">Jupiter</ListBoxItem>
                         <ListBoxItem id="5">Mercury</ListBoxItem>
                         <ListBoxItem id="6">Neptune</ListBoxItem>
-                    </Section>
+                    </ListBoxSection>
                     <ListBoxItem id="7">Uranus</ListBoxItem>
                 </ListBox>
                 <h1>Items with Start Icon</h1>

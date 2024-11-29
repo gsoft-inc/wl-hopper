@@ -1,4 +1,4 @@
-import { Collection, Header, Inline, Section, Select, SelectItem } from "@hopper-ui/components";
+import { Collection, Header, Inline, Select, SelectItem, SelectSection } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -51,12 +51,12 @@ export default function Example() {
                     const { role: sectionName, children } = section;
 
                     return (
-                        <Section id={sectionName}>
+                        <SelectSection id={sectionName}>
                             <Header>{sectionName}</Header>
                             <Collection items={children}>
                                 {item => <SelectItem id={item.id}>{item.role}</SelectItem>}
                             </Collection>
-                        </Section>
+                        </SelectSection>
                     );
                 }}
             </Select>
