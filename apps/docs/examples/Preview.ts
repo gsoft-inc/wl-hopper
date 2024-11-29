@@ -782,6 +782,9 @@ export const Previews: Record<string, Preview> = {
     "Accordion/docs/variants": {
         component: lazy(() => import("@/../../packages/components/src/Accordion/docs/variants.tsx"))
     },
+    "Accordion/docs/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/variants.tsx"))
+    },
     "Accordion/docs/icon": {
         component: lazy(() => import("@/../../packages/components/src/Accordion/docs/icon.tsx"))
     },
