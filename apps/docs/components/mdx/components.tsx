@@ -16,6 +16,7 @@ import CardLink from "@/components/cardLink/cardLink.tsx";
 import CardLinkList from "@/components/cardLink/cardLinkList.tsx";
 import InlineCode from "@/components/code/InlineCode.tsx";
 import Expand from "@/components/expand/Expand.tsx";
+import Figure from "@/components/figure/Figure.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
 import NextImage from "@/components/image/Image.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
@@ -51,6 +52,7 @@ export const components = {
     code: InlineCode,
     Callout: Callout,
     Expand,
+    Figure,
     Image: NextImage,
     pre: Pre,
     Tag,

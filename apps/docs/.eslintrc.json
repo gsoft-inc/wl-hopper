@@ -18,6 +18,7 @@
         "Expand": true,
         "TokenTable": true,
         "MotionPreview": true,
+        "Figure": true,
         "Footnote": true,
         "TypographyTable": true,
         "TypographyVariantTable": true,
