@@ -779,11 +779,14 @@ export const Previews: Record<string, Preview> = {
     "Accordion/docs/disabled": {
         component: lazy(() => import("@/../../packages/components/src/Accordion/docs/disabled.tsx"))
     },
-    "Accordion/docs/variants": {
-        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/variants.tsx"))
+    "Accordion/docs/standalone": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/standalone.tsx"))
     },
-    "Accordion/docs/variants": {
-        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/variants.tsx"))
+    "Accordion/docs/inline": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/inline.tsx"))
+    },
+    "Accordion/docs/multiple-selection": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/multiple-selection.tsx"))
     },
     "Accordion/docs/icon": {
         component: lazy(() => import("@/../../packages/components/src/Accordion/docs/icon.tsx"))
