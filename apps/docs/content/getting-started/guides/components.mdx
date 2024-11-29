@@ -137,7 +137,7 @@ Take a look to [Hopper's components source code](https://github.com/gsoft-inc/wl
 <br/><br/> Share your needs in **#ds-hopper!**
 </Callout>
 
-### 🥈 Custom components using base components
+### 🥈 Custom Components Using Base Components
 
 If the existing Design System component feels too complex for your needs, take a closer look at its underlying structure in the code. In Hopper, it's likely built on a [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) component, which you can directly leverage to create a more tailored solution. React Aria offers a robust library of foundational components, making it a versatile starting point. [The Technology team recommends using React Aria](https://workleap.atlassian.net/wiki/spaces/TL/pages/3469508719) as the preferred foundation for building components.
 
@@ -147,7 +147,7 @@ If the existing Design System component feels too complex for your needs, take a
 Using this approach may require you to restyle the entire component, which is fine. At this stage, you’re essentially creating something new! Just be sure to use [Hopper tokens](../../tokens/overview/introduction) to ensure that any future branding updates are automatically applied to your component without needing manual adjustments. If you want to allow customization on your component, you can also use the `useStyledSystem` hook to expose style props!
 </Callout>
 
-### 🥉 Custom components using hooks
+### 🥉 Custom Components Using Hooks
 
 If there is no base components to use, or if the base component is again too strict for you needs, you can use underlying hooks for more granular control. [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) also offer hooks that you can tailor components more precisely to your needs. [The Technology team recommends using React Aria](https://workleap.atlassian.net/wiki/spaces/TL/pages/3469508719) as the preferred foundation for building components.
 
@@ -157,7 +157,7 @@ If there is no base components to use, or if the base component is again too str
 Using this approach may require you to restyle the entire component, which is fine. At this stage, you’re essentially creating something new! Just be sure to use [Hopper tokens](../../tokens/overview/introduction) to ensure that any future branding updates are automatically applied to your component without needing manual adjustments. If you want to allow customization on your component, you can also use the `useStyledSystem` hook to expose style props!
 </Callout>
 
-### 🛠️ Building components from scratch
+### 🛠️ Building Components From Scratch
 
 For unique needs that go beyond the capabilities of design system components, building a component from scratch may be necessary. At this point, the only recommendation we can give is to refer to the [WAI Aria Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) or [Spec](https://www.w3.org/WAI/ARIA/apg/) to determine the expected behavior of controls. Using this approach you will have to style the entire component, which is fine. Just be sure to use [Hopper tokens](../../tokens/overview/introduction) to ensure that any future branding updates are automatically applied to your component without needing manual adjustments. If you want to allow customization on your component, you can also use the `useStyledSystem` hook to expose style props!
 

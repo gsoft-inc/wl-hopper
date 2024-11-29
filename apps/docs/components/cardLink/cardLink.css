@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    height: 14rem;
+    min-height: 14rem;
     overflow: hidden;
     position: relative;
     padding: var(--hd-space-4) 0;
