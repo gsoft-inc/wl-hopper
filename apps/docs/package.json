@@ -8,9 +8,7 @@
     ],
     "scripts": {
         "start": "next start",
-        "dev": "pnpm run \"/^dev:.*/\"",
-        "dev:next": "next dev",
-        "dev:content": "contentlayer dev",
+        "dev": "next dev",
         "build": "next build",
         "lint": "next lint",
         "lint:types": "tsc --noEmit",
