@@ -1,3 +1,54 @@
-.hop-Accordion  {
-    /* TODO */
+.hop-Accordion {
+    /* Standalone */
+    --hop-Accordion-standalone-border-size: var(--hop-space-10);
+    --hop-Accordion-standalone-border-color: var(--hop-neutral-border-weak);
+    --hop-Accordion-standalone-border-radius: var(--hop-shape-rounded-md);
+    --hop-Accordion-standalone-box-shadow: var(--hop-elevation-raised);
+    --hop-Accordion-standalone-disclosure-border-radius-size: var(--hop-shape-rounded-md);
+    --hop-Accordion-standalone-disclosure-last-child-border-block-end-size: 0;
+
+    /* Inline */
+    --hop-Accordion-inline-border-size: var(--hop-space-10);
+    --hop-Accordion-inline-border-color: transparent;
+    --hop-Accordion-inline-border-radius: 0;
+    --hop-Accordion-inline-box-shadow: 0;
+    --hop-Accordion-inline-disclosure-border-radius-size: 0;
+    --hop-Accordion-inline-disclosure-last-child-border-block-end-size: var(--hop-space-10);
+
+    /* Internal Variables */
+    --border-size: var(--hop-Accordion-standalone-border-size);
+    --border-color: var(--hop-Accordion-standalone-border-color);
+    --border-radius: var(--hop-Accordion-standalone-border-radius);
+    --box-shadow: var(--hop-Accordion-standalone-box-shadow);
+    --disclosure-border-radius-size: var(--hop-Accordion-standalone-disclosure-border-radius-size);
+    --disclosure-last-child-border-block-end-size: var(--hop-Accordion-standalone-disclosure-last-child-border-block-end-size);
+
+    overflow: hidden;
+    border: var(--border-size) solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.hop-Accordion--inline {
+    --border-size: var(--hop-Accordion-inline-border-size);
+    --border-color: var(--hop-Accordion-inline-border-color);
+    --border-radius: var(--hop-Accordion-inline-border-radius);
+    --box-shadow: var(--hop-Accordion-inline-box-shadow);
+    --disclosure-border-radius-size: var(--hop-Accordion-inline-disclosure-border-radius-size);
+    --disclosure-last-child-border-block-end-size: var(--hop-Accordion-inline-disclosure-last-child-border-block-end-size);
+}
+
+.hop-Accordion__disclosure:first-child .hop-Accordion__disclosure-header button[slot="trigger"] {
+    border-start-start-radius: var(--disclosure-border-radius-size);
+    border-start-end-radius: var(--disclosure-border-radius-size);
+}
+
+.hop-Accordion__disclosure:last-child:not([data-expanded]) .hop-Accordion__disclosure-header button[slot="trigger"] {
+    border-block-end-width: var(--disclosure-last-child-border-block-end-size);
+    border-end-start-radius: var(--disclosure-border-radius-size);
+    border-end-end-radius: var(--disclosure-border-radius-size);
+}
+
+.hop-Accordion__disclosure:last-child .hop-Accordion__disclosure-panel {
+    border-block-end-width: var(--disclosure-last-child-border-block-end-size);
 }

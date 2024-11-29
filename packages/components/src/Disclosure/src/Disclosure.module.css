@@ -18,9 +18,9 @@
     /* Inline */
     --hop-Disclosure-inline-border-radius: 0;
     --hop-Disclosure-inline-box-shadow: none;
-    --hop-Disclosure-inline-panel-border-size: 0;
-    --hop-Disclosure-inline-panel-border-size-expanded: 0;
-    --hop-Disclosure-inline-panel-border-color: transparent;
+    --hop-Disclosure-inline-panel-border-size: 0 0 var(--hop-space-10) 0;
+    --hop-Disclosure-inline-panel-border-size-expanded: 0 0 var(--hop-space-10) 0;
+    --hop-Disclosure-inline-panel-border-color: var(--hop-neutral-border-weak);
 
     /* Disabled */
     --hop-Disclosure-box-shadow-disabled: none;
@@ -30,6 +30,7 @@
     --panel-background-color: var(--hop-Disclosure-panel-background-color);
     --panel-padding: var(--hop-Disclosure-panel-padding);
     --panel-border-size: var(--hop-Disclosure-standalone-panel-border-size);
+    --panel-border-color: var(--hop-Disclosure-standalone-panel-border-color);
 
     box-sizing: border-box;
     border-radius: var(--border-radius);
@@ -55,7 +56,6 @@
 
 .hop-Disclosure:has(.hop-Disclosure__header)[data-expanded] {
     --panel-border-size: var(--hop-Disclosure-standalone-panel-border-size-expanded);
-    --panel-border-color: var(--hop-Disclosure-standalone-panel-border-color);
     --panel-padding: var(--hop-Disclosure-with-header-panel-padding);
 
     background-color: red;
@@ -63,6 +63,7 @@
 
 .hop-Disclosure--inline {
     --panel-border-size: var(--hop-Disclosure-inline-panel-border-size);
+    --panel-border-color: var(--hop-Disclosure-inline-panel-border-color);
 }
 
 .hop-Disclosure--inline:has(.hop-Disclosure__header) {
@@ -72,7 +73,6 @@
 
 .hop-Disclosure--inline:has(.hop-Disclosure__header)[data-expanded] {
     --panel-border-size: var(--hop-Disclosure-inline-panel-border-size-expanded);
-    --panel-border-color: var(--hop-Disclosure-inline-panel-border-color);
 }
 
 .hop-Disclosure[data-disabled] {

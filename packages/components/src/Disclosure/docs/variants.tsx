@@ -2,7 +2,7 @@ import { Disclosure, DisclosureHeader, DisclosurePanel, Stack } from "@hopper-ui
 
 export default function Example() {
     return (
-        <Stack width="100%" paddingX="core_320" paddingY="core_480">
+        <Stack width="100%">
             <Disclosure variant="standalone">
                 <DisclosureHeader>
                     Help your people work better

@@ -2,7 +2,7 @@ import { Disclosure, DisclosureHeader, DisclosurePanel, Div, Inline, Text } from
 
 export default function Example() {
     return (
-        <Div width="100%" paddingX="core_320" paddingY="core_480">
+        <Div width="100%">
             <Disclosure>
                 <DisclosureHeader>
                     <Inline columnGap="inline-sm" rowGap="core_0" alignY="baseline">
