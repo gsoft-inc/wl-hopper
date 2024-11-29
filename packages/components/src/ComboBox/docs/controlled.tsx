@@ -1,4 +1,4 @@
-import { ComboBox, ComboBoxItem, Header, type Key, Section } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem, ComboBoxSection, Header, type Key } from "@hopper-ui/components";
 import { useState } from "react";
 
 export default function Example() {
@@ -14,11 +14,11 @@ export default function Example() {
 
     return (
         <ComboBox selectedKey={selectedKey} onSelectionChange={handleSelectionChange} label="Roles">
-            <Section key="1">
+            <ComboBoxSection key="1">
                 <Header>Operations</Header>
                 <ComboBoxItem id="1">Project Coordinator</ComboBoxItem>
                 <ComboBoxItem id="2">QA Specialist</ComboBoxItem>
-            </Section>
+            </ComboBoxSection>
             <ComboBoxItem key="2" id="3">Manager</ComboBoxItem>
         </ComboBox>
     );

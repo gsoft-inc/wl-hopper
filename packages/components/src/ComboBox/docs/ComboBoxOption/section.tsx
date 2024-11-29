@@ -1,21 +1,21 @@
-import { ComboBox, ComboBoxItem, Header, Section } from "@hopper-ui/components";
+import { ComboBox, ComboBoxItem, ComboBoxSection, Header } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <ComboBox label="Roles">
             <ComboBoxItem id="developer">Developer</ComboBoxItem>
             <ComboBoxItem id="manager">Manager</ComboBoxItem>
-            <Section>
+            <ComboBoxSection>
                 <Header>Operations</Header>
                 <ComboBoxItem id="project-coordinator">Project Coordinator</ComboBoxItem>
                 <ComboBoxItem id="qa-specialist">QA Specialist</ComboBoxItem>
-            </Section>
-            <Section>
+            </ComboBoxSection>
+            <ComboBoxSection>
                 <Header>Creative Department</Header>
                 <ComboBoxItem id="designer">Designer</ComboBoxItem>
                 <ComboBoxItem id="copywriter">Copywriter</ComboBoxItem>
                 <ComboBoxItem id="ux-researcher">UX Researcher</ComboBoxItem>
-            </Section>
+            </ComboBoxSection>
         </ComboBox>
     );
 }

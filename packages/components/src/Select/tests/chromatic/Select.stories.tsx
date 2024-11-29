@@ -1,4 +1,4 @@
-import { Select, SelectItem, type SelectProps } from "@hopper-ui/components";
+import { Select, SelectItem, type SelectProps, SelectSection } from "@hopper-ui/components";
 import { AddIcon, SparklesIcon } from "@hopper-ui/icons";
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
@@ -7,7 +7,6 @@ import { userEvent, within } from "@storybook/test";
 import { Button } from "../../../buttons/index.ts";
 import { Header } from "../../../Header/index.ts";
 import { Inline, Stack } from "../../../layout/index.ts";
-import { Section } from "../../../Section/index.ts";
 import { Text } from "../../../typography/Text/index.ts";
 
 const meta = {
@@ -68,19 +67,19 @@ export const OnlyItems = {
 export const Sections = {
     render: args => (
         <Select {...args}>
-            <Section>
+            <SelectSection>
                 <Header>Cats</Header>
                 <SelectItem id="1">Zoomy</SelectItem>
                 <SelectItem id="2">Voodoo</SelectItem>
                 <SelectItem id="3">Dusty</SelectItem>
                 <SelectItem id="4">Rengar</SelectItem>
-            </Section>
-            <Section>
+            </SelectSection>
+            <SelectSection>
                 <Header>Dogs</Header>
                 <SelectItem id="5">Teemo</SelectItem>
                 <SelectItem id="6">Scooter</SelectItem>
                 <SelectItem id="7">Prince</SelectItem>
-            </Section>
+            </SelectSection>
         </Select>
     ),
     play: playFn,
@@ -90,19 +89,19 @@ export const Sections = {
 export const Footer = {
     render: args => (
         <Select {...args} footer={<Button variant="ghost-secondary" isFluid><AddIcon /><Text>Add</Text></Button>}>
-            <Section>
+            <SelectSection>
                 <Header>Cats</Header>
                 <SelectItem id="1">Zoomy</SelectItem>
                 <SelectItem id="2">Voodoo</SelectItem>
                 <SelectItem id="3">Dusty</SelectItem>
                 <SelectItem id="4">Rengar</SelectItem>
-            </Section>
-            <Section>
+            </SelectSection>
+            <SelectSection>
                 <Header>Dogs</Header>
                 <SelectItem id="5">Teemo</SelectItem>
                 <SelectItem id="6">Scooter</SelectItem>
                 <SelectItem id="7">Prince</SelectItem>
-            </Section>
+            </SelectSection>
         </Select>
     ),
     play: playFn,
@@ -112,19 +111,19 @@ export const Footer = {
 export const TextFooter = {
     render: args => (
         <Select {...args} footer={<Text>This is a list of animals</Text>}>
-            <Section>
+            <SelectSection>
                 <Header>Cats</Header>
                 <SelectItem id="1">Zoomy</SelectItem>
                 <SelectItem id="2">Voodoo</SelectItem>
                 <SelectItem id="3">Dusty</SelectItem>
                 <SelectItem id="4">Rengar</SelectItem>
-            </Section>
-            <Section>
+            </SelectSection>
+            <SelectSection>
                 <Header>Dogs</Header>
                 <SelectItem id="5">Teemo</SelectItem>
                 <SelectItem id="6">Scooter</SelectItem>
                 <SelectItem id="7">Prince</SelectItem>
-            </Section>
+            </SelectSection>
         </Select>
     ),
     play: playFn,
@@ -134,19 +133,19 @@ export const TextFooter = {
 export const Small = {
     render: args => (
         <Select {...args}>
-            <Section>
+            <SelectSection>
                 <Header>Cats</Header>
                 <SelectItem id="1">Zoomy</SelectItem>
                 <SelectItem id="2">Voodoo</SelectItem>
                 <SelectItem id="3">Dusty</SelectItem>
                 <SelectItem id="4">Rengar</SelectItem>
-            </Section>
-            <Section>
+            </SelectSection>
+            <SelectSection>
                 <Header>Dogs</Header>
                 <SelectItem id="5">Teemo</SelectItem>
                 <SelectItem id="6">Scooter</SelectItem>
                 <SelectItem id="7">Prince</SelectItem>
-            </Section>
+            </SelectSection>
         </Select>
     ),
     args: {
@@ -160,19 +159,19 @@ export const Small = {
 export const Medium = {
     render: args => (
         <Select {...args}>
-            <Section>
+            <SelectSection>
                 <Header>Cats</Header>
                 <SelectItem id="1">Zoomy</SelectItem>
                 <SelectItem id="2">Voodoo</SelectItem>
                 <SelectItem id="3">Dusty</SelectItem>
                 <SelectItem id="4">Rengar</SelectItem>
-            </Section>
-            <Section>
+            </SelectSection>
+            <SelectSection>
                 <Header>Dogs</Header>
                 <SelectItem id="5">Teemo</SelectItem>
                 <SelectItem id="6">Scooter</SelectItem>
                 <SelectItem id="7">Prince</SelectItem>
-            </Section>
+            </SelectSection>
         </Select>
     ),
     args: {

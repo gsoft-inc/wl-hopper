@@ -1,4 +1,4 @@
-import { Header, Inline, ListBox, ListBoxItem, Section, Collection } from "@hopper-ui/components";
+import { Collection, Header, Inline, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
 
 interface ListItemProps {
     id: number | string;
@@ -59,12 +59,12 @@ export default function Example() {
                     const listSection = section as ListSectionProps;
 
                     return (
-                        <Section id={listSection.name}>
+                        <ListBoxSection id={listSection.name}>
                             <Header>{listSection.name}</Header>
                             <Collection items={listSection.children}>
                                 {item => <ListBoxItem id={item.name}>{item.name}</ListBoxItem>}
                             </Collection>
-                        </Section>
+                        </ListBoxSection>
                     );
                 }}
             </ListBox>
