@@ -1,0 +1,38 @@
+.hd-layout_404 {
+    text-align: center;
+}
+
+.hd-404__title {
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-top: 1rem;
+    margin-bottom: 2rem
+}
+
+.hd-404__subtitle {
+    font-weight: 400;
+    font-size: clamp(1rem, 4vw, 1.825rem);
+    margin-bottom: 2rem;
+}
+
+.hd-404__button {
+    border: none;
+    border-radius: var(--hd-border-radius-md);
+    height: 3rem;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+    background-color: var(--hd-accent-700);
+    display: inline-flex;
+    align-items: center;
+    color: var(--hd-white);
+    margin-top: 2rem;
+}
+
+.hd-404__button:hover {
+    background-color: var(--hd-accent-900);
+}
+
+.hd-404__button:active {
+    background-color: var(--hd-accent-400);
+}

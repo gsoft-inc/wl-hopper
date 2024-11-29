@@ -29,32 +29,38 @@
     height: 10rem;
 }
 
-.hd-cardlink:nth-child(3n) {
-    --card-color: #37345d;
-    --card-color-translucent: #a07ff1ba;
-}
-
-.hd-cardlink:nth-child(2n) {
+.hd-cardlink:nth-child(2n),
+.hd-cardlink.nth-2n {
     --card-color: #2b163a;
     --card-color-translucent: #ffb0b045;
 }
 
-.hd-cardlink:nth-child(4n) {
+.hd-cardlink:nth-child(3n),
+.hd-cardlink.nth-3n {
+    --card-color: #37345d;
+    --card-color-translucent: #a07ff1ba;
+}
+
+.hd-cardlink:nth-child(4n),
+.hd-cardlink.nth-4n {
     --card-color: #2b2c5c;
     --card-color-translucent: #ffb629bf;
 }
 
-.hd-cardlink:nth-child(5n) {
+.hd-cardlink:nth-child(5n),
+.hd-cardlink.nth-5n {
     --card-color: #382f58;
     --card-color-translucent: #babeff91;
 }
 
-.hd-cardlink:nth-child(6n) {
+.hd-cardlink:nth-child(6n),
+.hd-cardlink.nth-6n {
     --card-color: #3e254d;
     --card-color-translucent: #29ff9ee3;
 }
 
-.hd-cardlink:nth-child(7n) {
+.hd-cardlink:nth-child(7n),
+.hd-cardlink.nth-7n {
     --card-color: #432055;
     --card-color-translucent: #4299ea91;
 }
@@ -122,5 +128,5 @@
 }
 
 .hd-cardlink__copy {
-    padding: 0 var(--hd-space-4);
+    padding: 0 var(--hd-space-10) 0 var(--hd-space-4);
 }
