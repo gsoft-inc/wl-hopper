@@ -1,6 +1,6 @@
 ---
 title: Accordion
-description: x
+description: An Accordion is a grouping of related disclosures. It supports both single and multiple expanded items.
 category: "navigation"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Accordion/src/Accordion.tsx
@@ -48,15 +48,25 @@ An accordion has multiple variants.
 
 <Example src="Accordion/docs/variants" />
 
+**Standalone** - Used when the accordion is not inside a container.
+
+**Inline** - Used when placing a accordion inside a container.
+
+### Expanded
+
+By default, only one disclosure will be expanded at a time.  Use `allowsMultipleExpanded` prop to expand multiple disclosures.
+
+<Example src="Accordion/docs/variants" />
+
 ### Icon
 
-An accordion heading contain an icon.
+An accordion heading can contain an icon.
 
 <Example src="Accordion/docs/icon" />
 
 ### Description
 
-An accordion can contain a description.
+An accordion heading can contain a description.
 
 <Example src="Accordion/docs/description" />
 

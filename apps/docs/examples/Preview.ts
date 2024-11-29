@@ -773,6 +773,27 @@ export const Previews: Record<string, Preview> = {
     "layout/docs/stack/alignY": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/stack/alignY.tsx"))
     },
+    "Accordion/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/preview.tsx"))
+    },
+    "Accordion/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/disabled.tsx"))
+    },
+    "Accordion/docs/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/variants.tsx"))
+    },
+    "Accordion/docs/variants": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/variants.tsx"))
+    },
+    "Accordion/docs/icon": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/icon.tsx"))
+    },
+    "Accordion/docs/description": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/description.tsx"))
+    },
+    "Accordion/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/Accordion/docs/controlled.tsx"))
+    },
     "Disclosure/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Disclosure/docs/preview.tsx"))
     },
