@@ -5,7 +5,7 @@ export default function Example() {
     const [isExpanded, setIsExpanded] = useState(true);
 
     return (
-        <Div width="100%" paddingX="core_320" paddingY="core_480">
+        <Div width="100%">
             <Disclosure
                 isExpanded={isExpanded}
                 onExpandedChange={setIsExpanded}

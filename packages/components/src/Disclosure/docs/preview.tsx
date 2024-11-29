@@ -2,7 +2,7 @@ import { Disclosure, DisclosureHeader, DisclosurePanel, Div } from "@hopper-ui/c
 
 export default function Example() {
     return (
-        <Div width="100%" paddingX="core_320" paddingY="core_480">
+        <Div width="100%">
             <Disclosure>
                 <DisclosureHeader>
                     Help your people work better

@@ -4,7 +4,7 @@ import { ToggleArrow } from "../../ToggleArrow/index.ts";
 
 export default function Example() {
     return (
-        <Div width="100%" paddingX="core_320" paddingY="core_480">
+        <Div width="100%">
             <Disclosure>
                 <Button slot="trigger" variant="secondary">
                     <Text>Help your people work better</Text>

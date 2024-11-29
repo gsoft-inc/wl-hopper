@@ -55,6 +55,7 @@
     --hop-DisclosureHeader-standalone-outline-color-focused: var(--hop-primary-border-focus);
     --hop-DisclosureHeader-inline-outline-size-focused:  var(--hop-space-20);
     --hop-DisclosureHeader-inline-outline-color-focused: var(--hop-primary-border-focus);
+    --hop-DisclosureHeader-outline-offset-focused: calc(-1 * var(--hop-space-20));
 
     /* Disabled */
     --hop-DisclosureHeader-background-color-disabled: var(--hop-neutral-surface-disabled);
@@ -72,6 +73,7 @@
     --description-color: var(--hop-DisclosureHeader-description-color);
     --outline-size: var(--hop-DisclosureHeader-standalone-outline-size);
     --outline-color: var(--hop-DisclosureHeader-standalone-outline-color);
+    --outline-offset: var(--hop-DisclosureHeader-outline-offset);
     --border-radius: var(--hop-DisclosureHeader-standalone-border-radius);
     --transition-info: var(--hop-easing-duration-2) var(--hop-easing-productive);
     --border-radius-transition-info: var(--hop-DisclosureHeader-border-radius-transition);
@@ -107,7 +109,7 @@
     border-width: var(--border-size);
     border-radius: var(--border-radius);
     outline: var(--outline-size) solid var(--outline-color);
-    outline-offset: var(--hop-DisclosureHeader-outline-offset);
+    outline-offset: var(--outline-offset);
 
     transition: var(--transition);
 }
@@ -147,6 +149,7 @@
     --icon-color: var(--hop-DisclosureHeader-icon-color-focused);
     --outline-size: var(--hop-DisclosureHeader-standalone-outline-size-focused);
     --outline-color: var(--hop-DisclosureHeader-standalone-outline-color-focused);
+    --outline-offset: var(--hop-DisclosureHeader-outline-offset-focused);
 }
 
 .hop-DisclosureHeader__button--inline {
@@ -164,6 +167,7 @@
 .hop-DisclosureHeader__button--inline[data-focus-visible] {
     --outline-size: var(--hop-DisclosureHeader-inline-outline-size-focused);
     --outline-color: var(--hop-DisclosureHeader-inline-outline-color-focused);
+    --outline-offset: var(--hop-DisclosureHeader-outline-offset-focused);
 }
 
 .hop-DisclosureHeader__button[data-disabled] {
