@@ -11,19 +11,39 @@ Hopper components are built with well-considered defaults that meet common produ
  To support fast-paced product development, Hopper provides a range of options for customization,
  from simple styling adjustments to creating entirely new components.
 
-## Customization Principles
+## Customization Tiers
 
 The Hopper design systems are built on the principle that “components are designed to be overridden, not locked-in.” This allows developers to adjust styles and behaviors to meet specific product needs, while ensuring components remain usable and adaptable.
 
 There are multiple customization methods available, and to highlight why some are better suited than others, I’ve organized them into four tiers:
 
-🥇**Gold Tier:** Maximize reuse of the Design System, applying only minimal overwrites to fit your needs.
 
-🥈**Silver Tier:** Reuse most of the component’s behaviors.
-
-🥉**Bronze Tier:** Reassemble the component’s behavior using smaller utility methods.
-
-🛠️**Do it yourself:** Build the behavior from scratch and use low-level styling tools as needed
+<table className="hd-table">
+    <thead>
+        <tr>
+            <th className="hd-table__column">Customization Tier</th>
+            <th className="hd-table__column">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr className="hd-table__row">
+            <td className="hd-table__cell">🥇**Gold Tier**</td>
+            <td className="hd-table__cell">Maximize reuse of the Design System, applying only minimal overwrites to fit your needs.</td>
+        </tr>
+        <tr className="hd-table__row">
+            <td className="hd-table__cell">🥈**Silver Tier**</td>
+            <td className="hd-table__cell">Reuse most of the component’s behaviors, but make some modifications to fit your needs.</td>
+        </tr>
+        <tr className="hd-table__row">
+            <td className="hd-table__cell">🥉**Bronze Tier**</td>
+            <td className="hd-table__cell">Reassemble the component’s behavior using smaller utility methods.</td>
+        </tr>
+        <tr className="hd-table__row">
+            <td className="hd-table__cell">🛠️**Do it yourself**</td>
+            <td className="hd-table__cell">Build the behavior from scratch and use low-level styling tools as needed.</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Customization Methods Overview
 
@@ -80,6 +100,8 @@ export function AICard({ children, className, ...rest }: CardProps) {
 ```
 </Expand>
 
+<br /><hr />
+
 ### 🥇 Behavior Modifications
 
 To customize a component's behavior, use refs, callbacks and controlled properties. This approach is useful for interactive features and for modifying default component behavior. This approach is ideal when you need to adjust how a component responds to user interactions without altering its visual style or structure. Read more about _Controlled vs Uncontrolled components_ [here](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components).
@@ -125,6 +147,8 @@ function MyCustomButtonPopoverTrigger({ children, ...rest }: PopoverTriggerProps
 ```
 </Expand>
 
+<br /><hr />
+
 ### 🥈 Copying Component
 
 When you need extensive customizations that go beyond simple styling or behavior adjustments, copying the component code can be an effective solution. This allows you to make specific changes while retaining the existing structure, making the customized component reusable across similar use cases.
@@ -137,6 +161,8 @@ Take a look to [Hopper's components source code](https://github.com/gsoft-inc/wl
 <br/><br/> Share your needs in **#ds-hopper!**
 </Callout>
 
+<br /><hr />
+
 ### 🥈 Custom Components Using Base Components
 
 If the existing Design System component feels too complex for your needs, take a closer look at its underlying structure in the code. In Hopper, it's likely built on a [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) component, which you can directly leverage to create a more tailored solution. React Aria offers a robust library of foundational components, making it a versatile starting point. [The Technology team recommends using React Aria](https://workleap.atlassian.net/wiki/spaces/TL/pages/3469508719) as the preferred foundation for building components.
@@ -147,6 +173,8 @@ If the existing Design System component feels too complex for your needs, take a
 Using this approach may require you to restyle the entire component, which is fine. At this stage, you’re essentially creating something new! Just be sure to use [Hopper tokens](../../tokens/overview/introduction) to ensure that any future branding updates are automatically applied to your component without needing manual adjustments. If you want to allow customization on your component, you can also use the `useStyledSystem` hook to expose style props!
 </Callout>
 
+<br /><hr />
+
 ### 🥉 Custom Components Using Hooks
 
 If there is no base components to use, or if the base component is again too strict for you needs, you can use underlying hooks for more granular control. [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) also offer hooks that you can tailor components more precisely to your needs. [The Technology team recommends using React Aria](https://workleap.atlassian.net/wiki/spaces/TL/pages/3469508719) as the preferred foundation for building components.
@@ -156,6 +184,8 @@ If there is no base components to use, or if the base component is again too str
 <Callout variant="warning">
 Using this approach may require you to restyle the entire component, which is fine. At this stage, you’re essentially creating something new! Just be sure to use [Hopper tokens](../../tokens/overview/introduction) to ensure that any future branding updates are automatically applied to your component without needing manual adjustments. If you want to allow customization on your component, you can also use the `useStyledSystem` hook to expose style props!
 </Callout>
+
+<br /><hr />
 
 ### 🛠️ Building Components From Scratch
 

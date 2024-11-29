@@ -1,23 +1,25 @@
 ---
 title: Other Frameworks
-description: An installation guide for Hopper for non-React users.
+description: Installation procedure for using Hopper in non-React projects
 order: 2
 status: ready
 ---
 
-Hopper is a Design System that provides a collection of tokens and icons to help you build beautiful, consistent applications.
+Hopper is a flexible Design System designed to help you create visually consistent and beautiful applications. While Hopper offers React components for building UI elements, its design tokens and icons are framework-agnostic, making them accessible for use in any project, whether you're using a different framework or plain HTML and CSS.
 
-You don't need to use React to take advantage of Hopper's features. This guide will show you how to use Hopper tokens and icons in any framework or plain HTML/CSS project.
+## What Hopper Offers
+- **Design Tokens**: Predefined design decisions such as colors, spacing, and typography, provided as reusable CSS variables for styling your application.
+- **Icons**: A comprehensive library of SVG icons, easily accessible through the @hopper-ui/svg-icons package.
 
-Hopper tokens are predefined design decisions (such as colors, spacing, and typography) translated into CSS variables to style your application. For icons, you can use Hopper's SVG icons, available via the `@hopper-ui/svg-icons` package.
+This installation procedure provides the steps needed to set up Hopper tokens and icons in non-React projects, enabling you to incorporate these resources directly into your application
 
-## Installation
+## Tokens Installation
 
-### Install Packages
+### Install Package
 
-Run the following command to install Hopper tokens and SVG icons.
+Run the following command to install Hopper tokens.
 
-<PackageInstallation library="tokens @hopper-ui/svg-icons" mod="prod" />
+<PackageInstallation library="tokens" mod="prod" />
 
 ### Import Styles
 
@@ -41,13 +43,28 @@ You can now use Hopper tokens in your project by referencing the design tokens a
 }
 ```
 
-You can import an SVG icon directly into your JavaScript or TypeScript file. If you plan to use SVG icons as components, ensure your bundler (e.g., Webpack, Vite, or Rollup) is configured to handle SVG imports correctly.
+## Icons Installation
+
+### Install Package
+Run the following command to install Hopper SVG icons.
+
+<PackageInstallation library="svg-icons" mod="prod" />
+
+### Usage
+
+You can use Hopper SVG icons in two ways:
+
+#### In JavaScript/TypeScript Files
+
+Import an SVG icon directly into your code. Ensure your bundler (e.g., Webpack, Vite, Rollup) is configured to handle SVG imports correctly.
 
 ```tsx
 import alertIcon from "@hopper-ui/svg-icons/alert-24.svg";
 ```
 
-Alternatively, you can use SVG icons directly in your CSS, like this:
+#### In CSS
+
+Use SVG icons directly in your CSS for styles such as background images.
 
 ```css
 .my-component {
