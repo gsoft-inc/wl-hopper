@@ -21,8 +21,8 @@
     /* Inline */
     --hop-DisclosureHeader-inline-outline-size: 0;
     --hop-DisclosureHeader-inline-outline-color: transparent;
-    --hop-DisclosureHeader-inline-border-size: 0 0 var(--hop-space-10) 0;
-    --hop-DisclosureHeader-inline-border-color: var(--hop-neutral-border-weak);
+    --hop-DisclosureHeader-inline-border-size: 0;
+    --hop-DisclosureHeader-inline-border-color: transparent;
     --hop-DisclosureHeader-inline-border-radius: 0;
 
     /* Expanded */
