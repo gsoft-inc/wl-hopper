@@ -44,7 +44,6 @@
 }
 
 .hop-Accordion__disclosure:last-child:not([data-expanded]) .hop-Accordion__disclosure-header button[slot="trigger"] {
-    border-block-end-width: var(--disclosure-last-child-border-block-end-size);
     border-end-start-radius: var(--disclosure-border-radius-size);
     border-end-end-radius: var(--disclosure-border-radius-size);
 }

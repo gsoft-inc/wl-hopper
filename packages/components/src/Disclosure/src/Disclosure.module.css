@@ -59,14 +59,11 @@
     --panel-padding: var(--hop-Disclosure-with-header-panel-padding);
 }
 
-.hop-Disclosure--inline {
-    --panel-border-size: var(--hop-Disclosure-inline-panel-border-size);
-    --panel-border-color: var(--hop-Disclosure-inline-panel-border-color);
-}
-
 .hop-Disclosure--inline:has(.hop-Disclosure__header) {
     --border-radius: var(--hop-Disclosure-inline-border-radius);
     --box-shadow: var(--hop-Disclosure-inline-box-shadow);
+    --panel-border-size: var(--hop-Disclosure-inline-panel-border-size);
+    --panel-border-color: var(--hop-Disclosure-inline-panel-border-color);
 }
 
 .hop-Disclosure--inline:has(.hop-Disclosure__header)[data-expanded] {

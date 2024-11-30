@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.3.35
+
+### Patch Changes
+
+- 865ddbe: There is no longer a generic Section component. We now have ListBoxSection, SelectSection and ComboBoxSection.
+
 ## 1.3.34
 
 ### Patch Changes
