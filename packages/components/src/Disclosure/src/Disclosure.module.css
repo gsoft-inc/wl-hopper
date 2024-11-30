@@ -57,8 +57,6 @@
 .hop-Disclosure:has(.hop-Disclosure__header)[data-expanded] {
     --panel-border-size: var(--hop-Disclosure-standalone-panel-border-size-expanded);
     --panel-padding: var(--hop-Disclosure-with-header-panel-padding);
-
-    background-color: red;
 }
 
 .hop-Disclosure--inline {

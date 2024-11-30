@@ -3,7 +3,7 @@ import { Accordion, Disclosure, DisclosureHeader, DisclosurePanel, Div } from "@
 export default function Example() {
     return (
         <Div width="100%" paddingX="core_320" paddingY="core_480">
-            <Accordion>
+            <Accordion defaultExpandedKeys={["pingboard"]}>
                 <Disclosure id="officevibe">
                     <DisclosureHeader>Workleap Officevibe</DisclosureHeader>
                     <DisclosurePanel>Help employees speak up and make sure they feel heard. Continuous and real-time surveys offer feedback to celebrate every win, recognize commitment, and uncover challenges.</DisclosurePanel>
