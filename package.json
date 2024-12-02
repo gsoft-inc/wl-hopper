@@ -24,6 +24,7 @@
         "build:tokens": "pnpm --filter=\"@hopper-ui/tokens\" build",
         "build:pkg": "cross-env NODE_OPTIONS=--max-old-space-size=8192 pnpm -r --filter \"{packages/**}\" build ",
         "build:apps": "pnpm -r --filter \"{apps/**}\" build ",
+        "build:samples": "pnpm -r --filter \"{apps/samples/**}\" build ",
         "changeset": "changeset",
         "ci-release": "pnpm build:pkg && changeset publish",
         "generate-icons": "pnpm --filter=\"svg-icons\" generate-icons && pnpm --filter=\"@hopper-ui/icons*\" generate-icons",
