@@ -59,7 +59,7 @@ jobs:
                 run: pnpm doc:generate
 
             -   name: Build sample apps
-                run: pnpm build:samples
+                run: pnpm build:apps
 
             -   name: Lint packages
                 run: pnpm lint
