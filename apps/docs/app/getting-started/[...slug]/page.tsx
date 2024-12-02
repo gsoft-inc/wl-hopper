@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation";
 import { allGettingStarteds } from "contentlayer/generated";
+import { notFound } from "next/navigation";
 
+import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 import Aside from "@/app/ui/layout/aside/Aside.tsx";
 import Mdx from "@/components/mdx/Mdx.tsx";
-import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 import Title from "@/components/title/Title";
 
 interface PageProps {
@@ -19,9 +19,8 @@ export async function generateStaticParams() {
 }
 
 export default function IconPage({ params }: PageProps) {
-    const [slug] = params.slug;
-
-    const pages = allGettingStarteds.find(page => page.slug === slug);
+    const [section, type] = params.slug;
+    const pages = allGettingStarteds.find(page => page.slug === type && page.section === section);
 
     if (!pages) {
         notFound();

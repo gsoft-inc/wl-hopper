@@ -1,0 +1,132 @@
+@property --angle {
+    syntax: "<angle>";
+    initial-value: -45deg;
+    inherits: false;
+}
+
+.hd-cardlink {
+    --card-color: #332c7c;
+    --card-color-translucent: #c58d9baa;
+
+    backdrop-filter: blur(2rem);
+    background-color: var(--card-color);
+    border-radius: var(--hd-border-radius-lg);
+    color: var(--hd-white);
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 14rem;
+    overflow: hidden;
+    position: relative;
+    padding: var(--hd-space-4) 0;
+}
+
+.hd-cardlink:has(.hd-cardlink__logo) {
+    padding: var(--hd-space-4) 0;
+}
+
+.hd-cardlink--sm {
+    height: 10rem;
+}
+
+.hd-cardlink:nth-child(2n),
+.hd-cardlink.nth-2n {
+    --card-color: #2b163a;
+    --card-color-translucent: #ffb0b045;
+}
+
+.hd-cardlink:nth-child(3n),
+.hd-cardlink.nth-3n {
+    --card-color: #37345d;
+    --card-color-translucent: #a07ff1ba;
+}
+
+.hd-cardlink:nth-child(4n),
+.hd-cardlink.nth-4n {
+    --card-color: #2b2c5c;
+    --card-color-translucent: #ffb629bf;
+}
+
+.hd-cardlink:nth-child(5n),
+.hd-cardlink.nth-5n {
+    --card-color: #382f58;
+    --card-color-translucent: #babeff91;
+}
+
+.hd-cardlink:nth-child(6n),
+.hd-cardlink.nth-6n {
+    --card-color: #3e254d;
+    --card-color-translucent: #29ff9ee3;
+}
+
+.hd-cardlink:nth-child(7n),
+.hd-cardlink.nth-7n {
+    --card-color: #432055;
+    --card-color-translucent: #4299ea91;
+}
+
+.hd-cardlink__logo {
+    bottom: 0;
+    right: 0;
+    max-width: 10rem;
+    opacity: 0.1;
+    position: absolute;
+    scale: 1.5;
+    z-index: -1;
+}
+
+.hd-cardlink::before,
+.hd-cardlink::after {
+    aspect-ratio: 1/1;
+    content: "";
+    filter: blur(3rem);
+    height: 25rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.5s linear;
+    transform: rotate(-144deg);
+    width: 26rem;
+    z-index: -2;
+}
+
+.hd-cardlink::before {
+    background-image: linear-gradient(var(--angle), var(--card-color) 50%, var(--card-color-translucent) 0)
+}
+
+.hd-cardlink:hover::before,
+.hd-cardlink:focus::before {
+    opacity: 0;
+}
+
+.hd-cardlink::after {
+    background-image: linear-gradient(-25deg, var(--card-color) 50%, var(--card-color-translucent) 0);;
+    opacity: 0;
+}
+
+.hd-cardlink:hover::after,
+.hd-cardlink:focus::after {
+    opacity: 1;
+}
+
+.hd-cardlink__title  {
+    font-size: 1.5rem;
+}
+
+.hd-cardlink__description {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-top: var(--hd-space-2);
+}
+
+.hd-cardlink--sm .hd-cardlink__title {
+    font-size: 1.25rem;
+}
+
+.hd-cardlink--sm .hd-cardlink__description {
+    font-size: 1rem;
+}
+
+.hd-cardlink__copy {
+    padding: 0 var(--hd-space-10) 0 var(--hd-space-4);
+}

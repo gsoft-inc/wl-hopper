@@ -7,19 +7,21 @@ import Mdx from "@/components/mdx/Mdx.tsx";
 
 interface PageProps {
     params: {
-        slug: string;
+        slug: string[];
     };
 }
 
 export async function generateStaticParams() {
-    return allGuides.map(({ slug, section }) => ({
-        slug: [section, slug]
-    }));
+    return allGuides.map(({ slug, section }) => {
+        return ({
+            slug: [slug, section]
+        });
+    });
 }
 
 export default function GuidePage({ params }: PageProps) {
-    const [section, type] = params.slug;
-    const guides = allGuides.find(icon => icon.slug === type && icon.section === section);
+    const [section, type] = params.slug.length === 1 ? ["guides", ...params.slug] : params.slug;
+    const guides = allGuides.find(guide => guide.slug === type && guide.section === section);
 
     if (!guides) {
         notFound();

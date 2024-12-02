@@ -98,3 +98,8 @@ code[data-theme*=' '] span {
     font-style: italic;
     font-size: .875rem;
 }
+
+
+.highlighted {
+    background-color: var(--hd-codeblock-line-highlighted-background-color);
+}

@@ -12,7 +12,11 @@ import TypographyVariantTable from "@/app/ui/tokens/table/TypographyVariantTable
 import TableSection from "@/app/ui/tokens/tableSection/TableSection.tsx";
 import { Callout } from "@/components/callout/Callout.tsx";
 import Card from "@/components/card/Card.tsx";
+import CardLink from "@/components/cardLink/cardLink.tsx";
+import CardLinkList from "@/components/cardLink/cardLinkList.tsx";
 import InlineCode from "@/components/code/InlineCode.tsx";
+import Expand from "@/components/expand/Expand.tsx";
+import Figure from "@/components/figure/Figure.tsx";
 import Footnote from "@/components/footnote/Footnote.tsx";
 import NextImage from "@/components/image/Image.tsx";
 import MotionPreview from "@/components/motionPreview/MotionPreview.tsx";
@@ -21,6 +25,7 @@ import PackageInstallation, {
 } from "@/components/packageInstallation/PackageInstallation.tsx";
 import Pre from "@/components/pre/Pre.tsx";
 import Tabs from "@/components/tabs/Tabs.tsx";
+import Tag from "@/components/tag/Tag.tsx";
 import Title from "@/components/title/Title.tsx";
 
 import BreakpointTable from "@/app/ui/components/breakpointTable/BreakpointTable";
@@ -42,10 +47,15 @@ let h2Title = "";
 
 export const components = {
     Card,
+    CardLink,
+    CardLinkList,
     code: InlineCode,
     Callout: Callout,
+    Expand,
+    Figure,
     Image: NextImage,
     pre: Pre,
+    Tag,
     MotionPreview: MotionPreview,
     BreakpointTable: BreakpointTable,
     Footnote: Footnote,

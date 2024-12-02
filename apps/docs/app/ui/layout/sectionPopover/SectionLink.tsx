@@ -1,7 +1,8 @@
+import type { ReactNode } from "react";
 import { UseSectionLinkContext } from "./sectionLinkContext";
 
 interface SectionLinkProps {
-    children: React.ReactNode;
+    children: ReactNode;
     className: string;
     href: string;
 }

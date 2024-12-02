@@ -96,7 +96,7 @@ const ProductMenuAndBrand = () => {
 const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const isMobile = useIsMobile("48rem");
+    const isMobile = useIsMobile("52.25rem");
     const { logRocketAppId } = useEnvironmentContext();
 
     useEffect(() => {

@@ -1,14 +1,14 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { allTokens } from "contentlayer/generated";
-import { useSelectedLayoutSegment } from "next/navigation";
+import getPageLinks from "@/app/lib/getPageLinks";
+import getSectionLinks from "@/app/lib/getSectionLinks";
 import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
 import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
-import getSectionLinks from "@/app/lib/getSectionLinks";
-import getPageLinks from "@/app/lib/getPageLinks";
+import { allTokens } from "contentlayer/generated";
+import { notFound, useSelectedLayoutSegment } from "next/navigation";
+import type { ReactNode } from "react";
 
 export default function TokenLayout({ children }: { children: ReactNode }) {
     const selectedLayoutSegment = useSelectedLayoutSegment();
@@ -17,7 +17,7 @@ export default function TokenLayout({ children }: { children: ReactNode }) {
     const pageContent = allTokens.find(token => token.slug === type && token.section === section);
 
     if (!pageContent) {
-        return null;
+        return notFound;
     }
 
     const sectionLinks = getSectionLinks(pageContent);
