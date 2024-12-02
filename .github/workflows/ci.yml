@@ -58,7 +58,7 @@ jobs:
             -   name: Generate documentation
                 run: pnpm doc:generate
 
-            -   name: Build apps
+            -   name: Build sample apps
                 run: pnpm build:apps
 
             -   name: Lint packages
