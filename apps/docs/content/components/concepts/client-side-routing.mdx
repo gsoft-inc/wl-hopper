@@ -23,13 +23,13 @@ import { HopperProvider } from "@hopper-ui/components";
 import { useNavigate, useHref } from "your-router";
 
 function App() {
-  let navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <HopperProvider navigate={navigate} useHref={useHref}>
-      {/* ... */}
-    </HopperProvider>
-  );
+    return (
+        <HopperProvider navigate={navigate} useHref={useHref}>
+            {/* ... */}
+        </HopperProvider>
+    );
 }
 ```
 
@@ -48,9 +48,9 @@ When using TypeScript, you can configure the RouterConfig type globally so that 
 import type { RouterOptions } from "your-router";
 
 declare module "react-aria-components" {
-  interface RouterConfig {
-    routerOptions: RouterOptions
-  }
+    interface RouterConfig {
+        routerOptions: RouterOptions
+    }
 }
 ```
 
@@ -63,26 +63,26 @@ import { BrowserRouter, type NavigateOptions, useHref, useNavigate } from "react
 import { HopperProvider } from "@hopper-ui/components";
 
 declare module "react-aria-components" {
-  interface RouterConfig {
-    routerOptions: NavigateOptions;
-  }
+    interface RouterConfig {
+        routerOptions: NavigateOptions;
+    }
 }
 
 function App() {
-  let navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <HopperProvider navigate={navigate} useHref={useHref}>
-      {/* Your app here... */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        {/* ... */}
-      </Routes>
-    </HopperProvider>
-  );
+    return (
+        <HopperProvider navigate={navigate} useHref={useHref}>
+            {/* Your app here... */}
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                {/* ... */}
+            </Routes>
+        </HopperProvider>
+    );
 }
 
 <BrowserRouter>
-  <App />
+    <App />
 </BrowserRouter>
 ```
