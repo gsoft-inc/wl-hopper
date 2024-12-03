@@ -5,7 +5,7 @@ export default function Example() {
     const [selectedKeys, setSelectedKeys] = useState(["designer"]);
 
     const handleSelectionChange = (newSelectedKeys: Selection) => {
-        if(newSelectedKeys === "all") {
+        if (newSelectedKeys === "all") {
             setSelectedKeys(["designer", "developer", "manager"]);
         } else {
             setSelectedKeys([...Array.from(newSelectedKeys).map(x => x.toString())]);
