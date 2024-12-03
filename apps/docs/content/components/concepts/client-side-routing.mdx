@@ -2,15 +2,87 @@
 title: Client Side Routing
 description: Many Hopper components support rendering as HTML links. This page discusses how to set up your app to integrate Hopper links with your framework or client side router.
 order: 4
-status: WIP
 ---
 
-This page will be heavily inspired by https://react-spectrum.adobe.com/react-spectrum/routing.html
+_Since Hopper components are designed on top of React Aria, this article will be heavily inspired by the [Client Side Routing](https://react-spectrum.adobe.com/react-spectrum/routing.html) article in React-Aria's documentation._
 
 ## Introduction
 
+Hopper components such as [Link](./navigation/Link), Menu, Tabs, Table, and many others support rendering elements as links that perform navigation when the user interacts with them. Each component that supports link behavior accepts the href prop, which causes the component to render an `<a>` element. Other link DOM props such as target and download are also supported.
+
+Depending on the component, users may interact with links in different ways. For example, users can navigate between tabs using the arrow keys, or open a link in a ComboBox using the enter key. Because Hopper components accept the href prop rather than supporting arbitrary element overrides, they can ensure that link navigation occurs when it is appropriate for the component.
+
+By default, links perform native browser navigation when they are interacted with. However, many apps and frameworks use client side routers to avoid a full page reload when navigating between pages. The `HopperProvider` component configures all Hopper components within it to navigate using the client side router you provide. Set this up once in the root of your app, and any Hopper component with the href prop will automatically navigate using your router.
+
 ## Provider setup
+
+The HopperProvider component accepts two props: `navigate` and `useHref`. `navigate` should be set to a function received from your router for performing a client side navigation programmatically. `useHref` is an optional prop that converts a router-specific href to a native HTML href, e.g. prepending a base path. The following example shows the general pattern. Framework-specific examples are shown below.
+
+```tsx
+import { HopperProvider } from "@hopper-ui/components";
+import { useNavigate, useHref } from "your-router";
+
+function App() {
+  let navigate = useNavigate();
+
+  return (
+    <HopperProvider navigate={navigate} useHref={useHref}>
+      {/* ... */}
+    </HopperProvider>
+  );
+}
+```
 
 ### Router options
 
+All link components accept a `routerOptions` prop, which is an object that is passed through to the client side router's navigate function as the second argument. This can be used to control any router-specific behaviors, such as scrolling, replacing instead of pushing to the history, etc.
+
+```tsx
+<Link href="/login" routerOptions={{ replace: true }}>
+  {/* ...*/}
+</Link>
+```
+When using TypeScript, you can configure the RouterConfig type globally so that all link components have auto complete and type safety using a type provided by your router.
+
+```tsx
+import type { RouterOptions } from "your-router";
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: RouterOptions
+  }
+}
+```
+
 ### React Router
+
+The [useNavigate](https://reactrouter.com/en/main/hooks/use-navigate) hook from `react-router-dom` returns a navigate function you can pass to `HopperProvider`. The [useHref](https://reactrouter.com/en/main/hooks/use-href) hook can also be provided if you're using React Router's `basename` option. Ensure that the component that calls `useNavigate` and renders `HopperProvider` is inside the router component (e.g. BrowserRouter) so that it has access to React Router's internal context. The React Router `<Routes>` element should also be defined inside Hopper's `<HopperProvider>` so that links inside the rendered routes have access to the router.
+
+```tsx
+import { BrowserRouter, type NavigateOptions, useHref, useNavigate } from "react-router-dom";
+import { HopperProvider } from "@hopper-ui/components";
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NavigateOptions;
+  }
+}
+
+function App() {
+  let navigate = useNavigate();
+
+  return (
+    <HopperProvider navigate={navigate} useHref={useHref}>
+      {/* Your app here... */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {/* ... */}
+      </Routes>
+    </HopperProvider>
+  );
+}
+
+<BrowserRouter>
+  <App />
+</BrowserRouter>
+```
