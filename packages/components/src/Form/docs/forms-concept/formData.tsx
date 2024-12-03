@@ -5,7 +5,7 @@ export default function Example() {
         <Form validationBehavior="native">
             <TextField
                 label="Username"
-                validate={value => value === 'admin' ? 'Nice try!' : null}
+                validate={value => value === "admin" ? "Nice try!" : null}
             />
             <ButtonGroup>
                 <Button type="submit" variant="primary">Submit</Button>

@@ -2,14 +2,14 @@ import { Button, ButtonGroup, Form, TextField } from "@hopper-ui/components";
 import { useState, type FormEvent } from "react";
 
 export default function Example() {
-    let [submitted, setSubmitted] = useState<Record<string, FormDataEntryValue> | null>(null);
+    const [submitted, setSubmitted] = useState<Record<string, FormDataEntryValue> | null>(null);
 
-    let onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         // Prevent default browser page refresh.
         e.preventDefault();
 
         // Get form data as an object.
-        let data = Object.fromEntries(new FormData(e.currentTarget));
+        const data = Object.fromEntries(new FormData(e.currentTarget));
 
         // Submit to your backend API...
         setSubmitted(data);
