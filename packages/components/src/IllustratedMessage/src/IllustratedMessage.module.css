@@ -1,0 +1,40 @@
+.hop-IllustratedMessage {
+    display: grid;
+    grid-template-areas:
+        "image"
+        "heading"
+        "content";
+    place-items: center;
+
+    max-inline-size: var(--max-width);
+
+    text-align: center;
+}
+
+.hop-IllustratedMessage--sm {
+    --max-width: 20rem;
+}
+
+.hop-IllustratedMessage--md {
+    --max-width: 25rem;
+}
+
+.hop-IllustratedMessage--lg {
+    --max-width: 28.5rem;
+}
+
+.hop-IllustratedMessage__image {
+    grid-area: image;
+    max-inline-size: 100%;
+}
+
+.hop-IllustratedMessage__heading {
+    grid-area: heading;
+    padding-block-start: var(--hop-space-stack-md);
+    font-weight: var(--hop-font-weight-590);
+}
+
+.hop-IllustratedMessage__description {
+    grid-area: content;
+    padding-block-start: var(--hop-space-stack-sm);
+}
