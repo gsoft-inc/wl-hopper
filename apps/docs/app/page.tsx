@@ -63,7 +63,7 @@ export default function Home() {
             <main className="hd-home">
                 <div className="hd-home__heading">
                     <h1 className="hd-home__header">Leap into creativity</h1>
-                    <p className="hd-home__tagline">Explore our Design System, where icons, tokens, and components are
+                    <p className="hd-home__tagline">Explore Workleap&apos;s Design System, where icons, tokens, and components are
                     handpicked for ultimate simplicity and accessibility.</p>
                 </div>
                 <div className="hd-home__ctas">

@@ -1,10 +1,9 @@
-import { allGettingStarteds } from "contentlayer/generated";
-import { notFound } from "next/navigation";
-
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
-import Aside from "@/app/ui/layout/aside/Aside.tsx";
+import { BasePageLayout } from "@/app/ui/layout/basePageLayout/BasePageLayout";
 import Mdx from "@/components/mdx/Mdx.tsx";
 import Title from "@/components/title/Title";
+import { allGettingStarteds } from "contentlayer/generated";
+import { notFound } from "next/navigation";
 
 interface PageProps {
     params: {
@@ -12,15 +11,14 @@ interface PageProps {
     };
 }
 
-export async function generateStaticParams() {
-    return allGettingStarteds.map(({ section }) => ({
-        slug: [section]
-    }));
+function findPageFromSlug(slug: string[]) {
+    const [section, type] = slug;
+
+    return allGettingStarteds.find(page => page.section === section && page.slug === type);
 }
 
 export default function IconPage({ params }: PageProps) {
-    const [section, type] = params.slug;
-    const pages = allGettingStarteds.find(page => page.slug === type && page.section === section);
+    const pages = findPageFromSlug(params.slug);
 
     if (!pages) {
         notFound();
@@ -29,14 +27,26 @@ export default function IconPage({ params }: PageProps) {
     const sectionLinks = getSectionLinks(pages);
 
     return (
-        <div className="hd-container">
-            <Aside title="On this page" links={sectionLinks} />
-            <main>
-                <article className="hd-content" key={pages._id}>
-                    <Title as="h1">{pages.title}</Title>
-                    <Mdx code={pages.body.code} />
-                </article>
-            </main>
-        </div>
+        <BasePageLayout sectionsLinks={sectionLinks}>
+            <article className="hd-content" key={pages._id}>
+                <Title as="h1">{pages.title}</Title>
+                <Mdx code={pages.body.code} />
+            </article>
+        </BasePageLayout>
     );
+}
+
+
+export async function generateStaticParams() {
+    return allGettingStarteds.map(({ section, slug }) => ({
+        slug: [section, slug]
+    }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
+    const page = await findPageFromSlug(params.slug);
+
+    return {
+        title: page ? `${page.title}` : null
+    };
 }

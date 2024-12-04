@@ -16,12 +16,13 @@ interface Link {
     level?: number;
 }
 
-interface SubHeaderProps {
+export interface SubHeaderProps {
     links: Link[];
 }
 
 const SubHeader = ({ links }: SubHeaderProps) => {
-    const { toggleSidebar } = useSidebar();
+    const sidebarContext = useSidebar();
+    const isInSidebar = !!sidebarContext;
     const isMobile = useIsMobile("48rem");
 
     if (!isMobile) {
@@ -32,9 +33,10 @@ const SubHeader = ({ links }: SubHeaderProps) => {
         <div className="hd-sub-header">
             <Wrapper>
                 <div className="sub-header-container">
-                    <button type="button" className="hd-sub-header__sidebar-button" onClick={toggleSidebar}>
+                    {isInSidebar && <button type="button" className="hd-sub-header__sidebar-button" onClick={sidebarContext?.toggleSidebar}>
                         <SidePanel className="hd-sub-header__button-icon" />
-                    </button>
+                    </button>}
+                    {!isInSidebar && <div></div>}
                     <SectionPopover links={links} />
                 </div>
             </Wrapper>

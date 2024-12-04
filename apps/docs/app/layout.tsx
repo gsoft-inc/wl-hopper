@@ -8,8 +8,11 @@ import "./globals.css";
 import "./layout.css";
 
 export const metadata = {
-    title: "Hopper Documentation",
-    description: "The Hopper Design System Documentation Hub"
+    title: {
+        template: "%s | Hopper Design System",
+        default: "Hopper Design System"
+    },
+    description: "Explore Workleap's Design System, where icons, tokens, and components are handpicked for ultimate simplicity and accessibility"
 };
 
 export default function RootLayout({ children }: {
