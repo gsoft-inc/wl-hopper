@@ -2,17 +2,17 @@
 title: Controlled Mode
 order: 4
 ---
-When working with Hopper components, you can customize a component's behavior using controlled or uncontrolled properties, depending on your needs. This flexibility is particularly useful for implementing interactive features or modifying the default behavior of components while maintaining their visual style and structure.
+When working with Hopper components, you can customize a component's behavior using **controlled** or **uncontrolled** properties, depending on your needs. This flexibility is the foundation for **building custom components** on top of Hopper, enabling you to implement interactive features or modify the default behavior of components while preserving their visual style and structure.
 
 **Tip**: To dive deeper into the concept of controlled and uncontrolled components in React, read [React's guide here](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components).
 
 ## Uncontrolled Mode
 
-**Uncontrolled mode** is suitable for scenarios where you don’t need to respond programmatically to user interactions.
+**Uncontrolled mode** is great for situations where you don’t need to manage the component’s behavior with your own code.
 
 In uncontrolled mode, the component manages its internal state. You provide an initial value using _defaultX_ properties, and the component updates its state automatically in response to user interactions.
 
-For example, to create a TagGroup where some tags are initially selected, use the defaultSelectedKeys prop:
+For example, to create a [TagGroup](../collections/TagGroup) where some tags are initially selected, use the `defaultSelectedKeys` prop:
 
 <CodeOnlyExample src="HopperProvider/docs/controlled-mode/uncontrolled" />
 
@@ -22,9 +22,9 @@ In this example:
 
 ## Controlled Mode
 
-**Controlled mode** is suitable for scenarios where the component's state depends on external data or when you need to respond programmatically to user interactions
+**Controlled mode** is suitable for scenarios where the component's state depends on external data or when you need to respond programmatically to user interactions or when you need to build a custom component.
 
-In controlled mode, you manage the state of the component externally by providing the _X_ and _onXChanged_ properties. This allows for full control over the component's behavior and is ideal for complex interactions or when the component's state is derived from external logic.
+In controlled mode, you manage the state of the component externally by providing the `X` and `onXChanged` properties. This allows for full control over the component's behavior and is ideal for complex interactions or when the component's state is derived from external logic.
 
 For example, to fully manage the selected tags:
 
