@@ -1,8 +1,8 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { type ComponentProps, createRef, forwardRef } from "react";
 
-import { SVGImage } from "../../src/SVGImage.tsx";
-import { SVGImageContext } from "../../src/SVGImageContext.ts";
+import { SvgImage } from "../../src/SvgImage.tsx";
+import { SvgImageContext } from "../../src/SvgImageContext.ts";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
     return (
@@ -21,52 +21,51 @@ const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) =
     );
 });
 
-
-describe("SVGImage", () => {
+describe("SvgImage", () => {
     it("should render with default class", () => {
-        render(<SVGImage data-testid="SVGImage" src={BasicSvg} />);
+        render(<SvgImage data-testid="SvgImage" src={BasicSvg} />);
 
-        const element = screen.getByTestId("SVGImage");
-        expect(element).toHaveClass("hop-SVGImage");
+        const element = screen.getByTestId("SvgImage");
+        expect(element).toHaveClass("hop-SvgImage");
     });
 
     it("should support custom class", () => {
-        render(<SVGImage data-testid="SVGImage" className="test" src={BasicSvg} />);
+        render(<SvgImage data-testid="SvgImage" className="test" src={BasicSvg} />);
 
-        const element = screen.getByTestId("SVGImage");
-        expect(element).toHaveClass("hop-SVGImage");
+        const element = screen.getByTestId("SvgImage");
+        expect(element).toHaveClass("hop-SvgImage");
         expect(element).toHaveClass("test");
     });
 
     it("should support custom style", () => {
-        render(<SVGImage data-testid="SVGImage" marginTop="stack-sm" style={{ marginBottom: "13px" }} src={BasicSvg} />);
+        render(<SvgImage data-testid="SvgImage" marginTop="stack-sm" style={{ marginBottom: "13px" }} src={BasicSvg} />);
 
-        const element = screen.getByTestId("SVGImage");
+        const element = screen.getByTestId("SvgImage");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<SVGImage data-testid="SVGImage" data-foo="bar" src={BasicSvg} />);
+        render(<SvgImage data-testid="SvgImage" data-foo="bar" src={BasicSvg} />);
 
-        const element = screen.getByTestId("SVGImage");
+        const element = screen.getByTestId("SvgImage");
         expect(element).toHaveAttribute("data-foo", "bar");
     });
 
     it("should support slots", () => {
         render(
-            <SVGImageContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <SVGImage data-testid="SVGImage" slot="test" src={BasicSvg} />
-            </SVGImageContext.Provider>
+            <SvgImageContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
+                <SvgImage data-testid="SvgImage" slot="test" src={BasicSvg} />
+            </SvgImageContext.Provider>
         );
 
-        const element = screen.getByTestId("SVGImage");
+        const element = screen.getByTestId("SvgImage");
         expect(element).toHaveAttribute("slot", "test");
         expect(element).toHaveAttribute("aria-label", "test");
     });
 
     it("should support refs", () => {
         const ref = createRef<SVGSVGElement>();
-        render(<SVGImage ref={ref} src={BasicSvg} />);
+        render(<SvgImage ref={ref} src={BasicSvg} />);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof SVGSVGElement).toBeTruthy();

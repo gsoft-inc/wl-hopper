@@ -3,13 +3,15 @@ import clsx from "clsx";
 import { type CSSProperties, type ElementType, type ForwardedRef, forwardRef, type HTMLProps } from "react";
 import { useContextProps } from "react-aria-components";
 
-import type { AccessibleSlotProps, BaseComponentDOMProps } from "../../utils/index.ts";
+import { type AccessibleSlotProps, type BaseComponentDOMProps, cssModule } from "../../utils/index.ts";
 
-import { SVGImageContext } from "./SVGImageContext.ts";
+import { SvgImageContext } from "./SvgImageContext.ts";
 
-export const GlobalSVGImageCssSelector = "hop-SVGImage";
+import styles from "./SvgImage.module.css";
 
-export interface SVGImageProps extends
+export const GlobalSvgImageCssSelector = "hop-SvgImage";
+
+export interface SvgImageProps extends
     StyledSystemProps,
     AccessibleSlotProps,
     Omit<BaseComponentDOMProps, "children">,
@@ -20,8 +22,8 @@ export interface SVGImageProps extends
     src?: ResponsiveProp<ElementType>;
 }
 
-function SVGImage(props: SVGImageProps, ref: ForwardedRef<SVGSVGElement>) {
-    [props, ref] = useContextProps(props, ref, SVGImageContext);
+function SvgImage(props: SvgImageProps, ref: ForwardedRef<SVGSVGElement>) {
+    [props, ref] = useContextProps(props, ref, SvgImageContext);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -33,7 +35,11 @@ function SVGImage(props: SVGImageProps, ref: ForwardedRef<SVGSVGElement>) {
 
     const classNames = clsx(
         className,
-        GlobalSVGImageCssSelector,
+        GlobalSvgImageCssSelector,
+        cssModule(
+            styles,
+            "hop-SvgImage"
+        ),
         stylingProps.className
     );
 
@@ -45,7 +51,7 @@ function SVGImage(props: SVGImageProps, ref: ForwardedRef<SVGSVGElement>) {
     const SvgComponent = useResponsiveValue(src);
 
     if (!SvgComponent) {
-        console.error("SVGImage component expects src");
+        console.error("SvgImage component expects src");
 
         return null;
     }
@@ -59,11 +65,11 @@ function SVGImage(props: SVGImageProps, ref: ForwardedRef<SVGSVGElement>) {
 }
 
 /**
- * An SVGImage component that can be used to display SVGImages.
+ * An SvgImage component that can be used to display SVGs.
  *
  * [View Documentation](TODO)
  */
-const _SVGImage = forwardRef<SVGSVGElement, SVGImageProps>(SVGImage);
-_SVGImage.displayName = "SVGImage";
+const _SvgImage = forwardRef<SVGSVGElement, SvgImageProps>(SvgImage);
+_SvgImage.displayName = "SvgImage";
 
-export { _SVGImage as SVGImage };
+export { _SvgImage as SvgImage };

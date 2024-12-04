@@ -2,9 +2,8 @@ import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Inline, Stack } from "../../../layout/index.ts";
+import { Launch, Mars } from "../../assets/index.ts";
 import { Image } from "../../src/Image.tsx";
-
-import { Launch, Mars } from "./assets/index.ts";
 
 const meta = {
     title: "Components/Image",

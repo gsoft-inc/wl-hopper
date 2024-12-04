@@ -25,13 +25,11 @@
 
 .hop-IllustratedMessage__image {
     grid-area: image;
-    max-inline-size: 100%;
 }
 
 .hop-IllustratedMessage__heading {
     grid-area: heading;
     padding-block-start: var(--hop-space-stack-md);
-    font-weight: var(--hop-font-weight-590);
 }
 
 .hop-IllustratedMessage__description {

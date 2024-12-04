@@ -1,15 +1,20 @@
 
-import { Div, Image, Stack, Text } from "@hopper-ui/components";
+import { Div, Image, Stack, SvgImage, Text } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Nasa, NoResults } from "../../assets/index.ts";
 import { IllustratedMessage } from "../../index.ts";
-
-import { Nasa } from "./assets/index.ts";
-
 
 const meta = {
     title: "Components/IllustratedMessage",
-    component: IllustratedMessage
+    component: IllustratedMessage,
+    decorators: [
+        Story => (
+            <Div width="100%" display="flex" alignItems="center" justifyContent="center">
+                <Story />
+            </Div>
+        )
+    ]
 } as Meta<typeof IllustratedMessage>;
 
 export default meta;
@@ -25,6 +30,38 @@ export const Default = {
         </IllustratedMessage>
     )
 } satisfies Story;
+
+export const Sizes = {
+    render: () => (
+        <Stack alignX="center">
+            <IllustratedMessage size="sm">
+                <Image src={Nasa} alt="Nasa" />
+                <Text slot="heading">Can't find "Saturn"</Text>
+                <Text slot="description">Try searching for something else.</Text>
+            </IllustratedMessage>
+            <IllustratedMessage size="md">
+                <Image src={Nasa} alt="Nasa" />
+                <Text slot="heading">Can't find "Saturn"</Text>
+                <Text slot="description">Try searching for something else.</Text>
+            </IllustratedMessage>
+            <IllustratedMessage size="lg">
+                <Image src={Nasa} alt="Nasa" />
+                <Text slot="heading">Can't find "Saturn"</Text>
+                <Text slot="description">Try searching for something else.</Text>
+            </IllustratedMessage>
+        </Stack>
+    )
+} satisfies Story;
+
+export const SVG = {
+    render: () => (
+        <IllustratedMessage>
+            <SvgImage stroke="neutral" src={NoResults} aria-label="No Results" />
+            <Text slot="heading">No results found</Text>
+            <Text slot="description">Try searching for something else.</Text>
+        </IllustratedMessage>
+    )
+};
 
 export const VeryLongTitle = {
     render: () => (
@@ -50,7 +87,7 @@ export const VeryLongText = {
     )
 } satisfies Story;
 
-export const NoTitle = {
+export const NoHeading = {
     render: () => (
         <IllustratedMessage>
             <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
@@ -59,20 +96,22 @@ export const NoTitle = {
     )
 } satisfies Story;
 
-export const NoDimensions = {
+export const NoDescription = {
     render: () => (
-        <Stack>
-            <IllustratedMessage>
-                <Image src={Nasa} alt="Nasa" UNSAFE_width="150px" />
-                <Text slot="heading">Can't find "Saturn"</Text>
-                <Text slot="description">Try searching for something else.</Text>
-            </IllustratedMessage>
-            <IllustratedMessage>
-                <Image src={Nasa} alt="Nasa" UNSAFE_width="150px" />
-                <Text slot="heading">Can't find "Saturn"</Text>
-                <Text slot="description">Try searching for something else.</Text>
-            </IllustratedMessage>
-        </Stack>
+        <IllustratedMessage>
+            <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
+            <Text slot="heading">Can't find "Saturn"</Text>
+        </IllustratedMessage>
+    )
+} satisfies Story;
+
+export const ImageTooWide = {
+    render: () => (
+        <IllustratedMessage>
+            <Image src={Nasa} alt="Nasa" UNSAFE_width="10000px" />
+            <Text slot="heading">Can't find "Saturn"</Text>
+            <Text slot="description">Try searching for something else.</Text>
+        </IllustratedMessage>
     )
 } satisfies Story;
 

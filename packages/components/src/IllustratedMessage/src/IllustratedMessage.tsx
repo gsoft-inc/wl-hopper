@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
-import { ImageContext, SVGImageContext } from "../../Image/index.ts";
+import { ImageContext, SvgImageContext } from "../../Image/index.ts";
 import { TextContext } from "../../typography/index.ts";
 import type { TextSize } from "../../typography/Text/index.ts";
 import { cssModule, SlotProvider, type AccessibleSlotProps, type BaseComponentDOMProps, type SizeAdapter } from "../../utils/index.ts";
@@ -70,7 +70,7 @@ function IllustratedMessage(props: IllustratedMessageProps, ref: ForwardedRef<HT
         >
             <SlotProvider
                 values={[
-                    [SVGImageContext, {
+                    [SvgImageContext, {
                         className: styles["hop-IllustratedMessage__image"]
                     }],
                     [ImageContext, {
@@ -80,11 +80,11 @@ function IllustratedMessage(props: IllustratedMessageProps, ref: ForwardedRef<HT
                         slots: {
                             heading: {
                                 className: styles["hop-IllustratedMessage__heading"],
-                                size: IllustratedMessageSizeAdapter[size]
+                                size: IllustratedMessageSizeAdapter[size],
+                                fontWeight: "body-lg-semibold"
                             },
                             description: {
                                 className: styles["hop-IllustratedMessage__description"],
-                                size: "md",
                                 color: "neutral-weak"
                             }
                         }

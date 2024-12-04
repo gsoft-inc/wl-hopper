@@ -4,7 +4,7 @@
 import { forwardRef, type ComponentProps } from "react";
 import { renderToString } from "react-dom/server";
 
-import { SVGImage } from "../../src/SVGImage.tsx";
+import { SvgImage } from "../../src/SvgImage.tsx";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
     return (
@@ -23,11 +23,11 @@ const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) =
     );
 });
 
-describe("SVGImage", () => {
+describe("SvgImage", () => {
     it("should render on the server", () => {
         const renderOnServer = () =>
             renderToString(
-                <SVGImage src={BasicSvg} aria-label="Basic SVG" />
+                <SvgImage src={BasicSvg} aria-label="Basic SVG" />
             );
 
         expect(renderOnServer).not.toThrow();
