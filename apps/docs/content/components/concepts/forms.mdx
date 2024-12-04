@@ -2,19 +2,75 @@
 title: Forms
 description: Forms allow users to enter and submit data, and provide them with feedback along the way. Hopper includes many components that integrate with HTML forms, with support for custom validation, labels, and help text.
 order: 6
-status: WIP
 ---
 
-This page will be heavily inspired by https://react-spectrum.adobe.com/react-spectrum/forms.html
+_Since Hopper components are designed on top of React Aria, this article is heavily inspired by the [Forms](https://react-spectrum.adobe.com/react-spectrum/forms.html) article in React-Aria's documentation._
 
 ## Labels and help text
 
+Accessible forms start with clear, descriptive labels for each field. All Hopper form components support labeling using the `label` prop. In addition, help text associates additional context with a field such as a description or error message.
+
+<Example src="Form/docs/forms-concept/labels" isOpen />
+
+Most fields should have a visible label. In rare exceptions, the aria-label or aria-labelledby attribute must be provided instead to identify the element.
+
 ## Submitting data
+
+How you submit form data depends on your framework, application, and server. By default, HTML forms are submitted by the browser using a full page refresh. You can take control of form submission by calling preventDefault during the onSubmit event, and make an API call to submit the data however you like.
+
+### Uncontrolled forms
+
+The simplest way to get data from a form is using the browser's FormData API during the onSubmit event. This can be passed directly to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch), or converted into a regular JavaScript object using [Object.fromEntries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries). Each field should have a name prop to identify it, and values will be serialized to strings by the browser.
+
+<Example src="Form/docs/forms-concept/formData" isOpen />
+
+By default, all Hopper components are uncontrolled, which means that the state is stored internally on your behalf. If you need access to the value in realtime, as the user is editing, you can make it controlled. You'll need to manage the state using React's [useState](https://react.dev/reference/react/useState) hook, and pass the current value and a change handler into each form component.
+
+<Example src="Form/docs/forms-concept/accessValue" isOpen />
 
 ## Validation
 
+Form validation is important to ensure user input is in an expected format and meets business requirements. Well-designed form validation assists the user with specific, helpful error messages without confusing and frustrating them with unnecessary errors on partial input. Hopper supports native HTML constraint validation with customizable UI, custom validation functions, realtime validation, and integration with server-side validation errors.
+
+### Built-in validation
+
+All Hopper form components integrate with native HTML [constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation). This allows you to define constraints on each field such as required, minimum and maximum values, text formats such as email addresses, and even custom regular expression patterns. These constraints are checked by the browser when the user commits changes to the value (e.g. on blur) or submits the form.
+
+To enable native validation, set the `validationBehavior="native"` prop on the [Form](../forms/Form) component. This example shows a required email field, which is validated by the browser and displayed with a help text.
+
+<Example src="Form/docs/forms-concept/nativeValidation" isOpen />
+
+Supported constraints include:
+
+- `isRequired` indicates that a field must have a value before the form can be submitted.
+- `minValue` and `maxValue` specify the minimum and maximum value in a date picker or number field.
+- `minLength` and `maxLength` specify the minimum and length of text input.
+- `pattern` provides a custom [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) that a text input must conform to.
+- `type="email"` and `type="url"` provide builtin validation for email addresses and URLs.
+
+### Customizing error messages
+
+By default, Hopper displays the error message provided by the browser, which is localized in the user's preferred language. You can customize these messages by providing a function to the `errorMessage` prop. This receives a list of error strings along with a [ValidityState](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState) object describing why the field is invalid, and should return an error message to display.
+
+<Example src="Form/docs/forms-concept/errorMessage" isOpen />
+
+**Note**: The default error messages are localized by the browser using the browser/operating system language setting. Hopper's Provider has no effect on validation errors.
+
+### Custom validation
+
+In addition to the built-in constraints, custom validation is supported by providing a function to the validate prop. This function receives the current field value, and can return a string or array of strings representing one or more error messages. These are displayed to the user after the value is committed (e.g. on blur) to avoid distracting them on each keystroke.
+
+<Example src="Form/docs/forms-concept/customValidation" isOpen />
+
 ## Form libraries
+
+In most cases, uncontrolled forms with the builtin validation features are enough. However, if you are building a truly complex form, or integrating Hopper components into an existing form, a separate form library such as [React Hook Form](https://react-hook-form.com/) or [Formik](https://formik.org/) may be helpful.
+
 
 ### React Hook Form
 
-{/* TODO: react-hook-form + valibot? */}
+[React Hook Form](https://react-hook-form.com/) is a popular form library for React. It is primarily designed to work directly with plain HTML input elements, but supports custom form components like the ones in Hopper as well.
+
+Since Hopper manages the state for components internally, you can use the (Controller)[https://react-hook-form.com/docs/usecontroller/controller] component from React Hook Form to integrate Hopper components. Pass the props for the `field` render prop through to the Hopper component you're using, and use the `fieldState` to get validation errors to display.
+
+<CodeOnlyExample src="Form/docs/forms-concept/reactHookForm" isOpen />
