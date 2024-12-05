@@ -1,3 +1,5 @@
+"use client";
+
 import type { ElementType, RefAttributes, SVGProps } from "react";
 import { useContextProps, type SlotProps } from "react-aria-components";
 

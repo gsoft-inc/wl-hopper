@@ -37,7 +37,6 @@ const Tabs = ({ tabs, className, children, ariaLabel }: TabsProps) => {
                 ))}
             </TabList>
             {arrayChildren.map((child, index) => {
-
                 return (
                     <TabPanel key={tabs[index].id} className="hd-tabs__content" id={tabs[index].id}>
                         <div className="hd-tabs__pane">{child}</div>

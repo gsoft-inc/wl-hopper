@@ -13,7 +13,7 @@ export interface FigureProps extends ComponentProps<"div">{
     priority?: boolean;
 }
 
-const Figure = ({ alt, caption, className, width, height, src, priority = false,  ...rest }: FigureProps) => {
+const Figure = ({ alt, caption, className, width, height, src, priority = false, ...rest }: FigureProps) => {
     const figureClass = clsx("hd-figure", className);
 
     return (
