@@ -46,17 +46,22 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
     const page = await findPageFromSlug(params.slug);
 
-    if (page?.section === "core") {
+    if (!page) {
         return {
-            title: `Core ${page.title} Tokens`
-        };
-    } else if (page?.section === "semantic") {
-        return {
-            title: `Semantic ${page.title} Tokens`
+            title: null
         };
     }
 
+    const { title, section } = page;
+
+    let pageTitle = `${title}`;
+    if (section === "core") {
+        pageTitle = `Core ${title} Tokens`;
+    } else if (section === "semantic") {
+        pageTitle = `Semantic ${title} Tokens`;
+    }
+
     return {
-        title: page ? `${page.title}` : null
+        title: pageTitle
     };
 }

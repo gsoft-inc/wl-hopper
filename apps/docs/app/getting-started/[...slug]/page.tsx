@@ -17,20 +17,21 @@ function findPageFromSlug(slug: string[]) {
     return allGettingStarteds.find(page => page.section === section && page.slug === type);
 }
 
-export default function IconPage({ params }: PageProps) {
-    const pages = findPageFromSlug(params.slug);
+export default function GettingStartedPage({ params }: PageProps) {
+    const page = findPageFromSlug(params.slug);
 
-    if (!pages) {
+    if (!page) {
         notFound();
     }
 
-    const sectionLinks = getSectionLinks(pages);
+    const sectionLinks = getSectionLinks(page);
+    const { title, body: { code }, _id: id } = page;
 
     return (
         <BasePageLayout sectionsLinks={sectionLinks}>
-            <article className="hd-content" key={pages._id}>
-                <Title level={1}>{pages.title}</Title>
-                <Mdx code={pages.body.code} />
+            <article className="hd-content" key={id}>
+                <Title level={1}>{title}</Title>
+                <Mdx code={code} />
             </article>
         </BasePageLayout>
     );

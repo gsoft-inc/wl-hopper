@@ -25,14 +25,14 @@ const Tabs = ({ tabs, className, children, ariaLabel }: TabsProps) => {
     return (
         <RACTabs className={clsx("hd-tabs", className)}>
             <TabList className="hd-tabs__list" aria-label={ariaLabel}>
-                {tabs.map(tab => (
+                {tabs.map(({ title, titleIcon, id }) => (
                     <Tab
-                        key={tab.id}
-                        id={tab.id}
-                        className={p => clsx("hd-tabs__item-button", { "hd-tabs__item-button--active": p.isSelected })}
+                        key={id}
+                        id={id}
+                        className={renderProps => clsx("hd-tabs__item-button", { "hd-tabs__item-button--active": renderProps.isSelected })}
                     >
-                        {tab.titleIcon && <span className="hd-tabs__icon">{tab.titleIcon}</span>}
-                        {tab.title}
+                        {titleIcon && <span className="hd-tabs__icon">{titleIcon}</span>}
+                        {title}
                     </Tab>
                 ))}
             </TabList>
