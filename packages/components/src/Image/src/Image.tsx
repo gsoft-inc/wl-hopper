@@ -40,6 +40,14 @@ function Image(props: ImageProps, ref: ForwardedRef<HTMLImageElement>) {
         ...otherProps
     } = ownProps;
 
+    if (!alt) {
+        console.warn(
+            "The `alt` prop was not provided to an image. " +
+            "Add `alt` text for screen readers, or set `alt=\"\"` prop to indicate that the image " +
+            "is decorative or redundant with displayed text and should not be announced by screen readers."
+        );
+    }
+
     const classNames = clsx(
         className,
         GlobalImageCssSelector,

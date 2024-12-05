@@ -15,7 +15,7 @@ const meta = {
             </Div>
         )
     ]
-} as Meta<typeof IllustratedMessage>;
+} satisfies Meta<typeof IllustratedMessage>;
 
 export default meta;
 

@@ -1,4 +1,8 @@
 .hop-IllustratedMessage {
+    --hop-IllustratedMessage-sm-max-width: 20rem;
+    --hop-IllustratedMessage-md-max-width: 25rem;
+    --hop-IllustratedMessage-lg-max-width: 28.5rem;
+
     display: grid;
     grid-template-areas:
         "image"
@@ -12,15 +16,15 @@
 }
 
 .hop-IllustratedMessage--sm {
-    --max-width: 20rem;
+    --max-width: var(--hop-IllustratedMessage-sm-max-width);
 }
 
 .hop-IllustratedMessage--md {
-    --max-width: 25rem;
+    --max-width: var(--hop-IllustratedMessage-md-max-width);
 }
 
 .hop-IllustratedMessage--lg {
-    --max-width: 28.5rem;
+    --max-width: var(--hop-IllustratedMessage-lg-max-width);
 }
 
 .hop-IllustratedMessage__image {

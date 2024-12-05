@@ -8,46 +8,45 @@ import { SvgImage } from "../../src/SvgImage.tsx";
 const meta = {
     title: "Components/SvgImage",
     component: SvgImage,
-    parameters: {
-        chromatic: {
-            delay: 100
-        }
+    args: {
+        src: NoResults,
+        "aria-label": "No Results"
     }
-} as Meta<typeof SvgImage>;
+} satisfies Meta<typeof SvgImage>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Stroke = {
-    render: () => (
-        <SvgImage stroke="neutral" src={NoResults} aria-label="No Results" />
+    render: args => (
+        <SvgImage stroke="neutral" {...args} />
     )
-} as Story;
+} satisfies Story;
 
 export const Fill = {
-    render: () => (
-        <SvgImage fill="neutral" src={NoResults} aria-label="No Results" />
+    render: args => (
+        <SvgImage fill="neutral" {...args} />
     )
-} as Story;
+} satisfies Story;
 
 export const Width = {
-    render: () => (
-        <SvgImage UNSAFE_width="100px" src={NoResults} stroke="neutral" aria-label="No Results" />
+    render: args => (
+        <SvgImage UNSAFE_width="100px" stroke="neutral" {...args} />
     )
-} as Story;
+} satisfies Story;
 
 export const Height = {
-    render: () => (
-        <SvgImage UNSAFE_height="100px" src={NoResults} stroke="neutral" aria-label="No Results" />
+    render: args => (
+        <SvgImage UNSAFE_height="100px" stroke="neutral" {...args} />
     )
-} as Story;
+} satisfies Story;
 
 export const Styling = {
-    render: () => (
+    render: args => (
         <Inline>
-            <SvgImage className="stroke-red" src={NoResults} aria-label="No Results" />
-            <SvgImage style={{ stroke: "red" }} src={NoResults} aria-label="No Results" />
+            <SvgImage className="stroke-red" {...args} />
+            <SvgImage style={{ stroke: "red" }} {...args} />
         </Inline>
     )
-} as Story;
+} satisfies Story;
