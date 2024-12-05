@@ -14,15 +14,15 @@ export const Default: Story = {
     args: {
         tabs: [
             {
-                category: "tab1",
+                id: "tab1",
                 title: "Tab 1"
             },
             {
-                category: "tab2",
+                id: "tab2",
                 title: "Tab 2"
             },
             {
-                category: "tab3",
+                id: "tab3",
                 title: "Tab 3"
             }
         ],
