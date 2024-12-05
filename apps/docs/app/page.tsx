@@ -5,9 +5,7 @@ import {
     AccessibleIcon,
     ArrowIcon,
     DarkModeIcon,
-    ExternalLinkIcon,
     FontSizeIcon,
-    Icon,
     InternationalIcon,
     LineHeightIcon,
     MarginIcon,
@@ -18,6 +16,7 @@ import "@hopper-ui/tokens/fonts.css";
 import Link from "next/link";
 import "./home.css";
 import { ComponentsCard } from "./ui/home-page/ComponentsCard";
+import { GithubButton } from "./ui/home-page/GithubButton";
 
 export default function Home() {
     return (
@@ -30,11 +29,7 @@ export default function Home() {
                 </div>
                 <div className="hd-home__ctas">
                     <LinkButton href="/getting-started/overview/installation">Getting Started</LinkButton>
-                    <LinkButton
-                        href="https://github.com/gsoft-inc/wl-hopper"
-                        variant="secondary"
-                        target="_blank"
-                    >Github <Icon src={ExternalLinkIcon} slot="end-icon" /></LinkButton>
+                    <GithubButton />
                 </div>
                 <div className="hd-home__features">
                     <div className="hd-home__feature-item">
