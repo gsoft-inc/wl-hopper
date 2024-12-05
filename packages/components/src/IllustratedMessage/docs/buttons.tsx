@@ -4,7 +4,7 @@ import { NoResults } from "../assets/index.ts";
 
 export default function Example() {
     return (
-        <Stack>
+        <Stack gap="stack-lg">
             <IllustratedMessage>
                 <SvgImage stroke="neutral" src={NoResults} aria-label="No Results" />
                 <Heading>No results found</Heading>

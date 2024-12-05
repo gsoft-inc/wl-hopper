@@ -10,7 +10,8 @@ const meta = {
     component: SvgImage,
     args: {
         src: NoResults,
-        "aria-label": "No Results"
+        "aria-label": "No Results",
+        stroke: "neutral"
     }
 } satisfies Meta<typeof SvgImage>;
 
@@ -19,27 +20,27 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Stroke = {
-    render: args => (
-        <SvgImage stroke="neutral" {...args} />
-    )
+    args: {
+        stroke: "neutral"
+    }
 } satisfies Story;
 
 export const Fill = {
-    render: args => (
-        <SvgImage fill="neutral" {...args} />
-    )
+    args: {
+        fill: "neutral"
+    }
 } satisfies Story;
 
 export const Width = {
-    render: args => (
-        <SvgImage UNSAFE_width="100px" stroke="neutral" {...args} />
-    )
+    args: {
+        UNSAFE_width: "100px"
+    }
 } satisfies Story;
 
 export const Height = {
-    render: args => (
-        <SvgImage UNSAFE_height="100px" stroke="neutral" {...args} />
-    )
+    args: {
+        UNSAFE_height: "100px"
+    }
 } satisfies Story;
 
 export const Styling = {

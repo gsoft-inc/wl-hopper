@@ -1,7 +1,7 @@
 import { Div } from "@hopper-ui/styled-system";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Inline, Stack } from "../../../layout/index.ts";
+import { Inline } from "../../../layout/index.ts";
 import { Frog } from "../../assets/index.ts";
 import { Image } from "../../src/Image.tsx";
 
@@ -18,30 +18,23 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
-    render: args => (
-        <Image {...args} />
-    )
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const Contained = {
-    render: args => (
+    decorators: [Story => (
         <Div UNSAFE_width="200px" UNSAFE_height="200px">
-            <Image {...args} />
+            <Story />
         </Div>
-    )
+    )]
 } satisfies Story;
 
 export const Size = {
     render: args => (
-        <Stack>
-            <Image {...args} />
-            <Image UNSAFE_height="200px" {...args} />
-        </Stack>
-    ),
-    args: {
-        UNSAFE_width: "200px"
-    }
+        <Inline>
+            <Image UNSAFE_width="200px" {...args} />
+            <Image UNSAFE_width="300px" {...args} />
+        </Inline>
+    )
 } satisfies Story;
 
 export const Straight = {
@@ -131,17 +124,20 @@ export const ObjectPosition = {
     }
 } satisfies Story;
 
-export const Zoom = {
-    render: args => (
-        <Stack>
-            <Div className="zoom-in">
-                <Image {...args} />
-            </Div>
-            <Div className="zoom-out">
-                <Image {...args} />
-            </Div>
-        </Stack>
-    )
+export const ZoomIn = {
+    decorators: [Story => (
+        <Div className="zoom-in">
+            <Story />
+        </Div>
+    )]
+} satisfies Story;
+
+export const ZoomOut = {
+    decorators: [Story => (
+        <Div className="zoom-in">
+            <Story />
+        </Div>
+    )]
 } satisfies Story;
 
 export const Styling = {
