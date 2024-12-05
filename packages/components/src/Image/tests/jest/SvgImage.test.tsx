@@ -23,42 +23,42 @@ const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) =
 
 describe("SvgImage", () => {
     it("should render with default class", () => {
-        render(<SvgImage data-testid="SvgImage" src={BasicSvg} />);
+        render(<SvgImage src={BasicSvg} />);
 
-        const element = screen.getByTestId("SvgImage");
+        const element = screen.getByRole("img");
         expect(element).toHaveClass("hop-SvgImage");
     });
 
     it("should support custom class", () => {
-        render(<SvgImage data-testid="SvgImage" className="test" src={BasicSvg} />);
+        render(<SvgImage className="test" src={BasicSvg} />);
 
-        const element = screen.getByTestId("SvgImage");
+        const element = screen.getByRole("img");
         expect(element).toHaveClass("hop-SvgImage");
         expect(element).toHaveClass("test");
     });
 
     it("should support custom style", () => {
-        render(<SvgImage data-testid="SvgImage" marginTop="stack-sm" style={{ marginBottom: "13px" }} src={BasicSvg} />);
+        render(<SvgImage marginTop="stack-sm" style={{ marginBottom: "13px" }} src={BasicSvg} />);
 
-        const element = screen.getByTestId("SvgImage");
+        const element = screen.getByRole("img");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<SvgImage data-testid="SvgImage" data-foo="bar" src={BasicSvg} />);
+        render(<SvgImage data-foo="bar" src={BasicSvg} />);
 
-        const element = screen.getByTestId("SvgImage");
+        const element = screen.getByRole("img");
         expect(element).toHaveAttribute("data-foo", "bar");
     });
 
     it("should support slots", () => {
         render(
             <SvgImageContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <SvgImage data-testid="SvgImage" slot="test" src={BasicSvg} />
+                <SvgImage slot="test" src={BasicSvg} />
             </SvgImageContext.Provider>
         );
 
-        const element = screen.getByTestId("SvgImage");
+        const element = screen.getByRole("img");
         expect(element).toHaveAttribute("slot", "test");
         expect(element).toHaveAttribute("aria-label", "test");
     });

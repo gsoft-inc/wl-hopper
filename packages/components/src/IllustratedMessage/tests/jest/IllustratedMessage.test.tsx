@@ -6,49 +6,49 @@ import { IllustratedMessageContext } from "../../src/IllustratedMessageContext.t
 
 describe("IllustratedMessage", () => {
     it("should render with default class", () => {
-        render(<IllustratedMessage data-testid="IllustratedMessage">12</IllustratedMessage>);
+        render(<IllustratedMessage>Test</IllustratedMessage>);
 
-        const element = screen.getByTestId("IllustratedMessage");
+        const element = screen.getByText("Test");
         expect(element).toHaveClass("hop-IllustratedMessage");
     });
 
     it("should support custom class", () => {
-        render(<IllustratedMessage data-testid="illustratedMessage" className="test">12</IllustratedMessage>);
+        render(<IllustratedMessage className="test">Test</IllustratedMessage>);
 
-        const element = screen.getByTestId("illustratedMessage");
+        const element = screen.getByText("Test");
         expect(element).toHaveClass("hop-IllustratedMessage");
         expect(element).toHaveClass("test");
     });
 
     it("should support custom style", () => {
-        render(<IllustratedMessage data-testid="illustratedMessage" marginTop="stack-sm" style={{ marginBottom: "13px" }} >12</IllustratedMessage>);
+        render(<IllustratedMessage marginTop="stack-sm" style={{ marginBottom: "13px" }}>Test</IllustratedMessage>);
 
-        const element = screen.getByTestId("illustratedMessage");
+        const element = screen.getByText("Test");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<IllustratedMessage data-testid="illustratedMessage" data-foo="bar">12</IllustratedMessage>);
+        render(<IllustratedMessage data-foo="bar">Test</IllustratedMessage>);
 
-        const element = screen.getByTestId("illustratedMessage");
+        const element = screen.getByText("Test");
         expect(element).toHaveAttribute("data-foo", "bar");
     });
 
     it("should support slots", () => {
         render(
             <IllustratedMessageContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <IllustratedMessage data-testid="illustratedMessage" slot="test">12</IllustratedMessage>
+                <IllustratedMessage slot="test">Test</IllustratedMessage>
             </IllustratedMessageContext.Provider>
         );
 
-        const element = screen.getByTestId("illustratedMessage");
+        const element = screen.getByText("Test");
         expect(element).toHaveAttribute("slot", "test");
         expect(element).toHaveAttribute("aria-label", "test");
     });
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<IllustratedMessage ref={ref}>12</IllustratedMessage>);
+        render(<IllustratedMessage ref={ref}>Test</IllustratedMessage>);
 
         expect(ref.current).not.toBeNull();
         expect(ref.current instanceof HTMLDivElement).toBeTruthy();

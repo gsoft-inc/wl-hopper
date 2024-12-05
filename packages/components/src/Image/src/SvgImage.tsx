@@ -61,6 +61,7 @@ function SvgImage(props: SvgImageProps, ref: ForwardedRef<SVGSVGElement>) {
         className={classNames}
         style={mergedStyles}
         ref={ref}
+        role="img"
     />;
 }
 
