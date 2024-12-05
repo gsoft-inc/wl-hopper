@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import clsx from "clsx";
 import { useHeadsObserver } from "@/hooks/useHeadsObserver";
+import clsx from "clsx";
 import type { PropsWithoutRef } from "react";
+import { useEffect, useState } from "react";
 
 import "./aside.css";
 
@@ -85,13 +85,13 @@ const Aside = ({ title, links }: PropsWithoutRef<AsideProps>) => {
                         </svg>
                     </button>
                     <div className="hd-aside__container">
-                        <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
                             {activeIndex !== -1 && (
                                 <span
                                     className={clsx("hd-aside__marker", activeIndex === -1 && "hd-aside__marker--hide")}
                                     style={{ top: activeIndex * titleHeight + "px" }}
                                 ></span>
                             )}
+                        <ul className={clsx("hd-aside__list", isOpen ? "hd-aside__item--active" : "hd-aside__list--closed")}>
                             {listItems}
                         </ul>
                     </div>
