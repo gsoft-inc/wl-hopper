@@ -85,19 +85,19 @@ export const Circular = {
 export const ObjectFit = {
     render: args => (
         <Inline>
-            <Div UNSAFE_width="200px" UNSAFE_height="200px">
+            <Div UNSAFE_width="200px" UNSAFE_height="100px">
                 <Image objectFit="fill" {...args} />
             </Div>
-            <Div UNSAFE_width="200px" UNSAFE_height="200px">
+            <Div UNSAFE_width="200px" UNSAFE_height="100px">
                 <Image objectFit="contain" {...args} />
             </Div>
-            <Div UNSAFE_width="200px" UNSAFE_height="200px">
+            <Div UNSAFE_width="200px" UNSAFE_height="100px">
                 <Image objectFit="cover" {...args} />
             </Div>
-            <Div UNSAFE_width="200px" UNSAFE_height="200px">
+            <Div UNSAFE_width="200px" UNSAFE_height="100px">
                 <Image objectFit="scale-down" {...args} />
             </Div>
-            <Div UNSAFE_width="200px" UNSAFE_height="200px">
+            <Div UNSAFE_width="200px" UNSAFE_height="100px">
                 <Image objectFit="none" {...args} />
             </Div>
         </Inline>
