@@ -1,21 +1,21 @@
 import { IconContext } from "@/components/icon/IconContext.ts";
 import clsx from "clsx";
-import { Provider, Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";
+import { Provider, Link as RACLink, type LinkProps as RACLinkProps } from "react-aria-components";
 import "./button.css";
 
-export interface ButtonProps extends RACButtonProps {
+export interface LinkButtonProps extends RACLinkProps {
     variant?: "primary" | "secondary" | "ghost";
     size?: "sm" | "md";
     className?: string;
 }
 
-const Button = ({
+const LinkButton = ({
     variant = "primary",
     size = "md",
     className,
     children,
     ...rest
-}: ButtonProps) => {
+}: LinkButtonProps) => {
     const classes = clsx(
         "hd-btn",
         {
@@ -39,9 +39,9 @@ const Button = ({
             }]
         ]}
         >
-            <RACButton className={classes} {...rest}>{children}</RACButton>
+            <RACLink className={classes} {...rest}>{children}</RACLink>
         </Provider>
     );
 };
 
-export default Button;
+export default LinkButton;

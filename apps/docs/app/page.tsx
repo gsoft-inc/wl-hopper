@@ -35,7 +35,7 @@ import {
 import "@hopper-ui/tokens/fonts.css";
 
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import Button from "@/components/button/Button";
+import LinkButton from "@/components/button/LinkButton";
 import {
     AccessibleIcon,
     ArrowIcon,
@@ -52,6 +52,7 @@ import {
 
 import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 
+import Link from "next/link";
 import "./home.css";
 
 export default function Home() {
@@ -67,12 +68,12 @@ export default function Home() {
                     handpicked for ultimate simplicity and accessibility.</p>
                 </div>
                 <div className="hd-home__ctas">
-                    <Button as="a" href="/getting-started/overview/installation">Getting Started</Button>
-                    <Button as="a"
+                    <LinkButton href="/getting-started/overview/installation">Getting Started</LinkButton>
+                    <LinkButton
                         href="https://github.com/gsoft-inc/wl-hopper"
                         variant="secondary"
                         target="_blank"
-                    >Github <Icon src={ExternalLinkIcon} slot="end-icon" /></Button>
+                    >Github <Icon src={ExternalLinkIcon} slot="end-icon" /></LinkButton>
                 </div>
                 <div className="hd-home__features">
                     <div className="hd-home__feature-item">
@@ -110,7 +111,7 @@ export default function Home() {
                     <div className="hd-home-samples__col hd-home-samples__main-wrapper">
                         <div className="hd-home-samples__row">
                             <div className="hd-home-samples__col">
-                                <a className="hd-home-sample__item hd-home-sample__item-colors"
+                                <Link className="hd-home-sample__item hd-home-sample__item-colors"
                                     href="/tokens/semantic/color"
                                 >
                                     <h3 className="hd-home-sample__title">Colors <ArrowIcon
@@ -146,8 +147,8 @@ export default function Home() {
                                             ></span>
                                         </div>
                                     </div>
-                                </a>
-                                <a className="hd-home-sample__item hd-home-sample__item-sizes"
+                                </Link>
+                                <Link className="hd-home-sample__item hd-home-sample__item-sizes"
                                     href="/tokens/semantic/space"
                                 >
                                     <h3 className="hd-home-sample__title">Sizes <ArrowIcon
@@ -171,10 +172,10 @@ export default function Home() {
                                             <div className="hd-home-sample__size-bar"></div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                             <div className="hd-home-samples__col">
-                                <a className="hd-home-sample__item hd-home-sample__item-text-styles"
+                                <Link className="hd-home-sample__item hd-home-sample__item-text-styles"
                                     href="/tokens/semantic/typography"
                                 >
                                     <h3 className="hd-home-sample__title">Text Styles <ArrowIcon
@@ -207,10 +208,10 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
-                        <a className="hd-home-sample__item hd-home-sample__item-icons"
+                        <Link className="hd-home-sample__item hd-home-sample__item-icons"
                             href="/icons/overview/introduction"
                         >
                             <h3 className="hd-home-sample__title">Icons <ArrowIcon
@@ -270,9 +271,9 @@ export default function Home() {
                                     <RecurringIcon className="hd-home-sample__icons-icon" size="sm" />
                                 </div>
                             </HopperProvider>
-                        </a>
+                        </Link>
                     </div>
-                    <a href="/components/component-list" className="hd-home-sample__item hd-home-sample__item-components">
+                    <Link href="/components/component-list" className="hd-home-sample__item hd-home-sample__item-components">
                         <div className="hd-home-sample__title-wrap">
                             <h3 className="hd-home-sample__title">Components <span className="hd-home-sample__title-tag">Preview</span> <ArrowIcon className="hd-home-sample__title-icon" /></h3>
                         </div>
@@ -321,7 +322,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </main>
         </Wrapper>

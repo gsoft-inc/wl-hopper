@@ -30,7 +30,7 @@ export default function IconPage({ params }: PageProps) {
     return (
         <BasePageLayout sectionsLinks={sectionLinks}>
             <article className="hd-content" key={icons._id}>
-                <Title as="h1">{icons.title}</Title>
+                <Title level={1}>{icons.title}</Title>
                 <Mdx code={icons.body.code} />
             </article>
         </BasePageLayout>

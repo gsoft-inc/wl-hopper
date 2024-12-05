@@ -1,11 +1,11 @@
 import clsx from "clsx";
 
-import { Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";
+import { Link as RACLink, type LinkProps as RACLinkProps } from "react-aria-components";
 import "./iconButton.css";
 
 const IconButtonClass = "hd-icon-button";
 
-const IconButton = (props: RACButtonProps) => {
+const IconButton = (props: RACLinkProps) => {
     const {
         children,
         className,
@@ -13,9 +13,9 @@ const IconButton = (props: RACButtonProps) => {
     } = props;
 
     return (
-        <RACButton className={clsx(IconButtonClass, className)} {...rest}>
+        <RACLink className={clsx(IconButtonClass, className)} {...rest}>
             {children}
-        </RACButton>
+        </RACLink>
     );
 };
 

@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { ComponentProps, ReactNode } from "react";
 
+import Link from "next/link";
 import "./cardLink.css";
 
 export interface CardLinkProps extends ComponentProps<"a">{
@@ -19,7 +20,7 @@ const CardLink = ({ children, className, title, size = "md", type = "primary", d
     }, className);
 
     return (
-        <a className={cardLinkClass} {...rest} href={href}>
+        <Link className={cardLinkClass} {...rest} href={href}>
             {children && <div className="hd-cardlink__logo">
                 {children}
             </div>}
@@ -27,7 +28,7 @@ const CardLink = ({ children, className, title, size = "md", type = "primary", d
                 <h3 className="hd-cardlink__title">{title}</h3>
                 <p className="hd-cardlink__description">{description}</p>
             </div>
-        </a>
+        </Link>
     );
 };
 

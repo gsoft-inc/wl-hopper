@@ -1,9 +1,9 @@
 import Header from "@/app/ui/layout/header/Header";
 import { EnvironmentContextProvider } from "@/context/env/EnvironmentProvider";
 import { FeatureFlagProvider } from "@/context/feature/FeatureFlagProvider";
+import { RACProvider } from "@/context/rac/RACProvider";
 import { ThemeProvider } from "@/context/theme/ThemeProvider";
 import type { ReactNode } from "react";
-
 import "./globals.css";
 import "./layout.css";
 
@@ -37,13 +37,15 @@ export default function RootLayout({ children }: {
                 <FeatureFlagProvider>
                     <EnvironmentContextProvider>
                         <ThemeProvider>
-                            <Header />
-                            <div className="hd-header__shadow" role="presentation">
-                                <div className="hd-header-shadow-block hd-header-shadow-block-1"></div>
-                                <div className="hd-header-shadow-block hd-header-shadow-block-2"></div>
-                                <div className="hd-header-shadow-block hd-header-shadow-block-3"></div>
-                            </div>
-                            {children}
+                            <RACProvider>
+                                <Header />
+                                <div className="hd-header__shadow" role="presentation">
+                                    <div className="hd-header-shadow-block hd-header-shadow-block-1"></div>
+                                    <div className="hd-header-shadow-block hd-header-shadow-block-2"></div>
+                                    <div className="hd-header-shadow-block hd-header-shadow-block-3"></div>
+                                </div>
+                                {children}
+                            </RACProvider>
                         </ThemeProvider>
                     </EnvironmentContextProvider>
                 </FeatureFlagProvider>

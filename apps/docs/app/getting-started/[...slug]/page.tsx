@@ -29,7 +29,7 @@ export default function IconPage({ params }: PageProps) {
     return (
         <BasePageLayout sectionsLinks={sectionLinks}>
             <article className="hd-content" key={pages._id}>
-                <Title as="h1">{pages.title}</Title>
+                <Title level={1}>{pages.title}</Title>
                 <Mdx code={pages.body.code} />
             </article>
         </BasePageLayout>

@@ -6,9 +6,6 @@ const meta = {
     title: "components/Title",
     component: Title,
     argTypes: {
-        as: {
-            control: { type: "select" }
-        },
         level: {
             control: { type: "select" }
         }
