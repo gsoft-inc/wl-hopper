@@ -362,8 +362,11 @@ export const Previews: Record<string, Preview> = {
     "IllustratedMessage/docs/image": {
         component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/image.tsx"))
     },
-    "IllustratedMessage/docs/buttons": {
-        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/buttons.tsx"))
+    "IllustratedMessage/docs/button": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/button.tsx"))
+    },
+    "IllustratedMessage/docs/buttonGroup": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/buttonGroup.tsx"))
     },
     "IllustratedMessage/docs/svg": {
         component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/svg.tsx"))
@@ -379,6 +382,9 @@ export const Previews: Record<string, Preview> = {
     },
     "Image/docs/size": {
         component: lazy(() => import("@/../../packages/components/src/Image/docs/size.tsx"))
+    },
+    "Image/docs/objectFit": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/objectFit.tsx"))
     },
     "Image/docs/retina": {
         component: lazy(() => import("@/../../packages/components/src/Image/docs/retina.tsx"))
