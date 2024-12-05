@@ -353,6 +353,51 @@ export const Previews: Record<string, Preview> = {
     "typography/Heading/docs/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/typography/Heading/docs/advancedCustomization.tsx"))
     },
+    "IllustratedMessage/docs/default": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/default.tsx"))
+    },
+    "IllustratedMessage/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/size.tsx"))
+    },
+    "IllustratedMessage/docs/image": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/image.tsx"))
+    },
+    "IllustratedMessage/docs/button": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/button.tsx"))
+    },
+    "IllustratedMessage/docs/buttonGroup": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/buttonGroup.tsx"))
+    },
+    "IllustratedMessage/docs/svg": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/svg.tsx"))
+    },
+    "IllustratedMessage/docs/migration/horizontal": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/migration/horizontal.tsx"))
+    },
+    "Image/docs/image": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/image.tsx"))
+    },
+    "Image/docs/shape": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/shape.tsx"))
+    },
+    "Image/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/size.tsx"))
+    },
+    "Image/docs/objectFit": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/objectFit.tsx"))
+    },
+    "Image/docs/retina": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/retina.tsx"))
+    },
+    "Image/docs/svg": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/svg.tsx"))
+    },
+    "Image/docs/svgSize": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/svgSize.tsx"))
+    },
+    "Image/docs/svgColor": {
+        component: lazy(() => import("@/../../packages/components/src/Image/docs/svgColor.tsx"))
+    },
     "typography/Label/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/preview.tsx"))
     },

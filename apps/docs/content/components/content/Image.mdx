@@ -1,0 +1,67 @@
+---
+title: Image
+description: An image component that can be used to display images.
+category: "content"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Image/src/Image.tsx
+---
+
+<Example src="Image/docs/image" isOpen />
+
+## Usage
+
+### Shapes
+
+An image can use a different shape.
+
+<Example src="Image/docs/shape" />
+
+### Sizes
+
+An image can vary in size.
+
+<Example src="Image/docs/size" />
+
+## Object fit
+
+An image can have different object fits
+
+<Example src="Image/docs/objectFit" />
+
+### Retina
+
+You can let the browser decide which image is best to serve according to the user device screen pixel density.
+
+It is highly recommended to serve a 1x image as well as a 2x image, twice the intended size. This assures the user has the best looking image possible.
+
+Avoid serving images that are unecessary big, images should be resized to the intended final image display size. This assures we don't waste bandwith for the user.
+
+<Example src="Image/docs/retina" />
+
+## SvgImage
+
+For some use cases, like dark mode support, an SVG image is a better fit than a standard PNG or JPG image.
+
+<Example src="Image/docs/svg" />
+
+### Size
+
+An SVG image size can be specified with the `width` and `height` props.
+
+<Example src="Image/docs/svgSize" />
+
+### Color
+
+An SVG image `stroke` and `fill` color can vary.
+
+<Example src="Image/docs/svgColor" />
+
+## Props
+
+### Image
+
+<PropTable component="Image" />
+
+### SvgImage
+
+<PropTable component="SvgImage" />

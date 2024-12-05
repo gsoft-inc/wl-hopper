@@ -1,0 +1,16 @@
+.hop-Image {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+    vertical-align: middle;
+}
+
+/* SHAPE | ROUNDED */
+.hop-Image--rounded {
+    border-radius: var(--hop-shape-rounded-md);
+}
+
+/* SHAPE | CIRCULAR */
+.hop-Image--circular {
+    border-radius: var(--hop-shape-circle);
+}
