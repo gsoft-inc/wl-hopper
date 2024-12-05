@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/useIsMobile.ts";
 
 import SidePanel from "./assets/side-panel.svg";
 
+import IconButton from "@/components/iconButton/IconButton";
 import "./subHeader.css";
 
 interface Link {
@@ -33,9 +34,9 @@ const SubHeader = ({ links }: SubHeaderProps) => {
         <div className="hd-sub-header">
             <Wrapper>
                 <div className="sub-header-container">
-                    {isInSidebar && <button type="button" className="hd-sub-header__sidebar-button" onClick={sidebarContext?.toggleSidebar}>
+                    {isInSidebar && <IconButton type="button" aria-label="Open sidebar" className="hd-sub-header__sidebar-button" onPress={sidebarContext?.toggleSidebar}>
                         <SidePanel className="hd-sub-header__button-icon" />
-                    </button>}
+                    </IconButton>}
                     {!isInSidebar && <div></div>}
                     <SectionPopover links={links} />
                 </div>
