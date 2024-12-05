@@ -4,7 +4,7 @@
 import { forwardRef, type ComponentProps } from "react";
 import { renderToString } from "react-dom/server";
 
-import { SvgImage } from "../../src/SvgImage.tsx";
+import { SvgImage } from "../../src/svg-image.tsx";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
     return (
