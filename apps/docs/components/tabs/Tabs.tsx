@@ -21,7 +21,6 @@ interface TabsProps {
 
 const Tabs = ({ tabs, className, children, ariaLabel }: TabsProps) => {
     const arrayChildren = Children.toArray(children);
-    console.log("AA", tabs, arrayChildren);
 
     return (
         <RACTabs className={clsx("hd-tabs", className)}>
@@ -38,7 +37,6 @@ const Tabs = ({ tabs, className, children, ariaLabel }: TabsProps) => {
                 ))}
             </TabList>
             {arrayChildren.map((child, index) => {
-                console.log("BB", child, tabs[index].id);
 
                 return (
                     <TabPanel key={tabs[index].id} className="hd-tabs__content" id={tabs[index].id}>
