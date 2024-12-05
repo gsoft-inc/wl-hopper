@@ -4,6 +4,7 @@ import { withContentlayer } from "next-contentlayer";
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
+    productionBrowserSourceMaps: true,
     // Eslint only lint pages/, app/, components/, lib/, and src/ directories by default. So we need to add other directories to the eslint config.
     // https://nextjs.org/docs/app/building-your-application/configuring/eslint#linting-custom-directories-and-files
     eslint: {

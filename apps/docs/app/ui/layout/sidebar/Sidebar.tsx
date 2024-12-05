@@ -1,10 +1,10 @@
 "use client";
 
+import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect, useRef } from "react";
-import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
 
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
 
@@ -14,14 +14,19 @@ import type { Section } from "@/app/lib/getPageLinks";
 
 import "./sidebar.css";
 
-interface SidebarProps {
+export interface SidebarProps {
     links: Section[];
 }
 
 const Sidebar = ({ links }: SidebarProps) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
     const pathName = usePathname();
-    const { toggleSidebar, isSidebarOpen } = useSidebar();
+    const sidebarContext = useSidebar()!;
+    if (!sidebarContext) {
+        throw new Error("Sidebar context is not available");
+    }
+
+    const { toggleSidebar, isSidebarOpen } = sidebarContext;
     const featureFlags = useContext(FeatureFlagContext);
 
     useEffect(() => {

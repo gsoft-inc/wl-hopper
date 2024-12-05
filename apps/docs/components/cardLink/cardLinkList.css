@@ -1,7 +1,7 @@
 .hd-cardlink-list {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(23.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 
 .hd-cardlink-list--sm {

@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import Sidebar from "@/app/ui/layout/sidebar/Sidebar.tsx";
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 
 export default function PlaygroundLayout({ children }: { children: ReactNode }) {
     const links = {
@@ -35,13 +35,11 @@ export default function PlaygroundLayout({ children }: { children: ReactNode }) 
     };
 
     return (
-        <>
-            <SidebarProvider>
-                <Wrapper type="with-sidebar">
-                    <Sidebar links={[links]} />
-                    {children}
-                </Wrapper>
-            </SidebarProvider>
-        </>
+        <SidebarProvider>
+            <Wrapper type="with-sidebar">
+                <Sidebar links={[links]} />
+                {children}
+            </Wrapper>
+        </SidebarProvider>
     );
 }

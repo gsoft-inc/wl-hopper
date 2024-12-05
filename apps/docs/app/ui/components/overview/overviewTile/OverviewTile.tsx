@@ -29,7 +29,7 @@ const OverviewTile = ({ title }: OverviewTileProps) => {
                             <Icon src={ComponentIcon} />
                         </div>
                         <div className="hd-component-overview-item__caption">
-                            <Title as="h3"
+                            <Title
                                 level={3}
                                 className="hd-component-overview-item__title"
                             >{component.title}</Title>

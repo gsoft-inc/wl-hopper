@@ -99,7 +99,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
                     <Link href="/" className="hd-brand" aria-label="Hopper Brand">
                         <HopperLogo />
                     </Link>
-                    <IconButton onClick={onClose} className="hd-mobile-menu__close">
+                    <IconButton onPress={onClose} className="hd-mobile-menu__close">
                         <CloseIcon className="hd-mobile-menu__close-icon" />
                     </IconButton>
                 </Wrapper>

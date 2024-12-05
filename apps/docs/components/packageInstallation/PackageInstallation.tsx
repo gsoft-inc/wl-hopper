@@ -1,5 +1,5 @@
-import Tabs from "@/components/tabs/Tabs.tsx";
 import { HighlightCode, highlightCode } from "@/components/highlightCode";
+import Tabs from "@/components/tabs/Tabs.tsx";
 
 import type { ReactElement } from "react";
 
@@ -39,7 +39,7 @@ const methodsIcons: MethodIcons = {
 };
 
 const installMethods = methods.map(method => ({
-    category: method,
+    id: method,
     title: method,
     titleIcon: methodsIcons[method]
 }));
