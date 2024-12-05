@@ -1,7 +1,7 @@
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { useLoadMore } from "@react-aria/utils";
 import clsx from "clsx";
-import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode } from "react";
+import { type ForwardedRef, forwardRef, type NamedExoticComponent } from "react";
 import { Collection, composeRenderProps, type ListBoxRenderProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, useContextProps } from "react-aria-components";
 
 import { HeaderContext } from "../../Header/index.ts";
@@ -116,7 +116,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
 
     useLoadMore({ isLoading, onLoadMore }, ref);
 
-    const renderChildren = (): ReactNode => {
+    const renderChildren = () => {
         if (props.items) {
             return (
                 <Collection items={props.items}>
@@ -125,7 +125,13 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             );
         }
 
-        return <>{children}</>;
+        if (isFunction(children)) {
+            console.error("ListBox: Children should not be a function when items are not provided.");
+
+            return null;
+        }
+
+        return children;
     };
 
     const handleRenderEmptyState = (renderProps: ListBoxRenderProps) => {

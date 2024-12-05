@@ -7,7 +7,7 @@ interface MobileMenuTriggerProps {
 
 const MobileMenuTrigger = ({ onToggle }: MobileMenuTriggerProps) => {
     return (
-        <IconButton className="hd-header__mobile-menu-trigger" onClick={onToggle}>
+        <IconButton className="hd-header__mobile-menu-trigger" onPress={onToggle} aria-label="Open mobile menu">
             <MobileMenuTriggerIcon className="hd-header__mobile-menu-trigger-icon" />
         </IconButton>
     );

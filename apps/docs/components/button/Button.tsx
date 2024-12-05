@@ -1,24 +1,21 @@
-import type { ElementType, ComponentPropsWithRef } from "react";
-import { Provider, Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";
-import clsx from "clsx";
 import { IconContext } from "@/components/icon/IconContext.ts";
+import clsx from "clsx";
+import { Provider, Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";
 import "./button.css";
 
-export interface ButtonProps<T extends ElementType = "button"> extends RACButtonProps {
+export interface ButtonProps extends RACButtonProps {
     variant?: "primary" | "secondary" | "ghost";
     size?: "sm" | "md";
     className?: string;
-    as?: T;
 }
 
-const Button = <T extends ElementType = "button">({
+const Button = ({
     variant = "primary",
     size = "md",
     className,
     children,
-    as,
     ...rest
-}: ButtonProps<T> & Omit<ComponentPropsWithRef<T>, keyof ButtonProps<T>>) => {
+}: ButtonProps) => {
     const classes = clsx(
         "hd-btn",
         {
@@ -27,8 +24,6 @@ const Button = <T extends ElementType = "button">({
         },
         className
     );
-
-    const Component = as ?? RACButton;
 
     return (
         <Provider values={[
@@ -44,7 +39,7 @@ const Button = <T extends ElementType = "button">({
             }]
         ]}
         >
-            <Component className={classes} {...rest}>{children}</Component>
+            <RACButton className={classes} {...rest}>{children}</RACButton>
         </Provider>
     );
 };

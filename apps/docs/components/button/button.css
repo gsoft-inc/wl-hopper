@@ -10,6 +10,7 @@
     border: none;
     border-radius: var(--hd-border-radius-md);
     background: var(--hd-color-surface-neutral-gradient);
+    white-space: nowrap;
     box-shadow: var(--hd-color-shadow-neutral-gradient);
 }
 

@@ -101,20 +101,20 @@ export const components = {
         return <PropTable {...props} />;
     },
     h1: (props: HeadingProps) => {
-        return <Title {...props} as="h1" interactive />;
+        return <Title {...props} level={1} interactive />;
     },
     h2: (props: HeadingProps) => {
         h2Title = props.children as string;
 
-        return <Title {...props} as="h2" interactive level={2} />;
+        return <Title {...props} interactive level={2} />;
     },
     h3: (props: HeadingProps) => {
-        return <Title {...props} as="h3" parentHeading={h2Title} interactive level={3} />;
+        return <Title {...props} parentHeading={h2Title} interactive level={3} />;
     },
     h4: (props: HeadingProps) => {
-        return <Title {...props} as="h4" interactive level={4} />;
+        return <Title {...props} interactive level={4} />;
     },
     h5: (props: HeadingProps) => {
-        return <Title {...props} as="h5" interactive level={5} />;
+        return <Title {...props} interactive level={5} />;
     }
 };

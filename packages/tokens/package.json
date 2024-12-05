@@ -35,13 +35,13 @@
     },
     "devDependencies": {
         "@types/eslint": "8.56.12",
-        "@types/node": "22.7.5",
-        "@workleap/eslint-plugin": "3.2.2",
+        "@types/node": "22.10.1",
+        "@workleap/eslint-plugin": "3.2.3",
         "@workleap/tsup-configs": "3.0.6",
         "@workleap/typescript-configs": "3.0.2",
         "eslint": "8.57.1",
         "style-dictionary": "3.9.2",
-        "tsx": "4.19.1",
+        "tsx": "4.19.2",
         "typescript": "5.5.4"
     },
     "sideEffects": false

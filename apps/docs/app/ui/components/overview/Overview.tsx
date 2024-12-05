@@ -57,7 +57,7 @@ const Overview = () => {
 
         return (
             <div className="hd-component-overview-category" key={category}>
-                <Title as="h3"
+                <Title
                     level={2}
                     interactive
                     className="hd-component-overview-category__title"

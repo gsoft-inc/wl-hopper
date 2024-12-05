@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ExternalLinkIcon, GithubIcon, NpmIcon, Icon } from "@/components/icon";
 
 import Button from "./Button";
 
@@ -40,34 +39,6 @@ export const Sizes: Story = {
         <div style={{ display: "flex", gap: "1rem", alignItems: "start" }}>
             <Button {...args} size="md" />
             <Button {...args} size="sm" />
-        </div>
-    )
-};
-
-export const AsLink: Story = {
-    args: {
-        as: "a",
-        href: "https://www.npmjs.com/package/@hopper-ui/components",
-        target: "_blank"
-    },
-    render: args => (
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <Button variant="secondary" size="md" {...args} >
-                Github
-                <Icon src={ExternalLinkIcon} slot="end-icon" />
-            </Button>
-            <Button variant="ghost" size="sm" {...args} >
-                View source
-                <Icon src={GithubIcon} slot="icon" />
-            </Button>
-            <Button variant="ghost" size="sm" {...args} >
-                View on npm
-                <Icon src={NpmIcon} slot="icon" />
-            </Button>
-            <Button variant="ghost" size="sm" {...args} >
-                Report an issue
-                <Icon src={ExternalLinkIcon} slot="icon" />
-            </Button>
         </div>
     )
 };

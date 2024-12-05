@@ -10,14 +10,15 @@ export interface FigureProps extends ComponentProps<"div">{
     width: number;
     height: number;
     caption: string;
+    priority?: boolean;
 }
 
-const Figure = ({ alt, caption, className, width, height, src, ...rest }: FigureProps) => {
+const Figure = ({ alt, caption, className, width, height, src, priority = false, ...rest }: FigureProps) => {
     const figureClass = clsx("hd-figure", className);
 
     return (
         <figure className={figureClass} {...rest}>
-            <Image className="hd-figure__image" src={src} alt={alt} width={width} height={height} />
+            <Image className="hd-figure__image" src={src} alt={alt} width={width} height={height} priority={priority} />
             <figcaption className="hd-figure__figcaption"><em>{caption}</em></figcaption>
         </figure>
     );

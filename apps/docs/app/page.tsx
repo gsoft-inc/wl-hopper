@@ -1,78 +1,35 @@
-"use client";
-
-import Image from "next/image";
-import { useContext } from "react";
-
-import { Button as HopperButton, HopperProvider } from "@hopper-ui/components";
-import {
-    CalendarIcon,
-    ChartBarIcon,
-    CheckmarkIcon,
-    DeleteIcon,
-    EyeVisibleIcon,
-    FilterIcon,
-    FocusIcon,
-    ItalicIcon,
-    LightbulbIcon,
-    LockIcon,
-    MailIcon,
-    NotebookIcon,
-    PinIcon,
-    ProfileIcon,
-    ReactionIcon,
-    RecurringIcon,
-    RewindIcon,
-    SearchIcon,
-    ShareIcon,
-    StarIcon,
-    StickyIcon,
-    SyncIcon,
-    TeamIcon,
-    ThumbsUpIcon,
-    UnarchiveIcon,
-    WarningIcon
-} from "@hopper-ui/icons";
-import "@hopper-ui/tokens/fonts.css";
-
+import { IconsCard } from "@/app/ui/home-page/IconsCard.tsx";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import Button from "@/components/button/Button";
+import LinkButton from "@/components/button/LinkButton";
 import {
     AccessibleIcon,
     ArrowIcon,
     DarkModeIcon,
-    ExternalLinkIcon,
     FontSizeIcon,
-    Icon,
     InternationalIcon,
     LineHeightIcon,
     MarginIcon,
     SelectArrowIcon,
     TypescriptIcon
 } from "@/components/icon";
-
-import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
-
+import "@hopper-ui/tokens/fonts.css";
+import Link from "next/link";
 import "./home.css";
+import { ComponentsCard } from "./ui/home-page/ComponentsCard";
+import { GithubButton } from "./ui/home-page/GithubButton";
 
 export default function Home() {
-    const { colorMode } = useContext(ThemeContext);
-    const theme = colorMode as ColorScheme;
-
     return (
         <Wrapper>
             <main className="hd-home">
                 <div className="hd-home__heading">
                     <h1 className="hd-home__header">Leap into creativity</h1>
-                    <p className="hd-home__tagline">Explore our Design System, where icons, tokens, and components are
+                    <p className="hd-home__tagline">Explore Workleap&apos;s Design System, where icons, tokens, and components are
                     handpicked for ultimate simplicity and accessibility.</p>
                 </div>
                 <div className="hd-home__ctas">
-                    <Button as="a" href="/getting-started/overview/installation">Getting Started</Button>
-                    <Button as="a"
-                        href="https://github.com/gsoft-inc/wl-hopper"
-                        variant="secondary"
-                        target="_blank"
-                    >Github <Icon src={ExternalLinkIcon} slot="end-icon" /></Button>
+                    <LinkButton href="/getting-started/overview/installation">Getting Started</LinkButton>
+                    <GithubButton />
                 </div>
                 <div className="hd-home__features">
                     <div className="hd-home__feature-item">
@@ -110,7 +67,7 @@ export default function Home() {
                     <div className="hd-home-samples__col hd-home-samples__main-wrapper">
                         <div className="hd-home-samples__row">
                             <div className="hd-home-samples__col">
-                                <a className="hd-home-sample__item hd-home-sample__item-colors"
+                                <Link className="hd-home-sample__item hd-home-sample__item-colors"
                                     href="/tokens/semantic/color"
                                 >
                                     <h3 className="hd-home-sample__title">Colors <ArrowIcon
@@ -146,8 +103,8 @@ export default function Home() {
                                             ></span>
                                         </div>
                                     </div>
-                                </a>
-                                <a className="hd-home-sample__item hd-home-sample__item-sizes"
+                                </Link>
+                                <Link className="hd-home-sample__item hd-home-sample__item-sizes"
                                     href="/tokens/semantic/space"
                                 >
                                     <h3 className="hd-home-sample__title">Sizes <ArrowIcon
@@ -171,10 +128,10 @@ export default function Home() {
                                             <div className="hd-home-sample__size-bar"></div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                             <div className="hd-home-samples__col">
-                                <a className="hd-home-sample__item hd-home-sample__item-text-styles"
+                                <Link className="hd-home-sample__item hd-home-sample__item-text-styles"
                                     href="/tokens/semantic/typography"
                                 >
                                     <h3 className="hd-home-sample__title">Text Styles <ArrowIcon
@@ -207,121 +164,12 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
-                        <a className="hd-home-sample__item hd-home-sample__item-icons"
-                            href="/icons/overview/introduction"
-                        >
-                            <h3 className="hd-home-sample__title">Icons <ArrowIcon
-                                className="hd-home-sample__title-icon"
-                            /></h3>
-                            <p className="hd-home-sample__tagline">A set of commonly used interface icons.</p>
-                            <HopperProvider colorScheme={theme} className="hd-home-sample__icons">
-                                <div className="hd-home-sample__icons-row">
-                                    <CalendarIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <ChartBarIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <CheckmarkIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <FilterIcon
-                                        className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong"
-                                        size="sm"
-                                    />
-                                    <LightbulbIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <MailIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <SearchIcon
-                                        className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong"
-                                        size="sm"
-                                    />
-                                    <ShareIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <WarningIcon className="hd-home-sample__icons-icon" size="sm" />
-                                </div>
-                                <div className="hd-home-sample__icons-row">
-                                    <ThumbsUpIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <LockIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--active"
-                                        size="sm"
-                                    />
-                                    <ItalicIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <EyeVisibleIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <NotebookIcon
-                                        className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong"
-                                        size="sm"
-                                    />
-                                    <DeleteIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <StarIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <StickyIcon
-                                        className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong"
-                                        size="sm"
-                                    />
-                                    <ProfileIcon className="hd-home-sample__icons-icon" size="sm" />
-                                </div>
-                                <div className="hd-home-sample__icons-row hd-home-sample__icons-extra-row">
-                                    <FocusIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong"
-                                        size="sm"
-                                    />
-                                    <ReactionIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <PinIcon className="hd-home-sample__icons-icon hd-home-sample__icons-icon--strong"
-                                        size="sm"
-                                    />
-                                    <SyncIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <UnarchiveIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <TeamIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <ShareIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <RewindIcon className="hd-home-sample__icons-icon" size="sm" />
-                                    <RecurringIcon className="hd-home-sample__icons-icon" size="sm" />
-                                </div>
-                            </HopperProvider>
-                        </a>
+                        <IconsCard />
                     </div>
-                    <a href="/components/component-list" className="hd-home-sample__item hd-home-sample__item-components">
-                        <div className="hd-home-sample__title-wrap">
-                            <h3 className="hd-home-sample__title">Components <span className="hd-home-sample__title-tag">Preview</span> <ArrowIcon className="hd-home-sample__title-icon" /></h3>
-                        </div>
-                        <p className="hd-home-sample__tagline">An accessible suite of components powered by
-                        react-aria.</p>
-                        <div className="hd-home-sample-components">
-                            <div className="hd-home-sample-components__item-wrapper">
-                                <div className="hd-home-sample-components__item">
-                                    <Image
-                                        src={`https://cdn.platform.workleap.com/hopper/webdoc/component-avatar-group-${theme}.png`}
-                                        width="137"
-                                        height="32"
-                                        alt="Avatar Group component preview"
-                                    />
-                                </div>
-                            </div>
-                            <div className="hd-home-sample-components__item-wrapper">
-                                <div className="hd-home-sample-components__item">
-                                    <Image
-                                        src={`https://cdn.platform.workleap.com/hopper/webdoc/component-select-field-${theme}.png`}
-                                        width="220"
-                                        height="40"
-                                        alt="Select Fielg component preview"
-                                    />
-                                </div>
-                            </div>
-                            <div className="hd-home-sample-components__item-wrapper">
-                                <div className="hd-home-sample-components__item">
-                                    <HopperProvider colorScheme={theme}>
-                                        <div className="hd-home-sample-components__buttons">
-                                            <HopperButton excludeFromTabOrder>Confirm</HopperButton>
-                                            <HopperButton excludeFromTabOrder variant="secondary">I need
-                                            help</HopperButton>
-                                        </div>
-                                    </HopperProvider>
-                                </div>
-                            </div>
-                            <div className="hd-home-sample-components__item-wrapper">
-                                <div className="hd-home-sample-components__item">
-                                    <Image
-                                        src={`https://cdn.platform.workleap.com/hopper/webdoc/component-radio-group-${theme}.png`}
-                                        width="99"
-                                        height="48"
-                                        alt="Radio Group Component preview"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <ComponentsCard />
                 </div>
             </main>
         </Wrapper>

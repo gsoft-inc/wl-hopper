@@ -59,3 +59,8 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+.hd-table__wrapper {
+  width: 100%;
+  overflow-x: auto;
+}

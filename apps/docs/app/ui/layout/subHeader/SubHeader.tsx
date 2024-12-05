@@ -7,6 +7,7 @@ import { useIsMobile } from "@/hooks/useIsMobile.ts";
 
 import SidePanel from "./assets/side-panel.svg";
 
+import IconButton from "@/components/iconButton/IconButton";
 import "./subHeader.css";
 
 interface Link {
@@ -16,12 +17,13 @@ interface Link {
     level?: number;
 }
 
-interface SubHeaderProps {
+export interface SubHeaderProps {
     links: Link[];
 }
 
 const SubHeader = ({ links }: SubHeaderProps) => {
-    const { toggleSidebar } = useSidebar();
+    const sidebarContext = useSidebar();
+    const isInSidebar = !!sidebarContext;
     const isMobile = useIsMobile("48rem");
 
     if (!isMobile) {
@@ -32,9 +34,10 @@ const SubHeader = ({ links }: SubHeaderProps) => {
         <div className="hd-sub-header">
             <Wrapper>
                 <div className="sub-header-container">
-                    <button type="button" className="hd-sub-header__sidebar-button" onClick={toggleSidebar}>
+                    {isInSidebar && <IconButton type="button" aria-label="Open sidebar" className="hd-sub-header__sidebar-button" onPress={sidebarContext?.toggleSidebar}>
                         <SidePanel className="hd-sub-header__button-icon" />
-                    </button>
+                    </IconButton>}
+                    {!isInSidebar && <div></div>}
                     <SectionPopover links={links} />
                 </div>
             </Wrapper>

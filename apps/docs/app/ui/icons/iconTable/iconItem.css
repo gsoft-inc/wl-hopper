@@ -18,6 +18,7 @@
 .hd-icon-item-copy {
     aspect-ratio: 1;
     width: 3rem;
+    color: var(--hd-color-neutral-icon);
 }
 
 .hd-icon-item__icon {

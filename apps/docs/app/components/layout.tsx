@@ -1,17 +1,10 @@
-import type { ReactNode } from "react";
-import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
-import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getPageLinks from "@/app/lib/getPageLinks.ts";
+import { SidebarLayout } from "@/app/ui/layout/sidebarLayout";
+import type { ReactNode } from "react";
 
-interface Data {
-    frontmatter: ComponentData;
-    slugs: string[];
-    content: ReactNode;
-}
 
-function formatComponentData(data: Data[]) {
+function formatComponentData(data: Awaited<ReturnType<typeof getComponentDetails>>) {
     return data.map((component, index) => {
         const { slugs, frontmatter: { title, order, status } } = component;
         let section = "";
@@ -56,12 +49,9 @@ async function ComponentsLayout({ children }: { children: ReactNode }) {
     ] });
 
     return (
-        <SidebarProvider>
-            <Wrapper type="with-sidebar">
-                <Sidebar links={links} />
-                {children}
-            </Wrapper>
-        </SidebarProvider>
+        <SidebarLayout links={links}>
+            {children}
+        </SidebarLayout>
     );
 }
 
