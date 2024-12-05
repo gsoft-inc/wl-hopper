@@ -4,6 +4,6 @@ import { NoResults } from "../assets/index.ts";
 
 export default function Example() {
     return (
-        <SvgImage stroke="neutral" src={NoResults} aria-label="No Results" height="core_1280" width="core_1280" />
+        <SvgImage stroke="neutral" src={NoResults} aria-label="No Results" UNSAFE_width="200px" UNSAFE_height="200px" />
     );
 }
