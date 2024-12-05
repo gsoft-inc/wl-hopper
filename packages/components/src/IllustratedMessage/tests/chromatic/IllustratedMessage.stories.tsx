@@ -2,7 +2,7 @@
 import { Div, Image, Stack, SvgImage, Text } from "@hopper-ui/components";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Nasa, NoResults } from "../../assets/index.ts";
+import { Frog, NoResults } from "../../assets/index.ts";
 import { IllustratedMessage } from "../../index.ts";
 
 const meta = {
@@ -24,8 +24,8 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
     render: () => (
         <IllustratedMessage>
-            <Image src={Nasa} alt="Nasa" UNSAFE_width="150px" />
-            <Text slot="heading">Can't find "Saturn"</Text>
+            <Image src={Frog} alt="Frog" UNSAFE_width="150px" />
+            <Text slot="heading">No results found</Text>
             <Text slot="description">Try searching for something else.</Text>
         </IllustratedMessage>
     )
@@ -35,18 +35,18 @@ export const Sizes = {
     render: () => (
         <Stack alignX="center">
             <IllustratedMessage size="sm">
-                <Image src={Nasa} alt="Nasa" />
-                <Text slot="heading">Can't find "Saturn"</Text>
+                <Image src={Frog} alt="Frog" />
+                <Text slot="heading">No results found</Text>
                 <Text slot="description">Try searching for something else.</Text>
             </IllustratedMessage>
             <IllustratedMessage size="md">
-                <Image src={Nasa} alt="Nasa" />
-                <Text slot="heading">Can't find "Saturn"</Text>
+                <Image src={Frog} alt="Frog" />
+                <Text slot="heading">No results found</Text>
                 <Text slot="description">Try searching for something else.</Text>
             </IllustratedMessage>
             <IllustratedMessage size="lg">
-                <Image src={Nasa} alt="Nasa" />
-                <Text slot="heading">Can't find "Saturn"</Text>
+                <Image src={Frog} alt="Frog" />
+                <Text slot="heading">No results found</Text>
                 <Text slot="description">Try searching for something else.</Text>
             </IllustratedMessage>
         </Stack>
@@ -66,8 +66,8 @@ export const SVG = {
 export const VeryLongTitle = {
     render: () => (
         <IllustratedMessage>
-            <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-            <Text slot="heading">Can't find "Saturn" or "Mars" or another continent.</Text>
+            <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+            <Text slot="heading">No results found or "Mars" or another continent.</Text>
             <Text slot="description">Try searching for something else.</Text>
         </IllustratedMessage>
     )
@@ -76,8 +76,8 @@ export const VeryLongTitle = {
 export const VeryLongText = {
     render: () => (
         <IllustratedMessage>
-            <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-            <Text slot="heading">Can't find "Saturn"</Text>
+            <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+            <Text slot="heading">No results found</Text>
             <Text slot="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit metus neque, non pharetra enim tincidunt dictum.
                 Fusce in ultricies turpis, vitae finibus nunc. Quisque laoreet sit amet eros eget volutpat. Pellentesque non nulla dui. Sed nec felis quam. Vestibulum velit magna, fringilla ut neque cursus, porta rhoncus nulla. Suspendisse auctor sollicitudin tortor, quis viverra tellus egestas sed.
@@ -90,7 +90,7 @@ export const VeryLongText = {
 export const NoHeading = {
     render: () => (
         <IllustratedMessage>
-            <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
+            <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
             <Text slot="description">Try searching for something else.</Text>
         </IllustratedMessage>
     )
@@ -99,8 +99,8 @@ export const NoHeading = {
 export const NoDescription = {
     render: () => (
         <IllustratedMessage>
-            <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-            <Text slot="heading">Can't find "Saturn"</Text>
+            <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+            <Text slot="heading">No results found</Text>
         </IllustratedMessage>
     )
 } satisfies Story;
@@ -108,8 +108,8 @@ export const NoDescription = {
 export const ImageTooWide = {
     render: () => (
         <IllustratedMessage>
-            <Image src={Nasa} alt="Nasa" UNSAFE_width="10000px" />
-            <Text slot="heading">Can't find "Saturn"</Text>
+            <Image src={Frog} alt="Frog" UNSAFE_width="10000px" />
+            <Text slot="heading">No results found</Text>
             <Text slot="description">Try searching for something else.</Text>
         </IllustratedMessage>
     )
@@ -120,15 +120,15 @@ export const Zoom = {
         <Stack>
             <Div className="zoom-in">
                 <IllustratedMessage border="warning">
-                    <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-                    <Text slot="heading">Can't find "Saturn"</Text>
+                    <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+                    <Text slot="heading">No results found</Text>
                     <Text slot="description">Try searching for something else.</Text>
                 </IllustratedMessage>
             </Div>
             <Div className="zoom-out">
                 <IllustratedMessage border="warning">
-                    <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-                    <Text slot="heading">Can't find "Saturn"</Text>
+                    <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+                    <Text slot="heading">No results found</Text>
                     <Text slot="description">Try searching for something else.</Text>
                 </IllustratedMessage>
             </Div>
@@ -140,18 +140,18 @@ export const Styling = {
     render: () => (
         <Stack>
             <IllustratedMessage border="warning">
-                <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-                <Text slot="heading">Can't find "Saturn"</Text>
+                <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+                <Text slot="heading">No results found</Text>
                 <Text slot="description">Try searching for something else.</Text>
             </IllustratedMessage>
             <IllustratedMessage className="border-red">
-                <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-                <Text slot="heading">Can't find "Saturn"</Text>
+                <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+                <Text slot="heading">No results found</Text>
                 <Text slot="description">Try searching for something else.</Text>
             </IllustratedMessage>
             <IllustratedMessage style={{ border: "1px solid red" }}>
-                <Image src={Nasa} alt="Nasa" UNSAFE_width="240px" />
-                <Text slot="heading">Can't find "Saturn"</Text>
+                <Image src={Frog} alt="Frog" UNSAFE_width="240px" />
+                <Text slot="heading">No results found</Text>
                 <Text slot="description">Try searching for something else.</Text>
             </IllustratedMessage>
         </Stack>

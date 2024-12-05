@@ -7,7 +7,7 @@ export default function Example() {
         <Inline alignY="center" gap="stack-lg">
             <SvgImage stroke="neutral" src={NoResults} aria-label="No Results" />
             <Stack gap="stack-sm">
-                <Text size="lg" fontWeight="body-lg-semibold">Can't find "Saturn"</Text>
+                <Text size="lg" fontWeight="body-lg-semibold">No results found</Text>
                 <Text color="neutral-weak">Please try another search term.</Text>
             </Stack>
         </Inline>

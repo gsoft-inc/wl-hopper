@@ -1,4 +1,4 @@
-import Nasa from "./nasa.png";
+import Frog from "./frog.jpg";
 import { ReactComponent as NoResults } from "./NoResults.tsx";
 
-export { Nasa, NoResults };
+export { Frog, NoResults };
