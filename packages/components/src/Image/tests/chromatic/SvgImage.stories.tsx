@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Inline } from "../../../layout/index.ts";
 import { NoResults } from "../../assets/index.ts";
-import { SvgImage } from "../../src/svg-image.tsx";
+import { SvgImage } from "../../src/SvgImage.tsx";
 
 const meta = {
     title: "Components/SvgImage",

@@ -5,7 +5,7 @@ import { useContextProps } from "react-aria-components";
 
 import { type AccessibleSlotProps, type BaseComponentDOMProps, cssModule } from "../../utils/index.ts";
 
-import { SvgImageContext } from "./svg-image-context.ts";
+import { SvgImageContext } from "./SvgImageContext.ts";
 
 import styles from "./SvgImage.module.css";
 

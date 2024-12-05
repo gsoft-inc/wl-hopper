@@ -1,8 +1,8 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { type ComponentProps, createRef, forwardRef } from "react";
 
-import { SvgImageContext } from "../../src/svg-image-context.ts";
-import { SvgImage } from "../../src/svg-image.tsx";
+import { SvgImage } from "../../src/SvgImage.tsx";
+import { SvgImageContext } from "../../src/SvgImageContext.ts";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
     return (
