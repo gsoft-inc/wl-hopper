@@ -3,25 +3,19 @@ import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
 
+import { ButtonContext, ButtonGroupContext } from "../../buttons/index.ts";
 import { ImageContext, SvgImageContext } from "../../Image/index.ts";
-import { TextContext } from "../../typography/index.ts";
-import type { TextSize } from "../../typography/Text/index.ts";
-import { cssModule, SlotProvider, type AccessibleSlotProps, type BaseComponentDOMProps, type SizeAdapter } from "../../utils/index.ts";
+import { ContentContext } from "../../layout/index.ts";
+import { HeadingContext } from "../../typography/Heading/index.ts";
+import { cssModule, SlotProvider, type AccessibleSlotProps, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { IllustratedMessageContext } from "./IllustratedMessageContext.ts";
 
 import styles from "./IllustratedMessage.module.css";
 
-
 export const GlobalIllustratedMessageCssSelector = "hop-IllustratedMessage";
 
 export type IllustratedMessageSize = "sm" | "md" | "lg";
-
-const IllustratedMessageSizeAdapter = {
-    sm: "md",
-    md: "lg",
-    lg: "lg"
-} as const satisfies SizeAdapter<IllustratedMessageSize, TextSize>;
 
 export interface IllustratedMessageProps extends StyledSystemProps, AccessibleSlotProps, BaseComponentDOMProps {
     /**
@@ -76,18 +70,18 @@ function IllustratedMessage(props: IllustratedMessageProps, ref: ForwardedRef<HT
                     [ImageContext, {
                         className: styles["hop-IllustratedMessage__image"]
                     }],
-                    [TextContext, {
-                        slots: {
-                            heading: {
-                                className: styles["hop-IllustratedMessage__heading"],
-                                size: IllustratedMessageSizeAdapter[size],
-                                fontWeight: "body-lg-semibold"
-                            },
-                            description: {
-                                className: styles["hop-IllustratedMessage__description"],
-                                color: "neutral-weak"
-                            }
-                        }
+                    [HeadingContext, {
+                        className: styles["hop-IllustratedMessage__heading"]
+                    }],
+                    [ContentContext, {
+                        className: styles["hop-IllustratedMessage__content"],
+                        color: "neutral-weak"
+                    }],
+                    [ButtonGroupContext, {
+                        className: styles["hop-IllustratedMessage__buttonGroup"]
+                    }],
+                    [ButtonContext, {
+                        className: styles["hop-IllustratedMessage__button"]
                     }]
                 ]}
             >

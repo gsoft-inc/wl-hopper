@@ -362,11 +362,11 @@ export const Previews: Record<string, Preview> = {
     "IllustratedMessage/docs/image": {
         component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/image.tsx"))
     },
+    "IllustratedMessage/docs/buttons": {
+        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/buttons.tsx"))
+    },
     "IllustratedMessage/docs/svg": {
         component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/svg.tsx"))
-    },
-    "IllustratedMessage/docs/migration/default": {
-        component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/migration/default.tsx"))
     },
     "IllustratedMessage/docs/migration/horizontal": {
         component: lazy(() => import("@/../../packages/components/src/IllustratedMessage/docs/migration/horizontal.tsx"))
