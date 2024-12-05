@@ -1,15 +1,10 @@
-import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getPageLinks from "@/app/lib/getPageLinks.ts";
 import { SidebarLayout } from "@/app/ui/layout/sidebarLayout";
 import type { ReactNode } from "react";
 
-interface Data {
-    frontmatter: ComponentData;
-    slugs: string[];
-    content: ReactNode;
-}
 
-function formatComponentData(data: Data[]) {
+function formatComponentData(data: Awaited<ReturnType<typeof getComponentDetails>>) {
     return data.map((component, index) => {
         const { slugs, frontmatter: { title, order, status } } = component;
         let section = "";
