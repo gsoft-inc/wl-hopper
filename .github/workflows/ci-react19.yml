@@ -21,7 +21,7 @@ jobs:
 
         steps:
             -   name: Setup Node and PNPM
-                uses: ./github/workflows/setup.yml
+                uses: ./.github/workflows/setup.yml
                 with:
                   install_dependencies: false
 
