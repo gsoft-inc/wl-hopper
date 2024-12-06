@@ -16,7 +16,7 @@ jobs:
 
         steps:
             -   name: Setup Node and PNPM
-                uses: ./.github/actions/setup.yml
+                uses: ./../actions/setup.yml
 
             -   name: Create release Pull Request or publish to NPM
                 uses: changesets/action@v1

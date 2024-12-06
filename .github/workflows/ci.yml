@@ -21,7 +21,7 @@ jobs:
 
         steps:
             -   name: Setup Node and PNPM
-                uses: ./.github/actions/setup.yml
+                uses: ./../actions/setup.yml
 
             -   name: Build packages
                 run: pnpm build:pkg

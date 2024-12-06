@@ -1,4 +1,4 @@
-name: CI
+name: CI React 19
 
 # Pnpm setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
 
@@ -21,7 +21,7 @@ jobs:
 
         steps:
             -   name: Setup Node and PNPM
-                uses: ./.github/actions/setup.yml
+                uses: ./../actions/setup.yml
                 with:
                   install_dependencies: false
 

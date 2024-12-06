@@ -29,7 +29,7 @@ jobs:
             pull-requests: write
         steps:
             -   name: Setup Node and PNPM
-                uses: ./.github/actions/setup.yml
+                uses: ./../actions/setup.yml
 
             -   name: Build Packages
                 run: pnpm build:pkg
