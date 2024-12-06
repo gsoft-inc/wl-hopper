@@ -2,26 +2,155 @@
 title: Slots
 description: This page describes how Hopper components include predefined layouts that you can insert elements into via slots. Slots are named areas in a component that receive children and provide style and layout for them.
 order: 7
-status: WIP
 ---
 
-This page will be inspired by https://react-spectrum.adobe.com/react-aria/advanced.html#slots but the focus of the page should be slots, not the context like this page.
+_Since Hopper components are designed on top of React Aria, this article is heavily inspired by the [Advanced Customization article](https://react-spectrum.adobe.com/react-aria/advanced.html#slots) in React-Aria's documentation._
 
 ## Introduction
 
+The Hopper component API is designed around composition. Components are reused between patterns to build larger composite components. For example, there is no dedicated NumberFieldIncrementButton or SelectPopover component. Instead, the standalone Button and Popover components are reused within NumberField and Select. This reduces the amount of duplicate styling code you need to write and maintain, and provides powerful composition capabilities you can use in your own components.
+
+
+
+
+
+
+
+
+Slots in Hopper are named areas within a component where developers can insert content. They make it easier to create flexible and reusable components while keeping layouts accessible and consistent. Instead of using only children for content, slots act as specific placeholders that clearly define where each piece of content goes.
+
+Hopper builds on React Aria's context-based design to make working with slots simple and efficient. This approach gives developers more control over how components are customized and ensures they follow accessibility best practices. This guide explains how slots work in Hopper, how they use contexts, and how to create or extend components with them.
+
 ## Contexts
+
+All Hopper Components (and React Aria Components) export a corresponding context that can be used to send props to them from a parent element. This enables you to build your own compositional APIs similar to those found in Hopper itself
+You can send any prop or ref via context that you could pass to the corresponding component. The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here is an example of how contexts can be used to send props to a Button component:
+
+// TODO extract in a file
+```tsx
+import { ButtonContext, Inline } from "@hopper-ui/components";
+import { ReactNode } from "react";
+
+interface CustomButtonGroupProps {
+  children?: ReactNode,
+  isDisabled?: boolean
+}
+
+function CustomButtonGroup({ children, isDisabled }: CustomButtonGroupProps) {
+  return (
+    <Inline>
+      <ButtonContext.Provider value={{ isDisabled }}>
+        {children}
+      </ButtonContext.Provider>
+    </Inline>
+  );
+}
+
+<CustomButtonGroup isDisabled>
+  <Button>Save</Button>
+  <Button>Publish</Button>
+</CustomButtonGroup>
+```
+
+Using the Context Provider, you can also target specific slots within a component. This allows you to send different props to different slots within the same component.
+
+The following example demonstrates how to target specific slots within a component:
+
+// TODO extract in a file
+```tsx
+import { ButtonContext, Inline } from "@hopper-ui/components";
+import { ReactNode, useState } from "react";
+
+interface StepperProps {
+    children?: ReactNode
+}
+
+function Stepper({ children }: StepperProps) {
+  let [value, setValue] = useState(0);
+
+  return (
+    <ButtonContext.Provider
+      value={{
+        slots: {
+          increment: {
+            onPress: () => setValue(value + 1)
+          },
+          decrement: {
+            onPress: () => setValue(value - 1)
+          }
+        }
+      }}>
+      {children}
+    </ButtonContext.Provider>
+  );
+}
+
+<Stepper>
+  <Button slot="increment">⬆</Button>
+  <Button slot="decrement">⬇</Button>
+</Stepper>
+```
 
 ### Default slot
 
+TODO: TBD
+
 ### Consuming contexts
+
+Contexts play a critical role in the interaction between the parent component and its slots. Hopper uses two main mechanisms for consuming contexts: `useContextProps` and `useSlottedContext`.
 
 #### useContextProps
 
+`useContextProps` is a utility for passing context values (e.g., event handlers, accessibility attributes) to child elements within slots. This ensures that the children behave appropriately based on the parent component's state.
+
+TODO : Add example
+
 #### useSlottedContext
+
+`useSlottedContext` helps distinguish between multiple slots in a single component. It works by identifying and passing the correct attributes to child components based on their assigned `slot` prop.
+
+TODO : Add example
 
 ## Creating Custom Components
 
+Hopper's flexibility allows developers to create custom components that either extend existing contexts or define new ones.
+
 #### using existing context
+
+You can reuse Hopper's built-in contexts to create custom components. This approach ensures that your custom components remain consistent with Hopper's design and accessibility standards.
+
+TODO : Add example
 
 #### using new contexts
 
+For more advanced use cases, you can define new contexts and provide your own slots. This allows you to build entirely custom components while leveraging Hopper's core principles.
+
+TODO : Add example
