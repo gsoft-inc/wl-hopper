@@ -1,4 +1,4 @@
-import { Children, Fragment, isValidElement, type ReactNode } from "react";
+import { Children, Fragment, isValidElement, type PropsWithChildren, type ReactNode } from "react";
 
 /**
  * Determines whether the provided React children consist only of text content.
@@ -11,7 +11,7 @@ export function isTextOnlyChildren(children: ReactNode) {
 }
 
 function resolveChildren(children: ReactNode) {
-    if (isValidElement(children) && children.type === Fragment) {
+    if (isValidElement<PropsWithChildren>(children) && children.type === Fragment) {
         return resolveChildren(children.props.children);
     }
 

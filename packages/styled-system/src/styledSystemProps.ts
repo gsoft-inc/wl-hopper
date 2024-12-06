@@ -1,6 +1,6 @@
 // this file will contain handlers for all the style props
 import type { Property } from "csstype";
-import type { ComponentProps, JSXElementConstructor } from "react";
+import type { ComponentProps, JSX, JSXElementConstructor } from "react";
 
 import type { ResponsiveProp } from "./responsive/useResponsiveValue.tsx";
 import type {

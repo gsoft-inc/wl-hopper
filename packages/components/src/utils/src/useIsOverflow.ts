@@ -1,7 +1,7 @@
 import { useIsomorphicLayoutEffect } from "@hopper-ui/styled-system";
 import { type RefObject, useState } from "react";
 
-export const useIsOverflow = (ref?: RefObject<HTMLElement>, callback?: (isOverflow: boolean) => void) => {
+export const useIsOverflow = (ref: RefObject<HTMLElement | null>, callback?: (isOverflow: boolean) => void) => {
     const [isOverflow, setIsOverflow] = useState(false);
 
     useIsomorphicLayoutEffect(() => {
