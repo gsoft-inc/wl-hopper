@@ -12,7 +12,7 @@ env:
     CI: true
 
 concurrency:
-    group: ci-${{ github.ref }}
+    group: ci-react19-${{ github.ref }}
     cancel-in-progress: true
 
 jobs:
@@ -22,6 +22,14 @@ jobs:
         steps:
             -   name: Setup Node and PNPM
                 uses: ./.github/actions/setup.yml
+                with:
+                  install_dependencies: false
+
+            -   name: Install React 19
+                run: pnpm install-react19
+
+            -   name: Install dependencies
+                run: pnpm i
 
             -   name: Build packages
                 run: pnpm build:pkg
