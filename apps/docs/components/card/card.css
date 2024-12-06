@@ -12,6 +12,7 @@
     background: linear-gradient(90deg, var(--background) 0.625rem, transparent 1%) 50%,
     linear-gradient(var(--background) 0.625rem, transparent 1%) 50%,
     var(--dot-background);
+    background-position: 0 0;
     background-size: 0.75rem 0.75rem;
     color: var(--color);
 }

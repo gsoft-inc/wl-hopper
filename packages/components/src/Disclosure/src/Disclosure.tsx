@@ -1,6 +1,7 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
+import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
-import { composeRenderProps, Disclosure as RACDisclosure, useContextProps, type DisclosureProps as RACDisclosureProps } from "react-aria-components";
+import { composeRenderProps, Disclosure as RACDisclosure, useContextProps, useSlottedContext, type DisclosureProps as RACDisclosureProps } from "react-aria-components";
 
 import { ToggleArrowContext } from "../../ToggleArrow/index.ts";
 import { composeClassnameRenderProps, cssModule, SlotProvider } from "../../utils/index.ts";
@@ -27,6 +28,9 @@ function Disclosure(props: DisclosureProps, ref: ForwardedRef<HTMLDivElement>) {
         variant = "standalone",
         ...otherProps
     } = ownProps;
+
+    const disclosureHeaderCtx = useSlottedContext(DisclosureHeaderContext);
+    const disclosurePanelCtx = useSlottedContext(DisclosurePanelContext);
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -64,10 +68,10 @@ function Disclosure(props: DisclosureProps, ref: ForwardedRef<HTMLDivElement>) {
                         variant: variant
                     }],
                     [DisclosureHeaderContext, {
-                        className: styles["hop-Disclosure__header"]
+                        className: clsx(disclosureHeaderCtx?.className, styles["hop-Disclosure__header"])
                     }],
                     [DisclosurePanelContext, {
-                        className: styles["hop-Disclosure__panel"]
+                        className: clsx(disclosurePanelCtx?.className, styles["hop-Disclosure__panel"])
                     }],
                     [ToggleArrowContext, {
                         isExpanded: disclosureRenderProps.isExpanded
