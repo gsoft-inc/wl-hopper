@@ -28,8 +28,10 @@ jobs:
             contents: write
             pull-requests: write
         steps:
-            -   name: Checkout code
+            -   name: Checkout Commit
                 uses: actions/checkout@v4
+                with:
+                    fetch-depth: 0
 
             -   name: Setup Node and PNPM
                 uses: ./.github/composite-actions/setup
