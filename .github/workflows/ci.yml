@@ -26,6 +26,9 @@ jobs:
             -   name: Setup Node and PNPM
                 uses: ./.github/composite-actions/setup
 
+            -   name: Install dependencies
+                run: pnpm i --frozen-lockfile
+
             -   name: Build packages
                 run: pnpm build:pkg
 

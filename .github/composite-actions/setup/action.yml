@@ -1,13 +1,5 @@
 name: Setup Node and PNPM
 
-on:
-  workflow_call:
-    inputs:
-      install_dependencies:
-        required: false
-        type: boolean
-        default: true
-
 runs:
   using: composite
 
@@ -38,6 +30,3 @@ runs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies (optional)
-        if: ${{ inputs.install_dependencies }}
-        run: pnpm i --frozen-lockfile
