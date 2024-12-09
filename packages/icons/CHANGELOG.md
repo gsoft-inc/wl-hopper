@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.9.0
+
+### Minor Changes
+
+- 2506f03: Added support to React 19
+
 ## 2.8.4
 
 ### Patch Changes

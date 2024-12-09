@@ -1,5 +1,16 @@
 # @hopper-ui/components
 
+## 1.4.0
+
+### Minor Changes
+
+- 2506f03: Added support to React 19
+
+### Patch Changes
+
+- Updated dependencies [2506f03]
+  - @hopper-ui/icons@2.9.0
+
 ## 1.3.35
 
 ### Patch Changes
