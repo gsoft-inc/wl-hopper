@@ -37,14 +37,5 @@ jobs:
             -   name: Build packages
                 run: pnpm build:pkg
 
-            -   name: Generate documentation
-                run: pnpm doc:generate
-
-            -   name: Build sample apps
-                run: pnpm build:apps
-
-            -   name: Lint packages
-                run: pnpm lint
-
             -   name: Test packages
                 run: pnpm test
