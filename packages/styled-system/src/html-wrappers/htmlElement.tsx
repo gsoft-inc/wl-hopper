@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { JSX, forwardRef, type CSSProperties, type ComponentRef } from "react";
+import { forwardRef, type CSSProperties, type ComponentRef, type JSX } from "react";
 
 import type { StyledComponentProps } from "../styledSystemProps.ts";
 import { useStyledSystem } from "../useStyledSystem.ts";
