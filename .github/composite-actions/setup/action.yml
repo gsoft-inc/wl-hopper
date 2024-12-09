@@ -8,9 +8,8 @@ on:
         type: boolean
         default: true
 
-jobs:
-  setup:
-    runs-on: ubuntu-latest
+runs:
+  using: composite
 
     steps:
       - name: Install Node.js
