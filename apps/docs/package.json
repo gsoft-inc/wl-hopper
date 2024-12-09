@@ -22,9 +22,9 @@
     "dependencies": {
         "@tanstack/react-table": "^8.20.5",
         "clsx": "2.1.1",
-        "contentlayer": "0.3.4",
+        "contentlayer": "npm:contentlayer2@0.5.3",
         "next": "14.2.15",
-        "next-contentlayer": "0.3.4",
+        "next-contentlayer": "npm:next-contentlayer2@0.5.3",
         "next-mdx-remote": "^5.0.0",
         "react": "18.3.1",
         "react-aria": "^3.36.0",
