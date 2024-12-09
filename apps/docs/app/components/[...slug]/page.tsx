@@ -1,3 +1,4 @@
+import { allComponents } from "@/.contentlayer/generated";
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 import Heading from "@/app/ui/components/heading/Heading.tsx";
@@ -87,13 +88,9 @@ export async function generateMetadata({ params }: PageProps) {
 
 
 export async function generateStaticParams() {
-    const componentsDetails = await getComponentDetails();
-
-    return componentsDetails.map(({ slugs }) => {
-        const [, type] = slugs;
-
+    return allComponents.map(({ slug }) => {
         return ({
-            slug: [type]
+            slug: [slug]
         });
     });
 }
