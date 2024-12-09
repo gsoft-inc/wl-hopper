@@ -3,11 +3,6 @@ name: Setup Node and PNPM
 runs:
     using: composite
     steps:
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         id: pnpm-install
@@ -15,17 +10,8 @@ runs:
           version: 9
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
