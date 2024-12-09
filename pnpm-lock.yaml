@@ -24,8 +24,8 @@ importers:
         specifier: 3.2.6
         version: 3.2.6
       '@netlify/plugin-nextjs':
-        specifier: 5.8.1
-        version: 5.8.1
+        specifier: 5.9.0
+        version: 5.9.0
       '@pmmmwh/react-refresh-webpack-plugin':
         specifier: 0.5.15
         version: 0.5.15(react-refresh@0.14.2)(type-fest@3.13.1)(webpack-dev-server@5.1.0(webpack@5.97.1(@swc/core@1.10.0(@swc/helpers@0.5.15))))(webpack-hot-middleware@2.26.1)(webpack@5.97.1(@swc/core@1.10.0(@swc/helpers@0.5.15)))
@@ -2527,8 +2527,8 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@netlify/plugin-nextjs@5.8.1':
-    resolution: {integrity: sha512-WB1N0FslhWZ1yAVYTcB6CcFrFOUSQ0O2LfavYZrbAypeNxu2I+oO+cgmhfDgZ8Eoq1g4EMeoIGMkNoZ4ogZTsg==}
+  '@netlify/plugin-nextjs@5.9.0':
+    resolution: {integrity: sha512-B60CxcjAmZ+waLk2uQh3p5jnAckCHDXvhu8Fk3AOm7x1gSIf9WAU5oBQkhx6C1lhqZBr8CMf5Q1N/6PVJy2bGA==}
     engines: {node: '>=18.0.0'}
 
   '@next/env@14.2.15':
@@ -12960,7 +12960,7 @@ snapshots:
       '@types/react': 18.3.13
       react: 18.3.1
 
-  '@netlify/plugin-nextjs@5.8.1': {}
+  '@netlify/plugin-nextjs@5.9.0': {}
 
   '@next/env@14.2.15': {}
 
