@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { forwardRef, type CSSProperties, type ElementRef } from "react";
+import { forwardRef, type CSSProperties, type ComponentRef, type JSX } from "react";
 
 import type { StyledComponentProps } from "../styledSystemProps.ts";
 import { useStyledSystem } from "../useStyledSystem.ts";
@@ -12,7 +12,7 @@ export const GlobalHtmlElementCssSelector = "hop-HtmlElement";
 export const GlobalHtmlElementSpecificCssSelector = (elementType: string) => `${GlobalHtmlElementCssSelector}-${elementType}`;
 
 export function htmlElement<T extends keyof JSX.IntrinsicElements>(elementType: T) {
-    return forwardRef<ElementRef<T>, HtmlElementProps<T>>((props, ref) => {
+    return forwardRef<ComponentRef<T>, HtmlElementProps<T>>((props, ref) => {
         const { stylingProps, ...ownProps } = useStyledSystem(props);
         const { className, style, ...otherProps } = ownProps;
 

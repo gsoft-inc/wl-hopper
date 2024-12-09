@@ -27,7 +27,7 @@
         "build:apps": "pnpm -r --filter \"{apps/**}\" build ",
         "changeset": "changeset",
         "ci-release": "pnpm build:pkg && changeset publish",
-        "aa": "cd ./apps/docs && pnpm generate:previewRef",
+        "install-react19": "pnpm -r --filter \"{packages/**}\" add -D react@19 react-dom@19 @types/react@19 @types/react-dom@19 && pnpm add -D -w react@19 react-dom@19 @types/react@19 @types/react-dom@19",
         "generate-icons": "pnpm --filter=\"svg-icons\" generate-icons && pnpm --filter=\"@hopper-ui/icons*\" generate-icons",
         "lint": "pnpm run \"/^lint:.*/\"",
         "lint:eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
