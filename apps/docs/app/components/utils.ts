@@ -1,10 +1,10 @@
-import path from "path";
-import fs from "fs";
+import fs from "fs/promises";
 import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
 
-type Src = string;
+async function readFile(src: string) {
+    const fileContent = await fs.readFile(src, "utf8");
 
-async function parseFrontMatter(fileContent: string) {
     const { content, frontmatter } = await compileMDX<object>({
         source: fileContent,
         options: {
@@ -16,16 +16,10 @@ async function parseFrontMatter(fileContent: string) {
     return { content, frontmatter };
 }
 
-async function readFile(src: Src) {
-    const rawContent = fs.readFileSync(`${src}.md`, "utf-8");
+const MIGRATION_NOTES_PATH = path.join(process.cwd(), "..", "..", "packages", "components", "src");
 
-    return await parseFrontMatter(rawContent);
-}
+export async function getMigrationNotes(src: string) {
+    const file = `${path.join(MIGRATION_NOTES_PATH, src)}.md`;
 
-function getFileData(src: Src) {
-    return readFile(src);
-}
-
-export async function getMigrationNotes(src: Src) {
-    return await getFileData(path.join(process.cwd(), "..", "..", "packages", "components", "src", src));
+    return await readFile(file);
 }

@@ -1,52 +1,31 @@
-import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import { allComponents } from "@/.contentlayer/generated";
 import getPageLinks from "@/app/lib/getPageLinks.ts";
 import { SidebarLayout } from "@/app/ui/layout/sidebarLayout";
+import path from "path";
 import type { ReactNode } from "react";
 
-
-function formatComponentData(data: Awaited<ReturnType<typeof getComponentDetails>>) {
-    return data.map((component, index) => {
-        const { slugs, frontmatter: { title, order, status } } = component;
-        let section = "";
-
-        if (slugs.length > 1) {
-            section = slugs[0];
-        }
-
-        // we exclude the category from the link, so we only take the last slug
-        const componentLink = slugs[slugs.length - 1];
-
-        return {
-            _id: `component-${index}`,
-            title,
-            order,
-            status,
-            section: section,
-            _raw: {
-                flattenedPath: `components/${componentLink}`
-            }
-        };
-    });
-}
-
 async function ComponentsLayout({ children }: { children: ReactNode }) {
-    const components = await getComponentDetails();
-    const data = formatComponentData(components);
-    const links = getPageLinks(data, { order: [
-        "overview",
-        "concepts",
-        "application",
-        "layout",
-        "buttons",
-        "collections",
-        "forms",
-        "icons",
-        "navigation",
-        "overlays",
-        "pickers",
-        "status",
-        "content"
-    ] });
+    const links = getPageLinks(allComponents, {
+        order: [
+            "overview",
+            "concepts",
+            "application",
+            "layout",
+            "buttons",
+            "collections",
+            "forms",
+            "icons",
+            "navigation",
+            "overlays",
+            "pickers",
+            "status",
+            "content",
+            "placeholders"
+        ],
+        // the components paths are slightly different than the other pages
+        // we want the URLS to be /components/ComponentName
+        pathAccessor: item => path.join("components", item.slug)
+    });
 
     return (
         <SidebarLayout links={links}>

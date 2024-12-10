@@ -1,5 +1,5 @@
 import { highlightCode } from "@/components/highlightCode";
-import { promises as fs } from "fs";
+import fs from "fs/promises";
 import path from "path";
 
 function formatComponentExamplePath(uri: string) {
