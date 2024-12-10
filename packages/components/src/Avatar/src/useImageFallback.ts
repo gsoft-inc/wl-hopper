@@ -31,7 +31,7 @@ export interface ImageFallbackReturnProps {
     status: Status;
 }
 
-type Status = 
+type Status =
 "loading" /* When the image is loading. */
 | "failed" /*  The image has failed to load. */
 | "pending" /* There is no src, but it's in a pending state since it could be updated in the future. */
@@ -47,11 +47,11 @@ export function useImageFallback(props: ImageFallbackProps): ImageFallbackReturn
         setStatus(src ? "loading" : "pending");
     }, [src]);
 
-    const imageRef = useRef<HTMLImageElement | null>();
+    const imageRef = useRef<HTMLImageElement | null>(null);
 
     const load = useCallback(() => {
         if (!src) {return;}
-    
+
         flush();
 
         const image = new Image();
@@ -76,7 +76,7 @@ export function useImageFallback(props: ImageFallbackProps): ImageFallbackReturn
             }
             onError?.(event as unknown as ImageEvent);
         };
-        
+
         imageRef.current = image;
     }, [src, onLoad, fallbackSrc, onError]);
 
@@ -92,7 +92,7 @@ export function useImageFallback(props: ImageFallbackProps): ImageFallbackReturn
         if (status === "loading") {
             load();
         }
-    
+
         return () => {
             flush();
         };

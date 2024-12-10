@@ -196,6 +196,12 @@ export const Components = defineDocumentType(() => ({
         slug: {
             type: "string",
             resolve: post => post._raw.sourceFileName.replace(/\.mdx$/, "")
+        },
+        section: {
+            type: "string",
+            resolve: post => {
+                return post._raw.sourceFileDir.replace("components/", "");
+            }
         }
     }
 }));

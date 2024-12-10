@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.5.0
+
+### Minor Changes
+
+- 2506f03: Added support to React 19
+
 ## 2.4.1
 
 ### Patch Changes

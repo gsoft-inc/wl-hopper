@@ -1,11 +1,12 @@
-import path from "path";
-import fs from "fs";
-import { compileMDX } from "next-mdx-remote/rsc";
-import { components } from "@/components/mdx/components.tsx";
-import { rehypePluginOptions } from "@/app/lib/rehypeConfig.ts";
 import { data } from "@/app/lib/contentConfig.ts";
+import { rehypePluginOptions } from "@/app/lib/rehypeConfig.ts";
+import { components } from "@/components/mdx/components.tsx";
+import fs from "fs/promises";
+import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
 
-export const COMPONENT_PATH = path.join(process.cwd(), "content", "components");
+export const CONTENT_PATH = path.join(process.cwd(), "content");
+export const COMPONENT_PATH = path.join(CONTENT_PATH, "components");
 
 export interface ComponentData {
     title: string;
@@ -30,46 +31,28 @@ async function parseFrontMatter(fileContent: string) {
 }
 
 async function readMDXFile(filePath: string) {
-    const rawContent = fs.readFileSync(filePath, "utf-8");
+    const rawContent = await fs.readFile(filePath, "utf-8");
 
     return await parseFrontMatter(rawContent);
 }
 
-function getMDXFiles(dir: string) {
-    const elements = fs.readdirSync(dir);
-    let filelist: string[] = [];
+async function getMDXDataFromFile(file: string) {
+    const { frontmatter, content, raw } = await readMDXFile(file);
+    const startIndex = file.indexOf(COMPONENT_PATH) + COMPONENT_PATH.length + 1;
+    const slug = file.substring(startIndex, file.length - ".mdx".length);
+    const slugs = slug.split(path.sep);
 
-    elements.forEach(element => {
-        if (fs.statSync(path.join(dir, element)).isDirectory()) {
-            filelist = filelist.concat(getMDXFiles(path.join(dir, element)));
-        } else if (path.extname(element) === ".mdx") {
-            filelist.push(path.join(dir, element));
-        }
-    });
-
-    return filelist;
+    return {
+        slugs,
+        frontmatter,
+        content,
+        raw
+    };
 }
 
-function getMDXData(dir: string) {
-    const mdxFiles = getMDXFiles(dir);
+export async function getComponentDetails(filePath: string) {
+    const file = path.join(CONTENT_PATH, filePath);
 
-    return mdxFiles.map(async file => {
-        const { frontmatter, content, raw } = await readMDXFile(file);
-        const startIndex = file.indexOf(COMPONENT_PATH) + COMPONENT_PATH.length + 1;
-        const slug = file.substring(startIndex, file.length - ".mdx".length);
-        const slugs = slug.split(path.sep);
-
-        return {
-            slugs,
-            frontmatter,
-            content,
-            raw
-        };
-    });
+    return getMDXDataFromFile(file);
 }
 
-export async function getComponentDetails() {
-    const mdxDataPromises = getMDXData(COMPONENT_PATH);
-
-    return await Promise.all(mdxDataPromises);
-}

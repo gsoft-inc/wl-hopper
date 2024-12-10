@@ -31,72 +31,68 @@ function capitalizeWords(str: string) {
         .replace(/\b\w/g, char => char.toUpperCase());
 }
 
-function getPageLinks(items: Data[], options?: { order?: string[]; status?: string }) {
+function sortBy<T>(a: T, b: T, accessor: (item: T) => number | undefined) {
+    const aValue = accessor(a) ?? -1;
+    const bValue = accessor(b) ?? -1;
+
+    if (aValue === -1 && bValue === -1) {
+        return 0;
+    }
+    if (aValue === -1) {
+        return 1;
+    }
+    if (bValue === -1) {
+        return -1;
+    }
+
+    return aValue - bValue;
+}
+
+interface GetPageLinksOptions<T> {
+    order?: string[];
+    pathAccessor?: (item: T) => string;
+}
+
+function getPageLinks<T extends Data>(items: T[], opt?: GetPageLinksOptions<T>) {
     if (!items) {
         return [];
     }
 
-    const sections: { [key: string]: Section } = {};
+    const { order, pathAccessor } = {
+        order: [],
+        pathAccessor: item => item._raw.flattenedPath, // Default path accessor
+        ...opt
+    } satisfies GetPageLinksOptions<T>;
 
-    items.forEach(item => {
-        const sectionId = item.section || "";
+    const sections = items.reduce<Record<string, Section>>((acc, item) => {
+        const sectionId = item.section ?? "";
 
-        if (!sections[sectionId]) {
-            sections[sectionId] = {
+        if (!acc[sectionId]) {
+            acc[sectionId] = {
                 id: sectionId,
                 title: capitalizeWords(sectionId),
                 linkItems: []
             };
         }
 
-        sections[sectionId].linkItems.push({
+        acc[sectionId].linkItems.push({
             id: item._id,
             title: item.title,
             order: item.order,
             status: item.status,
-            path: item._raw.flattenedPath
+            path: pathAccessor(item)
         });
-    });
 
-    const sortedSections = Object.values(sections).sort((a, b) => {
-        if (!options?.order) {
-            return 0;
-        }
+        return acc;
+    }, {});
 
-        const aIndex = options.order.indexOf(a.id);
-        const bIndex = options.order.indexOf(b.id);
+    // Create a section array sorted by the order of the sections
+    const sortedSections = Object.values(sections)
+        .sort((a, b) => sortBy(a, b, section => order.length > 0 ? order.indexOf(section.id) : 0));
 
-        if (aIndex === -1 && bIndex === -1) {
-            return 0;
-        }
-
-        if (aIndex === -1) {
-            return 1;
-        }
-
-        if (bIndex === -1) {
-            return -1;
-        }
-
-        return aIndex - bIndex;
-    });
-
+    // Sort the link items within each section
     sortedSections.forEach(section => {
-        section.linkItems.sort((a, b) => {
-            if (a.order === undefined && b.order === undefined) {
-                return 0;
-            }
-
-            if (a.order === undefined) {
-                return 1;
-            }
-
-            if (b.order === undefined) {
-                return -1;
-            }
-
-            return a.order - b.order;
-        });
+        section.linkItems.sort((a, b) => sortBy(a, b, item => item.order));
     });
 
     return sortedSections;
