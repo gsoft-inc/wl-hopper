@@ -3,7 +3,7 @@ import { SparklesIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
-        <Div width="100%" paddingX="core_320" paddingY="core_480">
+        <Div width="100%">
             <Disclosure isDisabled>
                 <DisclosureHeader>
                     <SparklesIcon />
