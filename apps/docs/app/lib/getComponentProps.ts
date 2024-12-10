@@ -1,10 +1,10 @@
-import { promises as fs } from "fs";
-import path from "path";
-import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.ts";
-import type { PropItem } from "react-docgen-typescript/lib/parser";
-import { getType } from "@/app/lib/gePropsType.ts";
 import { formatCode } from "@/app/lib/formatingCode.ts";
 import { generateUniqueKey } from "@/app/lib/generateUniqueKey.ts";
+import { getType } from "@/app/lib/gePropsType.ts";
+import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.ts";
+import fs from "fs/promises";
+import path from "path";
+import type { PropItem } from "react-docgen-typescript/lib/parser";
 
 const filePath = path.join(process.cwd(), "datas", "components");
 

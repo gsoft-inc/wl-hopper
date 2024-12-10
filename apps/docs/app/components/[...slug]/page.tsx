@@ -1,3 +1,4 @@
+import { allComponents } from "@/.contentlayer/generated";
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
 import Heading from "@/app/ui/components/heading/Heading.tsx";
@@ -13,12 +14,13 @@ interface PageProps {
 async function findComponentFromSlug(params : { slug: string[] }) {
     const [type] = params.slug;
 
-    return (await getComponentDetails()).find(componentDetail => {
-        // the path should be the component name, but the content files are classified by sections
-        const [, componentSlugType] = componentDetail.slugs;
+    const component = allComponents.find(x => x.slug === type);
 
-        return componentSlugType === type;
-    });
+    if (!component) {
+        return null;
+    }
+
+    return component;
 }
 
 export default async function ComponentPage({ params }: PageProps) {
@@ -29,8 +31,8 @@ export default async function ComponentPage({ params }: PageProps) {
     if (!component) {
         notFound();
     }
-
-    const { content, frontmatter: { title, status, description, links } } = component;
+    const componentDetails = await getComponentDetails(component._raw.sourceFilePath);
+    const { content, frontmatter: { title, status, description, links } } = componentDetails;
 
     const componentLinks = links && [
         {
@@ -56,7 +58,7 @@ export default async function ComponentPage({ params }: PageProps) {
         }] : [])
     ];
 
-    const sectionLinks = getSectionLinks({ body: { raw: component.raw } });
+    const sectionLinks = getSectionLinks({ body: { raw: componentDetails.raw } });
 
     return (
         <div className="hd-section">
@@ -72,8 +74,9 @@ export default async function ComponentPage({ params }: PageProps) {
 
 export async function generateMetadata({ params }: PageProps) {
     const component = await findComponentFromSlug(params);
+
     if (component) {
-        const { frontmatter: { title } } = component;
+        const title = component?.title;
 
         return {
             title: `${title}`
@@ -87,13 +90,9 @@ export async function generateMetadata({ params }: PageProps) {
 
 
 export async function generateStaticParams() {
-    const componentsDetails = await getComponentDetails();
-
-    return componentsDetails.map(({ slugs }) => {
-        const [, type] = slugs;
-
+    return allComponents.map(({ slug }) => {
         return ({
-            slug: [type]
+            slug: [slug]
         });
     });
 }
