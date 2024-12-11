@@ -1,5 +1,3 @@
-"use client";
-
 import TokenTable from "@/app/ui/tokens/table/TokenTable.tsx";
 
 import "@hopper-ui/tokens/fonts.css";
@@ -24,7 +22,7 @@ const TableSection = ({ tokens, categories, excludedCategories, categoryKey, tok
             const excludedCategoryTokens = excludedCategories?.some(category => token.name.includes(category));
 
             return categories.some(category => token.name.includes(category)) && !excludedCategoryTokens;
-        })
+        });
     }, [tokens, categories, excludedCategories]);
 
     return (

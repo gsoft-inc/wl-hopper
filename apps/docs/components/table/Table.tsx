@@ -21,10 +21,11 @@ const Table = ({ data, head, lastColumnAlignment = "left", ariaLabel = "standard
     const textAlignRight = lastColumnAlignment === "right";
     const lastColumnIndex = head.length - 1;
 
-    const headItems = useMemo( () => {
+    const headItems = useMemo(() => {
         return head.map((item, index) => {
             return (
                 <Column
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`table-head-${index}`}
                     isRowHeader={index === 0}
                     className={clsx("hd-table__column", { "hd-table__column--right": index === lastColumnIndex && textAlignRight })}
@@ -32,17 +33,18 @@ const Table = ({ data, head, lastColumnAlignment = "left", ariaLabel = "standard
                     {item}
                 </Column>
             );
-        })
+        });
     }, [head, lastColumnIndex, textAlignRight]);
 
     const dataItems = useMemo(() => {
         return data.map((item, index) => {
             return (
+                // eslint-disable-next-line react/no-array-index-key
                 <Row key={`table-body-${index}`} className="hd-table__row">
-                    {Object.keys(item).map((key, index) => {
+                    {Object.keys(item).map((key, i) => {
                         return (
                             <Cell key={key}
-                                className={clsx("hd-table__cell", { "hd-table__cell--right": index === lastColumnIndex && textAlignRight })}
+                                className={clsx("hd-table__cell", { "hd-table__cell--right": i === lastColumnIndex && textAlignRight })}
                             >
                                 {item[key]}
                             </Cell>
@@ -50,7 +52,7 @@ const Table = ({ data, head, lastColumnAlignment = "left", ariaLabel = "standard
                     })}
                 </Row>
             );
-        })
+        });
     }, [data, lastColumnIndex, textAlignRight]);
 
     return (

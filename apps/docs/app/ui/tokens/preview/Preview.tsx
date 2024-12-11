@@ -76,7 +76,7 @@ const Preview = ({ category, name, value }: PreviewProps) => {
             break;
         case "size":
             preview = {
-                style: { width: value },
+                style: { width: value }
             };
             if (matchingPaddingKeyword) {
                 preview = {

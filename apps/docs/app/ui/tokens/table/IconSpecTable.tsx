@@ -20,7 +20,7 @@ const IconSpecTable = ({ data }: IconSpecTableProps) => {
             data={data}
             ariaLabel="Icons specs"
         />
-    )
+    );
 };
 
 export default IconSpecTable;

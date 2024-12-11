@@ -55,18 +55,17 @@ const TokenTable = ({ category, data, noPreview = false, tokenType }: TableProps
             styledSystemValue: tokenType && formatStyledSystemName(name, tokenType),
             value: value,
             preview: !noPreview && <Preview value={value} name={name} category={category} />
-        }
+        };
 
-        if(!tokenType) {
+        if (!tokenType) {
             delete values.styledSystemValue;
         }
 
-        if(noPreview) {
+        if (noPreview) {
             delete values.preview;
         }
 
         return values;
-
     });
     const columns = ["Name", tokenType && "Styled-System Value", "Value", !noPreview && "Preview"].filter(Boolean) as string[];
 
