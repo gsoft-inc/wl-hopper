@@ -21,9 +21,7 @@ export const ThemeContext = createContext<ColorSchemeContextType>({
 });
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const [colorMode, setColorMode] = useState<ColorScheme | undefined>(
-        undefined
-    );
+    const [colorMode, setColorMode] = useState<ColorScheme>(() => getInitialColorMode());
 
     useEffect(() => {
         if (colorMode) {
@@ -32,12 +30,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
         }
     }, [colorMode]);
 
-    useEffect(() => {
-        setColorMode (getInitialColorMode());
-    }, [setColorMode ]);
-
     return (
-        <ThemeContext.Provider value={{ colorMode, setColorMode }}>
+        <ThemeContext.Provider value={{
+            colorMode: colorMode,
+            setColorMode
+        }}
+        >
             {children}
         </ThemeContext.Provider>
     );
