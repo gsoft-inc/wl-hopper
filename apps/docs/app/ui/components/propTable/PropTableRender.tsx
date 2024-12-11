@@ -43,10 +43,10 @@ const columns: ColumnDef<Item>[] = [
             const { name, type, required } = info.getValue() as { name: ReactNode; type: ReactNode; required: boolean };
 
             return (
-                <dt className="hd-props-table__description-term">
+                <div className="hd-props-table__description-term">
                     <div className="hd-props-table__name">{name}{!required && "?"}</div>
                     <div className="hd-props-table__type">{type}</div>
-                </dt>
+                </div>
             );
         }
     },
@@ -58,12 +58,12 @@ const columns: ColumnDef<Item>[] = [
             const { description, defaultValue } = info.getValue() as { description: ReactNode; defaultValue: string };
 
             return (
-                <dl className="hd-props-table__description-list">
+                <div className="hd-props-table__description-list">
                     <div className="hd-props-table__description">{description}</div>
                     {defaultValue !== "" && (
                         <div className="hd-props-table__default-value"><em>Defaults to <ColoredDefaultValue defaultValue={defaultValue} />.</em></div>
                     )}
-                </dl>
+                </div>
             );
         }
     }
@@ -87,7 +87,7 @@ export const PropTableRender = ({ items }: { items: Item[] }) => {
 
     return (
         <div className="hd-table hd-props-table">
-            <dl className="hd-props-table__tbody">
+            <div className="hd-props-table__tbody">
                 {table.getRowModel().rows.map(row => (
                     <div key={row.id} className="hd-table__row hd-props-table__row">
                         {row.getVisibleCells().map(cell => {
@@ -102,7 +102,7 @@ export const PropTableRender = ({ items }: { items: Item[] }) => {
                         )}
                     </div>
                 ))}
-            </dl>
+            </div>
         </div>
     );
 };
