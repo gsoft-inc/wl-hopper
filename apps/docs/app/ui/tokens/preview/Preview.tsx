@@ -1,6 +1,6 @@
 import "@hopper-ui/tokens/fonts.css";
-import "./preview.css";
 import type { CSSProperties, ReactNode } from "react";
+import "./preview.css";
 
 interface PreviewProps {
     category?: string;
@@ -76,11 +76,11 @@ const Preview = ({ category, name, value }: PreviewProps) => {
             break;
         case "size":
             preview = {
-                style: { width: value }
+                style: { width: value },
             };
             if (matchingPaddingKeyword) {
                 preview = {
-                    style: { padding: value },
+                    style: { padding: value, justifySelf: "end" },
                     className: `hd-preview--semantic-size hd-preview--${matchingPaddingKeyword}`
                 };
             }
@@ -92,7 +92,7 @@ const Preview = ({ category, name, value }: PreviewProps) => {
             }
             if (matchingStackKeyword) {
                 preview = {
-                    style: { padding: `0 0 ${value} 0` },
+                    style: { padding: `0 0 ${value} 0`, justifySelf: "end" },
                     className: `hd-preview--semantic-size hd-preview--${matchingStackKeyword}`
                 };
             }

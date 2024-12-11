@@ -13,7 +13,7 @@ export default async function SimpleTable({ "aria-label": ariaLabel, headers, da
             <thead>
                 <tr>
                     {headers.map((header, index) => {
-                        const classNames = clsx("hd-table__column", { "hd-table__colum--right": index === headers.length - 1 && lastColumnAlignment === "right" });
+                        const classNames = clsx("hd-table__column", { "hd-table__column--right": index === headers.length - 1 && lastColumnAlignment === "right" });
 
                         return (
                             // eslint-disable-next-line react/no-array-index-key

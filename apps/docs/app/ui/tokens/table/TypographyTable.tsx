@@ -44,7 +44,7 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
                     !hasNoSizes && "Size",
                     "Values",
                     "Preview"
-                ]}
+                ].filter(Boolean) as string[]}
                 data={listItems}
                 className={clsx("hd-typo-table", { "hd-typo-table--has-no-sizes": hasNoSizes })}
                 ariaLabel="Typography tokens"
