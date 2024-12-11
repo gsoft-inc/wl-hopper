@@ -58,9 +58,9 @@
 /* Tag */
 .hd-nav__link-tag {
     border-radius: var(--hd-border-radius-sm);
-    background-color: var(--hd-color-accent-surface-strong);
-    color: var(--hd-white);
-    font-size: 0.75rem;
-    padding: var(--hd-space-05);
+    color: var(--hd-color-accent-text);
+    background-color: var(--hd-color-accent-surface);
+    font-size: 0.825rem;
+    padding: 0.125rem var(--hd-space-05);
     margin-inline-start: var(--hd-space-05);
 }
