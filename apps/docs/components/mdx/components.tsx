@@ -33,6 +33,7 @@ import { ComponentCodeWrapper } from "@/app/ui/components/componentExample/Compo
 import type { ComponentExampleProps } from "@/app/ui/components/componentExample/ComponentExample.tsx";
 import ComponentPreview from "@/app/ui/components/componentExample/ComponentPreview.tsx";
 import type { MigrateGuideProps } from "@/app/ui/components/migrateGuide/MigrateGuide.tsx";
+import { PropsReferenceTable } from "@/app/ui/components/propsReferenceTable/PropsReferenceTable";
 import type { PropTableProps } from "@/app/ui/components/propTable/PropTable.tsx";
 import SimpleTable from "@/app/ui/components/simpleTable/SimpleTable";
 
@@ -60,6 +61,7 @@ export const components = {
     BreakpointTable: BreakpointTable,
     Footnote: Footnote,
     TokenTable: TokenTable,
+    PropsReferenceTable: PropsReferenceTable,
     TypographyTable: TypographyTable,
     TypographyVariantTable: TypographyVariantTable,
     IconTable: IconTable,

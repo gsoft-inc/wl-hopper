@@ -16,320 +16,366 @@ Colors are a clear way to convey meaning in design. Over time, we associate colo
 
 ## Guidelines
 
-- **Communication is key** - Although we value an aesthetically pleasing use of colour, we place a higher value on clear communication. Colour supports the purpose of the content, communicating things like hierarchy, interactive states and differences between visual elements.
-- **Colours have meaning** - Each colour has assigned sentiment based on how they function within the interface. Defined colour roles make things easy to modify and customize later. Their meaning is also expanded to all Workleap verticals so that users understand that they’re in the same ecosystem and can recognize its codes.
+- **Communication is key** - Although we value an aesthetically pleasing use of color, we place a higher value on clear communication. Color supports the purpose of the content, communicating things like hierarchy, interactive states and differences between visual elements.
+- **Colors have meaning** - Each color has assigned sentiment based on how they function within the interface. Defined color roles make things easy to modify and customize later. Their meaning is also expanded to all Workleap verticals so that users understand that they’re in the same ecosystem and can recognize its codes.
 
 ## Deprecation notice
 
 Tokens with the `-active` suffix are deprecated and should not be used in new code. They will be removed in a future release. Prefer using their `-press` counterparts. In some instances, `-active` tokens should be replaced with `-selected` tokens. This should be documented in your Figma files. If in doubt, validate with a designer.
 
-## Tokens
+## Light Tokens
 
-{/* It's important to keep the Headers with ###, with no spaces on the left so that it shows up in the aside.
-We do not want to do this for the dark mode, otherwise, we see double the headers in the aside. */}
-
-<Tabs tabs={tabs}>
-  <div>
 ### Neutral
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-neutral"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-neutral"]
+} />
+
 ### Primary
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-primary"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-primary"]
+} />
+
 ### Success
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-success"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-success"]
+} />
+
 ### Warning
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-warning"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-warning"]
+} />
+
 ### Danger
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-danger"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-danger"]
+} />
+
 ### Information
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-information"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-information"]
+} />
+
 ### Upsell
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-upsell"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-upsell"]
+} />
 
 ### Decorative
-    #### Option 1
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option1"]
-    } />
-    #### Option 2
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option2"]
-    } />
-    #### Option 3
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option3"]
-    } />
-    #### Option 4
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option4"]
-    } />
-    #### Option 5
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option5"]
-    } />
-    #### Option 6
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option6"]
-    } />
-    #### Option 7
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option7"]
-    } />
-    #### Option 8
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option8"]
-    } />
-    #### Option 9
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-decorative-option9"]
-    } />
+
+#### Option 1
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option1"]
+} />
+
+#### Option 2
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option2"]
+} />
+
+#### Option 3
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option3"]
+} />
+
+#### Option 4
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option4"]
+} />
+
+#### Option 5
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option5"]
+} />
+
+#### Option 6
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option6"]
+} />
+
+#### Option 7
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option7"]
+} />
+
+#### Option 8
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option8"]
+} />
+
+#### Option 9
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-decorative-option9"]
+} />
 
 ### Status
 
-    #### Neutral
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-neutral"]
-    } />
-    #### Progress
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-progress"]
-    } />
-    #### Positive
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-positive"]
-    } />
-    #### Caution
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-caution"]
-    } />
-    #### Negative
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-negative"]
-    } />
-    #### Inactive
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-inactive"]
-    } />
-    #### Option 1
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-option1"]
-    } />
-    #### Option 2
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-option2"]
-    } />
-    #### Option 3
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-option3"]
-    } />
-    #### Option 4
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-option4"]
-    } />
-    #### Option 5
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-option5"]
-    } />
-    #### Option 6
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-status-option6"]
-    } />
+#### Neutral
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-neutral"]
+} />
+
+#### Progress
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-progress"]
+} />
+
+#### Positive
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-positive"]
+} />
+
+#### Caution
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-caution"]
+} />
+
+#### Negative
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-negative"]
+} />
+
+#### Inactive
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-inactive"]
+} />
+
+#### Option 1
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-option1"]
+} />
+
+#### Option 2
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-option2"]
+} />
+
+#### Option 3
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-option3"]
+} />
+
+#### Option 4
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-option4"]
+} />
+
+#### Option 5
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-option5"]
+} />
+
+#### Option 6
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-status-option6"]
+} />
 
 ### Data Visualization
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-unavailable", "hop-dataviz-text"]
-    } />
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-unavailable", "hop-dataviz-text"]
+} />
 
-    #### Monochromatic - Primary
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-monochromatic-primary"]
-    } />
+#### Monochromatic - Primary
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-monochromatic-primary"]
+} />
 
-    #### Monochromatic - Positive
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-monochromatic-positive"]
-    } />
+#### Monochromatic - Positive
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-monochromatic-positive"]
+} />
 
-    #### Monochromatic - Negative
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-monochromatic-negative"]
-    } />
+#### Monochromatic - Negative
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-monochromatic-negative"]
+} />
 
-    #### Diverging Sequence 1
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-diverging-sequence-1"]
-    } />
+#### Diverging Sequence 1
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-diverging-sequence-1"]
+} />
 
-    #### Diverging Sequence 2
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-diverging-sequence-2"]
-    } />
+#### Diverging Sequence 2
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-diverging-sequence-2"]
+} />
 
-    #### Categorical - Sequences
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-categorical-sequence"]
-    } />
+#### Categorical - Sequences
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-categorical-sequence"]
+} />
 
-    #### Categorical - 2 Color Groups
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-categorical-2"]
-    } />
+#### Categorical - 2 Color Groups
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-categorical-2"]
+} />
 
-    #### Categorical - 3 Color Groups
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-categorical-3"]
-    } />
+#### Categorical - 3 Color Groups
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-categorical-3"]
+} />
 
-    #### Categorical - 4 Color Groups
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-categorical-4"]
-    } />
+#### Categorical - 4 Color Groups
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-categorical-4"]
+} />
 
-    #### Categorical - 5 Color Groups
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-categorical-5"]
-    } />
+#### Categorical - 5 Color Groups
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-categorical-5"]
+} />
 
-    #### Categorical - 6 Color Groups
-    <TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
-      ["hop-dataviz-categorical-6"]
-    } />
-  </div>
-  <div>
-    ### Neutral
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-neutral"]
-    } />
-    ### Primary
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-primary"]
-    } />
-    ### Success
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-success"]
-    } />
-    ### Warning
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-warning"]
-    } />
-    ### Danger
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-danger"]
-    } />
-    ### Information
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-information"]
-    } />
-    ### Upsell
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-upsell"]
-    } />
+#### Categorical - 6 Color Groups
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+    ["hop-dataviz-categorical-6"]
+} />
 
-    ### Decorative
-    #### Option 1
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option1"]
-    } />
-    #### Option 2
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option2"]
-    } />
-    #### Option 3
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option3"]
-    } />
-    #### Option 4
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option4"]
-    } />
-    #### Option 5
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option5"]
-    } />
-    #### Option 6
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option6"]
-    } />
-    #### Option 7
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option7"]
-    } />
-    #### Option 8
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option8"]
-    } />
-    #### Option 9
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-decorative-option9"]
-    } />
+## Dark Tokens
 
-    ### Status
+### Neutral
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-neutral"]
+} />
 
-    #### Neutral
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-neutral"]
-    } />
-    #### Progress
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-progress"]
-    } />
-    #### Positive
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-positive"]
-    } />
-    #### Caution
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-caution"]
-    } />
-    #### Negative
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-negative"]
-    } />
-    #### Inactive
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-inactive"]
-    } />
-    #### Option 1
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-option1"]
-    } />
-    #### Option 2
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-option2"]
-    } />
-    #### Option 3
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-option3"]
-    } />
-    #### Option 4
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-option4"]
-    } />
-    #### Option 5
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-option5"]
-    } />
-    #### Option 6
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-status-option6"]
-    } />
+### Primary
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-primary"]
+} />
 
-    ### Data Visualization
-    <TableSection categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
-      ["hop-dataviz-unavailable", "hop-dataviz-text"]
-    } />
-  </div>
-</Tabs>
+### Success
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-success"]
+} />
+
+### Warning
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-warning"]
+} />
+
+### Danger
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-danger"]
+} />
+
+### Information
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-information"]
+} />
+
+### Upsell
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-upsell"]
+} />
+
+### Decorative
+
+#### Option 1
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option1"]
+} />
+
+#### Option 2
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option2"]
+} />
+
+#### Option 3
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option3"]
+} />
+
+#### Option 4
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option4"]
+} />
+
+#### Option 5
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option5"]
+} />
+
+#### Option 6
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option6"]
+} />
+
+#### Option 7
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option7"]
+} />
+
+#### Option 8
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option8"]
+} />
+
+#### Option 9
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-decorative-option9"]
+} />
+
+### Status
+
+#### Neutral
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-neutral"]
+} />
+
+#### Progress
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-progress"]
+} />
+
+#### Positive
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-positive"]
+} />
+
+#### Caution
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-caution"]
+} />
+
+#### Negative
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-negative"]
+} />
+
+#### Inactive
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-inactive"]
+} />
+
+#### Option 1
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-option1"]
+} />
+
+#### Option 2
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-option2"]
+} />
+
+#### Option 3
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-option3"]
+} />
+
+#### Option 4
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-option4"]
+} />
+
+#### Option 5
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-option5"]
+} />
+
+#### Option 6
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-status-option6"]
+} />
+
+### Data Visualization
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokensDark.semantic[categoryKey]} categories={
+    ["hop-dataviz-unavailable", "hop-dataviz-text"]
+} />

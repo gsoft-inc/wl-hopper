@@ -17,6 +17,7 @@
         "Collapsible": true,
         "Expand": true,
         "TokenTable": true,
+        "PropsReferenceTable": true,
         "MotionPreview": true,
         "Figure": true,
         "Footnote": true,

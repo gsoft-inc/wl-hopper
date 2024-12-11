@@ -12,7 +12,6 @@ import {
     SelectArrowIcon,
     TypescriptIcon
 } from "@/components/icon";
-import "@hopper-ui/tokens/fonts.css";
 import Link from "next/link";
 import "./home.css";
 import { ComponentsCard } from "./ui/home-page/ComponentsCard";

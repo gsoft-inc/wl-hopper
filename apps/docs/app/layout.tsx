@@ -3,6 +3,8 @@ import { EnvironmentContextProvider } from "@/context/env/EnvironmentProvider";
 import { FeatureFlagProvider } from "@/context/feature/FeatureFlagProvider";
 import { RACProvider } from "@/context/rac/RACProvider";
 import { ThemeProvider } from "@/context/theme/ThemeProvider";
+import "@hopper-ui/tokens/fonts.css";
+import "@hopper-ui/tokens/tokens.css";
 import type { ReactNode } from "react";
 import "./globals.css";
 import "./layout.css";

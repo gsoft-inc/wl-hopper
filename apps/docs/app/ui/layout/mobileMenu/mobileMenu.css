@@ -96,10 +96,10 @@
 .hd-mobile-menu-nav-tag {
     align-self: center;
     border-radius: var(--hd-border-radius-sm);
-    background-color: var(--hd-color-accent-surface-strong);
-    color: var(--hd-white);
+    color: var(--hd-color-accent-text);
+    background-color: var(--hd-color-accent-surface);
     font-size: 0.75rem;
-    padding: var(--hd-space-05);
+    padding: 0.125rem var(--hd-space-05);
 }
 
 .hd-mobile-menu--opening {
