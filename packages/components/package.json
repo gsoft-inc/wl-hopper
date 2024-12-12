@@ -44,7 +44,7 @@
         "react": "^18 || ^19",
         "react-aria": "^3.36",
         "react-aria-components": "^1.5",
-        "react-dom": "^18"
+        "react-dom": "^18 || ^19"
     },
     "dependencies": {
         "@hopper-ui/icons": "workspace:*",
