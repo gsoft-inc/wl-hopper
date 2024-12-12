@@ -44,7 +44,7 @@ export async function generateStaticParams() {
 
 // The sections are Overview, Semantic and Core. we want all title in "Core" to be "Core " + "Color"(the token type) + " Tokens"
 export async function generateMetadata({ params }: PageProps) {
-    const page = await findPageFromSlug(params.slug);
+    const page = findPageFromSlug(params.slug);
 
     if (!page) {
         return {
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: PageProps) {
         };
     }
 
-    const { title, section } = page;
+    const { title, section, description } = page;
 
     let pageTitle = `${title}`;
     if (section === "core") {
@@ -61,7 +61,14 @@ export async function generateMetadata({ params }: PageProps) {
         pageTitle = `Semantic ${title} Tokens`;
     }
 
-    return {
+    const metadata: Record<string, string> = {
         title: pageTitle
     };
+
+    if (description) {
+        metadata.description = description;
+    }
+
+
+    return metadata;
 }
