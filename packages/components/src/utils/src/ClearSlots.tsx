@@ -1,11 +1,12 @@
 import type { Context, PropsWithChildren, ReactNode } from "react";
 import { TextContext as RACTextContext, TextContext, type ContextValue } from "react-aria-components";
 
-export interface ClearProvidersProps<T extends Element> {
+export interface ClearProvidersProps {
     /**
      * The list of providers to clear.
      */
-    values: Context<ContextValue<unknown, T>>[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    values: Context<ContextValue<any, any>>[];
 
     children: ReactNode;
 }
@@ -20,10 +21,10 @@ export interface ClearProvidersProps<T extends Element> {
  * - You're trying to make a component that is a container for other components, and you don't want anything set above to affect your content.
  * - You're trying to specify a different slot provider inside
  */
-export function ClearProviders<T extends Element>({
+export function ClearProviders({
     values,
     children
-}: ClearProvidersProps<T>) {
+}: ClearProvidersProps) {
     // Similar implementation to SlotProvider
     for (const Context of values) {
         children = <Context.Provider value={null}>{children}</Context.Provider>;

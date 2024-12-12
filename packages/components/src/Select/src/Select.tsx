@@ -1,6 +1,6 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import { forwardRef, type Context, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, type ForwardedRef, type NamedExoticComponent, type ReactNode } from "react";
 import {
     Button,
     composeRenderProps,
@@ -8,7 +8,6 @@ import {
     Select as RACSelect,
     TextContext as RACTextContext,
     useContextProps,
-    type ContextValue,
     type ButtonProps as RACButtonProps,
     type SelectProps as RACSelectProps,
     type SelectValueRenderProps
@@ -209,7 +208,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
             values={[
                 RACTextContext,
                 TextContext,
-                RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
+                RACButtonContext
             ]}
         >
             <SlotProvider values={[
@@ -283,8 +282,8 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                                     return renderValue?.(valueRenderProps);
                                 }}
                             </SelectValue>
-                            <ToggleArrow 
-                                className={styles["hop-Select__button-icon"]} 
+                            <ToggleArrow
+                                className={styles["hop-Select__button-icon"]}
                                 isExpanded={isOpen}
 
                             />

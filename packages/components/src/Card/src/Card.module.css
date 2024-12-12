@@ -2,6 +2,10 @@
     /* Default */
     --hop-Card-border-radius: var(--hop-shape-rounded-md);
     --hop-Card-border-size:  0.0625rem;
+    --hop-Card-font-size: var(--hop-body-md-font-size);
+    --hop-Card-font-family: var(--hop-body-md-font-family);
+    --hop-Card-font-weight: var(--hop-body-md-font-weight);
+    --hop-Card-line-height: var(--hop-body-md-line-height);
 
     /* Main */
     --hop-Card-main-border: var(--hop-Card-border-size) solid var(--hop-neutral-border-weak);
@@ -14,9 +18,15 @@
     display: flex;
     flex-direction: column;
 
+    font-family: var(--hop-Card-font-family);
+    font-size: var(--hop-Card-font-size);
+    font-weight: var(--hop-Card-font-weight);
+    line-height: var(--hop-Card-line-height);
+
     background-color: var(--background-color);
     border: var(--border);
     border-radius: var(--hop-Card-border-radius);
+
 }
 
 .hop-Card--main {
