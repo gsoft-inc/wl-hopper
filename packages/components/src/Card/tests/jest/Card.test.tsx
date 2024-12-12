@@ -47,10 +47,10 @@ describe("Card", () => {
     });
 
     it("should support refs", () => {
-        const ref = createRef<HTMLElement>();
+        const ref = createRef<HTMLDivElement>();
         render(<Card data-testid="Card" ref={ref}>12</Card>);
 
         expect(ref.current).not.toBeNull();
-        expect(ref.current instanceof HTMLElement).toBeTruthy();
+        expect(ref.current instanceof HTMLDivElement).toBeTruthy();
     });
 });
