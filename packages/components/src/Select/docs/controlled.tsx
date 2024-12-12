@@ -14,12 +14,12 @@ export default function Example() {
 
     return (
         <Select selectedKey={selectedKey} onSelectionChange={handleSelectionChange} label="Roles">
-            <SelectSection key="1">
+            <SelectSection>
                 <Header>Operations</Header>
                 <SelectItem id="1">Project Coordinator</SelectItem>
                 <SelectItem id="2">QA Specialist</SelectItem>
             </SelectSection>
-            <SelectItem key="2" id="3">Manager</SelectItem>
+            <SelectItem id="3">Manager</SelectItem>
         </Select>
     );
 }

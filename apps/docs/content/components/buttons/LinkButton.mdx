@@ -21,17 +21,15 @@ links:
 
 ## Anatomy
 
-<FeatureFlag flag="rc">
-    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
+### Concepts
 
-    ### Concepts
+*LinkButton* makes use of the following concepts:
 
-    - [Client Side Routing](./client-side-routing)
-</FeatureFlag>
+- [Client Side Routing](./client-side-routing)
 
 ### Composed Components
 
-A `LinkButton` uses the following components.
+A *LinkButton* uses the following components:
 
 <ComposedComponents components={["Icon", "IconList", "Text"]}/>
 
@@ -64,13 +62,11 @@ A link button can be disabled.
 <Example src="buttons/docs/linkButton/state" />
 
 ### External
-
 Add `rel="noopener noreferrer"` and `target="_blank"` attributes to render and external link button.
 
 <Example src="buttons/docs/linkButton/external" />
 
 ### No Href
-
 When a link button link does not have an href prop, it is rendered as a `<span role="link">` instead of an `<a>`. Events will need to be handled in JavaScript with the `onPress` prop.
 
 Note: this will not behave like a native link. Browser features like context menus and open in a new tab will not apply.

@@ -1,15 +1,10 @@
 import { SearchField, Stack } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = {
-        placeholder: "New York, NY",
-        label: "Filter by location"
-    };
-
     return (
         <Stack>
-            <SearchField size="sm" {...props} />
-            <SearchField {...props} />
+            <SearchField label="Filter by location" placeholder="New York, NY" size="sm" />
+            <SearchField label="Filter by location" placeholder="New York, NY" />
         </Stack>
     );
 }
