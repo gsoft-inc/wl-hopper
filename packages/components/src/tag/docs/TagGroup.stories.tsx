@@ -272,7 +272,7 @@ export const SelectableTags = {
     args: {
         ...Description.args,
         selectionMode: "multiple",
-        defaultSelectedKeys: new Set(["1", "3"])
+        defaultSelectedKeys: ["1", "3"]
     }
 } satisfies Story;
 
@@ -283,7 +283,7 @@ export const DisabledTags = {
     ...Description,
     args: {
         ...Description.args,
-        disabledKeys: new Set(["1", "2", "3"])
+        disabledKeys: ["1", "2", "3"]
     }
 } satisfies Story;
 

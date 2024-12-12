@@ -5,7 +5,7 @@ export default function Example() {
         <TagGroup
             aria-label="Jobs"
             selectionMode="multiple"
-            defaultSelectedKeys={new Set(["designer", "developer"])}
+            defaultSelectedKeys={["designer", "developer"]}
         >
             <Tag id="designer">Designer</Tag>
             <Tag id="developer">Developer</Tag>
