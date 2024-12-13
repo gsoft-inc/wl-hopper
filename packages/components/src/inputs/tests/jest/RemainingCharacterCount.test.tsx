@@ -47,11 +47,11 @@ describe("RemainingCharacterCount", () => {
     });
 
     it("should support refs", () => {
-        const ref = createRef<HTMLElement>();
+        const ref = createRef<HTMLSpanElement>();
         render(<RemainingCharacterCount count={3} ref={ref} />);
 
         expect(ref.current).not.toBeNull();
-        expect(ref.current instanceof HTMLElement).toBeTruthy();
+        expect(ref.current instanceof HTMLSpanElement).toBeTruthy();
     });
 
     it("should support disabled", () => {

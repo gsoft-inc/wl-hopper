@@ -11,7 +11,7 @@ interface PageProps {
     };
 }
 
-async function findComponentFromSlug(params : { slug: string[] }) {
+function findComponentFromSlug(params : { slug: string[] }) {
     const [type] = params.slug;
 
     const component = allComponents.find(x => x.slug === type);
@@ -73,14 +73,19 @@ export default async function ComponentPage({ params }: PageProps) {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-    const component = await findComponentFromSlug(params);
+    const component = findComponentFromSlug(params);
 
     if (component) {
-        const title = component?.title;
-
-        return {
-            title: `${title}`
+        const metadata: Record<string, string> = {
+            title: component.title
         };
+
+        if (component.description) {
+            metadata.description = component.description;
+        }
+
+
+        return metadata;
     }
 
     return {

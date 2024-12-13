@@ -21,17 +21,9 @@ links:
 
 ## Anatomy
 
-<FeatureFlag flag="rc">
-    TODO: We have anatomy screenshots from the Figma, we could most likely use them here
-
-    ### Concepts
-
-    - [Client Side Routing](./client-side-routing)
-</FeatureFlag>
-
 ### Composed Components
 
-A `Button` uses the following components.
+A `Button` uses the following components:
 
 <ComposedComponents components={["Icon", "IconList", "Text"] }/>
 
@@ -74,7 +66,7 @@ A button can be expanded to full width to fill its parent container.
 <Example src="buttons/docs/button/layout" />
 
 ### Icon Only
-A button can contain only an icon.
+A button can contain only an icon. An accessible name must be provided through [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) prop. See also [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 <Example src="buttons/docs/button/icon" />
 

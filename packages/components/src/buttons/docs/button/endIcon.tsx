@@ -4,13 +4,13 @@ import { SparklesIcon } from "@hopper-ui/icons";
 export default function Example() {
     return (
         <Inline>
-            <Button size="md" aria-label="Clean" variant="secondary">
-                <SparklesIcon key="1" slot="end-icon" />
-                <Text key="2">Save</Text>
+            <Button aria-label="Save" variant="secondary">
+                <SparklesIcon slot="end-icon" />
+                <Text>Save</Text>
             </Button>
-            <Button size="sm" aria-label="Clean" variant="secondary">
-                <SparklesIcon key="1" slot="end-icon" />
-                <Text key="2">Save</Text>
+            <Button size="sm" aria-label="Save" variant="secondary">
+                <SparklesIcon slot="end-icon" />
+                <Text>Save</Text>
             </Button>
         </Inline>
     );

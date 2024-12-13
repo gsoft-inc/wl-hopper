@@ -421,7 +421,7 @@ export const DefaultStates: Story = {
                 <h1>Default</h1>
                 <StateTemplate {...args} />
                 <h1>Disabled</h1>
-                <StateTemplate {...args} disabledKeys={new Set(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"])} />
+                <StateTemplate {...args} disabledKeys={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]} />
                 <h1>Pressed</h1>
                 <StateTemplate {...args} data-chromatic-force-press />
                 <h1>Focus Visible</h1>

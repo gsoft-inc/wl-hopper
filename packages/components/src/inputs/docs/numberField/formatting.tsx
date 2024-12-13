@@ -2,13 +2,12 @@ import { NumberField } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <NumberField formatOptions={
-            {
+        <NumberField
+            formatOptions={{
                 style: "currency",
                 currency: "USD"
-            }
-        }
-        label="Training Budget Allocated"
+            }}
+            label="Training Budget Allocated"
         />
     );
 }

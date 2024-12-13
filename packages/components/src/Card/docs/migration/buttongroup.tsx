@@ -1,12 +1,10 @@
-import { Button, ButtonGroup, Card, Content, Footer, H3, Header, Text } from "@hopper-ui/components";
+import { Button, ButtonGroup, Card, H3, Stack, Text } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <Card gap="stack-md" padding="inset-lg" UNSAFE_maxWidth="30rem" width="100%">
-            <Header>
-                <H3>NASA Headquarters</H3>
-            </Header>
-            <Content>
+            <H3>NASA Headquarters</H3>
+            <Stack>
                 <Text>
                     300 E. Street SW, Suite 5R30
                     <br />
@@ -17,16 +15,12 @@ export default function Example() {
                     (202) 358-4338 (Fax)
                     <br />
                 </Text>
-                <Text>
-                    <em>Any trespassers are going to be sent in space.</em>
-                </Text>
-            </Content>
-            <Footer>
-                <ButtonGroup>
-                    <Button>Plan a visit</Button>
-                    <Button variant="secondary">Cancel a booking</Button>
-                </ButtonGroup>
-            </Footer>
+                <em>Any trespassers are going to be sent in space.</em>
+            </Stack>
+            <ButtonGroup>
+                <Button>Plan a visit</Button>
+                <Button variant="secondary">Cancel a booking</Button>
+            </ButtonGroup>
         </Card>
     );
 }

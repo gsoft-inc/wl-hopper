@@ -2,7 +2,8 @@ import { ComboBox, ComboBoxItem } from "@hopper-ui/components";
 
 export default function Example() {
     return (
-        <ComboBox label="Roles"
+        <ComboBox
+            label="Roles"
             align="end"
             direction="top"
         >

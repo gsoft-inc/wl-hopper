@@ -5,13 +5,13 @@ export default function Example() {
     return (
         <ComboBox label="Roles">
             <ComboBoxItem textValue="Developer">
-                <Text slot="label">Developer</Text>
+                <Text>Developer</Text>
                 <IconList>
                     <SparklesIcon /><SparklesIcon /><SparklesIcon />
                 </IconList>
             </ComboBoxItem>
             <ComboBoxItem textValue="Designer">
-                <SparklesIcon /><Text slot="label">Designer</Text>
+                <SparklesIcon /><Text>Designer</Text>
             </ComboBoxItem>
             <ComboBoxItem>Manager</ComboBoxItem>
         </ComboBox>

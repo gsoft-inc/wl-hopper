@@ -1,73 +1,39 @@
-import { Collection, Header, Inline, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
+import { Collection, Header, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
 
-interface ListItemProps {
-    id: number | string;
-    name: string;
-}
-
-interface ListSectionProps {
-    name: string;
-    children: ListItemProps[];
-}
+const OPTIONS_WITH_SECTIONS = [
+    {
+        name: "Boy Names", children: [
+            { id: 2, name: "Fred" },
+            { id: 3, name: "Bob" },
+            { id: 4, name: "Gabriel" }
+        ]
+    },
+    {
+        name: "Girl Names", children: [
+            { id: 6, name: "Sarah" },
+            { id: 7, name: "Louise" },
+            { id: 8, name: "Karen2" }
+        ]
+    }
+];
 
 export default function Example() {
-    const options = [
-        { id: 2, name: "Fred" },
-        { id: 3, name: "Bob" },
-        { id: 4, name: "Gabriel" },
-        { id: 6, name: "Sarah" },
-        { id: 7, name: "Louise" },
-        { id: 8, name: "Karen" }
-    ] satisfies ListItemProps[];
-
-    const optionsWithSections = [
-        {
-            name: "Boy Names", children: [
-                { id: 2, name: "Fred" },
-                { id: 3, name: "Bob" },
-                { id: 4, name: "Gabriel" }
-            ]
-        },
-        {
-            name: "Girl Names", children: [
-                { id: 6, name: "Sarah" },
-                { id: 7, name: "Louise" },
-                { id: 8, name: "Karen" }
-            ]
-        }
-    ] satisfies ListSectionProps[];
-
     return (
-        <Inline alignY="flex-start">
-            <ListBox
-                selectionMode="single"
-                aria-label="Names"
-                items={options}
-            >
-                {item => {
-                    const listItem = item as ListItemProps;
-
-                    return <ListBoxItem id={listItem.name}>{listItem.name}</ListBoxItem>;
-                }}
-            </ListBox>
-            <ListBox
-                selectionMode="single"
-                aria-label="Names"
-                items={optionsWithSections}
-            >
-                {section => {
-                    const listSection = section as ListSectionProps;
-
-                    return (
-                        <ListBoxSection id={listSection.name}>
-                            <Header>{listSection.name}</Header>
-                            <Collection items={listSection.children}>
-                                {item => <ListBoxItem id={item.name}>{item.name}</ListBoxItem>}
-                            </Collection>
-                        </ListBoxSection>
-                    );
-                }}
-            </ListBox>
-        </Inline>
+        <ListBox
+            selectionMode="single"
+            aria-label="Names"
+            items={OPTIONS_WITH_SECTIONS}
+        >
+            {section => {
+                return (
+                    <ListBoxSection id={section.name}>
+                        <Header>{section.name}</Header>
+                        <Collection items={section.children}>
+                            {item => <ListBoxItem id={item.name}>{item.name}</ListBoxItem>}
+                        </Collection>
+                    </ListBoxSection>
+                );
+            }}
+        </ListBox>
     );
 }

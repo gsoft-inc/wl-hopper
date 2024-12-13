@@ -45,9 +45,22 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-    const page = await findPageFromSlug(params.slug);
+    const page = findPageFromSlug(params.slug);
+
+    if (page) {
+        const metadata: Record<string, string> = {
+            title: page.title
+        };
+
+        if (page.description) {
+            metadata.description = page.description;
+        }
+
+
+        return metadata;
+    }
 
     return {
-        title: page ? `${page.title}` : null
+        title: null
     };
 }
