@@ -14,9 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Main = {
     render: props => (
         <Card {...props}>
-            Header
             Content
-            Footer
         </Card>
     )
 } satisfies Story;
@@ -24,9 +22,7 @@ export const Main = {
 export const SecondLevel = {
     render: props => (
         <Card variant="second-level" {...props}>
-            Header
             Content
-            Footer
         </Card>
     )
 } satisfies Story;
@@ -34,11 +30,11 @@ export const SecondLevel = {
 export const EmbeddedCard = {
     render: props => (
         <Card variant="second-level" {...props}>
-            Header
+            Above
             <Card>
                 Embedded
             </Card>
-            Footer
+            Under
         </Card>
     )
 } satisfies Story;
