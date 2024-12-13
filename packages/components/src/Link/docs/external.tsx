@@ -3,9 +3,9 @@ import { NewTabIcon } from "@hopper-ui/icons";
 
 export default function Example() {
     return (
-        <Link href="#" isExternal>
+        <Link href="#" isExternal alignItems="end">
             <Text>Learn more</Text>
-            <NewTabIcon />
+            <NewTabIcon size="sm" />
         </Link>
     );
 }

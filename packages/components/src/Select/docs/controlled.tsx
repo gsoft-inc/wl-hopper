@@ -4,13 +4,13 @@ import { useState } from "react";
 export default function Example() {
     const [selectedKey, setSelectedKey] = useState<Key | null>();
 
-    function handleSelectionChange(key: Key) {
+    const handleSelectionChange = (key: Key) => {
         if (selectedKey === key) {
             setSelectedKey(null);
         } else {
             setSelectedKey(key);
         }
-    }
+    };
 
     return (
         <Select selectedKey={selectedKey} onSelectionChange={handleSelectionChange} label="Roles">

@@ -32,7 +32,7 @@ import styles from "./Select.module.css";
 
 export const GlobalSelectCssSelector = "hop-Select";
 
-export type ValueRenderProps = SelectValueRenderProps<object> & { defaultChildren: ReactNode };
+export type ValueRenderProps<T> = SelectValueRenderProps<T> & { defaultChildren: ReactNode };
 export type SelectTriggerProps = StyledComponentProps<RACButtonProps>;
 
 export interface SelectProps<T extends object> extends StyledComponentProps<Omit<RACSelectProps<T>, "children">>, FieldProps {
@@ -94,7 +94,7 @@ export interface SelectProps<T extends object> extends StyledComponentProps<Omit
     /**
      * A function to render the value of the select. It will render the selected item's text by default.
      */
-    renderValue?: (valueRenderProps: ValueRenderProps) => ReactNode;
+    renderValue?: (valueRenderProps: ValueRenderProps<T>) => ReactNode;
     /**
      * The selection indicator to use. Only available if the selection mode is not "none".
      * When set to "input", the selection indicator will be either a radio or checkbox based on the selection mode.
@@ -277,7 +277,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                         </Popover>
                         <Button className={buttonClassNames} style={triggerStyle} data-invalid={isInvalid || undefined} {...otherTriggerProps}>
                             {prefixMarkup}
-                            <SelectValue size={size}>
+                            <SelectValue<T> size={size}>
                                 {valueRenderProps => {
                                     return renderValue?.(valueRenderProps);
                                 }}

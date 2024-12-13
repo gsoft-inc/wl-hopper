@@ -1,4 +1,4 @@
-import { Header, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
+import { Collection, Header, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
 
 const OPTIONS_WITH_SECTIONS = [
     {
@@ -28,9 +28,9 @@ export default function Example() {
                 return (
                     <ListBoxSection id={section.name}>
                         <Header>{section.name}</Header>
-                        {section.children.map(item => (
-                            <ListBoxItem id={item.name}>{item.name}</ListBoxItem>
-                        ))}
+                        <Collection items={section.children}>
+                            {item => <ListBoxItem id={item.name}>{item.name}</ListBoxItem>}
+                        </Collection>
                     </ListBoxSection>
                 );
             }}
