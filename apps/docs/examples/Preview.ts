@@ -83,14 +83,14 @@ export const Previews: Record<string, Preview> = {
     "buttons/docs/linkButton/icon": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/icon.tsx"))
     },
+    "buttons/docs/linkButton/reactRouterLink": {
+        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/reactRouterLink.tsx"))
+    },
     "buttons/docs/linkButton/icons": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/icons.tsx"))
     },
     "buttons/docs/linkButton/endIcon": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/endIcon.tsx"))
-    },
-    "buttons/docs/linkButton/reactRouterLink": {
-        component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/reactRouterLink.tsx"))
     },
     "buttons/docs/linkButton/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/advancedCustomization.tsx"))
@@ -112,6 +112,9 @@ export const Previews: Record<string, Preview> = {
     },
     "ListBox/docs/section": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/section.tsx"))
+    },
+    "ListBox/docs/divider": {
+        component: lazy(() => import("@/../../packages/components/src/ListBox/docs/divider.tsx"))
     },
     "ListBox/docs/avatar": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/avatar.tsx"))

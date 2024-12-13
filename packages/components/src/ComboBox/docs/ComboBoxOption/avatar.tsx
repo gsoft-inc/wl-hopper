@@ -5,15 +5,15 @@ export default function Example() {
         <ComboBox label="Username">
             <ComboBoxItem id="fred-smith" textValue="Fred Smith" >
                 <Avatar src="https://i.pravatar.cc/96?img=3" name="Fred Smith" />
-                <Text slot="label">Fred Smith</Text>
+                <Text>Fred Smith</Text>
             </ComboBoxItem>
             <ComboBoxItem id="karen-smith" textValue="Karen Smith" >
                 <Avatar name="Karen Smith" />
-                <Text slot="label">Karen Smith</Text>
+                <Text>Karen Smith</Text>
             </ComboBoxItem>
             <ComboBoxItem id="john-doe" textValue="John Doe" >
                 <Avatar name="John Doe" />
-                <Text slot="label">John Doe</Text>
+                <Text>John Doe</Text>
             </ComboBoxItem>
         </ComboBox>
     );

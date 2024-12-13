@@ -110,15 +110,15 @@ export const SingleSelection = {
                 onSelectionChange={setSelectedKeys}
             >
                 <ListBoxItem textValue="Item 1" id="1">
-                    <Text slot="label">Item 1</Text>
+                    <Text>Item 1</Text>
                     <Text slot="description">Description of item 1</Text>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 2" id="2">
-                    <Text slot="label">Item 2</Text>
+                    <Text>Item 2</Text>
                     <Text slot="description">Description of item 2</Text>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 3" id="3">
-                    <Text slot="label">Item 3</Text>
+                    <Text>Item 3</Text>
                     <Text slot="description">Description of item 3</Text>
                 </ListBoxItem>
             </ListBox>
@@ -278,13 +278,13 @@ export const Icons = {
         return (
             <ListBox {...args} aria-label="list of options">
                 <ListBoxItem textValue="Item 1">
-                    <Text slot="label">Item 1</Text>
+                    <Text>Item 1</Text>
                     <IconList>
                         <SparklesIcon /><SparklesIcon /><SparklesIcon />
                     </IconList>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 2">
-                    <SparklesIcon /><Text slot="label">Item 2</Text>
+                    <SparklesIcon /><Text>Item 2</Text>
                 </ListBoxItem>
                 <ListBoxItem>Item 3</ListBoxItem>
             </ListBox>
@@ -303,13 +303,13 @@ export const EndIcons = {
         return (
             <ListBox {...args} aria-label="list of options">
                 <ListBoxItem textValue="Item 1">
-                    <Text slot="label">Item 1</Text>
+                    <Text>Item 1</Text>
                     <IconList slot="end-icon">
                         <SparklesIcon /><SparklesIcon /><SparklesIcon />
                     </IconList>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 2">
-                    <SparklesIcon slot="end-icon" /><Text slot="label">Item 2</Text>
+                    <SparklesIcon slot="end-icon" /><Text>Item 2</Text>
                 </ListBoxItem>
                 <ListBoxItem>Item 3</ListBoxItem>
             </ListBox>
@@ -328,13 +328,13 @@ export const Count = {
         return (
             <ListBox {...args} aria-label="list of options">
                 <ListBoxItem textValue="Item 1">
-                    <Text slot="label">Item 1</Text>
+                    <Text>Item 1</Text>
                     <SparklesIcon slot="end-icon" />
                     <Badge>50</Badge>
                 </ListBoxItem>
                 <ListBoxItem textValue="Item 2">
                     <Badge variant="subdued">99+</Badge>
-                    <Text slot="label">Item 2</Text>
+                    <Text>Item 2</Text>
                 </ListBoxItem>
                 <ListBoxItem>Item 3</ListBoxItem>
             </ListBox>

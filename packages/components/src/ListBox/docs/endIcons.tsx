@@ -5,13 +5,14 @@ export default function Example() {
     return (
         <ListBox selectionMode="single" aria-label="list of options">
             <ListBoxItem textValue="Developer">
-                <Text slot="label">Developer</Text>
+                <Text>Developer</Text>
                 <IconList slot="end-icon">
                     <SparklesIcon /><SparklesIcon /><SparklesIcon />
                 </IconList>
             </ListBoxItem>
             <ListBoxItem textValue="Designer">
-                <SparklesIcon slot="end-icon" /><Text slot="label">Designer</Text>
+                <Text>Designer</Text>
+                <SparklesIcon slot="end-icon" />
             </ListBoxItem>
             <ListBoxItem>Manager</ListBoxItem>
         </ListBox>
