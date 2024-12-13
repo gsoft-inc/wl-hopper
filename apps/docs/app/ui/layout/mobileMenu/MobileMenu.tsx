@@ -17,7 +17,6 @@ import HopperLogo from "./assets/hopper-logo.svg";
 
 import "./mobileMenu.css";
 
-
 interface MobileMenuProps {
     onClose?: () => void;
     isOpen: boolean;

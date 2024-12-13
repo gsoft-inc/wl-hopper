@@ -23,7 +23,9 @@ const sortOrder = [
     "overlays",
     "pickers",
     "status",
-    "content"
+    "content",
+    "placeholders",
+    "internal-parts"
 ];
 
 const categories = Array.from(new Set(allComponents.map(component => component.category))).filter(x => x && !ignoreCategories.includes(x)).sort((a, b) => {
