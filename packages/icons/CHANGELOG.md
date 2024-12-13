@@ -1,5 +1,11 @@
 # @hopper-ui/icons
 
+## 2.9.1
+
+### Patch Changes
+
+- 0448ab1: Updated peer dependency versions range
+
 ## 2.9.0
 
 ### Minor Changes

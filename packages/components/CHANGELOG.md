@@ -1,5 +1,13 @@
 # @hopper-ui/components
 
+## 1.4.1
+
+### Patch Changes
+
+- 0448ab1: Updated peer dependency versions range
+- Updated dependencies [0448ab1]
+  - @hopper-ui/icons@2.9.1
+
 ## 1.4.0
 
 ### Minor Changes
