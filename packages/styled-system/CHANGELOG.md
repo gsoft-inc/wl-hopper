@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.5.1
+
+### Patch Changes
+
+- 0448ab1: Updated peer dependency versions range
+
 ## 2.5.0
 
 ### Minor Changes
