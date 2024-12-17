@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 
 interface SimpleTableProps {
@@ -7,7 +9,7 @@ interface SimpleTableProps {
     lastColumnAlignment?: "left" | "right";
 }
 
-export default async function SimpleTable({ "aria-label": ariaLabel, headers, data, lastColumnAlignment }: SimpleTableProps) {
+export default function SimpleTable({ "aria-label": ariaLabel, headers, data, lastColumnAlignment }: SimpleTableProps) {
     return (
         <table aria-label={ariaLabel} className="hd-table">
             <thead>
