@@ -109,17 +109,37 @@ export default async function PropTable({ component }: PropTableProps) {
     const { groups } = await getComponentProps(component);
     const formattedGroups = await formatGroup(groups);
 
+    const mergedObject = formattedGroups.reduce((acc, current) => {
+        for (const [key, value] of Object.entries(current)) {
+            if (acc[key]) {
+                acc[key] = acc[key].concat(value);
+            } else {
+                acc[key] = value;
+            }
+        }
+
+        return acc;
+    }, {});
+
+    const mergedArray = Object.entries(mergedObject).map(([key, value]) => ({
+        [key]: value
+    }));
+
     return (
         <>
-            {formattedGroups.map(group => {
+            {mergedArray.map(group => {
                 const [key] = Object.keys(group);
                 const isEmpty = group[key].length === 0;
+
+                if (isEmpty) {
+                    return null;
+                }
 
                 return (
                     <Fragment key={key}>
                         {key === "default" ?
                             <PropTableRender items={group[key]} /> :
-                            !isEmpty && <Collapsible className="hd-props-table__section"
+                            <Collapsible className="hd-props-table__section"
                                 key={key}
                                 title={<Title level={4}>
                                     {capitalize(key)}
