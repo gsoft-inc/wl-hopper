@@ -1,5 +1,4 @@
 .hd-switcher-picker {
-    margin-bottom: var(--hd-space-3);
     display: flex;
     gap: var(--hd-space-2);
 }
@@ -56,4 +55,10 @@
 
 .hd-switcher-choice:has(input:focus-visible) {
     outline: -webkit-focus-ring-color auto var(--hd-border-size);
+}
+
+.hd-switcher__wrapper {
+    display: flex;
+    gap: var(--hd-space-3);
+    flex-direction: column;
 }

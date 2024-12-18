@@ -19,7 +19,6 @@
     opacity: 0;
 }
 
-
 @media screen and (width >= 48rem) {
     .hd-sidebar {
         position: sticky;
