@@ -1,20 +1,24 @@
 "use client";
 
-import IconItem from "./IconItem";
-import * as IconLibrary from "@hopper-ui/icons";
 import { HopperProvider } from "@hopper-ui/components";
+import * as IconLibrary from "@hopper-ui/icons";
+import IconItem from "./IconItem";
 
+import { ThemeContext } from "@/context/theme/ThemeProvider";
+import { useContext } from "react";
 import "./iconTable.css";
 
 interface IconTableProps {
     size: "sm" | "md" | "lg" | "xl";
     type: "svg" | "react";
     items: typeof IconLibrary.iconNames | typeof IconLibrary.richIconNames;
+    filter?: string;
 }
 
 function toKebabCase(str: string) {
     return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
+
 function getIconNumericSize(iconSize : "sm" | "md" | "lg" | "xl") {
     switch (iconSize) {
         case "sm":
@@ -28,8 +32,13 @@ function getIconNumericSize(iconSize : "sm" | "md" | "lg" | "xl") {
     }
 }
 
-export const IconTable = ({ size, type, items }: IconTableProps) => {
-    const listItems = items.map(name => {
+export const IconTable = ({ size, type, items, filter }: IconTableProps) => {
+    const { colorMode } = useContext(ThemeContext);
+    const listItems = items.filter(name => {
+        const formattedName = name.replace("RichIcon", "").replace("Icon", "");
+
+        return !filter || formattedName.toLowerCase().includes(filter.trim().toLowerCase());
+    }).map(name => {
         const formattedName = name.replace("RichIcon", "").replace("Icon", "");
         const copyString = type === "react"
             ? `${name}`
@@ -45,7 +54,7 @@ export const IconTable = ({ size, type, items }: IconTableProps) => {
     });
 
     return (
-        <HopperProvider colorScheme="light">
+        <HopperProvider colorScheme={colorMode}>
             <div className="hd-icon-table">
                 {listItems}
             </div>
