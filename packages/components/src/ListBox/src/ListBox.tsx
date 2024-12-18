@@ -76,7 +76,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         size: sizeProp,
         style: styleProp,
         selectionIndicator = "check",
-        selectionMode,
+        selectionMode = "single",
         loadingListBoxItemProps,
         ...otherProps
     } = ownProps;
