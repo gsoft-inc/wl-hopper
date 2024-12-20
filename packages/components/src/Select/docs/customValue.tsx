@@ -9,7 +9,7 @@ const renderValue = ({ defaultChildren, selectedItem }: ValueRenderProps<User>) 
         return (
             <>
                 <Avatar name={name} src={avatar} />
-                <Text>{name}</Text>
+                <Text slot="label">{name}</Text>
             </>
         );
     }
@@ -31,7 +31,7 @@ export default function Example() {
                 return (
                     <SelectItem id={id} textValue={name}>
                         <Avatar name={name} src={avatar} />
-                        <Text>{name}</Text>
+                        <Text slot="label">{name}</Text>
                         <Text slot="description">{role}</Text>
                     </SelectItem>
                 );

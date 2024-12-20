@@ -5,15 +5,15 @@ export default function Example() {
         <Select aria-label="Team">
             <SelectItem textValue="Fred Smith">
                 <Avatar src="https://i.pravatar.cc/96?img=3" name="Fred Smith" />
-                <Text>Fred Smith</Text>
+                <Text slot="label">Fred Smith</Text>
             </SelectItem>
             <SelectItem textValue="Karen Smith">
                 <Avatar name="Karen Smith" />
-                <Text>Karen Smith</Text>
+                <Text slot="label">Karen Smith</Text>
             </SelectItem>
             <SelectItem textValue="John Doe">
                 <Avatar name="John Doe" />
-                <Text>John Doe</Text>
+                <Text slot="label">John Doe</Text>
             </SelectItem>
         </Select>
     );
