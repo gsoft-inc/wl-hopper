@@ -50,6 +50,11 @@ export interface LinkButtonProps extends StyledComponentProps<RACLinkProps> {
      * Whether or not the button takes up the width of its container.
      */
     isFluid?: ResponsiveProp<boolean>;
+
+    /**
+     * Whether the button should open in a new tab.
+     */
+    isExternal?: boolean;
 }
 
 function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>) {
@@ -62,6 +67,9 @@ function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>
         className,
         children: childrenProp,
         size: sizeProp,
+        isExternal,
+        rel,
+        target,
         isFluid: isFluidProp,
         variant = "primary",
         style: styleProp,
@@ -134,6 +142,8 @@ function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>
         >
             <RACLink
                 ref={ref}
+                rel={rel ?? (isExternal ? "noopener noreferrer" : undefined)}
+                target={target ?? (isExternal ? "_blank" : undefined)}
                 className={classNames}
                 style={style}
                 slot={props.slot || undefined}

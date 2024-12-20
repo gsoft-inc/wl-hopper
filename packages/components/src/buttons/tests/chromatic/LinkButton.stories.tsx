@@ -11,7 +11,7 @@ const meta = {
     component: LinkButton,
     args: {
         children: "Click me!",
-        target: "_blank"
+        isExternal: true
     }
 } satisfies Meta<typeof LinkButton>;
 
