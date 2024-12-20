@@ -5,14 +5,14 @@ export default function Example() {
     return (
         <Select aria-label="list of options">
             <SelectItem textValue="Designer">
-                <Text>Designer</Text>
+                <Text slot="label">Designer</Text>
                 <IconList>
                     <SparklesIcon /><SparklesIcon /><SparklesIcon />
                 </IconList>
             </SelectItem>
             <SelectItem textValue="Developer">
                 <SparklesIcon />
-                <Text>Developer</Text>
+                <Text slot="label">Developer</Text>
             </SelectItem>
             <SelectItem>Manager</SelectItem>
         </Select>
