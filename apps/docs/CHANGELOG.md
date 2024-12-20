@@ -1,5 +1,11 @@
 # docs
 
+## 0.4.5
+
+### Patch Changes
+
+- 16ca6cc: Add isExternal prop to LinkButton to simplify opening a LinkButton to an external tab
+
 ## 0.4.4
 
 ### Patch Changes
