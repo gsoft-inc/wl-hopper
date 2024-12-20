@@ -491,15 +491,6 @@ export const Previews: Record<string, Preview> = {
     "checkbox/docs/checkboxgroup/itemsDescription": {
         component: lazy(() => import("@/../../packages/components/src/checkbox/docs/checkboxgroup/itemsDescription.tsx"))
     },
-    "ErrorMessage/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
-    },
-    "ErrorMessage/docs/noicon": {
-        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/noicon.tsx"))
-    },
-    "ErrorMessage/docs/multipleerrors": {
-        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/multipleerrors.tsx"))
-    },
     "Form/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/Form/docs/preview.tsx"))
     },
@@ -520,12 +511,6 @@ export const Previews: Record<string, Preview> = {
     },
     "Form/docs/fluid": {
         component: lazy(() => import("@/../../packages/components/src/Form/docs/fluid.tsx"))
-    },
-    "HelperMessage/docs/preview": {
-        component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/preview.tsx"))
-    },
-    "HelperMessage/docs/noicon": {
-        component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/noicon.tsx"))
     },
     "inputs/docs/numberField/preview": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/numberField/preview.tsx"))
@@ -760,6 +745,21 @@ export const Previews: Record<string, Preview> = {
     },
     "IconList/docs/size": {
         component: lazy(() => import("@/../../packages/components/src/IconList/docs/size.tsx"))
+    },
+    "ErrorMessage/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
+    },
+    "ErrorMessage/docs/noicon": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/noicon.tsx"))
+    },
+    "ErrorMessage/docs/multipleerrors": {
+        component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/multipleerrors.tsx"))
+    },
+    "HelperMessage/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/preview.tsx"))
+    },
+    "HelperMessage/docs/noicon": {
+        component: lazy(() => import("@/../../packages/components/src/HelperMessage/docs/noicon.tsx"))
     },
     "layout/docs/flex/preview": {
         component: lazy(() => import("@/../../packages/components/src/layout/docs/flex/preview.tsx"))
