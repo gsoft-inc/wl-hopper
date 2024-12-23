@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.4.2
+
+### Patch Changes
+
+- 16ca6cc: Add isExternal prop to LinkButton to simplify opening a LinkButton to an external tab
+
 ## 1.4.1
 
 ### Patch Changes
