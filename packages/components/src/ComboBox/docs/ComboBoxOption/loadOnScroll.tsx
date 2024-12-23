@@ -23,9 +23,11 @@ export default function Example() {
         <ComboBox
             label="Roles"
             items={list.items}
-            maxHeight="core_1280"
             isLoading={list.isLoading}
             onLoadMore={list.loadMore}
+            listBoxProps={{
+                maxHeight: "core_1280"
+            }}
         >
             {item => {
                 return <ComboBoxItem id={item.name}>{item.name}</ComboBoxItem>;

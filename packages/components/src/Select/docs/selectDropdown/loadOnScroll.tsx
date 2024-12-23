@@ -25,7 +25,7 @@ export default function Example() {
             items={list.items}
             isLoading={list.isLoading}
             onLoadMore={list.loadMore}
-            popoverProps={{
+            listBoxProps={{
                 maxHeight: "core_1280"
             }}
         >
