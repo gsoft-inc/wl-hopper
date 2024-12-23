@@ -79,7 +79,7 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
             {...filteredProps}
         >
             {children}
-            {(necessityIndicator === "label" && !isRequired) && <span className={styles["hop-Label__label-indicator"]}> ({necessityLabel})</span>}
+            {necessityIndicator === "label" && !isRequired && <span className={styles["hop-Label__label-indicator"]}> ({necessityLabel})</span>}
             {necessityIndicator === "asterisk" && isRequired && requiredIndicator}
         </RACLabel>
     );

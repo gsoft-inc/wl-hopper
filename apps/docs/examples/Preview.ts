@@ -410,6 +410,9 @@ export const Previews: Record<string, Preview> = {
     "typography/Label/docs/required": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/required.tsx"))
     },
+    "typography/Label/docs/optional": {
+        component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/optional.tsx"))
+    },
     "typography/Label/docs/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/typography/Label/docs/advancedCustomization.tsx"))
     },
