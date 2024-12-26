@@ -734,20 +734,32 @@ export const Previews: Record<string, Preview> = {
     "inputs/docs/textField/fluid": {
         component: lazy(() => import("@/../../packages/components/src/inputs/docs/textField/fluid.tsx"))
     },
-    "icons/docs/preview": {
-        component: lazy(() => import("@/../../packages/icons/docs/preview.tsx"))
+    "icons/docs/icon/preview": {
+        component: lazy(() => import("@/../../packages/icons/docs/icon/preview.tsx"))
     },
-    "icons/docs/sizes": {
-        component: lazy(() => import("@/../../packages/icons/docs/sizes.tsx"))
+    "icons/docs/icon/sizes": {
+        component: lazy(() => import("@/../../packages/icons/docs/icon/sizes.tsx"))
     },
-    "icons/docs/styling": {
-        component: lazy(() => import("@/../../packages/icons/docs/styling.tsx"))
+    "icons/docs/icon/styling": {
+        component: lazy(() => import("@/../../packages/icons/docs/icon/styling.tsx"))
     },
     "IconList/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/IconList/docs/preview.tsx"))
     },
     "IconList/docs/size": {
         component: lazy(() => import("@/../../packages/components/src/IconList/docs/size.tsx"))
+    },
+    "icons/docs/richIcon/preview": {
+        component: lazy(() => import("@/../../packages/icons/docs/richIcon/preview.tsx"))
+    },
+    "icons/docs/richIcon/sizes": {
+        component: lazy(() => import("@/../../packages/icons/docs/richIcon/sizes.tsx"))
+    },
+    "icons/docs/richIcon/styling": {
+        component: lazy(() => import("@/../../packages/icons/docs/richIcon/styling.tsx"))
+    },
+    "icons/docs/richIcon/variants": {
+        component: lazy(() => import("@/../../packages/icons/docs/richIcon/variants.tsx"))
     },
     "ErrorMessage/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/ErrorMessage/docs/preview.tsx"))
