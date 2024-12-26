@@ -28,7 +28,7 @@ Both `RichIcon` and `createRichIcon` enable you to style the icon using the styl
 
 ### Using the createRichIcon function
 
-The `createRichIcon` function is a convenience wrapper around the process of generating icons with `Icon`, allowing you to achieve the same functionality with less effort.
+The `createRichIcon` function is a convenience wrapper around the process of generating rich icons with `RichIcon`, allowing you to achieve the same functionality with less effort.
 
 ```tsx {6}
 import CustomRichIcon24 from "./path/to/custom-rich-icon-24.svg";
@@ -39,7 +39,7 @@ import { createRichIcon } from "@hopper-ui/icons";
 const CustomRichIcon = createRichIcon(CustomRichIcon24, CustomRichIcon32, CustomRichIcon40, "CustomIcon")
 ```
 
-### Using the Icon component
+### Using the RichIcon component
 
 ```tsx {8-12}
 import CustomRichIcon24 from "./path/to/custom-icon-24.svg"
@@ -60,19 +60,19 @@ function CustomRichIcon(props: CreatedRichIconProps) {
 
 ### Sizes
 
-An icon can vary in size. When used inside another component, it'll generally be sized automatically. If you use a standalone icon, you can use the size prop to control the sizing.
+A rich icon can vary in size. When used inside another component, it'll generally be sized automatically. If you use a standalone icon, you can use the size prop to control the sizing.
 
 <Example src="icons/docs/richIcon/sizes" />
 
 ### Styling
 
-The color of the icon can be changed using the `fill` prop. All the styled system props are also available.
+The color of the rich icon can be changed using the `fill` prop. All the styled system props are also available.
 
 <Example src="icons/docs/richIcon/styling" />
 
 ### Variants
 
-The color of the icon can be changed using the `fill` prop. All the styled system props are also available.
+The color of the rich icon can be changed using the `variant` prop.
 
 <Example src="icons/docs/richIcon/variants" />
 
