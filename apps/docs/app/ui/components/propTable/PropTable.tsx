@@ -109,25 +109,9 @@ export default async function PropTable({ component }: PropTableProps) {
     const { groups } = await getComponentProps(component);
     const formattedGroups = await formatGroup(groups);
 
-    const mergedObject = formattedGroups.reduce((acc, current) => {
-        for (const [key, value] of Object.entries(current)) {
-            if (acc[key]) {
-                acc[key] = acc[key].concat(value);
-            } else {
-                acc[key] = value;
-            }
-        }
-
-        return acc;
-    }, {});
-
-    const mergedArray = Object.entries(mergedObject).map(([key, value]) => ({
-        [key]: value
-    }));
-
     return (
         <>
-            {mergedArray.map(group => {
+            {formattedGroups.map(group => {
                 const [key] = Object.keys(group);
                 const isEmpty = group[key].length === 0;
 
