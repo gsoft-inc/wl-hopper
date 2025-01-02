@@ -1,3 +1,5 @@
+"use client";
+
 import { IconContext } from "@/components/icon/IconContext.ts";
 import clsx from "clsx";
 import { Provider, Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";

@@ -1,16 +1,17 @@
 "use client";
 
-import { memo, useState, useEffect, type ReactNode } from "react";
 import clsx from "clsx";
+import { memo, useEffect, useState, type ReactNode } from "react";
 
-import { CodeIcon } from "@/components/icon";
+import { CodeIcon, Icon, StackblitzIcon } from "@/components/icon";
 import { ToggleButton } from "@/components/toggleButton/ToggleButton.tsx";
 import { useToggle } from "@/hooks/useToggle.ts";
 
 import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";
 
-import "./componentExample.css";
 import ComponentSkeleton from "@/app/ui/components/componentExample/ComponentSkeleton.tsx";
+import LinkButton from "@/components/button/LinkButton.tsx";
+import "./componentExample.css";
 
 interface CommonProps {
     src: string;
@@ -78,6 +79,13 @@ const ComponentExample = memo(({
         );
     };
 
+    const openInStackblitzButton = (
+        <LinkButton variant="secondary" size="sm" href="https://stackblitz.com/edit/hopper-sandbox?file=src%2FComponent.tsx" target="_blank">
+            Open in Stackblitz
+            <Icon src={StackblitzIcon} slot="end-icon" />
+        </LinkButton>
+    );
+
     const renderPreviewComponent = () => {
         if (!showPreviewComponent) {
             return null;
@@ -85,6 +93,7 @@ const ComponentExample = memo(({
 
         return (
             <ComponentPreviewWrapper
+                openInStackblitzButton={openInStackblitzButton}
                 preview={(type === "preview" || type === "both") ? (props as PreviewProps | BothProps).preview : undefined}
                 toggleButton={renderToggleButton()}
             />
