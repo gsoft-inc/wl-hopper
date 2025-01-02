@@ -19,6 +19,7 @@ import NpmIcon from "./assets/npm.svg";
 import ProductMenuIcon from "./assets/product-menu.svg";
 import RightAngleIcon from "./assets/right-angle.svg";
 import SelectArrowIcon from "./assets/select-arrow.svg";
+import StackblitzIcon from "./assets/stackblitz.svg";
 import TokenIcon from "./assets/tokens.svg";
 import TypescriptIcon from "./assets/typescript.svg";
 import WaiAriaIcon from "./assets/wai-aria.svg";
@@ -34,5 +35,6 @@ export {
     GithubIcon, Icon, IconProps, InfoIcon, InternationalIcon,
     LineHeightIcon,
     MarginIcon, MessageIcon, NpmIcon, ProductMenuIcon, RightAngleIcon, SelectArrowIcon,
+    StackblitzIcon,
     TokenIcon, TypescriptIcon, WaiAriaIcon, WarningIcon
 };
