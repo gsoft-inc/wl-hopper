@@ -11,7 +11,7 @@ export interface IconProps extends SlotProps {
 }
 
 const Icon = (props: IconProps) => {
-    [props] = useContextProps({ ...props, slot: props.slot || "hd-icon" }, null, IconContext);
+    [props] = useContextProps(props, null, IconContext);
     const { src, ...otherProps } = props;
 
     const Component = src;
