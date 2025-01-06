@@ -70,7 +70,7 @@ const SectionPopover = ({ links }: PropsWithoutRef<SectionPopoverProps>) => {
                     <PopoverTrigger>
                         <Button className="hd-section-popover__button">
                             On this page
-                            <SectionLinkArrow slot="icon" src={ChevronIcon} />
+                            <SectionLinkArrow src={ChevronIcon} />
                         </Button>
                         <Popover
                             aria-label="On this page"
