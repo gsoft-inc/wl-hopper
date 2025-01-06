@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { memo, useEffect, useState, type ReactNode } from "react";
 
 import { CodeIcon, Icon, StackblitzIcon } from "@/components/icon";
-import { ToggleButton } from "@/components/toggleButton/ToggleButton.tsx";
+import { ToggleButton } from "@/components/ToggleButton/ToggleButton.tsx";
 import { useToggle } from "@/hooks/useToggle.ts";
 
 import ComponentPreviewWrapper from "./ComponentPreviewWrapper.tsx";

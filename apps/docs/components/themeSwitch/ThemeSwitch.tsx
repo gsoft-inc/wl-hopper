@@ -1,7 +1,7 @@
-import { ToggleButton } from "@/components/toggleButton/ToggleButton";
+import { ToggleButton } from "@/components/ToggleButton/ToggleButton";
 
-import type { ColorScheme } from "@/context/theme/ThemeProvider";
 import Icon from "@/components/themeSwitch/ThemeSwitchIcons";
+import type { ColorScheme } from "@/context/theme/ThemeProvider";
 import clsx from "clsx";
 
 import "./themeSwitch.css";

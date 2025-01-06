@@ -1,0 +1,47 @@
+---
+title: SegmentedControl
+description: The SegmentedControl component presents a horizontal row of options or actions that are contextually or conceptually related. It allows users to select a single option at a time.
+category: "pickers"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/SegmentedControl/src/SegmentedControl.tsx
+    aria: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
+---
+
+<Example src="SegmentedControl/docs/preview" isOpen />
+
+## Usage
+
+### Selected
+A segmented control supports single selection. At any given time, only one item can be active.
+
+<Example src="SegmentedControl/docs/selected" />
+
+### Size
+A segmented control supports multiple sizes. Here’s an example demonstrating the medium size option:
+
+<Example src="SegmentedControl/docs/size" />
+
+### Icon only
+Items within a segmented control can contain only icons. An accessible name must be provided through [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) prop. See also [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Example src="SegmentedControl/docs/iconOnly" />
+
+### Icon
+A segmented control can contain items with icons, leading or trailing.
+
+<Example src="SegmentedControl/docs/icon" />
+
+### Controlled
+A segmented control can have a controlled selected value. In this example, it shows how it is possible to select an option.
+
+<Example src="SegmentedControl/docs/controlled" />
+
+## Props
+
+### SegmentedControl
+
+<PropTable component="SegmentedControl" />
+
+### SegmentedControlItem
+
+<PropTable component="SegmentedControlItem" />
