@@ -36,7 +36,7 @@ const Switcher = memo(({ type, iconType = "icon" }: SwitcherProps) => {
                 {iconType === "richIcon" && <SwitcherChoice value="xl" preview={<SparklesRichIcon size="xl" />} />}
             </RadioGroup>
             <HopperProvider colorScheme={colorMode}>
-                <SearchField placeholder="Search" value={filter} onChange={onTextFieldChange} />
+                <SearchField aria-label="Filter icons" placeholder="Search" value={filter} onChange={onTextFieldChange} />
             </HopperProvider>
             <IconTable type={type} size={selectedSize} filter={filter} items={iconList} />
         </div>

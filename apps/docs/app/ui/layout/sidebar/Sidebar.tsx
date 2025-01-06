@@ -118,7 +118,7 @@ const Sidebar = ({ links }: SidebarProps) => {
                 <div className="hd-sidebar__wrapper">
                     <div className="hd-sidebar__container">
                         <HopperProvider colorScheme={colorMode}>
-                            <SearchField placeholder="Search" value={filter} onChange={onTextFieldChange} />
+                            <SearchField aria-label="Filter sections" placeholder="Search" value={filter} onChange={onTextFieldChange} />
                         </HopperProvider>
                         {linkItems}
                     </div>

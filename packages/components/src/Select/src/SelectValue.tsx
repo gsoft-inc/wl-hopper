@@ -106,7 +106,8 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
                     }],
                     [TextContext, {
                         slots: {
-                            "label": {
+                            [DEFAULT_SLOT]: {
+                                slot: "label",
                                 className: styles["hop-SelectValue__text"],
                                 ref: textRef
                             }
