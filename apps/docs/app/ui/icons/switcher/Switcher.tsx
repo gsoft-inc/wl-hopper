@@ -1,12 +1,11 @@
 "use client";
 
 import { IconTable } from "@/app/ui/icons/iconTable/IconTable.tsx";
+import { ThemeContext } from "@/context/theme/ThemeProvider";
+import { HopperProvider, SearchField } from "@hopper-ui/components";
 import { SparklesIcon, SparklesRichIcon, iconNames, richIconNames } from "@hopper-ui/icons";
 import { memo, useContext, useState, type ReactNode } from "react";
 import { Radio, RadioGroup, type RadioProps } from "react-aria-components";
-
-import { ThemeContext } from "@/context/theme/ThemeProvider";
-import { HopperProvider, TextField } from "@hopper-ui/components";
 import "./switcher.css";
 
 interface SwitcherProps {
@@ -37,7 +36,7 @@ const Switcher = memo(({ type, iconType = "icon" }: SwitcherProps) => {
                 {iconType === "richIcon" && <SwitcherChoice value="xl" preview={<SparklesRichIcon size="xl" />} />}
             </RadioGroup>
             <HopperProvider colorScheme={colorMode}>
-                <TextField placeholder="Search" value={filter} onChange={onTextFieldChange} />
+                <SearchField placeholder="Search" value={filter} onChange={onTextFieldChange} />
             </HopperProvider>
             <IconTable type={type} size={selectedSize} filter={filter} items={iconList} />
         </div>
