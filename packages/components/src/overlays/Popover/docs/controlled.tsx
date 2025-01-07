@@ -16,7 +16,7 @@ export default function Example() {
                 </Button>
                 <span ref={triggerRef}>Popover will be positioned relative to me</span>
             </Stack>
-            <Popover containerProps={{ "aria-label": "ACME" }} triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
+            <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
                 <Heading>ACME</Heading>
                 <Content>
                     A tech company focusing on the development of software and hardware solutions.

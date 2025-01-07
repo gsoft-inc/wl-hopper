@@ -4,6 +4,7 @@ import { forwardRef, type ForwardedRef } from "react";
 import type { Placement } from "react-aria";
 import {
     composeRenderProps,
+    DEFAULT_SLOT,
     Dialog,
     Popover as RACPopover,
     useContextProps,
@@ -156,7 +157,12 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                             <SlotProvider values={[
                                 [HeadingContext, {
                                     className: styles["hop-Popover__title"],
-                                    size: "xs"
+                                    size: "xs",
+                                    slots: {
+                                        [DEFAULT_SLOT]: {
+                                            slot: "title"
+                                        }
+                                    }
                                 }],
                                 [ButtonContext, {
                                     size: "sm",
