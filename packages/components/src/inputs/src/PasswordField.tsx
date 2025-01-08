@@ -54,7 +54,7 @@ export interface PasswordFieldProps extends Omit<StyledComponentProps<Omit<RACTe
     /**
      * A ref for the HTML input element.
      */
-    inputRef?: MutableRefObject<HTMLInputElement>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
 
     /**
      * The props for the InputGroup.

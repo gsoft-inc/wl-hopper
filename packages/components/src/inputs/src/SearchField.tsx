@@ -58,7 +58,7 @@ export interface SearchFieldProps extends Omit<StyledComponentProps<RACSearchFie
     /**
      * A ref for the HTML input element.
      */
-    inputRef?: MutableRefObject<HTMLInputElement>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
 
     /**
      * The props for the InputGroup.

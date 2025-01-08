@@ -55,7 +55,7 @@ export interface NumberFieldProps extends Omit<StyledComponentProps<RACNumberFie
     /**
      * A ref for the HTML input element.
      */
-    inputRef?: MutableRefObject<HTMLInputElement>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
 
     /**
      * The props for the InputGroup.

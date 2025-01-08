@@ -63,7 +63,7 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
     /**
      * A ref for the HTML input element.
      */
-    inputRef?: MutableRefObject<HTMLInputElement>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
     /**
      * If `true`, the select will take all available width.
      * @default false

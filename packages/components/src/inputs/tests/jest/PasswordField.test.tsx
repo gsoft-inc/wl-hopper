@@ -1,6 +1,6 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
-import { createRef, type MutableRefObject } from "react";
+import { createRef } from "react";
 
 import { PasswordField } from "../../src/PasswordField.tsx";
 import { PasswordFieldContext } from "../../src/PasswordFieldContext.ts";
@@ -73,7 +73,7 @@ describe("PasswordField", () => {
     });
 
     it("should support slots", () => {
-        const inputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+        const inputRef = createRef<HTMLInputElement>();
 
         render(
             <PasswordFieldContext.Provider value={{ slots: { test: { "aria-label" : "test label" } } }}>
@@ -97,7 +97,7 @@ describe("PasswordField", () => {
     });
 
     it("should support input refs", () => {
-        const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+        const ref = createRef<HTMLInputElement>();
         render(
             <PasswordField inputRef={ref} data-testid="field" label="Label" />
         );
@@ -107,8 +107,8 @@ describe("PasswordField", () => {
     });
 
     it("should support and merge input ref on context", () => {
-        const inputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
-        const contextInputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+        const inputRef = createRef<HTMLInputElement>();
+        const contextInputRef = createRef<HTMLInputElement>();
         render(
             <PasswordFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <PasswordField inputRef={inputRef} label="Label" />
