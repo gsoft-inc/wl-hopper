@@ -12,7 +12,7 @@ import { Icon, ProductMenuIcon } from "@/components/icon";
 import LinkIconButton from "@/components/iconButton/LinkIconButton";
 import { Popover, PopoverContext, PopoverTrigger } from "@/components/popover/Popover.tsx";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
-import { ToggleButton, ToggleButtonContext } from "@/components/ToggleButton/ToggleButton";
+import { ToggleButton, ToggleButtonContext } from "@/components/toggleButton/ToggleButton.tsx";
 import { navigation } from "@/configs/navigation";
 import { ThemeContext, type ColorScheme } from "@/context/theme/ThemeProvider.tsx";
 import { useIsMobile } from "@/hooks/useIsMobile";
