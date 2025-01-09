@@ -8,7 +8,7 @@ import { HeaderContext } from "../../Header/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { ListBoxSectionContext } from "../../ListBoxSection/index.ts";
 import { Text, type TextSize } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
 import { ListBoxItem, type ListBoxItemProps, type ListBoxItemSize, type SelectionIndicator } from "./ListBoxItem.tsx";
@@ -140,7 +140,11 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             result = renderEmptyState(renderProps);
 
             if (result) {
-                return <Text className={emptyItemClassNames} size={ListBoxToTextSizeAdapter[size]}>{result}</Text>;
+                return (
+                    <ClearContainerSlots>
+                        <Text className={emptyItemClassNames} size={ListBoxToTextSizeAdapter[size]}>{result}</Text>
+                    </ClearContainerSlots>
+                );
             }
         }
 

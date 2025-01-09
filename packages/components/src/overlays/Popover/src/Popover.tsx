@@ -155,6 +155,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                         <Dialog {...containerOtherProps} className={containerClassNames} style={containerStyle}>
                             <SlotProvider values={[
                                 [HeadingContext, {
+                                    slot: "title",
                                     className: styles["hop-Popover__title"],
                                     size: "xs"
                                 }],

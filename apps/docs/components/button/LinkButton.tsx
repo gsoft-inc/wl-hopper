@@ -1,7 +1,7 @@
 "use client";
 import { IconContext } from "@/components/icon/IconContext.ts";
 import clsx from "clsx";
-import { Provider, Link as RACLink, type LinkProps as RACLinkProps } from "react-aria-components";
+import { DEFAULT_SLOT, Provider, Link as RACLink, type LinkProps as RACLinkProps } from "react-aria-components";
 import "./button.css";
 
 export interface LinkButtonProps extends RACLinkProps {
@@ -30,7 +30,7 @@ const LinkButton = ({
         <Provider values={[
             [IconContext, {
                 slots: {
-                    icon: {
+                    [DEFAULT_SLOT]: {
                         className: "hd-btn__icon"
                     },
                     "end-icon": {

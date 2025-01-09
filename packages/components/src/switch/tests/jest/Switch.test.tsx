@@ -1,8 +1,8 @@
 /* eslint-disable testing-library/no-node-access */
 /* Using closest to get the label is the best way, even react-aria does this. */
-import { act, screen, waitFor, render } from "@hopper-ui/test-utils";
+import { act, render, screen, waitFor } from "@hopper-ui/test-utils";
 import { userEvent } from "@testing-library/user-event";
-import { createRef, type MutableRefObject } from "react";
+import { createRef } from "react";
 
 import { Switch } from "../../src/Switch.tsx";
 import { SwitchContext } from "../../src/SwitchContext.ts";
@@ -82,7 +82,7 @@ describe("Switch", () => {
     // ***** Api *****
 
     it("should be focused on render when the focus api is called", async () => {
-        const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+        const ref = createRef<HTMLInputElement>();
 
         render(<Switch inputRef={ref} >option 1</Switch>);
 

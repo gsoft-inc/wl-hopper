@@ -65,7 +65,7 @@ const ProductMenuAndBrand = () => {
             <ToggleTrigger>
                 <PopoverTrigger>
                     <ToggleButton aria-label="Open other libraries menu">
-                        <Icon slot="icon" src={ProductMenuIcon} />
+                        <Icon src={ProductMenuIcon} />
                     </ToggleButton>
                     <Popover
                         className="hd-product__menu"

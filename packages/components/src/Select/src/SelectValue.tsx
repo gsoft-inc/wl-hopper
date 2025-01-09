@@ -105,12 +105,9 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
                         size: SelectValueToAvatarSizeAdapter[size]
                     }],
                     [TextContext, {
-                        slots: {
-                            "label": {
-                                className: styles["hop-SelectValue__text"],
-                                ref: textRef
-                            }
-                        }
+                        slot: "label",
+                        className: styles["hop-SelectValue__text"],
+                        ref: textRef
                     }],
                     [IconContext, {
                         slots: {

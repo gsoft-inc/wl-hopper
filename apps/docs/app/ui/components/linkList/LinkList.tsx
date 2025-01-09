@@ -45,7 +45,7 @@ export default function LinkList({ links, className }: LinkListProps) {
                         target="_blank"
                         key={`link-list-${key.toString()}`}
                     >{link.label}
-                        <Icon slot="icon"
+                        <Icon
                             src={icon as IconProps["src"]}
                         />
                     </LinkButton>

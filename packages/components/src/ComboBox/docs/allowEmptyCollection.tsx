@@ -5,6 +5,9 @@ export default function Example() {
         <ComboBox
             allowsEmptyCollection
             label="Roles"
+            listBoxProps={{
+                renderEmptyState: () => "No roles found"
+            }}
         >
             {[]}
         </ComboBox>

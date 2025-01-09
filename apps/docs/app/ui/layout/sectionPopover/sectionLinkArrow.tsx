@@ -6,7 +6,7 @@ import { UseArrowContext } from "./sectionLinkArrowContext";
 import "./sectionLinkArrow.css";
 
 interface SectionLinkArrowProps {
-    slot: string;
+    slot?: string;
     className?: string;
     src: ElementType<Omit<SVGProps<SVGSVGElement>, "ref"> & RefAttributes<SVGSVGElement>>;
 }

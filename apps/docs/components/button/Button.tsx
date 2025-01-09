@@ -2,7 +2,7 @@
 
 import { IconContext } from "@/components/icon/IconContext.ts";
 import clsx from "clsx";
-import { Provider, Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";
+import { DEFAULT_SLOT, Provider, Button as RACButton, type ButtonProps as RACButtonProps } from "react-aria-components";
 import "./button.css";
 
 export interface ButtonProps extends RACButtonProps {
@@ -31,7 +31,7 @@ const Button = ({
         <Provider values={[
             [IconContext, {
                 slots: {
-                    icon: {
+                    [DEFAULT_SLOT]: {
                         className: "hd-btn__icon"
                     },
                     "end-icon": {

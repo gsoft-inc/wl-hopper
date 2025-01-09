@@ -1,19 +1,15 @@
 "use client";
 
+import type { Section } from "@/app/lib/getPageLinks";
+import Overlay from "@/components/overlay/Overlay";
 import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
+import { useSidebar } from "@/context/sidebar/SidebarProvider";
+import { ThemeContext } from "@/context/theme/ThemeProvider";
+import { HopperProvider, SearchField } from "@hopper-ui/components";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect, useRef, useState } from "react";
-
-import { useSidebar } from "@/context/sidebar/SidebarProvider";
-
-import Overlay from "@/components/overlay/Overlay";
-
-import type { Section } from "@/app/lib/getPageLinks";
-
-import { ThemeContext } from "@/context/theme/ThemeProvider";
-import { HopperProvider, TextField } from "@hopper-ui/components";
 import "./sidebar.css";
 
 export interface SidebarProps {
@@ -122,7 +118,7 @@ const Sidebar = ({ links }: SidebarProps) => {
                 <div className="hd-sidebar__wrapper">
                     <div className="hd-sidebar__container">
                         <HopperProvider colorScheme={colorMode}>
-                            <TextField placeholder="Search" value={filter} onChange={onTextFieldChange} />
+                            <SearchField aria-label="Filter sections" placeholder="Search" value={filter} onChange={onTextFieldChange} />
                         </HopperProvider>
                         {linkItems}
                     </div>

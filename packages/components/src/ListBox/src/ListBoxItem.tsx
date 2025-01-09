@@ -179,10 +179,6 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
                                 className: styles["hop-ListBoxItem__label"],
                                 size: ListBoxItemToTextSizeAdapter[size]
                             },
-                            label: {
-                                className: styles["hop-ListBoxItem__label"],
-                                size: ListBoxItemToTextSizeAdapter[size]
-                            },
                             description: {
                                 className: styles["hop-ListBoxItem__description"],
                                 size: "xs"

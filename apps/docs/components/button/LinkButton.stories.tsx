@@ -55,15 +55,15 @@ export const AsLink: Story = {
             </LinkButton>
             <LinkButton variant="ghost" size="sm" {...args} >
                 View source
-                <Icon src={GithubIcon} slot="icon" />
+                <Icon src={GithubIcon} />
             </LinkButton>
             <LinkButton variant="ghost" size="sm" {...args} >
                 View on npm
-                <Icon src={NpmIcon} slot="icon" />
+                <Icon src={NpmIcon} />
             </LinkButton>
             <LinkButton variant="ghost" size="sm" {...args} >
                 Report an issue
-                <Icon src={ExternalLinkIcon} slot="icon" />
+                <Icon src={ExternalLinkIcon} />
             </LinkButton>
         </div>
     )
