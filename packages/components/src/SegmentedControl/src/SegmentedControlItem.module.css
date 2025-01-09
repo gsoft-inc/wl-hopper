@@ -8,10 +8,13 @@
     --hop-SegmentedControlItem-cursor: auto;
 
     /* Small */
-    --hop-SegmentedControlItem-sm-padding:  0.125rem var(--hop-space-inset-md);
+    --hop-SegmentedControlItem-sm-padding: 0.125rem var(--hop-space-inset-md);
 
     /* Medium */
-    --hop-SegmentedControlItem-md-padding:  0.375rem var(--hop-space-inset-md);
+    --hop-SegmentedControlItem-md-padding: 0.375rem var(--hop-space-inset-md);
+
+    /* Slider */
+    --hop-SegmentedControlItem-slider-background: var(--hop-neutral-surface-selected);
 
     cursor: var(--hop-SegmentedControlItem-cursor);
 
@@ -32,6 +35,13 @@
 .hop-SegmentedControlItem, .hop-SegmentedControlItem__slider {
     border: var(--hop-SegmentedControlItem-border);
     border-radius: var(--hop-SegmentedControlItem-border-radius);
+}
+
+.hop-SegmentedControlItem__slider {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    background: var(--hop-SegmentedControlItem-slider-background);
 }
 
 .hop-SegmentedControlItem:not([data-disabled]) {
@@ -60,11 +70,4 @@
 
 .hop-SegmentedControlItem--md {
     --hop-SegmentedControlItem-padding: var(--hop-SegmentedControlItem-md-padding);
-}
-
-.hop-SegmentedControlItem__slider {
-    position: absolute;
-    inline-size: 100%;
-    block-size: 100%;
-    background: var(--hop-neutral-surface-selected);
 }

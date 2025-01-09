@@ -60,29 +60,25 @@ describe("SegmentedControl", () => {
     });
 
     it("should pass the size to the SegmentedControlItem.", () => {
-        const testId = "SegmentedControlItem";
-
         render(
             <SegmentedControl aria-label="options" size="sm">
-                <SegmentedControlItem data-testid={testId} id="option1">
+                <SegmentedControlItem id="option1">
                     option 1
                 </SegmentedControlItem>
             </SegmentedControl>
         );
 
-        const item = screen.getByTestId(testId);
+        const item = screen.getByRole("radio");
         expect(item).toHaveClass("hop-SegmentedControlItem--sm");
     });
 
     it("should be disabled and pass it to the SegmentedControlItem.", () => {
-        const testId = "SegmentedControlItem";
-
-        render(<SegmentedControl aria-label="options" isDisabled><SegmentedControlItem data-testid={testId} id="option1">option 1</SegmentedControlItem></SegmentedControl>);
+        render(<SegmentedControl aria-label="options" isDisabled><SegmentedControlItem id="option1">option 1</SegmentedControlItem></SegmentedControl>);
 
         const element = screen.getByRole("radiogroup");
         expect(element).toHaveAttribute("data-disabled", "true");
 
-        const item = screen.getByTestId(testId);
+        const item = screen.getByRole("radio");
         expect(item).toHaveAttribute("data-disabled", "true");
 
         expect(item).toBeDisabled();

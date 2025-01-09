@@ -106,7 +106,8 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
                     <Provider
                         values={[
                             [IconContext, {
-                                size
+                                size,
+                                zIndex: 1
                             }],
                             [TextContext, {
                                 size: "sm",
