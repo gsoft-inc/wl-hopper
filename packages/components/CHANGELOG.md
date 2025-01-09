@@ -1,5 +1,15 @@
 # @hopper-ui/components
 
+## 1.4.3
+
+### Patch Changes
+
+- 483bd1a: - **Improvement:** Simplified the `inputRef` type to enhance usability across multiple components.
+  - **Bug Fixes:**
+    - Resolved an issue preventing the addition of a custom `renderEmptyState` on a `Listbox` within a `ComboBox`.
+    - Fixed a console error that occurred when using custom values inside the `Select` component.
+    - Addressed a console error that appeared with custom popovers.
+
 ## 1.4.2
 
 ### Patch Changes
