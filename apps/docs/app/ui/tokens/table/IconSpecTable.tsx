@@ -13,11 +13,14 @@ interface IconSpecTableProps {
 }
 
 const IconSpecTable = ({ data }: IconSpecTableProps) => {
-    return <Table className="hd-table--icon-spec"
-        head={["Anatomy", "Small", "Medium", "Large"]}
-        data={data}
-        ariaLabel="Icons specs"
-    />;
+    return (
+        <Table
+            className="hd-table--icon-spec"
+            head={["Anatomy", "Small", "Medium", "Large"]}
+            data={data}
+            ariaLabel="Icons specs"
+        />
+    );
 };
 
 export default IconSpecTable;

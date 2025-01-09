@@ -1,3 +1,5 @@
+"use client";
+
 import type { ElementType, RefAttributes, SVGProps } from "react";
 import { useContextProps, type SlotProps } from "react-aria-components";
 
@@ -9,7 +11,7 @@ export interface IconProps extends SlotProps {
 }
 
 const Icon = (props: IconProps) => {
-    [props] = useContextProps({ ...props, slot: props.slot || "hd-icon" }, null, IconContext);
+    [props] = useContextProps(props, null, IconContext);
     const { src, ...otherProps } = props;
 
     const Component = src;

@@ -1,10 +1,9 @@
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
-import { HeaderContext, useContextProps } from "react-aria-components";
+import { useContextProps } from "react-aria-components";
 
-import { ContentContext, FooterContext } from "../../layout/index.ts";
-import { cssModule, SlotProvider, type BaseComponentDOMProps } from "../../utils/index.ts";
+import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { CardContext } from "./CardContext.ts";
 
@@ -20,7 +19,7 @@ export interface CardProps extends StyledComponentProps<BaseComponentDOMProps> {
     variant?: "main" | "second-level";
 }
 
-const Card = (props: CardProps, ref: ForwardedRef<HTMLElement>) => {
+const Card = (props: CardProps, ref: ForwardedRef<HTMLDivElement>) => {
     [props, ref] = useContextProps(props, ref, CardContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -49,28 +48,15 @@ const Card = (props: CardProps, ref: ForwardedRef<HTMLElement>) => {
     };
 
     return (
-        <section
+        <div
             ref={ref}
             className={classNames}
             style={mergedStyles}
             slot={slot ?? undefined}
             {...otherProps}
         >
-            <SlotProvider values={[
-                [HeaderContext, {
-                    className: styles["hop-Card__header"]
-                }],
-                [ContentContext, {
-                    className: styles["hop-Card__content"]
-                }],
-                [FooterContext, {
-                    className: styles["hop-Card__footer"]
-                }]
-            ]}
-            >
-                {children}
-            </SlotProvider>
-        </section>
+            {children}
+        </div>
     );
 };
 
@@ -79,7 +65,7 @@ const Card = (props: CardProps, ref: ForwardedRef<HTMLElement>) => {
  *
  * [View Documentation](TODO)
  */
-const _Card = forwardRef<HTMLElement, CardProps>(Card);
+const _Card = forwardRef<HTMLDivElement, CardProps>(Card);
 _Card.displayName = "Card";
 
 export { _Card as Card };

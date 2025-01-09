@@ -37,7 +37,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }, [setColorMode ]);
 
     return (
-        <ThemeContext.Provider value={{ colorMode, setColorMode }}>
+        <ThemeContext.Provider value={{
+            colorMode: colorMode ?? "light",
+            setColorMode
+        }}
+        >
             {children}
         </ThemeContext.Provider>
     );

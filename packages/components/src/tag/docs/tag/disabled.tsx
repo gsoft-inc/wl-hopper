@@ -4,13 +4,13 @@ export default function Example() {
     return (
         <TagGroup aria-label="Jobs">
             <Tag id="designer" isDisabled>
-                    Designer
+                Designer
             </Tag>
             <Tag id="developer">
-                    Designer
+                Designer
             </Tag>
             <Tag id="manager">
-                    Manager
+                Manager
             </Tag>
         </TagGroup>
     );

@@ -1,11 +1,9 @@
-import { notFound } from "next/navigation";
-
-import Heading from "@/app/ui/components/heading/Heading.tsx";
-import Aside from "@/app/ui/layout/aside/Aside.tsx";
-import SubHeader from "@/app/ui/layout/subHeader/SubHeader.tsx";
-
+import { allComponents } from "@/.contentlayer/generated";
 import { getComponentDetails } from "@/app/lib/getComponentDetails.ts";
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
+import Heading from "@/app/ui/components/heading/Heading.tsx";
+import { BasePageLayout } from "@/app/ui/layout/basePageLayout/BasePageLayout";
+import { notFound } from "next/navigation";
 
 interface PageProps {
     params: {
@@ -13,33 +11,28 @@ interface PageProps {
     };
 }
 
-export async function generateStaticParams(): Promise<PageProps["params"][]> {
-    const componentsDetails = await getComponentDetails();
+function findComponentFromSlug(params : { slug: string[] }) {
+    const [type] = params.slug;
 
-    return componentsDetails.map(({ slugs }) => {
-        const [, type] = slugs;
+    const component = allComponents.find(x => x.slug === type);
 
-        return ({
-            slug: [type]
-        });
-    });
+    if (!component) {
+        return null;
+    }
+
+    return component;
 }
 
 export default async function ComponentPage({ params }: PageProps) {
     const [type] = params.slug;
 
-    const component = (await getComponentDetails()).find(componentDetail => {
-        // the path should be the component name, but the content files are classified by sections
-        const [, componentSlugType] = componentDetail.slugs;
-
-        return componentSlugType === type;
-    });
+    const component = await findComponentFromSlug(params);
 
     if (!component) {
         notFound();
     }
-
-    const { content, frontmatter: { title, status, description, links } } = component;
+    const componentDetails = await getComponentDetails(component._raw.sourceFilePath);
+    const { content, frontmatter: { title, status, description, links } } = componentDetails;
 
     const componentLinks = links && [
         {
@@ -65,20 +58,46 @@ export default async function ComponentPage({ params }: PageProps) {
         }] : [])
     ];
 
-    const sectionLinks = getSectionLinks({ body: { raw: component.raw } });
+    const sectionLinks = getSectionLinks({ body: { raw: componentDetails.raw } });
 
     return (
         <div className="hd-section">
-            <SubHeader links={sectionLinks} />
-            <div className="hd-container">
-                {type !== "component-list" && <Aside title="On this page" links={sectionLinks} />}
-                <main>
-                    <Heading title={title} tag={status} description={description} links={componentLinks} />
-                    <div className="hd-content">
-                        {content}
-                    </div>
-                </main>
-            </div>
+            <BasePageLayout showSections={type !== "component-list"} sectionsLinks={sectionLinks}>
+                <Heading title={title} tag={status} description={description} links={componentLinks} />
+                <div className="hd-content">
+                    {content}
+                </div>
+            </BasePageLayout>
         </div>
     );
+}
+
+export async function generateMetadata({ params }: PageProps) {
+    const component = findComponentFromSlug(params);
+
+    if (component) {
+        const metadata: Record<string, string> = {
+            title: component.title
+        };
+
+        if (component.description) {
+            metadata.description = component.description;
+        }
+
+
+        return metadata;
+    }
+
+    return {
+        title: null
+    };
+}
+
+
+export async function generateStaticParams() {
+    return allComponents.map(({ slug }) => {
+        return ({
+            slug: [slug]
+        });
+    });
 }

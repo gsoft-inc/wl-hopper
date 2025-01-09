@@ -1,7 +1,7 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs, useObjectRef, useResizeObserver } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, useState, type Context, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, useCallback, useRef, useState, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
 import {
     Button,
     composeRenderProps,
@@ -13,7 +13,6 @@ import {
     TextContext as RACTextContext,
     useContextProps,
     useSlottedContext,
-    type ContextValue,
     type ComboBoxProps as RACComboBoxProps,
     type GroupProps as RACGroupProps
 } from "react-aria-components";
@@ -64,7 +63,7 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
     /**
      * A ref for the HTML input element.
      */
-    inputRef?: MutableRefObject<HTMLInputElement>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
     /**
      * If `true`, the select will take all available width.
      * @default false
@@ -148,7 +147,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         triggerProps,
         ...otherProps
     } = ownProps;
-    
+
     const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef ?? null));
     const inputContext = useSlottedContext(InputContext);
     // Make sure to merge the input ref with the context ref from the InputContext.
@@ -239,13 +238,13 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             "--custom-trigger-width": triggerWidth
         };
     });
-    
+
     const footerMarkup = footer ? (
         <ClearProviders
             values={[
                 RACTextContext,
                 TextContext,
-                RACButtonContext as Context<ContextValue<unknown, HTMLElement>>
+                RACButtonContext
             ]}
         >
             <SlotProvider values={[
@@ -257,7 +256,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                 <Footer>
                     {ensureTextWrapper(footer)}
                 </Footer>
-            
+
             </SlotProvider>
         </ClearProviders>
     ) : null;
@@ -309,7 +308,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 {label}
                             </Label>
                         )}
-                        <Popover 
+                        <Popover
                             isAutoWidth={isAutoMenuWidth}
                             isNonDialog
                             placement={`${direction} ${align}`}
@@ -353,8 +352,8 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 placeholder={placeholder}
                             />
                             <Button className={buttonClassNames} ref={buttonRef}>
-                                <ToggleArrow 
-                                    className={styles["hop-ComboBox__button-icon"]} 
+                                <ToggleArrow
+                                    className={styles["hop-ComboBox__button-icon"]}
                                     isExpanded={isOpen}
                                 />
                             </Button>

@@ -6,7 +6,8 @@
     "rules": {
         "no-console": ["warn", { "allow": ["warn", "error"] }],
         "react/destructuring-assignment": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     },
     "overrides": [
         {

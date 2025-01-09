@@ -1,11 +1,11 @@
 "use client";
 
-import { type PropsWithoutRef, useContext } from "react";
+import type { NavItem } from "@/configs/navigation";
+import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { NavItem } from "@/configs/navigation";
-import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
+import { type PropsWithoutRef, useContext } from "react";
 
 import "./nav.css";
 
@@ -29,7 +29,7 @@ const Nav = ({ items }: { items: PropsWithoutRef<NavItem[]> }) => {
                 className={clsx("hd-nav__list-item", isActive && "hd-nav__list-item--active", (!featureFlags.alpha && status !== "ready") && "hd-nav__link--disabled")}
             >
                 <Link href={path} className="hd-nav__link">
-                    {label}
+                    {label} {label === "Components" && <span className="hd-nav__link-tag">Preview</span>}
                 </Link>
             </li>
         );

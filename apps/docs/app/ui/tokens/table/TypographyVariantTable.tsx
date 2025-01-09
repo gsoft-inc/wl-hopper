@@ -33,7 +33,8 @@ const TypographyVariantTable = ({ type, data }: TypographyVariantTableProps) => 
     });
 
     return (
-        <Table head={["Name", "Value", "Preview"]}
+        <Table
+            head={["Name", "Value", "Preview"]}
             className="hd-typo-table"
             data={listItems}
             ariaLabel="Typography"

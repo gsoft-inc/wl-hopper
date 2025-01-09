@@ -23,7 +23,9 @@ const sortOrder = [
     "overlays",
     "pickers",
     "status",
-    "content"
+    "content",
+    "placeholders",
+    "internal-parts"
 ];
 
 const categories = Array.from(new Set(allComponents.map(component => component.category))).filter(x => x && !ignoreCategories.includes(x)).sort((a, b) => {
@@ -57,7 +59,7 @@ const Overview = () => {
 
         return (
             <div className="hd-component-overview-category" key={category}>
-                <Title as="h3"
+                <Title
                     level={2}
                     interactive
                     className="hd-component-overview-category__title"

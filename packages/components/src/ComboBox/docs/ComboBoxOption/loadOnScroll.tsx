@@ -1,12 +1,11 @@
-import { ComboBox, ComboBoxItem } from "@hopper-ui/components";
-import { useAsyncList } from "react-stately";
+import { ComboBox, ComboBoxItem, useAsyncList } from "@hopper-ui/components";
 
 interface Character {
     name: string;
 }
 
 export default function Example() {
-    const list = useAsyncList({
+    const list = useAsyncList<Character>({
         async load({ signal, cursor }) {
             const res = await fetch(cursor || "https://pokeapi.co/api/v2/pokemon", {
                 signal
@@ -23,15 +22,15 @@ export default function Example() {
     return (
         <ComboBox
             label="Roles"
-            items={list.items as Iterable<Character>}
-            maxHeight="core_1280"
+            items={list.items}
             isLoading={list.isLoading}
             onLoadMore={list.loadMore}
+            listBoxProps={{
+                maxHeight: "core_1280"
+            }}
         >
-            {(item: Character) => {
-                const { name } = item;
-
-                return <ComboBoxItem id={name}>{name}</ComboBoxItem>;
+            {item => {
+                return <ComboBoxItem id={item.name}>{item.name}</ComboBoxItem>;
             }}
         </ComboBox>
     );

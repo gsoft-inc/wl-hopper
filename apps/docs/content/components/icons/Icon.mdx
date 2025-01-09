@@ -1,12 +1,12 @@
 ---
 title: Icon
-description: An icon component allow you to render a custom icon.
+description: An icon component is used to render a custom icon.
 category: "icons"
 links:
     source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/icons/src/Icon.tsx
 ---
 
-<Example src="icons/docs/preview" isOpen />
+<Example src="icons/docs/icon/preview" isOpen />
 
 Hopper provides multiple ways to use icons in your project:
 
@@ -28,7 +28,7 @@ Both `Icon` and `createIcon` enable you to style the icon using the styled syste
 
 The `createIcon` function is a convenience wrapper around the process of generating icons with `Icon`, allowing you to achieve the same functionality with less effort.
 
-```jsx
+```tsx {6}
 import CustomIcon16 from "./path/to/custom-icon-16.svg";
 import CustomIcon24 from "./path/to/custom-icon-24.svg";
 import CustomIcon32 from "./path/to/custom-icon-32.svg";
@@ -39,7 +39,7 @@ const CustomIcon = createIcon(CustomIcon16, CustomIcon24, CustomIcon32, "CustomI
 
 ### Using the Icon component
 
-```jsx
+```tsx {8-12}
 import CustomIcon16 from "./path/to/custom-icon-16.svg"
 import CustomIcon24 from "./path/to/custom-icon-24.svg"
 import CustomIcon32 from "./path/to/custom-icon-32.svg"
@@ -48,10 +48,10 @@ import { Icon, type CreatedIconProps } from "@hopper-ui/icons";
 function CustomIcon(props: CreatedIconProps) {
   return (
     <Icon
-    src16={CustomIcon16}
-    src24={CustomIcon24}
-    src32={CustomIcon32}
-    {...props} />
+        src16={CustomIcon16}
+        src24={CustomIcon24}
+        src32={CustomIcon32}
+        {...props} />
   )
 }
 ```
@@ -82,13 +82,13 @@ function CustomIcon(props: CreatedIconProps) {
 
 An icon can vary in size. When used inside another component, it'll generally be sized automatically. If you use a standalone icon, you can use the size prop to control the sizing.
 
-<Example src="icons/docs/sizes" />
+<Example src="icons/docs/icon/sizes" />
 
 ### Styling
 
 The color of the icon can be changed using the `fill` prop. All the styled system props are also available.
 
-<Example src="icons/docs/styling" />
+<Example src="icons/docs/icon/styling" />
 
 <FeatureFlag flag="next">
     ## Advanced customization

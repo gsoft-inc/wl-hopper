@@ -2,7 +2,7 @@ import { IconContext } from "@hopper-ui/icons";
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef, useContext } from "react";
-import { Button, type ButtonProps, composeRenderProps, DEFAULT_SLOT, DisclosureStateContext, useContextProps, useSlottedContext } from "react-aria-components";
+import { Button, type ButtonProps, composeRenderProps, DisclosureStateContext, useContextProps, useSlottedContext } from "react-aria-components";
 
 import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import type { HeadingProps } from "../../typography/Heading/index.ts";
@@ -90,7 +90,7 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
             size={size}
             {...otherProps}
         >
-            <Button 
+            <Button
                 slot="trigger"
                 className={buttonClassNames}
                 style={buttonStyle}
@@ -99,20 +99,12 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
             >
                 <SlotProvider values={[
                     [TextContext, {
-                        slots: {
-                            [DEFAULT_SLOT]: {
-                                className: styles["hop-DisclosureHeader__title"],
-                                size: "inherit"
-                            }
-                        }
+                        className: styles["hop-DisclosureHeader__title"],
+                        size: "inherit"
                     }],
                     [IconContext, {
-                        slots: {
-                            [DEFAULT_SLOT]: {
-                                className: styles["hop-DisclosureHeader__icon"],
-                                size: "md"
-                            }
-                        }
+                        className: styles["hop-DisclosureHeader__icon"],
+                        size: "md"
                     }]
                 ]}
                 >

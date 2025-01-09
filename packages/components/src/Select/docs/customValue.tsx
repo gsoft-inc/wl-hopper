@@ -2,14 +2,14 @@ import { Avatar, Select, SelectItem, Text, type ValueRenderProps } from "@hopper
 
 import { users, type User } from "./data.ts";
 
-const renderValue = ({ defaultChildren, selectedItem }: ValueRenderProps) => {
+const renderValue = ({ defaultChildren, selectedItem }: ValueRenderProps<User>) => {
     if (selectedItem) {
-        const { id, name, avatar } = selectedItem as User;
+        const { name, avatar } = selectedItem;
 
         return (
             <>
-                <Avatar key={`avatar_${id}`} name={name} src={avatar} />
-                <Text slot="label">{name}</Text>
+                <Avatar name={name} src={avatar} />
+                <Text>{name}</Text>
             </>
         );
     }
@@ -21,17 +21,17 @@ export default function Example() {
     const [firstUser] = users;
 
     return (
-        <Select 
+        <Select
             renderValue={renderValue}
             defaultSelectedKey={firstUser.id}
             items={users}
             label="Users"
         >
-            {({ id, name, avatar, role }: User) => {
+            {({ id, name, avatar, role }) => {
                 return (
                     <SelectItem id={id} textValue={name}>
                         <Avatar name={name} src={avatar} />
-                        <Text slot="label">{name}</Text>
+                        <Text>{name}</Text>
                         <Text slot="description">{role}</Text>
                     </SelectItem>
                 );

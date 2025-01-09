@@ -9,12 +9,13 @@ import { HopperProvider } from "@hopper-ui/components";
 import "./componentPreviewWrapper.css";
 
 interface ComponentPreviewWrapperProps {
+    openInStackblitzButton?: ReactNode;
     preview?: ReactNode;
     toggleButton?: ReactNode;
     minHeight?: string;
 }
 
-const ComponentPreviewWrapper = memo(({ preview, toggleButton, minHeight = "13rem" }: ComponentPreviewWrapperProps) => {
+const ComponentPreviewWrapper = memo(({ openInStackblitzButton, preview, toggleButton, minHeight = "13rem" }: ComponentPreviewWrapperProps) => {
     const { colorMode = "light" } = useContext(ThemeContext);
     const [localColorMode, setLocalColorMode] = useState(colorMode);
 
@@ -38,6 +39,7 @@ const ComponentPreviewWrapper = memo(({ preview, toggleButton, minHeight = "13re
             style={{ minHeight: minHeight }}
         >
             <div className="hd-component-preview-wrapper__actions">
+                {openInStackblitzButton}
                 {toggleButton}
                 <ThemeSwitch className="hd-component-preview-wrapper__action"
                     onChange={toggleTheme}

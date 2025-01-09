@@ -1,16 +1,14 @@
 import { Heading, Stack } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = { children: "Great work!" };
-
     return (
         <Stack>
-            <Heading level={1} {...props} />
-            <Heading level={2} {...props} />
-            <Heading level={3} {...props} />
-            <Heading level={4} {...props} />
-            <Heading level={5} {...props} />
-            <Heading level={6} {...props} />
+            <Heading level={1}>Great work!</Heading>
+            <Heading level={2}>Great work!</Heading>
+            <Heading level={3}>Great work!</Heading>
+            <Heading level={4}>Great work!</Heading>
+            <Heading level={5}>Great work!</Heading>
+            <Heading level={6}>Great work!</Heading>
         </Stack>
     );
 }

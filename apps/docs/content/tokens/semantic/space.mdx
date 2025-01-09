@@ -1,6 +1,6 @@
 ---
 title: Space
-description: Getting started with Workleap Design Tokens
+description: Design tokens are design decisions, translated into data. Explore the semantic space design tokens.
 ---
 import tokens from '../../../datas/tokens.json';
 
@@ -22,7 +22,7 @@ Padding refers to the space within a block or container from which elements are 
 
 By default, the inset is equal on all four sides.
 
-<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
     ["inset"]
 } excludedCategories={["inset-squish", "inset-stretch"]} />
 
@@ -30,7 +30,7 @@ By default, the inset is equal on all four sides.
 
 Squish inset reduces the top and bottom padding by one increment relative to the declared inset space.
 
-<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
     ["inset-squish"]
 } />
 
@@ -38,7 +38,7 @@ Squish inset reduces the top and bottom padding by one increment relative to the
 
 Stretch inset increases the top and bottom padding by one increment relative to the declared inset space.
 
-<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
     ["inset-stretch"]
 } />
 
@@ -50,7 +50,7 @@ Margin refers to the traditional meaning of space between elements. It can be us
 
 Stack is the space that separates elements or containers arranged vertically within a column.
 
-<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
     ["stack"]
 } />
 
@@ -58,6 +58,6 @@ Stack is the space that separates elements or containers arranged vertically wit
 
 Inline refers to the space that separates inline elements arranged horizontally.
 
-<TableSection categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
+<TableSection tokenType={"semantic"} categoryKey={categoryKey} tokens={tokens.semantic[categoryKey]} categories={
     ["inline"]
 } />

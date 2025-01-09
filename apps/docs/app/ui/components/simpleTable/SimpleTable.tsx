@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 
 interface SimpleTableProps {
@@ -7,13 +9,13 @@ interface SimpleTableProps {
     lastColumnAlignment?: "left" | "right";
 }
 
-export default async function SimpleTable({ "aria-label": ariaLabel, headers, data, lastColumnAlignment }: SimpleTableProps) {
+export default function SimpleTable({ "aria-label": ariaLabel, headers, data, lastColumnAlignment }: SimpleTableProps) {
     return (
         <table aria-label={ariaLabel} className="hd-table">
             <thead>
                 <tr>
                     {headers.map((header, index) => {
-                        const classNames = clsx("hd-table__column", { "hd-table__colum--right": index === headers.length - 1 && lastColumnAlignment === "right" });
+                        const classNames = clsx("hd-table__column", { "hd-table__column--right": index === headers.length - 1 && lastColumnAlignment === "right" });
 
                         return (
                             // eslint-disable-next-line react/no-array-index-key

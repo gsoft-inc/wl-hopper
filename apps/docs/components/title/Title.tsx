@@ -6,7 +6,6 @@ import type { PropsWithChildren } from "react";
 import "./title.css";
 
 export interface TitleProps {
-    as?: "h1" | "h2" | "h3" | "h4" | "h5";
     level?: 1 | 2 | 3 | 4 | 5;
     interactive?: boolean;
     parentHeading?: string;
@@ -14,7 +13,6 @@ export interface TitleProps {
 }
 
 const Title = ({
-    as = "h1",
     level = 1,
     interactive = false,
     className,
@@ -22,7 +20,7 @@ const Title = ({
     parentHeading,
     ...rest
 }: PropsWithChildren<TitleProps>) => {
-    const Component = as;
+    const Component = `h${level}` as const;
 
     if (children == null) {
         return null;

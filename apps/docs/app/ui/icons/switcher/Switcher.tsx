@@ -1,10 +1,11 @@
 "use client";
 
-import { memo, useState, type ReactNode } from "react";
-import { RadioGroup, Radio, type RadioProps } from "react-aria-components";
 import { IconTable } from "@/app/ui/icons/iconTable/IconTable.tsx";
+import { ThemeContext } from "@/context/theme/ThemeProvider";
+import { HopperProvider, SearchField } from "@hopper-ui/components";
 import { SparklesIcon, SparklesRichIcon, iconNames, richIconNames } from "@hopper-ui/icons";
-
+import { memo, useContext, useState, type ReactNode } from "react";
+import { Radio, RadioGroup, type RadioProps } from "react-aria-components";
 import "./switcher.css";
 
 interface SwitcherProps {
@@ -15,21 +16,30 @@ interface SwitcherProps {
 type AvailableSizes = "sm"| "md" | "lg" | "xl";
 
 const Switcher = memo(({ type, iconType = "icon" }: SwitcherProps) => {
+    const { colorMode } = useContext(ThemeContext);
+    const [filter, setFilter] = useState("");
     const [selectedSize, setSelectedSize] = useState<AvailableSizes>(iconType === "icon" ? "md" : "lg");
 
     const Icon = iconType === "icon" ? SparklesIcon : SparklesRichIcon;
     const iconList = iconType === "icon" ? iconNames : richIconNames;
 
+    const onTextFieldChange = (value: string) => {
+        setFilter(value);
+    };
+
     return (
-        <>
+        <div className="hd-switcher__wrapper">
             <RadioGroup className="hd-switcher-picker" defaultValue={selectedSize} onChange={value => setSelectedSize(value as AvailableSizes)}>
                 {iconType === "icon" && <SwitcherChoice value="sm" preview={<SparklesIcon size="sm" />} />}
                 <SwitcherChoice value="md" preview={<Icon size="md" />} />
                 <SwitcherChoice value="lg" preview={<Icon size="lg" />} />
                 {iconType === "richIcon" && <SwitcherChoice value="xl" preview={<SparklesRichIcon size="xl" />} />}
             </RadioGroup>
-            <IconTable type={type} size={selectedSize} items={iconList} />
-        </>
+            <HopperProvider colorScheme={colorMode}>
+                <SearchField aria-label="Filter icons" placeholder="Search" value={filter} onChange={onTextFieldChange} />
+            </HopperProvider>
+            <IconTable type={type} size={selectedSize} filter={filter} items={iconList} />
+        </div>
     );
 });
 

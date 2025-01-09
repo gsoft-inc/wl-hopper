@@ -1,8 +1,8 @@
 "use client";
 
+import LinkButton from "@/components/button/LinkButton.tsx";
+import { ExternalLinkIcon, GithubIcon, Icon, NpmIcon, WaiAriaIcon, type IconProps } from "@/components/icon";
 import clsx from "clsx";
-import Button from "@/components/button/Button.tsx";
-import { Icon, GithubIcon, NpmIcon, ExternalLinkIcon, WaiAriaIcon, type IconProps } from "@/components/icon";
 
 import "./linkList.css";
 
@@ -38,17 +38,17 @@ export default function LinkList({ links, className }: LinkListProps) {
                 }
 
                 return (
-                    <Button as="a"
+                    <LinkButton
                         size="sm"
                         variant="ghost"
                         href={link.src}
                         target="_blank"
                         key={`link-list-${key.toString()}`}
                     >{link.label}
-                        <Icon slot="icon"
+                        <Icon
                             src={icon as IconProps["src"]}
                         />
-                    </Button>
+                    </LinkButton>
                 );
             }
             )}

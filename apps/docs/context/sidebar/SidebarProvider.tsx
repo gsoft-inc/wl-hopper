@@ -7,11 +7,7 @@ interface SidebarProps {
     toggleSidebar: () => void;
 }
 
-const SidebarContext = createContext<SidebarProps>({
-    isSidebarOpen: false,
-    toggleSidebar: () => {
-    }
-});
+const SidebarContext = createContext<SidebarProps | null>(null);
 
 export const useSidebar = () => useContext(SidebarContext);
 

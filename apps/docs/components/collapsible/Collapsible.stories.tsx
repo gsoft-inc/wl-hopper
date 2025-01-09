@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Collasible from "./Collapsible.tsx";
-
+import Collapsible from "./Collapsible.tsx";
 
 const meta = {
-    title: "components/Collasible",
-    component: Collasible
-} satisfies Meta<typeof Collasible>;
+    title: "components/Collapsible",
+    component: Collapsible
+} satisfies Meta<typeof Collapsible>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -21,6 +20,7 @@ export const Default: Story = {
 
 export const Open: Story = {
     args: {
-        ...Default.args
+        ...Default.args,
+        defaultExpanded: true
     }
 };

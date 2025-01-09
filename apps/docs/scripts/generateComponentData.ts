@@ -29,6 +29,7 @@ export interface Options {
 
 const PACKAGES = path.join(process.cwd(), "..", "..", "packages", "components", "src");
 const ICON_FILE = path.join(process.cwd(), "..", "..", "packages", "icons", "src", "Icon.tsx");
+const RICH_ICON_FILE = path.join(process.cwd(), "..", "..", "packages", "icons", "src", "RichIcon.tsx");
 const COMPONENT_DATA = path.join(process.cwd(), "datas", "components");
 
 const tsConfigParser = docgenTs.withCustomConfig(
@@ -311,7 +312,8 @@ async function generateComponentData() {
 
     // Manually add Icon.tsx to the component list
     const iconComponent: ComponentData = { name: "Icon", filePath: ICON_FILE };
-    const components = [...componentList, iconComponent];
+    const richIconComponent: ComponentData = { name: "RichIcon", filePath: RICH_ICON_FILE };
+    const components = [...componentList, iconComponent, richIconComponent];
 
     if (!components.length) {
         console.error("No components found");

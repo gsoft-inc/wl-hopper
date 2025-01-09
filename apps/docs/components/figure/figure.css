@@ -1,0 +1,20 @@
+.hd-figure {
+    display: flex;
+    flex-direction: column;
+    max-width: 37.5rem;
+    margin-top: var(--hd-space-3);
+    position: relative;
+}
+
+.hd-figure__figcaption {
+    color: var(--hd-color-neutral-text-weak);
+    font-family: "ABC Favorit Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1.125;
+    margin-top: var(--hd-space-2);
+}
+
+.hd-figure__image {
+    height: auto;
+    max-width: 100%;
+}

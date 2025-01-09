@@ -1,6 +1,5 @@
-import { Header, ListBox, ListBoxItem, ListBoxSection } from "@hopper-ui/components";
+import { Header, ListBox, ListBoxItem, ListBoxSection, type Selection } from "@hopper-ui/components";
 import { useState } from "react";
-import type { Selection } from "react-aria-components";
 
 export default function Example() {
     const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(["1"]));

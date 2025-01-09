@@ -1,22 +1,21 @@
 "use client";
 
+import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
+import IconButton from "@/components/iconButton/IconButton";
+import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
+import { navigation } from "@/configs/navigation";
+import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
+import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
-import IconButton from "@/components/iconButton/IconButton";
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import { navigation } from "@/configs/navigation";
-import { type ColorScheme, ThemeContext } from "@/context/theme/ThemeProvider.tsx";
-import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
 
 import CloseIcon from "./assets/close.svg";
 import GithubLogo from "./assets/github.svg";
 import HopperLogo from "./assets/hopper-logo.svg";
 
 import "./mobileMenu.css";
-
 
 interface MobileMenuProps {
     onClose?: () => void;
@@ -84,7 +83,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
                     className={clsx("hd-mobile-menu-nav-list__link", isActive && "hd-mobile-menu-nav-list__link--active", (!featureFlags.alpha && status !== "ready") && "hd-mobile-menu-nav-list__link--disabled")}
                     onClick={onClose}
                 >
-                    {label}
+                    {label}{label === "Components" && <span className="hd-mobile-menu-nav-tag">Preview</span>}
                 </Link>
             </li>
         );
@@ -99,7 +98,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
                     <Link href="/" className="hd-brand" aria-label="Hopper Brand">
                         <HopperLogo />
                     </Link>
-                    <IconButton onClick={onClose} className="hd-mobile-menu__close">
+                    <IconButton onPress={onClose} className="hd-mobile-menu__close">
                         <CloseIcon className="hd-mobile-menu__close-icon" />
                     </IconButton>
                 </Wrapper>

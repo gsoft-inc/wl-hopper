@@ -34,6 +34,7 @@
 }
 
 .hd-aside__container {
+    position: relative;
     overflow-y: auto;
     scroll-margin-top: var(--hd-space-8);
     scrollbar-width: thin;
@@ -85,7 +86,7 @@
 }
 
 .hd-aside__link {
-    line-height: 1;
+    line-height: 1.7;
 }
 
 .hd-aside__link:hover {
@@ -112,7 +113,7 @@
 
 .hd-aside__item {
     font-size: 0.875rem;
-    height: var(--hd-space-3);
+    min-height: var(--hd-space-3);
     display: flex;
     align-items: center;
     position: relative;

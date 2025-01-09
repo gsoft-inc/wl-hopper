@@ -48,6 +48,7 @@
     font-size: 1.5rem;
     display: flex;
     color: var(--hd-color-neutral-text-weak);
+    gap: var(--hd-space-1)
 }
 
 .hd-mobile-menu-nav-list__link:hover {
@@ -90,6 +91,15 @@
     pointer-events: none;
     text-decoration: line-through;
     color: var(--hd-color-neutral-text-weakest);
+}
+
+.hd-mobile-menu-nav-tag {
+    align-self: center;
+    border-radius: var(--hd-border-radius-sm);
+    color: var(--hd-color-accent-text);
+    background-color: var(--hd-color-accent-surface);
+    font-size: 0.75rem;
+    padding: 0.125rem var(--hd-space-05);
 }
 
 .hd-mobile-menu--opening {

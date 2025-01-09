@@ -9,12 +9,6 @@
     background-color: var(--hd-color-neutral-surface-weak);
 }
 
-.hd-tabs__item {
-    align-items: center;
-    display: flex;
-    position: relative;
-}
-
 .hd-tabs__item-button {
     display: flex;
     align-items: center;

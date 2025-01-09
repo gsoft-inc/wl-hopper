@@ -13,6 +13,8 @@ export * from "./Header/index.ts";
 export * from "./HelperMessage/index.ts";
 export * from "./HopperProvider/index.ts";
 export * from "./IconList/index.ts";
+export * from "./IllustratedMessage/index.ts";
+export * from "./Image/index.ts";
 export * from "./inputs/index.ts";
 export * from "./layout/index.ts";
 export * from "./Link/index.ts";
@@ -33,7 +35,8 @@ export * from "./utils/index.ts";
 export * from "@hopper-ui/styled-system";
 export { useAsyncList } from "@react-stately/data";
 export type { RouterOptions } from "@react-types/shared";
+export { useFilter } from "react-aria";
 export type { Orientation, Placement } from "react-aria";
-export { Collection, type ContextValue, type Key, type Selection, type ValidationResult } from "react-aria-components";
+export { Collection, DEFAULT_SLOT, useContextProps, useSlottedContext, type ContextValue, type Key, type Selection, type ValidationResult } from "react-aria-components";
 
 import "./index.css";

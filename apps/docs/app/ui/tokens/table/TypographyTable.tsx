@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Table from "@/components/table/Table";
+import clsx from "clsx";
 
 import {
     groupItemsByProperties,
@@ -37,16 +37,20 @@ const TypographyTable = ({ type, data }: TypographyTableProps) => {
     const tokenData = transformDataToTokenData(data);
     const listItems = hasNoSizes ? [generateSizelessRows(tokenData, type)] : generateSizeRows(tokenData, type);
 
-    return (<Table
-        head={[
-            !hasNoSizes && "Size",
-            "Values",
-            "Preview"
-        ]}
-        data={listItems}
-        className={clsx("hd-typo-table", { "hd-typo-table--has-no-sizes": hasNoSizes })}
-        ariaLabel="Typography tokens"
-    />);
+    return (
+        <div className="hd-table__wrapper">
+            <Table
+                head={[
+                    !hasNoSizes && "Size",
+                    "Values",
+                    "Preview"
+                ].filter(Boolean) as string[]}
+                data={listItems}
+                className={clsx("hd-typo-table", { "hd-typo-table--has-no-sizes": hasNoSizes })}
+                ariaLabel="Typography tokens"
+            />
+        </div>
+    );
 };
 
 function generateSizeRows(tokenData: TokenData, type: string) {

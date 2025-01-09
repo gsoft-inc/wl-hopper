@@ -1,27 +1,135 @@
 ---
 title: Slots
 description: This page describes how Hopper components include predefined layouts that you can insert elements into via slots. Slots are named areas in a component that receive children and provide style and layout for them.
-order: 7
-status: WIP
+order: 8
 ---
 
-This page will be inspired by https://react-spectrum.adobe.com/react-aria/advanced.html#slots but the focus of the page should be slots, not the context like this page.
+_Since Hopper components are designed on top of React Aria, this article is heavily inspired by the [Advanced Customization article](https://react-spectrum.adobe.com/react-aria/advanced.html#slots) in React-Aria's documentation._
 
 ## Introduction
 
-## Contexts
+The Hopper component API is designed around composition. Components are reused between patterns to build larger composite components. For example, there is no dedicated `NumberFieldIncrementButton` or `SelectPopover` component. Instead, the standalone [Button](../buttons/Button) and [Popover](../overlays/Popover) components are reused within [NumberField](../forms/NumberField) and [Select](../pickers/Select). This reduces the amount of duplicate styling code you need to write and maintain, and provides powerful composition capabilities you can use in your own components.
+
+```tsx
+<Stepper>
+  <Button slot="increment">⬆</Button>
+  <Button slot="decrement">⬇</Button>
+</Stepper>
+```
+
+Slots in Hopper are named areas within a component where developers can insert content. They make it easier to create flexible and reusable components while keeping layouts accessible and consistent. Instead of using only children for content, slots act as specific placeholders that clearly define where each piece of content goes.
+
+Hopper builds on React Aria's context-based design to make working with slots simple and efficient. This approach gives developers more control over how components are customized and ensures they follow accessibility best practices. This guide explains how slots work in Hopper, how they use contexts, and how to create or extend components with them.
+
+## Custom patterns
+
+Each Hopper exports a corresponding context that you can use to build your own compositional APIs similar to the built-in components. You can send any prop or ref via context that you could pass to the corresponding component. The local props and ref on the component are merged with the ones passed via context, with the local props taking precedence (following the rules documented in [mergeProps](https://react-spectrum.adobe.com/react-aria/mergeProps.html)).
+
+This example shows a `FieldGroup` component that renders a group of text fields. The entire group can be marked as disabled via the isDisabled prop, which is passed to all child text fields via the TextFieldContext provider.
+
+<CodeOnlyExample src="HopperProvider/docs/slots/custom-patterns" isOpen />
+
+Any `TextField` component you place inside a `FieldGroup` will automatically receive the `isDisabled` prop from the group, including those that are deeply nested inside other components.
+
+```tsx
+<FieldGroup isDisabled={isSubmitting}>
+  <TextField label="Name" />
+  <TextField label="Email" />
+</FieldGroup>
+```
+
+## Slots
+
+Some patterns include multiple instances of the same component. These use the `slot` prop to distinguish each instance. Slots are named children within a component that can receive separate behaviors and [styles](./styling.mdx). Separate props can be sent to slots by providing an object with keys for each slot name to the component's context provider.
+
+This example shows a `Stepper` component with slots for its increment and decrement buttons.
+
+
+<CodeOnlyExample src="HopperProvider/docs/slots/slots" isOpen />
+
+And it can be used like this:
+
+```tsx
+<Stepper>
+  <Button slot="increment">⬆</Button>
+  <Button slot="decrement">⬇</Button>
+</Stepper>
+```
+
+{/* TODO: uncomment this when the anatomy section is done */}
+{/* The slots provided by each built-in Hopper component are shown in the Anatomy section of their documentation. */}
 
 ### Default slot
 
-### Consuming contexts
+The default slot is used to provide props to a component without specifying a slot name. This approach allows you to assign a default slot to a component for its default use case and enables you to specify a slot name for a specific use case.
 
-#### useContextProps
+This example shows a custom component that passes a specific class name to a standard button child and to a button child with a slot named "end".
 
-#### useSlottedContext
+<CodeOnlyExample src="HopperProvider/docs/slots/default-slot" isOpen />
 
-## Creating Custom Components
+And it can be used like this:
 
-#### using existing context
+```tsx
+<MyCustomComponent>
+  {/* Consumes the props passed to the default slot */}
+  <Button>Click me</Button>
+</MyCustomComponent>
 
-#### using new contexts
+<MyCustomComponent>
+  {/* Consumes the props passed to the "end" slot */}
+  <Button slot="end">Click me</Button>
+</MyCustomComponent>
+```
+
+## Consuming contexts
+
+You can also consume from contexts provided by Hopper components in your own custom components. This allows you to replace a component used as part of a larger pattern with a custom implementation. For example, you could consume from `LabelContext` in an existing styled label component to make it compatible with Hopper Components.
+
+### useContextProps
+
+The `useContextProps` hook merges the local props and ref with the ones provided via context by a parent component. The local props always take precedence over the context values (following the rules documented in [mergeProps](https://react-spectrum.adobe.com/react-aria/mergeProps.html)). `useContextProps` supports the slot prop to indicate which value to consume from context.
+
+```tsx
+import { type LabelProps, LabelContext, useContextProps } from "@hopper-ui/components";
+import { forwardRef } from "react";
+
+export const MyCustomLabel = forwardRef(
+    (props: LabelProps, ref: React.ForwardedRef<HTMLLabelElement>) => {
+    // Merge the local props and ref with the ones provided via context.
+        [props, ref] = useContextProps(props, ref, LabelContext);
+
+        // ... your existing Label component
+        return <label {...props} ref={ref} />;
+    }
+);
+```
+
+Since it consumes from LabelContext, MyCustomLabel can be used within any Hopper component instead of the built-in Label.
+
+```tsx
+<TextField>
+    <MyCustomLabel>Name</MyCustomLabel>
+    <Input />
+</TextField>
+```
+
+### useSlottedContext
+
+To consume a context without merging with existing props, use the `useSlottedContext` hook. This works like React's `useContext`, and also accepts an optional slot argument to identify which slot name to consume.
+
+```tsx
+import { useSlottedContext } from "react-aria-components";
+
+// Consume the un-slotted value.
+let buttonContext = useSlottedContext(ButtonContext);
+
+// Consume the value for a specific slot name.
+let incrementButtonContext = useSlottedContext(ButtonContext, "increment");
+```
+
+## Accessing state
+
+Most Hopper components are built on top of React Aria Components. React Aria Components compose other standalone components in their children to build larger patterns. However, some components are made up of more tightly coupled children. For example, Calendar includes children such as CalendarGrid and CalendarCell that cannot be used standalone, and must appear within a Calendar or RangeCalendar. These components access the state from their parent via context.
+
+You can access the state from a parent component via the same contexts in order to build your own custom children. This example shows a CalendarValue component that displays the currently selected date from a calendar as a formatted string.
 

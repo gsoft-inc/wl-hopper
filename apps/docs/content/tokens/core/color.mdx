@@ -1,13 +1,13 @@
 ---
 title: Color
-description: Getting started with Workleap Design Tokens
+description: Design tokens are design decisions, translated into data. Explore the core color design tokens.
 ---
 
-import tokens from '../../../datas/tokens.json';
 import tokensDark from '../../../datas/tokens-dark.json';
+import tokens from '../../../datas/tokens.json';
 
 export const categoryKey = "color";
 
 ## Tokens
 
-<TokenTable category={categoryKey} data={tokens.core[categoryKey]} />
+<TokenTable tokenType={"core"} category={categoryKey} data={tokens.core[categoryKey]} />

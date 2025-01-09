@@ -23,12 +23,12 @@
         --collapsible-trigger-background: var(--hd-color-neutral-surface);
 
         cursor: pointer;
-        box-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
+        box-shadow: var(--hd-color-shadow-collapsible);
     }
 
     &[data-focused="true"][aria-expanded="true"]:not([data-focus-visible]),
     &[data-focused="true"][data-hovered="true"]:not([data-focus-visible]) {
-        box-shadow: 0 0.25rem 0.625rem 0.25rem rgb(60 60 60 / 8%);
+        box-shadow: var(--hd-color-shadow-collapsible);
     }
 
     &[data-focused="true"][aria-expanded="false"]:not([data-hovered]) {

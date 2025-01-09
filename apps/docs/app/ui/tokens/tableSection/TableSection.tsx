@@ -1,8 +1,7 @@
-"use client";
-
 import TokenTable from "@/app/ui/tokens/table/TokenTable.tsx";
 
 import "@hopper-ui/tokens/fonts.css";
+import { useMemo } from "react";
 
 interface TokenProps {
     name: string;
@@ -14,18 +13,23 @@ interface TableSectionProps {
     categories: string[];
     excludedCategories?: string[];
     categoryKey: string;
+    tokenType?: "core" | "semantic";
 }
 
-const TableSection = ({ tokens, categories, excludedCategories, categoryKey }: TableSectionProps) => {
-    const categoryTokens = tokens.filter(token => {
-        const excludedCategoryTokens = excludedCategories?.some(category => token.name.includes(category));
+const TableSection = ({ tokens, categories, excludedCategories, categoryKey, tokenType }: TableSectionProps) => {
+    const categoryTokens = useMemo(() => {
+        return tokens.filter(token => {
+            const excludedCategoryTokens = excludedCategories?.some(category => token.name.includes(category));
 
-        return categories.some(category => token.name.includes(category)) && !excludedCategoryTokens;
-    });
+            return categories.some(category => token.name.includes(category)) && !excludedCategoryTokens;
+        });
+    }, [tokens, categories, excludedCategories]);
 
-    return <div className="hd-table-section">
-        <TokenTable category={categoryKey} data={categoryTokens} />
-    </div>;
+    return (
+        <div className="hd-table-section">
+            <TokenTable tokenType={tokenType} category={categoryKey} data={categoryTokens} />
+        </div>
+    );
 };
 
 export default TableSection;

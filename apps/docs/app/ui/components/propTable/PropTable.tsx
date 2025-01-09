@@ -115,13 +115,17 @@ export default async function PropTable({ component }: PropTableProps) {
                 const [key] = Object.keys(group);
                 const isEmpty = group[key].length === 0;
 
+                if (isEmpty) {
+                    return null;
+                }
+
                 return (
                     <Fragment key={key}>
                         {key === "default" ?
                             <PropTableRender items={group[key]} /> :
-                            !isEmpty && <Collapsible className="hd-props-table__section"
+                            <Collapsible className="hd-props-table__section"
                                 key={key}
-                                title={<Title as="h4" level={4}>
+                                title={<Title level={4}>
                                     {capitalize(key)}
                                 </Title>}
                             >

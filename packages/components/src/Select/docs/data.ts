@@ -9,7 +9,7 @@ export interface User {
     email: string;
 }
 
-export const users = [
+export const users: User[] = [
     {
         id: 1,
         name: "Tony Reichert",
@@ -211,4 +211,3 @@ export const users = [
         email: "mia.robinson@example.com"
     }
 ];
-  

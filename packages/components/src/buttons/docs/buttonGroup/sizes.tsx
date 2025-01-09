@@ -1,18 +1,18 @@
 import { Button, ButtonGroup, Stack } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = {
-        children: [
-            <Button key="1" variant="secondary">No, thanks</Button>,
-            <Button key="2" variant="secondary">Remind me later</Button>,
-            <Button key="3" variant="primary">Rate Now</Button>
-        ]
-    };
-
     return (
         <Stack>
-            <ButtonGroup size="sm" {...props} />
-            <ButtonGroup {...props} />
+            <ButtonGroup>
+                <Button variant="secondary">No, thanks</Button>
+                <Button variant="secondary">Remind me later</Button>
+                <Button variant="primary">Rate Now</Button>
+            </ButtonGroup>
+            <ButtonGroup size="sm">
+                <Button variant="secondary">No, thanks</Button>
+                <Button variant="secondary">Remind me later</Button>
+                <Button variant="primary">Rate Now</Button>
+            </ButtonGroup>
         </Stack>
     );
 }

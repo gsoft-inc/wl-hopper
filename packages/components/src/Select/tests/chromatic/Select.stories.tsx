@@ -245,11 +245,11 @@ export const SelectedItemWithIcon = {
                     <Select {...args} defaultSelectedKey="raccoon">
                         <SelectItem id="dog" textValue="Dog">
                             <SparklesIcon />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </SelectItem>
                         <SelectItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </SelectItem>
                         <SelectItem id="frog">Frog</SelectItem>
                     </Select>
@@ -259,11 +259,11 @@ export const SelectedItemWithIcon = {
                     <Select {...args} selectedKey="raccoon">
                         <SelectItem id="dog" textValue="Dog">
                             <SparklesIcon />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </SelectItem>
                         <SelectItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </SelectItem>
                         <SelectItem id="frog">Frog</SelectItem>
                     </Select>
@@ -273,11 +273,11 @@ export const SelectedItemWithIcon = {
             <Select {...args} defaultSelectedKey="raccoon" isDisabled>
                 <SelectItem id="dog" textValue="Dog">
                     <SparklesIcon />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </SelectItem>
                 <SelectItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </SelectItem>
                 <SelectItem id="frog">Frog</SelectItem>
             </Select>
@@ -285,11 +285,11 @@ export const SelectedItemWithIcon = {
             <Select {...args} defaultSelectedKey="raccoon" isFluid>
                 <SelectItem id="dog" textValue="Dog">
                     <SparklesIcon />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </SelectItem>
                 <SelectItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </SelectItem>
                 <SelectItem id="frog">Frog</SelectItem>
             </Select>
@@ -298,11 +298,11 @@ export const SelectedItemWithIcon = {
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
                     <SelectItem id="dog" textValue="Dog">
                         <SparklesIcon />
-                        <Text slot="label">Dog</Text>
+                        <Text>Dog</Text>
                     </SelectItem>
                     <SelectItem id="raccoon" textValue="Raccoon">
                         <SparklesIcon />
-                        <Text slot="label">Raccoon</Text>
+                        <Text>Raccoon</Text>
                     </SelectItem>
                     <SelectItem id="frog">Frog</SelectItem>
                 </Select>
@@ -320,11 +320,11 @@ export const SelectedItemWithEndIcon = {
                     <Select {...args} defaultSelectedKey="raccoon">
                         <SelectItem id="dog" textValue="Dog">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </SelectItem>
                         <SelectItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </SelectItem>
                         <SelectItem id="frog">Frog</SelectItem>
                     </Select>
@@ -334,11 +334,11 @@ export const SelectedItemWithEndIcon = {
                     <Select {...args} selectedKey="raccoon">
                         <SelectItem id="dog" textValue="Dog">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </SelectItem>
                         <SelectItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </SelectItem>
                         <SelectItem id="frog">Frog</SelectItem>
                     </Select>
@@ -348,11 +348,11 @@ export const SelectedItemWithEndIcon = {
             <Select {...args} defaultSelectedKey="raccoon" isDisabled>
                 <SelectItem id="dog" textValue="Dog">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </SelectItem>
                 <SelectItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </SelectItem>
                 <SelectItem id="frog">Frog</SelectItem>
             </Select>
@@ -360,11 +360,11 @@ export const SelectedItemWithEndIcon = {
             <Select {...args} defaultSelectedKey="raccoon" isFluid>
                 <SelectItem id="dog" textValue="Dog">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </SelectItem>
                 <SelectItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </SelectItem>
                 <SelectItem id="frog">Frog</SelectItem>
             </Select>
@@ -373,11 +373,11 @@ export const SelectedItemWithEndIcon = {
                 <Select {...args} defaultSelectedKey="raccoon" isFluid>
                     <SelectItem id="dog" textValue="Dog">
                         <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Dog</Text>
+                        <Text>Dog</Text>
                     </SelectItem>
                     <SelectItem id="raccoon" textValue="Raccoon">
                         <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Raccoon</Text>
+                        <Text>Raccoon</Text>
                     </SelectItem>
                     <SelectItem id="frog">Frog</SelectItem>
                 </Select>
@@ -390,11 +390,11 @@ export const SelectItemWithDescription = {
     render: args => (
         <Select {...args}>
             <SelectItem id="dog" textValue="Dog">
-                <Text slot="label">Dog</Text>
+                <Text>Dog</Text>
                 <Text slot="description">I come in many different breeds</Text>
             </SelectItem>
             <SelectItem id="raccoon" textValue="Raccoon">
-                <Text slot="label">Raccoon</Text>
+                <Text>Raccoon</Text>
                 <Text slot="description">I am nocturnal</Text>
             </SelectItem>
             <SelectItem id="frog">Frog</SelectItem>

@@ -1,4 +1,4 @@
-import { Button, Content, Flex, Heading, Popover } from "@hopper-ui/components";
+import { Button, Content, Heading, Popover, Stack } from "@hopper-ui/components";
 import { useRef, useState } from "react";
 
 export default function Example() {
@@ -7,7 +7,7 @@ export default function Example() {
 
     return (
         <>
-            <Flex direction="column" alignItems="center" gap="core_320">
+            <Stack alignX="center">
                 <Button
                     onPress={() => setOpen(!isOpen)}
                     variant="secondary"
@@ -15,9 +15,9 @@ export default function Example() {
                     Company Profile
                 </Button>
                 <span ref={triggerRef}>Popover will be positioned relative to me</span>
-            </Flex>
+            </Stack>
             <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
-                <Heading slot="title">ACME</Heading>
+                <Heading>ACME</Heading>
                 <Content>
                     A tech company focusing on the development of software and hardware solutions.
                 </Content>

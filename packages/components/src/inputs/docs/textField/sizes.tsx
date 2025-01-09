@@ -1,15 +1,10 @@
 import { Stack, TextField } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = {
-        placeholder: "Full name (e.g., Jane Smith)",
-        label: "Name"
-    };
-
     return (
         <Stack>
-            <TextField size="sm" {...props} />
-            <TextField {...props} />
+            <TextField label="Name" placeholder="Full name (e.g., Jane Smith)" size="sm" />
+            <TextField label="Name" placeholder="Full name (e.g., Jane Smith)" />
         </Stack>
     );
 }

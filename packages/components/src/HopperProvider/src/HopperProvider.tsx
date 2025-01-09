@@ -8,7 +8,7 @@ export const GlobalHopperProviderCssSelector = "hop-HopperProvider";
 
 export interface HopperProviderProps extends StyledSystemProviderProps {
     /**
-     * The The BCP47 language code for the locale.
+     * The BCP47 language code for the locale.
      * @example "en-US"
      */
     locale?: string;

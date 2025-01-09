@@ -3,10 +3,15 @@ import { withContentlayer } from "next-contentlayer";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    swcMinify: true,
+    swcMinify: true, // This will be enabled by default and removed in Next.js 15
+    typescript: {
+        ignoreBuildErrors: true // we typecheck separately
+    },
+    productionBrowserSourceMaps: true,
     // Eslint only lint pages/, app/, components/, lib/, and src/ directories by default. So we need to add other directories to the eslint config.
     // https://nextjs.org/docs/app/building-your-application/configuring/eslint#linting-custom-directories-and-files
     eslint: {
+        ignoreDuringBuilds: true,
         dirs: [
             ".storybook",
             "app",

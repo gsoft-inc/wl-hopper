@@ -1,17 +1,15 @@
 import { Heading, Stack } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = { children: "Great work!" };
-
     return (
         <Stack>
-            <Heading size="xs" {...props} />
-            <Heading size="sm" {...props} />
-            <Heading size="md" {...props} />
-            <Heading size="lg" {...props} />
-            <Heading size="xl" {...props} />
-            <Heading size="2xl" {...props} />
-            <Heading size="3xl" {...props} />
+            <Heading size="xs">Great work!</Heading>
+            <Heading size="sm">Great work!</Heading>
+            <Heading size="md">Great work!</Heading>
+            <Heading size="lg">Great work!</Heading>
+            <Heading size="xl">Great work!</Heading>
+            <Heading size="2xl">Great work!</Heading>
+            <Heading size="3xl">Great work!</Heading>
         </Stack>
     );
 }

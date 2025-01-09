@@ -26,7 +26,7 @@ export interface RemainingCharacterCountProps extends
 
 export const GlobalRemainingCharacterCountCssSelector = "hop-RemainingCharacterCount";
 
-function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: ForwardedRef<HTMLElement>) {
+function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: ForwardedRef<HTMLSpanElement>) {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, style, slot, count, isDisabled, isInvalid, ...textProps } = ownProps;
     const stringFormatter = useLocalizedString();
@@ -77,7 +77,7 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
  *
  * [View Documentation](TODO)
  */
-const _RemainingCharacterCount = forwardRef<HTMLElement, RemainingCharacterCountProps>(RemainingCharacterCount);
+const _RemainingCharacterCount = forwardRef<HTMLSpanElement, RemainingCharacterCountProps>(RemainingCharacterCount);
 _RemainingCharacterCount.displayName = "RemainingCharacterCount";
 
 export { _RemainingCharacterCount as RemainingCharacterCount };

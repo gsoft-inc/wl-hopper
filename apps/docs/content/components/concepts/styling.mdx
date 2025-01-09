@@ -2,7 +2,6 @@
 title: Styling
 description: This page describes how styling works in Hopper, including how to customize spacing, sizing, and positioning, and how to create your own custom components using Hopper styles.
 order: 2
-status: WIP
 ---
 
 ## Introduction
@@ -30,6 +29,10 @@ Props like border and paddingX are also provided to help you save keystrokes. An
 
 <CodeOnlyExample src="HopperProvider/docs/styling/shorthands" />
 
+### Responsive styles
+
+All style props support responsive values. You can pass an object with breakpoints as keys and values as values to a style prop to set different values for different breakpoints. More information is available in the [Responsive Styles article](./responsive-styles).
+
 ### Escape hatches
 
 While we encourage teams to utilize Hopper styles as it is, we do realize that sometimes product specific customizations may be needed. In these cases, we encourage you or your designers to talk to us. We may be able to suggest an alternative implementation strategy, or perhaps your design can help inform future Hopper additions.
@@ -54,7 +57,7 @@ Since the following user action pseudo-classes are often used, some style props 
     { suffix: "hover", pseudoState: ":hover" },
     { suffix: "focus", pseudoState: ":focus" },
 ]} />
-
+<br />
 Not all style props support user action pseudo-classes. Find out which props support user action pseudo-classes in the ["Properties List"](#properties-list) section.
 
 ## HTML Elements
@@ -97,44 +100,256 @@ The following tables provide a list of all available style props by category.
 
 ### Space
 
-{/* TODO */}
+```tsx
+<Div padding="inset-md">
+    Hopper
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["margin", "margin", "spacing-scale", "breakpoints"],
+        ["marginTop", "margin-top", "spacing-scale", "breakpoints"],
+        ["marginBottom", "margin-bottom", "spacing-scale", "breakpoints"],
+        ["marginRight", "margin-right", "spacing-scale", "breakpoints"],
+        ["marginLeft", "margin-left", "spacing-scale", "breakpoints"],
+        ["marginX", "margin-left & margin-right", "spacing-scale", "breakpoints"],
+        ["marginY", "margin-top & margin-bottom", "spacing-scale", "breakpoints"],
+        ["padding", "padding", "spacing-scale", "breakpoints"],
+        ["paddingTop", "padding-top", "spacing-scale", "breakpoints"],
+        ["paddingBottom", "padding-bottom", "spacing-scale", "breakpoints"],
+        ["paddingRight", "padding-right", "spacing-scale", "breakpoints"],
+        ["paddingLeft", "padding-left", "spacing-scale", "breakpoints"],
+        ["paddingX", "padding-left & padding-right", "spacing-scale", "breakpoints"],
+        ["paddingY", "padding-top & padding-bottom", "spacing-scale", "breakpoints"],
+        ["whiteSpace", "white-space", "none", "breakpoints"],
+    ]}
+/>
 
 ### Color
 
-{/* TODO */}
+```tsx
+<Div backgroundColor="primary-weak" color="neutral">
+    Hopper
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["color", "color", "color-scale", "breakpoints & focus/hover/active"],
+        ["backgroundColor", "background-color", "color-scale", "breakpoints & focus/hover/active"],
+        ["opacity", "opacity", "none", "breakpoints & focus/hover/active"],
+        ["fill", "fill", "color-scale", "breakpoints & focus/hover"],
+        ["stroke", "stroke", "color-scale", "breakpoints"],
+        ["filter", "filter", "none", "breakpoints"]
+    ]}
+/>
 
 ### Typography
 
-{/* TODO */}
+```tsx
+<Header letterSpacing="0.3rem">Hopper</Header>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["fontSize", "font-size", "typography-scale", "breakpoints"],
+        ["fontWeight", "font-weight", "typography-scale", "breakpoints"],
+        ["lineHeight", "line-height", "typography-scale", "breakpoints"],
+        ["letterSpacing", "letter-spacing", "none", "breakpoints"],
+        ["textAlign", "text-align", "none", "breakpoints"],
+        ["textTransform", "text-transform", "none", "breakpoints"],
+        ["textDecoration", "text-decoration", "none", "breakpoints"],
+        ["textOverflow", "text-overflow", "none", "breakpoints"],
+        ["wordBreak", "word-break", "none", "breakpoints"],
+        ["fontStyle", "font-style", "none", "breakpoints"]
+    ]}
+/>
 
 ### Layout
 
-{/* TODO */}
+```tsx
+<Div UNSAFE_width="30rem">
+    Hopper
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["width", "width", "dimension-scale", "breakpoints"],
+        ["height", "height", "dimension-scale", "breakpoints"],
+        ["minWidth", "min-width", "dimension-scale", "breakpoints"],
+        ["maxWidth", "max-width", "dimension-scale", "breakpoints"],
+        ["minHeight", "min-height", "dimension-scale", "breakpoints"],
+        ["maxHeight", "max-height", "dimension-scale", "breakpoints"],
+        ["display", "display", "none", "breakpoints"],
+        ["verticalAlign", "vertical-align", "none", "breakpoints"],
+        ["overflow", "overflow", "none", "breakpoints"],
+        ["overflowX", "overflow-x", "none", "breakpoints"],
+        ["overflowY", "overflow-y", "none", "breakpoints"],
+        ["gap", "gap", "none", "breakpoints"],
+        ["alignSelf", "align-self" , "none", "breakpoints"],
+        ["aspectRatio", "aspect-ratio", "none", "breakpoints"],
+        ["justifyContent", "justify-content", "none", "breakpoints"],
+        ["justifyItems", "justify-items", "none", "breakpoints"],
+        ["justifySelf", "justify-self", "none", "breakpoints"],
+        ["contentVisibility", "content-visibility", "none", "breakpoints"],
+        ["transform", "transform", "none", "breakpoints"],
+        ["transformOrigin", "transform-origin", "none", "breakpoints"],
+        ["transformStyle", "transform-style", "none", "breakpoints"]
+    ]}
+/>
 
 ### Flex Layout
 
-{/* TODO */}
+```tsx
+<Div alignItems="center">
+    <Text>Tree frog</Text>
+    <Text>Pond frog</Text>
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["alignItems", "align-items", "none", "breakpoints"],
+        ["alignContent", "align-content", "none", "breakpoints"],
+        ["flex", "flex (shorthand)", "none", "breakpoints"],
+        ["flexBasis", "flex-basis", "none", "breakpoints"],
+        ["flexDirection", "flex-direction", "none", "breakpoints"],
+        ["flexFlow", "flex-flow", "none", "breakpoints"],
+        ["flexGrow", "flex-grow", "none", "breakpoints"],
+        ["flexShrink", "flex-shrink", "none", "breakpoints"],
+        ["flexWrap", "flex-wrap", "none", "breakpoints"],
+        ["order", "order", "none", "breakpoints"]
+    ]}
+/>
 
 ### Grid Layout
 
-{/* TODO */}
+```tsx
+<Div gridAutoFlow="row dense">
+    <Text>Tree frog</Text>
+    <Text>Pond frog</Text>
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["grid", "grid (shorthand)", "none", "breakpoints"],
+        ["gridArea", "grid-area", "none", "breakpoints"],
+        ["gridAutoColumns", "grid-auto-columns", "dimension-scale", "breakpoints"],
+        ["gridAutoFlow", "grid-auto-flow", "none", "breakpoints"],
+        ["gridAutoRows", "grid-auto-rows", "dimension-scale", "breakpoints"],
+        ["gridColumn", "grid-column", "none", "breakpoints"],
+        ["gridColumnEnd", "grid-column-end", "none", "breakpoints"],
+        ["gridColumnSpan", "grid-column-span", "none", "breakpoints"],
+        ["gridColumnStart", "grid-column-start", "none", "breakpoints"],
+        ["gridRow", "grid-row", "none", "breakpoints"],
+        ["gridRowEnd", "grid-row-end", "none", "breakpoints"],
+        ["gridRowSpan", "grid-row-span", "none", "breakpoints"],
+        ["gridRowStart", "grid-row-start", "none", "breakpoints"],
+        ["gridTemplate", "grid-template", "none", "breakpoints"],
+        ["gridTemplateAreas", "grid-template-areas", "none", "breakpoints"],
+        ["gridTemplateColumns", "grid-template-columns", "dimension-scale", "breakpoints"],
+        ["gridTemplateRows", "grid-template-rows", "dimension-scale", "breakpoints"],
+        ["columnGap", "column-gap", "spacing-scale", "breakpoints"],
+        ["rowGap", "row-gap", "spacing-scale", "breakpoints"],
+    ]}
+/>
 
 ### Background
 
-{/* TODO */}
+```tsx
+<Div
+  backgroundImage="url('/images/dog.png')"
+  backgroundPosition="center"
+  backgroundRepeat="no-repeat"
+/>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["backgroundImage", "background-image", "none", "breakpoints"],
+        ["backgroundPosition", "background-position", "none", "breakpoints"],
+        ["backgroundRepeat", "background-repeat", "none", "breakpoints"],
+        ["backgroundSize", "background-size", "none", "breakpoints"]
+    ]}
+/>
 
 ### Border
 
-{/* TODO */}
+```tsx
+<Div
+    border="primary"
+    borderRadius="rounded-md"
+>
+    Tree frog
+</Div>
+```
+
+Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors for value.
+
+<PropsReferenceTable
+    rows={[
+        ["border", "border-color", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderBottom", "border-bottom-color", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderTop", "border-top-color", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderLeft", "border-left-color", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderRight", "border-right-color", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderRadius", "border-radius", "shape-scale", "breakpoints"],
+        ["borderTopLeftRadius", "border-top-left-radius", "shape-scale", "breakpoints"],
+        ["borderTopRightRadius", "border-top-right-radius", "shape-scale",  "breakpoints"],
+        ["borderBottomLeftRadius", "border-bottom-left-radius", "shape-scale", "breakpoints"],
+        ["borderBottomRightRadius", "border-bottom-right-radius", "shape-scale", "breakpoints"],
+        ["outline", "outline", "none", "breakpoints & focus"]
+    ]}
+/>
 
 ### Position
 
-{/* TODO */}
+```tsx
+<Div
+    top="12px"
+    position="absolute"
+/>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["position", "position", "none", "breakpoints"],
+        ["top", "top", "none", "breakpoints"],
+        ["bottom", "bottom", "none", "breakpoints"],
+        ["right", "right", "none", "breakpoints"],
+        ["left", "left", "none", "breakpoints"],
+        ["zIndex", "z-index", "none", "breakpoints"],
+        ["objectFit", "object-fit", "none", "breakpoints"],
+        ["objectPosition", "object-position", "none", "breakpoints"]
+    ]}
+/>
 
 ### Shadow
 
-{/* TODO */}
+```tsx
+<Div
+    boxShadow="lifted"
+/>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["boxShadow", "box-shadow", "shape-scale", "breakpoints & focus/hover/active"],
+    ]}
+/>
 
 ### Miscellaneous
 
-{/* TODO */}
+<PropsReferenceTable
+    rows={[
+        ["content", "content", "none", "breakpoint"],
+        ["cursor", "cursor", "none", "breakpoint & hover"],
+        ["pointerEvents", "pointer-events", "none", "breakpoint"],
+        ["resize", "resize", "none", "breakpoint"],
+        ["willChange", "will-change", "none", "breakpoint"]
+    ]}
+/>
+

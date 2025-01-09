@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@hopper-ui/test-utils";
-import { createRef, type MutableRefObject } from "react";
+import { createRef } from "react";
 
 import { TextArea } from "../../src/TextArea.tsx";
 import { TextAreaContext } from "../../src/TextAreaContext.ts";
@@ -72,7 +72,7 @@ describe("TextArea", () => {
     });
 
     it("should support input refs", async () => {
-        const ref = createRef<HTMLTextAreaElement>() as MutableRefObject<HTMLTextAreaElement>;
+        const ref = createRef<HTMLTextAreaElement>();
         render(
             <TextArea inputRef={ref} data-testid="field" label="Label" />
         );
@@ -82,8 +82,8 @@ describe("TextArea", () => {
     });
 
     it("should support and merge input ref on context", async () => {
-        const inputRef = createRef<HTMLTextAreaElement>() as MutableRefObject<HTMLTextAreaElement>;
-        const contextInputRef = createRef<HTMLTextAreaElement>() as MutableRefObject<HTMLTextAreaElement>;
+        const inputRef = createRef<HTMLTextAreaElement>();
+        const contextInputRef = createRef<HTMLTextAreaElement>();
         render(
             <TextAreaContext.Provider value={{ inputRef: contextInputRef }}>
                 <TextArea inputRef={inputRef} label="Label" />

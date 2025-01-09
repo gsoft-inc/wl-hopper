@@ -9,7 +9,7 @@ import MobileMenuTrigger from "@/app/ui/layout/mobileMenu/MobileMenuTrigger";
 import Nav from "@/app/ui/layout/nav/Nav";
 import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
 import { Icon, ProductMenuIcon } from "@/components/icon";
-import IconButton from "@/components/iconButton/IconButton";
+import LinkIconButton from "@/components/iconButton/LinkIconButton";
 import { Popover, PopoverContext, PopoverTrigger } from "@/components/popover/Popover.tsx";
 import ThemeSwitch from "@/components/themeSwitch/ThemeSwitch";
 import { ToggleButton, ToggleButtonContext } from "@/components/toggleButton/ToggleButton.tsx";
@@ -64,8 +64,8 @@ const ProductMenuAndBrand = () => {
         <span className="hd-product">
             <ToggleTrigger>
                 <PopoverTrigger>
-                    <ToggleButton>
-                        <Icon slot="icon" src={ProductMenuIcon} />
+                    <ToggleButton aria-label="Open other libraries menu">
+                        <Icon src={ProductMenuIcon} />
                     </ToggleButton>
                     <Popover
                         className="hd-product__menu"
@@ -96,7 +96,7 @@ const ProductMenuAndBrand = () => {
 const Header = () => {
     const { colorMode, setColorMode } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const isMobile = useIsMobile("48rem");
+    const isMobile = useIsMobile("52.25rem");
     const { logRocketAppId } = useEnvironmentContext();
 
     useEffect(() => {
@@ -142,7 +142,7 @@ const Header = () => {
                     <div className="hd-header__quick-actions">
                         {/*<input type="search" placeholder="Search" />*/}
                         <ThemeSwitch onChange={toggleTheme} colorMode={colorMode as ColorScheme} />
-                        <IconButton as={Link} href="https://github.com/gsoft-inc/wl-hopper" target="_blank">
+                        <LinkIconButton href="https://github.com/gsoft-inc/wl-hopper" target="_blank" aria-label="View source on Github">
                             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 {/* eslint-disable max-len */}
                                 <path
@@ -151,7 +151,7 @@ const Header = () => {
                                 />
                                 {/* eslint-disable max-len */}
                             </svg>
-                        </IconButton>
+                        </LinkIconButton>
                     </div>
                     {isMobile && <MobileMenuTrigger onToggle={handleMobileMenuToggle} />}
                 </Wrapper>

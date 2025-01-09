@@ -1,0 +1,41 @@
+name: CI React 19
+
+# Pnpm setup based on https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
+
+on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+
+env:
+    CI: true
+
+concurrency:
+    group: ci-react19-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v4
+
+            -   name: Setup Node and PNPM
+                uses: ./.github/composite-actions/setup
+                with:
+                  install_dependencies: false
+
+            -   name: Install React 19
+                run: pnpm install-react19
+
+            -   name: Install dependencies
+                run: pnpm i
+
+            -   name: Build packages
+                run: pnpm build:pkg
+
+            -   name: Test packages
+                run: pnpm test

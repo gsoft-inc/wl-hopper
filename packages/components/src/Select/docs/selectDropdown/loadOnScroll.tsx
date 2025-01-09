@@ -1,12 +1,11 @@
-import { Select, SelectItem } from "@hopper-ui/components";
-import { useAsyncList } from "react-stately";
+import { Select, SelectItem, useAsyncList } from "@hopper-ui/components";
 
 interface Character {
     name: string;
 }
 
 export default function Example() {
-    const list = useAsyncList({
+    const list = useAsyncList<Character>({
         async load({ signal, cursor }) {
             const res = await fetch(cursor || "https://pokeapi.co/api/v2/pokemon", {
                 signal
@@ -23,14 +22,14 @@ export default function Example() {
     return (
         <Select
             aria-label="list of options"
-            items={list.items as Iterable<Character>} 
+            items={list.items}
             isLoading={list.isLoading}
             onLoadMore={list.loadMore}
-            popoverProps={{
+            listBoxProps={{
                 maxHeight: "core_1280"
             }}
         >
-            {(item: Character) => {
+            {item => {
                 const { name } = item;
 
                 return <SelectItem id={name}>{name}</SelectItem>;

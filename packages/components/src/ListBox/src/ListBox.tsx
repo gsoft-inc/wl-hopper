@@ -1,14 +1,14 @@
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import { useLoadMore } from "@react-aria/utils";
 import clsx from "clsx";
-import { type ForwardedRef, forwardRef, type NamedExoticComponent, type ReactNode } from "react";
+import { type ForwardedRef, forwardRef, type NamedExoticComponent } from "react";
 import { Collection, composeRenderProps, type ListBoxRenderProps, ListBox as RACListBox, type ListBoxProps as RACListBoxProps, useContextProps } from "react-aria-components";
 
 import { HeaderContext } from "../../Header/index.ts";
 import { useLocalizedString } from "../../i18n/index.ts";
 import { ListBoxSectionContext } from "../../ListBoxSection/index.ts";
 import { Text, type TextSize } from "../../typography/Text/index.ts";
-import { composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
+import { ClearContainerSlots, composeClassnameRenderProps, cssModule, isFunction, type SizeAdapter, SlotProvider } from "../../utils/index.ts";
 
 import { ListBoxContext } from "./ListBoxContext.ts";
 import { ListBoxItem, type ListBoxItemProps, type ListBoxItemSize, type SelectionIndicator } from "./ListBoxItem.tsx";
@@ -76,7 +76,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
         size: sizeProp,
         style: styleProp,
         selectionIndicator = "check",
-        selectionMode,
+        selectionMode = "single",
         loadingListBoxItemProps,
         ...otherProps
     } = ownProps;
@@ -116,7 +116,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
 
     useLoadMore({ isLoading, onLoadMore }, ref);
 
-    const renderChildren = (): ReactNode => {
+    const renderChildren = () => {
         if (props.items) {
             return (
                 <Collection items={props.items}>
@@ -125,7 +125,13 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             );
         }
 
-        return <>{children}</>;
+        if (isFunction(children)) {
+            console.error("ListBox: Children should not be a function when items are not provided.");
+
+            return null;
+        }
+
+        return children;
     };
 
     const handleRenderEmptyState = (renderProps: ListBoxRenderProps) => {
@@ -134,7 +140,11 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
             result = renderEmptyState(renderProps);
 
             if (result) {
-                return <Text className={emptyItemClassNames} size={ListBoxToTextSizeAdapter[size]}>{result}</Text>;
+                return (
+                    <ClearContainerSlots>
+                        <Text className={emptyItemClassNames} size={ListBoxToTextSizeAdapter[size]}>{result}</Text>
+                    </ClearContainerSlots>
+                );
             }
         }
 

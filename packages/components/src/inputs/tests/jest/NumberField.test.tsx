@@ -1,5 +1,5 @@
 import { render, screen } from "@hopper-ui/test-utils";
-import { createRef, type MutableRefObject } from "react";
+import { createRef } from "react";
 
 import { NumberField } from "../../src/NumberField.tsx";
 import { NumberFieldContext } from "../../src/NumberFieldContext.ts";
@@ -66,7 +66,7 @@ describe("NumberField", () => {
     });
 
     it("should support input refs", () => {
-        const ref = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+        const ref = createRef<HTMLInputElement>();
         render(
             <NumberField inputRef={ref} data-testid="field" label="Label" />
         );
@@ -76,8 +76,8 @@ describe("NumberField", () => {
     });
 
     it("should support and merge input ref on context", () => {
-        const inputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
-        const contextInputRef = createRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
+        const inputRef = createRef<HTMLInputElement>();
+        const contextInputRef = createRef<HTMLInputElement>();
         render(
             <NumberFieldContext.Provider value={{ inputRef: contextInputRef }}>
                 <NumberField inputRef={inputRef} label="Label" />

@@ -15,15 +15,13 @@ A design token can store any of the following elements:
 
 Hopper aims to provide a three-tier token system, with each tier serving a specific purpose.
 
-<Card>
-    <Image src="https://cdn.platform.workleap.com/hopper/webdoc/token-details.png" width="654" height="45" alt="Token tiers diagram" />
-</Card>
+<Figure src="https://cdn.platform.workleap.com/hopper/webdoc/token-details.png" width="654" height="45" alt="Token tiers diagram" caption="A three tier token system allows a separation of concerns regarding design decisions." />
 
 ### Core tokens
 
 These tokens represent fundamental values like hexadecimal color codes, border widths, or font sizes. They serve as the building blocks of the design system.
 
-<TokenTable category="color" data={[{
+<TokenTable tokenType={"core"} category="color" data={[{
     "name": "hop-sapphire-200",
     "value": "#95b1ff"
 }]} />
@@ -34,14 +32,14 @@ Semantic tokens convey design intent and are context-aware. They should be used 
 
 #### Light
 
-<TokenTable category="color" data={[{
+<TokenTable tokenType={"semantic"} category="color" data={[{
     "name": "hop-primary-surface-disabled",
     "value": "#95b1ff"
 }]} />
 
 #### Dark
 
-<TokenTable category="color" data={[{
+<TokenTable tokenType={"semantic"} category="color" data={[{
     "name": "hop-primary-surface-disabled",
     "value": "#2040c7"
 }]} />

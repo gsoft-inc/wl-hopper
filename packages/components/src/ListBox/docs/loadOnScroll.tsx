@@ -5,7 +5,7 @@ interface Character {
 }
 
 export default function Example() {
-    const list = useAsyncList({
+    const list = useAsyncList<Character>({
         async load({ signal, cursor }) {
             const res = await fetch(cursor || "https://pokeapi.co/api/v2/pokemon", {
                 signal
@@ -23,16 +23,14 @@ export default function Example() {
         <ListBox
             selectionMode="single"
             aria-label="list of options"
-            items={list.items as Iterable<Character>}
+            items={list.items}
             isLoading={list.isLoading}
             onLoadMore={list.loadMore}
             maxHeight="core_1280"
         >
-            {item => {
-                const listItem = item as Character;
-
-                return <ListBoxItem id={listItem.name}>{listItem.name}</ListBoxItem>;
-            }}
+            {item => (
+                <ListBoxItem id={item.name}>{item.name}</ListBoxItem>
+            )}
         </ListBox>
     );
 }

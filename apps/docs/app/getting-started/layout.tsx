@@ -1,35 +1,16 @@
-"use client";
-
-import type { ReactNode } from "react";
-import { allGettingStarteds } from "contentlayer/generated";
-import { useSelectedLayoutSegment } from "next/navigation";
-import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
-import SubHeader from "@/app/ui/layout/subHeader/SubHeader";
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import getSectionLinks from "@/app/lib/getSectionLinks";
-import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
 import getPageLinks from "@/app/lib/getPageLinks";
+import { SidebarLayout } from "@/app/ui/layout/sidebarLayout";
+import { allGettingStarteds } from "contentlayer/generated";
+import type { ReactNode } from "react";
 
-export default function TokenLayout({ children }: { children: ReactNode }) {
-    const slug = useSelectedLayoutSegment();
-    const pageContent = allGettingStarteds.find(page => page.slug === slug);
-    const allGettingStartedsLinks = getPageLinks(allGettingStarteds);
-
-    if (!pageContent) {
-        return null;
-    }
-
-    const sectionLinks = getSectionLinks(pageContent);
+export default function GettingStartedLayout({ children }: { children: ReactNode }) {
+    const allGettingStartedLinks = getPageLinks(allGettingStarteds, {
+        order: ["overview", "installation-path", "advanced-options", "guides"]
+    });
 
     return (
-        <>
-            <SidebarProvider>
-                <SubHeader links={sectionLinks} />
-                <Wrapper type="with-sidebar">
-                    <Sidebar links={allGettingStartedsLinks} />
-                    {children}
-                </Wrapper>
-            </SidebarProvider>
-        </>
+        <SidebarLayout links={allGettingStartedLinks}>
+            {children}
+        </SidebarLayout>
     );
 }

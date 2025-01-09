@@ -2,7 +2,7 @@ import { allTokens } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
 import getSectionLinks from "@/app/lib/getSectionLinks.ts";
-import Aside from "@/app/ui/layout/aside/Aside.tsx";
+import { BasePageLayout } from "@/app/ui/layout/basePageLayout/BasePageLayout";
 import Mdx from "@/components/mdx/Mdx.tsx";
 
 interface PageProps {
@@ -11,15 +11,14 @@ interface PageProps {
     };
 }
 
-export async function generateStaticParams() {
-    return allTokens.map(({ slug, section }) => ({
-        slug: [section, slug]
-    }));
+function findPageFromSlug(slug: string[]) {
+    const [section, type] = slug;
+
+    return allTokens.find(page => page.section === section && page.slug === type);
 }
 
 export default function TokenPage({ params }: PageProps) {
-    const [section, type] = params.slug;
-    const designToken = allTokens.find(token => token.slug === type && token.section === section);
+    const designToken = findPageFromSlug(params.slug);
 
     if (!designToken) {
         notFound();
@@ -28,14 +27,48 @@ export default function TokenPage({ params }: PageProps) {
     const sectionLinks = getSectionLinks(designToken);
 
     return (
-        <div className="hd-container">
-            <Aside title="On this page" links={sectionLinks} />
-            <main>
-                <article className="hd-content" key={designToken._id}>
-                    <h1 className="hd-title hd-title--level1">{designToken.title}</h1>
-                    <Mdx code={designToken.body.code} />
-                </article>
-            </main>
-        </div>
+        <BasePageLayout sectionsLinks={sectionLinks}>
+            <article className="hd-content" key={designToken._id}>
+                <h1 className="hd-title hd-title--level1">{designToken.title}</h1>
+                <Mdx code={designToken.body.code} />
+            </article>
+        </BasePageLayout>
     );
+}
+
+export async function generateStaticParams() {
+    return allTokens.map(({ section, slug }) => ({
+        slug: [section, slug]
+    }));
+}
+
+// The sections are Overview, Semantic and Core. we want all title in "Core" to be "Core " + "Color"(the token type) + " Tokens"
+export async function generateMetadata({ params }: PageProps) {
+    const page = findPageFromSlug(params.slug);
+
+    if (!page) {
+        return {
+            title: null
+        };
+    }
+
+    const { title, section, description } = page;
+
+    let pageTitle = `${title}`;
+    if (section === "core") {
+        pageTitle = `Core ${title} Tokens`;
+    } else if (section === "semantic") {
+        pageTitle = `Semantic ${title} Tokens`;
+    }
+
+    const metadata: Record<string, string> = {
+        title: pageTitle
+    };
+
+    if (description) {
+        metadata.description = description;
+    }
+
+
+    return metadata;
 }

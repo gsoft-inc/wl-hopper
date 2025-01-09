@@ -1,5 +1,40 @@
 # @hopper-ui/components
 
+## 1.4.3
+
+### Patch Changes
+
+- 483bd1a: - **Improvement:** Simplified the `inputRef` type to enhance usability across multiple components.
+  - **Bug Fixes:**
+    - Resolved an issue preventing the addition of a custom `renderEmptyState` on a `Listbox` within a `ComboBox`.
+    - Fixed a console error that occurred when using custom values inside the `Select` component.
+    - Addressed a console error that appeared with custom popovers.
+
+## 1.4.2
+
+### Patch Changes
+
+- 16ca6cc: Add isExternal prop to LinkButton to simplify opening a LinkButton to an external tab
+
+## 1.4.1
+
+### Patch Changes
+
+- 0448ab1: Updated peer dependency versions range
+- Updated dependencies [0448ab1]
+  - @hopper-ui/icons@2.9.1
+
+## 1.4.0
+
+### Minor Changes
+
+- 2506f03: Added support to React 19
+
+### Patch Changes
+
+- Updated dependencies [2506f03]
+  - @hopper-ui/icons@2.9.0
+
 ## 1.3.35
 
 ### Patch Changes

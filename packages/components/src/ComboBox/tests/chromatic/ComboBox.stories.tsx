@@ -265,11 +265,11 @@ export const SelectedItemWithIcon = {
                     <ComboBox {...args} defaultSelectedKey="raccoon">
                         <ComboBoxItem id="dog" textValue="Dog">
                             <SparklesIcon />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="frog">Frog</ComboBoxItem>
                     </ComboBox>
@@ -279,11 +279,11 @@ export const SelectedItemWithIcon = {
                     <ComboBox {...args} selectedKey="raccoon">
                         <ComboBoxItem id="dog" textValue="Dog">
                             <SparklesIcon />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="frog">Frog</ComboBoxItem>
                     </ComboBox>
@@ -293,11 +293,11 @@ export const SelectedItemWithIcon = {
             <ComboBox {...args} defaultSelectedKey="raccoon" isDisabled>
                 <ComboBoxItem id="dog" textValue="Dog">
                     <SparklesIcon />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="frog">Frog</ComboBoxItem>
             </ComboBox>
@@ -305,11 +305,11 @@ export const SelectedItemWithIcon = {
             <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                 <ComboBoxItem id="dog" textValue="Dog">
                     <SparklesIcon />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="frog">Frog</ComboBoxItem>
             </ComboBox>
@@ -318,11 +318,11 @@ export const SelectedItemWithIcon = {
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                     <ComboBoxItem id="dog" textValue="Dog">
                         <SparklesIcon />
-                        <Text slot="label">Dog</Text>
+                        <Text>Dog</Text>
                     </ComboBoxItem>
                     <ComboBoxItem id="raccoon" textValue="Raccoon">
                         <SparklesIcon />
-                        <Text slot="label">Raccoon</Text>
+                        <Text>Raccoon</Text>
                     </ComboBoxItem>
                     <ComboBoxItem id="frog">Frog</ComboBoxItem>
                 </ComboBox>
@@ -340,11 +340,11 @@ export const SelectedItemWithEndIcon = {
                     <ComboBox {...args} defaultSelectedKey="raccoon">
                         <ComboBoxItem id="dog" textValue="Dog">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="frog">Frog</ComboBoxItem>
                     </ComboBox>
@@ -354,11 +354,11 @@ export const SelectedItemWithEndIcon = {
                     <ComboBox {...args} selectedKey="raccoon">
                         <ComboBoxItem id="dog" textValue="Dog">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Dog</Text>
+                            <Text>Dog</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="raccoon" textValue="Raccoon">
                             <SparklesIcon slot="end-icon" />
-                            <Text slot="label">Raccoon</Text>
+                            <Text>Raccoon</Text>
                         </ComboBoxItem>
                         <ComboBoxItem id="frog">Frog</ComboBoxItem>
                     </ComboBox>
@@ -368,11 +368,11 @@ export const SelectedItemWithEndIcon = {
             <ComboBox {...args} defaultSelectedKey="raccoon" isDisabled>
                 <ComboBoxItem id="dog" textValue="Dog">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="frog">Frog</ComboBoxItem>
             </ComboBox>
@@ -380,11 +380,11 @@ export const SelectedItemWithEndIcon = {
             <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                 <ComboBoxItem id="dog" textValue="Dog">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Dog</Text>
+                    <Text>Dog</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="raccoon" textValue="Raccoon">
                     <SparklesIcon slot="end-icon" />
-                    <Text slot="label">Raccoon</Text>
+                    <Text>Raccoon</Text>
                 </ComboBoxItem>
                 <ComboBoxItem id="frog">Frog</ComboBoxItem>
             </ComboBox>
@@ -393,11 +393,11 @@ export const SelectedItemWithEndIcon = {
                 <ComboBox {...args} defaultSelectedKey="raccoon" isFluid>
                     <ComboBoxItem id="dog" textValue="Dog">
                         <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Dog</Text>
+                        <Text>Dog</Text>
                     </ComboBoxItem>
                     <ComboBoxItem id="raccoon" textValue="Raccoon">
                         <SparklesIcon slot="end-icon" />
-                        <Text slot="label">Raccoon</Text>
+                        <Text>Raccoon</Text>
                     </ComboBoxItem>
                     <ComboBoxItem id="frog">Frog</ComboBoxItem>
                 </ComboBox>
@@ -410,11 +410,11 @@ export const ComboBoxItemWithDescription = {
     render: args => (
         <ComboBox {...args}>
             <ComboBoxItem id="dog" textValue="Dog">
-                <Text slot="label">Dog</Text>
+                <Text>Dog</Text>
                 <Text slot="description">I come in many different breeds</Text>
             </ComboBoxItem>
             <ComboBoxItem id="raccoon" textValue="Raccoon">
-                <Text slot="label">Raccoon</Text>
+                <Text>Raccoon</Text>
                 <Text slot="description">I am nocturnal</Text>
             </ComboBoxItem>
             <ComboBoxItem id="frog">Frog</ComboBoxItem>

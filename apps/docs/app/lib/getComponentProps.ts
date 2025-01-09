@@ -1,10 +1,10 @@
-import { promises as fs } from "fs";
-import path from "path";
-import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.ts";
-import type { PropItem } from "react-docgen-typescript/lib/parser";
-import { getType } from "@/app/lib/gePropsType.ts";
 import { formatCode } from "@/app/lib/formatingCode.ts";
 import { generateUniqueKey } from "@/app/lib/generateUniqueKey.ts";
+import { getType } from "@/app/lib/gePropsType.ts";
+import type { ComponentDocWithGroups } from "@/scripts/generateComponentData.ts";
+import fs from "fs/promises";
+import path from "path";
+import type { PropItem } from "react-docgen-typescript/lib/parser";
 
 const filePath = path.join(process.cwd(), "datas", "components");
 
@@ -25,12 +25,30 @@ export const formatData = async (prop: PropItem) => {
 };
 
 async function formatPropTable(data: ComponentDocWithGroups[]) {
-    const result = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result: any[] = [];
     for (const item of data) {
         const { groups } = item;
         for (const group of Object.keys(groups)) {
             const groupItems = await Promise.all(Object.keys(groups[group]).map(key => formatData(groups[group][key])));
-            result.push({ [group]: groupItems });
+
+            if (groupItems.length > 0) {
+                const existingGroup = result.find(entry => entry[group]);
+
+                if (existingGroup) {
+                    // Merge new items into the existing group, without duplicates which has the same name
+                    existingGroup[group] = [
+                        ...existingGroup[group],
+                        ...groupItems.filter(
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            newItem => !existingGroup[group].some((existingItem: any) => existingItem.name === newItem.name)
+                        )
+                    ];
+                } else {
+                    // Add a new group to the result
+                    result.push({ [group]: groupItems });
+                }
+            }
         }
     }
 

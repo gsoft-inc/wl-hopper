@@ -168,6 +168,16 @@ a.hd-home-sample__item:hover::after {
     transition: opacity 0.2s ease, transform 0.1s ease-in;
 }
 
+.hd-home-sample__title-tag {
+    align-self: center;
+    border-radius: var(--hd-border-radius-sm);
+    color: var(--hd-color-accent-text);
+    background-color: var(--hd-color-accent-surface);
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 0.125rem var(--hd-space-05);
+}
+
 .hd-home-sample__tagline {
     color: var(--hd-color-neutral-text-weak);
     font-size: 1rem;

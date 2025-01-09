@@ -1,67 +1,37 @@
-import type { ReactNode } from "react";
-import Sidebar from "@/app/ui/layout/sidebar/Sidebar";
-import Wrapper from "@/app/ui/layout/wrapper/Wrapper";
-import { SidebarProvider } from "@/context/sidebar/SidebarProvider";
-import { type ComponentData, getComponentDetails } from "@/app/lib/getComponentDetails.ts";
+import { allComponents } from "@/.contentlayer/generated";
 import getPageLinks from "@/app/lib/getPageLinks.ts";
-
-interface Data {
-    frontmatter: ComponentData;
-    slugs: string[];
-    content: ReactNode;
-}
-
-function formatComponentData(data: Data[]) {
-    return data.map((component, index) => {
-        const { slugs, frontmatter: { title, order, status } } = component;
-        let section = "";
-
-        if (slugs.length > 1) {
-            section = slugs[0];
-        }
-
-        // we exclude the category from the link, so we only take the last slug
-        const componentLink = slugs[slugs.length - 1];
-
-        return {
-            _id: `component-${index}`,
-            title,
-            order,
-            status,
-            section: section,
-            _raw: {
-                flattenedPath: `components/${componentLink}`
-            }
-        };
-    });
-}
+import { SidebarLayout } from "@/app/ui/layout/sidebarLayout";
+import path from "path";
+import type { ReactNode } from "react";
 
 async function ComponentsLayout({ children }: { children: ReactNode }) {
-    const components = await getComponentDetails();
-    const data = formatComponentData(components);
-    const links = getPageLinks(data, { order: [
-        "overview",
-        "concepts",
-        "application",
-        "layout",
-        "buttons",
-        "collections",
-        "forms",
-        "icons",
-        "navigation",
-        "overlays",
-        "pickers",
-        "status",
-        "content"
-    ] });
+    const links = getPageLinks(allComponents, {
+        order: [
+            "overview",
+            "concepts",
+            "application",
+            "layout",
+            "buttons",
+            "collections",
+            "forms",
+            "icons",
+            "navigation",
+            "overlays",
+            "pickers",
+            "status",
+            "content",
+            "placeholders",
+            "internal-parts"
+        ],
+        // the components paths are slightly different than the other pages
+        // we want the URLS to be /components/ComponentName
+        pathAccessor: item => path.join("components", item.slug)
+    });
 
     return (
-        <SidebarProvider>
-            <Wrapper type="with-sidebar">
-                <Sidebar links={links} />
-                {children}
-            </Wrapper>
-        </SidebarProvider>
+        <SidebarLayout links={links}>
+            {children}
+        </SidebarLayout>
     );
 }
 

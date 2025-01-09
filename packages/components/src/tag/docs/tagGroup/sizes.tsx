@@ -1,23 +1,23 @@
-import { Stack, Tag, TagGroup, type Selection } from "@hopper-ui/components";
+import { Stack, Tag, TagGroup } from "@hopper-ui/components";
 
 export default function Example() {
-    const props = {
-        onRemove: (ids: Selection) => {
-            alert(`Remove: ${[...ids]}`);
-        },
-        "aria-label": "Jobs",
-        children: [
-            <Tag key="designer" id="designer">Designer</Tag>,
-            <Tag key="developer" id="developer">Developer</Tag>,
-            <Tag key="manager" id="manager">Manager</Tag>
-        ]
-    };
-
     return (
         <Stack>
-            <TagGroup {...props} size="sm" />
-            <TagGroup {...props} size="md" />
-            <TagGroup {...props} size="lg" />
+            <TagGroup aria-label="Jobs" size="sm" >
+                <Tag id="designer">Designer</Tag>
+                <Tag id="developer">Developer</Tag>
+                <Tag id="manager">Manager</Tag>
+            </TagGroup>
+            <TagGroup aria-label="Jobs" size="md" >
+                <Tag id="designer">Designer</Tag>
+                <Tag id="developer">Developer</Tag>
+                <Tag id="manager">Manager</Tag>
+            </TagGroup>
+            <TagGroup aria-label="Jobs" size="lg" >
+                <Tag id="designer">Designer</Tag>
+                <Tag id="developer">Developer</Tag>
+                <Tag id="manager">Manager</Tag>
+            </TagGroup>
         </Stack>
     );
 }

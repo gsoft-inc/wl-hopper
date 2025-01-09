@@ -70,7 +70,7 @@ export interface TextAreaProps extends Omit<StyledComponentProps<RACTextFieldPro
     /**
      * A ref for the HTML textarea element.
      */
-    inputRef?: MutableRefObject<HTMLTextAreaElement>;
+    inputRef?: MutableRefObject<HTMLTextAreaElement | null>;
 
     /**
      * The props for the InputGroup.

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type RefObject } from "react";
 
 import { useColorSchemeContext, type ColorScheme } from "../color-scheme/ColorSchemeContext.ts";
 import { StyledSystemRootCssClass } from "../styledSystemRootCssClass.ts";
@@ -36,7 +36,7 @@ export function BodyStyleProvider() {
 
     useIsomorphicLayoutEffect(() => {
         if (ref.current) {
-            const computedStyle = new ThemeComputedStyle(ref, `.${StyledSystemRootCssClass}`);
+            const computedStyle = new ThemeComputedStyle(ref as RefObject<Element>, `.${StyledSystemRootCssClass}`);
 
             const color = computedStyle.getPropertyValue(BodyTokens.color);
             const backgroundColor = computedStyle.getPropertyValue(BodyTokens.backgroundColor);
