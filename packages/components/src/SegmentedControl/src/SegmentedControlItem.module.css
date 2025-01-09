@@ -6,8 +6,6 @@
     --hop-SegmentedControlItem-border: none;
     --hop-SegmentedControlItem-border-radius: var(--hop-shape-rounded-sm);
     --hop-SegmentedControlItem-cursor: auto;
-    --hop-SegmentedControlItem-z-index: 1;
-    --hop-SegmentedControlItem-color-transition: color 0.3s;
 
     /* Small */
     --hop-SegmentedControlItem-sm-padding:  0.125rem var(--hop-space-inset-md);
@@ -17,22 +15,23 @@
 
     cursor: var(--hop-SegmentedControlItem-cursor);
 
-    z-index: var(--hop-SegmentedControlItem-z-index);
+    position: relative;
 
     display: flex;
     gap: var(--hop-SegmentedControlItem-gap);
     align-items: center;
     justify-content: center;
 
-    padding: var(--hop-SegmentedControlItem-sm-padding);
+    padding: var(--hop-SegmentedControlItem-padding, var(--hop-SegmentedControlItem-sm-padding));
 
     color: var(--hop-SegmentedControlItem-color);
 
-    background: var(--hop-SegmentedControlItem-background);
+    background: var(--hop-SegmentedControlItem-background)
+}
+
+.hop-SegmentedControlItem, .hop-SegmentedControlItem__slider {
     border: var(--hop-SegmentedControlItem-border);
     border-radius: var(--hop-SegmentedControlItem-border-radius);
-
-    transition: var(--hop-SegmentedControlItem-color-transition);
 }
 
 .hop-SegmentedControlItem:not([data-disabled]) {
@@ -61,4 +60,11 @@
 
 .hop-SegmentedControlItem--md {
     --hop-SegmentedControlItem-padding: var(--hop-SegmentedControlItem-md-padding);
+}
+
+.hop-SegmentedControlItem__slider {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    background: var(--hop-neutral-surface-selected);
 }

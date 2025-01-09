@@ -1,11 +1,11 @@
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, useEffect, useMemo, useState, type CSSProperties, type ForwardedRef } from "react";
-import { Provider, ToggleButtonGroup, useContextProps, type Key } from "react-aria-components";
+import { forwardRef, useContext, useEffect, useRef, type CSSProperties, type ForwardedRef } from "react";
+import { Provider, ToggleButtonGroup, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
 import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
-import { SegmentedControlContext } from "./SegmentedControlContext.ts";
+import { InternalSegmentedControlContext, SegmentedControlContext } from "./SegmentedControlContext.ts";
 import type { SegmentedControlItemSize } from "./SegmentedControlItem.tsx";
 import { SegmentedControlItemContext } from "./SegmentedControlItemContext.ts";
 
@@ -39,6 +39,10 @@ export interface SegmentedControlProps extends StyledComponentProps<BaseComponen
 
 const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDivElement>) => {
     [props, ref] = useContextProps(props, ref, SegmentedControlContext);
+    const state = useContext(ToggleGroupStateContext);
+
+    const prevRef = useRef<DOMRect | null>(null);
+    const currentSelectedRef = useRef<HTMLDivElement>(null);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -49,10 +53,9 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
         defaultSelectedKey,
         selectedKey,
         onSelectionChange,
+        size,
         ...otherProps
     } = ownProps;
-
-    const [selected, setSelected] = useState<Key | undefined>(defaultSelectedKey ?? selectedKey);
 
     const classNames = clsx(
         GlobalSegmentedControlCssSelector,
@@ -76,39 +79,20 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
             return;
         }
 
-        setSelected(firstKey);
+        if (currentSelectedRef.current) {
+            prevRef.current = currentSelectedRef?.current.getBoundingClientRect();
+        }
+
         onSelectionChange?.(firstKey);
     };
 
-    const selectedKeys = useMemo(() => {
-        if (onSelectionChange) {
-            return selectedKey != null ? [selectedKey] : undefined;
-        }
-
-        return selected ? [selected] : undefined;
-    }, [onSelectionChange, selectedKey, selected]);
-
     useEffect(() => {
-        const container = ref.current;
+        const key = defaultSelectedKey ?? selectedKey;
 
-        // Code to create sliding animation background between buttons when selecting a new value
-        if (container && (selectedKeys || defaultSelectedKey)) {
-            const { childNodes } = container;
-
-            const childNodesArray = Array.from(childNodes) as HTMLElement[];
-
-            const [firstKey] = selectedKeys ?? [];
-            const key = firstKey ?? defaultSelectedKey;
-            const selectedNode = childNodesArray.find(x => x.getAttribute("data-key") === key);
-
-            if (!selectedNode) {
-                return;
-            }
-
-            container.style.setProperty("--hop-SegmentedControl-item-width", `${selectedNode.offsetWidth}px`);
-            container.style.setProperty("--hop-SegmentedControl-item-offset", `${selectedNode.offsetLeft}px`);
+        if (key) {
+            state?.toggleKey(key);
         }
-    }, [ref, selectedKeys, defaultSelectedKey]);
+    }, []);
 
     return (
         <ToggleButtonGroup
@@ -116,7 +100,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
             className={classNames}
             style={mergedStyles}
             slot={slot ?? undefined}
-            selectedKeys={selectedKeys}
+            selectedKeys={selectedKey != null ? [selectedKey] : undefined}
             defaultSelectedKeys={defaultSelectedKey != null ? [defaultSelectedKey] : undefined}
             orientation="horizontal"
             onSelectionChange={onChange}
@@ -124,7 +108,8 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
         >
             <Provider
                 values={[
-                    [SegmentedControlItemContext, otherProps]
+                    [SegmentedControlItemContext, { size, isDisabled: otherProps.isDisabled }],
+                    [InternalSegmentedControlContext, { prevRef, currentSelectedRef }]
                 ]}
             >
                 {children}

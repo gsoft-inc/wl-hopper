@@ -1,12 +1,13 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
-import { Provider, ToggleButton, useContextProps, type Key } from "react-aria-components";
+import { forwardRef, useContext, useLayoutEffect, type CSSProperties, type ForwardedRef } from "react";
+import { Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
 import { Text, TextContext } from "../../typography/index.ts";
 import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
+import { InternalSegmentedControlContext } from "./SegmentedControlContext.ts";
 import { SegmentedControlItemContext } from "./SegmentedControlItemContext.ts";
 
 import styles from "./SegmentedControlItem.module.css";
@@ -33,6 +34,9 @@ export interface SegmentedControlItemProps extends Omit<StyledComponentProps<Bas
 
 const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRef<HTMLButtonElement>) => {
     [props, ref] = useContextProps(props, ref, SegmentedControlItemContext);
+    const { prevRef, currentSelectedRef } = useContext(InternalSegmentedControlContext);
+    const state = useContext(ToggleGroupStateContext);
+    const itemSelected = state?.selectedKeys.has(props.id);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -60,6 +64,34 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
         ...stylingProps.style
     };
 
+    const isReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    useLayoutEffect(() => {
+        if (isReduced || !itemSelected || !prevRef?.current || !currentSelectedRef?.current) {
+            return;
+        }
+
+        const prevSlider = prevRef.current;
+        const currentSlider = currentSelectedRef.current;
+
+        const currentItem = currentSlider.getBoundingClientRect();
+
+        const deltaX = prevSlider.left - currentItem?.left;
+
+        currentSelectedRef.current.animate(
+            [
+                { transform: `translateX(${deltaX}px)`, width: `${prevSlider.width}px` },
+                { transform: "translateX(0px)", width: `${currentItem.width}px` }
+            ],
+            {
+                duration: 200,
+                easing: "ease-out"
+            }
+        );
+
+        prevRef.current = null;
+    }, [currentSelectedRef, isReduced, itemSelected, prevRef]);
+
     return (
         <ToggleButton
             {...otherProps}
@@ -67,20 +99,26 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
             className={classNames}
             style={mergedStyles}
             slot={slot ?? undefined}
-            data-key={props.id}
         >
-            <Provider
-                values={[
-                    [IconContext, {
-                        size
-                    }],
-                    [TextContext, {
-                        size: "sm"
-                    }]
-                ]}
-            >
-                {typeof children === "string" ? <Text>{children}</Text> : children}
-            </Provider>
+            {({ isSelected }) => (
+                <>
+                    {isSelected && <div className={styles["hop-SegmentedControlItem__slider"]} ref={currentSelectedRef} />}
+                    <Provider
+                        values={[
+                            [IconContext, {
+                                size
+                            }],
+                            [TextContext, {
+                                size: "sm",
+                                zIndex: 1
+                            }]
+                        ]}
+                    >
+                        {typeof children === "string" ? <Text>{children}</Text> : children}
+                    </Provider>
+                </>
+            )}
+
         </ToggleButton>
     );
 };

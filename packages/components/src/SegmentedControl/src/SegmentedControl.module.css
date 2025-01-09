@@ -11,8 +11,6 @@
     --hop-SegmentedControl-item-border-radius: var(--hop-shape-rounded-sm);
     --hop-SegmentedControl-item-offset: 0rem;
 
-    position: relative;
-
     display: flex;
     gap: var(--hop-SegmentedControl-gap);
     align-items: center;
@@ -26,18 +24,4 @@
     border-radius: var(--hop-SegmentedControl-border-radius)
 }
 
-.hop-SegmentedControl::after {
-    content: '';
 
-    position: absolute;
-    inset-block-start: var(--hop-SegmentedControl-padding);
-    inset-inline-start: var(--hop-SegmentedControl-item-offset);
-
-    inline-size: var(--hop-SegmentedControl-item-width);
-    block-size: calc(100% - 2 * var(--hop-SegmentedControl-padding));
-
-    background: var(--hop-neutral-surface-selected);
-    border-radius: var(--hop-SegmentedControl-item-border-radius);
-
-    transition: left 0.3s;
-}
