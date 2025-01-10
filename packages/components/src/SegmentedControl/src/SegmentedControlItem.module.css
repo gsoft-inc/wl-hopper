@@ -71,3 +71,15 @@
 .hop-SegmentedControlItem--md {
     --hop-SegmentedControlItem-padding: var(--hop-SegmentedControlItem-md-padding);
 }
+
+.hop-SegmentedControlItem__icon {
+    order: 2
+}
+
+.hop-SegmentedControlItem__text {
+    order: 1
+}
+
+.hop-SegmentedControlItem__start-icon {
+    order: 0
+}

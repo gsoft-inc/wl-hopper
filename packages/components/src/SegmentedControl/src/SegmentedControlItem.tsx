@@ -2,7 +2,7 @@ import { IconContext } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, useContext, useLayoutEffect, type CSSProperties, type ForwardedRef } from "react";
-import { Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
+import { DEFAULT_SLOT, Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
 import { Text, TextContext } from "../../typography/index.ts";
 import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
@@ -107,11 +107,20 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
                         values={[
                             [IconContext, {
                                 size,
-                                zIndex: 1
+                                zIndex: 1,
+                                slots: {
+                                    [DEFAULT_SLOT]: {
+                                        className: styles["hop-SegmentedControlItem__icon"]
+                                    },
+                                    "start-icon": {
+                                        className: styles["hop-SegmentedControlItem__start-icon"]
+                                    }
+                                }
                             }],
                             [TextContext, {
                                 size: "sm",
-                                zIndex: 1
+                                zIndex: 1,
+                                className: styles["hop-SegmentedControlItem__text"]
                             }]
                         ]}
                     >

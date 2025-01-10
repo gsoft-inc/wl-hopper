@@ -5,7 +5,7 @@ export default function Example() {
     return (
         <SegmentedControl aria-label="List ordering">
             <SegmentedControlItem id="unordered">
-                <UnorderedListIcon />
+                <UnorderedListIcon slot="start-icon" />
                 <Text>Unordered</Text>
             </SegmentedControlItem>
             <SegmentedControlItem id="ordered">
