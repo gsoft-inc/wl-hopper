@@ -1,5 +1,6 @@
 import type { FunctionComponent, SVGProps } from "react";
 
+import Accordion from "./Accordion.svg";
 import Avatar from "./Avatar.svg";
 import Badge from "./Badge.svg";
 import Button from "./Button.svg";
@@ -48,6 +49,7 @@ interface OverviewComponentsType {
 }
 
 export const OverviewComponents: OverviewComponentsType = {
+    Accordion,
     Avatar,
     Badge,
     Button,
