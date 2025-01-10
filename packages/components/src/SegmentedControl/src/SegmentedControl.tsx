@@ -42,7 +42,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
     const state = useContext(ToggleGroupStateContext);
 
     const prevRef = useRef<DOMRect | null>(null);
-    const currentSelectedRef = useRef<HTMLDivElement | null>(null);
+    const currentSelectedRef = useRef<HTMLDivElement>(null);
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
