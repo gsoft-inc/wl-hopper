@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { forwardRef, useContext, useLayoutEffect, useRef, type CSSProperties, type ForwardedRef, type RefObject } from "react";
 import { DEFAULT_SLOT, Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
-import { TextContext } from "../../typography/index.ts";
+import { Text, TextContext } from "../../typography/index.ts";
 import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { InternalSegmentedControlContext } from "./SegmentedControlContext.ts";
@@ -126,7 +126,7 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
                         ]}
                     >
                         <div ref={divRef} className={styles["hop-SegmentedControlItem__wrapper"]} >
-                            {children}
+                            {typeof children === "string" ? <Text>{children}</Text> : children}
                         </div>
                     </Provider>
                 </>
