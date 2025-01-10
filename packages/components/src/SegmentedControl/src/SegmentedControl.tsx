@@ -101,10 +101,11 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
             className={classNames}
             style={mergedStyles}
             slot={slot ?? undefined}
-            selectedKeys={selectedKey != null ? [selectedKey] : undefined}
-            defaultSelectedKeys={defaultSelectedKey != null ? [defaultSelectedKey] : undefined}
             orientation="horizontal"
             onSelectionChange={onChange}
+            selectedKeys={selectedKey != null ? [selectedKey] : undefined}
+            defaultSelectedKeys={defaultSelectedKey != null ? [defaultSelectedKey] : undefined}
+            disallowEmptySelection
             {...otherProps}
         >
             <Provider

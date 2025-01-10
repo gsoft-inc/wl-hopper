@@ -2,7 +2,7 @@ import { SegmentedControl, SegmentedControlItem, type Key } from "@hopper-ui/com
 import { useState } from "react";
 
 export default function Example() {
-    const [selectedKey, setSelectedKey] = useState<Key>();
+    const [selectedKey, setSelectedKey] = useState<Key>("day");
 
     const handleSelectionChange = (key: Key) => {
         if (selectedKey === key) {

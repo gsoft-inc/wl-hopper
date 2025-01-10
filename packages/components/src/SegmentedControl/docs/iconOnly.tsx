@@ -5,10 +5,10 @@ export default function Example() {
     return (
         <SegmentedControl aria-label="List ordering">
             <SegmentedControlItem id="unordered">
-                <UnorderedListIcon />
+                <UnorderedListIcon aria-label="unordered" />
             </SegmentedControlItem>
             <SegmentedControlItem id="ordered">
-                <OrderedListIcon />
+                <OrderedListIcon aria-label="ordered" />
             </SegmentedControlItem>
         </SegmentedControl>
     );
