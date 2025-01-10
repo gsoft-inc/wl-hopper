@@ -66,8 +66,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
         GlobalSegmentedControlCssSelector,
         cssModule(
             styles,
-            "hop-SegmentedControl",
-            isJustified && "justified"
+            "hop-SegmentedControl"
         ),
         stylingProps.className,
         className

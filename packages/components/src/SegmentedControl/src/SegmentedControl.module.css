@@ -7,25 +7,15 @@
     --hop-SegmentedControl-border-radius: var(--hop-shape-rounded-md);
     --hop-SegmentedControl-display: flex;
 
-    /* Justified */
-    --hop-SegmentedControl-width-justified: 100%;
-
-    /* Internal variables */
-    --width: var(--hop-SegmentedControl-width);
-
     display: var(--hop-SegmentedControl-display);
     gap: var(--hop-SegmentedControl-gap);
 
-    inline-size: var(--width);
+    inline-size: var(--hop-SegmentedControl-width);
     padding: var(--hop-SegmentedControl-padding);
 
     background: var(--hop-SegmentedControl-background);
     border: var(--hop-SegmentedControl-border);
     border-radius: var(--hop-SegmentedControl-border-radius);
-}
-
-.hop-SegmentedControl--justified {
-    --width: var(--hop-SegmentedControl-width-justified);
 }
 
 

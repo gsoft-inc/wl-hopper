@@ -134,11 +134,11 @@ export const OnlyIcons = {
 
 export const Justified = {
     render: props => (
-        <SegmentedControl isJustified defaultSelectedKey="american" {...props} >
-            <SegmentedControlItem id="common">Common</SegmentedControlItem>
-            <SegmentedControlItem id="american">American Bullfrog</SegmentedControlItem>
-            <SegmentedControlItem id="month">Red-Eyed Tree</SegmentedControlItem>
-            <SegmentedControlItem id="year">Golden Mantella</SegmentedControlItem>
+        <SegmentedControl UNSAFE_width="400px" isJustified defaultSelectedKey="day" {...props} >
+            <SegmentedControlItem id="day">Day</SegmentedControlItem>
+            <SegmentedControlItem id="week">Week</SegmentedControlItem>
+            <SegmentedControlItem id="month">Month</SegmentedControlItem>
+            <SegmentedControlItem id="year">Year</SegmentedControlItem>
         </SegmentedControl>
     ),
     args: {
