@@ -138,7 +138,7 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
 /**
  * A SegmentedControlItem represents an option within a SegmentedControl.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/SegmentedControl)
  */
 const _SegmentedControlItem = forwardRef<HTMLButtonElement, SegmentedControlItemProps>(SegmentedControlItem);
 _SegmentedControlItem.displayName = "SegmentedControlItem";
