@@ -110,6 +110,9 @@ export const Previews: Record<string, Preview> = {
     "SegmentedControl/docs/icon": {
         component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/icon.tsx"))
     },
+    "SegmentedControl/docs/justified": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/justified.tsx"))
+    },
     "SegmentedControl/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/controlled.tsx"))
     },

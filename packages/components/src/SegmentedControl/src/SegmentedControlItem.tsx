@@ -106,14 +106,16 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
                     <Provider
                         values={[
                             [IconContext, {
-                                size,
-                                zIndex: 1,
                                 slots: {
                                     [DEFAULT_SLOT]: {
-                                        className: styles["hop-SegmentedControlItem__icon"]
+                                        className: styles["hop-SegmentedControlItem__icon"],
+                                        size,
+                                        zIndex: 1
                                     },
                                     "start-icon": {
-                                        className: styles["hop-SegmentedControlItem__start-icon"]
+                                        className: styles["hop-SegmentedControlItem__start-icon"],
+                                        size,
+                                        zIndex: 1
                                     }
                                 }
                             }],

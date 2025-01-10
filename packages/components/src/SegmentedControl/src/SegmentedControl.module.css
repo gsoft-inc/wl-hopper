@@ -5,23 +5,21 @@
     --hop-SegmentedControl-background: var(--hop-neutral-surface);
     --hop-SegmentedControl-border: 0.0625rem solid var(--hop-neutral-border);
     --hop-SegmentedControl-border-radius: var(--hop-shape-rounded-md);
+    --hop-SegmentedControl-display: flex;
+    --hop-SegmentedControl-align-items: center;
+    --hop-SegmentedControl-justify-content: center;
 
-     /* Item background selected animation */
-    --hop-SegmentedControl-item-width: 0rem;
-    --hop-SegmentedControl-item-border-radius: var(--hop-shape-rounded-sm);
-    --hop-SegmentedControl-item-offset: 0rem;
-
-    display: flex;
+    display: var(--hop-SegmentedControl-display);
     gap: var(--hop-SegmentedControl-gap);
-    align-items: center;
-    justify-content: center;
+    align-items: var(--hop-SegmentedControl-align-items);
+    justify-content: var(--hop-SegmentedControl-justify-content);
 
     inline-size: var(--hop-SegmentedControl-witdh);
     padding: var(--hop-SegmentedControl-padding);
 
     background: var(--hop-SegmentedControl-background);
     border: var(--hop-SegmentedControl-border);
-    border-radius: var(--hop-SegmentedControl-border-radius)
+    border-radius: var(--hop-SegmentedControl-border-radius);
 }
 
 

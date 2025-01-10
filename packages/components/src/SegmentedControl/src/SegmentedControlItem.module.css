@@ -5,7 +5,11 @@
     --hop-SegmentedControlItem-background: transparent;
     --hop-SegmentedControlItem-border: none;
     --hop-SegmentedControlItem-border-radius: var(--hop-shape-rounded-sm);
-    --hop-SegmentedControlItem-cursor: auto;
+    --hop-SegmentedControlItem-cursor: pointer;
+    --hop-SegmentedControlItem-position: relative;
+    --hop-SegmentedControlItem-display: flex;
+    --hop-SegmentedControlItem-align-items: center;
+    --hop-SegmentedControlItem-justify-content: center;
 
     /* Small */
     --hop-SegmentedControlItem-sm-padding: 0.125rem var(--hop-space-inset-md);
@@ -15,21 +19,51 @@
 
     /* Slider */
     --hop-SegmentedControlItem-slider-background: var(--hop-neutral-surface-selected);
+    --hop-SegmentedControlItem-slider-position: absolute;
+    --hop-SegmentedControlItem-slider-width: 100%;
+    --hop-SegmentedControlItem-slider-height: 100%;
 
-    cursor: var(--hop-SegmentedControlItem-cursor);
+    /* Focused */
+    --hop-SegmentedControlItem-color-focused: var(--hop-neutral-text-hover);
+    --hop-SegmentedControlItem-background-focused: var(--hop-neutral-surface-hover);
 
-    position: relative;
+    /* Hovered */
+    --hop-SegmentedControlItem-color-hovered: var(--hop-neutral-text-hover);
+    --hop-SegmentedControlItem-background-hovered: var(--hop-neutral-surface-hover);
 
-    display: flex;
+    /* Pressed */
+    --hop-SegmentedControlItem-color-pressed: var(--hop-neutral-text-press);
+    --hop-SegmentedControlItem-background-pressed: var(--hop-neutral-surface-press);
+
+    /* Selected */
+    --hop-SegmentedControlItem-color-selected: var(--hop-neutral-text-selected);
+    --hop-SegmentedControlItem-background-selected: transparent;
+
+    /* Disabled */
+    --hop-SegmentedControlItem-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-SegmentedControlItem-background-disabled: var(--hop-neutral-surface);
+    --hop-SegmentedControlItem-cursor-disabled: auto;
+
+    /* Internal variables */
+    --color: var(--hop-SegmentedControlItem-color);
+    --cursor: var(--hop-SegmentedControlItem-cursor);
+    --background: var(--hop-SegmentedControlItem-background);
+    --padding: var(--hop-SegmentedControlItem-sm-padding);
+
+    cursor: var(--cursor);
+
+    position: var(--hop-SegmentedControlItem-position);
+
+    display: var(--hop-SegmentedControlItem-display);
     gap: var(--hop-SegmentedControlItem-gap);
-    align-items: center;
-    justify-content: center;
+    align-items: var(--hop-SegmentedControlItem-align-items);
+    justify-content: var(--hop-SegmentedControlItem-justify-content);
 
-    padding: var(--hop-SegmentedControlItem-padding, var(--hop-SegmentedControlItem-sm-padding));
+    padding: var(--padding);
 
-    color: var(--hop-SegmentedControlItem-color);
+    color: var(--color);
 
-    background: var(--hop-SegmentedControlItem-background)
+    background: var(--background);
 }
 
 .hop-SegmentedControlItem, .hop-SegmentedControlItem__slider {
@@ -38,38 +72,40 @@
 }
 
 .hop-SegmentedControlItem__slider {
-    position: absolute;
-    inline-size: 100%;
-    block-size: 100%;
+    position: var(--hop-SegmentedControlItem-slider-position);
+    inline-size: var(--hop-SegmentedControlItem-slider-width);
+    block-size: var(--hop-SegmentedControlItem-slider-height);
     background: var(--hop-SegmentedControlItem-slider-background);
 }
 
-.hop-SegmentedControlItem:not([data-disabled]) {
-    --hop-SegmentedControlItem-cursor: pointer;
+.hop-SegmentedControlItem[data-hovered] {
+    --color: var(--hop-SegmentedControlItem-color-hovered);
+    --background: var(--hop-SegmentedControlItem-background-hovered);
 }
 
-.hop-SegmentedControlItem[data-hovered], .hop-SegmentedControlItem[data-focused] {
-    --hop-SegmentedControlItem-color: var(--hop-neutral-text-hover);
-    --hop-SegmentedControlItem-background: var(--hop-neutral-surface-hover);
+.hop-SegmentedControlItem[data-focused] {
+    --color: var(--hop-SegmentedControlItem-color-focused);
+    --background: var(--hop-SegmentedControlItem-background-focused);
 }
 
 .hop-SegmentedControlItem[data-pressed] {
-    --hop-SegmentedControlItem-color: var(--hop-neutral-text-press);
-    --hop-SegmentedControlItem-background: var(--hop-neutral-surface-press);
+    --color: var(--hop-SegmentedControlItem-color-pressed);
+    --background: var(--hop-SegmentedControlItem-background-pressed);
 }
 
 .hop-SegmentedControlItem[data-selected] {
-    --hop-SegmentedControlItem-color: var(--hop-neutral-text-selected);
-    --hop-SegmentedControlItem-background: transparent;
+    --color: var(--hop-SegmentedControlItem-color-selected);
+    --background: var(--hop-SegmentedControlItem-background-selected);
 }
 
 .hop-SegmentedControlItem[data-disabled] {
-    --hop-SegmentedControlItem-color: var(--hop-neutral-text-disabled);
-    --hop-SegmentedControlItem-background: var(--hop-neutral-surface);
+    --cursor: var(--hop-SegmentedControlItem-cursor-disabled);
+    --color: var(--hop-SegmentedControlItem-color-disabled);
+    --background: var(--hop-SegmentedControlItem-background-disabled);
 }
 
 .hop-SegmentedControlItem--md {
-    --hop-SegmentedControlItem-padding: var(--hop-SegmentedControlItem-md-padding);
+    --padding: var(--hop-SegmentedControlItem-md-padding);
 }
 
 .hop-SegmentedControlItem__icon {
