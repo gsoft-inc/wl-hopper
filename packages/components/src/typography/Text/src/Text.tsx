@@ -76,7 +76,7 @@ function Text(props: TextProps, ref: ForwardedRef<HTMLSpanElement>) {
 /**
  * A primitive text component matching Hopper's typography type scale.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Text)
  */
 const _Text = slotFn("text", forwardRef<HTMLSpanElement, TextProps>(Text));
 _Text.displayName = "Text";

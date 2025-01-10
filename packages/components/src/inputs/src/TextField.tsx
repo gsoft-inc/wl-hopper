@@ -261,7 +261,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * A text field allows a user to enter a plain text value with a keyboard.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/TextField)
  */
 const _TextField = forwardRef<HTMLDivElement, TextFieldProps>(TextField);
 _TextField.displayName = "TextField";

@@ -49,7 +49,7 @@ function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
 /**
  * The Footer component represents a Footer within a Hopper container such as a Modal or Popover.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Footer)
  */
 const _Footer = slotFn("footer", forwardRef<HTMLElement, FooterProps>(Footer));
 _Footer.displayName = "Footer";

@@ -148,7 +148,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * An input group combines an input component with addons.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/InputGroup)
  */
 const _InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(InputGroup);
 _InputGroup.displayName = "InputGroup";

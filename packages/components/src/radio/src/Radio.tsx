@@ -118,7 +118,7 @@ function Radio(props: RadioProps, ref: ForwardedRef<HTMLLabelElement>) {
 /**
  * The Radio component indicates the selection state of an option. It displays either one of three states: checked, unchecked, or indeterminate.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/RadioGroup)
  */
 const _Radio = forwardRef<HTMLLabelElement, RadioProps>(Radio);
 _Radio.displayName = "Radio";

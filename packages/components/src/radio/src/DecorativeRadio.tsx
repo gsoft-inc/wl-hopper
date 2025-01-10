@@ -140,8 +140,6 @@ function DecorativeRadio(props: DecorativeRadioProps, ref: ForwardedRef<HTMLElem
 
 /**
  * The DecorativeRadio component indicates the selection state of an option without using a native radio input. To be used for visual purposes only.
- *
- * [View Documentation](TODO)
  */
 const _DecorativeRadio = forwardRef<HTMLElement, DecorativeRadioProps>(DecorativeRadio);
 _DecorativeRadio.displayName = "DecorativeRadio";

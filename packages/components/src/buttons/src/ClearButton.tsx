@@ -38,8 +38,6 @@ function ClearButton(props: ClearButtonProps, ref: ForwardedRef<HTMLButtonElemen
 
 /**
  * ClearButtons are used to initialize an action. ClearButton labels express what action will occur when the user interacts with it.
- *
- * [View Documentation](TODO)
  */
 const _ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(ClearButton);
 

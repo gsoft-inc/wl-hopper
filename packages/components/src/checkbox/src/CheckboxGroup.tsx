@@ -111,10 +111,10 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
 
     const children = composeRenderProps(childrenProp, prev => {
         return (
-            <div 
+            <div
                 className={listClassNames}
                 slot={listSlot ?? undefined}
-                style={listStyle} 
+                style={listStyle}
                 {...otherListProps}
             >
                 {prev}
@@ -176,7 +176,7 @@ function CheckboxGroup(props: CheckboxGroupProps, ref: ForwardedRef<HTMLDivEleme
 /**
  * The CheckboxGroup component is used to group multiple Checkbox or CheckboxField components together.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/CheckboxGroup)
  */
 const _CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(CheckboxGroup);
 _CheckboxGroup.displayName = "CheckboxGroup";

@@ -104,7 +104,7 @@ function flexWrapValue(value: DivProps["flexWrap"] | boolean) {
 /**
  * The Flex component is used to create a flex container and provides some shortcuts for the flex properties.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Flex)
  */
 const _Flex = forwardRef<HTMLDivElement, FlexProps>(Flex);
 _Flex.displayName = "Flex";

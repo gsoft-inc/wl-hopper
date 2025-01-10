@@ -176,7 +176,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
 
 /**
  * Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Button)
  *
  */
 const _Button = slotFn("button", forwardRef(Button));

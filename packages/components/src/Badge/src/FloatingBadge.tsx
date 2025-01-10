@@ -100,7 +100,7 @@ function FloatingBadge(props: FloatingBadgeProps, ref: ForwardedRef<HTMLDivEleme
 /**
  * A floating badge serves to present notices or notifications associated with a parent component.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/FloatingBadge)
  */
 const _FloatingBadge = forwardRef<HTMLDivElement, FloatingBadgeProps>(FloatingBadge);
 _FloatingBadge.displayName = "FloatingBadge";

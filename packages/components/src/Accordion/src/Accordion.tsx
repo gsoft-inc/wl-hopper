@@ -86,7 +86,7 @@ function Accordion(props:AccordionProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * An accordion is a container for multiple disclosures.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Accordion)
  */
 const _Accordion = forwardRef<HTMLDivElement, AccordionProps>(Accordion);
 _Accordion.displayName = "Accordion";

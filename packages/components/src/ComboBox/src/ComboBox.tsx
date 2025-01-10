@@ -376,7 +376,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
 /**
  * Combo box components enable users to choose a single option from a collapsible list, optimizing space efficiency.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/ComboBox)
  */
 const _ComboBox = forwardRef(ComboBox) as <T extends object>(
     props: ComboBoxProps<T> & { ref?: ForwardedRef<HTMLDivElement> }

@@ -74,8 +74,6 @@ function RemainingCharacterCount(props: RemainingCharacterCountProps, ref: Forwa
 
 /**
  * The RemainingCharacterCount component displays the number of characters remaining.
- *
- * [View Documentation](TODO)
  */
 const _RemainingCharacterCount = forwardRef<HTMLSpanElement, RemainingCharacterCountProps>(RemainingCharacterCount);
 _RemainingCharacterCount.displayName = "RemainingCharacterCount";

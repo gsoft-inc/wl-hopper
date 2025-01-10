@@ -133,7 +133,7 @@ function SelectValue<T extends object>(props: SelectValueProps<T>, ref: Forwarde
 /**
  * A select value displays the selected value of a select.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Select)
  */
 const _SelectValue = forwardRef(SelectValue) as <T extends object>(
     props: SelectValueProps<T> & { ref?: ForwardedRef<HTMLSpanElement> }

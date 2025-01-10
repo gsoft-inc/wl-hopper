@@ -88,7 +88,7 @@ function Disclosure(props: DisclosureProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * The Disclosure component is used to organize lengthy sections of information within an expandable block, allowing users to reveal or hide content as needed.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Disclosure)
  */
 const _Disclosure = forwardRef<HTMLDivElement, DisclosureProps>(Disclosure);
 _Disclosure.displayName = "Disclosure";

@@ -116,8 +116,6 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
 
 /**
  * EmbeddedButtons are buttons embedded within other components, such as inputs and tags.
- *
- * [View Documentation](TODO)
  */
 const _EmbeddedButton = slotFn("button", forwardRef<HTMLButtonElement, EmbeddedButtonProps>(EmbeddedButton));
 

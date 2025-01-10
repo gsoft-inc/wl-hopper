@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.4.4
+
+### Patch Changes
+
+- 2bcc8fd: Update links to documentation in the JSDoc
+- 1e16c37: Added the Accordion component.
+
 ## 1.4.3
 
 ### Patch Changes

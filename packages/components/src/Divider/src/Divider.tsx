@@ -53,7 +53,7 @@ function Divider(props: DividerProps, ref: ForwardedRef<HTMLElement>) {
 /**
  * The Divider separates the distinguishes sections of content or groups.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Divider)
  */
 const _Divider = forwardRef<HTMLElement, DividerProps>(Divider);
 _Divider.displayName = "Divider";

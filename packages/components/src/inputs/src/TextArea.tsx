@@ -311,7 +311,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * A textarea field allows a user to enter a plain text value with a keyboard.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/TextArea)
  */
 const _TextArea = forwardRef<HTMLDivElement, TextAreaProps>(TextArea);
 _TextArea.displayName = "TextArea";
