@@ -122,7 +122,7 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
 /**
  * ButtonGroup handles the spacing and orientation for a grouping of buttons whose actions are related to each other.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/ButtonGroup)
  */
 const _ButtonGroup = slotFn("button-group", forwardRef(ButtonGroup));
 

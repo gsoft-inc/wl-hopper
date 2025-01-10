@@ -198,7 +198,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
 /**
  * Popovers are small overlays that open on demand. They let users access additional content and actions without cluttering the page.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Popover)
  */
 const _Popover = forwardRef<HTMLElement, PopoverProps>(Popover);
 _Popover.displayName = "Popover";

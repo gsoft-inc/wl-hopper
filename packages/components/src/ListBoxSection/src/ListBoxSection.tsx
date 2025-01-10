@@ -45,7 +45,7 @@ function ListBoxSection<T extends object>(props: ListBoxSectionProps<T>, ref: Fo
 /**
  * A Section serves as a versatile container component, encapsulating an HTML section element to facilitate the organization and grouping of content.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/ListBox)
  */
 const _ListBoxSection = forwardRef(ListBoxSection) as <T>(
     props: ListBoxSectionProps<T> & { ref?: ForwardedRef<HTMLDivElement> }

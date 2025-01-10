@@ -94,7 +94,7 @@ function IllustratedMessage(props: IllustratedMessageProps, ref: ForwardedRef<HT
 /**
  * An illustrated message display an image and a message, usually for an empty state or an error page.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/IllustratedMessage)
  */
 const _IllustratedMessage = forwardRef<HTMLDivElement, IllustratedMessageProps>(IllustratedMessage);
 _IllustratedMessage.displayName = "IllustratedMessage";

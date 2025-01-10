@@ -88,7 +88,7 @@ function Label(props: LabelProps, ref: ForwardedRef<HTMLLabelElement>) {
 /**
  * A primitive label component matching Hopper's typography type scale.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Label)
  */
 const _Label = forwardRef<HTMLLabelElement, LabelProps>(Label);
 _Label.displayName = "Label";

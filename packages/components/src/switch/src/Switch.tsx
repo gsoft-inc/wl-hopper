@@ -114,7 +114,7 @@ function Switch(props: SwitchProps, ref: ForwardedRef<HTMLLabelElement>) {
 /**
  * A switch is used to quickly switch between two possible states. They are commonly used for “on/off” switches.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Switch)
  */
 const _Switch = forwardRef<HTMLLabelElement, SwitchProps>(Switch);
 _Switch.displayName = "Switch";

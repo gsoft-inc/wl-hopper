@@ -107,7 +107,7 @@ const Spinner = (props: SpinnerProps, ref: ForwardedRef<HTMLDivElement>) => {
 /**
  * A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Spinner)
  */
 const _Spinner = forwardRef<HTMLDivElement, SpinnerProps>(Spinner);
 _Spinner.displayName = "Spinner";

@@ -63,7 +63,7 @@ function ListBoxItemSkeleton(props: ListBoxItemSkeletonProps, ref: ForwardedRef<
 /**
  * A ListBoxItem represents an item within a ListBox component.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/ListBox)
  */
 const _ListBoxItemSkeleton = forwardRef<HTMLDivElement, ListBoxItemSkeletonProps>(ListBoxItemSkeleton);
 _ListBoxItemSkeleton.displayName = "ListBoxItemSkeleton";

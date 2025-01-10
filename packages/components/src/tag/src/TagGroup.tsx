@@ -76,7 +76,7 @@ function TagGroup<T extends object>(props: TagGroupProps<T>, ref: ForwardedRef<H
     } = ownProps;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
-    
+
     const { stylingProps: tagListStylingProps, ...tagListOwnProps } = useStyledSystem(tagListProps ?? {});
     const {
         className: tagListClassName,
@@ -160,7 +160,7 @@ function TagGroup<T extends object>(props: TagGroupProps<T>, ref: ForwardedRef<H
 /**
  * A versatile TagGroup component for categorizing items.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/TagGroup)
  */
 const _TagGroup = forwardRef(TagGroup) as <T>(
     props: TagGroupProps<T> & { ref?: ForwardedRef<HTMLDivElement> }

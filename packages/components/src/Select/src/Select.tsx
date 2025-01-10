@@ -306,7 +306,7 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
 /**
  * Select components enable users to choose a single option from a collapsible list, optimizing space efficiency.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Select)
  */
 const _Select = forwardRef(Select) as <T extends object>(
     props: SelectProps<T> & { ref?: ForwardedRef<HTMLDivElement> }

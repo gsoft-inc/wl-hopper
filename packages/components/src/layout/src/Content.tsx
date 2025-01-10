@@ -50,7 +50,7 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * The Content component represents a Content within a Hopper container such as a Modal or Popover.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Content)
  */
 const _Content = slotFn("content", forwardRef<HTMLDivElement, ContentProps>(Content));
 _Content.displayName = "Content";

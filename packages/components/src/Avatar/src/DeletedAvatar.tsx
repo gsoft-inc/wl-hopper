@@ -82,7 +82,7 @@ function DeletedAvatar(props: DeletedAvatarProps, ref: ForwardedRef<HTMLDivEleme
 /**
  * DeletedAvatars are used to represent deleted users.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Avatar)
  */
 const _DeletedAvatar = forwardRef<HTMLDivElement, DeletedAvatarProps>(DeletedAvatar);
 _DeletedAvatar.displayName = "DeletedAvatar";

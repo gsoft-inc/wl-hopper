@@ -45,7 +45,7 @@ function Inline(props: InlineProps, ref: Ref<HTMLDivElement>) {
 /**
  * The Inline pattern is a layout primitive that can be used to stack elements in the horizontal direction and apply a space between them.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Inline)
  */
 const _Inline = forwardRef<HTMLDivElement, InlineProps>(Inline);
 _Inline.displayName = "Inline";

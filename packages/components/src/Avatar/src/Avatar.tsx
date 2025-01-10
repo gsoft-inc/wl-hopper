@@ -233,7 +233,7 @@ function Avatar(props: AvatarProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * Avatars are used to show a thumbnail representation of an individual, team or group in the interface.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Avatar)
  */
 const _Avatar = slotFn("avatar", forwardRef<HTMLDivElement, AvatarProps>(Avatar));
 _Avatar.displayName = "Avatar";

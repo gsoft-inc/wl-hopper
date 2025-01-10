@@ -121,7 +121,7 @@ function DisclosureHeader(props: DisclosureHeaderProps, ref: ForwardedRef<HTMLHe
 /**
  * DisclosureHeader is the main header element that users interact with to expand or collapse the associated panel.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Disclosure)
  */
 const _DisclosureHeader = forwardRef<HTMLHeadingElement, DisclosureHeaderProps>(DisclosureHeader);
 _DisclosureHeader.displayName = "DisclosureHeader";

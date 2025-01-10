@@ -180,7 +180,7 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
 /**
  * A specialized text field which show / hide a password.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/PasswordField)
  */
 const _PasswordField = forwardRef<HTMLDivElement, PasswordFieldProps>(PasswordField);
 _PasswordField.displayName = "PasswordField";

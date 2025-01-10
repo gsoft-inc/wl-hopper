@@ -201,7 +201,7 @@ function ListBox<T extends object>(props: ListBoxProps<T>, ref: ForwardedRef<HTM
 /**
  * A listbox is a list of interactive options that appears when users interact with an element or perform a specific action.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/ListBox)
  */
 const _ListBox = forwardRef(ListBox) as <T>(
     props: ListBoxProps<T> & { ref?: ForwardedRef<HTMLDivElement> }

@@ -58,8 +58,6 @@ function ToggleArrow(props:ToggleArrowProps, ref: ForwardedRef<SVGSVGElement>) {
 
 /**
  * A simple arrow icon for expanding and collapsing content.
- *
- * [View Documentation](TODO)
  */
 const _ToggleArrow = forwardRef<SVGSVGElement, ToggleArrowProps>(ToggleArrow);
 _ToggleArrow.displayName = "ToggleArrow";
