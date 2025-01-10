@@ -1,7 +1,7 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, useContext, useLayoutEffect, useRef, type CSSProperties, type ForwardedRef, type RefObject } from "react";
+import { forwardRef, useContext, useLayoutEffect, type CSSProperties, type ForwardedRef, type RefObject } from "react";
 import { DEFAULT_SLOT, Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
 import { Text, TextContext } from "../../typography/index.ts";
@@ -34,7 +34,6 @@ export interface SegmentedControlItemProps extends Omit<StyledComponentProps<Bas
 
 const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRef<HTMLButtonElement>) => {
     [props, ref] = useContextProps(props, ref, SegmentedControlItemContext);
-    const divRef = useRef<HTMLDivElement>(null);
     const { prevRef, currentSelectedRef, isJustified } = useContext(InternalSegmentedControlContext);
     const state = useContext(ToggleGroupStateContext);
     const itemSelected = state?.selectedKeys.has(props.id);
@@ -125,7 +124,7 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
                             }]
                         ]}
                     >
-                        <div ref={divRef} className={styles["hop-SegmentedControlItem__wrapper"]} >
+                        <div className={styles["hop-SegmentedControlItem__wrapper"]} >
                             {typeof children === "string" ? <Text>{children}</Text> : children}
                         </div>
                     </Provider>
