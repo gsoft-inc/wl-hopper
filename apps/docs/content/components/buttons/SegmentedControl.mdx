@@ -1,0 +1,54 @@
+---
+title: SegmentedControl
+description: The SegmentedControl component presents a horizontal row of options or actions that are contextually or conceptually related. It allows users to select a single option at a time.
+category: "pickers"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/SegmentedControl/src/SegmentedControl.tsx
+    aria: https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/
+---
+
+<Example src="SegmentedControl/docs/preview" isOpen />
+
+## Usage
+
+### Selected
+A segmented control can have an item initially selected, by using `defaultSelectedKey` for uncontrolled or `selectedKey` for controlled.
+Here's an example where one item is selected using defaultSelectedKey.
+
+<Example src="SegmentedControl/docs/selected" />
+
+### Size
+A segmented control supports multiple sizes. Here’s an example demonstrating the medium size option:
+
+<Example src="SegmentedControl/docs/size" />
+
+### Icon only
+Items within a segmented control can contain only icons. An accessible name must be provided through [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) prop. See also [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Example src="SegmentedControl/docs/iconOnly" />
+
+### Icon
+A segmented control can contain items with icons, starting or ending.
+**Non standard** starting icons can be provided to handle special cases. However, think twice before adding start icons, end icons should be your go to.
+
+<Example src="SegmentedControl/docs/icon" />
+
+### Justified
+A segmented control can have items with similar widths.
+
+<Example src="SegmentedControl/docs/justified" />
+
+### Controlled
+A segmented control can have a controlled selected value. In this example, it shows how it is possible to select an option.
+
+<Example src="SegmentedControl/docs/controlled" />
+
+## Props
+
+### SegmentedControl
+
+<PropTable component="SegmentedControl" />
+
+### SegmentedControlItem
+
+<PropTable component="SegmentedControlItem" />

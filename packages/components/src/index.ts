@@ -22,6 +22,7 @@ export * from "./ListBox/index.ts";
 export * from "./ListBoxSection/index.ts";
 export * from "./overlays/Popover/index.ts";
 export * from "./radio/index.ts";
+export * from "./SegmentedControl/index.ts";
 export * from "./Select/index.ts";
 export * from "./Spinner/index.ts";
 export * from "./switch/index.ts";

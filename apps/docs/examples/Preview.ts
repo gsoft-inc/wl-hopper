@@ -95,6 +95,27 @@ export const Previews: Record<string, Preview> = {
     "buttons/docs/linkButton/advancedCustomization": {
         component: lazy(() => import("@/../../packages/components/src/buttons/docs/linkButton/advancedCustomization.tsx"))
     },
+    "SegmentedControl/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/preview.tsx"))
+    },
+    "SegmentedControl/docs/selected": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/selected.tsx"))
+    },
+    "SegmentedControl/docs/size": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/size.tsx"))
+    },
+    "SegmentedControl/docs/iconOnly": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/iconOnly.tsx"))
+    },
+    "SegmentedControl/docs/icon": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/icon.tsx"))
+    },
+    "SegmentedControl/docs/justified": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/justified.tsx"))
+    },
+    "SegmentedControl/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/controlled.tsx"))
+    },
     "ListBox/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/preview.tsx"))
     },
