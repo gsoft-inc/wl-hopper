@@ -35,7 +35,7 @@ export interface SegmentedControlItemProps extends Omit<StyledComponentProps<Bas
 const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRef<HTMLButtonElement>) => {
     [props, ref] = useContextProps(props, ref, SegmentedControlItemContext);
     const divRef = useRef<HTMLDivElement>(null);
-    const { prevRef, currentSelectedRef } = useContext(InternalSegmentedControlContext);
+    const { prevRef, currentSelectedRef, isJustified } = useContext(InternalSegmentedControlContext);
     const state = useContext(ToggleGroupStateContext);
     const itemSelected = state?.selectedKeys.has(props.id);
 
@@ -54,7 +54,8 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
         cssModule(
             styles,
             "hop-SegmentedControlItem",
-            size
+            size,
+            isJustified && "justified"
         ),
         stylingProps.className,
         className

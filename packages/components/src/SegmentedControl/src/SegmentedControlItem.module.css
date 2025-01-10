@@ -14,6 +14,8 @@
     --hop-SegmentedControlItem-outline: none;
     --hop-SegmentedControlItem-outline-offset: var(--hop-space-20);
     --hop-SegmentedControlItem-focus-ring-color: var(--hop-primary-border-focus);
+    --hop-SegmentedControlItem-user-select: none;
+    --hop-SegmentedControlItem-whitespace: nowrap;
 
     /* Small */
     --hop-SegmentedControlItem-sm-padding: 0.125rem var(--hop-space-inset-md);
@@ -56,6 +58,7 @@
     --outline: var(--hop-SegmentedControlItem-outline);
 
     cursor: var(--cursor);
+    user-select: var(--hop-SegmentedControlItem-user-select);
 
     position: var(--hop-SegmentedControlItem-position);
 
@@ -67,6 +70,7 @@
     padding: var(--padding);
 
     color: var(--color);
+    white-space: var(--hop-SegmentedControlItem-whitespace);
 
     background: var(--background);
     outline: var(--outline);
@@ -101,7 +105,7 @@
     --background: var(--hop-SegmentedControlItem-background-hovered);
 }
 
-.hop-SegmentedControlItem[data-focused-visible] {
+.hop-SegmentedControlItem[data-focus-visible] {
     --color: var(--hop-SegmentedControlItem-color-focused);
     --background: var(--hop-SegmentedControlItem-background-focused);
     --outline: var(--hop-SegmentedControlItem-outline-offset) solid var(--hop-SegmentedControlItem-focus-ring-color);
@@ -137,4 +141,9 @@
 
 .hop-SegmentedControlItem__start-icon {
     order: 0
+}
+
+.hop-SegmentedControlItem--justified {
+    flex-basis: 0%;
+    flex-grow: 1;
 }

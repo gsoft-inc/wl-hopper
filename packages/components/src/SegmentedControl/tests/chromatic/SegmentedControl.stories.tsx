@@ -132,6 +132,20 @@ export const OnlyIcons = {
     }
 } satisfies Story;
 
+export const Justified = {
+    render: props => (
+        <SegmentedControl isJustified defaultSelectedKey="american" {...props} >
+            <SegmentedControlItem id="common">Common</SegmentedControlItem>
+            <SegmentedControlItem id="american">American Bullfrog</SegmentedControlItem>
+            <SegmentedControlItem id="month">Red-Eyed Tree</SegmentedControlItem>
+            <SegmentedControlItem id="year">Golden Mantella</SegmentedControlItem>
+        </SegmentedControl>
+    ),
+    args: {
+        "aria-label": "List organization"
+    }
+} satisfies Story;
+
 export const Disabled = {
     render: props => (
         <Stack>

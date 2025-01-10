@@ -19,6 +19,10 @@ export interface SegmentedControlProps extends StyledComponentProps<BaseComponen
     */
     isDisabled?: boolean;
     /**
+     * Whether the items should divide the container width equally.
+     */
+    isJustified?: boolean;
+    /**
      * The id of the currently selected item (controlled).
      */
     selectedKey?: Key;
@@ -54,6 +58,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
         selectedKey,
         onSelectionChange,
         size,
+        isJustified,
         ...otherProps
     } = ownProps;
 
@@ -61,7 +66,8 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
         GlobalSegmentedControlCssSelector,
         cssModule(
             styles,
-            "hop-SegmentedControl"
+            "hop-SegmentedControl",
+            isJustified && "justified"
         ),
         stylingProps.className,
         className
@@ -111,7 +117,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
             <Provider
                 values={[
                     [SegmentedControlItemContext, { size, isDisabled: otherProps.isDisabled }],
-                    [InternalSegmentedControlContext, { prevRef, currentSelectedRef }]
+                    [InternalSegmentedControlContext, { prevRef, currentSelectedRef, isJustified }]
                 ]}
             >
                 {children}
@@ -123,7 +129,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
 /**
  * Segmented control displays multiple contextually or conceptually related action or option stacked in a horizontal row.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/SegmentedControl)
  */
 const _SegmentedControl = forwardRef<HTMLDivElement, SegmentedControlProps>(SegmentedControl);
 _SegmentedControl.displayName = "SegmentedControl";
