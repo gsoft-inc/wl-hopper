@@ -1,11 +1,11 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, useContext, useLayoutEffect, type CSSProperties, type ForwardedRef, type RefObject } from "react";
+import { forwardRef, useContext, useLayoutEffect, useRef, type CSSProperties, type ForwardedRef, type RefObject } from "react";
 import { DEFAULT_SLOT, Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
-import { Text, TextContext } from "../../typography/index.ts";
-import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
+import { TextContext } from "../../typography/index.ts";
+import { cssModule, pressScale, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { InternalSegmentedControlContext } from "./SegmentedControlContext.ts";
 import { SegmentedControlItemContext } from "./SegmentedControlItemContext.ts";
@@ -34,6 +34,7 @@ export interface SegmentedControlItemProps extends Omit<StyledComponentProps<Bas
 
 const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRef<HTMLButtonElement>) => {
     [props, ref] = useContextProps(props, ref, SegmentedControlItemContext);
+    const divRef = useRef<HTMLDivElement>(null);
     const { prevRef, currentSelectedRef } = useContext(InternalSegmentedControlContext);
     const state = useContext(ToggleGroupStateContext);
     const itemSelected = state?.selectedKeys.has(props.id);
@@ -100,33 +101,32 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
             style={mergedStyles}
             slot={slot ?? undefined}
         >
-            {({ isSelected }) => (
+            {({ isSelected, isDisabled, isPressed }) => (
                 <>
-                    {isSelected && <div className={styles["hop-SegmentedControlItem__slider"]} ref={currentSelectedRef as RefObject<HTMLDivElement>} />}
+                    {isSelected && !isDisabled && <div className={styles["hop-SegmentedControlItem__slider"]} ref={currentSelectedRef as RefObject<HTMLDivElement>} />}
                     <Provider
                         values={[
                             [IconContext, {
                                 slots: {
                                     [DEFAULT_SLOT]: {
                                         className: styles["hop-SegmentedControlItem__icon"],
-                                        size,
-                                        zIndex: 1
+                                        size
                                     },
                                     "start-icon": {
                                         className: styles["hop-SegmentedControlItem__start-icon"],
-                                        size,
-                                        zIndex: 1
+                                        size
                                     }
                                 }
                             }],
                             [TextContext, {
                                 size: "sm",
-                                zIndex: 1,
                                 className: styles["hop-SegmentedControlItem__text"]
                             }]
                         ]}
                     >
-                        {typeof children === "string" ? <Text>{children}</Text> : children}
+                        <div ref={divRef} style={pressScale(divRef)({ isPressed })} >
+                            {children}
+                        </div>
                     </Provider>
                 </>
             )}
