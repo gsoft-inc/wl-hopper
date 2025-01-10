@@ -83,7 +83,7 @@
     --background: var(--hop-SegmentedControlItem-background-hovered);
 }
 
-.hop-SegmentedControlItem[data-focused] {
+.hop-SegmentedControlItem[data-focused-visible] {
     --color: var(--hop-SegmentedControlItem-color-focused);
     --background: var(--hop-SegmentedControlItem-background-focused);
 }
