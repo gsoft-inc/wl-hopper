@@ -80,7 +80,7 @@ const SegmentedControl = (props: SegmentedControlProps, ref: ForwardedRef<HTMLDi
         }
 
         if (currentSelectedRef.current) {
-            prevRef.current = currentSelectedRef?.current.getBoundingClientRect();
+            prevRef.current = currentSelectedRef.current.getBoundingClientRect();
         }
 
         onSelectionChange?.(firstKey);

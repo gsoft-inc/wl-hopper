@@ -9,7 +9,7 @@ SegmentedControlContext.displayName = "SegmentedControlContext";
 
 interface InternalSegmentedControlContextProps {
     prevRef?: MutableRefObject<DOMRect | null>;
-    currentSelectedRef?: RefObject<HTMLDivElement>;
+    currentSelectedRef?: RefObject<HTMLDivElement | null>;
 }
 
 export const InternalSegmentedControlContext = createContext<InternalSegmentedControlContextProps>({});

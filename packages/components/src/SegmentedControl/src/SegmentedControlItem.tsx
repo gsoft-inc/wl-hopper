@@ -1,7 +1,7 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
-import { forwardRef, useContext, useLayoutEffect, type CSSProperties, type ForwardedRef } from "react";
+import { forwardRef, useContext, useLayoutEffect, type CSSProperties, type ForwardedRef, type RefObject } from "react";
 import { DEFAULT_SLOT, Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
 import { Text, TextContext } from "../../typography/index.ts";
@@ -102,7 +102,7 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
         >
             {({ isSelected }) => (
                 <>
-                    {isSelected && <div className={styles["hop-SegmentedControlItem__slider"]} ref={currentSelectedRef} />}
+                    {isSelected && <div className={styles["hop-SegmentedControlItem__slider"]} ref={currentSelectedRef as RefObject<HTMLDivElement>} />}
                     <Provider
                         values={[
                             [IconContext, {
