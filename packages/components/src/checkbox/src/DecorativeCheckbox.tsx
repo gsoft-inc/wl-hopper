@@ -143,8 +143,6 @@ function DecorativeCheckbox(props: DecorativeCheckboxProps, ref: ForwardedRef<HT
 
 /**
  * The DecorativeCheckbox component indicates the selection state of an option without using a native radio input. To be used for visual purposes only.
- *
- * [View Documentation](TODO)
  */
 const _DecorativeCheckbox = forwardRef<HTMLElement, DecorativeCheckboxProps>(DecorativeCheckbox);
 _DecorativeCheckbox.displayName = "DecorativeCheckbox";

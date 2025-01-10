@@ -63,7 +63,7 @@ const Card = (props: CardProps, ref: ForwardedRef<HTMLDivElement>) => {
 /**
  * Cards are used to group similar concepts and tasks to make it easier for users to scan, read and get things done.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Card)
  */
 const _Card = forwardRef<HTMLDivElement, CardProps>(Card);
 _Card.displayName = "Card";

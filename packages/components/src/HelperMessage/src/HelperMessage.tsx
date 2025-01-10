@@ -32,7 +32,7 @@ function HelperMessage(props: HelperMessageProps, ref: ForwardedRef<HTMLSpanElem
 /**
  * The HelperMessage component is used to display auxiliary text to guide users in the interface.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/HelperMessage)
  */
 const _HelperMessage = forwardRef<HTMLSpanElement, HelperMessageProps>(HelperMessage);
 _HelperMessage.displayName = "HelperMessage";

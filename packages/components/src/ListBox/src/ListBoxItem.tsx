@@ -311,7 +311,7 @@ function ListBoxItem<T extends object>(props: ListBoxItemProps<T>, ref: Forwarde
 /**
  * A ListBoxItem represents an item within a ListBox component.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/ListBox)
  */
 const _ListBoxItem = (forwardRef as forwardRefType)(ListBoxItem);
 (_ListBoxItem as NamedExoticComponent).displayName = "ListBoxItem";

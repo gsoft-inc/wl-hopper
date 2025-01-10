@@ -161,7 +161,7 @@ function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
 /**
  * Links allow users to navigate to a different location. They can be presented inline inside a paragraph, as standalone text or as an image.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Link)
  */
 const _Link = forwardRef<HTMLAnchorElement, LinkProps>(Link);
 _Link.displayName = "Link";

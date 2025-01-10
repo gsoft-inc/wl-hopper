@@ -44,7 +44,7 @@ function Stack(props: StackProps, ref: Ref<HTMLDivElement>) {
 /**
  * The Stack pattern is a layout primitive that can be used to stack elements in the vertical direction and apply a space between them.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Stack)
  */
 const _Stack = forwardRef<HTMLDivElement, StackProps>(Stack);
 _Stack.displayName = "Stack";

@@ -94,7 +94,7 @@ const HopperProvider = (props: HopperProviderProps, ref: ForwardedRef<HTMLDivEle
  * - Managing color scheme (light, dark, auto)
  * - Optionally adding body styles to the document
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/HopperProvider)
  */
 const _HopperProvider = forwardRef<HTMLDivElement, HopperProviderProps>(HopperProvider);
 _HopperProvider.displayName = "HopperProvider";

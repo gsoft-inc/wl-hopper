@@ -217,7 +217,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
 /**
  * A number field allows a user to enter a number value with a keyboard or increment and decrement buttons.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/NumberField)
  */
 const _NumberField = forwardRef<HTMLDivElement, NumberFieldProps>(NumberField);
 _NumberField.displayName = "NumberField";

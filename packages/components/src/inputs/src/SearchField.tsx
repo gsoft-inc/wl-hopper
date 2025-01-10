@@ -181,7 +181,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
 /**
  * A specialized text input for [search input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search).
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/SearchField)
  */
 const _SearchField = forwardRef<HTMLDivElement, SearchFieldProps>(SearchField);
 _SearchField.displayName = "SearchField";

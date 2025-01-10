@@ -129,7 +129,7 @@ function SwitchField(props: SwitchFieldProps, ref: ForwardedRef<HTMLDivElement>)
 /**
  * The Switch Field component is a container for a switch and a description.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Switch)
  */
 const _SwitchField = forwardRef<HTMLDivElement, SwitchFieldProps>(SwitchField);
 _SwitchField.displayName = "SwitchField";

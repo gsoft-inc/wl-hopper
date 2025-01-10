@@ -132,7 +132,7 @@ function Badge(props: BadgeProps, ref: ForwardedRef<HTMLSpanElement>) {
 /**
  * A badge displays either a number, text or a dot to indicate the status of an element.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Badge)
  */
 const _Badge = slotFn("badge", forwardRef<HTMLSpanElement, BadgeProps>(Badge));
 _Badge.displayName = "Badge";

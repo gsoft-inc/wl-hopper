@@ -66,7 +66,7 @@ function DisclosurePanel(props: DisclosurePanelProps, ref: ForwardedRef<HTMLDivE
 /**
  * The DisclosurePanel is a collapsible container that displays detailed content when expanded, helping organize information efficiently.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Disclosure)
  */
 const _DisclosurePanel = forwardRef<HTMLDivElement, DisclosurePanelProps>(DisclosurePanel);
 _DisclosurePanel.displayName = "DisclosurePanel";

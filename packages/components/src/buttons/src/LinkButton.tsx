@@ -157,7 +157,8 @@ function LinkButton(props: LinkButtonProps, ref: ForwardedRef<HTMLAnchorElement>
 
 /**
  * A LinkButton merges the functionality of a link with the appearance of a button, providing a user-friendly way to direct users to other pages.
- * [View Documentation](TODO)
+ *
+ * [View Documentation](https://hopper.workleap.design/components/LinkButton)
  *
  */
 const _LinkButton = slotFn("button", forwardRef(LinkButton));

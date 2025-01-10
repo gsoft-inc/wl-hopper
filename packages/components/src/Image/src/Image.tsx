@@ -82,7 +82,7 @@ function Image(props: ImageProps, ref: ForwardedRef<HTMLImageElement>) {
 /**
  * An image component that can be used to display images.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Image)
  */
 const _Image = forwardRef<HTMLImageElement, ImageProps>(Image);
 _Image.displayName = "Image";

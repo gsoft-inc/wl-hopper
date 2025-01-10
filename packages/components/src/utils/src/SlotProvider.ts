@@ -5,8 +5,6 @@ import { Provider } from "react-aria-components";
  * In complex components, you may need to provide many contexts. The SlotProvider component is a utility that makes it
  * easier to provide multiple React contexts without manually nesting them.
  *  This can be achieved by passing pairs of contexts and values as an array to the values prop.
- *
- * [View Documentation](TODO)
  */
 export const SlotProvider = Provider;
 export type SlotProviderProps = ComponentProps<typeof SlotProvider>;

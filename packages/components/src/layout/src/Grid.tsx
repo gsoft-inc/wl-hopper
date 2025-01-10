@@ -1,5 +1,5 @@
-import { Div } from "@hopper-ui/styled-system";
 import type { DivProps } from "@hopper-ui/styled-system";
+import { Div } from "@hopper-ui/styled-system";
 import { forwardRef, type Ref } from "react";
 
 export interface GridProps extends
@@ -110,7 +110,7 @@ function Grid(props: GridProps, ref: Ref<HTMLDivElement>) {
 /**
  * The Grid component is used to create a grid container and provides some shortcuts for the grid properties.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Grid)
  */
 const _Grid = forwardRef<HTMLDivElement, GridProps>(Grid);
 _Grid.displayName = "Grid";

@@ -113,7 +113,7 @@ function RichIconAvatarImage(props: RichIconAvatarImageProps, ref: ForwardedRef<
 /**
  * RichIconAvatarImage is a wrapper component that provides a consistent way to style the image of a RichIcon.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Avatar)
  */
 const _RichIconAvatarImage = slotFn("avatar", forwardRef<HTMLDivElement, RichIconAvatarImageProps>(RichIconAvatarImage));
 _RichIconAvatarImage.displayName = "RichIconAvatarImage";

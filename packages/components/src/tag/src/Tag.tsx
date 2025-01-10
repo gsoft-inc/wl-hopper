@@ -215,7 +215,7 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * A tag group is an interactive collection of labels, categories, keywords, or filters, with capabilities for keyboard navigation, selection, and removal.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/TagGroup)
  */
 const _Tag = slotFn("tag", forwardRef<HTMLDivElement, TagProps>(Tag));
 _Tag.displayName = "Tag";

@@ -80,7 +80,7 @@ function AnonymousAvatar(props: AnonymousAvatarProps, ref: ForwardedRef<HTMLDivE
 /**
  * AnonymousAvatars are used to represent users who wish to remain anonymous.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Avatar)
  */
 const _AnonymousAvatar = forwardRef<HTMLDivElement, AnonymousAvatarProps>(AnonymousAvatar);
 _AnonymousAvatar.displayName = "AnonymousAvatar";

@@ -121,7 +121,7 @@ function Checkbox(props: CheckboxProps, ref: ForwardedRef<HTMLLabelElement>) {
 /**
  * The Checkbox component indicates the selection state of an option. It displays either one of three states: checked, unchecked, or indeterminate.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Checkbox)
  */
 const _Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(Checkbox);
 _Checkbox.displayName = "Checkbox";

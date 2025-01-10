@@ -61,7 +61,7 @@ function IconList(props:IconListProps, ref: ForwardedRef<HTMLSpanElement>) {
 /**
  * A component that allows you to render a list of icons
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/IconList)
  */
 const _IconList = slotFn("icon", forwardRef<HTMLSpanElement, IconListProps>(IconList));
 _IconList.displayName = "IconList";

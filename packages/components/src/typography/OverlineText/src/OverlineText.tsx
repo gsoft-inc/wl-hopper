@@ -50,7 +50,7 @@ function OverlineText(props: OverlineTextProps, ref: ForwardedRef<HTMLSpanElemen
 /**
  * A primitive text component matching Hopper's typography type scale.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Text)
  */
 const _OverlineText = forwardRef<HTMLSpanElement, OverlineTextProps>(OverlineText);
 _OverlineText.displayName = "OverlineText";

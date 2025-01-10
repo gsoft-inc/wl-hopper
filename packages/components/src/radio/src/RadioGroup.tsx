@@ -68,7 +68,7 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         necessityIndicator,
         ...otherProps
     } = ownProps;
-    
+
     const {
         className: listClassName,
         slot: listSlot,
@@ -111,10 +111,10 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const children = composeRenderProps(childrenProp, prev => {
         return (
-            <div 
+            <div
                 className={listClassNames}
                 slot={listSlot ?? undefined}
-                style={listStyle} 
+                style={listStyle}
                 {...otherListProps}
             >
                 {prev}
@@ -176,7 +176,7 @@ function RadioGroup(props: RadioGroupProps, ref: ForwardedRef<HTMLDivElement>) {
 /**
  * The RadioGroup component is used to group multiple Radio or RadioField components together.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/RadioGroup)
  */
 const _RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(RadioGroup);
 _RadioGroup.displayName = "RadioGroup";

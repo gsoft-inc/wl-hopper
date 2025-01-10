@@ -131,7 +131,7 @@ function CheckboxField(props: CheckboxFieldProps, ref: ForwardedRef<HTMLDivEleme
 /**
  * The Checkbox Field component is a container for a checkbox and a description.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Checkbox)
  */
 const _CheckboxField = forwardRef<HTMLDivElement, CheckboxFieldProps>(CheckboxField);
 _CheckboxField.displayName = "CheckboxField";

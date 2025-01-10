@@ -49,7 +49,7 @@ function Header(props: HeaderProps, ref: ForwardedRef<HTMLElement>) {
 /**
  * The Header component represents a header within a Hopper container such as a Modal or Section.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/Header)
  */
 const _Header = slotFn("header", forwardRef<HTMLElement, HeaderProps>(Header));
 _Header.displayName = "Header";

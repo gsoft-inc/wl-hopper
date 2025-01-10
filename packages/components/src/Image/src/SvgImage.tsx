@@ -68,7 +68,7 @@ function SvgImage(props: SvgImageProps, ref: ForwardedRef<SVGSVGElement>) {
 /**
  * An SvgImage component that can be used to display SVGs.
  *
- * [View Documentation](TODO)
+ * [View Documentation](https://hopper.workleap.design/components/SvgImage)
  */
 const _SvgImage = forwardRef<SVGSVGElement, SvgImageProps>(SvgImage);
 _SvgImage.displayName = "SvgImage";
