@@ -10,6 +10,10 @@
     --hop-SegmentedControlItem-display: flex;
     --hop-SegmentedControlItem-align-items: center;
     --hop-SegmentedControlItem-justify-content: center;
+    --hop-SegmentedControlItem-transition: color 0.3s;
+    --hop-SegmentedControlItem-outline: none;
+    --hop-SegmentedControlItem-outline-offset: var(--hop-space-20);
+    --hop-SegmentedControlItem-focus-ring-color: var(--hop-primary-border-focus);
 
     /* Small */
     --hop-SegmentedControlItem-sm-padding: 0.125rem var(--hop-space-inset-md);
@@ -49,6 +53,7 @@
     --cursor: var(--hop-SegmentedControlItem-cursor);
     --background: var(--hop-SegmentedControlItem-background);
     --padding: var(--hop-SegmentedControlItem-sm-padding);
+    --outline: var(--hop-SegmentedControlItem-outline);
 
     cursor: var(--cursor);
 
@@ -64,6 +69,10 @@
     color: var(--color);
 
     background: var(--background);
+    outline: var(--outline);
+    outline-offset: var(--hop-SegmentedControlItem-outline-offset);
+
+    transition: var(--hop-SegmentedControlItem-transition);
 }
 
 .hop-SegmentedControlItem, .hop-SegmentedControlItem__slider {
@@ -78,6 +87,15 @@
     background: var(--hop-SegmentedControlItem-slider-background);
 }
 
+.hop-SegmentedControlItem__wrapper {
+    will-change: transform;
+
+    display: var(--hop-SegmentedControlItem-display);
+    gap: var(--hop-SegmentedControlItem-gap);
+    align-items: var(--hop-SegmentedControlItem-align-items);
+    justify-content: var(--hop-SegmentedControlItem-justify-content);
+}
+
 .hop-SegmentedControlItem[data-hovered] {
     --color: var(--hop-SegmentedControlItem-color-hovered);
     --background: var(--hop-SegmentedControlItem-background-hovered);
@@ -86,6 +104,7 @@
 .hop-SegmentedControlItem[data-focused-visible] {
     --color: var(--hop-SegmentedControlItem-color-focused);
     --background: var(--hop-SegmentedControlItem-background-focused);
+    --outline: var(--hop-SegmentedControlItem-outline-offset) solid var(--hop-SegmentedControlItem-focus-ring-color);
 }
 
 .hop-SegmentedControlItem[data-pressed] {

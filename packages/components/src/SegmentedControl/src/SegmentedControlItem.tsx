@@ -5,7 +5,7 @@ import { forwardRef, useContext, useLayoutEffect, useRef, type CSSProperties, ty
 import { DEFAULT_SLOT, Provider, ToggleButton, ToggleGroupStateContext, useContextProps, type Key } from "react-aria-components";
 
 import { TextContext } from "../../typography/index.ts";
-import { cssModule, pressScale, type BaseComponentDOMProps } from "../../utils/index.ts";
+import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
 
 import { InternalSegmentedControlContext } from "./SegmentedControlContext.ts";
 import { SegmentedControlItemContext } from "./SegmentedControlItemContext.ts";
@@ -101,7 +101,7 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
             style={mergedStyles}
             slot={slot ?? undefined}
         >
-            {({ isSelected, isDisabled, isPressed }) => (
+            {({ isSelected, isDisabled }) => (
                 <>
                     {isSelected && !isDisabled && <div className={styles["hop-SegmentedControlItem__slider"]} ref={currentSelectedRef as RefObject<HTMLDivElement>} />}
                     <Provider
@@ -124,7 +124,7 @@ const SegmentedControlItem = (props: SegmentedControlItemProps, ref: ForwardedRe
                             }]
                         ]}
                     >
-                        <div ref={divRef} style={pressScale(divRef)({ isPressed })} >
+                        <div ref={divRef} className={styles["hop-SegmentedControlItem__wrapper"]} >
                             {children}
                         </div>
                     </Provider>

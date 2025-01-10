@@ -4,7 +4,6 @@ export * from "./composeClassnameRenderProps.ts";
 export * from "./cssModule.ts";
 export * from "./EnsureTextWrapper.tsx";
 export * from "./isTextOnlyChildren.ts";
-export * from "./pressScale.ts";
 export * from "./sizeAdapter.ts";
 export * from "./SlotProvider.ts";
 export * from "./types.ts";
