@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.4.5
+
+### Patch Changes
+
+- 34bcb9c: Added SegmentedControl component
+- 5dcad8d: Resolved issues with Listbox loading indicator colors to ensure proper visibility and consistency in dark mode.
+
 ## 1.4.4
 
 ### Patch Changes
