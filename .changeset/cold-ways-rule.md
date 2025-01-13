@@ -1,5 +1,4 @@
 ---
-"docs": patch
 "@hopper-ui/components": patch
 ---
 
