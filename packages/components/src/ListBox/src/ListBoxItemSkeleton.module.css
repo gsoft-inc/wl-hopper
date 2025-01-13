@@ -1,7 +1,7 @@
 .hop-ListBoxItemSkeleton  {
     /* Default */
-    --hop-ListBoxItemSkeleton-background-color: var(--hop-rock-50);
-    --hop-ListBoxItemSkeleton-background-color-dark: var(--hop-rock-75);
+    --hop-ListBoxItemSkeleton-background-color: var(--hop-neutral-surface-weak);
+    --hop-ListBoxItemSkeleton-background-color-dark: var(--hop-neutral-surface-weak-hover);
     --hop-ListBoxItemSkeleton-border-radius: var(--hop-shape-rounded-md);
     --hop-ListBoxItemSkeleton-animation-duration: 1.4s;
     --hop-ListBoxItemSkeleton-animation-reduced-motion-duration: 3.4s;
@@ -22,7 +22,7 @@
     /* Internal Variables */
     --animation-duration: var(--hop-ListBoxItemSkeleton-animation-duration);
 
-    grid-area: label;    
+    grid-area: label;
 
     box-sizing: border-box;
     block-size: var(--height);
