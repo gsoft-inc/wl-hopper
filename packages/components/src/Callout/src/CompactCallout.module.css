@@ -1,0 +1,99 @@
+.hop-CompactCallout {
+    /* Default */
+    --hop-CompactCallout-padding-y: var(--hop-space-inset-sm);
+    --hop-CompactCallout-padding-x: var(--hop-space-inset-md);
+    --hop-CompactCallout-display: grid;
+    --hop-CompactCallout-align-items: center;
+    --hop-CompactCallout-border-radius: var(--hop-shape-rounded-md);
+    --hop-CompactCallout-border-width: 0.0625rem;
+    --hop-CompactCallout-border-style: solid;
+    --hop-CompactCallout-grid-template-areas:
+        "content button dismiss";
+    --hop-CompactCallout-grid-template-columns: 1fr auto auto;
+    --hop-CompactCallout-margin-right-content: var(--hop-space-inline-md);
+    --hop-CompactCallout-margin-right-button: var(--hop-space-inline-md);
+
+    /* Information */
+    --hop-CompactCallout-border-information: var(--hop-CompactCallout-border-width) var(--hop-CompactCallout-border-style) var(--hop-information-border);
+    --hop-CompactCallout-background-information: var(--hop-information-surface);
+    --hop-CompactCallout-color-information: var(--hop-information-text);
+
+    /* Success */
+    --hop-CompactCallout-border-success: var(--hop-CompactCallout-border-width) var(--hop-CompactCallout-border-style) var(--hop-success-border);
+    --hop-CompactCallout-background-success: var(--hop-success-surface);
+    --hop-CompactCallout-color-success: var(--hop-success-text);
+
+    /* Warning */
+    --hop-CompactCallout-border-warning: var(--hop-CompactCallout-border-width) var(--hop-CompactCallout-border-style) var(--hop-warning-border);
+    --hop-CompactCallout-background-warning: var(--hop-warning-surface);
+    --hop-CompactCallout-color-warning: var(--hop-warning-text);
+
+    /* Upsell */
+    --hop-CompactCallout-border-upsell: var(--hop-CompactCallout-border-width) var(--hop-CompactCallout-border-style) var(--hop-upsell-border);
+    --hop-CompactCallout-background-upsell: var(--hop-upsell-surface-weak);
+    --hop-CompactCallout-color-upsell: var(--hop-upsell-text);
+
+    /* Subtle */
+    --hop-CompactCallout-border-subtle: transparent;
+
+    /* Internal Variables */
+    --grid-template-areas: var(--hop-CompactCallout-grid-template-areas);
+    --grid-template-columns: var(--hop-CompactCallout-grid-template-columns);
+
+    display: var(--hop-CompactCallout-display);
+    grid-template-areas: var(--grid-template-areas);
+    grid-template-columns: var(--grid-template-columns);
+    align-items: var(--hop-CompactCallout-align-items);
+
+    padding: var(--hop-CompactCallout-padding-y) var(--hop-CompactCallout-padding-x);
+
+    background: var(--background);
+    border: var(--border);
+    border-radius: var(--hop-CompactCallout-border-radius);
+}
+
+.hop-CompactCallout__content {
+    grid-area: content;
+    margin-inline-end: var(--hop-CompactCallout-margin-right-content);
+    color: var(--color);
+}
+
+.hop-CompactCallout__button {
+    grid-area: button;
+}
+
+.hop-CompactCallout__button:not(.hop-CompactCallout__dismiss) {
+    margin-inline-end: var(--hop-CompactCallout-margin-right-button);
+}
+
+.hop-CompactCallout__dismiss {
+    grid-area: dismiss;
+}
+
+.hop-CompactCallout--information {
+    --border: var(--hop-CompactCallout-border-information);
+    --background: var(--hop-CompactCallout-background-information);
+    --color: var(--hop-CompactCallout-color-information);
+}
+
+.hop-CompactCallout--success {
+    --border: var(--hop-CompactCallout-border-success);
+    --background: var(--hop-CompactCallout-background-success);
+    --color: var(--hop-CompactCallout-color-success);
+}
+
+.hop-CompactCallout--warning {
+    --border: var(--hop-CompactCallout-border-warning);
+    --background: var(--hop-CompactCallout-background-warning);
+    --color: var(--hop-CompactCallout-color-warning);
+}
+
+.hop-CompactCallout--upsell {
+    --border: var(--hop-CompactCallout-border-upsell);
+    --background: var(--hop-CompactCallout-background-upsell);
+    --color: var(--hop-CompactCallout-color-upsell);
+}
+
+.hop-CompactCallout--subtle-fill {
+    --border: var(--hop-CompactCallout-border-subtle);
+}

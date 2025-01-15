@@ -1,0 +1,11 @@
+button.hop-CloseButton {
+    --hop-CloseButton-margin-top: 0rem;
+    --hop-CloseButton-padding: 0rem;
+    --hop-CloseButton-witdh: "fit-content";
+    --hop-CloseButton-height: "fit-content";
+
+    inline-size: var(--hop-CloseButton-width);
+    block-size: var(--hop-CloseButton-height);
+    margin-block-start: var(--hop-CloseButton-margin-top);
+    padding: var(--hop-CloseButton-padding);
+}

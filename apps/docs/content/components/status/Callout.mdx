@@ -1,0 +1,69 @@
+---
+title: Callout
+description: A Callout informs users about important changes or persistent conditions. Use this component to communicate to users in a prominent way. Callouts are placed at the top of the page or section they apply to, and below the page or section header.
+category: "status"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Callout/src/Callout.tsx
+---
+
+<Example src="Callout/docs/preview" isOpen />
+
+### Composed Components
+
+A `Callout` uses the following components:
+
+<ComposedComponents components={["Header", "Content", "Button", "RichIcon"]} />
+<br />
+
+A `CompactCallout` uses the following components:
+
+<ComposedComponents components={["Content", "Button"]} />
+
+## Usage
+
+### Variants
+A callout can use different variants.
+
+<Example src="Callout/docs/variant" />
+
+### Hide Icon
+A callout can hide the icon in scenarios where it takes up too much space, such as very small breakpoints.
+
+<Example src="Callout/docs/noIcon" />
+
+### Custom Icon
+A callout can have a custom rich icon.
+
+<Example src="Callout/docs/customIcon" />
+
+### Dismissable
+A callout is only dismissable when `onClose` prop is set.
+
+Here's an example without `onClose`.
+
+<Example src="Callout/docs/notDismissable" />
+
+### Inline callout
+Within a container, a callout shouldn't have borders.
+
+<Example src="Callout/docs/inline" />
+
+### Compact callout
+A more streamlined version of the Callout component that is designed to be used in more compact spaces.
+
+<Example src="Callout/docs/compact" />
+
+### Dismissable compact callout
+Similar to the Callout, the dismiss icon appears only when `onClose` is set.
+
+<Example src="Callout/docs/dismissableCompact" />
+
+## Props
+
+### Callout
+
+<PropTable component="Callout" />
+
+### CompactCallout
+
+<PropTable component="CompactCallout" />

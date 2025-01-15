@@ -32,6 +32,7 @@ import NumberField from "./NumberField.svg";
 import PasswordField from "./PasswordField.svg";
 import Popover from "./Popover.svg";
 import RadioGroup from "./RadioGroup.svg";
+import RichIcon from "./RichIcon.svg";
 import SearchField from "./SearchField.svg";
 import Select from "./Select.svg";
 import Spinner from "./Spinner.svg";
@@ -70,6 +71,7 @@ export const OverviewComponents: OverviewComponentsType = {
     Header,
     Heading,
     HelperMessage,
+    RichIcon,
     Icon,
     IconList,
     Inline,
