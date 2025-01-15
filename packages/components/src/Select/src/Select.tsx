@@ -313,4 +313,7 @@ const _Select = forwardRef(Select) as <T extends object>(
 ) => ReturnType<typeof Select>;
 (_Select as NamedExoticComponent).displayName = "Select";
 
-export { _Select as Select, ListBoxItem as SelectItem, ListBoxSection as SelectSection };
+export const SelectItem = ListBoxItem;
+export const SelectSection = ListBoxSection;
+
+export { _Select as Select };

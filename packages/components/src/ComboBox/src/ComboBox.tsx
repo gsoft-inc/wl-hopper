@@ -383,4 +383,7 @@ const _ComboBox = forwardRef(ComboBox) as <T extends object>(
 ) => ReturnType<typeof ComboBox>;
 (_ComboBox as NamedExoticComponent).displayName = "ComboBox";
 
-export { _ComboBox as ComboBox, ListBoxItem as ComboBoxItem, ListBoxSection as ComboBoxSection };
+export const ComboBoxItem = ListBoxItem;
+export const ComboBoxSection = ListBoxSection;
+
+export { _ComboBox as ComboBox };
