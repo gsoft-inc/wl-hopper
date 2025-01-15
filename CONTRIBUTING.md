@@ -166,5 +166,37 @@ only a few strings to be used in the library. If we see that the bundle size is 
 into a file per component.
 
 
+## Exporting a component
 
+> [!IMPORTANT]
+> Avoid exporting multiple components in a single export statement for a single component file.
 
+Doing so can cause issues with tools like `react-docgen-typescript`, which may incorrectly parse and assign props from one component to another, leading to inaccurate documentation.
+
+Issue: When exporting multiple items in a single export statement for a component file, react-docgen-typescript can misinterpret the file structure. This often results in props from one component being incorrectly associated with another, creating confusion in the generated documentation.
+
+### Problem example
+
+Here’s an example of an incorrect approach:
+```tsx
+// File: ComboBox.tsx
+
+// ❌ Incorrect Export
+// This results in `react-docgen-typescript` associating the props of `ListBoxItem` with `ComboBox` in the documentation.
+export { _ComboBox as ComboBox, ListBoxItem as ComboBoxItem };
+```
+
+### Recommended approach
+
+To ensure proper parsing and accurate documentation, separate your exports:
+```tsx
+// File: ComboBox.tsx
+
+// ✅ Correct Export
+// Explicitly assign and export components individually to avoid parsing issues.
+export const ComboBoxItem = ListBoxItem;
+export const ComboBoxSection = ListBoxSection;
+
+// Export the main component separately
+export { _ComboBox as ComboBox };
+```

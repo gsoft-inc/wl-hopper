@@ -22,8 +22,8 @@ import { ErrorMessage } from "../../ErrorMessage/index.ts";
 import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
-import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
-import { ListBoxSection } from "../../ListBoxSection/index.ts";
+import { ListBox, ListBoxItem, type ListBoxItemProps, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
+import { ListBoxSection, type ListBoxSectionProps } from "../../ListBoxSection/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { ToggleArrow } from "../../ToggleArrow/index.ts";
 import { Label, TextContext } from "../../typography/index.ts";
@@ -383,4 +383,9 @@ const _ComboBox = forwardRef(ComboBox) as <T extends object>(
 ) => ReturnType<typeof ComboBox>;
 (_ComboBox as NamedExoticComponent).displayName = "ComboBox";
 
-export { _ComboBox as ComboBox, ListBoxItem as ComboBoxItem, ListBoxSection as ComboBoxSection };
+export const ComboBoxItem = ListBoxItem;
+export type ComboBoxItemProps<T> = ListBoxItemProps<T>;
+export const ComboBoxSection = ListBoxSection;
+export type ComboBoxSectionProps<T> = ListBoxSectionProps<T>;
+
+export { _ComboBox as ComboBox };

@@ -8,6 +8,7 @@ import {
     Select as RACSelect,
     TextContext as RACTextContext,
     useContextProps,
+    type ListBoxSectionProps,
     type ButtonProps as RACButtonProps,
     type SelectProps as RACSelectProps,
     type SelectValueRenderProps
@@ -18,7 +19,7 @@ import { ErrorMessage } from "../../ErrorMessage/index.ts";
 import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Footer } from "../../layout/index.ts";
-import { ListBox, ListBoxItem, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
+import { ListBox, ListBoxItem, type ListBoxItemProps, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { ListBoxSection } from "../../ListBoxSection/index.ts";
 import { Popover, type PopoverProps } from "../../overlays/index.ts";
 import { ToggleArrow } from "../../ToggleArrow/index.ts";
@@ -313,4 +314,9 @@ const _Select = forwardRef(Select) as <T extends object>(
 ) => ReturnType<typeof Select>;
 (_Select as NamedExoticComponent).displayName = "Select";
 
-export { _Select as Select, ListBoxItem as SelectItem, ListBoxSection as SelectSection };
+export const SelectItem = ListBoxItem;
+export type SelectItemProps<T> = ListBoxItemProps<T>;
+export const SelectSection = ListBoxSection;
+export type SelectSectionProps<T> = ListBoxSectionProps<T>;
+
+export { _Select as Select };
