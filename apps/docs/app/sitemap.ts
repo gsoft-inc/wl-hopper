@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getComponentsSlugs, getGettingStartedSlugs, getIconsSlugs, getTokensSlugs } from "./lib/getSlugs";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const siteUrl = "https://hopper.workleap.design/";
+    const siteUrl = "https://hopper.workleap.design";
 
     // Fetch dynamic paths (replace with your logic to fetch dynamic routes)
     const dynamicPages = await fetchDynamicPaths();
