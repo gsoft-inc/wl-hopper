@@ -8,7 +8,7 @@ _Since Hopper components are designed on top of React Aria, this article is heav
 
 ## Introduction
 
-The Hopper component API is designed around composition. Components are reused between patterns to build larger composite components. For example, there is no dedicated `NumberFieldIncrementButton` or `SelectPopover` component. Instead, the standalone [Button](../buttons/Button) and [Popover](../overlays/Popover) components are reused within [NumberField](../forms/NumberField) and [Select](../pickers/Select). This reduces the amount of duplicate styling code you need to write and maintain, and provides powerful composition capabilities you can use in your own components.
+The Hopper component API is designed around composition. Components are reused between patterns to build larger composite components. For example, there is no dedicated `NumberFieldIncrementButton` or `SelectPopover` component. Instead, the standalone [Button](./Button) and [Popover](./Popover) components are reused within [NumberField](./NumberField) and [Select](./Select). This reduces the amount of duplicate styling code you need to write and maintain, and provides powerful composition capabilities you can use in your own components.
 
 ```tsx
 <Stepper>
@@ -40,7 +40,7 @@ Any `TextField` component you place inside a `FieldGroup` will automatically rec
 
 ## Slots
 
-Some patterns include multiple instances of the same component. These use the `slot` prop to distinguish each instance. Slots are named children within a component that can receive separate behaviors and [styles](./styling.mdx). Separate props can be sent to slots by providing an object with keys for each slot name to the component's context provider.
+Some patterns include multiple instances of the same component. These use the `slot` prop to distinguish each instance. Slots are named children within a component that can receive separate behaviors and [styles](./styling). Separate props can be sent to slots by providing an object with keys for each slot name to the component's context provider.
 
 This example shows a `Stepper` component with slots for its increment and decrement buttons.
 

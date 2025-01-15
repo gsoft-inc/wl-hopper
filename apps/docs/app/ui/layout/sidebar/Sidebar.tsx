@@ -4,12 +4,10 @@ import type { Section } from "@/app/lib/getPageLinks";
 import Overlay from "@/components/overlay/Overlay";
 import { FeatureFlagContext } from "@/context/feature/FeatureFlagProvider.tsx";
 import { useSidebar } from "@/context/sidebar/SidebarProvider";
-import { ThemeContext } from "@/context/theme/ThemeProvider";
-import { HopperProvider, SearchField } from "@hopper-ui/components";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import "./sidebar.css";
 
 export interface SidebarProps {
@@ -17,8 +15,6 @@ export interface SidebarProps {
 }
 
 const Sidebar = ({ links }: SidebarProps) => {
-    const { colorMode } = useContext(ThemeContext);
-    const [filter, setFilter] = useState("");
     const sidebarRef = useRef<HTMLDivElement>(null);
     const pathName = usePathname();
     const sidebarContext = useSidebar()!;
@@ -68,18 +64,7 @@ const Sidebar = ({ links }: SidebarProps) => {
         }
     };
 
-    const onTextFieldChange = (value: string) => {
-        setFilter(value);
-    };
-
     const linkItems = links
-        .filter(link => {
-            const trimmedFilter = filter.trim().toLowerCase();
-
-            const hasMatch = (value: string) => value.toLowerCase().includes(trimmedFilter);
-
-            return hasMatch(link.title) || link.linkItems.find(item => hasMatch(item.title));
-        })
         .map(link => {
             return (
                 <ul className="hd-sidebar__list" key={link.id}>
@@ -117,9 +102,6 @@ const Sidebar = ({ links }: SidebarProps) => {
             >
                 <div className="hd-sidebar__wrapper">
                     <div className="hd-sidebar__container">
-                        <HopperProvider colorScheme={colorMode}>
-                            <SearchField aria-label="Filter sections" placeholder="Search" value={filter} onChange={onTextFieldChange} />
-                        </HopperProvider>
                         {linkItems}
                     </div>
                 </div>
