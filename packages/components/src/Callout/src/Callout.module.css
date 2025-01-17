@@ -32,7 +32,7 @@
 
     /* Upsell */
     --hop-Callout-border-upsell: var(--hop-Callout-border-width) var(--hop-Callout-border-style) var(--hop-upsell-border);
-    --hop-Callout-background-upsell: var(--hop-upsell-surface-weak);
+    --hop-Callout-background-upsell: var(--hop-upsell-surface);
     --hop-Callout-color-upsell: var(--hop-upsell-text);
 
     /* Subtle */

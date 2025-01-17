@@ -1978,7 +1978,7 @@
         },
         "icon-weak": {
             "$type": "color",
-            "$value": "{sunken-treasure.300}"
+            "$value": "{sunken-treasure.100}"
         },
         "icon-weak-hover": {
             "$type": "color",
@@ -1990,7 +1990,7 @@
         },
         "surface": {
             "$type": "color",
-            "$value": "{sunken-treasure.50}"
+            "$value": "{sunken-treasure.75}"
         },
         "surface-selected": {
             "$type": "color",
@@ -2002,15 +2002,15 @@
         },
         "surface-hover": {
             "$type": "color",
-            "$value": "{sunken-treasure.200}"
+            "$value": "{sunken-treasure.100}"
         },
         "surface-press": {
             "$type": "color",
-            "$value": "{sunken-treasure.300}"
+            "$value": "{sunken-treasure.200}"
         },
         "surface-weak": {
             "$type": "color",
-            "$value": "{sunken-treasure.900}"
+            "$value": "{sunken-treasure.800}"
         },
         "surface-weak-hover": {
             "$type": "color",
