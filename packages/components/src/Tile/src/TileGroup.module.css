@@ -1,0 +1,7 @@
+.hop-TileGroup {
+    --hop-TileGroup-display: grid;
+    --hop-TileGroup-gap: var(--hop-space-inset-md);
+
+    display: var(--hop-TileGroup-display);
+    gap: var(--hop-TileGroup-gap);
+}

@@ -1,0 +1,57 @@
+---
+title: Tile
+description: A tile groups information into an interactive element to let users browse and take action on a group of related items.
+category: "buttons"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Tile/src/Tile.tsx
+---
+
+<Example src="Tile/docs/preview" isOpen />
+
+## Usage
+
+### Selected
+A tile group can have an item initially selected, by using `defaultSelectedKey` for uncontrolled or `selectedKey` for controlled.
+Here's an example where one item is selected using defaultSelectedKey.
+
+<Example src="Tile/docs/selected" />
+
+### Controlled
+A tile group can have a controlled selected value. In this example, it shows how it is possible to select an option.
+
+<Example src="Tile/docs/controlled" />
+
+### Disabled
+A tile group can be disabled.
+
+<Example src="Tile/docs/disabled" />
+<br />
+
+A tile can be selected and disabled.
+
+<Example src="Tile/docs/disabledSelected" />
+<br />
+
+A tile group can have certain items disabled.
+
+<Example src="Tile/docs/disabledOneItem" />
+
+### Wrapping
+Tiles are automatically wrapped
+
+<Example src="Tile/docs/wrapping" />
+
+### Number of columns
+A tile group can have a number of columns. Default is 3. Here's an example where it's 4.
+
+<Example src="Tile/docs/columns" />
+
+## Props
+
+### Tile
+
+<PropTable component="Tile" />
+
+### TileGroup
+
+<PropTable component="TileGroup" />
