@@ -28,7 +28,6 @@ import {
     cssModule,
     ensureTextWrapper,
     SlotProvider,
-    useScale,
     type FieldProps
 } from "../../utils/index.ts";
 
@@ -68,14 +67,11 @@ interface StepperButtonProps {
 }
 
 const StepperButton = ({ direction }: StepperButtonProps) => {
-    const scale = useScale();
-    const isMobile = scale === "large";
     const StepperIcon = direction === "increment" ? AngleUpIcon : AngleDownIcon;
     const stepperClasses = cssModule(
         styles,
         "hop-NumberField__stepper-button",
-        direction,
-        isMobile && "mobile"
+        direction
     );
 
     return (
@@ -126,8 +122,6 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
 
     const inputRef = useObjectRef(mergeRefs(userProvidedInputRef, props.inputRef !== undefined ? props.inputRef : null));
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
-    const scale = useScale();
-    const isMobile = scale === "large";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -135,8 +129,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         cssModule(
             styles,
             "hop-NumberField",
-            isFluid && "fluid",
-            isMobile && "mobile"
+            isFluid && "fluid"
         ),
         stylingProps.className
     );
@@ -179,7 +172,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
             >
                 {prefixMarkup}
                 <Input ref={inputRef} className={styles["hop-NumberField__input"]} size={size} />
-                <div className={styles["hop-NumberField__stepper"]}>
+                <div className={styles["hop-NumberField__steppers"]}>
                     <StepperButton direction="increment" />
                     <StepperButton direction="decrement" />
                 </div>
