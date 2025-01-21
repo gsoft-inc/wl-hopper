@@ -5,8 +5,8 @@
     --hop-Input-placeholder-line-height: inherit;
     --hop-Input-placeholder-color: var(--hop-neutral-text-weakest);
     --hop-Input-placeholder-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-Input-sm-block-size: 2rem;
-    --hop-Input-md-block-size: 2.5rem;
+    --hop-Input-sm-block-size: calc(2rem - 0.125rem); /** account for border */
+    --hop-Input-md-block-size: calc(2.5rem - 0.125rem); /** account for border */
 
 
     /** Internal */
