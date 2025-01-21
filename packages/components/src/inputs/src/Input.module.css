@@ -1,0 +1,56 @@
+.hop-Input {
+    --hop-Input-placeholder-font-family: inherit;
+    --hop-Input-placeholder-font-size: inherit;
+    --hop-Input-placeholder-font-weight: inherit;
+    --hop-Input-placeholder-line-height: inherit;
+    --hop-Input-placeholder-color: var(--hop-neutral-text-weakest);
+    --hop-Input-placeholder-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Input-sm-block-size: 2rem;
+    --hop-Input-md-block-size: 2.5rem;
+
+
+    /** Internal */
+    --input-placeholder-color: var(--hop-Input-placeholder-color);
+
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    inline-size: 100%;
+    min-inline-size: 0;
+    padding: 0;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    background-color: transparent;
+    border-style: none;
+    outline-style: none;
+}
+
+.hop-Input--md {
+    block-size: var(--hop-Input-md-block-size);
+}
+
+.hop-Input--sm {
+    block-size: var(--hop-Input-sm-block-size);
+}
+
+.hop-Input::placeholder {
+    font-family: var(--hop-Input-placeholder-font-family);
+    font-size: var(--hop-Input-placeholder-font-size);
+    font-weight: var(--hop-Input-placeholder-font-weight);
+    line-height: var(--hop-Input-placeholder-line-height);
+    color: var(--input-placeholder-color);
+}
+
+.hop-Input[data-disabled] {
+    --background: var(--hop-Input-background-disabled);
+    --border: 0.0625rem solid var(--hop-Input-border-color-disabled);
+    --input-color: var(--hop-Input-input-color-disabled);
+    --input-placeholder-color: var(--hop-Input-placeholder-color-disabled);
+}

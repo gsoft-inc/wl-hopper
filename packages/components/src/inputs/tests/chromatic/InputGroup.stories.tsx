@@ -1,10 +1,10 @@
 import { AngleDownIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input } from "react-aria-components";
 
 import { ClearButton } from "../../../buttons/index.ts";
 import { Stack } from "../../../layout/index.ts";
 import { Text } from "../../../typography/index.ts";
+import { Input, InputContext } from "../../src/Input.tsx";
 import { InputGroup } from "../../src/InputGroup.tsx";
 
 const meta = {
@@ -19,8 +19,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: args => (
         <Stack>
-            <InputGroup size="sm" {...args} />
-            <InputGroup {...args} />
+            <InputContext.Provider value={{ size: "sm" }}>
+                <InputGroup size="sm" {...args} />
+            </InputContext.Provider>
+            <InputGroup {...args} >
+            </InputGroup>
         </Stack>
     ),
     args: {

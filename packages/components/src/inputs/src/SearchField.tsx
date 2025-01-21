@@ -11,7 +11,6 @@ import { forwardRef, type ForwardedRef, type MutableRefObject, type ReactNode } 
 import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
-    Input,
     SearchField as RACSearchField,
     useContextProps,
     type SearchFieldProps as RACSearchFieldProps
@@ -24,6 +23,7 @@ import { HelperMessage } from "../../HelperMessage/index.ts";
 import { Label } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, SlotProvider, type FieldProps } from "../../utils/index.ts";
 
+import { Input } from "./Input.tsx";
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { SearchFieldContext } from "./SearchFieldContext.ts";
 
@@ -95,6 +95,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
         necessityIndicator,
         inputGroupProps,
         clearButtonProps,
+        isReadOnly,
         label,
         description,
         errorMessage,
@@ -147,7 +148,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                     {icon}
                 </SlotProvider>
                 <Input ref={inputRef} placeholder={placeholder} />
-                {isClearable &&
+                {isClearable && !isReadOnly &&
                     <ClearButton size="lg" isDisabled={isDisabled} className={clearButtonClassNames} {...otherClearButtonProps} />}
             </InputGroup>
         </ClearContainerSlots>

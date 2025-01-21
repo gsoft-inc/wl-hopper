@@ -11,10 +11,8 @@ import { forwardRef, useState, type ForwardedRef, type MutableRefObject } from "
 import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
-    Input,
     TextField as RACTextField,
     useContextProps,
-    type InputProps,
     type TextFieldProps as RACTextFieldProps
 } from "react-aria-components";
 
@@ -26,6 +24,7 @@ import { useLocalizedString } from "../../i18n/index.ts";
 import { Label } from "../../typography/index.ts";
 import { ClearContainerSlots, composeClassnameRenderProps, cssModule, type FieldProps, type FieldSize } from "../../utils/index.ts";
 
+import { Input, type InputProps } from "./Input.tsx";
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { PasswordFieldContext } from "./PasswordFieldContext.ts";
 
@@ -33,7 +32,7 @@ import styles from "./PasswordField.module.css";
 
 export const GlobalPasswordFieldCssSelector = "hop-PasswordField";
 
-export interface PasswordFieldProps extends Omit<StyledComponentProps<Omit<RACTextFieldProps, "type">>, "children">, FieldProps {
+export interface PasswordFieldProps extends Omit<StyledComponentProps<Omit<RACTextFieldProps, "type" | "size">>, "children">, FieldProps {
     /**
      * The placeholder text when the PasswordField is empty.
      */
@@ -137,7 +136,7 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
                 className={inputGroupClassNames}
                 {...otherInputGroupProps}
             >
-                <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} {...inputProps} />
+                <Input ref={inputRef} placeholder={placeholder} type={showPassword ? "text" : "password"} size={size} {...inputProps} />
                 <EmbeddedButton
                     isDisabled={isDisabled}
                     aria-label={stringFormatter.format("PasswordField.toggleVisibility")}

@@ -48,6 +48,8 @@
     --hop-InputGroup-placeholder-color-disabled: var(--hop-neutral-text-disabled);
     --hop-InputGroup-embedded-button-margin-inline-end: calc(-1 * var(--hop-space-inline-sm));
 
+    /* // TODO: cleanup */
+
     /* Internal Variables */
     --inline-size: var(--hop-InputGroup-inline-size);
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color);
@@ -70,14 +72,13 @@
 
     position: relative;
 
-    display: var(--display);
+    display: inline-flex;
     flex-direction: var(--flex-direction);
     gap: var(--gap);
     align-items: var(--align-items);
 
     box-sizing: border-box;
     inline-size: var(--inline-size);
-    block-size: var(--block-size);
     padding-block: var(--padding-block);
     padding-inline: var(--padding-inline);
 
@@ -92,26 +93,10 @@
 }
 
 .hop-InputGroup--sm {
-    --block-size: var(--hop-InputGroup-sm-block-size);
     --input-font-family: var(--hop-InputGroup-input-sm-font-family);
     --input-font-size: var(--hop-InputGroup-input-sm-font-size);
     --input-font-weight: var(--hop-InputGroup-input-sm-font-weight);
     --input-line-height: var(--hop-InputGroup-input-sm-line-height);
-    --input-block-size: var(--hop-InputGroup-input-sm-block-size);
-}
-
-.hop-InputGroup[data-input-type="textarea"] {
-    --gap: var(--hop-InputGroup-gap-textarea);
-    --flex-direction: var(--hop-InputGroup-flex-direction-textarea);
-    --align-items: var(--hop-InputGroup-align-items-textarea);
-    --block-size: var(--hop-InputGroup-block-size-textarea);
-    --padding-inline: var(--hop-InputGroup-padding-inline-textarea);
-    --padding-block: var(--hop-InputGroup-padding-block-textarea);
-}
-
-.hop-InputGroup[data-input-type="number"] {
-    --display: var(--hop-InputGroup-display-number);
-    --gap: var(--hop-InputGroup-gap-number);
 }
 
 .hop-InputGroup[data-hovered] {
@@ -132,44 +117,4 @@
     --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled);
     --input-color: var(--hop-InputGroup-input-color-disabled);
     --input-placeholder-color: var(--hop-InputGroup-placeholder-color-disabled);
-}
-
-.hop-InputGroup__input,
-.hop-InputGroup__textarea {
-    flex: 1 1 auto;
-
-    box-sizing: border-box;
-    inline-size: var(--input-inline-size);
-    min-inline-size: 0;
-
-    font-family: var(--input-font-family);
-    font-size: var(--input-font-size);
-    font-weight: var(--input-font-weight);
-    line-height: var(--input-line-height);
-    color: var(--input-color);
-
-    background: transparent;
-    border: none;
-    outline: none
-}
-
-.hop-InputGroup__input {
-    block-size: var(--input-block-size);
-    padding: var(--hop-InputGroup-input-padding);
-}
-
-.hop-InputGroup__textarea {
-    padding: var(--hop-InputGroup-textarea-padding);
-}
-
-.hop-InputGroup__input::placeholder {
-    font-family: var(--hop-InputGroup-placeholder-font-family);
-    font-size: var(--hop-InputGroup-placeholder-font-size);
-    font-weight: var(--hop-InputGroup-placeholder-font-weight);
-    line-height: var(--hop-InputGroup-placeholder-line-height);
-    color: var(--input-placeholder-color);
-}
-
-.hop-InputGroup__embedded-button {
-    margin-inline-end: var(--hop-InputGroup-embedded-button-margin-inline-end)
 }

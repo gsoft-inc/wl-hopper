@@ -246,9 +246,9 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         adjustRows();
     }, [value, adjustRows]);
 
-    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
     const inputGroupClassNames = clsx(styles["hop-TextArea__InputGroup"], inputGroupClassName);
-    const inputGroupInputClassNames = clsx(styles["hop-TextArea__textarea"], inputGroupInputClassName);
+    const textAreaClassNames = clsx(styles["hop-TextArea__textarea"]);
 
     const { className: remainingCharacterCountClassName, ...otherRemainingCharacterCountProps } = remainingCharacterCountProps ?? {};
     const remainingCharacterCountClassNames = clsx(styles["hop-TextArea__RemainingCharacterCount"], remainingCharacterCountClassName);
@@ -261,11 +261,15 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
                 className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={inputGroupInputClassNames}
-                inputType="textarea"
                 {...otherInputGroupProps}
             >
-                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
+                <RACTextArea
+                    ref={mergedTextAreaRef}
+                    placeholder={placeholder}
+                    cols={cols}
+                    rows={rows}
+                    className={textAreaClassNames}
+                />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount

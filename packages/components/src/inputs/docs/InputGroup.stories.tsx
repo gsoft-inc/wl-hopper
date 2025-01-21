@@ -1,11 +1,12 @@
 import { AngleDownIcon, DismissIcon, SearchIcon } from "@hopper-ui/icons";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input } from "react-aria-components";
 
 import { EmbeddedButton } from "../../buttons/index.ts";
 import { Stack } from "../../layout/index.ts";
 import { Text } from "../../typography/index.ts";
+import { Input } from "../src/Input.tsx";
 import { InputGroup } from "../src/InputGroup.tsx";
+
 
 /**
  * An input group combines an input component with addons.

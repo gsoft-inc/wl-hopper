@@ -12,7 +12,6 @@ import { forwardRef, useCallback, type ForwardedRef, type MutableRefObject, type
 import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
-    Input,
     Button as RACButton,
     NumberField as RACNumberField,
     useContextProps,
@@ -33,6 +32,7 @@ import {
     type FieldProps
 } from "../../utils/index.ts";
 
+import { Input } from "./Input.tsx";
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { NumberFieldContext } from "./NumberFieldContext.ts";
 
@@ -164,9 +164,8 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         </SlotProvider>
     ) : null;
 
-    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
     const inputGroupClassNames = clsx(styles["hop-NumberField__InputGroup"], inputGroupClassName);
-    const inputGroupInputClassNames = clsx(styles["hop-NumberField__input"], inputGroupInputClassName);
 
     const inputMarkup = (
         <ClearContainerSlots>
@@ -176,14 +175,14 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={inputGroupInputClassNames}
-                inputType="number"
                 {...otherInputGroupProps}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} />
-                <StepperButton direction="increment" />
-                <StepperButton direction="decrement" />
+                <Input ref={inputRef} className={styles["hop-NumberField__input"]} size={size} />
+                <div className={styles["hop-NumberField__stepper"]}>
+                    <StepperButton direction="increment" />
+                    <StepperButton direction="decrement" />
+                </div>
             </InputGroup>
         </ClearContainerSlots>
     );
