@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "../../../buttons/index.ts";
 import { Content } from "../../../layout/index.ts";
+import { Link } from "../../../Link/index.ts";
 import { CompactCallout } from "../../src/index.ts";
 
 const meta = {
@@ -67,7 +68,7 @@ export const WithCta = {
     render: props => (
         <CompactCallout {...props}>
             <Content>Callout content</Content>
-            <Button variant="secondary">Label</Button>
+            <Button variant="secondary" size="sm">Label</Button>
         </CompactCallout>
     )
 } satisfies Story;
@@ -76,7 +77,28 @@ export const WithButtonAndCta = {
     render: props => (
         <CompactCallout {...props}>
             <Content>Callout content</Content>
-            <Button variant="secondary">Label</Button>
+            <Button variant="secondary" size="sm">Label</Button>
+        </CompactCallout>
+    ),
+    args: {
+        onClose: () => alert("Closed")
+    }
+} satisfies Story;
+
+export const WithLink = {
+    render: props => (
+        <CompactCallout {...props}>
+            <Content>Callout content</Content>
+            <Link variant="secondary" size="sm">Label</Link>
+        </CompactCallout>
+    )
+} satisfies Story;
+
+export const WithButtonAndLink = {
+    render: props => (
+        <CompactCallout {...props}>
+            <Content>Callout content</Content>
+            <Link variant="secondary" size="sm">Label</Link>
         </CompactCallout>
     ),
     args: {

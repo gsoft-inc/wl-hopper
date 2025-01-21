@@ -1,10 +1,10 @@
-import { Button, CompactCallout, Content } from "@hopper-ui/components";
+import { CompactCallout, Content, Link } from "@hopper-ui/components";
 
 export default function Example() {
     return (
         <CompactCallout>
             <Content>You have selected to automatically invite users when they are created.</Content>
-            <Button variant="secondary" size="sm">Undo</Button>
+            <Link variant="secondary" size="sm">Learn more</Link>
         </CompactCallout>
     );
 }

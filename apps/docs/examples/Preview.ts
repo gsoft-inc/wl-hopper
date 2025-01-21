@@ -1190,6 +1190,12 @@ export const Previews: Record<string, Preview> = {
     "Callout/docs/compact": {
         component: lazy(() => import("@/../../packages/components/src/Callout/docs/compact.tsx"))
     },
+    "Callout/docs/compactVariant": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/compactVariant.tsx"))
+    },
+    "Callout/docs/compactLink": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/compactLink.tsx"))
+    },
     "Callout/docs/dismissableCompact": {
         component: lazy(() => import("@/../../packages/components/src/Callout/docs/dismissableCompact.tsx"))
     },

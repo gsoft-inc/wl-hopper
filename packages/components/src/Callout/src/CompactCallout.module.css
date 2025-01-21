@@ -8,10 +8,11 @@
     --hop-CompactCallout-border-width: 0.0625rem;
     --hop-CompactCallout-border-style: solid;
     --hop-CompactCallout-grid-template-areas:
-        "content button dismiss";
+        "content button dismiss"
+        "content link dismiss";
     --hop-CompactCallout-grid-template-columns: 1fr auto auto;
     --hop-CompactCallout-margin-right-content: var(--hop-space-inline-md);
-    --hop-CompactCallout-margin-right-button: var(--hop-space-inline-md);
+    --hop-CompactCallout-margin-right-cta: var(--hop-space-inline-md);
 
     /* Information */
     --hop-CompactCallout-border-information: var(--hop-CompactCallout-border-width) var(--hop-CompactCallout-border-style) var(--hop-information-border);
@@ -62,8 +63,13 @@
     grid-area: button;
 }
 
-.hop-CompactCallout__button:not(.hop-CompactCallout__dismiss) {
-    margin-inline-end: var(--hop-CompactCallout-margin-right-button);
+.hop-CompactCallout__link {
+    grid-area: link;
+}
+
+.hop-CompactCallout:has(.hop-CompactCallout__dismiss) .hop-CompactCallout__button:not(.hop-CompactCallout__dismiss),
+.hop-CompactCallout:has(.hop-CompactCallout__dismiss) .hop-CompactCallout__link {
+    margin-inline-end: var(--hop-CompactCallout-margin-right-cta);
 }
 
 .hop-CompactCallout__dismiss {

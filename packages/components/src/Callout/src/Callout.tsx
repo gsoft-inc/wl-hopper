@@ -1,5 +1,5 @@
 import { CautionRichIcon, InfoRichIcon, RichIconContext, SuccessRichIcon, UpsellRichIcon } from "@hopper-ui/icons";
-import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, useMemo, type CSSProperties, type ForwardedRef } from "react";
 import { useContextProps } from "react-aria-components";
@@ -31,7 +31,7 @@ export interface CalloutProps extends StyledComponentProps<BaseComponentDOMProps
     /**
      * If true, the callout won't have an icon
      */
-    hideIcon?: boolean;
+    hideIcon?: ResponsiveProp<boolean>;
     /**
      * Callback function that happens when the callout is dismissed.
      */
@@ -46,12 +46,14 @@ const Callout = (props: CalloutProps, ref: ForwardedRef<HTMLDivElement>) => {
         children,
         style,
         slot,
-        hideIcon,
+        hideIcon: hideIconProp,
         onClose,
         fillStyle = "border",
         variant = "information",
         ...otherProps
     } = ownProps;
+
+    const hideIcon = useResponsiveValue(hideIconProp);
 
     const [iconRef, hasIcon] = useSlot();
 
