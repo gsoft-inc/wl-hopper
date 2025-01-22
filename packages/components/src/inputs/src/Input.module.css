@@ -8,6 +8,7 @@
     --hop-Input-sm-block-size: calc(2rem - 0.125rem); /** account for border */
     --hop-Input-md-block-size: calc(2.5rem - 0.125rem); /** account for border */
     --hop-Input-color: inherit;
+    --hop-Input-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Input-background: transparent;
     --hop-Input-background-disabled: var(--hop-neutral-surface-disabled);
     --hop-Input-sm-font-family: var(--hop-body-sm-font-family);
