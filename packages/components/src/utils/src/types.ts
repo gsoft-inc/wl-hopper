@@ -109,7 +109,7 @@ export interface FieldProps {
      */
     necessityIndicator?: NecessityIndicator;
     /**
-     * A CheckboxGroup can vary in size.
+     * A Field can vary in size.
      * @default "md"
      */
     size?: ResponsiveProp<FieldSize>;

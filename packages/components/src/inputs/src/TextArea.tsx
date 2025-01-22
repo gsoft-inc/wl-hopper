@@ -136,7 +136,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     const {
         className,
         style: styleProp,
-        size,
+        size: sizeProp,
         showCharacterCount,
         maxLength,
         placeholder,
@@ -165,6 +165,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const resizeMode = useResponsiveValue(resizeModeProp) ?? "none";
     const overMaxLength = !!maxLength && characterCount > maxLength;
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = composeClassnameRenderProps(
         className,
