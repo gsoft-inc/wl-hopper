@@ -3,8 +3,6 @@
     --hop-InputGroup-border-color: var(--hop-neutral-border);
     --hop-InputGroup-border-width: 0.0625rem;
     --hop-InputGroup-gap: var(--hop-space-inline-sm);
-    --hop-InputGroup-flex-direction: row;
-    --hop-InputGroup-align-items: center;
     --hop-InputGroup-inline-size: fit-content;
     --hop-InputGroup-border-radius: var(--hop-shape-rounded-md);
     --hop-InputGroup-padding-inline: var(--hop-space-inset-md);
@@ -24,9 +22,9 @@
     position: relative;
 
     display: inline-flex;
-    flex-direction: var(--hop-InputGroup-flex-direction);
+    flex-direction: row;
     gap: var(--hop-InputGroup-gap);
-    align-items: var(--hop-InputGroup-align-items);
+    align-items: center;
 
     box-sizing: border-box;
     inline-size: var(--inline-size);

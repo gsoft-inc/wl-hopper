@@ -12,20 +12,19 @@ export * from "./responsive/BreakpointProvider.tsx";
 export * from "./responsive/Breakpoints.ts";
 export * from "./responsive/useResponsiveValue.tsx";
 
-export * from "./tokens/TokenProvider.tsx";
 export * from "./tokens/tokenMappings.ts";
+export * from "./tokens/TokenProvider.tsx";
 export * from "./tokens/tokens.ts";
 
-// TODO: utils folder should be move to an utils package
+export * from "./utils/slot.ts";
 export * from "./utils/useInsertStyleElement.ts";
 export * from "./utils/useIsomorphicInsertionEffect.ts";
 export * from "./utils/useIsomorphicLayoutEffect.ts";
 export * from "./utils/useMediaQuery.ts";
 export * from "./utils/useThemeComputedStyle.ts";
-export * from "./utils/slot.ts";
 
-export * from "./StyledSystemProvider.tsx";
 export * from "./styledSystemProps.ts";
+export * from "./StyledSystemProvider.tsx";
 export * from "./styledSystemRootCssClass.ts";
 export * from "./useStyledSystem.ts";
 
