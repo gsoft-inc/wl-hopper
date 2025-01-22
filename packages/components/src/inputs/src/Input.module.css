@@ -27,7 +27,6 @@
     --line-height: var(--hop-Input-md-line-height);
     --block-size: var(--hop-Input-md-block-size);
 
-
     overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;
@@ -43,8 +42,6 @@
     font-weight: var(--font-weight);
     line-height: var(--line-height);
     color: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
     background-color: transparent;
     border: 0;
