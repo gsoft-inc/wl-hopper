@@ -252,7 +252,8 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     const textAreaClassNames = cssModule(
         styles,
         "hop-TextArea__textarea",
-        size
+        size,
+        showCharacterCount && maxLength && "with-character-count"
     );
 
     const { className: remainingCharacterCountClassName, ...otherRemainingCharacterCountProps } = remainingCharacterCountProps ?? {};
