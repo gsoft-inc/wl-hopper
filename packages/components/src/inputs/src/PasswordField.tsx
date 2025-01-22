@@ -132,7 +132,6 @@ function PasswordField(props: PasswordFieldProps, ref: ForwardedRef<HTMLDivEleme
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
                 isFluid
-                size={size}
                 className={inputGroupClassNames}
                 {...otherInputGroupProps}
             >

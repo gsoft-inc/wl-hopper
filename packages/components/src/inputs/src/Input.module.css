@@ -7,10 +7,27 @@
     --hop-Input-placeholder-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Input-sm-block-size: calc(2rem - 0.125rem); /** account for border */
     --hop-Input-md-block-size: calc(2.5rem - 0.125rem); /** account for border */
+    --hop-Input-color-disabled: var(--hop-neutral-text-disabled);
+    --hop-Input-background-disabled: var(--hop-neutral-surface-disabled);
+    --hop-Input-border-color-disabled: var(--hop-neutral-border-disabled);
+    --hop-Input-sm-font-family: var(--hop-body-sm-font-family);
+    --hop-Input-sm-font-size: var(--hop-body-sm-font-size);
+    --hop-Input-sm-font-weight: var(--hop-body-sm-font-weight);
+    --hop-Input-sm-line-height: var(--hop-body-sm-line-height);
+    --hop-Input-md-font-family: var(--hop-body-md-font-family);
+    --hop-Input-md-font-size: var(--hop-body-md-font-size);
+    --hop-Input-md-font-weight: var(--hop-body-md-font-weight);
+    --hop-Input-md-line-height: var(--hop-body-md-line-height);
 
 
     /** Internal */
     --input-placeholder-color: var(--hop-Input-placeholder-color);
+    --font-family: var(--hop-Input-md-font-family);
+    --font-size: var(--hop-Input-md-font-size);
+    --font-weight: var(--hop-Input-md-font-weight);
+    --line-height: var(--hop-Input-md-line-height);
+    --block-size: var(--hop-Input-md-block-size);
+
 
     overflow: hidden;
     flex-grow: 1;
@@ -18,11 +35,13 @@
 
     inline-size: 100%;
     min-inline-size: 0;
+    block-size: var(--block-size);
     padding: 0;
 
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
     color: inherit;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -32,12 +51,12 @@
     outline-style: none;
 }
 
-.hop-Input--md {
-    block-size: var(--hop-Input-md-block-size);
-}
-
 .hop-Input--sm {
-    block-size: var(--hop-Input-sm-block-size);
+    --font-family: var(--hop-Input-sm-font-family);
+    --font-size: var(--hop-Input-sm-font-size);
+    --font-weight: var(--hop-Input-sm-font-weight);
+    --line-height: var(--hop-Input-sm-line-height);
+    --block-size: var(--hop-Input-sm-block-size);
 }
 
 .hop-Input::placeholder {
@@ -49,8 +68,9 @@
 }
 
 .hop-Input[data-disabled] {
-    --background: var(--hop-Input-background-disabled);
-    --border: 0.0625rem solid var(--hop-Input-border-color-disabled);
-    --input-color: var(--hop-Input-input-color-disabled);
     --input-placeholder-color: var(--hop-Input-placeholder-color-disabled);
+
+    color: var(--hop-Input-color-disabled);
+    background: var(--hop-Input-background-disabled);
+    border: 0.0625rem solid var(--hop-Input-border-color-disabled);
 }

@@ -2,85 +2,36 @@
     --hop-InputGroup-background: var(--hop-neutral-surface);
     --hop-InputGroup-border-color: var(--hop-neutral-border);
     --hop-InputGroup-border-width: 0.0625rem;
-    --hop-InputGroup-display: inline-flex;
-    --hop-InputGroup-display-number: grid;
     --hop-InputGroup-gap: var(--hop-space-inline-sm);
-    --hop-InputGroup-gap-textarea: 0;
-    --hop-InputGroup-gap-number: 0;
     --hop-InputGroup-flex-direction: row;
-    --hop-InputGroup-flex-direction-textarea: column;
     --hop-InputGroup-align-items: center;
-    --hop-InputGroup-align-items-textarea: flex-end;
     --hop-InputGroup-inline-size: fit-content;
-    --hop-InputGroup-sm-block-size: 2rem;
-    --hop-InputGroup-md-block-size: 2.5rem;
-    --hop-InputGroup-block-size-textarea: auto;
     --hop-InputGroup-border-radius: var(--hop-shape-rounded-md);
     --hop-InputGroup-padding-inline: var(--hop-space-inset-md);
     --hop-InputGroup-padding-block: 0;
-    --hop-InputGroup-padding-inline-textarea: var(--hop-space-inset-xs);
-    --hop-InputGroup-padding-block-textarea: var(--hop-space-inset-xs);
     --hop-InputGroup-border-color-hover: var(--hop-neutral-border-hover);
     --hop-InputGroup-border-color-focus: var(--hop-primary-border-focus);
     --hop-InputGroup-background-hover: var(--hop-neutral-surface-hover);
     --hop-InputGroup-border-color-invalid: var(--hop-danger-border-strong);
-    --hop-InputGroup-input-color: var(--hop-neutral-text);
-    --hop-InputGroup-input-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-InputGroup-input-sm-font-family: var(--hop-body-sm-font-family);
-    --hop-InputGroup-input-sm-font-size: var(--hop-body-sm-font-size);
-    --hop-InputGroup-input-sm-font-weight: var(--hop-body-sm-font-weight);
-    --hop-InputGroup-input-sm-line-height: var(--hop-body-sm-line-height);
-    --hop-InputGroup-input-sm-block-size: 1.5rem;
-    --hop-InputGroup-input-md-font-family: var(--hop-body-md-font-family);
-    --hop-InputGroup-input-md-font-size: var(--hop-body-md-font-size);
-    --hop-InputGroup-input-md-font-weight: var(--hop-body-md-font-weight);
-    --hop-InputGroup-input-md-line-height: var(--hop-body-md-line-height);
-    --hop-InputGroup-input-md-block-size: 2rem;
-    --hop-InputGroup-input-padding: 0;
-    --hop-InputGroup-textarea-padding: var(--hop-space-inset-xs) calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs));
     --hop-InputGroup-background-disabled: var(--hop-neutral-surface-disabled);
     --hop-InputGroup-border-color-disabled: var(--hop-neutral-border-disabled);
-    --hop-InputGroup-placeholder-font-family: inherit;
-    --hop-InputGroup-placeholder-font-size: inherit;
-    --hop-InputGroup-placeholder-font-weight: inherit;
-    --hop-InputGroup-placeholder-line-height: inherit;
-    --hop-InputGroup-placeholder-color: var(--hop-neutral-text-weakest);
-    --hop-InputGroup-placeholder-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-InputGroup-embedded-button-margin-inline-end: calc(-1 * var(--hop-space-inline-sm));
-
-    /* // TODO: cleanup */
 
     /* Internal Variables */
     --inline-size: var(--hop-InputGroup-inline-size);
     --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color);
     --background: var(--hop-InputGroup-background);
-    --block-size: var(--hop-InputGroup-md-block-size);
-    --display: var(--hop-InputGroup-display);
-    --gap: var(--hop-InputGroup-gap);
-    --flex-direction: var(--hop-InputGroup-flex-direction);
-    --align-items: var(--hop-InputGroup-align-items);
-    --padding-inline: var(--hop-InputGroup-padding-inline);
-    --padding-block: var(--hop-InputGroup-padding-block);
-    --input-font-family: var(--hop-InputGroup-input-md-font-family);
-    --input-font-size: var(--hop-InputGroup-input-md-font-size);
-    --input-font-weight: var(--hop-InputGroup-input-md-font-weight);
-    --input-line-height: var(--hop-InputGroup-input-md-line-height);
-    --input-block-size: var(--hop-InputGroup-input-md-block-size);
-    --input-inline-size: initial;
-    --input-color: var(--hop-InputGroup-input-color);
-    --input-placeholder-color: var(--hop-InputGroup-placeholder-color);
 
     position: relative;
 
     display: inline-flex;
-    flex-direction: var(--flex-direction);
-    gap: var(--gap);
-    align-items: var(--align-items);
+    flex-direction: var(--hop-InputGroup-flex-direction);
+    gap: var(--hop-InputGroup-gap);
+    align-items: var(--hop-InputGroup-align-items);
 
     box-sizing: border-box;
     inline-size: var(--inline-size);
-    padding-block: var(--padding-block);
-    padding-inline: var(--padding-inline);
+    padding-block: var(--hop-InputGroup-padding-block);
+    padding-inline: var(--hop-InputGroup-padding-inline);
 
     background: var(--background);
     border: var(--border);
@@ -89,14 +40,6 @@
 
 .hop-InputGroup--fluid {
     --inline-size: 100%;
-    --input-inline-size: 100%;
-}
-
-.hop-InputGroup--sm {
-    --input-font-family: var(--hop-InputGroup-input-sm-font-family);
-    --input-font-size: var(--hop-InputGroup-input-sm-font-size);
-    --input-font-weight: var(--hop-InputGroup-input-sm-font-weight);
-    --input-line-height: var(--hop-InputGroup-input-sm-line-height);
 }
 
 .hop-InputGroup[data-hovered] {
@@ -114,7 +57,5 @@
 
 .hop-InputGroup[data-disabled] {
     --background: var(--hop-InputGroup-background-disabled);
-    --border: 0.0625rem solid var(--hop-InputGroup-border-color-disabled);
-    --input-color: var(--hop-InputGroup-input-color-disabled);
-    --input-placeholder-color: var(--hop-InputGroup-placeholder-color-disabled);
+    --border: var(--hop-InputGroup-border-width) solid var(--hop-InputGroup-border-color-disabled);
 }

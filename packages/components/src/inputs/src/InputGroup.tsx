@@ -13,7 +13,7 @@ import {
     useContextProps
 } from "react-aria-components";
 
-import { type FieldSize, composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { InputGroupContext } from "./InputGroupContext.ts";
 
@@ -22,12 +22,6 @@ import styles from "./InputGroup.module.css";
 export const GlobalInputGroupCssSelector = "hop-InputGroup";
 
 export interface InputGroupProps extends StyledComponentProps<RACGroupProps> {
-    /**
-     * The size of the input group.
-     * @default "md"
-     */
-    size?: ResponsiveProp<FieldSize>;
-
     /**
      * Whether the button takes up the width of its container.
      * @default false
@@ -42,13 +36,11 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         className,
         style: styleProp,
         children,
-        size: sizeProp,
         isFluid: isFluidProp,
         isInvalid,
         ...otherProps
     } = ownProps;
 
-    const size = useResponsiveValue(sizeProp) ?? "md";
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
 
     const classNames = composeClassnameRenderProps(
@@ -57,8 +49,7 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         cssModule(
             styles,
             "hop-InputGroup",
-            isFluid && "fluid",
-            size
+            isFluid && "fluid"
         ),
         stylingProps.className
     );

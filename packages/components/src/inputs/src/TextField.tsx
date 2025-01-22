@@ -209,7 +209,6 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         <ClearContainerSlots>
             <InputGroup
                 isFluid
-                size={size}
                 className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
