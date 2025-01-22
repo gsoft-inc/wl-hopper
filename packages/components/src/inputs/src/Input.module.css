@@ -9,7 +9,6 @@
     --hop-Input-md-block-size: calc(2.5rem - 0.125rem); /** account for border */
     --hop-Input-color-disabled: var(--hop-neutral-text-disabled);
     --hop-Input-background-disabled: var(--hop-neutral-surface-disabled);
-    --hop-Input-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-Input-sm-font-family: var(--hop-body-sm-font-family);
     --hop-Input-sm-font-size: var(--hop-body-sm-font-size);
     --hop-Input-sm-font-weight: var(--hop-body-sm-font-weight);
@@ -33,6 +32,7 @@
     flex-grow: 1;
     flex-shrink: 1;
 
+    box-sizing: border-box;
     inline-size: 100%;
     min-inline-size: 0;
     block-size: var(--block-size);
@@ -47,7 +47,7 @@
     white-space: nowrap;
 
     background-color: transparent;
-    border-style: none;
+    border: 0;
     outline-style: none;
 }
 
@@ -72,5 +72,4 @@
 
     color: var(--hop-Input-color-disabled);
     background: var(--hop-Input-background-disabled);
-    border: 0.0625rem solid var(--hop-Input-border-color-disabled);
 }

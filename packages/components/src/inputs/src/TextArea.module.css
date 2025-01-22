@@ -3,12 +3,27 @@
     --hop-TextArea-inline-size: 20rem;
     --hop-TextArea-prefix-color: var(--hop-neutral-text-weak);
     --hop-TextArea-input-min-height: 2rem;
-    --hop-TextArea-input-padding: var(--hop-space-inset-xs) calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs));;
+    --hop-TextArea-input-padding: var(--hop-space-inset-xs) calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs));
     --hop-TextArea-remaining-character-count-padding: 0 calc(var(--hop-space-inset-md) - var(--hop-space-inset-xs)) var(--hop-space-inset-xs);
+    --hop-TextArea-sm-font-family: var(--hop-body-sm-font-family);
+    --hop-TextArea-sm-font-size: var(--hop-body-sm-font-size);
+    --hop-TextArea-sm-font-weight: var(--hop-body-sm-font-weight);
+    --hop-TextArea-sm-line-height: var(--hop-body-sm-line-height);
+    --hop-TextArea-md-font-family: var(--hop-body-md-font-family);
+    --hop-TextArea-md-font-size: var(--hop-body-md-font-size);
+    --hop-TextArea-md-font-weight: var(--hop-body-md-font-weight);
+    --hop-TextArea-md-line-height: var(--hop-body-md-line-height);
+    --hop-TextArea-color-disabled: var(--hop-neutral-text-disabled);
 
     /* Internal Variables */
     --inline-size: var(--hop-TextArea-inline-size);
     --resize: none;
+    --input-placeholder-color: var(--hop-TextArea-placeholder-color);
+    --font-family: var(--hop-TextArea-md-font-family);
+    --font-size: var(--hop-TextArea-md-font-size);
+    --font-weight: var(--hop-TextArea-md-font-weight);
+    --line-height: var(--hop-TextArea-md-line-height);
+    --block-size: var(--hop-TextArea-md-block-size);
 
     display: flex;
     flex-direction: column;
@@ -36,6 +51,8 @@
 
 .hop-TextArea__InputGroup {
     order: 1;
+    padding: var(--hop-space-inset-sm) var(--hop-space-inset-md) var(--hop-space-inset-lg) var(--hop-space-inset-md);
+
 }
 
 .hop-TextArea__RemainingCharacterCount {
@@ -61,33 +78,36 @@
     min-inline-size: 0;
     block-size: auto;
     min-block-size: 0;
-    padding-block: var(--hop-space-inset-xs);
-    padding-inline: var(--hop-space-inset-xs);
+    padding: 0;
 
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
     color: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
     background-color: transparent;
-    border-style: none;
+    border: 0;
     outline-style: none;
 }
 
+.hop-TextArea__textarea--sm {
+    --font-family: var(--hop-TextArea-sm-font-family);
+    --font-size: var(--hop-TextArea-sm-font-size);
+    --font-weight: var(--hop-TextArea-sm-font-weight);
+    --line-height: var(--hop-TextArea-sm-line-height);
+}
 
 .hop-TextArea__textarea::placeholder {
-    font-family: var(--hop-Input-placeholder-font-family);
-    font-size: var(--hop-Input-placeholder-font-size);
-    font-weight: var(--hop-Input-placeholder-font-weight);
-    line-height: var(--hop-Input-placeholder-line-height);
+    font-family: var(--hop-TextArea-placeholder-font-family);
+    font-size: var(--hop-TextArea-placeholder-font-size);
+    font-weight: var(--hop-TextArea-placeholder-font-weight);
+    line-height: var(--hop-TextArea-placeholder-line-height);
     color: var(--input-placeholder-color);
 }
 
 .hop-TextArea__textarea[data-disabled] {
-    --background: var(--hop-Input-background-disabled);
-    --border: 0.0625rem solid var(--hop-Input-border-color-disabled);
-    --input-color: var(--hop-Input-input-color-disabled);
-    --input-placeholder-color: var(--hop-Input-placeholder-color-disabled);
+    --input-placeholder-color: var(--hop-TextArea-placeholder-color-disabled);
+
+    color: var(--hop-TextArea-color-disabled);
 }
