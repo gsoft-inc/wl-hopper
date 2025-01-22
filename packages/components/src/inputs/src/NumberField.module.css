@@ -118,7 +118,7 @@
 }
 
 .hop-NumberField__stepper-button[data-disabled] {
-    cursor: not-allowed;
+    cursor: default;
     color: var(--hop-NumberField-stepper-color-disabled);
     background-color: var(--hop-NumberField-stepper-background-color-disabled);
 }

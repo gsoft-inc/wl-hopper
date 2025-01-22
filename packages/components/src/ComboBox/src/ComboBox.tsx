@@ -1,13 +1,10 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs, useObjectRef, useResizeObserver } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, useState, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, useCallback, useRef, useState, type ForwardedRef, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
 import {
-    Button,
     composeRenderProps,
-    Group,
-    Input,
-    InputContext,
+    Button as RACButton,
     ButtonContext as RACButtonContext,
     ComboBox as RACComboBox,
     TextContext as RACTextContext,
@@ -21,6 +18,7 @@ import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
 import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Input, InputContext, InputGroup } from "../../inputs/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxItemProps, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { ListBoxSection, type ListBoxSectionProps } from "../../ListBoxSection/index.ts";
@@ -261,16 +259,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         </ClearProviders>
     ) : null;
 
-    const handleMouseDown: MouseEventHandler<HTMLDivElement> = useCallback(e => {
-        // If the input or button is the one that is clicked, we don't want to focus it since it's already done.
-        if (inputRef.current && e.target !== inputRef.current && buttonRef.current && e.target !== buttonRef.current) {
-            // forwards the focus to the input element when clicking on the input group.
-            inputRef.current.focus();
-            // This ensures that the input does not lose focus when clicking on the input group.
-            e.preventDefault();
-        }
-    }, [inputRef]);
-
     const prefixMarkup = prefix ? (
         <SlotProvider values={[
             [TextContext, { size, className: styles["hop-ComboBox__prefix"] }],
@@ -308,6 +296,41 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 {label}
                             </Label>
                         )}
+                        <InputGroup
+                            ref={triggerRef}
+                            className={triggerClassNames}
+                            style={triggerStyle}
+                            data-selected={isOpen || undefined}
+                            {...otherTriggerProps}
+                        >
+                            {prefixMarkup}
+                            <Input
+                                ref={mergedInputRefs}
+                                className={inputClassNames}
+                                placeholder={placeholder}
+                            />
+                            <RACButton
+                                className={buttonClassNames}
+                                ref={buttonRef}
+                                // Prevent press scale from sticking while ComboBox is open.
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                isPressed={false}
+                            >
+                                <ToggleArrow
+                                    className={styles["hop-ComboBox__button-icon"]}
+                                    isExpanded={isOpen}
+                                />
+                            </RACButton>
+                        </InputGroup>
+                        {description && (
+                            <HelperMessage className={styles["hop-ComboBox__helper-message"]}>
+                                {description}
+                            </HelperMessage>
+                        )}
+                        <ErrorMessage className={styles["hop-ComboBox__error-message"]}>
+                            {errorMessage}
+                        </ErrorMessage>
                         <Popover
                             isAutoWidth={isAutoMenuWidth}
                             isNonDialog
@@ -337,35 +360,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                             </SlotProvider>
                             {footerMarkup}
                         </Popover>
-                        <Group
-                            ref={triggerRef}
-                            className={triggerClassNames}
-                            style={triggerStyle}
-                            onMouseDown={handleMouseDown}
-                            data-selected={isOpen || undefined}
-                            {...otherTriggerProps}
-                        >
-                            {prefixMarkup}
-                            <Input
-                                ref={mergedInputRefs}
-                                className={inputClassNames}
-                                placeholder={placeholder}
-                            />
-                            <Button className={buttonClassNames} ref={buttonRef}>
-                                <ToggleArrow
-                                    className={styles["hop-ComboBox__button-icon"]}
-                                    isExpanded={isOpen}
-                                />
-                            </Button>
-                        </Group>
-                        {description && (
-                            <HelperMessage className={styles["hop-ComboBox__helper-message"]}>
-                                {description}
-                            </HelperMessage>
-                        )}
-                        <ErrorMessage className={styles["hop-ComboBox__error-message"]}>
-                            {errorMessage}
-                        </ErrorMessage>
                     </>
                 );
             }}

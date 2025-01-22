@@ -25,13 +25,6 @@ export const Default: Story = {
     }
 };
 
-export const Square: Story = {
-    ...Default,
-    args: {
-        isSquare: true
-    }
-};
-
 export const Variants: Story = {
     render: args => {
         return (
@@ -148,12 +141,5 @@ export const States: Story = {
                 <StateTemplate {...args} isSelected isDisabled />
             </Stack>
         );
-    }
-};
-
-export const SquareStates: Story = {
-    ...States,
-    args: {
-        isSquare: true
     }
 };

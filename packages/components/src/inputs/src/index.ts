@@ -1,3 +1,4 @@
+export * from "./Input.tsx";
 export * from "./InputGroup.tsx";
 export * from "./InputGroupContext.ts";
 export * from "./NumberField.tsx";

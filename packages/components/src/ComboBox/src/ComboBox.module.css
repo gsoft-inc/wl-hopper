@@ -47,9 +47,9 @@
     --hop-ComboBox-trigger-outline-color-focused: var(--hop-primary-border-focus);
 
     /**
-    * Selected 
+    * Selected
     * Note: The selected state is the pressed state in RAC. Pressed is activated when the dropdown is open.
-    * This can be viewed here: https://github.com/adobe/react-spectrum/blob/7336849a1ddb754ba264f0adb4a1e898e49e1579/packages/react-aria-components/src/ComboBox.tsx#L170 
+    * This can be viewed here: https://github.com/adobe/react-spectrum/blob/7336849a1ddb754ba264f0adb4a1e898e49e1579/packages/react-aria-components/src/ComboBox.tsx#L170
     */
     --hop-ComboBox-button-background-color-selected: var(--hop-neutral-surface);
     --hop-ComboBox-button-border-color-selected: var(--hop-neutral-border-selected);
@@ -62,7 +62,7 @@
     --hop-ComboBox-trigger-background-color-disabled: var(--hop-neutral-surface-disabled);
     --hop-ComboBox-trigger-border-color-disabled: var(--hop-neutral-border-disabled);
     --hop-ComboBox-trigger-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-ComboBox-trigger-cursor-disabled: not-allowed;
+    --hop-ComboBox-trigger-cursor-disabled: default;
 
     /* Internal Variables */
     --inline-size: var(--hop-ComboBox-inline-size);
@@ -93,7 +93,10 @@
 }
 
 .hop-ComboBox__trigger {
-    cursor: var(--trigger-cursor);
+    cursor: text;
+    order: 2;
+
+    /* cursor: var(--trigger-cursor);
 
     overflow: hidden;
     display: flex;
@@ -108,9 +111,14 @@
 
     background-color: var(--trigger-background-color);
     border: var(--hop-ComboBox-trigger-border-size) solid var(--trigger-border-color);
-    border-radius: var(--hop-ComboBox-trigger-border-radius);
+    border-radius: var(--hop-ComboBox-trigger-border-radius); */
 }
 
+.hop-ComboBox__trigger[data-disabled] {
+    cursor: var(--hop-ComboBox-trigger-cursor-disabled);
+}
+
+/*
 .hop-ComboBox__trigger--sm {
     --trigger-block-size: var(--hop-ComboBox-trigger-sm-block-size);
     --input-font-family: var(--hop-ComboBox-input-sm-font-family);
@@ -147,14 +155,16 @@
     outline: var(--hop-ComboBox-trigger-border-size) solid var(--hop-ComboBox-trigger-outline-color-focused);
     outline-offset: var(--hop-ComboBox-trigger-outline-offset);
 }
+ */
 
-.hop-ComboBox__trigger[data-disabled] {
+ /* .hop-ComboBox__trigger[data-disabled] {
     --trigger-background-color: var(--hop-ComboBox-trigger-background-color-disabled);
     --trigger-border-color: var(--hop-ComboBox-trigger-border-color-disabled);
     --trigger-color: var(--hop-ComboBox-trigger-color-disabled);
     --trigger-cursor: var(--hop-ComboBox-trigger-cursor-disabled);
-}
+} */
 
+/*
 .hop-ComboBox__input {
     flex: 1 1 auto;
 
@@ -169,27 +179,32 @@
     background: none;
     border: none;
     outline: none;
-}
+} */
 
+/*
 .hop-ComboBox__input::placeholder {
     color: var(--hop-ComboBox-input-placeholder-color);
-}
+} */
 
 /* ComboBox Button */
 .hop-ComboBox__button {
-    cursor: var(--trigger-cursor);
+    cursor: pointer;
 
     display: flex;
     flex: 0 0 auto;
     align-items: center;
 
-    padding-inline: var(--hop-ComboBox-button-padding-inline);
+    /* padding-inline: var(--hop-ComboBox-button-padding-inline); */
 
     color: inherit;
 
-    background-color: var(--trigger-background-color);
+    background-color: transparent;
     border: none;
     outline: none;
+}
+
+.hop-ComboBox__button[data-disabled] {
+    cursor: var(--hop-ComboBox-trigger-cursor-disabled);
 }
 
 .hop-ComboBox__prefix {
@@ -198,7 +213,7 @@
 }
 
 .hop-ComboBox__button-icon {
-    margin-inline-start: auto;
+    /* margin-inline-start: auto; */
 }
 
 .hop-ComboBox__helper-message,
