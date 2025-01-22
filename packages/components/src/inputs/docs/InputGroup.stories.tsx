@@ -7,7 +7,6 @@ import { Text } from "../../typography/index.ts";
 import { Input } from "../src/Input.tsx";
 import { InputGroup } from "../src/InputGroup.tsx";
 
-
 /**
  * An input group combines an input component with addons.
  *
@@ -27,7 +26,6 @@ const meta = {
     component: InputGroup
 } satisfies Meta<typeof InputGroup>;
 
-
 export default meta;
 
 type Story = StoryObj<typeof meta>;
@@ -35,7 +33,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: args => (
         <Stack>
-            <InputGroup size="sm" {...args} />
             <InputGroup {...args} />
         </Stack>
     ),

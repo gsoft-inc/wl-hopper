@@ -135,7 +135,6 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
                 isFluid
-                size={size}
                 className={inputGroupClassNames}
                 {...otherInputGroupProps}
             >
@@ -147,7 +146,7 @@ function SearchField(props: SearchFieldProps, ref: ForwardedRef<HTMLDivElement>)
                 >
                     {icon}
                 </SlotProvider>
-                <Input ref={inputRef} placeholder={placeholder} />
+                <Input size={size} ref={inputRef} placeholder={placeholder} />
                 {isClearable && !isReadOnly &&
                     <ClearButton size="lg" isDisabled={isDisabled} className={clearButtonClassNames} {...otherClearButtonProps} />}
             </InputGroup>

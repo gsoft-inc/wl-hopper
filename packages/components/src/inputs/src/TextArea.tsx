@@ -248,7 +248,11 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
 
     const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
     const inputGroupClassNames = clsx(styles["hop-TextArea__InputGroup"], inputGroupClassName);
-    const textAreaClassNames = clsx(styles["hop-TextArea__textarea"]);
+    const textAreaClassNames = cssModule(
+        styles,
+        "hop-TextArea__textarea",
+        size
+    );
 
     const { className: remainingCharacterCountClassName, ...otherRemainingCharacterCountProps } = remainingCharacterCountProps ?? {};
     const remainingCharacterCountClassNames = clsx(styles["hop-TextArea__RemainingCharacterCount"], remainingCharacterCountClassName);
@@ -257,7 +261,6 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         <ClearContainerSlots>
             <InputGroup
                 isFluid
-                size={size}
                 className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}

@@ -20,10 +20,9 @@ export const Default: Story = {
     render: args => (
         <Stack>
             <InputContext.Provider value={{ size: "sm" }}>
-                <InputGroup size="sm" {...args} />
+                <InputGroup {...args} />
             </InputContext.Provider>
-            <InputGroup {...args} >
-            </InputGroup>
+            <InputGroup {...args} />
         </Stack>
     ),
     args: {
