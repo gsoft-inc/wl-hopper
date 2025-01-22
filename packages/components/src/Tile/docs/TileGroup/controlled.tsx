@@ -1,22 +1,18 @@
 import type { Key } from "@hopper-ui/components";
 import { useState } from "react";
 
-import { Tile, TileGroup } from "../src/index.ts";
+import { Tile, TileGroup } from "../../src/index.ts";
 
 export default function Example() {
-    const [selectedKey, setSelectedKey] = useState<Key>("day");
+    const [selectedKeys, setSelectedKeys] = useState<Set<Key>>();
 
-    const handleSelectionChange = (key: Key) => {
-        if (selectedKey === key) {
-            return;
-        }
-
-        setSelectedKey(key);
+    const handleSelectionChange = (keys: Set<Key>) => {
+        setSelectedKeys(keys);
     };
 
     return (
         <TileGroup aria-label="Animals"
-            selectedKey={selectedKey}
+            selectedKeys={selectedKeys}
             onSelectionChange={handleSelectionChange}
         >
             <Tile id="frog">Frog</Tile>

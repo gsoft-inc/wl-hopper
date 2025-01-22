@@ -1,9 +1,8 @@
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
-import clsx from "clsx";
-import { Children, forwardRef, type CSSProperties, type ForwardedRef } from "react";
-import { Provider, ToggleButtonGroup, useContextProps, type Key } from "react-aria-components";
+import { forwardRef, type ForwardedRef } from "react";
+import { composeRenderProps, Provider, ToggleButtonGroup, useContextProps, type ToggleButtonGroupProps } from "react-aria-components";
 
-import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { InternalTileContext } from "./TileContext.ts";
 import { TileGroupContext } from "./TileGroupContext.ts";
@@ -13,28 +12,22 @@ import styles from "./TileGroup.module.css";
 export const GlobalTileGroupCssSelector = "hop-TileGroup";
 
 export interface TileGroupProps extends
-    StyledComponentProps<BaseComponentDOMProps> {
-    /**
-    *  Whether the segmented control is disabled.
-    */
-    isDisabled?: boolean;
-    /**
-     * The id of the currently selected item (controlled).
-     */
-    selectedKey?: Key;
-    /**
-     * The id of the initial selected item (uncontrolled).
-     */
-    defaultSelectedKey?: Key;
-    /**
-     * Handler that is called when the selection changes.
-     */
-    onSelectionChange?: (id: Key) => void;
+    StyledComponentProps<ToggleButtonGroupProps> {
     /**
      * The number of columns to display the tiles in.
      * @default 3
      */
     numberOfColumns?: ResponsiveProp<number>;
+    /**
+     * Whether single or multiple selection is enabled.
+     * @default "single"
+     */
+    selectionMode?: "single" | "multiple";
+    /**
+     * Whether the collection allows empty selection.
+     * @default true
+     */
+    disallowEmptySelection?: boolean;
 }
 
 const TileGroup = (props: TileGroupProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -42,20 +35,19 @@ const TileGroup = (props: TileGroupProps, ref: ForwardedRef<HTMLDivElement>) => 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        children,
+        children: childrenProp,
         style,
         slot,
         isDisabled,
-        selectedKey,
-        defaultSelectedKey,
-        onSelectionChange,
+        selectionMode = "single",
+        disallowEmptySelection = true,
         numberOfColumns = 3,
         ...otherProps
     } = ownProps;
 
     const columns = useResponsiveValue(numberOfColumns);
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         GlobalTileGroupCssSelector,
         cssModule(
             styles,
@@ -65,27 +57,19 @@ const TileGroup = (props: TileGroupProps, ref: ForwardedRef<HTMLDivElement>) => 
         className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...style,
-        ...{
-            gridTemplateColumns: `repeat(${columns}, 1fr)`
-        },
-        ...stylingProps.style
-    };
+    const mergedStyles = composeRenderProps(style, prev => {
+        return {
+            ...stylingProps.style,
+            ...{
+                gridTemplateColumns: `repeat(${columns}, 1fr)`
+            },
+            ...prev
+        };
+    });
 
-    const onChange = (values: Set<Key>) => {
-        const [firstKey] = values;
-
-        if (!firstKey) {
-            return;
-        }
-
-        onSelectionChange?.(firstKey);
-    };
-
-    if (Children.count(children) < 2) {
-        console.warn("A TileGroup must have at least 2 Tiles.");
-    }
+    const children = composeRenderProps(childrenProp, prev => {
+        return prev;
+    });
 
     return (
         <ToggleButtonGroup
@@ -94,19 +78,19 @@ const TileGroup = (props: TileGroupProps, ref: ForwardedRef<HTMLDivElement>) => 
             style={mergedStyles}
             slot={slot ?? undefined}
             isDisabled={isDisabled}
-            orientation="horizontal"
-            onSelectionChange={onChange}
-            selectedKeys={selectedKey != null ? [selectedKey] : undefined}
-            defaultSelectedKeys={defaultSelectedKey != null ? [defaultSelectedKey] : undefined}
+            selectionMode={selectionMode}
+            disallowEmptySelection={disallowEmptySelection}
             {...otherProps}
         >
-            <Provider
-                values={[
-                    [InternalTileContext, { isDisabled: isDisabled }]
-                ]}
-            >
-                {children}
-            </Provider>
+            {renderProps => (
+                <Provider
+                    values={[
+                        [InternalTileContext, { isDisabled: isDisabled }]
+                    ]}
+                >
+                    {children(renderProps)}
+                </Provider>
+            )}
         </ToggleButtonGroup>
     );
 };
@@ -114,7 +98,7 @@ const TileGroup = (props: TileGroupProps, ref: ForwardedRef<HTMLDivElement>) => 
 /**
  * TileGroup groups Tiles to let users browse and take action on a group of related items.
  *
- * [View Documentation](https://hopper.workleap.design/components/Tile)
+ * [View Documentation](https://hopper.workleap.design/components/TileGroup)
  */
 const _TileGroup = forwardRef<HTMLDivElement, TileGroupProps>(TileGroup);
 _TileGroup.displayName = "TileGroup";

@@ -23,9 +23,24 @@ export const Default = {
     )
 } satisfies Story;
 
+export const Selected = {
+    ...Default,
+    args: {
+        isSelected: true
+    }
+} satisfies Story;
+
 export const Disabled = {
     ...Default,
     args: {
         isDisabled: true
+    }
+} satisfies Story;
+
+export const DisabledAndSelected = {
+    ...Default,
+    args: {
+        isDisabled: true,
+        isSelected: true
     }
 } satisfies Story;

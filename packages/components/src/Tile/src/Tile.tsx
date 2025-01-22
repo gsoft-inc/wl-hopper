@@ -1,11 +1,10 @@
 import { CheckmarkIcon } from "@hopper-ui/icons";
 import { useStyledSystem, type StyledComponentProps } from "@hopper-ui/styled-system";
-import clsx from "clsx";
-import { forwardRef, type CSSProperties, type ForwardedRef } from "react";
-import { Provider, ToggleButton, useContextProps, type Key } from "react-aria-components";
+import { forwardRef, type ForwardedRef } from "react";
+import { composeRenderProps, Provider, ToggleButton, useContextProps, type Key, type ToggleButtonProps } from "react-aria-components";
 
 import { Text, TextContext } from "../../typography/index.ts";
-import { cssModule, type BaseComponentDOMProps } from "../../utils/index.ts";
+import { composeClassnameRenderProps, cssModule } from "../../utils/index.ts";
 
 import { TileContext } from "./TileContext.ts";
 
@@ -16,15 +15,11 @@ export const GlobalTileCssSelector = "hop-Tile";
 export type TileSize = "sm" | "md";
 
 export interface TileProps extends
-    Omit<StyledComponentProps<BaseComponentDOMProps>, "id"> {
+    StyledComponentProps<ToggleButtonProps> {
     /**
      * The id of the Tile, matching the values used in TileGroup's `selectedKeys` prop.
      */
     id: Key;
-    /**
-     * Whether the Tile is disabled or not.
-     */
-    isDisabled?: boolean;
 }
 
 const Tile = (props: TileProps, ref: ForwardedRef<HTMLButtonElement>) => {
@@ -33,14 +28,14 @@ const Tile = (props: TileProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
-        children,
+        children: childrenProp,
         style,
         isDisabled,
         slot,
         ...otherProps
     } = ownProps;
 
-    const classNames = clsx(
+    const classNames = composeClassnameRenderProps(
         GlobalTileCssSelector,
         cssModule(
             styles,
@@ -50,10 +45,16 @@ const Tile = (props: TileProps, ref: ForwardedRef<HTMLButtonElement>) => {
         className
     );
 
-    const mergedStyles: CSSProperties = {
-        ...style,
-        ...stylingProps.style
-    };
+    const mergedStyles = composeRenderProps(style, prev => {
+        return {
+            ...stylingProps.style,
+            ...prev
+        };
+    });
+
+    const childrenFn = composeRenderProps(childrenProp, prev => {
+        return prev;
+    });
 
     return (
         <ToggleButton
@@ -64,17 +65,21 @@ const Tile = (props: TileProps, ref: ForwardedRef<HTMLButtonElement>) => {
             style={mergedStyles}
             slot={slot ?? undefined}
         >
-            <Provider
-                values={[
-                    [TextContext, {
-                        size: "md",
-                        className: styles["hop-Tile__text"]
-                    }]
-                ]}
-            >
-                {typeof children === "string" ? <Text>{children}</Text> : children}
-                <CheckmarkIcon className={styles["hop-Tile__icon"]} />
-            </Provider>
+            {renderProps => {
+                const children = childrenFn(renderProps);
+
+                return <Provider
+                    values={[
+                        [TextContext, {
+                            size: "md",
+                            className: styles["hop-Tile__text"]
+                        }]
+                    ]}
+                >
+                    {typeof children === "string" ? <Text>{children}</Text> : children}
+                    <CheckmarkIcon className={styles["hop-Tile__icon"]} />
+                </Provider>;
+            }}
         </ToggleButton>
     );
 };

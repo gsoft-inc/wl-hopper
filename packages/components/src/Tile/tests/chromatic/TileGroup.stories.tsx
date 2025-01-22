@@ -23,7 +23,7 @@ export const Default = {
 export const Selected = {
     ...Default,
     args: {
-        defaultSelectedKey: "camel"
+        defaultSelectedKeys: ["camel"]
     }
 } satisfies Story;
 
@@ -37,7 +37,7 @@ export const Disabled = {
 export const SelectedAndDisabled = {
     ...Default,
     args: {
-        selectedKey: "camel",
+        selectedKeys: ["camel"],
         isDisabled: true
     }
 } satisfies Story;
