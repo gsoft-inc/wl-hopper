@@ -8,6 +8,9 @@
     /* Prefix */
     --hop-ComboBox-prefix-color: var(--hop-neutral-text-weak);
 
+    /* Button */
+    --hop-ComboBox-button-color-disabled: var(--hop-neutral-icon-disabled);
+
     /* Internal Variables */
     --inline-size: var(--hop-ComboBox-inline-size);
 
@@ -56,6 +59,7 @@
 
 .hop-ComboBox__button[data-disabled] {
     cursor: default;
+    color: var(--hop-ComboBox-button-color-disabled);
 }
 
 .hop-ComboBox__prefix {

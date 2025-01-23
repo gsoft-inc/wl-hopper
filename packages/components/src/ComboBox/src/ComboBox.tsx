@@ -313,6 +313,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 ref={mergedInputRefs}
                                 className={inputClassNames}
                                 placeholder={placeholder}
+                                size={size}
                             />
                             <RACButton
                                 className={buttonClassNames}
