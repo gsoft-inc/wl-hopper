@@ -149,7 +149,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
     // Make sure to merge the input ref with the context ref from the InputContext.
     const mergedInputRefs = inputContext?.ref ? mergeRefs(inputRef, inputContext.ref) : inputRef;
     const triggerRef = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
 
     // Make menu width match trigger width.
     const [triggerWidth, setTriggerWidth] = useState<string | null>(null);
@@ -230,7 +229,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                 <Footer>
                     {ensureTextWrapper(footer)}
                 </Footer>
-
             </SlotProvider>
         </ClearProviders>
     ) : null;
@@ -286,14 +284,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 placeholder={placeholder}
                                 size={size}
                             />
-                            <RACButton
-                                className={styles["hop-ComboBox__button"]}
-                                ref={buttonRef}
-                                // Prevent press scale from sticking while ComboBox is open.
-                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                // @ts-ignore
-                                isPressed={false}
-                            >
+                            <RACButton className={styles["hop-ComboBox__button"]}>
                                 <ToggleArrow
                                     className={styles["hop-ComboBox__button-icon"]}
                                     isExpanded={isOpen}
