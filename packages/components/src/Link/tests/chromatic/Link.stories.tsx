@@ -185,8 +185,12 @@ export const EndIcon: Story = {
 export const Primary: Story = {
     render: args => (
         <Inline alignY="end">
+            <Link {...args} size="xs" />
             <Link {...args} size="sm" />
-            <Link {...args} />
+            <Link {...args} size="md" />
+            <Link {...args} size="lg" />
+            <Link {...args} size="xl" />
+            <Link {...args} size="2xl" />
         </Inline>
     ),
     args: {
@@ -204,6 +208,23 @@ export const QuietPrimary: Story = {
     }
 };
 
+export const StandalonePrimary: Story = {
+    ...Primary,
+    args: {
+        ...Primary.args,
+        isStandalone: true
+    }
+};
+
+export const QuietStandalonePrimary: Story = {
+    ...Primary,
+    args: {
+        ...Primary.args,
+        isQuiet: true,
+        isStandalone: true
+    }
+};
+
 export const Secondary: Story = {
     ...Primary,
     args: {
@@ -217,6 +238,23 @@ export const QuietSecondary: Story = {
     args: {
         ...Secondary.args,
         isQuiet: true
+    }
+};
+
+export const QuietStandaloneSecondary: Story = {
+    ...Secondary,
+    args: {
+        ...Secondary.args,
+        isQuiet: true,
+        isStandalone: true
+    }
+};
+
+export const StandaloneSecondary: Story = {
+    ...Secondary,
+    args: {
+        ...Secondary.args,
+        isStandalone: true
     }
 };
 
