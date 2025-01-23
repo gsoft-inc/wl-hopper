@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.4.6
+
+### Patch Changes
+
+- c77249e: Add standalone variant to Link
+
 ## 1.4.5
 
 ### Patch Changes
