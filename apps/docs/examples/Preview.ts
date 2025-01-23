@@ -953,6 +953,9 @@ export const Previews: Record<string, Preview> = {
     "Link/docs/quiet": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/quiet.tsx"))
     },
+    "Link/docs/standalone": {
+        component: lazy(() => import("@/../../packages/components/src/Link/docs/standalone.tsx"))
+    },
     "Link/docs/reactRouterLink": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/reactRouterLink.tsx"))
     },
