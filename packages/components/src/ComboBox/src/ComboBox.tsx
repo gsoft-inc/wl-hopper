@@ -125,6 +125,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         errorMessage,
         footer,
         isAutoMenuWidth,
+        isDisabled,
         isFluid: isFluidProp,
         isInvalid,
         isLoading,
@@ -280,6 +281,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             isRequired={isRequired}
             items={items}
             menuTrigger={menuTrigger}
+            isDisabled={isDisabled}
             {...otherProps}
         >
             {comboBoxRenderProps => {
@@ -301,6 +303,9 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                             className={triggerClassNames}
                             style={triggerStyle}
                             data-selected={isOpen || undefined}
+                            isFluid
+                            isDisabled={isDisabled}
+                            isInvalid={isInvalid}
                             {...otherTriggerProps}
                         >
                             {prefixMarkup}
