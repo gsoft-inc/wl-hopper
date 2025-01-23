@@ -1,4 +1,4 @@
-import { Card, Footer, Link, Text } from "@hopper-ui/components";
+import { Card, Link, Text } from "@hopper-ui/components";
 import { Heading } from "react-aria-components";
 
 export default function Example() {
@@ -10,9 +10,7 @@ export default function Example() {
             <Text>
                 This card component can include a link which is standalone
             </Text>
-            <Footer>
-                <Link isStandalone href="#">Learn more</Link>
-            </Footer>
+            <Link isStandalone href="#">Learn more</Link>
         </Card>
     );
 }
