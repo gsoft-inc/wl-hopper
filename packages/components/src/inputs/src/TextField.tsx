@@ -13,7 +13,6 @@ import { forwardRef, useCallback, useState, type ForwardedRef, type MutableRefOb
 import { useObjectRef } from "react-aria";
 import {
     composeRenderProps,
-    Input,
     TextField as RACTextField,
     useContextProps,
     type TextFieldProps as RACTextFieldProps
@@ -34,6 +33,7 @@ import {
     type FieldProps
 } from "../../utils/index.ts";
 
+import { Input } from "./Input.tsx";
 import { InputGroup, type InputGroupProps } from "./InputGroup.tsx";
 import { RemainingCharacterCount, type RemainingCharacterCountProps } from "./RemainingCharacterCount.tsx";
 import { TextFieldContext } from "./TextFieldContext.ts";
@@ -202,21 +202,20 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     }, [value]);
 
-    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
     const inputGroupClassNames = clsx(styles["hop-TextField__InputGroup"], inputGroupClassName);
 
     const inputMarkup = (
         <ClearContainerSlots>
             <InputGroup
                 isFluid
-                size={size}
                 className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
                 {...otherInputGroupProps}
             >
                 {prefixMarkup}
-                <Input ref={inputRef} placeholder={placeholder} />
+                <Input ref={inputRef} placeholder={placeholder} size={size} />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount

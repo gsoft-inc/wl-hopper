@@ -286,7 +286,6 @@ function Select<T extends object>(props: SelectProps<T>, ref: ForwardedRef<HTMLD
                             <ToggleArrow
                                 className={styles["hop-Select__button-icon"]}
                                 isExpanded={isOpen}
-
                             />
                         </Button>
                         {description && (

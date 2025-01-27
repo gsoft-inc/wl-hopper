@@ -242,7 +242,7 @@ function getFormattedData(data: ComponentDoc[]): ComponentDocWithGroups[] {
 }
 
 async function generateComponentList(source: string, options: Options = {}): Promise<(ComponentData | undefined)[]> {
-    const exclude = options.exclude || [];
+    const exclude = options.exclude ?? [];
     const subdirs = await fs.promises.readdir(source);
     const files = await Promise.all(subdirs.map(async subdir => {
         const res = path.resolve(source, subdir);

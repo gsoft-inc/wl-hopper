@@ -5,75 +5,14 @@
     --hop-ComboBox-inline-size-fluid: 100%;
     --hop-ComboBox-max-inline-size: 100%;
 
-    /* Trigger */
-    --hop-ComboBox-trigger-sm-block-size: 2rem;
-    --hop-ComboBox-trigger-md-block-size: 2.5rem;
-    --hop-ComboBox-trigger-background-color: var(--hop-neutral-surface);
-    --hop-ComboBox-trigger-border-color: var(--hop-neutral-border);
-    --hop-ComboBox-trigger-border-radius: var(--hop-shape-rounded-md);
-    --hop-ComboBox-trigger-border-size: var(--hop-space-10);
-    --hop-ComboBox-trigger-outline-offset: calc(-1 * var(--hop-space-20));
-    --hop-ComboBox-trigger-column-gap: var(--hop-space-inline-sm);
-    --hop-ComboBox-trigger-cursor: pointer;
-    --hop-ComboBox-trigger-color: var(--hop-neutral-text);
-    --hop-ComboBox-trigger-padding-inline-start: var(--hop-space-inset-md);
-
-    /* Search Input */
-    --hop-ComboBox-input-placeholder-color: var(--hop-neutral-text-weakest);
-    --hop-ComboBox-input-sm-font-family: var(--hop-body-sm-font-family);
-    --hop-ComboBox-input-sm-font-size: var(--hop-body-sm-font-size);
-    --hop-ComboBox-input-sm-font-weight: var(--hop-body-sm-font-weight);
-    --hop-ComboBox-input-sm-line-height: var(--hop-body-sm-line-height);
-    --hop-ComboBox-input-md-font-family: var(--hop-body-md-font-family);
-    --hop-ComboBox-input-md-font-size: var(--hop-body-md-font-size);
-    --hop-ComboBox-input-md-font-weight: var(--hop-body-md-font-weight);
-    --hop-ComboBox-input-md-line-height: var(--hop-body-md-line-height);
-
-    /* ComboBox Button */
-    --hop-ComboBox-button-padding-inline: var(--hop-space-inset-md);
-
     /* Prefix */
     --hop-ComboBox-prefix-color: var(--hop-neutral-text-weak);
 
-    /* Hovered */
-    --hop-ComboBox-trigger-background-color-hovered: var(--hop-neutral-surface-hover);
-    --hop-ComboBox-trigger-border-color-hovered: var(--hop-neutral-border-hover);
-    --hop-ComboBox-trigger-color-hovered: var(--hop-neutral-text-hover);
-
-    /* Focused */
-    --hop-ComboBox-trigger-background-color-focused: var(--hop-neutral-surface-hover);
-    --hop-ComboBox-trigger-border-color-focused: var(--hop-primary-border-focus);
-    --hop-ComboBox-trigger-color-focused: var(--hop-neutral-text-hover);
-    --hop-ComboBox-trigger-outline-color-focused: var(--hop-primary-border-focus);
-
-    /**
-    * Selected 
-    * Note: The selected state is the pressed state in RAC. Pressed is activated when the dropdown is open.
-    * This can be viewed here: https://github.com/adobe/react-spectrum/blob/7336849a1ddb754ba264f0adb4a1e898e49e1579/packages/react-aria-components/src/ComboBox.tsx#L170 
-    */
-    --hop-ComboBox-button-background-color-selected: var(--hop-neutral-surface);
-    --hop-ComboBox-button-border-color-selected: var(--hop-neutral-border-selected);
-    --hop-ComboBox-button-color-selected: var(--hop-neutral-text);
-
-    /* Invalid */
-    --hop-ComboBox-trigger-border-color-invalid: var(--hop-danger-border-strong);
-
-    /* Disabled */
-    --hop-ComboBox-trigger-background-color-disabled: var(--hop-neutral-surface-disabled);
-    --hop-ComboBox-trigger-border-color-disabled: var(--hop-neutral-border-disabled);
-    --hop-ComboBox-trigger-color-disabled: var(--hop-neutral-text-disabled);
-    --hop-ComboBox-trigger-cursor-disabled: not-allowed;
+    /* Button */
+    --hop-ComboBox-button-color-disabled: var(--hop-neutral-icon-disabled);
 
     /* Internal Variables */
     --inline-size: var(--hop-ComboBox-inline-size);
-    --trigger-background-color: var(--hop-ComboBox-trigger-background-color);
-    --trigger-border-color: var(--hop-ComboBox-trigger-border-color);
-    --trigger-cursor: var(--hop-ComboBox-trigger-cursor);
-    --trigger-color: var(--hop-ComboBox-trigger-color);
-    --input-font-family: var(--hop-ComboBox-input-md-font-family);
-    --input-font-size: var(--hop-ComboBox-input-md-font-size);
-    --input-font-weight: var(--hop-ComboBox-input-md-font-weight);
-    --input-line-height: var(--hop-ComboBox-input-md-line-height);
 
     display: flex;
     flex-direction: column;
@@ -93,112 +32,39 @@
 }
 
 .hop-ComboBox__trigger {
-    cursor: var(--trigger-cursor);
-
-    overflow: hidden;
-    display: flex;
-    column-gap: var(--hop-ComboBox-trigger-column-gap);
+    cursor: text;
     order: 2;
-
-    box-sizing: border-box;
-    block-size: var(--trigger-block-size);
-    padding-inline-start: var(--hop-ComboBox-trigger-padding-inline-start);
-
-    color: var(--trigger-color);
-
-    background-color: var(--trigger-background-color);
-    border: var(--hop-ComboBox-trigger-border-size) solid var(--trigger-border-color);
-    border-radius: var(--hop-ComboBox-trigger-border-radius);
-}
-
-.hop-ComboBox__trigger--sm {
-    --trigger-block-size: var(--hop-ComboBox-trigger-sm-block-size);
-    --input-font-family: var(--hop-ComboBox-input-sm-font-family);
-    --input-font-size: var(--hop-ComboBox-input-sm-font-size);
-    --input-font-weight: var(--hop-ComboBox-input-sm-font-weight);
-    --input-line-height: var(--hop-ComboBox-input-sm-line-height);
-}
-
-.hop-ComboBox__trigger--md {
-    --trigger-block-size: var(--hop-ComboBox-trigger-md-block-size);
-}
-
-.hop-ComboBox__trigger[data-hovered] {
-    --trigger-background-color: var(--hop-ComboBox-trigger-background-color-hovered);
-    --trigger-border-color: var(--hop-ComboBox-trigger-border-color-hovered);
-    --trigger-color: var(--hop-ComboBox-trigger-color-hovered);
-}
-
-.hop-ComboBox__trigger[data-selected] {
-    --trigger-background-color: var(--hop-ComboBox-button-background-color-selected);
-    --trigger-border-color: var(--hop-ComboBox-button-border-color-selected);
-    --trigger-color: var(--hop-ComboBox-button-color-selected);
-}
-
-.hop-ComboBox__trigger[data-invalid] {
-    --trigger-border-color: var(--hop-ComboBox-trigger-border-color-invalid);
-}
-
-.hop-ComboBox__trigger[data-focus-visible] {
-    --trigger-background-color: var(--hop-ComboBox-trigger-background-color-focused);
-    --trigger-border-color: var(--hop-ComboBox-trigger-border-color-focused);
-    --trigger-color: var(--hop-ComboBox-trigger-color-focused);
-
-    outline: var(--hop-ComboBox-trigger-border-size) solid var(--hop-ComboBox-trigger-outline-color-focused);
-    outline-offset: var(--hop-ComboBox-trigger-outline-offset);
 }
 
 .hop-ComboBox__trigger[data-disabled] {
-    --trigger-background-color: var(--hop-ComboBox-trigger-background-color-disabled);
-    --trigger-border-color: var(--hop-ComboBox-trigger-border-color-disabled);
-    --trigger-color: var(--hop-ComboBox-trigger-color-disabled);
-    --trigger-cursor: var(--hop-ComboBox-trigger-cursor-disabled);
-}
-
-.hop-ComboBox__input {
-    flex: 1 1 auto;
-
-    min-inline-size: 0;
-
-    font-family: var(--input-font-family);
-    font-size: var(--input-font-size);
-    font-weight: var(--input-font-weight);
-    line-height: var(--input-line-height);
-    color: var(--trigger-color);
-
-    background: none;
-    border: none;
-    outline: none;
-}
-
-.hop-ComboBox__input::placeholder {
-    color: var(--hop-ComboBox-input-placeholder-color);
+    cursor: default;
 }
 
 /* ComboBox Button */
 .hop-ComboBox__button {
-    cursor: var(--trigger-cursor);
+    cursor: pointer;
 
     display: flex;
     flex: 0 0 auto;
     align-items: center;
 
-    padding-inline: var(--hop-ComboBox-button-padding-inline);
+    padding-inline: 0;
 
     color: inherit;
 
-    background-color: var(--trigger-background-color);
+    background-color: transparent;
     border: none;
     outline: none;
+}
+
+.hop-ComboBox__button[data-disabled] {
+    cursor: default;
+    color: var(--hop-ComboBox-button-color-disabled);
 }
 
 .hop-ComboBox__prefix {
     align-self: center;
     color: var(--hop-ComboBox-prefix-color);
-}
-
-.hop-ComboBox__button-icon {
-    margin-inline-start: auto;
 }
 
 .hop-ComboBox__helper-message,

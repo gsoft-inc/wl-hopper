@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import path from "path";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 
 export default {
     stories: ["../components/**/*.stories.@(ts|tsx)", "../app/ui/**/*.stories.@(ts|tsx)"],
@@ -28,7 +28,7 @@ export default {
         // Configure aliases
         if (config.resolve) {
             config.resolve.plugins = [
-                ...(config.resolve.plugins || []),
+                ...(config.resolve.plugins ?? []),
                 new TsconfigPathsPlugin({
                     extensions: config.resolve.extensions
                 })
@@ -42,8 +42,8 @@ export default {
 
         // Configure SVGR
         // taken from here: https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs#custom-webpack-config
-        config.module = config.module || {};
-        config.module.rules = config.module.rules || [];
+        config.module = config.module ?? {};
+        config.module.rules = config.module.rules ?? [];
 
         // This modifies the existing image rule to exclude .svg files
         // since you want to handle those files with @svgr/webpack

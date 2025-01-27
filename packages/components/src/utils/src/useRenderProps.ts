@@ -28,7 +28,7 @@ export function useRenderProps<T>(props: RenderPropsHookOptions<T>) {
         }
 
         if (typeof style === "function") {
-            computedStyle = style({ ...values, defaultStyle: defaultStyle || {} });
+            computedStyle = style({ ...values, defaultStyle: defaultStyle ?? {} });
         } else {
             computedStyle = style;
         }

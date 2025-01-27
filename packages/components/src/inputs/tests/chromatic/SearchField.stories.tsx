@@ -68,6 +68,16 @@ export const NonClearable: Story = {
     }
 };
 
+
+export const ClearableButReadonly: Story = {
+    ...Value,
+    args: {
+        ...Value.args,
+        isReadOnly: true
+    }
+};
+
+
 export const CustomIcon: Story = {
     ...Value,
     args: {

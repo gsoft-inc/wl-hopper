@@ -136,7 +136,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     const {
         className,
         style: styleProp,
-        size,
+        size: sizeProp,
         showCharacterCount,
         maxLength,
         placeholder,
@@ -165,6 +165,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
     const isFluid = useResponsiveValue(isFluidProp) ?? false;
     const resizeMode = useResponsiveValue(resizeModeProp) ?? "none";
     const overMaxLength = !!maxLength && characterCount > maxLength;
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = composeClassnameRenderProps(
         className,
@@ -246,9 +247,14 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         adjustRows();
     }, [value, adjustRows]);
 
-    const { className: inputGroupClassName, inputClassName: inputGroupInputClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
     const inputGroupClassNames = clsx(styles["hop-TextArea__InputGroup"], inputGroupClassName);
-    const inputGroupInputClassNames = clsx(styles["hop-TextArea__textarea"], inputGroupInputClassName);
+    const textAreaClassNames = cssModule(
+        styles,
+        "hop-TextArea__textarea",
+        size,
+        showCharacterCount && maxLength && "with-character-count"
+    );
 
     const { className: remainingCharacterCountClassName, ...otherRemainingCharacterCountProps } = remainingCharacterCountProps ?? {};
     const remainingCharacterCountClassNames = clsx(styles["hop-TextArea__RemainingCharacterCount"], remainingCharacterCountClassName);
@@ -257,15 +263,18 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         <ClearContainerSlots>
             <InputGroup
                 isFluid
-                size={size}
                 className={inputGroupClassNames}
                 isDisabled={isDisabled}
                 isInvalid={isInvalid}
-                inputClassName={inputGroupInputClassNames}
-                inputType="textarea"
                 {...otherInputGroupProps}
             >
-                <RACTextArea ref={mergedTextAreaRef} placeholder={placeholder} cols={cols} rows={rows} />
+                <RACTextArea
+                    ref={mergedTextAreaRef}
+                    placeholder={placeholder}
+                    cols={cols}
+                    rows={rows}
+                    className={textAreaClassNames}
+                />
 
                 {showCharacterCount && maxLength &&
                     <RemainingCharacterCount

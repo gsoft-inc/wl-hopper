@@ -14,7 +14,6 @@ import {
     useContextProps
 } from "react-aria-components";
 
-import type { TagVariant } from "../../tag/index.ts";
 import { mapOrbiterToHopperVariants } from "../../tag/utils/Tag.utils.ts";
 import {
     SlotProvider,
@@ -28,9 +27,6 @@ import styles from "./EmbeddedButton.module.css";
 
 export const GlobalEmbeddedButtonCssSelector = "hop-EmbeddedButton";
 
-export type EmbeddedButtonSize = "md" | "lg";
-export type EmbeddedButtonVariant = TagVariant;
-
 export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps> {
     /**
      * Whether the EmbeddedButton should show a selected state.
@@ -40,16 +36,12 @@ export interface EmbeddedButtonProps extends StyledComponentProps<RACButtonProps
      * The size of the EmbeddedButton.
      * @default "md"
      */
-    size?: ResponsiveProp<EmbeddedButtonSize>;
-    /**
-     * Whether the EmbeddedButton is square in shape.
-     */
-    isSquare?: boolean;
+    size?: ResponsiveProp<"md" | "lg">;
     /**
      * The visual style of the EmbeddedButton.
      * @default "neutral"
      */
-    variant?: EmbeddedButtonVariant;
+    variant?: "neutral" | "subdued" | "progress" | "positive" | "caution" | "negative" | "option1" | "option2" | "option3" | "option4" | "option5" | "option6";
 }
 
 function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
@@ -62,7 +54,6 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
         size: sizeProp,
         isDisabled,
         isSelected = false,
-        isSquare,
         style: styleProp,
         children,
         variant = "neutral",
@@ -105,7 +96,6 @@ function EmbeddedButton(props: EmbeddedButtonProps, ref: ForwardedRef<HTMLButton
                 style={style}
                 isDisabled={isDisabled}
                 data-selected={isSelected || undefined}
-                data-square={isSquare || undefined}
                 {...otherProps}
             >
                 {children}

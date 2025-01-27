@@ -17,7 +17,6 @@ import styles from "./Label.module.css";
 
 export const GlobalLabelCssSelector = "hop-Label";
 
-// TODO: Add necessityIndicator and required Props
 export interface LabelProps extends StyledComponentProps<RACLabelProps> {
     /**
      * Whether the label shows a required state.

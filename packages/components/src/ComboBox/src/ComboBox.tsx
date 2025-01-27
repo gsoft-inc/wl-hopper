@@ -1,26 +1,23 @@
 import { IconContext } from "@hopper-ui/icons";
 import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps } from "@hopper-ui/styled-system";
 import { mergeRefs, useObjectRef, useResizeObserver } from "@react-aria/utils";
-import { forwardRef, useCallback, useRef, useState, type ForwardedRef, type MouseEventHandler, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
+import { forwardRef, useCallback, useRef, useState, type ForwardedRef, type MutableRefObject, type NamedExoticComponent, type ReactNode } from "react";
 import {
-    Button,
     composeRenderProps,
-    Group,
-    Input,
-    InputContext,
+    Button as RACButton,
     ButtonContext as RACButtonContext,
     ComboBox as RACComboBox,
     TextContext as RACTextContext,
     useContextProps,
     useSlottedContext,
-    type ComboBoxProps as RACComboBoxProps,
-    type GroupProps as RACGroupProps
+    type ComboBoxProps as RACComboBoxProps
 } from "react-aria-components";
 
 import { BadgeContext } from "../../Badge/index.ts";
 import { ErrorMessage } from "../../ErrorMessage/index.ts";
 import { useFormProps } from "../../Form/index.ts";
 import { HelperMessage } from "../../HelperMessage/index.ts";
+import { Input, InputContext, InputGroup, type InputGroupProps } from "../../inputs/index.ts";
 import { Footer } from "../../layout/index.ts";
 import { ListBox, ListBoxItem, type ListBoxItemProps, type ListBoxProps, type SelectionIndicator } from "../../ListBox/index.ts";
 import { ListBoxSection, type ListBoxSectionProps } from "../../ListBoxSection/index.ts";
@@ -34,8 +31,6 @@ import { ComboBoxContext } from "./ComboBoxContext.ts";
 import styles from "./ComboBox.module.css";
 
 export const GlobalComboBoxCssSelector = "hop-ComboBox";
-
-export type ComboBoxTriggerProps = StyledComponentProps<RACGroupProps>;
 
 export interface ComboBoxProps<T extends object> extends StyledComponentProps<Omit<RACComboBoxProps<T>, "children">>, FieldProps {
     /**
@@ -106,7 +101,7 @@ export interface ComboBoxProps<T extends object> extends StyledComponentProps<Om
     /**
      * The props for the select's trigger.
      */
-    triggerProps?: ComboBoxTriggerProps;
+    triggerProps?: InputGroupProps;
 }
 
 function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<HTMLDivElement>) {
@@ -127,6 +122,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         errorMessage,
         footer,
         isAutoMenuWidth,
+        isDisabled,
         isFluid: isFluidProp,
         isInvalid,
         isLoading,
@@ -153,7 +149,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
     // Make sure to merge the input ref with the context ref from the InputContext.
     const mergedInputRefs = inputContext?.ref ? mergeRefs(inputRef, inputContext.ref) : inputRef;
     const triggerRef = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
 
     // Make menu width match trigger width.
     const [triggerWidth, setTriggerWidth] = useState<string | null>(null);
@@ -168,12 +163,10 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         onResize: onResize
     });
 
-    const { stylingProps: triggerStylingProps, ...triggerOwnProps } = useStyledSystem(triggerProps ?? {});
     const {
         className: triggerClassName,
-        style: triggerStyleProp,
         ...otherTriggerProps
-    } = triggerOwnProps;
+    } = triggerProps ?? {};
 
     const {
         style: popoverStyleProp
@@ -202,20 +195,7 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             styles,
             "hop-ComboBox__trigger",
             size
-        ),
-        triggerStylingProps.className
-    );
-
-    const buttonClassNames = composeClassnameRenderProps(
-        cssModule(
-            styles,
-            "hop-ComboBox__button"
         )
-    );
-
-    const inputClassNames = composeClassnameRenderProps(
-        inputContext?.className,
-        styles["hop-ComboBox__input"]
     );
 
     const style = composeRenderProps(styleProp, prev => {
@@ -225,17 +205,10 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
         };
     });
 
-    const triggerStyle = composeRenderProps(triggerStyleProp, prev => {
-        return {
-            ...triggerStylingProps.style,
-            ...prev
-        };
-    });
-
     const popoverStyle = composeRenderProps(popoverStyleProp, prev => {
         return {
             ...prev,
-            "--custom-trigger-width": triggerWidth
+            "--custom-trigger-width": triggerWidth // TODO: declaring a variable here and using it in the Popover.module.css is a mistake.
         };
     });
 
@@ -256,20 +229,9 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                 <Footer>
                     {ensureTextWrapper(footer)}
                 </Footer>
-
             </SlotProvider>
         </ClearProviders>
     ) : null;
-
-    const handleMouseDown: MouseEventHandler<HTMLDivElement> = useCallback(e => {
-        // If the input or button is the one that is clicked, we don't want to focus it since it's already done.
-        if (inputRef.current && e.target !== inputRef.current && buttonRef.current && e.target !== buttonRef.current) {
-            // forwards the focus to the input element when clicking on the input group.
-            inputRef.current.focus();
-            // This ensures that the input does not lose focus when clicking on the input group.
-            e.preventDefault();
-        }
-    }, [inputRef]);
 
     const prefixMarkup = prefix ? (
         <SlotProvider values={[
@@ -292,11 +254,10 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
             isRequired={isRequired}
             items={items}
             menuTrigger={menuTrigger}
+            isDisabled={isDisabled}
             {...otherProps}
         >
-            {comboBoxRenderProps => {
-                const { isOpen } = comboBoxRenderProps;
-
+            {({ isOpen }) => {
                 return (
                     <>
                         {label && (
@@ -308,6 +269,36 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                                 {label}
                             </Label>
                         )}
+                        <InputGroup
+                            ref={triggerRef}
+                            className={triggerClassNames}
+                            data-selected={isOpen || undefined}
+                            isFluid
+                            isDisabled={isDisabled}
+                            isInvalid={isInvalid}
+                            {...otherTriggerProps}
+                        >
+                            {prefixMarkup}
+                            <Input
+                                ref={mergedInputRefs}
+                                placeholder={placeholder}
+                                size={size}
+                            />
+                            <RACButton className={styles["hop-ComboBox__button"]}>
+                                <ToggleArrow
+                                    className={styles["hop-ComboBox__button-icon"]}
+                                    isExpanded={isOpen}
+                                />
+                            </RACButton>
+                        </InputGroup>
+                        {description && (
+                            <HelperMessage className={styles["hop-ComboBox__helper-message"]}>
+                                {description}
+                            </HelperMessage>
+                        )}
+                        <ErrorMessage className={styles["hop-ComboBox__error-message"]}>
+                            {errorMessage}
+                        </ErrorMessage>
                         <Popover
                             isAutoWidth={isAutoMenuWidth}
                             isNonDialog
@@ -337,35 +328,6 @@ function ComboBox<T extends object>(props: ComboBoxProps<T>, ref: ForwardedRef<H
                             </SlotProvider>
                             {footerMarkup}
                         </Popover>
-                        <Group
-                            ref={triggerRef}
-                            className={triggerClassNames}
-                            style={triggerStyle}
-                            onMouseDown={handleMouseDown}
-                            data-selected={isOpen || undefined}
-                            {...otherTriggerProps}
-                        >
-                            {prefixMarkup}
-                            <Input
-                                ref={mergedInputRefs}
-                                className={inputClassNames}
-                                placeholder={placeholder}
-                            />
-                            <Button className={buttonClassNames} ref={buttonRef}>
-                                <ToggleArrow
-                                    className={styles["hop-ComboBox__button-icon"]}
-                                    isExpanded={isOpen}
-                                />
-                            </Button>
-                        </Group>
-                        {description && (
-                            <HelperMessage className={styles["hop-ComboBox__helper-message"]}>
-                                {description}
-                            </HelperMessage>
-                        )}
-                        <ErrorMessage className={styles["hop-ComboBox__error-message"]}>
-                            {errorMessage}
-                        </ErrorMessage>
                     </>
                 );
             }}
