@@ -1172,6 +1172,36 @@ export const Previews: Record<string, Preview> = {
     "Badge/docs/badge/text": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/badge/text.tsx"))
     },
+    "Callout/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/preview.tsx"))
+    },
+    "Callout/docs/variant": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/variant.tsx"))
+    },
+    "Callout/docs/noIcon": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/noIcon.tsx"))
+    },
+    "Callout/docs/customIcon": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/customIcon.tsx"))
+    },
+    "Callout/docs/notDismissable": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/notDismissable.tsx"))
+    },
+    "Callout/docs/inline": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/inline.tsx"))
+    },
+    "Callout/docs/compact": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/compact.tsx"))
+    },
+    "Callout/docs/compactVariant": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/compactVariant.tsx"))
+    },
+    "Callout/docs/compactLink": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/compactLink.tsx"))
+    },
+    "Callout/docs/dismissableCompact": {
+        component: lazy(() => import("@/../../packages/components/src/Callout/docs/dismissableCompact.tsx"))
+    },
     "Badge/docs/floatingbadge/preview": {
         component: lazy(() => import("@/../../packages/components/src/Badge/docs/floatingbadge/preview.tsx"))
     },
