@@ -9,7 +9,7 @@ import styles from "./Input.module.css";
 
 export interface InputProps extends Omit<RACInputProps, "size"> {
     /**
-     * The size of the input group.
+     * The size of the input.
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md">;
@@ -20,7 +20,7 @@ export const InputContext = createContext<ContextValue<InputProps, HTMLInputElem
 
 export const Input = forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
     [props, ref] = useContextProps(props, ref, InputContext);
-    const { className = "", size: sizeProp, ...otherProps } = props;
+    const { className, size: sizeProp, ...otherProps } = props;
 
     const size = useResponsiveValue(sizeProp) ?? "md";
 

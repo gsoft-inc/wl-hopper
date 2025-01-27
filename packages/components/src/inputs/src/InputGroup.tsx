@@ -4,12 +4,12 @@ import {
     useResponsiveValue,
     useStyledSystem
 } from "@hopper-ui/styled-system";
-import { type ForwardedRef, forwardRef, useContext } from "react";
+import { type ForwardedRef, forwardRef, type PointerEvent, useContext } from "react";
 import {
+    composeRenderProps,
     FieldErrorContext as RACFieldErrorContext,
     Group as RACGroup,
     type GroupProps as RACGroupProps,
-    composeRenderProps,
     useContextProps
 } from "react-aria-components";
 
@@ -63,22 +63,25 @@ function InputGroup(props: InputGroupProps, ref: ForwardedRef<HTMLDivElement>) {
         };
     });
 
+    const handlePointerUp = (e: PointerEvent) => {
+        if (e.pointerType !== "mouse" && !(e.target as Element).closest("button,input,textarea")) {
+            e.preventDefault();
+            e.currentTarget.querySelector("input")?.focus();
+        }
+    };
+    const handlePointerDown = (e: PointerEvent) => {
+        // Forward focus to input element when clicking on a non-interactive child (e.g. icon or padding)
+        if (e.pointerType === "mouse" && !(e.target as Element).closest("button,input,textarea")) {
+            e.preventDefault();
+            e.currentTarget.querySelector("input")?.focus();
+        }
+    };
+
     return (
         <RACGroup
             isInvalid={validation?.isInvalid || isInvalid}
-            onPointerDown={e => {
-                // Forward focus to input element when clicking on a non-interactive child (e.g. icon or padding)
-                if (e.pointerType === "mouse" && !(e.target as Element).closest("button,input,textarea")) {
-                    e.preventDefault();
-                    e.currentTarget.querySelector("input")?.focus();
-                }
-            }}
-            onPointerUp={e => {
-                if (e.pointerType !== "mouse" && !(e.target as Element).closest("button,input,textarea")) {
-                    e.preventDefault();
-                    e.currentTarget.querySelector("input")?.focus();
-                }
-            }}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
             ref={ref}
             className={classNames}
             style={style}

@@ -111,7 +111,7 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
         return ensureTextWrapper(prev);
     });
 
-    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
+    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps ?? {};
     const spinnerClassNames = clsx(styles["hop-Button__Spinner"], spinnerClassName);
 
     return (

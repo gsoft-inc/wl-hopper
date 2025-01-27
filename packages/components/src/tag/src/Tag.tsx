@@ -129,10 +129,10 @@ function Tag(props: TagProps, ref: ForwardedRef<HTMLDivElement>) {
         return ensureTextWrapper(prev);
     });
 
-    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps || {};
+    const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps ?? {};
     const spinnerClassNames = clsx(styles["hop-Tag__Spinner"], spinnerClassName);
 
-    const { className: clearButtonClassName, ...otherClearButtonProps } = clearButtonProps || {};
+    const { className: clearButtonClassName, ...otherClearButtonProps } = clearButtonProps ?? {};
     const clearButtonClassNames = clsx(styles["hop-Tag__remove-btn"], clearButtonClassName);
 
     return (

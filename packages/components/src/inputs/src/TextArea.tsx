@@ -247,7 +247,7 @@ function TextArea(props: TextAreaProps, ref: ForwardedRef<HTMLDivElement>) {
         adjustRows();
     }, [value, adjustRows]);
 
-    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
     const inputGroupClassNames = clsx(styles["hop-TextArea__InputGroup"], inputGroupClassName);
     const textAreaClassNames = cssModule(
         styles,

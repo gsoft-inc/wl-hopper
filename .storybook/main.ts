@@ -39,7 +39,7 @@ const storybookConfig: StorybookConfig = {
         config.resolve = {
             ...config.resolve,
             plugins: [
-                ...(config.resolve?.plugins || []),
+                ...(config.resolve?.plugins ?? []),
                 new TsconfigPathsPlugin({
                     configFile: "./tsconfig.json",
                     extensions: config.resolve?.extensions
@@ -59,7 +59,7 @@ const storybookConfig: StorybookConfig = {
         // Modify the css-loader options to simplify the class names
         // By default, with the config, the classnames are like this: GETEs8cGi4WwwvV1ooFy MUs8LC8twKwy5uAnhOWJ PafTkO4uwI6M3m4HX7JI
         // With this new config, the classnames are like this: hop-Button___GETEs hop-Button--primary___MUs8L hop-Button--md___PafTk
-        for (const rule of config.module?.rules || []) {
+        for (const rule of config.module?.rules ?? []) {
             if (typeof rule === "object" && rule?.use && Array.isArray(rule.use)) {
                 for (const loader of rule.use) {
                     if (typeof loader === "object" && loader?.loader?.includes("css-loader")) {

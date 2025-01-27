@@ -202,7 +202,7 @@ function TextField(props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) {
         }
     }, [value]);
 
-    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
     const inputGroupClassNames = clsx(styles["hop-TextField__InputGroup"], inputGroupClassName);
 
     const inputMarkup = (

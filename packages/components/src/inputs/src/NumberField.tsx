@@ -157,7 +157,7 @@ function NumberField(props: NumberFieldProps, ref: ForwardedRef<HTMLDivElement>)
         </SlotProvider>
     ) : null;
 
-    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps || {};
+    const { className: inputGroupClassName, ...otherInputGroupProps } = inputGroupProps ?? {};
     const inputGroupClassNames = clsx(styles["hop-NumberField__InputGroup"], inputGroupClassName);
 
     const inputMarkup = (

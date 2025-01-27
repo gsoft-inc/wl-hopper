@@ -127,10 +127,10 @@ function ListBoxItemInner(props: ListBoxItemInnerProps) {
         }
     };
 
-    const { className: radioClassName, ...otherRadioProps } = radioProps || {};
+    const { className: radioClassName, ...otherRadioProps } = radioProps ?? {};
     const radioClassNames = clsx(styles["hop-ListBoxItem__radio"], radioClassName);
 
-    const { className: checkboxClassName, ...otherCheckboxProps } = checkboxProps || {};
+    const { className: checkboxClassName, ...otherCheckboxProps } = checkboxProps ?? {};
     const checkboxClassNames = clsx(styles["hop-ListBoxItem__checkbox"], checkboxClassName);
 
     return (
