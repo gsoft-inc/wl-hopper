@@ -51,6 +51,11 @@ export interface LinkProps extends StyledComponentProps<RACLinkProps> {
      * Whether the link should open in a new tab.
      */
     isExternal?: boolean;
+
+    /**
+     * Wheter the link is standalone
+     */
+    isStandalone?: boolean;
 }
 
 const LinkToIconSizeAdapter = {
@@ -73,6 +78,7 @@ function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
         style: styleProp,
         isQuiet,
         isExternal,
+        isStandalone,
         variant = "primary",
         rel,
         target,
@@ -89,7 +95,8 @@ function Link(props: LinkProps, ref: ForwardedRef<HTMLAnchorElement>) {
             "hop-Link",
             isQuiet && "quiet",
             variant,
-            size
+            size,
+            isStandalone && "standalone"
         ),
         stylingProps.className
     );
