@@ -2,6 +2,7 @@
     "Button.spinnerAriaLabel": "Loading",
     "Tag.spinnerAriaLabel": "Loading",
     "ClearButton.clearAriaLabel": "Clear",
+    "CloseButton.ariaLabel": "Close",
     "Input.charactersLeft": "{charLeft, plural, =0 {No characters left} one {# character left} other {# characters left}}.",
     "PasswordField.toggleVisibility": "Toggle password visibility",
     "Tag.removeAriaLabel": "Remove",

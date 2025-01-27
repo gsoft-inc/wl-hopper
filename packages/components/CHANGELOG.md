@@ -1,5 +1,18 @@
 # @hopper-ui/components
 
+## 1.4.7
+
+### Patch Changes
+
+- f01af74: Added the Callout component
+  - @hopper-ui/icons@2.9.1
+
+## 1.4.6
+
+### Patch Changes
+
+- c77249e: Add standalone variant to Link
+
 ## 1.4.5
 
 ### Patch Changes

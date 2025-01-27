@@ -1,5 +1,11 @@
 # @hopper-ui/styled-system
 
+## 2.5.2
+
+### Patch Changes
+
+- aca7251: Updated the upsell colors
+
 ## 2.5.1
 
 ### Patch Changes

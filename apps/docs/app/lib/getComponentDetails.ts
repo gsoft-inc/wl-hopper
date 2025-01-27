@@ -11,9 +11,10 @@ export const COMPONENT_PATH = path.join(CONTENT_PATH, "components");
 export interface ComponentData {
     title: string;
     description: string;
-    status?: string | undefined;
+    status?: string;
+    alpha?: string;
     links?: { source: string; npm: string; issue: string; aria: string };
-    order?: number | undefined;
+    order?: number;
 }
 
 async function parseFrontMatter(fileContent: string) {

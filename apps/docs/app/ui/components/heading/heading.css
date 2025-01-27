@@ -32,3 +32,7 @@
 .hd-heading__banner-link {
     text-decoration: underline;
 }
+
+.hd-heading__alpha {
+    margin-block-end: var(--hd-space-2);
+}

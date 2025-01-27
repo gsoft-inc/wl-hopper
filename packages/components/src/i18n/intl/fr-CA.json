@@ -2,6 +2,7 @@
     "Button.spinnerAriaLabel": "Chargement en cours",
     "Tag.spinnerAriaLabel": "Chargement en cours",
     "ClearButton.clearAriaLabel": "Effacer",
+    "CloseButton.ariaLabel": "Fermer",
     "Input.charactersLeft": "{charLeft, plural, =0 {Aucun caractère restant} one {# caractère restant} other {# caractères restants}}.",
     "PasswordField.toggleVisibility": "Basculer la visibilité du mot de passe",
     "Tag.removeAriaLabel": "Supprimer",
