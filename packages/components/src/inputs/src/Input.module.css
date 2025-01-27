@@ -19,6 +19,8 @@
     --hop-Input-md-font-size: var(--hop-body-md-font-size);
     --hop-Input-md-font-weight: var(--hop-body-md-font-weight);
     --hop-Input-md-line-height: var(--hop-body-md-line-height);
+    --hop-Input-inline-size: 100%;
+    --hop-Input-min-inline-size: 0;
 
     /** Internal */
     --input-placeholder-color: var(--hop-Input-placeholder-color);
@@ -35,8 +37,8 @@
     flex-shrink: 1;
 
     box-sizing: border-box;
-    inline-size: 100%;
-    min-inline-size: 0;
+    inline-size: var(--hop-Input-inline-size);
+    min-inline-size: var(--hop-Input-min-inline-size);
     block-size: var(--block-size);
     padding: 0;
 
