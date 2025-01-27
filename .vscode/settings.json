@@ -1,7 +1,10 @@
 {
     "search.exclude": {
         "**/node_modules*": true,
-        "**/dist*": true
+        "**/dist*": true,
+        "**/.next*": true,
+        "**/.cache*": true,
+        "**/.contentlayer*": true,
     },
 
     // Formatters settings

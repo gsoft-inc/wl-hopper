@@ -178,6 +178,9 @@ export const Components = defineDocumentType(() => ({
         section: {
             type: "string"
         },
+        warning: {
+            type: "string"
+        },
         status: {
             type: "string"
         },
