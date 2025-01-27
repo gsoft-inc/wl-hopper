@@ -116,6 +116,36 @@ export const Previews: Record<string, Preview> = {
     "SegmentedControl/docs/controlled": {
         component: lazy(() => import("@/../../packages/components/src/SegmentedControl/docs/controlled.tsx"))
     },
+    "Tile/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/preview.tsx"))
+    },
+    "Tile/docs/selected": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/selected.tsx"))
+    },
+    "Tile/docs/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/disabled.tsx"))
+    },
+    "Tile/docs/disabledSelected": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/disabledSelected.tsx"))
+    },
+    "Tile/docs/TileGroup/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/TileGroup/preview.tsx"))
+    },
+    "Tile/docs/TileGroup/selected": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/TileGroup/selected.tsx"))
+    },
+    "Tile/docs/TileGroup/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/TileGroup/controlled.tsx"))
+    },
+    "Tile/docs/TileGroup/disabled": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/TileGroup/disabled.tsx"))
+    },
+    "Tile/docs/TileGroup/wrapping": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/TileGroup/wrapping.tsx"))
+    },
+    "Tile/docs/TileGroup/columns": {
+        component: lazy(() => import("@/../../packages/components/src/Tile/docs/TileGroup/columns.tsx"))
+    },
     "ListBox/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/ListBox/docs/preview.tsx"))
     },

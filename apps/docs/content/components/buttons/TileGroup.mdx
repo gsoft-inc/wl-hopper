@@ -1,0 +1,44 @@
+---
+title: TileGroup
+alpha: "This component is still a work in progress and may not fully address all design requirements. Its API and properties are subject to change as we refine the design and functionality to better meet user needs."
+description: A TileGroup groups Tiles to let users browse and take action on a group of related items.
+category: "buttons"
+links:
+    source: https://github.com/gsoft-inc/wl-hopper/blob/main/packages/components/src/Tile/src/TileGroup.tsx
+---
+
+<Example src="Tile/docs/TileGroup/preview" isOpen />
+
+## Usage
+
+### Selected
+A tile group can have an item initially selected, by using `defaultSelectedKeys` for uncontrolled or `selectedKeys` for controlled.
+Here's an example where one item is selected using defaultSelectedKeys.
+
+<Example src="Tile/docs/TileGroup/selected" />
+
+### Controlled
+A tile group can have a controlled selected value. In this example, it shows how it is possible to select an option.
+
+<Example src="Tile/docs/TileGroup/controlled" />
+
+### Disabled
+A tile group can be disabled.
+
+<Example src="Tile/docs/TileGroup/disabled" />
+
+### Wrapping
+Tiles are automatically wrapped
+
+<Example src="Tile/docs/TileGroup/wrapping" />
+
+### Number of columns
+A tile group can have a number of columns. Default is 3. Here's an example where it's 4.
+
+<Example src="Tile/docs/TileGroup/columns" />
+
+## Props
+
+### TileGroup
+
+<PropTable component="TileGroup" />
