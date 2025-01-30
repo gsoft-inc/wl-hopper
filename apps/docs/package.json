@@ -11,7 +11,7 @@
         "dev": "next dev",
         "build": "next build",
         "lint": "next lint",
-        "lint:types": "tsc --noEmit",
+        "typecheck": "tsc",
         "storybook": "storybook dev -p 6010",
         "build:storybook": "storybook build",
         "generate": "pnpm run \"/^generate:.*/\"",

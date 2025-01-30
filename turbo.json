@@ -5,6 +5,30 @@
         "build": {
             "dependsOn": ["^build"],
             "outputs": ["dist/**"]
+        },
+        "lint": {
+            "dependsOn": ["//#eslint", "//#typecheck", "//#stylelint"]
+        },
+        "//#eslint": {
+            "outputs": ["node_modules/.cache/eslint"]
+        },
+        "eslint": {
+            "outputs": ["node_modules/.cache/eslint"]
+        },
+        "//#stylelint": {
+            "outputs": ["node_modules/.cache/stylelint"]
+        },
+        "stylelint": {
+            "outputs": ["node_modules/.cache/stylelint"]
+        },
+        "//#typecheck": {
+            "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+        },
+        "typecheck": {
+            "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+        },
+        "test": {
+            "outputs": ["node_modules/.cache/jest/**"]
         }
     }
 }
