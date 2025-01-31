@@ -4,7 +4,7 @@
     "tasks": {
         "build": {
             "dependsOn": ["^build"],
-            "outputs": ["dist/**", ".next/**", "datas/**", "storybook-static/**"]
+            "outputs": ["dist/**", ".next/**"]
         },
         "lint": {
             "dependsOn": ["//#eslint", "//#typecheck", "//#stylelint"]
