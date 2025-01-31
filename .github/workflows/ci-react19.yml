@@ -25,8 +25,6 @@ jobs:
 
             -   name: Setup Node and PNPM
                 uses: ./.github/composite-actions/setup
-                with:
-                  install_dependencies: false
 
             -   name: Install React 19
                 run: pnpm install-react19
