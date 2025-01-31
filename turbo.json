@@ -5,7 +5,7 @@
     "tasks": {
         "build": {
             "dependsOn": ["^build"],
-            "outputs": ["dist/**", ".next/**"]
+            "outputs": ["dist/**", ".next/**", "datas/**", "storybook-static/**"]
         },
         "lint": {
             "dependsOn": ["//#eslint", "//#typecheck", "//#stylelint"]
@@ -23,13 +23,13 @@
             "outputs": ["node_modules/.cache/stylelint"]
         },
         "//#typecheck": {
-            "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+            "outputs": []
         },
         "typecheck": {
-            "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+            "outputs": []
         },
         "test": {
-            "outputs": ["node_modules/.cache/jest/**"]
+            "outputs": []
         }
     }
 }
