@@ -178,7 +178,7 @@ export const Components = defineDocumentType(() => ({
         section: {
             type: "string"
         },
-        warning: {
+        alpha: {
             type: "string"
         },
         status: {
