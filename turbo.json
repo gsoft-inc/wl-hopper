@@ -5,7 +5,7 @@
     "tasks": {
         "build": {
             "dependsOn": ["^build"],
-            "outputs": []
+            "outputs": ["dist/**"]
         },
         "lint": {
             "dependsOn": ["//#eslint", "//#typecheck", "//#stylelint"]
