@@ -3,6 +3,8 @@
     "exclude": ["node_modules"],
     "include": ["**/*", "../../types/*"],
     "compilerOptions": {
+        "incremental": true,
+        "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
         "paths": {
             "@hopper-ui/storybook-addon": ["../../tooling/storybook-addon/index.ts"],
             "@hopper-ui/components": ["../components/src/index.ts"],

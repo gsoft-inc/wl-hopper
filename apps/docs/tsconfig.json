@@ -2,6 +2,7 @@
     "extends": "@workleap/typescript-configs/web-application.json",
     "compilerOptions": {
         "incremental": true,
+        "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
         "jsx": "preserve",
         "module": "preserve",
         "moduleResolution": "Bundler",

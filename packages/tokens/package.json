@@ -34,8 +34,7 @@
         "build": "tsx src/style-dictionary/build.ts",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
-        "typecheck": "tsc",
-        "test": "jest"
+        "typecheck": "tsc"
     },
     "devDependencies": {
         "@types/eslint": "8.56.12",

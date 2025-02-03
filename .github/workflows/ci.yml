@@ -16,51 +16,7 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    lint:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
-
-            -   name: Setup Node and PNPM
-                uses: ./.github/composite-actions/setup
-
-            -   name: Install dependencies
-                run: pnpm i --frozen-lockfile
-
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/restore-turborepo
-
-            -   name: Lint packages
-                run: pnpm lint
-
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/save-turborepo
-
-    test:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
-
-            -   name: Setup Node and PNPM
-                uses: ./.github/composite-actions/setup
-
-            -   name: Install dependencies
-                run: pnpm i --frozen-lockfile
-
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/restore-turborepo
-
-            -   name: Jest
-                run: pnpm test
-
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/save-turborepo
-
-    build-doc:
+    build:
         runs-on: ubuntu-latest
 
         steps:
@@ -79,30 +35,17 @@ jobs:
             -   name: Generate documentation
                 run: pnpm doc:generate
 
+            -   name: Build packages
+                run: pnpm build:pkg
+
             -   name: Build sample apps
                 run: pnpm build:apps
 
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/save-turborepo
+            -   name: Lint
+                run: pnpm lint
 
-    build-packages:
-        runs-on: ubuntu-latest
-
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
-
-            -   name: Setup Node and PNPM
-                uses: ./.github/composite-actions/setup
-
-            -   name: Install dependencies
-                run: pnpm i --frozen-lockfile
-
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/restore-turborepo
-
-            -   name: Build packages
-                run: pnpm build:pkg
+            -   name: Test
+                run: pnpm test
 
             -   name: Restore Turborepo cache
                 uses: ./.github/composite-actions/save-turborepo
