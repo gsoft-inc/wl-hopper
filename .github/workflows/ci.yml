@@ -30,7 +30,13 @@ jobs:
                 run: pnpm i --frozen-lockfile
 
             -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/restore-turborepo
+                id: cache-turborepo-restore
+                uses: actions/cache/restore@v4
+                with:
+                    key: ${{ runner.os }}-turborepo-${{ github.sha }}
+                    restore-keys: |
+                        ${{ runner.os }}-turborepo-
+                    path: .turbo
 
             -   name: Generate documentation
                 run: pnpm doc:generate
@@ -47,5 +53,10 @@ jobs:
             -   name: Test
                 run: pnpm test
 
-            -   name: Restore Turborepo cache
-                uses: ./.github/composite-actions/save-turborepo
+            -   name: Save Turborepo cache
+                id: cache-turborepo-save
+                if: always() && steps.cache-turborepo-restore.outputs.cache-hit != 'true'
+                uses: actions/cache/save@v4
+                with:
+                    key: ${{ steps.cache-turborepo-restore.outputs.cache-primary-key }}
+                    path: .turbo
