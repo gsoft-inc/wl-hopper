@@ -28,7 +28,10 @@
         "build": "pnpm run \"/^build:.*/\"",
         "build:icons": "copyfiles --flat src/optimized-icons/* dist/icons",
         "build:rich-icons": "copyfiles --flat src/optimized-rich-icons/* dist/rich-icons",
-        "generate-icons": "tsx scripts/build.ts"
+        "generate-icons": "tsx scripts/build.ts",
+        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
+        "typecheck": "tsc",
+        "test": "jest"
     },
     "devDependencies": {
         "@swc/core": "1.10.0",

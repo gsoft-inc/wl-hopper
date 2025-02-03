@@ -35,7 +35,11 @@
     },
     "scripts": {
         "build": "tsup --config ./tsup.build.ts",
-        "generate-icons": "tsx scripts/build.ts"
+        "generate-icons": "tsx scripts/build.ts",
+        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
+        "stylelint": "stylelint \"**/*.css\" --config ../../.stylelintrc.js --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
+        "typecheck": "tsc",
+        "test": "jest"
     },
     "peerDependencies": {
         "@hopper-ui/styled-system": "^2.4",

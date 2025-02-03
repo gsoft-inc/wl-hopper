@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "webpack serve --config webpack.dev.js",
         "build": "webpack --config webpack.build.js",
-        "lint": "eslint ./src"
+        "eslint": "eslint ./src --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
+        "typecheck": "tsc"
     },
     "dependencies": {
         "@hopper-ui/components": "workspace:*",

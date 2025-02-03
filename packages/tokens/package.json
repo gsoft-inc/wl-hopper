@@ -31,7 +31,9 @@
     ],
     "scripts": {
         "clean:dist": "pnpm dlx rimraf dist",
-        "build": "tsx src/style-dictionary/build.ts"
+        "build": "tsx src/style-dictionary/build.ts",
+        "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
+        "typecheck": "tsc"
     },
     "devDependencies": {
         "@types/eslint": "8.56.12",

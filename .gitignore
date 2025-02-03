@@ -57,3 +57,5 @@ chromatic.config.json
 
 # generated component data documentation
 /apps/docs/datas
+
+.turbo
