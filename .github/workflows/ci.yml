@@ -33,7 +33,7 @@ jobs:
                 id: cache-turborepo-restore
                 uses: actions/cache/restore@v4
                 with:
-                    key: ${{ runner.os }}-turborepo-${{ github.sha }}
+                    key: ${{ runner.os }}-turborepo-${{ github.sha }}-ci
                     restore-keys: |
                         ${{ runner.os }}-turborepo-
                     path: .turbo
