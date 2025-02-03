@@ -6,6 +6,7 @@ import { compilerOptions } from "./tsconfig.json";
 
 const config: Config = {
     testEnvironment: "jsdom",
+    cacheDirectory: "./node_modules/.cache/jest",
     transform: {
         "^.+\\.(js|ts|tsx)$": ["@swc/jest", swcConfig as Record<string, unknown>]
     },

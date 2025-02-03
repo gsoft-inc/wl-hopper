@@ -15,6 +15,7 @@ const config: Config = {
             prefix: "<rootDir>"
         })
     },
+    cacheDirectory: "./node_modules/.cache/jest",
     setupFilesAfterEnv: ["<rootDir>/setupTests.ts"]
 };
 

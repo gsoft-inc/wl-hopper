@@ -7,6 +7,7 @@ const config: Config = {
     transform: {
         "^.+\\.(js|ts|tsx)$": ["@swc/jest", swcConfig as Record<string, unknown>]
     },
+    cacheDirectory: "./node_modules/.cache/jest",
     extensionsToTreatAsEsm: [".ts"]
 };
 
