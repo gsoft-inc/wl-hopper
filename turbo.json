@@ -13,7 +13,7 @@
             "outputs": ["node_modules/.cache/eslint"]
         },
         "eslint": {
-            "outputs": ["node_modules/.cache/eslint"]
+            "outputs": ["node_modules/.cache/eslint", ".next/cache"]
         },
         "stylelint": {
             "outputs": ["node_modules/.cache/stylelint"]
