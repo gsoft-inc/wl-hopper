@@ -2,10 +2,10 @@
     "extends": "@workleap/typescript-configs/monorepo-workspace",
     "exclude": ["**/dist/**", "node_modules", "packages", "apps"],
     "include": ["**/*", ".storybook/**/*"],
-    "incremental": true,
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "compilerOptions": {
         "baseUrl": ".",
+        "incremental": true,
+        "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
         "paths": {
             "@hopper-ui/components": ["./packages/components/src/index.ts"],
             "@hopper-ui/styled-system": ["./packages/styled-system/src/index.ts"],

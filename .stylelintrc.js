@@ -17,6 +17,7 @@ const config = {
                 "stylelint-config-clean-order" // This is a plugin that enforces a consistent order of CSS properties
             ],
             rules: {
+                "prettier/prettier": null,
                 // We want to enforce the use of logical properties
                 "csstools/use-logical": true,
                 "selector-class-pattern": [

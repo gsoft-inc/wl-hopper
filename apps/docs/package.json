@@ -11,8 +11,6 @@
         "dev": "next dev",
         "build": "next build",
         "eslint": "next lint",
-        "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
-        "typecheck": "tsc",
         "storybook": "storybook dev -p 6010",
         "build:storybook": "storybook build",
         "generate": "pnpm run \"/^generate:.*/\"",

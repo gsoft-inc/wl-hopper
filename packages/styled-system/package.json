@@ -37,7 +37,7 @@
         "dev": "tsup --config ./tsup.dev.ts",
         "build": "tsup --config ./tsup.build.ts",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
-        "stylelint": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
+        "stylelint": "stylelint \"**/*.css\" --allow-empty-input --config ../../.stylelintrc.js --cache --cache-location node_modules/.cache/stylelint --max-warnings=0",
         "typecheck": "tsc",
         "test": "jest"
     },
