@@ -1,0 +1,65 @@
+.hop-BaseModal {
+    isolation: isolate;
+    position: fixed;
+    inset: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: 100%;
+    block-size: 100%;
+
+    opacity: 0;
+    background-color: rgb(60 60 60 / 60%);
+
+    transition: opacity var(--hop-easing-duration-2) var(--hop-easing-productive);
+}
+
+.hop-BaseModal__modal {
+    display: flex;
+    flex-direction: column;
+
+    max-inline-size: 90vw;
+    max-block-size: 90vw;
+
+    background: var(--hop-neutral-surface);
+    border: 0.0625rem solid var(--hop-neutral-border-weak);
+    border-radius: var(--hop-shape-rounded-md);
+
+    transition: opacity translate var(--hop-easing-duration-2) var(--hop-easing-productive);
+}
+
+.hop-BaseModal--sm .hop-BaseModal__modal {
+    inline-size: 28.75rem;
+}
+
+.hop-BaseModal--md .hop-BaseModal__modal {
+    inline-size: 36.5rem;
+}
+
+.hop-BaseModal--lg .hop-BaseModal__modal {
+    inline-size: 41.5rem;
+}
+
+.hop-BaseModal--xl .hop-BaseModal__modal {
+    inline-size: 50rem;
+}
+
+.hop-BaseModal--fullscreen .hop-BaseModal__modal {
+    block-size: calc(100% - 2.5rem);
+}
+
+.hop-BaseModal--fullscreentakeover .hop-BaseModal__modal {
+    block-size: 100%;
+    border-radius: 0;
+}
+
+.hop-BaseModal--fullscreen .hop-BaseModal__modal,
+.hop-BaseModal--fullscreentakeover .hop-BaseModal__modal {
+    max-inline-size: none;
+    max-block-size: none;
+}

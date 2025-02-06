@@ -21,6 +21,7 @@ export * from "./layout/index.ts";
 export * from "./Link/index.ts";
 export * from "./ListBox/index.ts";
 export * from "./ListBoxSection/index.ts";
+export * from "./Modal/index.ts";
 export * from "./overlays/Popover/index.ts";
 export * from "./radio/index.ts";
 export * from "./SegmentedControl/index.ts";

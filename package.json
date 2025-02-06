@@ -99,5 +99,5 @@
         "url": "https://github.com/gsoft-inc/wl-hopper/issues"
     },
     "homepage": "https://github.com/gsoft-inc/wl-hopper#readme",
-    "packageManager": "pnpm@10.0.0"
+    "packageManager": "pnpm@10.2.0"
 }
