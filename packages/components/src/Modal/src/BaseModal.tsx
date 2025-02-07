@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
 import { ModalOverlay, type ModalOverlayProps, type ModalRenderProps, Modal as RACModal, useContextProps } from "react-aria-components";
 
+import { HopperProvider } from "../../HopperProvider/index.ts";
 import { cssModule } from "../../utils/index.ts";
 
 import { BaseModalContext } from "./BaseModalContext.ts";
@@ -27,6 +28,7 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
         style,
         slot,
         size = "md",
+        children,
         ...otherProps
     } = ownProps;
 
@@ -55,7 +57,11 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
             slot={slot}
             {...otherProps}
         >
-            <RACModal ref={ref} className={styles["hop-BaseModal__modal"]} />
+            <HopperProvider withCssVariables={false}>
+                <RACModal ref={ref} className={styles["hop-BaseModal__modal"]} >
+                    {children}
+                </RACModal>
+            </HopperProvider>
         </ModalOverlay>
     );
 };

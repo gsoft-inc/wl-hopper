@@ -43,6 +43,7 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
         isDismissible,
         isKeyboardDismissDisabled,
         size = "md",
+        children: childrenProp,
         ...otherProps
     } = ownProps;
 
@@ -62,7 +63,7 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
         ...stylingProps.style
     };
 
-    const children = composeRenderProps(otherProps.children, prev => {
+    const children = composeRenderProps(childrenProp, prev => {
         return prev;
     });
 
