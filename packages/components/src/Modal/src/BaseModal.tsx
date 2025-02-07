@@ -1,7 +1,7 @@
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
-import { ModalOverlay, type ModalOverlayProps, Modal as RACModal, useContextProps } from "react-aria-components";
+import { ModalOverlay, type ModalOverlayProps, type ModalRenderProps, Modal as RACModal, useContextProps } from "react-aria-components";
 
 import { cssModule } from "../../utils/index.ts";
 
@@ -30,12 +30,14 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
         ...otherProps
     } = ownProps;
 
-    const classNames = clsx(
+    const classNames = (renderProps: ModalRenderProps) => clsx(
         GlobalBaseModalCssSelector,
         cssModule(
             styles,
             GlobalBaseModalCssSelector,
-            size.toLowerCase()
+            size.toLowerCase(),
+            renderProps.isEntering && "entering",
+            renderProps.isExiting && "exiting"
         ),
         stylingProps.className,
         className
@@ -48,19 +50,18 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
 
     return (
         <ModalOverlay
-            ref={ref}
             className={classNames}
             style={mergedStyles}
             slot={slot}
             {...otherProps}
         >
-            <RACModal className={styles["hop-BaseModal__modal"]} />
+            <RACModal ref={ref} className={styles["hop-BaseModal__modal"]} />
         </ModalOverlay>
     );
 };
 
 /**
- * Modals focus the user’s attention exclusively on one task or piece of information via a window that sits on top of the page content.
+ * A BaseModal is an overlay element which blocks interaction with elements outside it.
  *
  * [View Documentation](https://hopper.workleap.design/components/Modal)
  */

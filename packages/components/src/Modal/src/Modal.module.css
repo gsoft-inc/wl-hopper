@@ -1,3 +1,36 @@
-.hop-Modal  {
-   inline-size: 100%;
+.hop-Modal {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    box-sizing: border-box;
+    max-block-size: inherit;
+
+    border-radius: inherit;
+    outline: none;
+}
+
+.hop-Modal__image {
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+}
+
+.hop-Modal__heading {
+    flex-grow: 1;
+    margin-block: 0;
+}
+
+.hop-Modal__content {
+    overflow-y: auto;
+    flex-grow: 1;
+
+    @media (height < 25rem) {
+        overflow-y: visible;
+    }
+}
+
+.hop-Modal__footer {
+    flex-grow: 0;
 }

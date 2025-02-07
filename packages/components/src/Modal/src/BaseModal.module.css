@@ -13,10 +13,27 @@
     inline-size: 100%;
     block-size: 100%;
 
-    opacity: 0;
-    background-color: rgb(60 60 60 / 60%);
+    /* hop-rock-800 with a 60% transparency */
+    background-color: #3c3c3c99;
 
     transition: opacity var(--hop-easing-duration-2) var(--hop-easing-productive);
+}
+
+.hop-BaseModal--entering {
+    opacity: 0;
+
+    .hop-BaseModal__modal {
+        transform: translateY(1.25rem);
+        opacity: 0;
+    }
+}
+
+.hop-BaseModal--exiting {
+    opacity: 0;
+
+    .hop-BaseModal__modal {
+        opacity: 0;
+    }
 }
 
 .hop-BaseModal__modal {
@@ -29,8 +46,9 @@
     background: var(--hop-neutral-surface);
     border: 0.0625rem solid var(--hop-neutral-border-weak);
     border-radius: var(--hop-shape-rounded-md);
+    outline: 0.0625rem solid transparent;
 
-    transition: opacity translate var(--hop-easing-duration-2) var(--hop-easing-productive);
+    transition: opacity var(--hop-easing-duration-2) var(--hop-easing-productive), transform var(--hop-easing-duration-2) var(--hop-easing-productive);
 }
 
 .hop-BaseModal--sm .hop-BaseModal__modal {

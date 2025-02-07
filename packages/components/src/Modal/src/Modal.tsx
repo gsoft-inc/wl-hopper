@@ -1,11 +1,13 @@
 import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
-import { ButtonContext, composeRenderProps, Dialog, type DialogProps, DialogTrigger, HeaderContext, HeadingContext, OverlayTriggerStateContext, Provider, useContextProps } from "react-aria-components";
+import { composeRenderProps, Dialog, type DialogProps, DialogTrigger, OverlayTriggerStateContext, Provider, useContextProps } from "react-aria-components";
 
-import { ButtonGroupContext } from "../../buttons/index.ts";
+import { ButtonContext, ButtonGroupContext } from "../../buttons/index.ts";
+import { HeaderContext } from "../../Header/index.ts";
 import { ImageContext } from "../../Image/index.ts";
 import { ContentContext, FooterContext } from "../../layout/index.ts";
+import { HeadingContext } from "../../typography/index.ts";
 import { cssModule } from "../../utils/index.ts";
 
 import { BaseModal } from "./BaseModal.tsx";
@@ -60,6 +62,10 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
         ...stylingProps.style
     };
 
+    const children = composeRenderProps(otherProps.children, prev => {
+        return prev;
+    });
+
     return (
         <BaseModal
             size={size}
@@ -67,13 +73,13 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
             isKeyboardDismissDisabled={isKeyboardDismissDisabled}
         >
             <Dialog
+                {...otherProps}
                 ref={ref}
                 className={classNames}
                 style={mergedStyles}
                 slot={slot}
-                {...otherProps}
             >
-                {composeRenderProps(otherProps.children, children => (
+                {renderProps => (
                     <OverlayTriggerStateContext.Provider value={null}>
                         <Provider
                             values={[
@@ -100,10 +106,10 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
                                 }]
                             ]}
                         >
-                            {children}
+                            {children(renderProps)}
                         </Provider>
                     </OverlayTriggerStateContext.Provider>
-                ))}
+                )}
             </Dialog>
         </BaseModal>
     );
