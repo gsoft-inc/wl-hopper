@@ -30,7 +30,7 @@ export interface ModalProps extends StyledComponentProps<DialogProps> {
      * The size of the modal.
      * @default "md"
      */
-    size?: ResponsiveProp<"sm" | "md" | "lg" | "xl">;
+    size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
     /**
      * Whether the modal is open.
      */
@@ -60,7 +60,7 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
         cssModule(
             styles,
             GlobalModalCssSelector,
-            size
+            size.toLowerCase()
         ),
         stylingProps.className,
         className

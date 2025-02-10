@@ -68,10 +68,12 @@
     /* Fullscreen */
     --hop-BaseModal__modal-fullscreen-max-width: none;
     --hop-BaseModal__modal-fullscreen-max-height: none;
-    --hop-BaseModal__modal-fullscreen-height: calc(100% - 2.5rem);
+    --hop-BaseModal__modal-fullscreen-width: calc(100vw - 2.5rem);
+    --hop-BaseModal__modal-fullscreen-height: calc(100vh - 2.5rem);
 
     /* Fullscreentakeover */
-    --hop-BaseModal__modal-fullscreentakeover-height: 100%;
+    --hop-BaseModal__modal-fullscreentakeover-width: 100vw;
+    --hop-BaseModal__modal-fullscreentakeover-height: 100vh;
     --hop-BaseModal__modal-fullscreentakeover-border-radius: 0;
 
     /* Internal variables */
@@ -137,10 +139,12 @@
 }
 
 .hop-BaseModal--fullscreen .hop-BaseModal__modal {
+    --width: var(--hop-BaseModal__modal-fullscreen-width);
     --height: var(--hop-BaseModal__modal-fullscreen-height);
 }
 
 .hop-BaseModal--fullscreentakeover .hop-BaseModal__modal {
+    --width: var(--hop-BaseModal__modal-fullscreentakeover-width);
     --height: var(--hop-BaseModal__modal-fullscreentakeover-height);
     --border-radius: var(--hop-BaseModal__modal-fullscreentakeover-border-radius);
 }

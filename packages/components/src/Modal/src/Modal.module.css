@@ -107,10 +107,15 @@ img.hop-Modal__image {
 }
 
 .hop-Modal__container-footer-button {
-    margin-inline-start: auto;
+    --hop-Modal__container-footer-button-margin-inline-start: auto;
+
+    margin-inline-start: var(--hop-Modal__container-footer-button-margin-inline-start);
 }
 
 .hop-Modal__container-footer-button-group {
-    flex-wrap: nowrap;
-    margin-inline-start: auto;
+    --hop-Modal__container-footer-button-group-flex-wrap: nowrap;
+    --hop-Modal__container-footer-button-group-margin-inline-start: auto;
+
+    flex-wrap: var(--hop-Modal__container-footer-button-group-flex-wrap);
+    margin-inline-start: var(--hop-Modal__container-footer-button-group-margin-inline-start);
 }

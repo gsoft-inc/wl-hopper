@@ -205,3 +205,38 @@ export const everything = {
         </ModalTrigger>
     )
 } satisfies Story;
+
+export const Small = {
+    ...everything,
+    args: {
+        size: "sm"
+    }
+};
+
+export const Large = {
+    ...everything,
+    args: {
+        size: "lg"
+    }
+};
+
+export const ExtraLarge = {
+    ...everything,
+    args: {
+        size: "xl"
+    }
+};
+
+export const Fullscreen = {
+    ...everything,
+    args: {
+        size: "fullscreen"
+    }
+};
+
+export const FullscreenTakeover = {
+    ...everything,
+    args: {
+        size: "fullscreenTakeover"
+    }
+};
