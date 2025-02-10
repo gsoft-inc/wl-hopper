@@ -51,12 +51,12 @@ img.hop-Modal-image {
     }
 }
 
-.hop-Modal-container {
+.hop-Modal__container {
     grid-area: container;
     padding: var(--hop-Modal-padding);
 }
 
-.hop-Modal-container-header {
+.hop-Modal__container-header {
     --hop-Modal-container-header-display: flex;
     --hop-Modal-container-header-align-items: center;
     --hop-Modal-container-header-justify-content: space-between;
@@ -68,7 +68,7 @@ img.hop-Modal-image {
     margin-block-end: var(--hop-Modal-container-header-margin-bottom);
 }
 
-.hop-Modal-container-footer {
+.hop-Modal__container-footer {
     --hop-Modal-container-footer-display: flex;
     --hop-Modal-container-footer-align-items: center;
     --hop-Modal-container-footer-justify-content: space-between;
