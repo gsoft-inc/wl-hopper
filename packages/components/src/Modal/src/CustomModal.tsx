@@ -1,0 +1,107 @@
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import clsx from "clsx";
+import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
+import { composeRenderProps, Dialog, type DialogProps, DialogTrigger, OverlayTriggerStateContext, useContextProps } from "react-aria-components";
+
+import { cssModule } from "../../utils/index.ts";
+
+import { BaseModal } from "./BaseModal.tsx";
+import { CustomModalContext } from "./CustomModalContext.ts";
+
+import styles from "./CustomModal.module.css";
+
+export const GlobalCustomModalCssSelector = "hop-CustomModal";
+
+export interface CustomModalProps extends StyledComponentProps<DialogProps> {
+    /**
+     * Whether the CustomModal is dismissible.
+     */
+    isDismissible?: boolean;
+    /**
+     * Whether pressing the escape key to close the dialog should be disabled.
+     */
+    isKeyboardDismissDisabled?: boolean;
+    /**
+     * The size of the CustomModal.
+     * @default "md"
+     */
+    size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
+    /**
+     * Whether the CustomModal is open.
+     */
+    isOpen?: boolean;
+}
+
+const CustomModal = (props: CustomModalProps, ref: ForwardedRef<HTMLDivElement>) => {
+    [props, ref] = useContextProps(props, ref, CustomModalContext);
+    const { stylingProps, ...ownProps } = useStyledSystem(props);
+
+    const {
+        className,
+        style,
+        slot,
+        isDismissible,
+        isKeyboardDismissDisabled,
+        size: sizeProp,
+        isOpen,
+        children: childrenProp,
+        ...otherProps
+    } = ownProps;
+
+    const size = useResponsiveValue(sizeProp) ?? "md";
+
+    const classNames = clsx(
+        GlobalCustomModalCssSelector,
+        cssModule(
+            styles,
+            GlobalCustomModalCssSelector,
+            size.toLowerCase()
+        ),
+        stylingProps.className,
+        className
+    );
+
+    const mergedStyles: CSSProperties = {
+        ...style,
+        ...stylingProps.style
+    };
+
+    const children = composeRenderProps(childrenProp, prev => {
+        return prev;
+    });
+
+    return (
+        <BaseModal
+            isOpen={isOpen}
+            size={size}
+            isDismissable={isDismissible}
+            isKeyboardDismissDisabled={isKeyboardDismissDisabled}
+        >
+            <Dialog
+                {...otherProps}
+                ref={ref}
+                className={classNames}
+                style={mergedStyles}
+                slot={slot}
+            >
+                {renderProps => (
+                    <OverlayTriggerStateContext.Provider value={null}>
+                        {children(renderProps)}
+                    </OverlayTriggerStateContext.Provider>
+                )}
+            </Dialog>
+        </BaseModal>
+    );
+};
+
+/**
+ * A CustomModal is a Modal with a custom layout.
+ *
+ * [View Documentation](https://hopper.workleap.design/components/Modal)
+ */
+const _CustomModal = forwardRef<HTMLDivElement, CustomModalProps>(CustomModal);
+_CustomModal.displayName = "CustomModal";
+
+export { _CustomModal as CustomModal };
+
+export const CustomModalTrigger = DialogTrigger;
