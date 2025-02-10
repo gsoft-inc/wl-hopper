@@ -1,36 +1,116 @@
 .hop-Modal {
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    --hop-Modal-position: relative;
+    --hop-Modal-overflow: auto;
+    --hop-Modal-display: inline-grid;
+    --hop-Modal-box-sizing: border-box;
+    --hop-Modal-outline: none;
+    --hop-Modal-padding: var(--hop-space-inset-lg);
+    --hop-Modal-grid-template-areas:
+        "image"
+        "container";
 
-    box-sizing: border-box;
+    /* Large screen */
+    --hop-Modal-large-grid-template:
+        "image container" 1fr / auto 1fr;
+
+    position: var(--hop-Modal-position);
+
+    overflow: var(--hop-Modal-overflow);
+    display: var(--hop-Modal-display);
+    grid-template-areas: var(--hop-Modal-grid-template-areas);
+    grid-template-rows: auto 1fr;
+
+    box-sizing: var(--hop-Modal-box-sizing);
     max-block-size: inherit;
 
     border-radius: inherit;
-    outline: none;
+    outline: var(--hop-Modal-outline);
+
+    @media screen and (min-width: 49rem) {
+        grid-template: var(--hop-Modal-large-grid-template);
+    }
 }
 
-.hop-Modal__image {
-    inline-size: 100%;
-    block-size: auto;
-    object-fit: cover;
+img.hop-Modal-image {
+    --hop-Modal-image-inline-size: 100%;
+    --hop-Modal-image-block-size: 12rem;
+    --hop-Modal-image-object-fit: cover;
+
+    /* Large screen */
+    --hop-Modal-large-image-block-size: 100%;
+    --hop-Modal-large-image-inline-size: 16rem;
+
+    grid-area: image;
+    inline-size: var(--hop-Modal-image-inline-size);
+    block-size: var(--hop-Modal-image-block-size);
+    object-fit: var(--hop-Modal-image-object-fit);
+
+    @media screen and (min-width: 49rem) {
+        inline-size: var(--hop-Modal-large-image-inline-size);
+        block-size: var(--hop-Modal-large-image-block-size);
+    }
 }
 
-.hop-Modal__heading {
-    flex-grow: 1;
-    margin-block: 0;
+.hop-Modal-container {
+    grid-area: container;
+    padding: var(--hop-Modal-padding);
 }
 
-.hop-Modal__content {
+.hop-Modal-container-header {
+    --hop-Modal-container-header-display: flex;
+    --hop-Modal-container-header-align-items: center;
+    --hop-Modal-container-header-justify-content: space-between;
+    --hop-Modal-container-header-margin-bottom: var(--hop-space-inset-lg);
+
+    display: var(--hop-Modal-container-header-display);
+    align-items: var(--hop-Modal-container-header-align-items);
+    justify-content: var(--hop-Modal-container-header-justify-content);
+    margin-block-end: var(--hop-Modal-container-header-margin-bottom);
+}
+
+.hop-Modal-container-footer {
+    --hop-Modal-container-footer-display: flex;
+    --hop-Modal-container-footer-align-items: center;
+    --hop-Modal-container-footer-justify-content: space-between;
+    --hop-Modal-container-footer-margin-top: var(--hop-space-inset-lg);
+
+    display: var(--hop-Modal-container-footer-display);
+    align-items: var(--hop-Modal-container-footer-align-items);
+    justify-content: var(--hop-Modal-container-footer-justify-content);
+    margin-block-start: var(--hop-Modal-container-footer-margin-top);
+}
+
+/* If there's a close button, add right padding to the header */
+.hop-Modal:has(.hop-Modal__close)  .hop-Modal-container-header {
+    padding-inline-end: calc(var(--hop-Modal-padding) + 0.3rem);
+}
+
+/* On a small screen, if there's an image and a close button, remove the right padding */
+@media screen and (max-width: 48rem)  {
+    .hop-Modal:has(.hop-Modal__close):has(.hop-Modal-image)  .hop-Modal-container-header {
+        padding-inline-end: 0;
+    }
+}
+
+.hop-Modal__close {
+    position: absolute;
+    inset-block-start: var(--hop-Modal-padding);
+    inset-inline-end: var(--hop-Modal-padding);;
+}
+
+.hop-Modal__container-body-content {
     overflow-y: auto;
-    flex-grow: 1;
 
-    @media (height < 25rem) {
+    @media (max-height: 24rem) {
         overflow-y: visible;
     }
 }
 
-.hop-Modal__footer {
-    flex-grow: 0;
+.hop-Modal__container-footer-button {
+    margin-inline-start: auto;
+}
+
+.hop-Modal__container-footer-button-group {
+    flex-wrap: nowrap;
+    margin-inline-start: auto;
 }

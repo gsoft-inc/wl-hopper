@@ -5,7 +5,7 @@ import { useContextProps } from "react-aria-components";
 
 import { type AccessibleSlotProps, type BaseComponentDOMProps, cssModule } from "../../utils/index.ts";
 
-import { ImageContext } from "./ImageContext.ts";
+import { ImageContext, type ImageContextValue } from "./ImageContext.ts";
 
 import styles from "./Image.module.css";
 
@@ -28,6 +28,7 @@ export interface ImageProps extends
 
 function Image(props: ImageProps, ref: ForwardedRef<HTMLImageElement>) {
     [props, ref] = useContextProps(props, ref, ImageContext);
+    const { isHidden } = props as ImageContextValue;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
@@ -65,6 +66,10 @@ function Image(props: ImageProps, ref: ForwardedRef<HTMLImageElement>) {
     };
 
     const srcValue = useResponsiveValue(src);
+
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <img

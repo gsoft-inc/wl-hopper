@@ -90,6 +90,9 @@ export type NecessityIndicator = "asterisk" | "label";
 export type InputGroupVariant = "borderless" | "bordered";
 export type MenuAlignment = "start" | "end";
 export type MenuDirection = "top" | "bottom";
+export interface Hiddable {
+    isHidden?: boolean;
+}
 
 export interface FieldProps {
     /**

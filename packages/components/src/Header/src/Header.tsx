@@ -5,7 +5,7 @@ import { Header as RACHeader, useContextProps } from "react-aria-components";
 
 import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
-import { HeaderContext } from "./HeaderContext.ts";
+import { HeaderContext, type HeaderContextValue } from "./HeaderContext.ts";
 
 export const GlobalHeaderCssSelector = "hop-Header";
 
@@ -13,6 +13,7 @@ export interface HeaderProps extends StyledComponentProps<BaseComponentDOMProps>
 
 function Header(props: HeaderProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, HeaderContext);
+    const { isHidden } = props as HeaderContextValue;
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -32,6 +33,10 @@ function Header(props: HeaderProps, ref: ForwardedRef<HTMLElement>) {
         ...stylingProps.style,
         ...style
     };
+
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <RACHeader

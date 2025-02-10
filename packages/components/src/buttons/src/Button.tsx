@@ -30,7 +30,7 @@ import {
 } from "../../utils/index.ts";
 import type { ButtonSize, ButtonVariant } from "../utils/index.ts";
 
-import { ButtonContext } from "./ButtonContext.ts";
+import { ButtonContext, type ButtonContextValue } from "./ButtonContext.ts";
 
 import styles from "./Button.module.css";
 
@@ -64,6 +64,7 @@ export interface ButtonProps extends StyledComponentProps<Omit<RACButtonProps, "
 function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     [props, ref] = useContextProps(props, ref, ButtonContext);
     props = useFormProps(props);
+    const { isHidden } = props as ButtonContextValue;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const stringFormatter = useLocalizedString();
@@ -113,6 +114,10 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
 
     const { className: spinnerClassName, ...otherSpinnerProps } = spinnerProps ?? {};
     const spinnerClassNames = clsx(styles["hop-Button__Spinner"], spinnerClassName);
+
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <SlotProvider

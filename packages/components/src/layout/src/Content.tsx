@@ -5,7 +5,7 @@ import { useContextProps } from "react-aria-components";
 
 import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
-import { ContentContext } from "./ContentContext.ts";
+import { ContentContext, type ContentContextValue } from "./ContentContext.ts";
 
 export const GlobalContentCssSelector = "hop-Content";
 
@@ -14,6 +14,7 @@ export interface ContentProps extends StyledComponentProps<BaseComponentDOMProps
 
 function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, ContentContext);
+    const { isHidden } = props as ContentContextValue;
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -33,6 +34,10 @@ function Content(props: ContentProps, ref: ForwardedRef<HTMLDivElement>) {
         ...stylingProps.style,
         ...style
     };
+
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <div

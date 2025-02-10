@@ -20,6 +20,7 @@ const config = {
                 "prettier/prettier": null,
                 // We want to enforce the use of logical properties
                 "csstools/use-logical": true,
+                "media-feature-range-notation": "prefix",
                 "selector-class-pattern": [
                     /** Selector that ensures our classNames have the pattern hop-ComponentName__element-name--modifier-name */
                     "^hop-([A-Z][A-z0-9]+)([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",

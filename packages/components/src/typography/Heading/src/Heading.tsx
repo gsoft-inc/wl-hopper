@@ -8,7 +8,7 @@ import { Heading as RACHeading, useContextProps, type HeadingProps as RACHeading
 
 import { cssModule } from "../../../utils/index.ts";
 
-import { HeadingContext } from "./HeadingContext.ts";
+import { HeadingContext, type HeadingContextValue } from "./HeadingContext.ts";
 
 import styles from "./Heading.module.css";
 
@@ -28,6 +28,7 @@ function Heading(props: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) {
     [props, ref] = useContextProps(props, ref, HeadingContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const { className, size: sizeProp, children, style, ...otherProps } = ownProps;
+    const { isHidden } = props as HeadingContextValue;
 
     const size = useResponsiveValue(sizeProp ?? "md");
 
@@ -46,6 +47,10 @@ function Heading(props: HeadingProps, ref: ForwardedRef<HTMLHeadingElement>) {
         ...stylingProps.style,
         ...style
     };
+
+    if (isHidden) {
+        return;
+    }
 
     return (
         <RACHeading

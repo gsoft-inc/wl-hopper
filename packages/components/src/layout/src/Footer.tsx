@@ -5,7 +5,7 @@ import { useContextProps } from "react-aria-components";
 
 import type { BaseComponentDOMProps } from "../../utils/index.ts";
 
-import { FooterContext } from "./FooterContext.ts";
+import { FooterContext, type FooterContextValue } from "./FooterContext.ts";
 
 export const GlobalFooterCssSelector = "hop-Footer";
 
@@ -13,6 +13,7 @@ export interface FooterProps extends StyledComponentProps<BaseComponentDOMProps>
 
 function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, FooterContext);
+    const { isHidden } = props as FooterContextValue;
     const { stylingProps, ...ownProps } = useStyledSystem(props);
     const {
         className,
@@ -32,6 +33,10 @@ function Footer(props: FooterProps, ref: ForwardedRef<HTMLElement>) {
         ...stylingProps.style,
         ...style
     };
+
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <footer

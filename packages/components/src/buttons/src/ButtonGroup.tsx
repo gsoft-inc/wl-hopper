@@ -9,7 +9,7 @@ import { SlotProvider, cssModule, type Align } from "../../utils/index.ts";
 import type { ButtonSize } from "../utils/index.ts";
 
 import { ButtonContext } from "./ButtonContext.ts";
-import { ButtonGroupContext } from "./ButtonGroupContext.ts";
+import { ButtonGroupContext, type ButtonGroupContextValue } from "./ButtonGroupContext.ts";
 import { LinkButtonContext } from "./LinkButtonContext.ts";
 
 import styles from "./ButtonGroup.module.css";
@@ -50,6 +50,7 @@ export const GlobalButtonGroupCssSelector = "hop-ButtonGroup";
 
 function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>) {
     [props, ref] = useContextProps(props, ref, ButtonGroupContext);
+    const { isHidden } = props as ButtonGroupContextValue;
 
     const { stylingProps, ...ownProps } = useStyledSystem(props);
 
@@ -91,6 +92,10 @@ function ButtonGroup(props: ButtonGroupProps, ref: ForwardedRef<HTMLDivElement>)
         ...stylingProps.style,
         ...styleProp
     };
+
+    if (isHidden) {
+        return null;
+    }
 
     return (
         <div
