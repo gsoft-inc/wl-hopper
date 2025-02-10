@@ -31,7 +31,13 @@
     }
 }
 
-img.hop-Modal-image {
+.hop-Modal__close {
+    position: absolute;
+    inset-block-start: var(--hop-Modal-padding);
+    inset-inline-end: var(--hop-Modal-padding);;
+}
+
+img.hop-Modal__image {
     --hop-Modal-image-inline-size: 100%;
     --hop-Modal-image-block-size: 12rem;
     --hop-Modal-image-object-fit: cover;
@@ -81,7 +87,7 @@ img.hop-Modal-image {
 }
 
 /* If there's a close button, add right padding to the header */
-.hop-Modal:has(.hop-Modal__close)  .hop-Modal-container-header {
+.hop-Modal:has(.hop-Modal__close)  .hop-Modal__container-header {
     padding-inline-end: calc(var(--hop-Modal-padding) + 0.3rem);
 }
 
@@ -90,12 +96,6 @@ img.hop-Modal-image {
     .hop-Modal:has(.hop-Modal__close):has(.hop-Modal-image)  .hop-Modal-container-header {
         padding-inline-end: 0;
     }
-}
-
-.hop-Modal__close {
-    position: absolute;
-    inset-block-start: var(--hop-Modal-padding);
-    inset-inline-end: var(--hop-Modal-padding);;
 }
 
 .hop-Modal__container-body-content {
