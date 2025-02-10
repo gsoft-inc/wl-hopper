@@ -1,14 +1,14 @@
-import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
 import { composeRenderProps, Dialog, type DialogProps, DialogTrigger, OverlayTriggerStateContext, Provider, useContextProps } from "react-aria-components";
 
-import { ButtonContext, ButtonGroupContext } from "../../buttons/index.ts";
+import { ButtonContext, ButtonGroupContext, CloseButton } from "../../buttons/index.ts";
 import { HeaderContext } from "../../Header/index.ts";
 import { ImageContext } from "../../Image/index.ts";
 import { ContentContext, FooterContext } from "../../layout/index.ts";
 import { HeadingContext } from "../../typography/index.ts";
-import { cssModule } from "../../utils/index.ts";
+import { cssModule, useSlot } from "../../utils/index.ts";
 
 import { BaseModal } from "./BaseModal.tsx";
 import { ModalContext } from "./ModalContext.ts";
@@ -30,29 +30,37 @@ export interface ModalProps extends StyledComponentProps<DialogProps> {
      * The size of the modal.
      * @default "md"
      */
-    size?: "sm" | "md" | "lg" | "xl";
+    size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
+    /**
+     * Whether the modal is open.
+     */
+    isOpen?: boolean;
 }
 
 const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
     [props, ref] = useContextProps(props, ref, ModalContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+    const [imageRef, hasImage] = useSlot();
     const {
         className,
         style,
         slot,
         isDismissible,
         isKeyboardDismissDisabled,
-        size = "md",
+        size: sizeProp,
+        isOpen,
         children: childrenProp,
         ...otherProps
     } = ownProps;
+
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = clsx(
         GlobalModalCssSelector,
         cssModule(
             styles,
             GlobalModalCssSelector,
-            size
+            size.toLowerCase()
         ),
         stylingProps.className,
         className
@@ -69,6 +77,8 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
 
     return (
         <BaseModal
+            hasImage={hasImage}
+            isOpen={isOpen}
             size={size}
             isDismissable={isDismissible}
             isKeyboardDismissDisabled={isKeyboardDismissDisabled}
@@ -82,13 +92,16 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
             >
                 {renderProps => (
                     <OverlayTriggerStateContext.Provider value={null}>
+                        {isDismissible && <CloseButton className={styles["hop-Modal__close"]} />}
                         <Provider
                             values={[
                                 [ImageContext, {
-                                    className: styles["hop-Modal__image"]
+                                    className: styles["hop-Modal__image"],
+                                    ref: imageRef
                                 }],
                                 [HeadingContext, {
-                                    className: styles["hop-Modal__heading"]
+                                    className: styles["hop-Modal__heading"],
+                                    slot: "title"
                                 }],
                                 [HeaderContext, {
                                     className: styles["hop-Modal__header"]
@@ -103,7 +116,7 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
                                     className: styles["hop-Modal__button"]
                                 }],
                                 [ButtonGroupContext, {
-                                    className: styles["hop-Modal__buttonGroup"]
+                                    className: styles["hop-Modal__button-group"]
                                 }]
                             ]}
                         >

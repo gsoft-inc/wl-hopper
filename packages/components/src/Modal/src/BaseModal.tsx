@@ -1,4 +1,4 @@
-import { type StyledComponentProps, useStyledSystem } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
 import { ModalOverlay, type ModalOverlayProps, type ModalRenderProps, Modal as RACModal, useContextProps } from "react-aria-components";
@@ -17,7 +17,11 @@ export interface BaseModalProps extends StyledComponentProps<ModalOverlayProps> 
      * The size of the modal.
      * @default "md"
      */
-    size?: "sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover";
+    size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
+    /**
+     * Whether the modal has an image.
+     */
+    hasImage?: boolean;
 }
 
 const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -27,10 +31,13 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
         className,
         style,
         slot,
-        size = "md",
+        size: sizeProp,
         children,
+        hasImage,
         ...otherProps
     } = ownProps;
+
+    const size = useResponsiveValue(sizeProp) ?? "md";
 
     const classNames = (renderProps: ModalRenderProps) => clsx(
         GlobalBaseModalCssSelector,
@@ -39,7 +46,8 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
             GlobalBaseModalCssSelector,
             size.toLowerCase(),
             renderProps.isEntering && "entering",
-            renderProps.isExiting && "exiting"
+            renderProps.isExiting && "exiting",
+            hasImage && "image"
         ),
         stylingProps.className,
         className

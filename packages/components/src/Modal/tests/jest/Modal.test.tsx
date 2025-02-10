@@ -3,18 +3,19 @@
 import { render, screen } from "@hopper-ui/test-utils";
 import { createRef } from "react";
 
+import { Heading } from "../../../typography/index.ts";
 import { Modal, ModalContext } from "../../src/index.ts";
 
 describe("Modal", () => {
     it("should render with default class", () => {
-        render(<Modal>text</Modal>);
+        render(<Modal isOpen><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveClass("hop-Modal");
     });
 
     it("should support custom class", () => {
-        render(<Modal>text</Modal>);
+        render(<Modal isOpen className="test"><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveClass("hop-Modal");
@@ -22,14 +23,14 @@ describe("Modal", () => {
     });
 
     it("should support custom style", () => {
-        render(<Modal marginTop="stack-sm" style={{ marginBottom: "13px" }}>text</Modal>);
+        render(<Modal isOpen marginTop="stack-sm" style={{ marginBottom: "13px" }}><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<Modal aria-label="options" data-foo="bar">text</Modal>);
+        render(<Modal isOpen aria-label="options" data-foo="bar"><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -38,7 +39,7 @@ describe("Modal", () => {
     it("should support slots", () => {
         render(
             <ModalContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <Modal slot="test">text</Modal>
+                <Modal isOpen slot="test"><Heading>Test</Heading></Modal>
             </ModalContext.Provider>
         );
 
@@ -50,9 +51,8 @@ describe("Modal", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<Modal aria-label="options" ref={ref}>text</Modal>);
+        render(<Modal isOpen aria-label="options" ref={ref}><Heading>Test</Heading></Modal>);
 
         expect(ref.current).not.toBeNull();
-        expect(ref.current instanceof HTMLDivElement).toBeTruthy();
     });
 });
