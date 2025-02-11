@@ -17,9 +17,7 @@ import styles from "./Modal.module.css";
 
 export const GlobalModalCssSelector = "hop-Modal";
 
-export interface ModalProps extends
-    StyledComponentProps<DialogProps>,
-    Pick<ModalOverlayProps, "isOpen" | "onOpenChange" | "defaultOpen"> {
+export interface ModalProps extends StyledComponentProps<DialogProps> {
     /**
      * Whether the Modal is dismissible.
      * @default true
@@ -34,6 +32,10 @@ export interface ModalProps extends
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
+    /**
+     * The props of the overlay
+     */
+    overlayProps?: ModalOverlayProps;
 }
 
 const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -47,9 +49,7 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
         isDismissible = true,
         isKeyboardDismissDisabled,
         size: sizeProp,
-        isOpen,
-        onOpenChange,
-        defaultOpen,
+        overlayProps,
         children: childrenProp,
         ...otherProps
     } = ownProps;
@@ -78,10 +78,8 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
 
     return (
         <BaseModal
+            {...overlayProps}
             hasImage={hasImage}
-            defaultOpen={defaultOpen}
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
             size={size}
             isDismissable={isDismissible}
             isKeyboardDismissDisabled={isKeyboardDismissDisabled}

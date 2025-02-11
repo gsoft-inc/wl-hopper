@@ -23,7 +23,9 @@ const meta = {
         ...hopperParameters({ colorSchemes: ["dark"] })
     },
     args: {
-        isOpen: true
+        overlayProps: {
+            isOpen: true
+        }
     }
 } satisfies Meta<typeof Modal>;
 

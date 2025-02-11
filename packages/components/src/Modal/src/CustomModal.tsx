@@ -12,9 +12,7 @@ import styles from "./CustomModal.module.css";
 
 export const GlobalCustomModalCssSelector = "hop-CustomModal";
 
-export interface CustomModalProps extends
-    StyledComponentProps<DialogProps>,
-    Pick<ModalOverlayProps, "isOpen" | "onOpenChange" | "defaultOpen"> {
+export interface CustomModalProps extends StyledComponentProps<DialogProps> {
     /**
      * Whether the CustomModal is dismissible.
      * @default true
@@ -29,6 +27,10 @@ export interface CustomModalProps extends
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
+    /**
+     * The props of the overlay
+     */
+    overlayProps?: ModalOverlayProps;
 }
 
 const CustomModal = (props: CustomModalProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -42,7 +44,7 @@ const CustomModal = (props: CustomModalProps, ref: ForwardedRef<HTMLDivElement>)
         isDismissible = true,
         isKeyboardDismissDisabled,
         size: sizeProp,
-        isOpen,
+        overlayProps,
         children: childrenProp,
         ...otherProps
     } = ownProps;
@@ -71,7 +73,7 @@ const CustomModal = (props: CustomModalProps, ref: ForwardedRef<HTMLDivElement>)
 
     return (
         <BaseModal
-            isOpen={isOpen}
+            {...overlayProps}
             size={size}
             isDismissable={isDismissible}
             isKeyboardDismissDisabled={isKeyboardDismissDisabled}

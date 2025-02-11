@@ -8,14 +8,14 @@ import { CustomModal, CustomModalContext } from "../../src/index.ts";
 
 describe("CustomModal", () => {
     it("should render with default class", () => {
-        render(<CustomModal isOpen><Heading slot="title">Test</Heading></CustomModal>);
+        render(<CustomModal overlayProps={{ isOpen: true }}><Heading slot="title">Test</Heading></CustomModal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveClass("hop-CustomModal");
     });
 
     it("should support custom class", () => {
-        render(<CustomModal isOpen className="test"><Heading slot="title">Test</Heading></CustomModal>);
+        render(<CustomModal overlayProps={{ isOpen: true }} className="test"><Heading slot="title">Test</Heading></CustomModal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveClass("hop-CustomModal");
@@ -23,14 +23,14 @@ describe("CustomModal", () => {
     });
 
     it("should support custom style", () => {
-        render(<CustomModal isOpen marginTop="stack-sm" style={{ marginBottom: "13px" }}><Heading slot="title">Test</Heading></CustomModal>);
+        render(<CustomModal overlayProps={{ isOpen: true }} marginTop="stack-sm" style={{ marginBottom: "13px" }}><Heading slot="title">Test</Heading></CustomModal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<CustomModal isOpen aria-label="options" data-foo="bar"><Heading slot="title">Test</Heading></CustomModal>);
+        render(<CustomModal overlayProps={{ isOpen: true }} aria-label="options" data-foo="bar"><Heading slot="title">Test</Heading></CustomModal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -39,7 +39,7 @@ describe("CustomModal", () => {
     it("should support slots", () => {
         render(
             <CustomModalContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <CustomModal isOpen slot="test"><Heading slot="title">Test</Heading></CustomModal>
+                <CustomModal overlayProps={{ isOpen: true }} slot="test"><Heading slot="title">Test</Heading></CustomModal>
             </CustomModalContext.Provider>
         );
 
@@ -51,7 +51,7 @@ describe("CustomModal", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<CustomModal isOpen aria-label="options" ref={ref}><Heading slot="title">Test</Heading></CustomModal>);
+        render(<CustomModal overlayProps={{ isOpen: true }} aria-label="options" ref={ref}><Heading slot="title">Test</Heading></CustomModal>);
 
         expect(ref.current).not.toBeNull();
     });

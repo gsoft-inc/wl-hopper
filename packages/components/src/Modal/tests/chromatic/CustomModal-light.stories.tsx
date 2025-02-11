@@ -15,7 +15,9 @@ const meta = {
         ...hopperParameters({ colorSchemes: ["light"] })
     },
     args: {
-        isOpen: true,
+        overlayProps: {
+            isOpen: true
+        },
         padding: "inset-lg",
         position: "relative"
     }

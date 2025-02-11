@@ -5,4 +5,4 @@ import type { ModalProps } from "./Modal.tsx";
 
 export const ModalContext = createContext<ContextValue<ModalProps, HTMLDivElement>>({});
 
-ModalContext.displayName = "SegmentedControlContext";
+ModalContext.displayName = "ModalContext";

@@ -67,7 +67,7 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
             {...otherProps}
         >
             <HopperProvider colorScheme={colorScheme} withCssVariables={false}>
-                <RACModal ref={ref} className={styles["hop-BaseModal__modal"]}>
+                <RACModal {...otherProps} ref={ref} className={styles["hop-BaseModal__modal"]}>
                     {children}
                 </RACModal>
             </HopperProvider>
