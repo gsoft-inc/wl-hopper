@@ -1,0 +1,150 @@
+.hop-Modal {
+    --hop-Modal-position: relative;
+    --hop-Modal-overflow: auto;
+    --hop-Modal-display: grid;
+    --hop-Modal-box-sizing: border-box;
+    --hop-Modal-outline: none;
+    --hop-Modal-margin: var(--hop-space-inset-lg);
+    --hop-Modal-color: var(--hop-neutral-text);
+    --hop-Modal-grid-template:
+        "image image image" 12rem
+        "heading heading header" auto
+        "content content content" auto
+        "footer footer buttons" auto
+        / auto auto auto;
+
+    /* Large screen */
+    --hop-Modal-large-grid-template:
+        "image heading header" auto
+        "image content content" auto
+        "image footer buttons" auto
+        / 16rem auto auto;
+
+    /* Internal variables */
+    --grid-template: var(--hop-Modal-grid-template);
+
+    position: var(--hop-Modal-position);
+
+    overflow: var(--hop-Modal-overflow);
+    display: var(--hop-Modal-display);
+    grid-template: var(--grid-template);
+
+    box-sizing: var(--hop-Modal-box-sizing);
+    max-block-size: inherit;
+
+    color: var(--hop-Modal-color);
+
+    border-radius: inherit;
+    outline: var(--hop-Modal-outline);
+}
+
+.hop-Modal:not(.hop-Modal--fullscreen, .hop-Modal--fullscreentakeover) {
+    @media screen and (min-width: 49rem) {
+        --grid-template: var(--hop-Modal-large-grid-template);
+    }
+}
+
+.hop-Modal:not(:has(> .hop-Modal__image)) {
+    --grid-template:
+        "heading heading header" auto
+        "content content content" auto
+        "footer footer buttons" auto
+        / auto auto auto;
+
+    :not(.hop-Modal--fullscreen),
+    :not(.hop-Modal--fullscreentakeover) {
+        @media screen and (min-width: 49rem) {
+            --grid-template:
+                "heading header" auto
+                "content content" auto
+                "footer buttons" auto
+                / auto auto;
+            }
+    }
+}
+
+.hop-Modal__close {
+    position: absolute;
+    inset-block-start: var(--hop-Modal-margin);
+    inset-inline-end: var(--hop-Modal-margin);;
+}
+
+.hop-Modal > img.hop-Modal__image {
+    --hop-Modal-image-inline-size: 100%;
+    --hop-Modal-image-block-size: 100%;
+    --hop-Modal-image-object-fit: cover;
+
+    grid-area: image;
+    inline-size: var(--hop-Modal-image-inline-size);
+    block-size: var(--hop-Modal-image-block-size);
+    object-fit: var(--hop-Modal-image-object-fit);
+}
+
+.hop-Modal > .hop-Modal__heading {
+    grid-area: heading;
+    margin-block-start: var(--hop-Modal-margin);
+    margin-inline: var(--hop-Modal-margin);
+}
+
+.hop-Modal > .hop-Modal__header {
+    grid-area: header;
+    place-self: center end;
+    margin-block-start: var(--hop-Modal-margin);
+    margin-inline: var(--hop-Modal-margin);
+}
+
+.hop-Modal > .hop-Modal__content {
+    overflow-y: auto;
+    grid-area: content;
+    margin: var(--hop-Modal-margin);
+
+    @media (max-height: 24rem) {
+        overflow-y: visible;
+    }
+}
+
+.hop-Modal > .hop-Modal__footer {
+    grid-area: footer;
+    align-self: center;
+    margin-block-end: var(--hop-Modal-margin);
+    margin-inline: var(--hop-Modal-margin);
+}
+
+.hop-Modal > .hop-Modal__button {
+    grid-area: buttons;
+    place-self: center end;
+    margin-block-end: var(--hop-Modal-margin);
+    margin-inline: var(--hop-Modal-margin);
+}
+
+.hop-Modal > div.hop-Modal__button-group {
+    grid-area: buttons;
+    flex-wrap: nowrap;
+    place-self: center end;
+
+    margin-block-end: var(--hop-Modal-margin);
+    margin-inline: var(--hop-Modal-margin);
+}
+
+/* If there's a close button, add right margin to the header and heading */
+.hop-Modal:has(.hop-Modal__close) > .hop-Modal__header,
+.hop-Modal:has(.hop-Modal__close) > .hop-Modal__heading {
+    margin-inline-end: calc(var(--hop-Modal-margin) + 2rem);
+}
+
+/* On a small screen, if there's an image and a close button, remove the right margin */
+@media screen and (max-width: 48rem)  {
+    .hop-Modal:has(.hop-Modal__close):has(> .hop-Modal__image) > .hop-Modal__header,
+    .hop-Modal:has(.hop-Modal__close):has(> .hop-Modal__image) > .hop-Modal__heading  {
+        margin-inline-end: var(--hop-Modal-margin);
+    }
+}
+
+.hop-Modal:has(> .hop-Modal__header) > .hop-Modal__heading {
+    margin-inline-end: 0;
+}
+
+.hop-Modal:has(> .hop-Modal__button) > .hop-Modal__footer,
+.hop-Modal:has(> .hop-Modal__button-group) > .hop-Modal__footer {
+    margin-inline-end: 0;
+}

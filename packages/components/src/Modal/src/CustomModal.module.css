@@ -1,0 +1,16 @@
+.hop-CustomModal {
+    --hop-CustomModal-overflow: auto;
+    --hop-CustomModal-box-sizing: border-box;
+    --hop-CustomModal-outline: none;
+    --hop-CustomModal-color: var(--hop-neutral-text);
+
+    overflow: var(--hop-CustomModal-overflow);
+
+    box-sizing: var(--hop-CustomModal-box-sizing);
+    max-block-size: inherit;
+
+    color: var(--hop-CustomModal-color);
+
+    border-radius: inherit;
+    outline: var(--hop-CustomModal-outline);
+}

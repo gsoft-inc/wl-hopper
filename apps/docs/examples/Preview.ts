@@ -995,6 +995,48 @@ export const Previews: Record<string, Preview> = {
     "Link/docs/image": {
         component: lazy(() => import("@/../../packages/components/src/Link/docs/image.tsx"))
     },
+    "Modal/docs/preview": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/preview.tsx"))
+    },
+    "Modal/docs/default": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/default.tsx"))
+    },
+    "Modal/docs/image": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/image.tsx"))
+    },
+    "Modal/docs/choice": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/choice.tsx"))
+    },
+    "Modal/docs/header": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/header.tsx"))
+    },
+    "Modal/docs/footer": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/footer.tsx"))
+    },
+    "Modal/docs/button": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/button.tsx"))
+    },
+    "Modal/docs/button-group": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/button-group.tsx"))
+    },
+    "Modal/docs/dismissable": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/dismissable.tsx"))
+    },
+    "Modal/docs/controlled": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/controlled.tsx"))
+    },
+    "Modal/docs/custom-trigger": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/custom-trigger.tsx"))
+    },
+    "Modal/docs/sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/sizes.tsx"))
+    },
+    "Modal/docs/responsive-sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/responsive-sizes.tsx"))
+    },
+    "Modal/docs/custom": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/custom.tsx"))
+    },
     "overlays/Popover/docs/preview": {
         component: lazy(() => import("@/../../packages/components/src/overlays/Popover/docs/preview.tsx"))
     },
