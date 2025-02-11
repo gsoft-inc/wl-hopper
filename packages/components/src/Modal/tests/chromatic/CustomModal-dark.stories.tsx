@@ -14,7 +14,7 @@ const meta = {
     parameters: {
         ...hopperParameters({ colorSchemes: ["dark"] }),
         chromatic: {
-            delay: 300
+            delay: 1000
         }
     },
     args: {
