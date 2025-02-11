@@ -20,7 +20,10 @@ const meta = {
     title: "Components/Modal/light",
     component: Modal,
     parameters: {
-        ...hopperParameters({ colorSchemes: ["light"] })
+        ...hopperParameters({ colorSchemes: ["light"] }),
+        chromatic: {
+            delay: 300
+        }
     },
     args: {
         overlayProps: {

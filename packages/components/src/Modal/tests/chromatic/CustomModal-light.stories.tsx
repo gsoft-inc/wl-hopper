@@ -12,7 +12,10 @@ const meta = {
     title: "Components/Modal/CustomModal/light",
     component: CustomModal,
     parameters: {
-        ...hopperParameters({ colorSchemes: ["light"] })
+        ...hopperParameters({ colorSchemes: ["light"] }),
+        chromatic: {
+            delay: 300
+        }
     },
     args: {
         overlayProps: {
