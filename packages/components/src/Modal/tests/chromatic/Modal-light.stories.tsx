@@ -3,6 +3,7 @@ import {
     ButtonGroup,
     Card,
     Content,
+    Div,
     Flex,
     Footer,
     Header,
@@ -25,6 +26,17 @@ const meta = {
             delay: 1000
         }
     },
+    decorators: [
+        Story => (
+            <Div
+                width="100%"
+                // Important for chromatic tests.
+                UNSAFE_minHeight="800px"
+            >
+                <Story />
+            </Div>
+        )
+    ],
     args: {
         overlayProps: {
             isOpen: true
