@@ -1,7 +1,7 @@
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
-import { composeRenderProps, Dialog, type DialogProps, DialogTrigger, OverlayTriggerStateContext, useContextProps } from "react-aria-components";
+import { composeRenderProps, Dialog, type DialogProps, DialogTrigger, type ModalOverlayProps, OverlayTriggerStateContext, useContextProps } from "react-aria-components";
 
 import { cssModule } from "../../utils/index.ts";
 
@@ -12,9 +12,12 @@ import styles from "./CustomModal.module.css";
 
 export const GlobalCustomModalCssSelector = "hop-CustomModal";
 
-export interface CustomModalProps extends StyledComponentProps<DialogProps> {
+export interface CustomModalProps extends
+    StyledComponentProps<DialogProps>,
+    Pick<ModalOverlayProps, "isOpen" | "onOpenChange" | "defaultOpen"> {
     /**
      * Whether the CustomModal is dismissible.
+     * @default true
      */
     isDismissible?: boolean;
     /**
@@ -26,10 +29,6 @@ export interface CustomModalProps extends StyledComponentProps<DialogProps> {
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
-    /**
-     * Whether the CustomModal is open.
-     */
-    isOpen?: boolean;
 }
 
 const CustomModal = (props: CustomModalProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -40,7 +39,7 @@ const CustomModal = (props: CustomModalProps, ref: ForwardedRef<HTMLDivElement>)
         className,
         style,
         slot,
-        isDismissible,
+        isDismissible = true,
         isKeyboardDismissDisabled,
         size: sizeProp,
         isOpen,

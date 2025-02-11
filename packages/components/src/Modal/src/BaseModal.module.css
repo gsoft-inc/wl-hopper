@@ -11,13 +11,14 @@
     --hop-BaseModal-inline-size: 100%;
     --hop-BaseModal-block-size: 100%;
     --hop-BaseModal-background-color: #3c3c3c99;
-    --hop-BaseModal-transition:
+    --hop-BaseModal-z-index: 10000;
 
     /* Exiting */
     --hop-basemodal-exiting-opacity: 0;
 
     isolation: var(--hop-BaseModal-isolation);
     position: var(--hop-BaseModal-position);
+    z-index: var(--hop-BaseModal-z-index);
     inset: var(--hop-BaseModal-inset);
     inset-block-start: var(--hop-BaseModal-inset-block-start);
     inset-inline-start: var(--hop-BaseModal-inset-inline-start);
@@ -97,10 +98,8 @@
 }
 
 @media screen and (min-width: 48rem) {
-    .hop-BaseModal--image {
-        .hop-BaseModal__modal {
-            --image-size: 16rem;
-        }
+    .hop-BaseModal--image .hop-BaseModal__modal {
+        --image-size: 16rem;
     }
 }
 

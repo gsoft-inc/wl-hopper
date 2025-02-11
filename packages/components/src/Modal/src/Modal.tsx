@@ -1,7 +1,7 @@
 import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
-import { composeRenderProps, Dialog, type DialogProps, DialogTrigger, OverlayTriggerStateContext, Provider, useContextProps } from "react-aria-components";
+import { composeRenderProps, Dialog, type DialogProps, type ModalOverlayProps, OverlayTriggerStateContext, Provider, useContextProps } from "react-aria-components";
 
 import { ButtonContext, ButtonGroupContext, CloseButton } from "../../buttons/index.ts";
 import { HeaderContext } from "../../Header/index.ts";
@@ -17,9 +17,12 @@ import styles from "./Modal.module.css";
 
 export const GlobalModalCssSelector = "hop-Modal";
 
-export interface ModalProps extends StyledComponentProps<DialogProps> {
+export interface ModalProps extends
+    StyledComponentProps<DialogProps>,
+    Pick<ModalOverlayProps, "isOpen" | "onOpenChange" | "defaultOpen"> {
     /**
      * Whether the Modal is dismissible.
+     * @default true
      */
     isDismissible?: boolean;
     /**
@@ -31,10 +34,6 @@ export interface ModalProps extends StyledComponentProps<DialogProps> {
      * @default "md"
      */
     size?: ResponsiveProp<"sm" | "md" | "lg" | "xl" | "fullscreen" | "fullscreenTakeover">;
-    /**
-     * Whether the modal is open.
-     */
-    isOpen?: boolean;
 }
 
 const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -45,10 +44,12 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
         className,
         style,
         slot,
-        isDismissible,
+        isDismissible = true,
         isKeyboardDismissDisabled,
         size: sizeProp,
         isOpen,
+        onOpenChange,
+        defaultOpen,
         children: childrenProp,
         ...otherProps
     } = ownProps;
@@ -78,7 +79,9 @@ const Modal = (props: ModalProps, ref: ForwardedRef<HTMLDivElement>) => {
     return (
         <BaseModal
             hasImage={hasImage}
+            defaultOpen={defaultOpen}
             isOpen={isOpen}
+            onOpenChange={onOpenChange}
             size={size}
             isDismissable={isDismissible}
             isKeyboardDismissDisabled={isKeyboardDismissDisabled}
@@ -138,5 +141,3 @@ const _Modal = forwardRef<HTMLDivElement, ModalProps>(Modal);
 _Modal.displayName = "Modal";
 
 export { _Modal as Modal };
-
-export const ModalTrigger = DialogTrigger;

@@ -15,7 +15,6 @@ const meta = {
         ...hopperParameters({ colorSchemes: ["dark"] })
     },
     args: {
-        isDismissible: true,
         isOpen: true,
         padding: "inset-lg",
         position: "relative"

@@ -23,7 +23,6 @@ const meta = {
         ...hopperParameters({ colorSchemes: ["light"] })
     },
     args: {
-        isDismissible: true,
         isOpen: true
     }
 } satisfies Meta<typeof Modal>;
