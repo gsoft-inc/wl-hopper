@@ -1031,6 +1031,9 @@ export const Previews: Record<string, Preview> = {
     "Modal/docs/sizes": {
         component: lazy(() => import("@/../../packages/components/src/Modal/docs/sizes.tsx"))
     },
+    "Modal/docs/responsive-sizes": {
+        component: lazy(() => import("@/../../packages/components/src/Modal/docs/responsive-sizes.tsx"))
+    },
     "Modal/docs/custom": {
         component: lazy(() => import("@/../../packages/components/src/Modal/docs/custom.tsx"))
     },
