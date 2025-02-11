@@ -21,10 +21,7 @@ const meta = {
     title: "Components/Modal/dark",
     component: Modal,
     parameters: {
-        ...hopperParameters({ colorSchemes: ["dark"] }),
-        chromatic: {
-            delay: 1000
-        }
+        ...hopperParameters({ colorSchemes: ["dark"] })
     },
     decorators: [
         Story => (

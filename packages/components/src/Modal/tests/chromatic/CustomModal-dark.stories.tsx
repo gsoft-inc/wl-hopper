@@ -13,10 +13,7 @@ const meta = {
     title: "Components/Modal/CustomModal/dark",
     component: CustomModal,
     parameters: {
-        ...hopperParameters({ colorSchemes: ["dark"] }),
-        chromatic: {
-            delay: 1000
-        }
+        ...hopperParameters({ colorSchemes: ["dark"] })
     },
     decorators: [
         Story => (

@@ -43,7 +43,7 @@ jobs:
                 id: cache-turborepo-restore
                 uses: actions/cache/restore@v4
                 with:
-                    key: ${{ runner.os }}-turborepo-${{ hashFiles('**/pnpm-lock.yaml') }}
+                    key: ${{ runner.os }}-turborepo-${{ github.sha }}-chromatic
                     restore-keys: |
                         ${{ runner.os }}-turborepo-
                     path: .turbo
