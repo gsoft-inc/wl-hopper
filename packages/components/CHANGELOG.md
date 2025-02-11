@@ -1,5 +1,12 @@
 # @hopper-ui/components
 
+## 1.4.9
+
+### Patch Changes
+
+- e82cd6d: Add Modal and CustomModal component
+- d946d4f: Export filterDOMProps and useId from @react-aria/utils to be usable
+
 ## 1.4.8
 
 ### Patch Changes
