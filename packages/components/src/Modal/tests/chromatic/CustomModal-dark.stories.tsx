@@ -27,9 +27,7 @@ const meta = {
         )
     ],
     args: {
-        overlayProps: {
-            isOpen: true
-        },
+        isOpen: true,
         padding: "inset-lg",
         position: "relative"
     }

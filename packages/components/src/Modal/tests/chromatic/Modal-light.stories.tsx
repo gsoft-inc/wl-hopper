@@ -35,9 +35,7 @@ const meta = {
         )
     ],
     args: {
-        overlayProps: {
-            isOpen: true
-        }
+        isOpen: true
     }
 } satisfies Meta<typeof Modal>;
 

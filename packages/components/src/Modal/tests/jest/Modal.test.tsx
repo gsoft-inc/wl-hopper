@@ -8,14 +8,14 @@ import { Modal, ModalContext } from "../../src/index.ts";
 
 describe("Modal", () => {
     it("should render with default class", () => {
-        render(<Modal overlayProps={{ isOpen: true }}><Heading>Test</Heading></Modal>);
+        render(<Modal isOpen><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveClass("hop-Modal");
     });
 
     it("should support custom class", () => {
-        render(<Modal overlayProps={{ isOpen: true }} className="test"><Heading>Test</Heading></Modal>);
+        render(<Modal isOpen className="test"><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveClass("hop-Modal");
@@ -23,14 +23,14 @@ describe("Modal", () => {
     });
 
     it("should support custom style", () => {
-        render(<Modal overlayProps={{ isOpen: true }} marginTop="stack-sm" style={{ marginBottom: "13px" }}><Heading>Test</Heading></Modal>);
+        render(<Modal isOpen marginTop="stack-sm" style={{ marginBottom: "13px" }}><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveStyle({ marginTop: "var(--hop-space-stack-sm)", marginBottom: "13px" });
     });
 
     it("should support DOM props", () => {
-        render(<Modal overlayProps={{ isOpen: true }} aria-label="options" data-foo="bar"><Heading>Test</Heading></Modal>);
+        render(<Modal isOpen aria-label="options" data-foo="bar"><Heading>Test</Heading></Modal>);
 
         const element = screen.getByRole("dialog");
         expect(element).toHaveAttribute("data-foo", "bar");
@@ -39,7 +39,7 @@ describe("Modal", () => {
     it("should support slots", () => {
         render(
             <ModalContext.Provider value={{ slots: { test: { "aria-label": "test" } } }}>
-                <Modal overlayProps={{ isOpen: true }} slot="test"><Heading>Test</Heading></Modal>
+                <Modal isOpen slot="test"><Heading>Test</Heading></Modal>
             </ModalContext.Provider>
         );
 
@@ -51,7 +51,7 @@ describe("Modal", () => {
 
     it("should support refs", () => {
         const ref = createRef<HTMLDivElement>();
-        render(<Modal overlayProps={{ isOpen: true }} aria-label="options" ref={ref}><Heading>Test</Heading></Modal>);
+        render(<Modal isOpen aria-label="options" ref={ref}><Heading>Test</Heading></Modal>);
 
         expect(ref.current).not.toBeNull();
     });
