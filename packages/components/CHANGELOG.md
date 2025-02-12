@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.4.10
+
+### Patch Changes
+
+- cf7cefa: Add StyledComponentProps to Input
+
 ## 1.4.9
 
 ### Patch Changes
