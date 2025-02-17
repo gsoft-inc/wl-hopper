@@ -113,7 +113,7 @@ const MobileMenu = ({ onClose, isOpen }: MobileMenuProps) => {
                     <nav>
                         <ul className="hd-mobile-menu-footer-list">
                             <li>
-                                <Link href="https://github.com/gsoft-inc/wl-hopper"
+                                <Link href="https://github.com/workleap/wl-hopper"
                                     target="_blank"
                                     className="hd-mobile-menu-footer-link"
                                 >
