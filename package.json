@@ -10,7 +10,7 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gsoft-inc/wl-hopper.git"
+        "url": "git+https://github.com/workleap/wl-hopper.git"
     },
     "scripts": {
         "doc:start": "pnpm --filter=docs dev",
@@ -96,8 +96,8 @@
         "eslint-plugin-react-hooks": "4.6.2"
     },
     "bugs": {
-        "url": "https://github.com/gsoft-inc/wl-hopper/issues"
+        "url": "https://github.com/workleap/wl-hopper/issues"
     },
-    "homepage": "https://github.com/gsoft-inc/wl-hopper#readme",
+    "homepage": "https://github.com/workleap/wl-hopper#readme",
     "packageManager": "pnpm@10.0.0"
 }
