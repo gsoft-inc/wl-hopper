@@ -73,7 +73,7 @@ const ProductMenuAndBrand = () => {
                     >
                         <span className="hd-product__title">Frontend tools</span>
                         <Link className="hd-product__link"
-                            href="https://gsoft-inc.github.io/wl-idp-docs-hub/"
+                            href="https://workleap.github.io/wl-idp-docs-hub/"
                         >IDP Hub</Link>
                         <ul className="hd-product__items">
                             <span className="hd-product__title">Design Systems</span>
