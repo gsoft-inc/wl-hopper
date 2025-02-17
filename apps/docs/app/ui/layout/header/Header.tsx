@@ -142,7 +142,7 @@ const Header = () => {
                     <div className="hd-header__quick-actions">
                         {/*<input type="search" placeholder="Search" />*/}
                         <ThemeSwitch onChange={toggleTheme} colorMode={colorMode as ColorScheme} />
-                        <LinkIconButton href="https://github.com/gsoft-inc/wl-hopper" target="_blank" aria-label="View source on Github">
+                        <LinkIconButton href="https://github.com/workleap/wl-hopper" target="_blank" aria-label="View source on Github">
                             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 {/* eslint-disable max-len */}
                                 <path
