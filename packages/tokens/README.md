@@ -11,8 +11,8 @@ View the [user's documentation](https://hopper.workleap.design/).
 
 ## 🤝 Contributing
 
-View the [contributor's documentation](https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md).
+View the [contributor's documentation](https://github.com/workleap/wl-hopper/blob/main/CONTRIBUTING.md).
 
 ## License
 
-Copyright © 2023, Workleap. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/workleap-license/blob/master/LICENSE.
+Copyright © 2023, Workleap. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/workleap/workleap-license/blob/master/LICENSE.

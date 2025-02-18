@@ -26,7 +26,7 @@ const config = {
                     "^hop-([A-Z][A-z0-9]+)([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
                     {
                         resolveNestedSelectors: true,
-                        message: selectorValue => `Expected class selector "${selectorValue}" to match our CSS pattern https://github.com/gsoft-inc/wl-hopper/blob/main/CONTRIBUTING.md#css-selector-naming-conventions. Selector validation tool: https://regexr.com/7tftf`
+                        message: selectorValue => `Expected class selector "${selectorValue}" to match our CSS pattern https://github.com/workleap/wl-hopper/blob/main/CONTRIBUTING.md#css-selector-naming-conventions. Selector validation tool: https://regexr.com/7tftf`
                     }
                 ],
                 "custom-property-pattern": [

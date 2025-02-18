@@ -323,7 +323,7 @@ class StylingContext {
 
     constructor(className: string | undefined, style: CSSProperties | undefined, matchedBreakpoints: Breakpoint[]) {
         this.#classes = !isNil(className) ? [className] : [];
-        this.#style = { ...(style ?? {}) } ; // TODO: different than orbit, in order to not modify the original style object https://github.com/gsoft-inc/sg-orbit/issues/1211
+        this.#style = { ...(style ?? {}) } ; // TODO: different than orbit, in order to not modify the original style object https://github.com/workleap/sg-orbit/issues/1211
         this.matchedBreakpoints = matchedBreakpoints;
     }
 
@@ -338,7 +338,7 @@ class StylingContext {
     addStyleValue(name: string, value: unknown) {
         // TODO: different than orbit, there was a check here to check if the style was already set. It caused issue where
         // if you were doing paddingX and then paddingLeft, the paddingLeft would not be applied because the paddingX was already set.
-        // https://github.com/gsoft-inc/sg-orbit/issues/1210
+        // https://github.com/workleap/sg-orbit/issues/1210
 
         // Removing this line causes 2 tests to fail, but i think the behavior is OK.
         //if ((this.#style as Record<string, unknown>)[name] === undefined) {

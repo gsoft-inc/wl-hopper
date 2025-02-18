@@ -11,7 +11,7 @@ Before starting make sure [node](https://nodejs.org/en/) and [pnpm](https://pnpm
 After cloning the source code, run `pnpm` to install dependencies.
 
 ```bash
-git clone https://github.com/gsoft-inc/wl-hopper.git
+git clone https://github.com/workleap/wl-hopper.git
 cd wl-hopper
 pnpm i
 pnpm build
@@ -27,8 +27,8 @@ pnpm build
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open a [discussions](https://github.com/gsoft-inc/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested, definitely check out our Contributing Guide!
+Pull requests are welcome. For major changes, please open a [discussions](https://github.com/workleap/wl-hopper/discussions/new/choose) first to discuss what you would like to change. If you're interested, definitely check out our Contributing Guide!
 
 ## License
 
-Copyright © 2023, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+Copyright © 2023, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/workleap/gsoft-license/blob/master/LICENSE.
