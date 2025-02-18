@@ -14,7 +14,7 @@
         "provenance": true
     },
     "type": "module",
-    "sideEffects": "*.svg",
+    "sideEffects": false,
     "files": [
         "/dist",
         "CHANGELOG.md",
@@ -22,13 +22,15 @@
     ],
     "exports": {
         "./icons/*.svg": "./dist/icons/*.svg",
+        "./icons/inline/*": "./dist/icons/inline/*",
         "./rich-icons/*.svg": "./dist/rich-icons/*.svg"
     },
     "scripts": {
         "build": "pnpm run \"/^build:.*/\"",
         "build:icons": "copyfiles --flat src/optimized-icons/* dist/icons",
+        "build:inline-icons": "tsx scripts/buildInlineIcons.ts",
         "build:rich-icons": "copyfiles --flat src/optimized-rich-icons/* dist/rich-icons",
-        "generate-icons": "tsx scripts/build.ts",
+        "generate-icons": "tsx scripts/generate.ts",
         "eslint": "eslint . --max-warnings=0 --cache --cache-location node_modules/.cache/eslint",
         "typecheck": "tsc",
         "test": "jest"
