@@ -12,13 +12,21 @@ const optimizedIconsPath = IconsOptimizedDirectory;
 function fileNameConverter(filePath: string) {
     let fileName = path.basename(filePath, ".svg");
 
+    // action-list-24.svg becomes ActionList24
     fileName = fileName.split("-").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join("");
+    const size = IconSizes.find(s => fileName.includes(s.toString()))!;
 
-    IconSizes.forEach(size => {
-        fileName = fileName.replace(size.toString(), `Icon${size}`);
-    });
+    // ActionList24 becomes ActionListIcon24
+    fileName = fileName.replace(size.toString(), `Icon${size}`);
 
-    return fileName;
+    //remove the Icon{size} at the end of the name to create the "group" value
+    const group = fileName.replace(/Icon\d+/, "Icon");
+
+    return {
+        name: fileName,
+        group,
+        size
+    };
 }
 
 const files = fs.readdirSync(optimizedIconsPath, { recursive: true, withFileTypes: true });
@@ -30,7 +38,7 @@ fs.mkdirSync(IconsInlineDistDirectory, { recursive: true });
 
 const inlinedSvgs = svgFiles.map(file => {
     const contents = fs.readFileSync(path.resolve(file.path, file.name), "utf8");
-    const name = fileNameConverter(file.name);
+    const { name, group, size } = fileNameConverter(file.name);
     const fileName = `${name}.js`;
     const location = path.resolve(IconsInlineDistDirectory, fileName);
     fs.writeFileSync(location, `export default \`${contents}\``);
@@ -38,22 +46,51 @@ const inlinedSvgs = svgFiles.map(file => {
     return {
         name,
         fileName,
-        location
+        location,
+        group,
+        size
     };
 });
 
+const groupedSvgs = inlinedSvgs.reduce((acc, file) => {
+    if (!acc[file.group]) {
+        acc[file.group] = {} as Record<typeof IconSizes[number], string>;
+    }
+
+    acc[file.group][file.size] = file.name;
+
+    return acc;
+}, {} as Record<string, Record<typeof IconSizes[number], string>>);
+
+
 // index barrel file
-fs.writeFileSync(path.resolve(IconsInlineDistDirectory, "index.js"), inlinedSvgs.map(file => {
+let indexContent = inlinedSvgs.map(file => {
     const name = file.name;
 
-    return `export { default as ${name} } from "./${file.fileName}";\n`;
-}).join(""));
+    return `import { default as ${name} } from "./${file.fileName}";\n`;
+}).join("");
+
+indexContent += `export { ${inlinedSvgs.map(file => file.name).join(", ")} }\n`;
+
+indexContent += Object.entries(groupedSvgs).map(([group, icons]) => {
+    return `export const ${group} = {${IconSizes.map(size => `${size}: ${icons[size]}`).join(", ")}};\n`;
+}).join("");
+
+fs.writeFileSync(path.resolve(IconsInlineDistDirectory, "index.js"), indexContent);
+
 
 // types barrel file
-fs.writeFileSync(path.resolve(IconsInlineDistDirectory, "index.d.ts"), inlinedSvgs.map(file => {
+let indexDeclarationFileContent = `export type IconObject = Record<${IconSizes.map(s => `"${s}"`).join(" | ")}, string>;\n`;
+indexDeclarationFileContent += inlinedSvgs.map(file => {
     const name = file.name;
 
     return `export const ${name}: string;\n`;
-}).join(""));
+}).join("");
+
+indexDeclarationFileContent += Object.keys(groupedSvgs).map(group => {
+    return `export const ${group}: IconObject;\n`;
+}).join("");
+
+fs.writeFileSync(path.resolve(IconsInlineDistDirectory, "index.d.ts"), indexDeclarationFileContent);
 
 console.log("✨ The inline icons have been generated!\n");
