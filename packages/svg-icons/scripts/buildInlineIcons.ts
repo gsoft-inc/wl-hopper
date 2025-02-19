@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { IconsInlineDistDirectory, IconsOptimizedDirectory } from "./constants.ts";
+import { IconsInlineDistDirectory, IconSizes, IconsOptimizedDirectory } from "./constants.ts";
 
 const optimizedIconsPath = IconsOptimizedDirectory;
 
@@ -10,9 +10,15 @@ const optimizedIconsPath = IconsOptimizedDirectory;
  * @example fileNameConverter("C:\Dev\wl-hopper\packages\svg-icons\src\optimized-rich-icons\action-list-24.svg") // ActionListIcon24
  */
 function fileNameConverter(filePath: string) {
-    const fileName = path.basename(filePath, ".svg");
+    let fileName = path.basename(filePath, ".svg");
 
-    return fileName.split("-").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join("") + "Icon";
+    fileName = fileName.split("-").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join("");
+
+    IconSizes.forEach(size => {
+        fileName = fileName.replace(size.toString(), `Icon${size}`);
+    });
+
+    return fileName;
 }
 
 const files = fs.readdirSync(optimizedIconsPath, { recursive: true, withFileTypes: true });
