@@ -22,7 +22,11 @@
     ],
     "exports": {
         "./icons/*.svg": "./dist/icons/*.svg",
-        "./icons/inline/*": "./dist/icons/inline/*",
+        "./icons/inline": {
+            "types": "./dist/icons/inline/index.d.ts",
+            "import": "./dist/icons/inline/index.js",
+            "default": "./dist/icons/inline/index.js"
+        },
         "./rich-icons/*.svg": "./dist/rich-icons/*.svg"
     },
     "scripts": {
