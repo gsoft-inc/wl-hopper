@@ -1,5 +1,11 @@
 # @hopper-ui/components
 
+## 1.4.11
+
+### Patch Changes
+
+- e3a7288: Fixed an issue where locale wasn't properly forwarded in modales and popover
+
 ## 1.4.10
 
 ### Patch Changes
