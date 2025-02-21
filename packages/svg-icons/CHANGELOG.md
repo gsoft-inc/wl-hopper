@@ -1,5 +1,11 @@
 # @hopper-ui/svg-icons
 
+## 2.17.0
+
+### Minor Changes
+
+- 02b15d5: svg-icons now export the SVG as inline strings. You can import the string containing the SVG from @hopper-ui/svg-icon/inline
+
 ## 2.16.1
 
 ### Patch Changes
