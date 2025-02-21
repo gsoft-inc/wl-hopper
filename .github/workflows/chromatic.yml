@@ -11,10 +11,6 @@ on:
         # Opened, synchronize, or reopened are the default types
         # We added ready_for_review to trigger the workflow is passed from draft to ready_for_review
         types: ["opened", "synchronize", "reopened", "ready_for_review"]
-        # Workflows will not run on pull_request activity if the pull request has a merge conflict. The merge conflict must be resolved first.
-        # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened.
-        branches-ignore:
-            - changeset-release/*
 
 concurrency:
     group: chromatic-${{ github.head_ref || github.ref }}
@@ -67,7 +63,8 @@ jobs:
                     traceChanged: true
                     onlyChanged: true # TurboSnap
                     exitOnceUploaded: true # The PRs will be marked as success/failure based on the Chromatic build status
-                    skip: ${{ github.event.pull_request.draft == true }}
+                    skip: ${{ github.event.pull_request.draft == true || startsWith(github.ref, 'refs/heads/changeset-release/') }}
+
 
             -   name: Write to Github comment
                 uses: thollander/actions-comment-pull-request@v2

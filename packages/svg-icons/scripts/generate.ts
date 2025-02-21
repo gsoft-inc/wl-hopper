@@ -1,7 +1,7 @@
 import path from "path";
 
-import { IconSizes, IconsDistDirectory, IconsSourceDirectory, RichIconSizes, RichIconsDistDirectory, RichIconsSourceDirectory } from "./constants.ts";
-import { generateIcons } from "./generateIcons.ts";
+import { IconSizes, IconsOptimizedDirectory, IconsSourceDirectory, RichIconSizes, RichIconsOptimizedDirectory, RichIconsSourceDirectory } from "./constants.ts";
+import { optimizeIcon } from "./optimize.ts";
 
 /**
  * Converts a file path to a file name.
@@ -27,10 +27,10 @@ function fileNameConverter(filePath: string, allowedIconSizes: readonly number[]
 
 console.log("⚙️  Optimizing icons...\n");
 
-generateIcons(IconsSourceDirectory, IconsDistDirectory, filePath => fileNameConverter(filePath, IconSizes));
+optimizeIcon(IconsSourceDirectory, IconsOptimizedDirectory, filePath => fileNameConverter(filePath, IconSizes));
 
 console.log("⚙️  Optimizing rich icons...\n");
 
-generateIcons(RichIconsSourceDirectory, RichIconsDistDirectory, filePath => fileNameConverter(filePath, RichIconSizes));
+optimizeIcon(RichIconsSourceDirectory, RichIconsOptimizedDirectory, filePath => fileNameConverter(filePath, RichIconSizes));
 
 console.log("✨ The icons have been optimized!\n");

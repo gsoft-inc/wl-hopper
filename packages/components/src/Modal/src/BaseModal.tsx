@@ -1,9 +1,9 @@
-import { type ResponsiveProp, type StyledComponentProps, useColorSchemeContext, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
+import { type ResponsiveProp, type StyledComponentProps, useResponsiveValue, useStyledSystem } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { type CSSProperties, type ForwardedRef, forwardRef } from "react";
 import { ModalOverlay, type ModalOverlayProps, type ModalRenderProps, Modal as RACModal, useContextProps } from "react-aria-components";
 
-import { HopperProvider } from "../../HopperProvider/index.ts";
+import { HopperProvider, useForwardedHopperContext } from "../../HopperProvider/index.ts";
 import { cssModule } from "../../utils/index.ts";
 
 import { BaseModalContext } from "./BaseModalContext.ts";
@@ -37,9 +37,8 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
         ...otherProps
     } = ownProps;
 
-    const { colorScheme } = useColorSchemeContext();
     const size = useResponsiveValue(sizeProp) ?? "md";
-
+    const prevContextProps = useForwardedHopperContext();
     const classNames = (renderProps: ModalRenderProps) => clsx(
         GlobalBaseModalCssSelector,
         cssModule(
@@ -66,7 +65,7 @@ const BaseModal = (props: BaseModalProps, ref: ForwardedRef<HTMLDivElement>) => 
             slot={slot}
             {...otherProps}
         >
-            <HopperProvider colorScheme={colorScheme} withCssVariables={false}>
+            <HopperProvider {...prevContextProps}>
                 <RACModal {...otherProps} ref={ref} className={styles["hop-BaseModal__modal"]}>
                     {children}
                 </RACModal>

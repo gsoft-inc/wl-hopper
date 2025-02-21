@@ -4,7 +4,7 @@ import { optimize } from "svgo";
 
 import config from "./svgoConfig.ts";
 
-export function generateIcons(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
+export function optimizeIcon(srcDir: string, outputDir: string, fileNameConverter?: (filePath: string) => string) {
     // Clear directory (It also removes the directory itself)
     fs.rmSync(outputDir, { recursive: true, force: true });
     fs.mkdirSync(outputDir, { recursive: true });

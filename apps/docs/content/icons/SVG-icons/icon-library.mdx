@@ -14,15 +14,25 @@ All icons in the Workleap icon library are available in three predefined sizes. 
 To integrate an icon into your project, simply import it from `@hopper-ui/svg-icons` in a JavaScript file:
 
 ```tsx
-import AlertIcon from "@hopper-ui/svg-icons/alert-24.svg";
+import AlertIcon from "@hopper-ui/svg-icons/icons/alert-24.svg";
 ```
 or in a CSS file:
 ```css
 .my-component {
-    background-image: url("@hopper-ui/svg-icons/alert-24.svg");
+    background-image: url("@hopper-ui/svg-icons/icons/alert-24.svg");
 }
 ```
 
-You can preview icons in your preferred size. Simply click on an icon to instantly copy its name!
+## Inline SVG
+
+Hopper's SVG icons are designed to be used as inline SVGs. This allows you to easily customize the icon's color, size, and other properties using CSS.
+```tsx
+// a specific size
+import { AlertIcon32 } from "@hopper-ui/svg-icons/icons/inline";
+// or an object containing all the sizes
+import { AlertIcon }  from "@hopper-ui/svg-icons/icons/inline";
+```
+
+You can preview icons in your preferred size. Simply click on an icon to instantly copy it's `.svg` name!
 
 <Switcher type="svg"/>
