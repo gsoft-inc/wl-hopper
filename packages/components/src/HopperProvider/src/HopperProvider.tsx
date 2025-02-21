@@ -1,7 +1,7 @@
 import { StyledSystemProvider, type StyledSystemProviderProps } from "@hopper-ui/styled-system";
 import type { Href, RouterOptions } from "@react-types/shared";
 import clsx from "clsx";
-import { forwardRef, type ForwardedRef } from "react";
+import { createContext, forwardRef, useContext, type ForwardedRef } from "react";
 import { I18nProvider, RouterProvider } from "react-aria-components";
 
 export const GlobalHopperProviderCssSelector = "hop-HopperProvider";
@@ -50,6 +50,25 @@ export interface HopperProviderProps extends StyledSystemProviderProps {
     useHref?: (href: Href) => string;
 }
 
+export const HopperContext = createContext<HopperProviderProps | null>(null);
+
+/**
+ * This hook is used to get the HopperProviderProps from the nearest HopperProvider ancestor.
+ * It will only return the props that would need to be forwarded to the next HopperProvider.
+ */
+export function useForwardedHopperContext() {
+    const context = useContext(HopperContext);
+
+    return {
+        locale: context?.locale,
+        colorScheme: context?.colorScheme,
+        navigate: context?.navigate,
+        useHref: context?.useHref,
+        withCssVariables: false // we never need to re-add css variables in a nested provider
+    } satisfies Partial<HopperProviderProps>;
+}
+
+
 const HopperProvider = (props: HopperProviderProps, ref: ForwardedRef<HTMLDivElement>) => {
     const {
         children,
@@ -74,17 +93,19 @@ const HopperProvider = (props: HopperProviderProps, ref: ForwardedRef<HTMLDivEle
     }
 
     return (
-        <StyledSystemProvider ref={ref}
-            withBodyStyle={withBodyStyle}
-            colorScheme={colorScheme}
-            withCssVariables={withCssVariables}
-            className={classNames}
-            {...rest}
-        >
-            <I18nProvider locale={locale}>
-                {content}
-            </I18nProvider>
-        </StyledSystemProvider>
+        <HopperContext.Provider value={props}>
+            <StyledSystemProvider ref={ref}
+                withBodyStyle={withBodyStyle}
+                colorScheme={colorScheme}
+                withCssVariables={withCssVariables}
+                className={classNames}
+                {...rest}
+            >
+                <I18nProvider locale={locale}>
+                    {content}
+                </I18nProvider>
+            </StyledSystemProvider>
+        </HopperContext.Provider>
     );
 };
 

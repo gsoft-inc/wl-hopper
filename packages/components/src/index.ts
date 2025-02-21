@@ -39,8 +39,20 @@ export * from "@hopper-ui/styled-system";
 export { filterDOMProps, useId } from "@react-aria/utils";
 export { useAsyncList } from "@react-stately/data";
 export type { RouterOptions } from "@react-types/shared";
-export { useFilter } from "react-aria";
+export {
+    useFilter
+} from "react-aria";
 export type { Orientation, Placement } from "react-aria";
-export { Collection, DEFAULT_SLOT, useContextProps, useSlottedContext, type ContextValue, type Key, type Selection, type ValidationResult } from "react-aria-components";
+export {
+    Collection,
+    DEFAULT_SLOT,
+    useContextProps,
+    useLocale,
+    useSlottedContext,
+    type ContextValue,
+    type Key,
+    type Selection,
+    type ValidationResult
+} from "react-aria-components";
 
 import "./index.css";

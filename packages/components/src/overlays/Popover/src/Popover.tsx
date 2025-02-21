@@ -1,4 +1,4 @@
-import { useColorSchemeContext, useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps, type StyledSystemProps } from "@hopper-ui/styled-system";
+import { useResponsiveValue, useStyledSystem, type ResponsiveProp, type StyledComponentProps, type StyledSystemProps } from "@hopper-ui/styled-system";
 import clsx from "clsx";
 import { forwardRef, type ForwardedRef } from "react";
 import type { Placement } from "react-aria";
@@ -11,7 +11,7 @@ import {
 } from "react-aria-components";
 
 import { ButtonContext, ButtonGroupContext, LinkButtonContext } from "../../../buttons/index.ts";
-import { HopperProvider } from "../../../HopperProvider/index.ts";
+import { HopperProvider, useForwardedHopperContext } from "../../../HopperProvider/index.ts";
 import { ContentContext, FooterContext } from "../../../layout/index.ts";
 import { LinkContext } from "../../../Link/index.ts";
 import { ListBoxContext } from "../../../ListBox/index.ts";
@@ -52,6 +52,7 @@ export interface PopoverProps extends StyledComponentProps<Omit<RACPopoverProps,
 function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
     [props, ref] = useContextProps(props, ref, PopoverContext);
     const { stylingProps, ...ownProps } = useStyledSystem(props);
+    const prevContextProps = useForwardedHopperContext();
     const {
         isAutoWidth,
         children,
@@ -74,8 +75,6 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
         slot,
         ...containerOtherProps
     } = containerOwnProps;
-
-    const { colorScheme } = useColorSchemeContext();
 
     const popoverClassNames = composeClassnameRenderProps(
         className,
@@ -122,7 +121,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
 
                 if (isNonDialog) {
                     return (
-                        <HopperProvider colorScheme={colorScheme} className={styles["hop-Popover__wrapper"]}>
+                        <HopperProvider {...prevContextProps} className={styles["hop-Popover__wrapper"]}>
                             <div
                                 {...containerOtherProps}
                                 className={containerClassNames}
@@ -151,7 +150,7 @@ function Popover(props: PopoverProps, ref: ForwardedRef<HTMLElement>) {
                 }
 
                 return (
-                    <HopperProvider colorScheme={colorScheme}>
+                    <HopperProvider {...prevContextProps}>
                         <Dialog {...containerOtherProps} className={containerClassNames} style={containerStyle}>
                             <SlotProvider values={[
                                 [HeadingContext, {
