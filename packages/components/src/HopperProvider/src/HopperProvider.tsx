@@ -54,6 +54,20 @@ export const HopperContext = createContext<HopperProviderProps | null>(null);
 
 /**
  * This hook is used to get the HopperProviderProps from the nearest HopperProvider ancestor.
+ */
+export function useHopperContext() {
+    const context = useContext(HopperContext);
+
+    if (context === null) {
+        throw new Error("useHopperContext must be used within a HopperProvider");
+    }
+
+    return context;
+}
+
+
+/**
+ * This hook is used to get the HopperProviderProps from the nearest HopperProvider ancestor.
  * It will only return the props that would need to be forwarded to the next HopperProvider.
  */
 export function useForwardedHopperContext() {

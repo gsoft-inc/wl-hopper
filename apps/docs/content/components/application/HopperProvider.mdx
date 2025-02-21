@@ -31,8 +31,7 @@ Hopper currently supports the following locales: `en-US`, `en-UK`, `fr-CA`, `fr-
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/locale" />
 
-{/* TODO, hopper should re-export useLocale and document it? */}
-To access the current locale anywhere in your application, see the [useLocale](https://react-spectrum.adobe.com/react-aria/useLocale.html) hook.
+To access the current locale anywhere in your application, see the `useLocale` hook.
 
 ### Client side routing
 
@@ -73,6 +72,10 @@ body {
 `withCssVariables` determines whether Hopper's CSS variables should be added to your application. By default, it is set to true and should not be changed unless you want to manage CSS variables via a CSS file. Note that in this case, you will need to add the tokens manually, ideally using the `@hopper-ui/tokens` package.
 
 <CodeOnlyExample src="HopperProvider/docs/hopper-provider/inject-css-var" />
+
+### useHopperContext
+
+If you need to access the HopperProvider properties in a component, you can use the `useHopperContext` hook. This hook returns the Hopper context object, which includes the color scheme, locale, and other settings.
 
 ## Props
 
